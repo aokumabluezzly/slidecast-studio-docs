@@ -37,19 +37,23 @@ python3 ~/.claude/skills/build-rich-html-article/scripts/build_article.py \
 
 `assets/` に増えたファイルはコミットに含めてください。差し替えで使われなくなったファイルは自動では消えないので、必要なら手で削除します。
 
-## ⚠️ 再生成したら必ずやること
+## ヘッダーとフッターのリンク
 
-生成直後の HTML には、ヘッダーの「🏠 ドキュメント」リンクが**入っていません**。生成スクリプトの管轄外で、後から差し込んでいるためです。忘れるとトップページへ戻れなくなります。
+ヘッダーは**サイト内の回遊専用**、note の記事リンクは**フッターとソースカードに残す**方針です（note 記事の評価につながるため）。以前は 🏠 リンクを生成後に手で挿入していましたが、いまは spec の `nav_links` から生成されます。
 
-`<nav class="header-nav" aria-label="記事内ナビゲーション">` の直後に、以下を挿入してください。
-
-ルート直下の記事（`intro/` など、1階層）:
-
-```html
-<a class="header-link" href="../"><span aria-hidden="true">🏠</span><span class="nav-label">ドキュメント</span></a>
+```json
+"nav_links": [
+  { "href": "../", "icon": "🏠", "label": "ドキュメント" },
+  { "href": "../manual/", "icon": "📘", "label": "公式マニュアル" }
+],
+"update_header": false
 ```
 
-2階層の記事（`updates/v34/` など）は `href="../../"` にします。
+`href` は相対パスです。1階層（`intro/`）は `../`、2階層（`updates/v34/`）は `../../`。`update_header: false` を書かないと、note へのリンクがヘッダーにも出てしまいます。
+
+`manual/`・`updates/v34/`・`updates/v33/` は spec が無いため、ヘッダーを直接編集してあります。
+
+本文中の note 記事へのリンクは、サイト内に同等ページがあっても差し替えません。
 
 ## spec で使っている、見落としやすい指定
 

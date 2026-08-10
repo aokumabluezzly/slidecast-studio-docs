@@ -39,6 +39,11 @@
   "source_note": "アプリ本体の配布と最新価格は note の記事でご案内しています。",
   "update_url": "https://note.com/bluezzly/n/nb4c85213c808",
   "update_label": "note",
+  "update_header": false,
+  "nav_links": [
+    { "href": "manual/", "icon": "📘", "label": "公式マニュアル" },
+    { "href": "intro/", "icon": "💡", "label": "SlideCast Studio とは" }
+  ],
   "sections_label": "MORE",
 
   "overview": {

@@ -39,6 +39,11 @@
   "source_note": "最新のお知らせ・価格・購入エリアは note 本記事に掲載されています。",
   "update_url": "https://note.com/bluezzly/n/n1e95d4cb978e",
   "update_label": "公式マニュアル",
+  "update_header": false,
+  "nav_links": [
+    { "href": "../", "icon": "🏠", "label": "ドキュメント" },
+    { "href": "../manual/", "icon": "📘", "label": "公式マニュアル" }
+  ],
   "sections_label": "CONTENTS",
 
   "overview": {
