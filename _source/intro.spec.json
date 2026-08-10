@@ -101,13 +101,8 @@
         },
         { "type": "figure", "image": "./img/ui-editor.png", "alt": "SlideCast Studio の編集画面。左に字幕の設定パネル、右にプレビューと字幕が表示されている", "caption": "編集画面。左で設定し、右のプレビューで結果をその場で確認できます" },
         { "type": "divider", "label": "SAMPLE" },
-        {
-          "type": "link_cards",
-          "items": [
-            { "icon": "🎥", "title": "こんな動画が作れます！", "text": "サンプル動画（Vimeo）", "url": "https://vimeo.com/1169315924" },
-            { "icon": "🎬", "title": "こうやって作ります！", "text": "制作の流れ（YouTube）", "url": "https://youtu.be/cB0MVpcMdKo" }
-          ]
-        },
+        { "type": "video", "provider": "vimeo", "id": "1169315924", "title": "🎥 こんな動画が作れます！", "thumb": "./img/v34.jpg", "caption": "サンプル動画（Vimeo）。クリックすると、この場で再生されます" },
+        { "type": "video", "provider": "youtube", "id": "cB0MVpcMdKo", "title": "🎬 こうやって作ります！", "thumb": "./img/ui-easy.png", "caption": "制作の流れ（YouTube）。クリックすると、この場で再生されます" },
         { "type": "heading", "level": 3, "text": "✨ 主な機能（v3.4 時点）" },
         {
           "type": "soft_cards",
