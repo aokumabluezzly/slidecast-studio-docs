@@ -43,7 +43,7 @@ python3 ~/.claude/skills/build-rich-html-article/scripts/build_article.py \
 
 ```json
 "nav_links": [
-  { "href": "../", "icon": "🏠", "label": "ドキュメント" },
+  { "href": "../", "icon": "🏠", "label": "HOME" },
   { "href": "../manual/", "icon": "📘", "label": "公式マニュアル" }
 ],
 "update_header": false

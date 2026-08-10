@@ -41,7 +41,7 @@
   "update_label": "公式マニュアル",
   "update_header": false,
   "nav_links": [
-    { "href": "../", "icon": "🏠", "label": "ドキュメント" },
+    { "href": "../", "icon": "🏠", "label": "HOME" },
     { "href": "../manual/", "icon": "📘", "label": "公式マニュアル" }
   ],
   "sections_label": "CONTENTS",
