@@ -1,0 +1,256 @@
+{
+  "title": "SlideCast Bundle Builder 使い方ガイド",
+  "subtitle": "資料・台本・AI音声・マイク録音を、ひとつの流れでBundle ZIPに",
+  "description": "SlideCast Studio向け補助ツール「SlideCast Bundle Builder」で、資料の準備、台本生成、AI音声またはマイク録音、検証、ZIP出力まで進める方法をまとめたガイドです。",
+  "lead": "",
+  "eyebrow": "SLIDECAST WORKFLOW GUIDE",
+  "brand": "SlideCast",
+  "brand_accent": "Studio",
+  "brand_badge": "Docs",
+  "author": "aokuma",
+  "date": "公開 2026.04.06 / 更新 2026.07.16",
+  "version": "Bundle Builder Guide",
+  "footer_meta": "SlideCast Bundle Builder ガイド · aokuma · 最終更新 2026.08.10",
+  "hero_image": "./img/bundle-builder-hero.webp",
+  "hero_alt": "SlideCast Bundle Builderでスライド生成、台本生成、AI音声、音声録音をまとめ、ZIPでSlideCast Studioへ取り込む流れ",
+  "chips": ["Gemini Canvas", "台本生成", "AI音声", "マイク録音", "Bundle ZIP"],
+  "theme": {
+    "primary": "#6D4AFF",
+    "secondary": "#00A8C6",
+    "accent": "#E7489A",
+    "surface": "#F4F6FF",
+    "ink": "#171C31"
+  },
+  "nav_links": [
+    { "href": "../", "icon": "🏠", "label": "HOME" },
+    { "href": "../manual/", "icon": "📘", "label": "公式マニュアル" }
+  ],
+  "source_url": "https://note.com/bluezzly/n/n9f8dcbb616b6",
+  "source_label": "note の元記事を読む",
+  "source_title": "この記事のもとになった note 投稿",
+  "source_note": "更新のお知らせや補足は、元の note 記事でも確認できます。",
+  "update_url": "https://gemini.google.com/share/7dda767f8078",
+  "update_label": "Bundle Builder を開く",
+  "update_header": false,
+  "sections_label": "GUIDE",
+  "overview": {
+    "icon": "🧩",
+    "title": "Bundle Builder で、素材づくりをひと続きに",
+    "blocks": [
+      {
+        "type": "html",
+        "html": "<p><strong>SlideCast Bundle Builder</strong> は、SlideCast Studioへ読み込む資料・台本・音声をまとめて用意するためのGemini Canvasアプリです。資料をその場で作るか手元のファイルを読み込み、台本と音声を整え、最後にBundle ZIPとして書き出します。</p><p>音声はGemini TTSによるAI音声と、自分の声を使うマイク録音の両方に対応しています。全部をAI音声にする、全部を録音する、一部だけ録音へ差し替える、といった使い分けができます。</p>"
+      },
+      {
+        "type": "notice",
+        "title": "主な更新",
+        "items": [
+          "2026.07.16：マイク録音、波形確認、前後トリミング、試聴・録り直し・採用に対応",
+          "2026.07.16：トップ画面と資料の拡大プレビューを追加し、各ステップの導線を改善",
+          "2026.07.06：Canvas上でのスライド資料作成と、音声生成中の台本編集に対応",
+          "2026.05.26：台本生成モデル選択、外部AI用プロンプト、台本JSONインポート、字幕文字数設定を追加"
+        ]
+      },
+      {
+        "type": "cta",
+        "title": "Bundle Builder を使ってみる",
+        "text": "Geminiの共有ページからアプリを開けます。機密情報や個人情報を含む資料はアップロードしないでください。",
+        "url": "https://gemini.google.com/share/7dda767f8078",
+        "label": "Geminiで開く"
+      }
+    ],
+    "cards": [
+      { "icon": "🖼️", "title": "資料を用意", "text": "Canvas上で作成するか、画像・PDF・ZIP・フォルダを読み込みます。" },
+      { "icon": "💬", "title": "台本を生成", "text": "読者、長さ、話者数、会話構成などを指定して台本を整えます。" },
+      { "icon": "🔊", "title": "AI音声を生成", "text": "話者ごとに声を選び、一括またはスライド単位で生成できます。" },
+      { "icon": "🎤", "title": "自分の声を録音", "text": "原稿を見ながら録音し、波形で前後をトリミングできます。" },
+      { "icon": "✅", "title": "整合性を検証", "text": "台本・話者・音声・スライド参照の不整合を出力前に確認します。" },
+      { "icon": "📦", "title": "ZIPで取り込む", "text": "Bundle ZIPを出力し、SlideCast Studioの「資料から作成」へ読み込みます。" }
+    ]
+  },
+  "sections": [
+    {
+      "icon": "🧭",
+      "category": "WORKFLOW",
+      "title": "まず全体の流れをつかむ",
+      "intro": "5つのステップを順に進めれば、SlideCast Studioで仕上げられる素材一式が完成します。",
+      "blocks": [
+        {
+          "type": "step_list",
+          "items": [
+            { "title": "資料を作成またはアップロード", "text": "Canvas上でスライド画像を作るか、手元の資料を読み込みます。" },
+            { "title": "台本を生成・編集", "text": "用途に合わせた条件を選び、各スライドの台本を準備します。" },
+            { "title": "音声を生成または録音", "text": "Gemini TTS、自分の声、または両方を組み合わせて音声をそろえます。" },
+            { "title": "データを検証", "text": "台本、話者、音声、スライドの参照関係をチェックします。" },
+            { "title": "Bundle ZIPを出力", "text": "完成したZIPをSlideCast Studioへ読み込み、演出や音声を調整して書き出します。" }
+          ]
+        },
+        { "type": "figure", "image": "./img/bundle-builder-home.webp", "alt": "Bundle Builderのトップ画面。資料をその場で画像生成する方法と、手元の資料をアップロードする方法を選べる", "caption": "最初に資料の用意方法を選びます。録音する場合は、この画面で先にマイクを確認します" },
+        {
+          "type": "callout",
+          "tone": "good",
+          "title": "途中でトップへ戻っても大丈夫",
+          "text": "各ステップからトップ画面へ戻っても、作成途中のデータは保持されます。"
+        }
+      ]
+    },
+    {
+      "icon": "🖼️",
+      "category": "STEP 1",
+      "title": "資料を作成・アップロードする",
+      "intro": "新しくスライドを作る方法と、手持ちの資料から始める方法があります。",
+      "blocks": [
+        {
+          "type": "compare",
+          "before": { "label": "その場で作る", "text": "テーマや対象者、絵柄などを指定し、Canvas上でスライド画像を用意します。" },
+          "after": { "label": "手持ち資料を使う", "text": "PNG、JPEG、PDF、ZIP、フォルダを読み込み、既存資料から始めます。" }
+        },
+        { "type": "figure", "image": "./img/bundle-builder-upload.webp", "alt": "Bundle Builderの資料アップロード画面。PNG、JPEG、PDF、ZIP、フォルダを選択できる", "caption": "読み込んだ資料はサムネイルで確認し、台本生成前に順番を並べ替えられます" },
+        {
+          "type": "callout",
+          "tone": "warn",
+          "title": "録音するなら、作業開始前にマイクを許可",
+          "text": "Gemini Canvasでは、初回のマイク許可時にアプリが再読み込みされる場合があります。録音予定なら、資料を入れる前にトップ画面のマイク確認を済ませてください。"
+        },
+        { "type": "figure", "image": "./img/bundle-builder-mic-permission.webp", "alt": "Bundle Builderのトップ画面にあるマイクを確認・許可ボタン", "caption": "Gemini TTSだけを使う場合は、マイクを許可する必要はありません" }
+      ]
+    },
+    {
+      "icon": "💬",
+      "category": "STEP 2",
+      "title": "用途に合う台本を生成する",
+      "intro": "おまかせでも使えますが、読者や話し方を指定すると目的に合わせやすくなります。",
+      "blocks": [
+        { "type": "figure", "image": "./img/bundle-builder-script-settings.webp", "alt": "Bundle Builderの台本生成設定。ターゲット、話者数、字幕レイアウトなどを選択できる", "caption": "ターゲット、台本スタイル、長さ、話者数、字幕レイアウトなどを設定できます" },
+        {
+          "type": "check_list",
+          "items": [
+            "対象読者と補足条件",
+            "説明調・提案調などの台本スタイル",
+            "台本の長さ",
+            "1〜6人の話者数と会話構成",
+            "読み間違いを減らすふりがな補助",
+            "字幕の比率、1行の長さ、ページ送り行数",
+            "生成する言語"
+          ]
+        },
+        { "type": "figure", "image": "./img/bundle-builder-script-actions.webp", "alt": "台本生成準備完了画面。自動生成、外部AI用プロンプト表示、台本JSONインポートを選べる", "caption": "Canvas内で生成するほか、外部AI用プロンプトと台本JSONインポートも利用できます" },
+        {
+          "type": "callout",
+          "tone": "info",
+          "title": "別のAIで台本を作ることもできます",
+          "text": "表示されたプロンプトと同じ資料を任意のAIへ渡して台本JSONを作り、Bundle Builderへ戻して読み込めます。資料名とスライド順の対応もプロンプトに含まれます。"
+        }
+      ]
+    },
+    {
+      "icon": "🔊",
+      "category": "STEP 3",
+      "title": "AI音声を生成する",
+      "intro": "話者ごとに声を選び、まとめて生成することも、スライドごとに試すこともできます。",
+      "blocks": [
+        { "type": "figure", "image": "./img/bundle-builder-tts.webp", "alt": "Bundle Builderの音声生成画面。話者の声を選び、音声の一括生成を開始できる", "caption": "台本から話者を抽出し、声を割り当てて一括生成します" },
+        {
+          "type": "check_list",
+          "items": [
+            "話者ごとの音声を試聴して選択",
+            "全スライドの一括生成",
+            "スライド単位の個別生成と再生成",
+            "生成済み音声の試聴",
+            "必要な箇所だけ録音音声へ差し替え"
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "info",
+          "title": "APIキーが必要かは選ぶモデルで変わります",
+          "text": "標準設定ではAPIキーなしで利用できる構成ですが、新しいモデルなどを選ぶ場合はGemini APIキーが必要になることがあります。モデル名や提供状況は変更される可能性があります。"
+        },
+        { "type": "figure", "image": "./img/bundle-builder-record-button.webp", "alt": "Bundle Builderの音声欄にあるマイク録音ボタン", "caption": "各スライドのマイクボタンから、そのセリフだけ自分の声へ差し替えられます" }
+      ]
+    },
+    {
+      "icon": "🎤",
+      "category": "RECORDING",
+      "title": "自分の声を録音・トリミングする",
+      "intro": "録音画面に原稿が表示されるので、読み上げから採用まで同じ画面で進められます。",
+      "blocks": [
+        {
+          "type": "step_list",
+          "items": [
+            { "title": "録音する", "text": "画面内の字幕台本を見ながら、開始・停止を操作します。" },
+            { "title": "波形を確認する", "text": "録音の長さと音の位置を確認します。" },
+            { "title": "前後を整える", "text": "左右のハンドルで無音、操作音、言い直しなどを取り除きます。" },
+            { "title": "試聴・録り直し", "text": "トリミング後の音を聞き、必要なら再録音します。" },
+            { "title": "採用する", "text": "問題なければ対象スライドの音声としてセットします。" }
+          ]
+        },
+        { "type": "figure", "image": "./img/bundle-builder-recording.webp", "alt": "Bundle Builderのマイク録音画面。字幕台本、録音時間、波形トリミング、試聴、録り直し、採用ボタンが表示されている", "caption": "波形を見ながら前後を整え、試聴してから採用できます" },
+        {
+          "type": "callout",
+          "tone": "warn",
+          "title": "生成済み音声がある場合",
+          "text": "Gemini TTS音声がすでにセットされているスライドでは、録音音声で上書きする前に確認が表示されます。"
+        }
+      ]
+    },
+    {
+      "icon": "📦",
+      "category": "STEP 4–5",
+      "title": "検証してZIPで取り込む",
+      "intro": "出力前のチェックを通し、Bundle ZIPをSlideCast Studioへ読み込みます。",
+      "blocks": [
+        { "type": "figure", "image": "./img/bundle-builder-validation.webp", "alt": "Bundle Builderのデータ整合性検証画面。台本、話者、音声リンク、スライド参照のチェック結果が表示される", "caption": "取り込み後ではなく、ZIP出力前に不整合を見つけられます" },
+        { "type": "figure", "image": "./img/bundle-builder-zip.webp", "alt": "Bundle BuilderのZIP出力画面。SlideCast Studioに取り込み可能なZIPパッケージを出力できる", "caption": "準備が整ったらBundle ZIPを書き出します" },
+        { "type": "figure", "image": "./img/bundle-builder-import.webp", "alt": "SlideCast Studioのダッシュボードで「資料から作成」が強調され、Bundle ZIPのアップロード先が示されている", "caption": "SlideCast Studioのダッシュボードで「資料から作成」を選び、ZIPをそのまま読み込みます" },
+        {
+          "type": "callout",
+          "tone": "good",
+          "title": "取り込み後も音声を調整できます",
+          "text": "Gemini TTS音声と録音音声は、SlideCast Studio側で速度やピッチを調整できます。変更した長さはタイムラインへ反映され、元の音声へ戻すこともできます。"
+        }
+      ]
+    },
+    {
+      "icon": "⚠️",
+      "category": "BEFORE YOU START",
+      "title": "利用前に確認しておきたいこと",
+      "intro": "Geminiの提供状況やブラウザ権限に左右されるため、次の点を理解してから使ってください。",
+      "blocks": [
+        {
+          "type": "soft_cards",
+          "items": [
+            { "icon": "🔒", "title": "機密資料を入れない", "text": "機密情報、個人情報、社外秘データを含む資料はアップロードしないでください。" },
+            { "icon": "⏳", "title": "制限時は時間を空ける", "text": "429エラーや失敗が続く場合は利用制限の可能性があります。連打せず時間を空けます。" },
+            { "icon": "🧠", "title": "モデルは変わり得る", "text": "台本生成やTTSのモデル名、速度、提供条件は予告なく変わる場合があります。" },
+            { "icon": "🔑", "title": "APIキーは必要時だけ", "text": "標準設定では不要でも、選ぶモデルによってGoogle AI StudioのAPIキーが必要になる場合があります。" },
+            { "icon": "🎤", "title": "マイク権限は任意", "text": "録音を使う場合だけ許可します。AI音声だけならマイクを許可する必要はありません。" },
+            { "icon": "📚", "title": "長すぎる資料に注意", "text": "スライド枚数や台本量が大きいと失敗することがあります。必要なら分割して進めます。" }
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "warn",
+          "title": "Googleの仕様変更で動作が変わることがあります",
+          "text": "Bundle BuilderはGemini Canvas上で動く補助ツールです。Google側の仕様変更、障害、利用上限によって、これまでと同じ動作にならない場合があります。"
+        },
+        {
+          "type": "faq",
+          "items": [
+            { "q": "マイクを許可しないと使えませんか？", "a": "いいえ。マイク録音以外の機能とGemini TTSは利用できます。" },
+            { "q": "AI音声と録音音声は混在できますか？", "a": "はい。スライド単位で使い分けられます。" },
+            { "q": "台本生成がうまくいかない場合は？", "a": "外部AI用プロンプトで台本JSONを作り、Bundle Builderへインポートする方法があります。" },
+            { "q": "出力したZIPはどこへ入れますか？", "a": "SlideCast Studioのダッシュボードにある「資料から作成」へアップロードします。" }
+          ]
+        },
+        {
+          "type": "cta",
+          "title": "資料から動画までの準備を、ひとつの流れで",
+          "text": "資料を用意し、台本と音声を整え、Bundle ZIPをSlideCast Studioへ渡して仕上げます。",
+          "url": "https://gemini.google.com/share/7dda767f8078",
+          "label": "Bundle Builder を開く"
+        }
+      ]
+    }
+  ]
+}

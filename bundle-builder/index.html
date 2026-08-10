@@ -1,0 +1,984 @@
+<!doctype html>
+<html lang="ja" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="SlideCast Studio向け補助ツール「SlideCast Bundle Builder」で、資料の準備、台本生成、AI音声またはマイク録音、検証、ZIP出力まで進める方法をまとめたガイドです。">
+<title>SlideCast Bundle Builder 使い方ガイド</title>
+<style>
+/* ============================================================
+   1. TOKENS  —  the single source of size, weight, color, space
+   ============================================================ */
+:root{
+  /* palette (replaceable per article) */
+  --primary:#6D4AFF;
+  --secondary:#00A8C6;
+  --accent:#E7489A;
+  --surface:#F4F6FF;
+
+  /* text */
+  --ink:#171C31;
+  --ink-soft:color-mix(in srgb,var(--ink) 82%,#ffffff);
+  /* 68%, not 55%: card copy and captions sit on tinted surfaces, where a
+     lighter mix falls to ~3.2:1 — under the 4.5:1 gate for small text. */
+  --muted:color-mix(in srgb,var(--ink) 68%,#ffffff);
+  --on-deep:#ffffff;
+  --on-deep-soft:rgba(255,255,255,.88);
+
+  /* readable accent text (never the raw brand color on light surfaces) */
+  --primary-ink:color-mix(in srgb,var(--primary) 62%,#0d1027);
+  --secondary-ink:color-mix(in srgb,var(--secondary) 62%,#0d1027);
+  --accent-ink:color-mix(in srgb,var(--accent) 62%,#0d1027);
+
+  /* surfaces */
+  --paper:#fffdfa;
+  --card:#ffffff;
+  --soft:var(--surface);
+  --line:color-mix(in srgb,var(--primary) 16%,#e6e2ef);
+  --line-strong:color-mix(in srgb,var(--primary) 30%,#ded8ec);
+
+  /* gradients — every raised surface uses one of these */
+  --grad-rule:linear-gradient(90deg,var(--accent),var(--primary));
+  --grad-brand:linear-gradient(135deg,var(--accent),var(--primary));
+  --grad-panel:linear-gradient(150deg,color-mix(in srgb,var(--card) 96%,transparent),var(--soft));
+  --grad-tint:linear-gradient(150deg,color-mix(in srgb,var(--item-accent,var(--primary)) 11%,var(--card)),color-mix(in srgb,var(--item-accent,var(--primary)) 2%,var(--card)));
+  --grad-deep:
+    radial-gradient(circle at 8% 0%,color-mix(in srgb,var(--accent) 30%,transparent),transparent 46%),
+    radial-gradient(circle at 100% 100%,color-mix(in srgb,var(--secondary) 34%,transparent),transparent 52%),
+    linear-gradient(145deg,color-mix(in srgb,var(--primary) 60%,#272247) 0%,color-mix(in srgb,var(--primary) 46%,#221d3d) 52%,color-mix(in srgb,var(--secondary) 40%,#1c2240) 100%);
+
+  --shadow:0 18px 60px color-mix(in srgb,var(--primary) 16%,transparent);
+  --shadow-sm:0 6px 22px color-mix(in srgb,var(--primary) 11%,transparent);
+  --shadow-deep:0 14px 34px color-mix(in srgb,var(--primary) 24%,transparent);
+
+  /* type scale — blocks must not invent sizes outside this list */
+  --fs-hero:clamp(1.75rem,3.6vw,2.7rem);
+  --fs-h1:clamp(1.75rem,4vw,2.6rem);
+  --fs-h2:clamp(1.4rem,3vw,1.95rem);
+  --fs-h3:clamp(1.12rem,2.2vw,1.3rem);
+  --fs-h4:1.12rem;
+  --fs-lead:clamp(1rem,1.7vw,1.12rem);
+  --fs-body:clamp(.98rem,1.35vw,1.05rem);
+  --fs-sm:.9rem;
+  --fs-xs:.82rem;
+  --fs-label:.72rem;
+
+  /* weight scale */
+  --fw-kicker:900;
+  --fw-title:800;
+  --fw-strong:700;
+  --fw-body:400;
+
+  /* geometry */
+  --w-wide:1160px;
+  --w-read:900px;
+  --gutter:32px;
+  --header-h:64px;
+  --r-lg:24px;
+  --r-md:18px;
+  --r-sm:13px;
+  color-scheme:light;
+}
+[data-theme="dark"]{
+  --ink:#eceaf6;
+  --ink-soft:color-mix(in srgb,var(--ink) 86%,#000000);
+  --muted:color-mix(in srgb,var(--ink) 62%,#000000);
+  --primary-ink:color-mix(in srgb,var(--primary) 68%,#ffffff);
+  --secondary-ink:color-mix(in srgb,var(--secondary) 68%,#ffffff);
+  --accent-ink:color-mix(in srgb,var(--accent) 68%,#ffffff);
+  --paper:#14131c;
+  --card:#1c1b28;
+  --soft:#232131;
+  --line:color-mix(in srgb,var(--primary) 22%,#322f45);
+  --line-strong:color-mix(in srgb,var(--primary) 34%,#423e5c);
+  --shadow:0 18px 60px rgba(0,0,0,.5);
+  --shadow-sm:0 6px 22px rgba(0,0,0,.35);
+  --shadow-deep:0 14px 34px rgba(0,0,0,.45);
+  color-scheme:dark;
+}
+
+/* ============================================================
+   2. BASE
+   ============================================================ */
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:calc(var(--header-h) + 16px)}
+body{
+  margin:0;overflow-x:hidden;color:var(--ink);
+  background:
+    radial-gradient(circle at 12% 3%,color-mix(in srgb,var(--accent) 13%,transparent),transparent 22rem),
+    radial-gradient(circle at 88% 1%,color-mix(in srgb,var(--primary) 16%,transparent),transparent 26rem),
+    var(--paper);
+  font-family:-apple-system,BlinkMacSystemFont,"Hiragino Sans","Yu Gothic UI","Noto Sans JP",Meiryo,sans-serif;
+  font-size:16px;line-height:1.92;letter-spacing:.02em;
+}
+button,a,input,select{font:inherit}
+a{color:var(--primary-ink);text-underline-offset:.18em}
+a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid var(--primary);outline-offset:3px}
+img{max-width:100%}
+h1,h2,h3,h4{line-height:1.4;letter-spacing:-.02em;font-weight:var(--fw-title)}
+h1{font-size:var(--fs-h1)}
+h2{font-size:var(--fs-h2)}
+h3{font-size:var(--fs-h3)}
+h4{font-size:var(--fs-h4)}
+.wide{width:min(var(--w-wide),calc(100% - var(--gutter)));margin-inline:auto}
+.reading{width:min(var(--w-read),calc(100% - var(--gutter)));margin-inline:auto}
+.kicker{margin:0 0 10px;color:var(--primary-ink);font-size:var(--fs-label);font-weight:var(--fw-kicker);letter-spacing:.16em}
+.lead{margin:0;color:var(--muted);font-size:var(--fs-lead)}
+.rule::after{content:"";display:block;width:56px;height:5px;margin-top:14px;border-radius:999px;background:var(--grad-rule)}
+.skip-link{
+  position:fixed;top:8px;left:8px;z-index:200;padding:10px 16px;border-radius:999px;
+  background:var(--grad-brand);color:var(--on-deep);font-size:var(--fs-xs);font-weight:var(--fw-title);text-decoration:none;
+  transform:translateY(-160%);transition:transform .18s ease;
+}
+.skip-link:focus-visible{transform:none}
+
+/* ============================================================
+   3. HEADER RULE
+   Sticky · var(--w-wide) · brand left · controls right ·
+   all controls 40px tall, same center line, radius 10/999px.
+   ============================================================ */
+.progress{position:fixed;inset:0 auto auto 0;z-index:120;width:0;height:4px;background:var(--grad-rule)}
+.site-header{
+  position:sticky;top:0;z-index:90;
+  border-bottom:1px solid var(--line);
+  background:color-mix(in srgb,var(--paper) 88%,transparent);
+  backdrop-filter:blur(16px);
+}
+.header-inner{
+  width:min(var(--w-wide),calc(100% - var(--gutter)));min-height:var(--header-h);margin:auto;
+  display:flex;align-items:center;justify-content:space-between;gap:14px;
+}
+.brand{
+  height:40px;display:inline-flex;align-items:center;flex:0 0 auto;gap:6px;
+  border:0;background:none;color:var(--ink);cursor:pointer;text-decoration:none;
+  font-size:1.05rem;font-weight:var(--fw-kicker);line-height:1;letter-spacing:-.02em;white-space:nowrap;
+}
+.brand b{color:var(--primary-ink);font-weight:inherit}
+.brand em{
+  padding:2px 8px;border-radius:999px;background:var(--grad-brand);color:var(--on-deep);
+  font-size:.68rem;font-style:normal;font-weight:var(--fw-title);letter-spacing:.06em;
+}
+.header-current{
+  min-width:0;flex:1;color:var(--muted);font-size:var(--fs-xs);font-weight:var(--fw-strong);
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;opacity:0;transition:opacity .2s ease;
+}
+.header-current.show{opacity:1}
+.header-nav{display:flex;align-items:center;flex-wrap:nowrap;gap:6px}
+.header-link{
+  height:40px;padding:0 12px;display:inline-flex;align-items:center;justify-content:center;gap:6px;flex:0 0 auto;
+  border:0;border-radius:10px;background:transparent;color:var(--muted);cursor:pointer;text-decoration:none;
+  font-size:var(--fs-xs);font-weight:var(--fw-title);line-height:1;white-space:nowrap;
+}
+.header-link:hover{color:var(--primary-ink);background:var(--soft)}
+.icon-button{
+  width:40px;height:40px;padding:0;flex:0 0 40px;display:grid;place-items:center;
+  border:1px solid var(--line-strong);border-radius:999px;background:var(--card);color:var(--ink-soft);
+  cursor:pointer;font-size:1.05rem;line-height:1;
+}
+.icon-button:hover{border-color:var(--primary);color:var(--primary-ink)}
+.theme-dark{display:none}
+[data-theme="dark"] .theme-light{display:none}
+[data-theme="dark"] .theme-dark{display:inline}
+
+/* ============================================================
+   4. HERO  (wide region)
+   ============================================================ */
+.hero{
+  width:min(var(--w-wide),calc(100% - var(--gutter)));margin:44px auto 34px;overflow:hidden;
+  border:1px solid var(--line);border-radius:34px;background:var(--grad-panel);box-shadow:var(--shadow);
+}
+.hero-grid{display:grid;grid-template-columns:1.02fr .98fr;align-items:center}
+.hero:not(.has-image) .hero-grid{grid-template-columns:1fr}
+.hero-copy{padding:clamp(30px,5.5vw,64px)}
+.hero h1{margin:0;font-size:var(--fs-hero);line-height:1.28;letter-spacing:-.035em;word-break:normal;overflow-wrap:anywhere}
+.hero-subtitle{margin:16px 0 0;color:var(--secondary-ink);font-size:var(--fs-lead);font-weight:var(--fw-title);line-height:1.7}
+.hero-description{margin:14px 0 0;color:var(--muted);font-size:var(--fs-lead)}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:22px 0 0;padding:0;list-style:none}
+.chip{
+  padding:4px 13px;border-radius:999px;
+  background:linear-gradient(135deg,color-mix(in srgb,var(--accent) 15%,transparent),color-mix(in srgb,var(--primary) 15%,transparent));
+  color:var(--primary-ink);font-size:var(--fs-xs);font-weight:var(--fw-title);
+}
+.meta{display:flex;flex-wrap:wrap;gap:8px 16px;margin-top:22px;color:var(--muted);font-size:var(--fs-xs);font-weight:var(--fw-strong)}
+.hero-media{margin:0;padding:clamp(20px,3vw,34px);display:flex;flex-direction:column;justify-content:center}
+.hero-media img{
+  display:block;width:100%;aspect-ratio:16 / 9;object-fit:cover;
+  border:1px solid var(--line);border-radius:var(--r-lg);background:var(--soft);box-shadow:var(--shadow);
+}
+.hero-media figcaption{margin-top:10px;color:var(--muted);font-size:var(--fs-xs);font-weight:var(--fw-strong);text-align:center}
+
+/* ============================================================
+   5. BLOCK LIBRARY  —  pick, place, retitle, recolor.
+   Every block honours --item-accent, so a wrapper can recolor it.
+   ============================================================ */
+
+/* 5.1 stat-strip : compact metric tiles */
+.stat-strip{
+  width:min(var(--w-wide),calc(100% - var(--gutter)));margin:0 auto 56px;
+  display:grid;grid-template-columns:repeat(4,1fr);gap:14px;
+}
+.stat{
+  padding:20px 18px;border:1px solid var(--line);border-radius:var(--r-md);
+  background:linear-gradient(160deg,color-mix(in srgb,var(--primary) 9%,var(--card)),var(--card) 72%);
+  box-shadow:var(--shadow-sm);text-align:center;
+}
+.stat i{display:block;margin-bottom:2px;font-size:1.35rem;font-style:normal}
+.stat b{display:block;font-size:1.5rem;font-weight:var(--fw-title);line-height:1.4;letter-spacing:-.03em}
+.stat span{display:block;color:var(--muted);font-size:var(--fs-xs);font-weight:var(--fw-strong)}
+
+/* 5.2 section-head : kicker + heading + lead */
+.section-head{margin:0 0 26px}
+.section-head.center{text-align:center}
+.section-head h2{margin:0;font-size:var(--fs-h2);letter-spacing:-.03em}
+.section-head p{max-width:40rem;margin:10px 0 0;color:var(--muted)}
+.section-head.center p{margin-inline:auto}
+
+/* 5.3 panel : the standard light gradient container */
+.panel{
+  padding:clamp(24px,4vw,44px);border:1px solid var(--line);border-radius:28px;
+  background:var(--grad-panel);box-shadow:var(--shadow);
+}
+.panel>:first-child{margin-top:0}
+.panel>:last-child{margin-bottom:0}
+.prose{font-size:var(--fs-body)}
+.prose p{margin:14px 0;color:var(--ink-soft)}
+.prose strong{font-weight:var(--fw-title);background:linear-gradient(transparent 72%,color-mix(in srgb,var(--accent) 24%,transparent) 0)}
+.prose ul,.prose ol{padding-left:1.4em;color:var(--ink-soft)}
+.prose li{margin:6px 0}
+.prose li::marker{color:var(--item-accent,var(--primary));font-weight:var(--fw-kicker)}
+
+/* 5.4 feature-grid : deep gradient summary cards (3 / 2 / 1) */
+/* grid-auto-rows:1fr — a summary grid reads as one set, so every card keeps the
+   same height even when one label wraps to a second line. */
+.card-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));grid-auto-rows:1fr;gap:14px;margin:26px 0 0}
+.feature-card{
+  min-height:178px;padding:22px 20px;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;gap:14px;
+  border:1px solid color-mix(in srgb,var(--primary) 34%,transparent);border-radius:var(--r-md);
+  background:var(--grad-deep);color:var(--on-deep);text-align:center;box-shadow:var(--shadow-deep);
+  transition:transform .2s ease,border-color .2s ease,box-shadow .2s ease;
+}
+.feature-card:hover{transform:translateY(-3px);border-color:color-mix(in srgb,#fff 55%,transparent);box-shadow:0 18px 40px color-mix(in srgb,var(--primary) 30%,transparent)}
+.card-icon{font-size:3rem;line-height:1;filter:drop-shadow(0 7px 12px rgba(20,16,45,.28))}
+.card-image{width:78px;height:78px;object-fit:contain}
+.feature-card h3{margin:0;font-size:var(--fs-h4);font-weight:var(--fw-title);line-height:1.55}
+.feature-card p{margin:0;color:var(--on-deep-soft);font-size:var(--fs-sm);line-height:1.6}
+
+/* 5.5 soft-grid : light gradient cards, for dense or secondary sets */
+.soft-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:24px 0;padding:0;list-style:none}
+.soft-card{
+  margin:0;padding:18px 20px;border:1px solid var(--line);border-radius:var(--r-md);
+  background:var(--grad-tint);box-shadow:var(--shadow-sm);
+}
+.soft-card .card-icon{font-size:1.6rem;filter:none}
+.soft-card h3{margin:8px 0 4px;font-size:var(--fs-h4);color:var(--item-ink,var(--primary-ink))}
+.soft-card p{margin:0;color:var(--muted);font-size:var(--fs-sm)}
+
+/* 5.6 check-list : ✓ cards, 2 columns */
+.check-list{margin:20px 0;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;list-style:none}
+.check-list li{
+  position:relative;min-height:54px;margin:0;padding:13px 14px 13px 42px;
+  border:1px solid var(--line);border-radius:var(--r-sm);background:var(--grad-tint);
+  font-size:var(--fs-sm);line-height:1.65;
+}
+.check-list li::before{
+  content:"✓";position:absolute;left:13px;top:15px;width:20px;height:20px;display:grid;place-items:center;
+  border-radius:50%;background:var(--grad-brand);color:var(--on-deep);font-size:.7rem;font-weight:var(--fw-kicker);
+}
+
+/* 5.7 step-list : numbered procedure */
+.step-list{margin:20px 0;padding:0;display:grid;gap:10px;list-style:none;counter-reset:step}
+.step-list li{
+  position:relative;margin:0;padding:14px 16px 14px 52px;counter-increment:step;
+  border:1px solid var(--line);border-radius:var(--r-sm);background:var(--grad-tint);font-size:var(--fs-sm);
+}
+.step-list li::before{
+  content:counter(step);position:absolute;left:14px;top:14px;width:26px;height:26px;display:grid;place-items:center;
+  border-radius:9px;background:var(--grad-brand);color:var(--on-deep);font-size:.78rem;font-weight:var(--fw-kicker);
+}
+.step-list li strong{display:block;font-weight:var(--fw-title)}
+
+/* 5.8 frame-list : short numbered chips, 3 columns */
+.frame-list{margin:18px 0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;list-style:none;counter-reset:frame}
+/* flex row, not an inline badge nudged with vertical-align: a fixed nudge only
+   lines up at one font size and drifts at every other. */
+.frame-list li{
+  margin:0;padding:12px 14px;display:flex;align-items:center;gap:9px;
+  counter-increment:frame;border:1px solid var(--line);border-radius:var(--r-sm);
+  background:var(--grad-tint);font-size:var(--fs-sm);font-weight:var(--fw-strong);
+}
+.frame-list li::before{
+  content:counter(frame);flex:none;display:grid;place-items:center;width:22px;height:22px;
+  border-radius:50%;background:var(--grad-brand);color:var(--on-deep);font-size:.74rem;font-weight:var(--fw-kicker);
+  line-height:1;
+}
+
+/* 5.9 callout : info / warn / good, gradient left rail */
+.callout{
+  margin:24px 0;padding:16px 18px;border:1px solid var(--line);
+  border-left:4px solid var(--item-accent,var(--primary));border-radius:0 var(--r-sm) var(--r-sm) 0;
+  background:linear-gradient(120deg,color-mix(in srgb,var(--item-accent,var(--primary)) 12%,var(--card)),var(--card) 78%);
+  font-size:var(--fs-sm);
+}
+.callout>:first-child{margin-top:0}
+.callout>:last-child{margin-bottom:0}
+.callout p{margin:0 0 6px;color:var(--ink-soft)}
+.callout strong{font-weight:var(--fw-title);color:var(--ink)}
+.callout-warn{border-left-color:var(--accent);background:linear-gradient(120deg,color-mix(in srgb,var(--accent) 14%,var(--card)),var(--card) 78%)}
+.callout-good{border-left-color:var(--secondary);background:linear-gradient(120deg,color-mix(in srgb,var(--secondary) 14%,var(--card)),var(--card) 78%)}
+
+/* 5.10 notice-box : dated update log / small print */
+.notice-box{
+  margin:0 0 22px;padding:16px 18px;border:1px dashed var(--line-strong);border-radius:var(--r-sm);
+  background:linear-gradient(135deg,color-mix(in srgb,var(--soft) 80%,transparent),transparent);
+}
+.notice-box p{margin:0 0 8px;color:var(--ink);font-weight:var(--fw-title);font-size:var(--fs-sm)}
+.notice-box ul{margin:0;padding-left:1.2em;color:var(--muted);font-size:var(--fs-sm)}
+
+/* 5.11 timeline : chronology with gradient rail */
+.timeline{margin:22px 0;padding:0 0 0 26px;list-style:none;border-left:3px solid transparent;
+  background:linear-gradient(var(--accent),var(--primary)) left/3px 100% no-repeat}
+.timeline li{position:relative;margin:0 0 18px;padding:0}
+.timeline li::before{
+  content:"";position:absolute;left:-33px;top:.62em;width:12px;height:12px;border-radius:50%;
+  background:var(--grad-brand);box-shadow:0 0 0 4px var(--paper);
+}
+.timeline time{display:block;color:var(--primary-ink);font-size:var(--fs-xs);font-weight:var(--fw-kicker);letter-spacing:.06em}
+.timeline strong{display:block;font-weight:var(--fw-title)}
+.timeline p{margin:2px 0 0;color:var(--muted);font-size:var(--fs-sm)}
+
+/* 5.12 compare : before / after pair */
+.compare{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:22px 0}
+.compare>div{padding:18px 20px;border:1px solid var(--line);border-radius:var(--r-md);box-shadow:var(--shadow-sm)}
+.compare .before{background:linear-gradient(150deg,color-mix(in srgb,var(--muted) 14%,var(--card)),var(--card) 74%)}
+.compare .after{background:linear-gradient(150deg,color-mix(in srgb,var(--secondary) 16%,var(--card)),var(--card) 74%)}
+.compare h4{margin:0 0 6px;font-size:var(--fs-xs);font-weight:var(--fw-kicker);letter-spacing:.1em;color:var(--muted)}
+.compare .after h4{color:var(--secondary-ink)}
+.compare p{margin:0;color:var(--ink-soft);font-size:var(--fs-sm)}
+
+/* 5.13 data-table : responsive, stacks on mobile */
+.table-wrap{margin:22px 0;overflow-x:auto;border:1px solid var(--line);border-radius:var(--r-md);box-shadow:var(--shadow-sm)}
+.data-table{width:100%;border-collapse:collapse;font-size:var(--fs-sm);background:var(--card)}
+.data-table th,.data-table td{padding:12px 14px;text-align:left;border-bottom:1px solid var(--line)}
+.data-table.nowrap th:not(:first-child),.data-table.nowrap td:not(:first-child){white-space:nowrap}
+.data-table thead th{background:var(--grad-tint);color:var(--item-ink,var(--primary-ink));font-weight:var(--fw-title);white-space:nowrap}
+.data-table tbody tr:last-child td{border-bottom:0}
+
+/* 5.14 quote : pull quote */
+.pull-quote{
+  margin:26px 0;padding:22px 24px;border:1px solid var(--line);border-radius:var(--r-md);
+  background:var(--grad-panel);box-shadow:var(--shadow-sm);
+}
+.pull-quote p{margin:0;font-size:var(--fs-lead);font-weight:var(--fw-strong);line-height:1.8}
+.pull-quote p::before{content:"“";margin-right:6px;color:color-mix(in srgb,var(--accent) 70%,transparent);font-size:2em;line-height:0;vertical-align:-.32em}
+.pull-quote cite{display:block;margin-top:10px;color:var(--muted);font-size:var(--fs-xs);font-style:normal;font-weight:var(--fw-strong)}
+
+/* 5.15 figure : image + caption + lightbox */
+figure{margin:26px 0}
+figure img{
+  display:block;width:100%;height:auto;max-height:78vh;object-fit:contain;
+  border:1px solid var(--line);border-radius:16px;background:var(--soft);box-shadow:var(--shadow-sm);
+  cursor:zoom-in;transition:transform .2s ease,box-shadow .2s ease;
+}
+figure img:hover{transform:translateY(-2px);box-shadow:var(--shadow)}
+figcaption{margin-top:9px;color:var(--muted);font-size:var(--fs-xs);line-height:1.7;text-align:center}
+
+/* 5.15b video-embed : click-to-play facade, no third-party request until click */
+.video-embed{margin:26px 0}
+.video-facade{
+  position:relative;display:block;width:100%;padding:0;overflow:hidden;cursor:pointer;
+  aspect-ratio:16 / 9;border:1px solid var(--line);border-radius:16px;background:var(--soft);
+  box-shadow:var(--shadow-sm);transition:transform .2s ease,box-shadow .2s ease;
+}
+.video-facade:hover{transform:translateY(-2px);box-shadow:var(--shadow)}
+.video-facade img{
+  display:block;width:100%;height:100%;max-height:none;object-fit:cover;
+  border:0;border-radius:0;box-shadow:none;cursor:inherit;
+}
+.video-thumb-fallback{position:absolute;inset:0;background:var(--grad-brand);opacity:.85}
+.video-play{
+  position:absolute;top:50%;left:50%;width:72px;height:72px;transform:translate(-50%,-50%);
+  border-radius:50%;background:rgba(17,17,27,.62);box-shadow:0 8px 26px rgba(0,0,0,.32);
+  transition:background .2s ease,transform .2s ease;
+}
+.video-play::after{
+  content:"";position:absolute;top:50%;left:54%;transform:translate(-50%,-50%);
+  border-style:solid;border-width:13px 0 13px 22px;border-color:transparent transparent transparent #fff;
+}
+.video-facade:hover .video-play{background:var(--primary);transform:translate(-50%,-50%) scale(1.06)}
+.video-facade-label{
+  position:absolute;left:0;right:0;bottom:0;padding:34px 16px 12px;text-align:left;
+  background:linear-gradient(180deg,transparent,rgba(12,12,22,.78));
+  color:#fff;font-size:var(--fs-sm);font-weight:var(--fw-title);line-height:1.5;
+}
+.video-embed iframe{
+  display:block;width:100%;aspect-ratio:16 / 9;border:1px solid var(--line);border-radius:16px;background:#000;
+}
+
+/* 5.16 inline-link : pill CTA inside prose */
+.link-row{margin:18px 0}
+.inline-link{
+  display:inline-flex;align-items:center;gap:8px;padding:10px 18px;border-radius:999px;text-decoration:none;
+  border:1px solid color-mix(in srgb,var(--item-accent,var(--primary)) 42%,var(--line));
+  background:linear-gradient(135deg,color-mix(in srgb,var(--item-accent,var(--primary)) 12%,var(--card)),var(--card));
+  color:var(--item-ink,var(--primary-ink));font-size:var(--fs-sm);font-weight:var(--fw-title);
+}
+.inline-link::after{content:"↗";font-weight:var(--fw-kicker)}
+.inline-link:hover{background:linear-gradient(135deg,color-mix(in srgb,var(--item-accent,var(--primary)) 20%,var(--card)),var(--card))}
+.cta-link{
+  display:inline-flex;align-items:center;gap:8px;flex:none;padding:10px 18px;border-radius:999px;
+  background:var(--grad-brand);color:var(--on-deep);font-size:var(--fs-sm);font-weight:var(--fw-title);text-decoration:none;
+}
+
+/* 5.17 divider : small labelled separator between block groups */
+.divider{margin:30px 4px 12px;display:flex;align-items:center;gap:10px;color:var(--muted);font-size:var(--fs-label);font-weight:var(--fw-kicker);letter-spacing:.1em}
+.divider::after{content:"";height:1px;flex:1;background:var(--line)}
+hr{border:0;height:1px;margin:46px 0;background:linear-gradient(90deg,transparent,var(--line-strong),transparent)}
+
+/* 5.18 faq */
+.faq{display:grid;gap:10px;margin:22px 0}
+.faq>div{padding:16px 18px;border:1px solid var(--line);border-radius:var(--r-sm);background:var(--grad-tint)}
+.faq dt{margin:0 0 4px;color:var(--item-ink,var(--primary-ink));font-weight:var(--fw-title);font-size:var(--fs-sm)}
+.faq dd{margin:0;color:var(--ink-soft);font-size:var(--fs-sm)}
+
+/* 5.19 gallery : 2-3 screenshots side by side, lightbox-aware */
+.gallery{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:24px 0}
+.gallery[data-cols="2"]{grid-template-columns:repeat(2,minmax(0,1fr))}
+.gallery figure{margin:0}
+.gallery img{max-height:none;aspect-ratio:4 / 3;object-fit:cover}
+
+/* 5.20 code : monospace block with a copy button */
+.code-block{position:relative;margin:22px 0;border:1px solid var(--line);border-radius:var(--r-sm);overflow:hidden;background:var(--soft)}
+.code-head{
+  padding:8px 12px;display:flex;align-items:center;justify-content:space-between;gap:12px;
+  border-bottom:1px solid var(--line);background:var(--grad-tint);
+  color:var(--item-ink,var(--primary-ink));font-size:var(--fs-xs);font-weight:var(--fw-title);
+}
+.code-copy{
+  height:28px;padding:0 10px;border:1px solid var(--line-strong);border-radius:999px;
+  background:var(--card);color:var(--muted);cursor:pointer;font-size:var(--fs-xs);font-weight:var(--fw-title);line-height:1;
+}
+.code-copy:hover{border-color:var(--primary);color:var(--primary-ink)}
+.code-block pre{margin:0;padding:14px 16px;overflow-x:auto}
+.code-block code{
+  font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,"Noto Sans Mono",monospace;
+  font-size:var(--fs-sm);line-height:1.75;letter-spacing:0;color:var(--ink);white-space:pre;
+}
+
+/* 5.21 spec-list : label / value rows */
+.spec-list{margin:22px 0;display:grid;gap:1px;border:1px solid var(--line);border-radius:var(--r-sm);overflow:hidden;background:var(--line)}
+.spec-list>div{display:grid;grid-template-columns:minmax(0,10rem) minmax(0,1fr);gap:14px;padding:12px 16px;background:var(--card)}
+.spec-list dt{margin:0;color:var(--item-ink,var(--primary-ink));font-size:var(--fs-sm);font-weight:var(--fw-title)}
+.spec-list dd{margin:0;color:var(--ink-soft);font-size:var(--fs-sm)}
+
+/* 5.22 link-cards : related links as a grid */
+.link-cards{margin:22px 0;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;list-style:none}
+.link-cards li{margin:0}
+/* A lone related link is a statement, not a grid: let it use the full column
+   so a long title is not squeezed into half the reading width. */
+.link-cards:has(li:only-child){grid-template-columns:minmax(0,1fr)}
+.link-cards a{
+  position:relative;height:100%;padding:16px 44px 16px 18px;
+  display:grid;grid-template-columns:auto 1fr;align-items:center;gap:13px;
+  border:1px solid var(--line);border-left:3px solid color-mix(in srgb,var(--item-accent,var(--primary)) 55%,var(--line));
+  border-radius:var(--r-sm);background:var(--grad-tint);
+  color:var(--ink);text-decoration:none;
+  transition:transform .2s ease,border-color .2s ease,box-shadow .2s ease;
+}
+.link-cards a::after{
+  content:"↗";position:absolute;top:50%;right:14px;translate:0 -50%;
+  display:grid;place-items:center;width:24px;height:24px;border-radius:999px;
+  background:color-mix(in srgb,var(--item-accent,var(--primary)) 14%,transparent);
+  color:var(--item-ink,var(--primary-ink));font-size:var(--fs-xs);font-weight:var(--fw-kicker);
+  transition:transform .2s ease,background-color .2s ease;
+}
+.link-cards a:hover{
+  transform:translateY(-2px);box-shadow:var(--shadow-sm);
+  border-color:color-mix(in srgb,var(--item-accent,var(--primary)) 50%,var(--line));
+  border-left-color:var(--item-accent,var(--primary));
+}
+.link-cards a:hover::after{transform:translate(2px,-2px);background:color-mix(in srgb,var(--item-accent,var(--primary)) 26%,transparent)}
+.link-cards .emoji{font-size:1.5rem}
+.link-cards strong{display:block;font-size:var(--fs-sm);font-weight:var(--fw-title);line-height:1.55}
+.link-cards small{display:block;color:var(--muted);font-size:var(--fs-xs);line-height:1.6}
+
+/* 5.23 inline-detail : opt-in "more detail" disclosure inside a chapter */
+.inline-detail{margin:22px 0;border:1px solid var(--line);border-radius:var(--r-sm);background:var(--grad-tint);overflow:hidden}
+.inline-detail>summary{
+  padding:12px 16px;display:flex;align-items:center;gap:9px;cursor:pointer;list-style:none;
+  color:var(--item-ink,var(--primary-ink));font-size:var(--fs-sm);font-weight:var(--fw-title);
+}
+.inline-detail>summary::-webkit-details-marker{display:none}
+.inline-detail>summary::before{content:"＋";width:20px;display:grid;place-items:center;font-size:.95rem}
+.inline-detail[open]>summary::before{content:"−"}
+.inline-detail-body{padding:2px 16px 16px;border-top:1px solid var(--line);background:var(--card)}
+.inline-detail-body>:first-child{margin-top:14px}
+.inline-detail-body>:last-child{margin-bottom:0}
+
+/* 5.24 tabs : genuine alternate views of the same subject */
+.tabs{margin:24px 0}
+.tab-list{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:12px}
+.tab-list button{
+  height:38px;padding:0 16px;border:1px solid var(--line);border-radius:999px;
+  background:var(--card);color:var(--muted);cursor:pointer;font-size:var(--fs-sm);font-weight:var(--fw-title);line-height:1;
+}
+.tab-list button:hover{color:var(--item-ink,var(--primary-ink))}
+.tab-list button[aria-selected="true"]{border-color:transparent;background:var(--grad-brand);color:var(--on-deep)}
+.tab-panel{
+  padding:18px 20px;border:1px solid var(--line);border-radius:var(--r-sm);
+  background:linear-gradient(150deg,color-mix(in srgb,var(--item-accent,var(--primary)) 7%,var(--card)),var(--card) 70%);
+}
+.tab-panel[hidden]{display:none}
+.tab-panel>:first-child{margin-top:0}
+.tab-panel>:last-child{margin-bottom:0}
+
+/* 5.25 cta-banner : mid-article call to action */
+.cta-banner{
+  margin:28px 0;padding:22px 24px;display:flex;align-items:center;justify-content:space-between;gap:18px;
+  border:1px solid color-mix(in srgb,var(--primary) 34%,transparent);border-radius:var(--r-md);
+  background:var(--grad-deep);color:var(--on-deep);box-shadow:var(--shadow-deep);
+}
+.cta-banner strong{display:block;font-size:var(--fs-h4);font-weight:var(--fw-title)}
+.cta-banner p{margin:4px 0 0;color:var(--on-deep-soft);font-size:var(--fs-sm)}
+.cta-banner .cta-link{background:var(--card);color:var(--primary-ink)}
+
+/* 5.26 tag : inline status label, for release notes */
+.tag{
+  display:inline-block;margin:0 4px;padding:1px 9px;border-radius:999px;vertical-align:1px;
+  background:var(--grad-brand);color:var(--on-deep);font-size:.68rem;font-weight:var(--fw-kicker);letter-spacing:.04em;
+}
+.tag-new{background:linear-gradient(135deg,var(--accent),var(--primary))}
+.tag-change{background:linear-gradient(135deg,var(--primary),var(--secondary))}
+.tag-fix{background:linear-gradient(135deg,var(--secondary),color-mix(in srgb,var(--secondary) 60%,#1c8f6a))}
+
+/* ============================================================
+   6. CHAPTER ACCORDION  (the visual index)
+   ============================================================ */
+.chapters{display:grid;gap:12px}
+.chapter{
+  --item-accent:var(--primary);
+  --item-ink:var(--primary-ink);
+  overflow:hidden;border:1px solid var(--line);border-radius:var(--r-md);background:var(--card);
+  box-shadow:var(--shadow-sm);scroll-margin-top:calc(var(--header-h) + 8px);
+  transition:border-color .22s ease,box-shadow .22s ease,transform .22s ease;
+}
+.chapter:nth-of-type(3n+2){--item-accent:var(--secondary);--item-ink:var(--secondary-ink)}
+.chapter:nth-of-type(3n){--item-accent:var(--accent);--item-ink:var(--accent-ink)}
+.chapter:hover{border-color:color-mix(in srgb,var(--item-accent) 45%,var(--line));transform:translateY(-1px)}
+.chapter[open]{
+  border-color:color-mix(in srgb,var(--item-accent) 58%,var(--line));
+  box-shadow:0 16px 42px color-mix(in srgb,var(--item-accent) 16%,transparent);transform:none;
+}
+.chapter>summary{
+  min-height:82px;padding:15px 18px;display:grid;grid-template-columns:46px minmax(0,1fr) 32px;
+  align-items:center;gap:14px;cursor:pointer;list-style:none;
+  background:linear-gradient(135deg,color-mix(in srgb,var(--item-accent) 9%,var(--card)),var(--card) 64%);
+}
+.chapter>summary::-webkit-details-marker{display:none}
+.chapter-icon{
+  width:46px;height:46px;display:grid;place-items:center;border-radius:14px;font-size:1.32rem;
+  background:linear-gradient(145deg,color-mix(in srgb,var(--item-accent) 20%,var(--card)),color-mix(in srgb,var(--item-accent) 6%,var(--card)));
+}
+.chapter-heading{min-width:0;display:grid;gap:2px}
+.chapter-category{color:var(--item-ink);font-size:var(--fs-label);font-weight:var(--fw-title);letter-spacing:.08em}
+.chapter-title{color:var(--ink);font-size:var(--fs-h4);font-weight:var(--fw-strong);line-height:1.58}
+.chapter-toggle{
+  width:30px;height:30px;position:relative;border-radius:50%;
+  background:linear-gradient(145deg,color-mix(in srgb,var(--item-accent) 18%,var(--card)),color-mix(in srgb,var(--item-accent) 6%,var(--card)));
+}
+.chapter-toggle::before,.chapter-toggle::after{content:"";position:absolute;inset:14px auto auto 8px;width:14px;height:2px;border-radius:2px;background:var(--item-ink)}
+.chapter-toggle::after{transform:rotate(90deg);transition:transform .22s ease}
+.chapter[open] .chapter-toggle::after{transform:rotate(0)}
+.chapter-body{border-top:1px solid var(--line)}
+.chapter-inner{padding:28px clamp(20px,4vw,42px) 38px;font-size:var(--fs-body)}
+.chapter-inner>:first-child{margin-top:0}
+.chapter-inner p{margin:14px 0;color:var(--ink-soft)}
+.chapter-inner strong{font-weight:var(--fw-title);background:linear-gradient(transparent 72%,color-mix(in srgb,var(--accent) 22%,transparent) 0)}
+/* A block-level <strong> is a component title, not inline emphasis. The marker
+   would stretch the full column and read as a heavy underline, so drop it.
+   Unscoped on purpose: these components also appear inside .prose (the overview
+   panel wraps its blocks in .prose), and the marker must not leak there either. */
+.step-list strong,
+.timeline strong,
+.link-cards strong,
+.cta-banner strong,
+.source-card strong,
+.callout strong{background:none}
+.chapter-inner h3,.chapter-inner h4{
+  margin:34px 0 10px;padding-left:13px;border-left:4px solid var(--item-accent);
+  color:var(--item-ink);line-height:1.55;
+}
+.chapter-inner ul,.chapter-inner ol{padding-left:1.4em;color:var(--ink-soft)}
+.chapter-inner li{margin:6px 0}
+.chapter-inner li::marker{color:var(--item-accent);font-weight:var(--fw-kicker)}
+.chapter-inner a{color:var(--item-ink)}
+/* Cards carry their own type contract. The generic chapter prose rules above
+   are equally specific and come later, so without this they repaint card
+   titles with the heading rule and card copy with dark ink — unreadable on the
+   deep gradient surfaces. */
+.chapter-inner .feature-card h3,.chapter-inner .feature-card h4,
+.chapter-inner .soft-card h3,.chapter-inner .soft-card h4{
+  margin:0;padding-left:0;border-left:0;
+}
+.chapter-inner .soft-card h3,.chapter-inner .soft-card h4{margin:8px 0 4px;color:var(--item-ink,var(--primary-ink))}
+.chapter-inner .feature-card h3,.chapter-inner .feature-card h4{color:var(--on-deep)}
+.chapter-inner .feature-card p,.chapter-inner .cta-banner p{color:var(--on-deep-soft)}
+.chapter-inner .soft-card p{color:var(--muted)}
+.chapter-inner .feature-card a,.chapter-inner .cta-banner a{color:var(--primary-ink)}
+.chapter-intro{
+  margin:0 0 20px;padding:16px 18px;border-left:4px solid var(--item-accent);border-radius:0 12px 12px 0;
+  background:linear-gradient(120deg,color-mix(in srgb,var(--item-accent) 13%,var(--card)),var(--card) 80%);
+  font-size:var(--fs-sm);font-weight:var(--fw-strong);color:var(--ink);
+}
+
+/* ============================================================
+   7. FOOTER RULE
+   Mirrors the header: same brand mark, same link tokens, one
+   hairline, reading width, muted meta line last.
+   ============================================================ */
+.source-card{
+  margin:56px 0 0;padding:24px 26px;display:flex;align-items:center;justify-content:space-between;gap:18px;
+  border:1px solid var(--line);border-radius:22px;background:var(--grad-panel);box-shadow:var(--shadow-sm);
+}
+.source-card strong{display:block;font-size:var(--fs-h4);font-weight:var(--fw-title)}
+.source-card small{display:block;color:var(--muted);font-size:var(--fs-xs)}
+.site-footer{
+  margin:40px 0 72px;padding:26px 0 0;border-top:1px solid var(--line);
+  display:grid;gap:14px;
+}
+.footer-top{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:14px}
+.footer-links{display:flex;flex-wrap:wrap;align-items:center;gap:4px}
+.footer-links a{
+  height:36px;padding:0 12px;display:inline-flex;align-items:center;gap:6px;border-radius:10px;
+  color:var(--muted);font-size:var(--fs-xs);font-weight:var(--fw-title);text-decoration:none;
+}
+.footer-links a:hover{color:var(--primary-ink);background:var(--soft)}
+.footer-meta{color:var(--muted);font-size:var(--fs-xs);line-height:1.7}
+
+/* ============================================================
+   8. FLOATING CONTROLS · TOC · LIGHTBOX
+   ============================================================ */
+.float-actions{position:fixed;right:18px;bottom:max(18px,env(safe-area-inset-bottom));z-index:82;display:grid;justify-items:end;gap:9px}
+.float-button{
+  min-height:44px;padding:0 16px;display:inline-flex;align-items:center;gap:7px;
+  border:1px solid var(--line-strong);border-radius:999px;background:var(--card);color:var(--ink-soft);
+  cursor:pointer;box-shadow:var(--shadow-sm);font-size:var(--fs-xs);font-weight:var(--fw-kicker);
+  transition:opacity .2s ease,transform .2s ease,border-color .2s ease;
+}
+.float-button:hover{border-color:var(--primary);color:var(--primary-ink);transform:translateY(-2px)}
+.float-button.primary{border-color:transparent;background:var(--grad-brand);color:var(--on-deep)}
+.float-button[hidden]{display:none}
+.toc-dialog{
+  width:min(520px,calc(100% - 28px));max-height:min(78dvh,760px);padding:0;
+  border:1px solid var(--line);border-radius:var(--r-lg);background:var(--card);color:var(--ink);
+  box-shadow:0 28px 100px rgba(15,10,35,.35);
+}
+.toc-dialog::backdrop{background:rgba(18,14,35,.55);backdrop-filter:blur(5px)}
+.toc-head{
+  position:sticky;top:0;z-index:2;padding:18px 20px 14px;display:flex;align-items:center;justify-content:space-between;gap:14px;
+  border-bottom:1px solid var(--line);background:var(--card);
+}
+.toc-head strong{font-size:var(--fs-h4);font-weight:var(--fw-title)}
+.toc-list{padding:10px 12px 18px;display:grid;gap:4px}
+.toc-list button{
+  padding:10px 11px;display:grid;grid-template-columns:26px 1fr;align-items:center;gap:9px;
+  border:0;border-radius:11px;background:transparent;color:var(--ink-soft);cursor:pointer;text-align:left;
+  font-size:var(--fs-sm);font-weight:var(--fw-strong);
+}
+.toc-list button:hover,.toc-list button.current{background:var(--soft);color:var(--primary-ink)}
+.lightbox{width:min(1100px,96vw);max-height:94vh;padding:0;border:0;border-radius:20px;background:#101018;box-shadow:0 30px 100px #000a}
+.lightbox::backdrop{background:rgba(5,5,15,.82);backdrop-filter:blur(8px)}
+.lightbox img{display:block;max-width:100%;max-height:90vh;margin:auto;object-fit:contain}
+.lightbox .icon-button{position:absolute;top:10px;right:10px;background:#171724;color:#fff;border-color:#ffffff55}
+
+/* ============================================================
+   9. BREAKPOINTS
+   ============================================================ */
+@media (max-width:960px){
+  .card-grid,.soft-grid,.gallery{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .stat-strip{grid-template-columns:repeat(2,1fr)}
+}
+@media (max-width:900px){
+  .hero{margin-top:24px;border-radius:26px}
+  .hero-grid{grid-template-columns:1fr}
+  .hero-media{order:-1;padding-bottom:0}
+  .hero-copy{padding:28px 24px 36px}
+  .frame-list{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media (max-width:720px){
+  .card-grid,.soft-grid,.check-list,.frame-list,.compare,.gallery,.link-cards{grid-template-columns:1fr}
+  .spec-list>div{grid-template-columns:1fr;gap:2px}
+  .card-grid{gap:11px}
+  .feature-card{
+    min-height:0;padding:18px 20px;display:grid;grid-template-columns:56px minmax(0,1fr);
+    grid-template-rows:auto auto;column-gap:16px;text-align:left;justify-items:start;align-items:center;
+  }
+  .card-icon,.card-image{grid-row:1/3}
+  .card-icon{font-size:2.2rem}
+  .card-image{width:52px;height:52px}
+  .feature-card h3{margin:0}
+  .header-current{display:none}
+  .nav-label{display:none}
+}
+@media (max-width:600px){
+  :root{--gutter:24px;--header-h:56px}
+  body{line-height:1.85}
+  .hero-copy{padding:24px 20px 30px}
+  .hero-media{padding:12px 12px 0}
+  .brand em{display:none}
+  .panel{border-radius:22px}
+  .chapter>summary{min-height:76px;padding:13px 14px;grid-template-columns:42px minmax(0,1fr) 30px;gap:11px}
+  .chapter-icon{width:42px;height:42px}
+  .chapter-inner{padding:22px 18px 30px}
+  .source-card{flex-direction:column;align-items:flex-start;padding:20px 18px}
+  .source-card .cta-link{width:100%;justify-content:center}
+  .table-wrap{border-radius:var(--r-sm)}
+  .float-actions{right:12px;bottom:12px}
+  .float-button{width:48px;min-height:48px;padding:0;justify-content:center}
+  .float-button .float-label{display:none}
+  .cta-banner{flex-direction:column;align-items:flex-start;padding:20px 18px}
+  .cta-banner .cta-link{width:100%;justify-content:center}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation-duration:.001ms!important;transition-duration:.001ms!important}
+}
+@media print{
+  .site-header,.progress,.float-actions,.toc-dialog,.lightbox{display:none!important}
+  body{background:#fff}
+  .hero,.panel,.stat,.source-card,.feature-card{box-shadow:none}
+  .chapter{break-inside:avoid}
+  .chapter-body,.inline-detail-body{display:block!important}
+  .tab-panel[hidden]{display:block!important}
+  .tab-list,.code-copy{display:none!important}
+}
+</style>
+</head>
+<body>
+<a class="skip-link" href="#overview">本文へスキップ</a>
+<div class="progress" id="progressBar"></div>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a class="brand" href="#top">SlideCast<b>Studio</b><em>Docs</em></a>
+    <span class="header-current" id="currentSection"></span>
+    <nav class="header-nav" aria-label="記事内ナビゲーション"><a class="header-link" href="../"><span aria-hidden="true">🏠</span><span class="nav-label">HOME</span></a><a class="header-link" href="../manual/"><span aria-hidden="true">📘</span><span class="nav-label">公式マニュアル</span></a>
+      <button class="header-link" id="openToc" type="button"><span aria-hidden="true">☰</span><span class="nav-label">目次</span></button>
+      
+      <button class="icon-button" id="themeToggle" type="button" aria-label="表示テーマを切り替える"><span class="theme-light" aria-hidden="true">☀️</span><span class="theme-dark" aria-hidden="true">🌙</span></button>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+<section class="hero has-image">
+  <div class="hero-grid">
+    <div class="hero-copy">
+      <p class="kicker">SLIDECAST WORKFLOW GUIDE</p>
+      <h1>SlideCast Bundle Builder 使い方ガイド</h1>
+      <p class="hero-subtitle">資料・台本・AI音声・マイク録音を、ひとつの流れでBundle ZIPに</p>
+      
+      <ul class="chips"><li class="chip">Gemini Canvas</li><li class="chip">台本生成</li><li class="chip">AI音声</li><li class="chip">マイク録音</li><li class="chip">Bundle ZIP</li></ul>
+      <div class="meta"><span>aokuma</span><span>公開 2026.04.06 / 更新 2026.07.16</span><span>Bundle Builder Guide</span></div>
+    </div>
+    <figure class="hero-media"><img src="../assets/bundle-builder-hero.webp" alt="SlideCast Bundle Builderでスライド生成、台本生成、AI音声、音声録音をまとめ、ZIPでSlideCast Studioへ取り込む流れ"></figure>
+  </div>
+</section>
+
+
+<div class="reading">
+  <section class="panel" id="overview">
+    <p class="kicker">🧩 OVERVIEW</p>
+    <h2 class="rule">Bundle Builder で、素材づくりをひと続きに</h2>
+    <div class="prose"><p><strong>SlideCast Bundle Builder</strong> は、SlideCast Studioへ読み込む資料・台本・音声をまとめて用意するためのGemini Canvasアプリです。資料をその場で作るか手元のファイルを読み込み、台本と音声を整え、最後にBundle ZIPとして書き出します。</p><p>音声はGemini TTSによるAI音声と、自分の声を使うマイク録音の両方に対応しています。全部をAI音声にする、全部を録音する、一部だけ録音へ差し替える、といった使い分けができます。</p><div class="notice-box"><p>主な更新</p><ul><li>2026.07.16：マイク録音、波形確認、前後トリミング、試聴・録り直し・採用に対応</li><li>2026.07.16：トップ画面と資料の拡大プレビューを追加し、各ステップの導線を改善</li><li>2026.07.06：Canvas上でのスライド資料作成と、音声生成中の台本編集に対応</li><li>2026.05.26：台本生成モデル選択、外部AI用プロンプト、台本JSONインポート、字幕文字数設定を追加</li></ul></div><div class="cta-banner"><div><strong>Bundle Builder を使ってみる</strong><p>Geminiの共有ページからアプリを開けます。機密情報や個人情報を含む資料はアップロードしないでください。</p></div><a class="cta-link" href="https://gemini.google.com/share/7dda767f8078" target="_blank" rel="noopener noreferrer">Geminiで開く ↗</a></div></div>
+    <div class="card-grid"><article class="feature-card"><span class="card-icon" aria-hidden="true">🖼️</span><h3>資料を用意</h3><p>Canvas上で作成するか、画像・PDF・ZIP・フォルダを読み込みます。</p></article><article class="feature-card"><span class="card-icon" aria-hidden="true">💬</span><h3>台本を生成</h3><p>読者、長さ、話者数、会話構成などを指定して台本を整えます。</p></article><article class="feature-card"><span class="card-icon" aria-hidden="true">🔊</span><h3>AI音声を生成</h3><p>話者ごとに声を選び、一括またはスライド単位で生成できます。</p></article><article class="feature-card"><span class="card-icon" aria-hidden="true">🎤</span><h3>自分の声を録音</h3><p>原稿を見ながら録音し、波形で前後をトリミングできます。</p></article><article class="feature-card"><span class="card-icon" aria-hidden="true">✅</span><h3>整合性を検証</h3><p>台本・話者・音声・スライド参照の不整合を出力前に確認します。</p></article><article class="feature-card"><span class="card-icon" aria-hidden="true">📦</span><h3>ZIPで取り込む</h3><p>Bundle ZIPを出力し、SlideCast Studioの「資料から作成」へ読み込みます。</p></article></div>
+  </section>
+
+  <div class="divider">GUIDE</div>
+  <section class="chapters" aria-label="記事の各章"><details class="chapter" id="section-1"><summary><span class="chapter-icon" aria-hidden="true">🧭</span><span class="chapter-heading" role="heading" aria-level="2"><span class="chapter-category">WORKFLOW</span><span class="chapter-title">まず全体の流れをつかむ</span></span><span class="chapter-toggle" aria-hidden="true"></span></summary><div class="chapter-body"><div class="chapter-inner"><p class="chapter-intro">5つのステップを順に進めれば、SlideCast Studioで仕上げられる素材一式が完成します。</p><ol class="step-list"><li><strong>資料を作成またはアップロード</strong>Canvas上でスライド画像を作るか、手元の資料を読み込みます。</li><li><strong>台本を生成・編集</strong>用途に合わせた条件を選び、各スライドの台本を準備します。</li><li><strong>音声を生成または録音</strong>Gemini TTS、自分の声、または両方を組み合わせて音声をそろえます。</li><li><strong>データを検証</strong>台本、話者、音声、スライドの参照関係をチェックします。</li><li><strong>Bundle ZIPを出力</strong>完成したZIPをSlideCast Studioへ読み込み、演出や音声を調整して書き出します。</li></ol><figure><img src="../assets/bundle-builder-home.webp" alt="Bundle Builderのトップ画面。資料をその場で画像生成する方法と、手元の資料をアップロードする方法を選べる" loading="lazy"><figcaption>最初に資料の用意方法を選びます。録音する場合は、この画面で先にマイクを確認します</figcaption></figure><div class="callout callout-good"><p><strong>途中でトップへ戻っても大丈夫</strong></p><p>各ステップからトップ画面へ戻っても、作成途中のデータは保持されます。</p></div></div></div></details><details class="chapter" id="section-2"><summary><span class="chapter-icon" aria-hidden="true">🖼️</span><span class="chapter-heading" role="heading" aria-level="2"><span class="chapter-category">STEP 1</span><span class="chapter-title">資料を作成・アップロードする</span></span><span class="chapter-toggle" aria-hidden="true"></span></summary><div class="chapter-body"><div class="chapter-inner"><p class="chapter-intro">新しくスライドを作る方法と、手持ちの資料から始める方法があります。</p><div class="compare"><div class="before"><h4>その場で作る</h4><p>テーマや対象者、絵柄などを指定し、Canvas上でスライド画像を用意します。</p></div><div class="after"><h4>手持ち資料を使う</h4><p>PNG、JPEG、PDF、ZIP、フォルダを読み込み、既存資料から始めます。</p></div></div><figure><img src="../assets/bundle-builder-upload.webp" alt="Bundle Builderの資料アップロード画面。PNG、JPEG、PDF、ZIP、フォルダを選択できる" loading="lazy"><figcaption>読み込んだ資料はサムネイルで確認し、台本生成前に順番を並べ替えられます</figcaption></figure><div class="callout callout-warn"><p><strong>録音するなら、作業開始前にマイクを許可</strong></p><p>Gemini Canvasでは、初回のマイク許可時にアプリが再読み込みされる場合があります。録音予定なら、資料を入れる前にトップ画面のマイク確認を済ませてください。</p></div><figure><img src="../assets/bundle-builder-mic-permission.webp" alt="Bundle Builderのトップ画面にあるマイクを確認・許可ボタン" loading="lazy"><figcaption>Gemini TTSだけを使う場合は、マイクを許可する必要はありません</figcaption></figure></div></div></details><details class="chapter" id="section-3"><summary><span class="chapter-icon" aria-hidden="true">💬</span><span class="chapter-heading" role="heading" aria-level="2"><span class="chapter-category">STEP 2</span><span class="chapter-title">用途に合う台本を生成する</span></span><span class="chapter-toggle" aria-hidden="true"></span></summary><div class="chapter-body"><div class="chapter-inner"><p class="chapter-intro">おまかせでも使えますが、読者や話し方を指定すると目的に合わせやすくなります。</p><figure><img src="../assets/bundle-builder-script-settings.webp" alt="Bundle Builderの台本生成設定。ターゲット、話者数、字幕レイアウトなどを選択できる" loading="lazy"><figcaption>ターゲット、台本スタイル、長さ、話者数、字幕レイアウトなどを設定できます</figcaption></figure><ul class="check-list"><li>対象読者と補足条件</li><li>説明調・提案調などの台本スタイル</li><li>台本の長さ</li><li>1〜6人の話者数と会話構成</li><li>読み間違いを減らすふりがな補助</li><li>字幕の比率、1行の長さ、ページ送り行数</li><li>生成する言語</li></ul><figure><img src="../assets/bundle-builder-script-actions.webp" alt="台本生成準備完了画面。自動生成、外部AI用プロンプト表示、台本JSONインポートを選べる" loading="lazy"><figcaption>Canvas内で生成するほか、外部AI用プロンプトと台本JSONインポートも利用できます</figcaption></figure><div class="callout"><p><strong>別のAIで台本を作ることもできます</strong></p><p>表示されたプロンプトと同じ資料を任意のAIへ渡して台本JSONを作り、Bundle Builderへ戻して読み込めます。資料名とスライド順の対応もプロンプトに含まれます。</p></div></div></div></details><details class="chapter" id="section-4"><summary><span class="chapter-icon" aria-hidden="true">🔊</span><span class="chapter-heading" role="heading" aria-level="2"><span class="chapter-category">STEP 3</span><span class="chapter-title">AI音声を生成する</span></span><span class="chapter-toggle" aria-hidden="true"></span></summary><div class="chapter-body"><div class="chapter-inner"><p class="chapter-intro">話者ごとに声を選び、まとめて生成することも、スライドごとに試すこともできます。</p><figure><img src="../assets/bundle-builder-tts.webp" alt="Bundle Builderの音声生成画面。話者の声を選び、音声の一括生成を開始できる" loading="lazy"><figcaption>台本から話者を抽出し、声を割り当てて一括生成します</figcaption></figure><ul class="check-list"><li>話者ごとの音声を試聴して選択</li><li>全スライドの一括生成</li><li>スライド単位の個別生成と再生成</li><li>生成済み音声の試聴</li><li>必要な箇所だけ録音音声へ差し替え</li></ul><div class="callout"><p><strong>APIキーが必要かは選ぶモデルで変わります</strong></p><p>標準設定ではAPIキーなしで利用できる構成ですが、新しいモデルなどを選ぶ場合はGemini APIキーが必要になることがあります。モデル名や提供状況は変更される可能性があります。</p></div><figure><img src="../assets/bundle-builder-record-button.webp" alt="Bundle Builderの音声欄にあるマイク録音ボタン" loading="lazy"><figcaption>各スライドのマイクボタンから、そのセリフだけ自分の声へ差し替えられます</figcaption></figure></div></div></details><details class="chapter" id="section-5"><summary><span class="chapter-icon" aria-hidden="true">🎤</span><span class="chapter-heading" role="heading" aria-level="2"><span class="chapter-category">RECORDING</span><span class="chapter-title">自分の声を録音・トリミングする</span></span><span class="chapter-toggle" aria-hidden="true"></span></summary><div class="chapter-body"><div class="chapter-inner"><p class="chapter-intro">録音画面に原稿が表示されるので、読み上げから採用まで同じ画面で進められます。</p><ol class="step-list"><li><strong>録音する</strong>画面内の字幕台本を見ながら、開始・停止を操作します。</li><li><strong>波形を確認する</strong>録音の長さと音の位置を確認します。</li><li><strong>前後を整える</strong>左右のハンドルで無音、操作音、言い直しなどを取り除きます。</li><li><strong>試聴・録り直し</strong>トリミング後の音を聞き、必要なら再録音します。</li><li><strong>採用する</strong>問題なければ対象スライドの音声としてセットします。</li></ol><figure><img src="../assets/bundle-builder-recording.webp" alt="Bundle Builderのマイク録音画面。字幕台本、録音時間、波形トリミング、試聴、録り直し、採用ボタンが表示されている" loading="lazy"><figcaption>波形を見ながら前後を整え、試聴してから採用できます</figcaption></figure><div class="callout callout-warn"><p><strong>生成済み音声がある場合</strong></p><p>Gemini TTS音声がすでにセットされているスライドでは、録音音声で上書きする前に確認が表示されます。</p></div></div></div></details><details class="chapter" id="section-6"><summary><span class="chapter-icon" aria-hidden="true">📦</span><span class="chapter-heading" role="heading" aria-level="2"><span class="chapter-category">STEP 4–5</span><span class="chapter-title">検証してZIPで取り込む</span></span><span class="chapter-toggle" aria-hidden="true"></span></summary><div class="chapter-body"><div class="chapter-inner"><p class="chapter-intro">出力前のチェックを通し、Bundle ZIPをSlideCast Studioへ読み込みます。</p><figure><img src="../assets/bundle-builder-validation.webp" alt="Bundle Builderのデータ整合性検証画面。台本、話者、音声リンク、スライド参照のチェック結果が表示される" loading="lazy"><figcaption>取り込み後ではなく、ZIP出力前に不整合を見つけられます</figcaption></figure><figure><img src="../assets/bundle-builder-zip.webp" alt="Bundle BuilderのZIP出力画面。SlideCast Studioに取り込み可能なZIPパッケージを出力できる" loading="lazy"><figcaption>準備が整ったらBundle ZIPを書き出します</figcaption></figure><figure><img src="../assets/bundle-builder-import.webp" alt="SlideCast Studioのダッシュボードで「資料から作成」が強調され、Bundle ZIPのアップロード先が示されている" loading="lazy"><figcaption>SlideCast Studioのダッシュボードで「資料から作成」を選び、ZIPをそのまま読み込みます</figcaption></figure><div class="callout callout-good"><p><strong>取り込み後も音声を調整できます</strong></p><p>Gemini TTS音声と録音音声は、SlideCast Studio側で速度やピッチを調整できます。変更した長さはタイムラインへ反映され、元の音声へ戻すこともできます。</p></div></div></div></details><details class="chapter" id="section-7"><summary><span class="chapter-icon" aria-hidden="true">⚠️</span><span class="chapter-heading" role="heading" aria-level="2"><span class="chapter-category">BEFORE YOU START</span><span class="chapter-title">利用前に確認しておきたいこと</span></span><span class="chapter-toggle" aria-hidden="true"></span></summary><div class="chapter-body"><div class="chapter-inner"><p class="chapter-intro">Geminiの提供状況やブラウザ権限に左右されるため、次の点を理解してから使ってください。</p><ul class="soft-grid"><li class="soft-card"><span class="card-icon" aria-hidden="true">🔒</span><h3>機密資料を入れない</h3><p>機密情報、個人情報、社外秘データを含む資料はアップロードしないでください。</p></li><li class="soft-card"><span class="card-icon" aria-hidden="true">⏳</span><h3>制限時は時間を空ける</h3><p>429エラーや失敗が続く場合は利用制限の可能性があります。連打せず時間を空けます。</p></li><li class="soft-card"><span class="card-icon" aria-hidden="true">🧠</span><h3>モデルは変わり得る</h3><p>台本生成やTTSのモデル名、速度、提供条件は予告なく変わる場合があります。</p></li><li class="soft-card"><span class="card-icon" aria-hidden="true">🔑</span><h3>APIキーは必要時だけ</h3><p>標準設定では不要でも、選ぶモデルによってGoogle AI StudioのAPIキーが必要になる場合があります。</p></li><li class="soft-card"><span class="card-icon" aria-hidden="true">🎤</span><h3>マイク権限は任意</h3><p>録音を使う場合だけ許可します。AI音声だけならマイクを許可する必要はありません。</p></li><li class="soft-card"><span class="card-icon" aria-hidden="true">📚</span><h3>長すぎる資料に注意</h3><p>スライド枚数や台本量が大きいと失敗することがあります。必要なら分割して進めます。</p></li></ul><div class="callout callout-warn"><p><strong>Googleの仕様変更で動作が変わることがあります</strong></p><p>Bundle BuilderはGemini Canvas上で動く補助ツールです。Google側の仕様変更、障害、利用上限によって、これまでと同じ動作にならない場合があります。</p></div><dl class="faq"><div><dt>マイクを許可しないと使えませんか？</dt><dd>いいえ。マイク録音以外の機能とGemini TTSは利用できます。</dd></div><div><dt>AI音声と録音音声は混在できますか？</dt><dd>はい。スライド単位で使い分けられます。</dd></div><div><dt>台本生成がうまくいかない場合は？</dt><dd>外部AI用プロンプトで台本JSONを作り、Bundle Builderへインポートする方法があります。</dd></div><div><dt>出力したZIPはどこへ入れますか？</dt><dd>SlideCast Studioのダッシュボードにある「資料から作成」へアップロードします。</dd></div></dl><div class="cta-banner"><div><strong>資料から動画までの準備を、ひとつの流れで</strong><p>資料を用意し、台本と音声を整え、Bundle ZIPをSlideCast Studioへ渡して仕上げます。</p></div><a class="cta-link" href="https://gemini.google.com/share/7dda767f8078" target="_blank" rel="noopener noreferrer">Bundle Builder を開く ↗</a></div></div></div></details></section>
+
+  <div class="source-card"><div><strong>この記事のもとになった note 投稿</strong><small>更新のお知らせや補足は、元の note 記事でも確認できます。</small></div><a class="cta-link" href="https://note.com/bluezzly/n/n9f8dcbb616b6" target="_blank" rel="noopener noreferrer">note の元記事を読む ↗</a></div>
+  <footer class="site-footer">
+    <div class="footer-top">
+      <span class="brand">SlideCast<b>Studio</b><em>Docs</em></span>
+      <div class="footer-links"><a href="https://note.com/bluezzly/n/n9f8dcbb616b6" target="_blank" rel="noopener noreferrer">note の元記事を読む ↗</a><a href="https://gemini.google.com/share/7dda767f8078" target="_blank" rel="noopener noreferrer">Bundle Builder を開く ↗</a></div>
+    </div>
+    <p class="footer-meta">SlideCast Bundle Builder ガイド · aokuma · 最終更新 2026.08.10</p>
+  </footer>
+</div>
+</main>
+
+<div class="float-actions">
+  <button class="float-button" id="closeChapter" type="button" hidden><span aria-hidden="true">×</span><span class="float-label">閉じる</span></button>
+  <button class="float-button primary" id="floatToc" type="button"><span aria-hidden="true">☰</span><span class="float-label">目次</span></button>
+  <button class="float-button" id="backTop" type="button"><span aria-hidden="true">↑</span><span class="float-label">上へ</span></button>
+</div>
+
+<dialog class="toc-dialog" id="tocDialog">
+  <div class="toc-head"><strong>目次</strong><button class="icon-button" id="closeToc" type="button" aria-label="目次を閉じる">×</button></div>
+  <nav class="toc-list" aria-label="目次">
+    <button type="button" data-target="overview"><span aria-hidden="true">🏠</span>概要</button>
+    <button type="button" data-target="section-1"><span aria-hidden="true">🧭</span>まず全体の流れをつかむ</button><button type="button" data-target="section-2"><span aria-hidden="true">🖼️</span>資料を作成・アップロードする</button><button type="button" data-target="section-3"><span aria-hidden="true">💬</span>用途に合う台本を生成する</button><button type="button" data-target="section-4"><span aria-hidden="true">🔊</span>AI音声を生成する</button><button type="button" data-target="section-5"><span aria-hidden="true">🎤</span>自分の声を録音・トリミングする</button><button type="button" data-target="section-6"><span aria-hidden="true">📦</span>検証してZIPで取り込む</button><button type="button" data-target="section-7"><span aria-hidden="true">⚠️</span>利用前に確認しておきたいこと</button>
+  </nav>
+</dialog>
+
+<dialog class="lightbox" id="lightbox">
+  <button class="icon-button" id="lightboxClose" type="button" aria-label="画像を閉じる">×</button>
+  <img id="lightboxImage" src="" alt="">
+</dialog>
+
+<script>
+(()=>{'use strict';
+const root=document.documentElement;
+const header=document.querySelector('.site-header');
+const chapters=[...document.querySelectorAll('.chapter')];
+const tocDialog=document.getElementById('tocDialog');
+const closeChapterBtn=document.getElementById('closeChapter');
+const currentLabel=document.getElementById('currentSection');
+const progress=document.getElementById('progressBar');
+const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+/* --- theme --- */
+const saved=localStorage.getItem('article-theme');
+root.dataset.theme=saved||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');
+document.getElementById('themeToggle').addEventListener('click',()=>{
+  root.dataset.theme=root.dataset.theme==='dark'?'light':'dark';
+  localStorage.setItem('article-theme',root.dataset.theme);
+});
+
+/* --- align an element directly under the sticky header, without motion --- */
+const align=el=>{
+  /* Two frames: the first lets the previously open section finish collapsing,
+     so the target is measured against settled layout, not stale geometry. */
+  requestAnimationFrame(()=>requestAnimationFrame(()=>{
+    const previous=root.style.scrollBehavior;
+    root.style.scrollBehavior='auto';
+    const offset=(header?header.offsetHeight:0)+8;
+    scrollTo(0,Math.max(0,el.getBoundingClientRect().top+scrollY-offset));
+    requestAnimationFrame(()=>{root.style.scrollBehavior=previous;});
+  }));
+};
+
+/* --- one accordion open at a time --- */
+const tocButtons=[...document.querySelectorAll('.toc-list [data-target]')];
+const syncState=()=>{
+  const open=chapters.find(c=>c.open);
+  closeChapterBtn.hidden=!open;
+  if(currentLabel){
+    const title=open?open.querySelector('.chapter-title').textContent.trim():'';
+    currentLabel.textContent=title;
+    currentLabel.classList.toggle('show',Boolean(title));
+  }
+  tocButtons.forEach(btn=>btn.classList.toggle('current',Boolean(open)&&btn.dataset.target===open.id));
+  const url=location.pathname+location.search+(open?'#'+open.id:'');
+  history.replaceState(null,'',url);
+};
+chapters.forEach(chapter=>chapter.addEventListener('toggle',()=>{
+  if(chapter.open)chapters.forEach(other=>{if(other!==chapter)other.open=false;});
+  syncState();
+  if(chapter.open)align(chapter);
+}));
+closeChapterBtn.addEventListener('click',()=>{chapters.forEach(c=>{c.open=false;});syncState();});
+syncState();
+
+/* --- table of contents --- */
+const jump=id=>{
+  const target=document.getElementById(id);
+  if(!target)return;
+  if(target.matches('details')&&!target.open){target.open=true;}
+  else{align(target);}
+  tocDialog.close();
+};
+document.querySelectorAll('[data-target]').forEach(btn=>btn.addEventListener('click',()=>jump(btn.dataset.target)));
+const openToc=()=>tocDialog.showModal();
+document.getElementById('openToc').addEventListener('click',openToc);
+document.getElementById('floatToc').addEventListener('click',openToc);
+document.getElementById('closeToc').addEventListener('click',()=>tocDialog.close());
+tocDialog.addEventListener('click',e=>{if(e.target===tocDialog)tocDialog.close();});
+document.getElementById('backTop').addEventListener('click',()=>scrollTo({top:0,behavior:reduce?'auto':'smooth'}));
+
+/* --- shareable deep links --- */
+const openFromHash=()=>{
+  const id=decodeURIComponent(location.hash.slice(1));
+  if(!id)return;
+  const target=document.getElementById(id);
+  if(!target)return;
+  if(target.classList.contains('chapter')&&!target.open)target.open=true;
+  else align(target);
+};
+addEventListener('hashchange',openFromHash);
+if(location.hash)requestAnimationFrame(openFromHash);
+
+/* --- reading progress --- */
+const onScroll=()=>{
+  const max=document.documentElement.scrollHeight-innerHeight;
+  progress.style.width=(max>0?Math.min(100,scrollY/max*100):0)+'%';
+};
+addEventListener('scroll',onScroll,{passive:true});onScroll();
+
+/* --- image lightbox --- */
+const lightbox=document.getElementById('lightbox');
+const lightboxImage=document.getElementById('lightboxImage');
+document.addEventListener('click',e=>{
+  const img=e.target.closest('figure img');
+  if(!img||img.closest('.video-facade'))return;
+  lightboxImage.src=img.currentSrc||img.src;
+  lightboxImage.alt=img.alt||'';
+  lightbox.showModal();
+});
+document.getElementById('lightboxClose').addEventListener('click',()=>lightbox.close());
+lightbox.addEventListener('click',e=>{if(e.target===lightbox)lightbox.close();});
+
+/* --- tabs --- */
+document.querySelectorAll('[data-tabs]').forEach(group=>{
+  const tabs=[...group.querySelectorAll('[role="tab"]')];
+  const select=index=>{
+    tabs.forEach((tab,i)=>{
+      const selected=i===index;
+      tab.setAttribute('aria-selected',selected);
+      tab.tabIndex=selected?0:-1;
+      document.getElementById(tab.getAttribute('aria-controls')).hidden=!selected;
+    });
+  };
+  tabs.forEach((tab,index)=>{
+    tab.addEventListener('click',()=>select(index));
+    tab.addEventListener('keydown',event=>{
+      const step={ArrowRight:1,ArrowLeft:-1}[event.key];
+      let next=null;
+      if(step)next=(index+step+tabs.length)%tabs.length;
+      if(event.key==='Home')next=0;
+      if(event.key==='End')next=tabs.length-1;
+      if(next===null)return;
+      event.preventDefault();select(next);tabs[next].focus();
+    });
+  });
+  select(0);
+});
+
+/* --- click-to-play video: nothing is requested from the host until here --- */
+document.querySelectorAll('.video-facade').forEach(button=>{
+  button.addEventListener('click',()=>{
+    const frame=document.createElement('iframe');
+    frame.src=button.dataset.embed;
+    frame.title=button.dataset.title||'動画';
+    frame.allow='autoplay; fullscreen; picture-in-picture; encrypted-media';
+    frame.allowFullscreen=true;
+    frame.referrerPolicy='strict-origin-when-cross-origin';
+    button.replaceWith(frame);
+  });
+});
+
+/* --- copy buttons on code blocks --- */
+document.querySelectorAll('.code-copy').forEach(button=>{
+  button.addEventListener('click',async()=>{
+    const code=button.closest('.code-block').querySelector('code');
+    const label=button.dataset.label||button.textContent;
+    button.dataset.label=label;
+    try{await navigator.clipboard.writeText(code.textContent);button.textContent='コピーしました';}
+    catch{button.textContent='コピーできません';}
+    setTimeout(()=>{button.textContent=label;},1600);
+  });
+});
+})();
+</script>
+</body>
+</html>

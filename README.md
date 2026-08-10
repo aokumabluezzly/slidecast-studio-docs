@@ -1,6 +1,6 @@
 # SlideCast Studio ドキュメント
 
-[SlideCast Studio](https://note.com/bluezzly/n/nb4c85213c808) の紹介・マニュアル・アップデート情報を公開しているドキュメントサイトのソースです。
+[SlideCast Studio](https://note.com/bluezzly/n/nb4c85213c808) の紹介・マニュアル・補助ツールガイド・アップデート情報を公開しているドキュメントサイトのソースです。
 
 公開URL: https://aokumabluezzly.github.io/slidecast-studio-docs/
 
@@ -11,10 +11,11 @@
 | `index.html` | トップページ（記事一覧） |
 | `intro/` | SlideCast Studio とは（紹介ページ） |
 | `manual/` | 公式マニュアル（v3.4 対応版） |
+| `bundle-builder/` | SlideCast Bundle Builder 使い方ガイド |
 | `updates/v34/` | v3.4「NUANCE」アップデート |
 | `updates/v33/` | v3.3「SYNC」アップデート |
 
-各 HTML は画像を Base64 で埋め込んだ単一ファイルです。外部CDN・トラッカー・フレームワークに依存しないため、ダウンロードしてオフラインでも読めます。
+画像は `assets/` に置き、各ページから相対パスで参照しています。CSSとJavaScriptは各HTMLに含め、外部CDN・トラッカー・フレームワークには依存していません。
 
 ## このリポジトリに含まれないもの
 

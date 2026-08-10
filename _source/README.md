@@ -12,7 +12,8 @@
 |---|---|
 | `retired/home.spec.json` | **旧**トップページの設計データ。現在のトップページは spec から生成していません（下記） |
 | `intro.spec.json` | 紹介ページ（`/intro/index.html`）の設計データ |
-| `img/` | 上記が参照する画像。生成時に `/assets/` へコピーされます |
+| `bundle-builder.spec.json` | Bundle Builder ガイド（`/bundle-builder/index.html`）の設計データ |
+| `img/` | 各 spec が参照する画像。生成時に `/assets/` へコピーされます |
 | `tools/externalize_images.py` | 設計データが無いページから Base64 画像を抜き出して `/assets/` へ移す移行スクリプト |
 
 テンプレートは `build-rich-html-article` スキル同梱の**標準テンプレートをそのまま使います**。以前このフォルダに置いていた専用テンプレートは、修正内容を標準側へ取り込んだため廃止しました。
@@ -26,7 +27,7 @@
 - CSS 変数と `localStorage` のテーマキー（`article-theme`）は記事ページと共通なので、配色とダーク/ライトの選択はサイト全体で揃います。テーマ設計を変える場合は両方を直してください。
 - 記事を追加したら、`index.html` の「記事一覧」カードと「更新履歴」に手で追記します。
 
-## 再生成のしかた（intro のみ）
+## 再生成のしかた
 
 リポジトリのルートで実行します。`--template` の指定は不要です。
 
@@ -35,6 +36,9 @@
 ```bash
 python3 ~/.claude/skills/build-rich-html-article/scripts/build_article.py \
   _source/intro.spec.json intro/index.html --assets assets
+
+python3 ~/.claude/skills/build-rich-html-article/scripts/build_article.py \
+  _source/bundle-builder.spec.json bundle-builder/index.html --assets assets
 ```
 
 リンクの接頭辞は、出力先から見た `assets` の相対パス（`assets/`、`../assets/`、`../../assets/`）が自動で入ります。同じ内容の画像は1つのファイルにまとめられ、ヒーロー以外には `loading="lazy"` が付きます。
