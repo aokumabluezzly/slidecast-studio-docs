@@ -10,23 +10,27 @@
 
 | ファイル | 内容 |
 |---|---|
-| `home.spec.json` | トップページ（`/index.html`）の設計データ |
+| `retired/home.spec.json` | **旧**トップページの設計データ。現在のトップページは spec から生成していません（下記） |
 | `intro.spec.json` | 紹介ページ（`/intro/index.html`）の設計データ |
 | `img/` | 上記が参照する画像。生成時に `/assets/` へコピーされます |
 | `tools/externalize_images.py` | 設計データが無いページから Base64 画像を抜き出して `/assets/` へ移す移行スクリプト |
 
 テンプレートは `build-rich-html-article` スキル同梱の**標準テンプレートをそのまま使います**。以前このフォルダに置いていた専用テンプレートは、修正内容を標準側へ取り込んだため廃止しました。
 
-## 再生成のしかた
+## ⚠️ トップページ（`/index.html`）は spec から生成していません
+
+2026年8月に、トップページだけ**記事テンプレートから外して手書きの専用ページ**に作り替えました。記事テンプレートは1本の記事を読ませる構造で、複数記事への入口を並べるハブには向かなかったためです（記事一覧が画面2つ分スクロールした先にありました）。
+
+- トップページを直すときは `index.html` を**直接編集**します。`build_article.py` で再生成してはいけません（この専用ページが上書きされます）。
+- 旧 spec は `_source/retired/home.spec.json` に退避してあります。参照用で、再生成には使いません。
+- CSS 変数と `localStorage` のテーマキー（`article-theme`）は記事ページと共通なので、配色とダーク/ライトの選択はサイト全体で揃います。テーマ設計を変える場合は両方を直してください。
+- 記事を追加したら、`index.html` の「記事一覧」カードと「更新履歴」に手で追記します。
+
+## 再生成のしかた（intro のみ）
 
 リポジトリのルートで実行します。`--template` の指定は不要です。
 
 **`--assets assets` を必ず付けます。** これを忘れると画像が Base64 で埋め込まれ、ページが数MBに戻ります。
-
-```bash
-python3 ~/.claude/skills/build-rich-html-article/scripts/build_article.py \
-  _source/home.spec.json index.html --assets assets
-```
 
 ```bash
 python3 ~/.claude/skills/build-rich-html-article/scripts/build_article.py \
