@@ -14,7 +14,6 @@
 | `intro.spec.json` | 紹介ページ（`/intro/index.html`）の設計データ |
 | `bundle-builder.spec.json` | Bundle Builder ガイド（`/bundle-builder/index.html`）の設計データ |
 | `mouthloop-v2.spec.json` | MouthLoop v2 ガイド（`/mouthloop-v2/index.html`）の設計データ |
-| `mouthloop-v2.extra.css` | 標準テンプレートへ追加する比較・手順・FAQ等の記事専用スタイル |
 | `img/` | 各 spec が参照する画像。生成時に `/assets/` へコピーされます |
 | `tools/externalize_images.py` | 設計データが無いページから Base64 画像を抜き出して `/assets/` へ移す移行スクリプト |
 
@@ -43,15 +42,11 @@ python3 ~/.claude/skills/build-rich-html-article/scripts/build_article.py \
   _source/bundle-builder.spec.json bundle-builder/index.html --assets assets
 ```
 
-MouthLoop v2 は標準テンプレートで生成したあと、記事専用モジュールとサイト内リンクを後処理で追加し、画像を外部化します。
+MouthLoop v2 も同じ現行標準テンプレートとブロックライブラリから生成します。
 
 ```bash
-python3 ~/.codex/skills/build-rich-html-article/scripts/build_article.py \
-  _source/mouthloop-v2.spec.json mouthloop-v2/index.html
-python3 _source/tools/enhance_mouthloop_v2.py mouthloop-v2/index.html \
-  --css _source/mouthloop-v2.extra.css
-python3 _source/tools/externalize_images.py mouthloop-v2/index.html \
-  --assets assets --stem mouthloop-v2
+python3 ~/.claude/skills/build-rich-html-article/scripts/build_article.py \
+  _source/mouthloop-v2.spec.json mouthloop-v2/index.html --assets assets
 ```
 
 リンクの接頭辞は、出力先から見た `assets` の相対パス（`assets/`、`../assets/`、`../../assets/`）が自動で入ります。同じ内容の画像は1つのファイルにまとめられ、ヒーロー以外には `loading="lazy"` が付きます。
