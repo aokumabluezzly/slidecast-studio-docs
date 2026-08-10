@@ -184,14 +184,18 @@ a{color:var(--primary-ink)}
 .section-head p{margin:0;color:var(--muted);font-size:.92rem}
 
 /* ---------- article cards ---------- */
-.article-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.article-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(min(100%,270px),1fr));
+  gap:14px;
+}
 .article-card{
   display:flex;flex-direction:column;overflow:hidden;text-decoration:none;color:inherit;
   border:1px solid var(--line);border-radius:var(--r-md);background:var(--card);box-shadow:var(--shadow-sm);
   transition:transform .2s ease,box-shadow .2s ease,border-color .2s ease;
 }
 .article-card:hover{transform:translateY(-4px);box-shadow:var(--shadow);border-color:var(--line-strong)}
-.article-card .thumb{position:relative;aspect-ratio:16 / 9;background:var(--soft);overflow:hidden;padding:6px}
+.article-card .thumb{position:relative;aspect-ratio:16 / 9;background:var(--soft);overflow:hidden;padding:5px}
 /* アイキャッチには文字が入っているので、切り抜かず全体を収める */
 .article-card .thumb img{width:100%;height:100%;object-fit:contain;display:block}
 .article-card .tag{
@@ -199,11 +203,11 @@ a{color:var(--primary-ink)}
   background:rgba(14,14,26,.72);color:#fff;font-size:.66rem;font-weight:var(--fw-kicker);letter-spacing:.08em;
 }
 .article-card .tag.is-new{background:var(--grad-brand)}
-.article-card .body{padding:16px 18px 18px;display:flex;flex-direction:column;gap:7px;flex:1}
-.article-card h3{margin:0;font-size:1rem;line-height:1.55;font-weight:var(--fw-title)}
-.article-card p{margin:0;color:var(--muted);font-size:.82rem;line-height:1.75;flex:1}
+.article-card .body{padding:13px 15px 15px;display:flex;flex-direction:column;gap:5px;flex:1}
+.article-card h3{margin:0;font-size:.94rem;line-height:1.5;font-weight:var(--fw-title)}
+.article-card p{margin:0;color:var(--muted);font-size:.78rem;line-height:1.65;flex:1}
 .article-card .more{
-  margin-top:4px;color:var(--primary-ink);font-size:.8rem;font-weight:var(--fw-title);
+  margin-top:3px;color:var(--primary-ink);font-size:.76rem;font-weight:var(--fw-title);
 }
 .article-card:hover .more{color:var(--accent-ink)}
 
