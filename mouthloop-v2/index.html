@@ -1,0 +1,1554 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#7158e2">
+<meta name="description" content="画像1枚から口パク素材を作る無料Gemini Canvasアプリ『MouthLoop』のv2アップデート解説。表情（笑顔・悲しみ・怒り）と仕草が追加され、保存物はSlideCast Studio用キャラパックZIP 1つにまとまりました。">
+<title>【v2アップデート】MouthLoopに「表情」と「仕草」が入りました｜MouthLoop</title>
+<style>
+  :root {
+    --ink: #202033;
+    --ink-soft: #3c3d55;
+    --muted: #66677b;
+    --paper: #fffdf9;
+    --card: #ffffff;
+    --soft: #f5f2ff;
+    --line: #e8e2f5;
+    --line-strong: #d9d0f0;
+    --purple: #7158e2;
+    --purple-dark: #4f3bb7;
+    --pink: #f05f93;
+    --yellow: #ffd76a;
+    --amber-bg: #fff8e6;
+    --green: #2f9d78;
+    --green-bg: #eefaf4;
+    --blue: #3978d4;
+    --blue-bg: #eef4fd;
+    --danger: #c94764;
+    --shadow: 0 18px 60px rgba(60, 44, 115, .12);
+    --shadow-sm: 0 6px 22px rgba(60, 44, 115, .08);
+    --radius: 22px;
+    --content: 860px;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --ink: #eceaf6;
+      --ink-soft: #cfcbe4;
+      --muted: #a09dba;
+      --paper: #14131c;
+      --card: #1c1b28;
+      --soft: #232131;
+      --line: #322f45;
+      --line-strong: #423e5c;
+      --purple: #a48ffb;
+      --purple-dark: #c0b0ff;
+      --pink: #ff85b0;
+      --yellow: #ffd76a;
+      --amber-bg: #2b2415;
+      --green: #59c9a0;
+      --green-bg: #16281f;
+      --blue: #7fb0f5;
+      --blue-bg: #16202f;
+      --danger: #ff8098;
+      --shadow: 0 18px 60px rgba(0, 0, 0, .5);
+      --shadow-sm: 0 6px 22px rgba(0, 0, 0, .35);
+    }
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; scroll-padding-top: 86px; }
+
+  body {
+    margin: 0;
+    overflow-x: hidden;
+    color: var(--ink);
+    background:
+      radial-gradient(circle at 12% 3%, rgba(240, 95, 147, .13), transparent 22rem),
+      radial-gradient(circle at 88% 1%, rgba(113, 88, 226, .17), transparent 26rem),
+      var(--paper);
+    font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Yu Gothic UI", "Yu Gothic", Meiryo, sans-serif;
+    line-height: 1.92;
+    letter-spacing: .02em;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  img { display: block; max-width: 100%; height: auto; }
+  a { color: var(--purple-dark); text-underline-offset: .18em; }
+  a:focus-visible, button:focus-visible, summary:focus-visible {
+    outline: 3px solid var(--purple);
+    outline-offset: 3px;
+    border-radius: 8px;
+  }
+
+  /* ---------- chrome ---------- */
+  .progress {
+    position: fixed;
+    z-index: 100;
+    inset: 0 auto auto 0;
+    width: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--pink), var(--purple));
+    transition: width .1s linear;
+  }
+
+  .topbar {
+    position: sticky;
+    z-index: 90;
+    top: 0;
+    border-bottom: 1px solid var(--line);
+    background: color-mix(in srgb, var(--paper) 88%, transparent);
+    backdrop-filter: blur(16px);
+  }
+
+  .topbar-inner {
+    width: min(1160px, calc(100% - 32px));
+    min-height: 64px;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+  }
+
+  .brand {
+    color: var(--ink);
+    font-weight: 900;
+    font-size: 1.02rem;
+    letter-spacing: -.02em;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+  .brand span { color: var(--purple); }
+  .brand em {
+    display: inline-block;
+    margin-left: 6px;
+    padding: 1px 8px;
+    border-radius: 999px;
+    background: linear-gradient(135deg, var(--pink), var(--purple));
+    color: #fff;
+    font-size: .68rem;
+    font-style: normal;
+    font-weight: 900;
+    letter-spacing: .06em;
+    vertical-align: 2px;
+  }
+
+  .top-links { display: flex; align-items: center; gap: 18px; font-size: .86rem; font-weight: 700; }
+  .top-links a { color: var(--muted); text-decoration: none; }
+  .top-links a:hover { color: var(--purple); }
+  @media (max-width: 760px) { .top-links .hide-sp { display: none; } }
+
+  .button {
+    display: inline-flex;
+    min-height: 46px;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 0 20px;
+    border: 0;
+    border-radius: 999px;
+    background: linear-gradient(135deg, var(--purple), #5b45c9);
+    box-shadow: 0 10px 25px rgba(79, 59, 183, .28);
+    color: #fff !important;
+    font-weight: 800;
+    font-size: .92rem;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: transform .2s ease, box-shadow .2s ease;
+  }
+  .button:hover { transform: translateY(-2px); box-shadow: 0 14px 30px rgba(79, 59, 183, .36); }
+  .button.secondary {
+    background: var(--card);
+    box-shadow: inset 0 0 0 1px var(--line-strong);
+    color: var(--purple-dark) !important;
+  }
+
+  /* ---------- hero ---------- */
+  .hero {
+    width: min(1160px, calc(100% - 32px));
+    margin: 44px auto 56px;
+    overflow: hidden;
+    border: 1px solid var(--line);
+    border-radius: 34px;
+    background: linear-gradient(145deg, color-mix(in srgb, var(--card) 96%, transparent), var(--soft));
+    box-shadow: var(--shadow);
+  }
+  .hero-grid { display: grid; grid-template-columns: 1.05fr .95fr; align-items: center; }
+  .hero-copy { padding: clamp(30px, 5.5vw, 64px); }
+
+  .eyebrow {
+    margin: 0 0 14px;
+    color: var(--purple);
+    font-size: .78rem;
+    font-weight: 900;
+    letter-spacing: .16em;
+  }
+
+  h1 {
+    margin: 0;
+    font-size: clamp(1.6rem, 6.2vw, 3.1rem);
+    line-height: 1.28;
+    letter-spacing: -.035em;
+    /* 日本語の禁則・語中改行を避ける */
+    word-break: normal;
+    overflow-wrap: anywhere;
+    line-break: strict;
+  }
+  h1 small {
+    display: block;
+    margin-bottom: 12px;
+    color: var(--pink);
+    font-size: .44em;
+    letter-spacing: .02em;
+    line-height: 1.6;
+  }
+
+  .lead { max-width: 40rem; margin: 22px 0 0; color: var(--muted); font-size: clamp(.98rem, 1.6vw, 1.1rem); }
+
+  .chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 22px; list-style: none; padding: 0; }
+  .chips li {
+    padding: 4px 13px;
+    border-radius: 999px;
+    background: color-mix(in srgb, var(--purple) 12%, transparent);
+    color: var(--purple-dark);
+    font-size: .82rem;
+    font-weight: 800;
+    line-height: 1.9;
+  }
+
+  .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
+
+  .hero-visual {
+    position: relative;
+    align-self: stretch;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: clamp(20px, 3vw, 34px);
+  }
+  .hero-visual img {
+    width: 100%;
+    border-radius: 24px;
+    box-shadow: var(--shadow);
+  }
+  .hero-visual figcaption {
+    position: absolute;
+    left: 50%;
+    bottom: clamp(26px, 3.6vw, 44px);
+    transform: translateX(-50%);
+    padding: 5px 14px;
+    border-radius: 999px;
+    background: color-mix(in srgb, var(--card) 92%, transparent);
+    backdrop-filter: blur(8px);
+    box-shadow: var(--shadow-sm);
+    color: var(--muted);
+    font-size: .76rem;
+    font-weight: 700;
+    white-space: nowrap;
+  }
+
+  .br-pc { display: inline; }
+
+  @media (max-width: 900px) {
+    .hero { margin: 24px auto 40px; border-radius: 26px; }
+    .hero-grid { grid-template-columns: 1fr; }
+    .hero-visual { order: -1; flex-direction: column; padding-bottom: 0; }
+    /* スマホでは画像に重ねず、下に置く */
+    .hero-visual figcaption {
+      position: static;
+      transform: none;
+      margin-top: 12px;
+      background: none;
+      box-shadow: none;
+      backdrop-filter: none;
+      white-space: normal;
+      text-align: center;
+    }
+    /* 意図した改行はPCのみ。狭い画面では自然に折り返す */
+    .br-pc { display: none; }
+    h1 small { font-size: .5em; }
+  }
+
+  /* ---------- stat strip ---------- */
+  .stats {
+    width: min(1160px, calc(100% - 32px));
+    margin: 0 auto 60px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 14px;
+  }
+  .stat {
+    padding: 20px 18px;
+    border: 1px solid var(--line);
+    border-radius: 18px;
+    background: var(--card);
+    box-shadow: var(--shadow-sm);
+    text-align: center;
+  }
+  .stat b { display: block; font-size: 1.6rem; line-height: 1.4; letter-spacing: -.03em; }
+  .stat b i { font-style: normal; font-size: .62em; color: var(--muted); }
+  .stat span { display: block; color: var(--muted); font-size: .8rem; font-weight: 700; }
+  @media (max-width: 720px) { .stats { grid-template-columns: repeat(2, 1fr); } }
+
+  /* ---------- layout ---------- */
+  main { width: min(var(--content), calc(100% - 32px)); margin: 0 auto 80px; }
+
+  .toc {
+    margin: 0 0 64px;
+    padding: 26px 28px;
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    background: var(--card);
+    box-shadow: var(--shadow-sm);
+  }
+  .toc h2 { margin: 0 0 6px; font-size: 1rem; letter-spacing: .04em; }
+  .toc ol { margin: 0; padding-left: 1.35em; columns: 2; column-gap: 30px; }
+  .toc li { margin: 4px 0; break-inside: avoid; }
+  .toc a { color: var(--ink-soft); font-weight: 700; font-size: .93rem; text-decoration: none; }
+  .toc a:hover { color: var(--purple); text-decoration: underline; }
+  @media (max-width: 640px) { .toc ol { columns: 1; } }
+
+  section { margin: 0 0 68px; scroll-margin-top: 86px; }
+
+  h2 {
+    margin: 0 0 10px;
+    font-size: clamp(1.4rem, 3vw, 1.95rem);
+    line-height: 1.45;
+    letter-spacing: -.03em;
+  }
+  h2::after {
+    content: "";
+    display: block;
+    width: 56px;
+    height: 5px;
+    margin-top: 14px;
+    border-radius: 999px;
+    background: linear-gradient(90deg, var(--pink), var(--purple));
+  }
+  h3 { margin: 42px 0 8px; font-size: clamp(1.12rem, 2.2vw, 1.32rem); line-height: 1.55; letter-spacing: -.02em; }
+  h4 { margin: 30px 0 6px; font-size: 1.02rem; line-height: 1.6; }
+  p { margin: 14px 0; }
+  ul, ol { padding-left: 1.4em; }
+  li { margin: 6px 0; }
+  strong { font-weight: 800; }
+
+  .section-lead { color: var(--muted); margin-top: 18px; }
+
+  code {
+    padding: 2px 7px;
+    border-radius: 6px;
+    background: var(--soft);
+    color: var(--ink-soft);
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    font-size: .88em;
+    word-break: break-all;
+  }
+
+  /* ---------- screenshots ---------- */
+  .shot { margin: 24px 0; }
+  .shot img {
+    width: 100%;
+    height: auto;
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    background: var(--soft);
+    box-shadow: var(--shadow-sm);
+  }
+  .shot figcaption {
+    margin-top: 9px;
+    color: var(--muted);
+    font-size: .82rem;
+    line-height: 1.7;
+    text-align: center;
+  }
+  .shot.grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .shot.grid3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+  .shot.grid2 figcaption, .shot.grid3 figcaption { grid-column: 1 / -1; margin-top: 2px; }
+  @media (max-width: 640px) {
+    .shot.grid2, .shot.grid3 { grid-template-columns: 1fr; }
+    .shot { margin: 20px 0; }
+  }
+
+  /* ---------- どこからでも開ける目次 ---------- */
+  .toc-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    min-height: 40px;
+    padding: 0 14px;
+    border: 1px solid var(--line-strong);
+    border-radius: 999px;
+    background: var(--card);
+    color: var(--ink-soft);
+    font-family: inherit;
+    font-size: .84rem;
+    font-weight: 800;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: border-color .2s ease, color .2s ease;
+  }
+  .toc-btn:hover { border-color: var(--purple); color: var(--purple); }
+  .toc-btn .bars {
+    display: inline-flex;
+    flex-direction: column;
+    gap: 3px;
+    width: 14px;
+  }
+  .toc-btn .bars i { display: block; height: 2px; border-radius: 2px; background: currentColor; }
+  .toc-btn .bars i:nth-child(2) { width: 70%; }
+
+  .toc-backdrop {
+    position: fixed;
+    inset: 0;
+    z-index: 105;
+    background: rgba(24, 18, 48, .5);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .25s ease;
+  }
+  .toc-backdrop.show { opacity: 1; pointer-events: auto; }
+
+  .toc-panel {
+    position: fixed;
+    z-index: 110;
+    top: 0;
+    right: 0;
+    width: min(370px, 88vw);
+    height: 100dvh;
+    padding: 22px 22px 40px;
+    border-left: 1px solid var(--line);
+    background: var(--card);
+    box-shadow: -20px 0 60px rgba(40, 28, 80, .25);
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    transform: translateX(101%);
+    transition: transform .28s ease;
+  }
+  .toc-panel.open { transform: none; }
+  .toc-panel-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 14px;
+  }
+  .toc-panel-head b { font-size: 1rem; letter-spacing: .04em; }
+  .toc-close {
+    width: 36px;
+    height: 36px;
+    border: 1px solid var(--line-strong);
+    border-radius: 50%;
+    background: var(--card);
+    color: var(--ink-soft);
+    font-size: 1rem;
+    font-family: inherit;
+    line-height: 1;
+    cursor: pointer;
+  }
+  .toc-close:hover { border-color: var(--purple); color: var(--purple); }
+  .toc-panel ol { margin: 0; padding-left: 1.4em; }
+  .toc-panel > ol > li { margin: 2px 0; }
+  .toc-panel a {
+    display: block;
+    padding: 6px 8px;
+    border-radius: 10px;
+    color: var(--ink-soft);
+    font-size: .92rem;
+    font-weight: 700;
+    line-height: 1.6;
+    text-decoration: none;
+  }
+  .toc-panel a:hover { background: var(--soft); color: var(--purple); }
+  .toc-panel a.active {
+    background: color-mix(in srgb, var(--purple) 14%, transparent);
+    color: var(--purple-dark);
+  }
+  .toc-panel .sub { margin: 2px 0 8px; padding-left: 1.1em; list-style: none; }
+  .toc-panel .sub a { font-size: .85rem; font-weight: 600; color: var(--muted); }
+  .toc-panel .sub li { margin: 0; }
+
+  /* ---------- callouts ---------- */
+  .note {
+    margin: 22px 0;
+    padding: 16px 20px;
+    border-left: 5px solid var(--blue);
+    border-radius: 0 16px 16px 0;
+    background: var(--blue-bg);
+    font-size: .95rem;
+  }
+  .note > :first-child { margin-top: 0; }
+  .note > :last-child { margin-bottom: 0; }
+  .note.warn { border-left-color: var(--yellow); background: var(--amber-bg); }
+  .note.good { border-left-color: var(--green); background: var(--green-bg); }
+  .note b.label { display: block; margin-bottom: 2px; font-size: .84rem; letter-spacing: .04em; }
+
+  /* ---------- v1 -> v2 cards ---------- */
+  .diffs { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; margin: 28px 0 0; }
+  .diff {
+    padding: 18px 20px;
+    border: 1px solid var(--line);
+    border-radius: 18px;
+    background: var(--card);
+    box-shadow: var(--shadow-sm);
+  }
+  .diff h4 { margin: 0 0 10px; font-size: .96rem; letter-spacing: .02em; }
+  .diff .row { display: flex; align-items: baseline; gap: 10px; font-size: .9rem; line-height: 1.7; }
+  .diff .tag {
+    flex: none;
+    min-width: 30px;
+    padding: 1px 8px;
+    border-radius: 6px;
+    font-size: .72rem;
+    font-weight: 900;
+    text-align: center;
+  }
+  .diff .tag.v1 { background: color-mix(in srgb, var(--muted) 18%, transparent); color: var(--muted); }
+  .diff .tag.v2 { background: linear-gradient(135deg, var(--pink), var(--purple)); color: #fff; }
+  .diff .row.old { color: var(--muted); text-decoration: line-through; text-decoration-color: color-mix(in srgb, var(--muted) 45%, transparent); }
+  .diff .row.new { margin-top: 4px; color: var(--ink); font-weight: 700; }
+  @media (max-width: 700px) { .diffs { grid-template-columns: 1fr; } }
+
+  /* ---------- output cards ---------- */
+  .outputs { display: grid; grid-template-columns: 1fr; gap: 18px; margin-top: 28px; }
+  .output {
+    position: relative;
+    padding: 26px 28px;
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    background: var(--card);
+    box-shadow: var(--shadow-sm);
+  }
+  .output.pick { border-color: color-mix(in srgb, var(--purple) 45%, transparent); }
+  .output .pill {
+    position: absolute;
+    top: -13px;
+    left: 24px;
+    padding: 3px 14px;
+    border-radius: 999px;
+    background: linear-gradient(135deg, var(--pink), var(--purple));
+    box-shadow: 0 8px 18px rgba(113, 88, 226, .3);
+    color: #fff;
+    font-size: .76rem;
+    font-weight: 900;
+    letter-spacing: .04em;
+  }
+  .output h3 { margin: 8px 0 4px; }
+  .filename {
+    display: inline-block;
+    margin: 6px 0 10px;
+    padding: 3px 12px;
+    border-radius: 8px;
+    background: var(--soft);
+    color: var(--ink-soft);
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    font-size: .84rem;
+    word-break: break-all;
+  }
+
+  /* ---------- stepper ---------- */
+  .stepper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 26px 0 0;
+    padding: 0;
+    list-style: none;
+    counter-reset: st;
+  }
+  .stepper li {
+    flex: 1 1 150px;
+    padding: 14px 16px;
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    background: var(--card);
+    box-shadow: var(--shadow-sm);
+    font-size: .88rem;
+    font-weight: 800;
+    line-height: 1.6;
+  }
+  .stepper li::before {
+    counter-increment: st;
+    content: counter(st);
+    display: inline-flex;
+    width: 24px;
+    height: 24px;
+    margin-right: 8px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    background: linear-gradient(135deg, var(--pink), var(--purple));
+    color: #fff;
+    font-size: .8rem;
+    vertical-align: 1px;
+  }
+  .stepper li i { display: block; color: var(--muted); font-style: normal; font-size: .78rem; font-weight: 600; }
+
+  .step-head {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin: 0 0 4px;
+    scroll-margin-top: 86px;
+  }
+  .step-num {
+    flex: none;
+    display: inline-flex;
+    width: 44px;
+    height: 44px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 14px;
+    background: linear-gradient(135deg, var(--pink), var(--purple));
+    box-shadow: 0 10px 22px rgba(113, 88, 226, .28);
+    color: #fff;
+    font-size: 1.2rem;
+    font-weight: 900;
+  }
+  .step-head h3 { margin: 0; }
+
+  .new-badge {
+    display: inline-block;
+    margin-right: 8px;
+    padding: 1px 9px;
+    border-radius: 999px;
+    background: linear-gradient(135deg, var(--pink), var(--purple));
+    color: #fff;
+    font-size: .7rem;
+    font-weight: 900;
+    letter-spacing: .06em;
+    vertical-align: 2px;
+  }
+
+  /* ---------- counts ---------- */
+  .counts { margin: 20px 0; border: 1px solid var(--line); border-radius: 18px; overflow: hidden; background: var(--card); }
+  .counts div {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 14px;
+    padding: 11px 20px;
+    border-top: 1px solid var(--line);
+    font-size: .94rem;
+  }
+  .counts div:first-child { border-top: 0; }
+  .counts div.total { background: var(--soft); font-weight: 900; }
+  .counts b { color: var(--purple-dark); font-size: 1.05rem; white-space: nowrap; }
+
+  /* ---------- table ---------- */
+  .table-wrap { margin: 24px 0; overflow-x: auto; border: 1px solid var(--line); border-radius: 18px; background: var(--card); }
+  table { width: 100%; min-width: 520px; border-collapse: collapse; font-size: .92rem; }
+  th, td { padding: 12px 16px; border-top: 1px solid var(--line); text-align: left; vertical-align: top; }
+  thead th { border-top: 0; background: var(--soft); font-size: .86rem; letter-spacing: .03em; white-space: nowrap; }
+  tbody th { width: 8.5em; color: var(--muted); font-weight: 700; }
+  td.hl { color: var(--ink); font-weight: 700; }
+
+  /* ---------- FAQ ---------- */
+  .faq { margin-top: 26px; border: 1px solid var(--line); border-radius: 18px; overflow: hidden; background: var(--card); box-shadow: var(--shadow-sm); }
+  .faq details { border-top: 1px solid var(--line); }
+  .faq details:first-child { border-top: 0; }
+  .faq summary {
+    padding: 15px 46px 15px 20px;
+    position: relative;
+    cursor: pointer;
+    font-weight: 800;
+    font-size: .96rem;
+    line-height: 1.6;
+    list-style: none;
+  }
+  .faq summary::-webkit-details-marker { display: none; }
+  .faq summary::after {
+    content: "＋";
+    position: absolute;
+    right: 20px;
+    top: 15px;
+    color: var(--purple);
+    font-weight: 900;
+    transition: transform .2s ease;
+  }
+  .faq details[open] summary::after { content: "−"; }
+  .faq details[open] summary { background: var(--soft); }
+  .faq .body { padding: 4px 20px 18px; font-size: .94rem; }
+  .faq .body > :first-child { margin-top: 6px; }
+  .faq .body > :last-child { margin-bottom: 0; }
+
+  /* ---------- summary / cta ---------- */
+  .wrapup {
+    padding: 30px clamp(22px, 4vw, 40px);
+    border: 1px solid var(--line);
+    border-radius: 28px;
+    background: linear-gradient(145deg, var(--soft), var(--card));
+    box-shadow: var(--shadow);
+  }
+  .wrapup ul { list-style: none; padding: 0; margin: 20px 0; }
+  .wrapup ul li { padding-left: 1.9em; text-indent: -1.9em; }
+
+  .cautions { padding-left: 1.3em; }
+  .cautions li { margin: 10px 0; }
+
+  footer {
+    padding: 34px 0 60px;
+    border-top: 1px solid var(--line);
+    color: var(--muted);
+    font-size: .84rem;
+    text-align: center;
+  }
+  footer p { margin: 6px 0; }
+
+  .to-top {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    z-index: 80;
+    display: inline-flex;
+    width: 46px;
+    height: 46px;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--line-strong);
+    border-radius: 50%;
+    background: var(--card);
+    box-shadow: var(--shadow-sm);
+    color: var(--purple-dark);
+    font-size: 1.1rem;
+    font-weight: 900;
+    text-decoration: none;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .25s ease, transform .25s ease;
+    transform: translateY(8px);
+  }
+  .to-top.show { opacity: 1; pointer-events: auto; transform: none; }
+
+  /* ---------- スマホ向けの余白・文字調整 ---------- */
+  @media (max-width: 600px) {
+    body { line-height: 1.85; }
+    main { width: min(var(--content), calc(100% - 24px)); margin-bottom: 56px; }
+    section { margin-bottom: 52px; }
+    .stats { width: calc(100% - 24px); gap: 10px; margin-bottom: 44px; }
+    .stat { padding: 15px 12px; }
+    .stat b { font-size: 1.35rem; }
+    .stat span { font-size: .74rem; }
+    .toc { margin-bottom: 44px; padding: 20px 18px; }
+    .hero-copy { padding: 26px 20px 32px; }
+    .lead { font-size: .96rem; }
+    h2 { font-size: 1.35rem; }
+    h3 { margin-top: 34px; }
+    .output { padding: 22px 18px; }
+    .diff { padding: 16px 16px; }
+    .note { padding: 14px 16px; font-size: .92rem; }
+    .counts div { padding: 10px 15px; font-size: .89rem; }
+    .faq summary { padding: 14px 40px 14px 16px; font-size: .92rem; }
+    .faq summary::after { right: 16px; top: 14px; }
+    .faq .body { padding: 2px 16px 16px; }
+    .wrapup { padding: 24px 18px; border-radius: 22px; }
+    .stepper li { flex-basis: 100%; }
+    .hero-actions .button, .wrapup .button { flex: 1 1 100%; }
+    .to-top { right: 14px; bottom: 14px; }
+  }
+
+  /* 横向きスマホ〜タブレット */
+  @media (min-width: 601px) and (max-width: 900px) {
+    .stats { grid-template-columns: repeat(4, 1fr); }
+  }
+
+  @media print {
+    .topbar, .progress, .to-top, .hero-actions { display: none; }
+    body { background: #fff; }
+    .faq details { display: block; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    * { transition: none !important; }
+  }
+</style>
+</head>
+<body>
+
+<div class="progress" id="progress" role="presentation"></div>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="../" aria-label="SlideCast Studio Docs ホームへ">Mouth<span>Loop</span><em>v2</em></a>
+    <nav class="top-links">
+      <a class="hide-sp" href="../">🏠 HOME</a>
+      <a class="hide-sp" href="../manual/">📘 公式マニュアル</a>
+      <button class="toc-btn" id="tocOpen" type="button" aria-haspopup="dialog" aria-expanded="false" aria-controls="tocPanel">
+        <span class="bars" aria-hidden="true"><i></i><i></i><i></i></span>目次
+      </button>
+      <a class="button" href="https://share.gemini.google/dkU0IVHfQ2gu" target="_blank" rel="noopener noreferrer">開く</a>
+    </nav>
+  </div>
+</header>
+
+<div class="toc-backdrop" id="tocBackdrop"></div>
+<aside class="toc-panel" id="tocPanel" role="dialog" aria-modal="false" aria-label="目次" hidden>
+  <div class="toc-panel-head">
+    <b>目次</b>
+    <button class="toc-close" id="tocClose" type="button" aria-label="目次を閉じる">✕</button>
+  </div>
+  <ol>
+    <li><a href="#whatsnew">まず、v1から何が変わったか</a></li>
+    <li><a href="#outputs">MouthLoopで作れるもの（v2）</a></li>
+    <li><a href="#before">使う前に知っておきたいこと</a></li>
+    <li>
+      <a href="#howto">使い方：全5ステップ</a>
+      <ul class="sub">
+        <li><a href="#step1">1 マスター画像</a></li>
+        <li><a href="#step2">2 口と目の表情</a></li>
+        <li><a href="#step3">3 フレーム作成</a></li>
+        <li><a href="#step4">4 確認・保存</a></li>
+        <li><a href="#step5">5 アニメ画像（任意）</a></li>
+      </ul>
+    </li>
+    <li><a href="#slidecast">SlideCast Studioで使う</a></li>
+    <li><a href="#trouble">うまくいかないときは</a></li>
+    <li><a href="#cautions">使うときの注意</a></li>
+    <li><a href="#wrapup">まとめ</a></li>
+  </ol>
+</aside>
+
+<figure class="hero" id="top" style="margin-block-start:44px">
+  <div class="hero-grid">
+    <div class="hero-copy">
+      <p class="eyebrow">V2 UPDATE ／ 2026.08.05</p>
+      <h1>
+        <small>【v2アップデート】</small>
+        MouthLoopに<br class="br-pc">「表情」と「仕草」が<br class="br-pc">入りました
+      </h1>
+      <p class="lead">
+        画像1枚から口パク素材を作る無料ツール <strong>MouthLoop</strong> を v2 にアップデートしました。
+        <strong>表情（笑顔・悲しみ・怒り）</strong>と<strong>仕草（手を振る・頭を掻くなど）</strong>が加わり、
+        保存物は <strong>SlideCast Studio用キャラパック（ZIP）1つ</strong>にまとまりました。
+      </p>
+      <ul class="chips">
+        <li>インストール不要</li>
+        <li>アカウント登録不要</li>
+        <li>APIキー不要</li>
+        <li>無料</li>
+        <li>日本語／英語</li>
+      </ul>
+      <div class="hero-actions">
+        <a class="button" href="https://share.gemini.google/dkU0IVHfQ2gu" target="_blank" rel="noopener noreferrer">MouthLoop を開く</a>
+        <a class="button secondary" href="#howto">使い方を見る</a>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <img src="../assets/mouthloop-v2-01.png"
+           width="1280" height="670" decoding="async"
+           alt="MouthLoop v2 のイメージ。1枚のキャラクター画像から、表情違い・仕草付きの口パク素材が作られる様子。" loading="lazy">
+      <figcaption>v2では仕草や表情も加えられます</figcaption>
+    </div>
+  </div>
+</figure>
+
+<div class="stats">
+  <div class="stat"><b>4<i>種類</i></b><span>表情（通常＋3種）</span></div>
+  <div class="stat"><b>3<i>つまで</i></b><span>仕草を追加できる</span></div>
+  <div class="stat"><b>1<i>ファイル</i></b><span>保存はキャラパックZIP</span></div>
+  <div class="stat"><b>18<i>枚</i></b><span>フル装備の生成枚数</span></div>
+</div>
+
+<main>
+
+  <nav class="toc" aria-label="目次">
+    <h2>この記事の内容</h2>
+    <ol>
+      <li><a href="#whatsnew">まず、v1から何が変わったか</a></li>
+      <li><a href="#outputs">MouthLoopで作れるもの（v2）</a></li>
+      <li><a href="#before">使う前に知っておきたいこと</a></li>
+      <li><a href="#howto">使い方：全5ステップ</a></li>
+      <li><a href="#slidecast">SlideCast Studioで使う</a></li>
+      <li><a href="#trouble">うまくいかないときは</a></li>
+      <li><a href="#cautions">使うときの注意</a></li>
+      <li><a href="#wrapup">まとめ</a></li>
+    </ol>
+  </nav>
+
+  <p>
+    前回の記事（<a href="https://note.com/bluezzly/n/n9b68bf88ac64" target="_blank" rel="noopener noreferrer">MouthLoop｜画像1枚から口パクキャラクターを作る</a>）では
+    「PNG 6枚 ＋ アニメーションWebP」を作るところまでを紹介しました。
+    この記事はその続きですが、<strong>前回を読んでいなくても、この記事だけで最後まで進められます</strong>。
+  </p>
+  <p>
+    なお、MouthLoopは <strong>SlideCast Studio</strong> と連携して使うことを想定しています。ぜひあわせてご利用ください。
+  </p>
+
+  <div class="note warn">
+    <b class="label">⚠️ ご注意</b>
+    SlideCast Studioで利用する場合は、SlideCast Studio側も <strong>v3.4</strong> へのアップデートが必要です。
+  </div>
+
+  <figure class="shot" style="max-width:420px;margin-inline:auto">
+    <img src="../assets/mouthloop-v2-02.gif"
+         width="512" height="512" loading="lazy" decoding="async"
+         alt="v2で作ったキャラクターが、笑顔で口パクしながら手を振っている動きのアニメーション。">
+    <figcaption>口パク・瞬きに加えて、表情と仕草が動きます</figcaption>
+  </figure>
+
+  <!-- ============ 1. 変更点 ============ -->
+  <section id="whatsnew">
+    <h2>🆕 まず、v1から何が変わったか</h2>
+    <p class="section-lead">大きな方向性は、<strong>「口パクするだけの素材」から「表情も仕草も持ったキャラクター素材へ」</strong>というアップデートです。</p>
+
+    <div class="diffs">
+      <div class="diff">
+        <h4>🙂 表情</h4>
+        <div class="row old"><span class="tag v1">v1</span><span>1種類のみ</span></div>
+        <div class="row new"><span class="tag v2">v2</span><span>通常＋笑顔・悲しみ・怒り（最大4種類）</span></div>
+      </div>
+      <div class="diff">
+        <h4>👋 仕草</h4>
+        <div class="row old"><span class="tag v1">v1</span><span>なし</span></div>
+        <div class="row new"><span class="tag v2">v2</span><span>最大3つ（手を振る／頭を掻く／指をさす／腕を組む／親指を立てる／手のひらで示す／自由入力）</span></div>
+      </div>
+      <div class="diff">
+        <h4>📦 主な保存物</h4>
+        <div class="row old"><span class="tag v1">v1</span><span>PNG 6枚ZIP（lipsync-pngs.zip）</span></div>
+        <div class="row new"><span class="tag v2">v2</span><span>キャラパックZIP（slidecast-character-pack.zip）に一本化</span></div>
+      </div>
+      <div class="diff">
+        <h4>🔧 既定の作り方</h4>
+        <div class="row old"><span class="tag v1">v1</span><span>まるごと描き直す</span></div>
+        <div class="row new"><span class="tag v2">v2</span><span>顔だけ差し替える（推奨）に変更</span></div>
+      </div>
+      <div class="diff">
+        <h4>📐 保存サイズ</h4>
+        <div class="row old"><span class="tag v1">v1</span><span>事前に選ぶ</span></div>
+        <div class="row new"><span class="tag v2">v2</span><span>保存ボタンを押した後のダイアログで選択。実際の容量も表示</span></div>
+      </div>
+      <div class="diff">
+        <h4>▶️ 仕上がりの確認</h4>
+        <div class="row old"><span class="tag v1">v1</span><span>WebPを作らないと動きが見られない</span></div>
+        <div class="row new"><span class="tag v2">v2</span><span>ステップ4でその場で再生（画像生成なし）</span></div>
+      </div>
+      <div class="diff">
+        <h4>♻️ 再生成</h4>
+        <div class="row old"><span class="tag v1">v1</span><span>ボタンを押すだけ</span></div>
+        <div class="row new"><span class="tag v2">v2</span><span>「口を少し小さく」などの追加指示を添えられる</span></div>
+      </div>
+      <div class="diff">
+        <h4>➕ そのほかの追加</h4>
+        <div class="row new"><span class="tag v2">v2</span><span>アングル／目線の指定／片目OFF／切り抜き時の「余白を足す」／背景の抜き具合／画風の追加</span></div>
+      </div>
+    </div>
+
+    <figure class="shot grid3" style="margin-top:26px">
+      <img src="../assets/mouthloop-v2-03.png"
+           width="1200" height="737" loading="lazy" decoding="async"
+           alt="v2で追加された表情セットの画面。">
+      <img src="../assets/mouthloop-v2-04.png"
+           width="1200" height="626" loading="lazy" decoding="async"
+           alt="v2で追加された仕草の画面。">
+      <img src="../assets/mouthloop-v2-05.png"
+           width="1200" height="636" loading="lazy" decoding="async"
+           alt="v2で作られた素材の例。">
+      <figcaption>v2で増えた「表情」と「仕草」まわりの画面</figcaption>
+    </figure>
+  </section>
+
+  <!-- ============ 2. 作れるもの ============ -->
+  <section id="outputs">
+    <h2>🎬 MouthLoopで作れるもの（v2）</h2>
+    <p class="section-lead">
+      保存できるファイルは <strong>2つ</strong> です。v1では「PNG 6枚ZIP」と「アニメーションWebP」でしたが、
+      v2では前者が <strong>キャラパックZIP</strong> に置き換わりました。
+    </p>
+
+    <div class="outputs">
+      <div class="output pick">
+        <span class="pill">おすすめ</span>
+        <h3>📦 1. SlideCast Studio用キャラパック（ZIP）</h3>
+        <figure class="shot">
+          <img src="../assets/mouthloop-v2-06.png"
+               width="1200" height="753" loading="lazy" decoding="async"
+               alt="キャラパックZIPの中身。表情ごとのフォルダとPNG、manifest.json。">
+        </figure>
+        <span class="filename">slidecast-character-pack.zip</span>
+        <p>中身は、<strong>表情ごとに分けられたPNG 6枚</strong>と、<strong>仕草の連番PNG</strong>、そしてそれぞれの意味を書いた <code>manifest.json</code> です。</p>
+        <ul>
+          <li>「口：閉じる／半開き／開く」×「目：開く／閉じる」の6枚が、<strong>すべて同じ位置・同じ構図</strong>に揃っています</li>
+          <li>追加した表情（笑顔・悲しみ・怒り）ごとに、同じ6枚が入ります</li>
+          <li>仕草は1つにつき4コマ入ります</li>
+        </ul>
+        <p>SlideCast Studioのキャラ設定の「<strong>音声連動</strong>」にそのままアップロードすると、ナレーション音声に合わせて口が動きます。</p>
+        <div class="note good">
+          <b class="label">💡 v1からの変更</b>
+          v1の記事にあった「連番PNG ZIP」は、このキャラパックに完全に含まれるため廃止しました。<strong>保存するのはキャラパックZIPだけでOK</strong>です。
+        </div>
+      </div>
+
+      <div class="output">
+        <h3>🔁 2. アニメ画像（WebP／APNG）＝ 任意</h3>
+        <figure class="shot">
+          <img src="../assets/mouthloop-v2-07.png"
+               width="1200" height="825" loading="lazy" decoding="async"
+               alt="アニメ画像（WebP／APNG）の書き出し画面。">
+        </figure>
+        <span class="filename">lipsync.webp（iPad・iPhoneでは lipsync-anim.png）</span>
+        <p>口パクと瞬き、そして仕草を組み込んだループアニメーションです。1ファイル貼るだけで動くので手軽ですが、<strong>音声とは連動しません</strong>。</p>
+        <p>また、アニメ画像に入るのは<strong>選択中の表情1つ分だけ</strong>です。ほかの表情も欲しい場合は、表情を切り替えて作り直します。</p>
+        <p><strong>迷ったらキャラパックZIPだけで大丈夫です。</strong> アニメ画像は「音声連動を使わない場面用の予備」という位置づけになりました。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 3. 使う前に ============ -->
+  <section id="before">
+    <h2>✅ 使う前に知っておきたいこと</h2>
+
+    <h3>🧰 必要なもの</h3>
+    <ul>
+      <li><strong>Google Gemini（Canvas）が使えるアカウント</strong></li>
+      <li>元になる画像（なくてもOK。ツール内でAIに作ってもらえます）</li>
+    </ul>
+    <p>インストール・アカウント登録・APIキーの入力は、<strong>すべて不要</strong>です。以下の共有リンクを開くだけで使えます。</p>
+    <p><a class="button" href="https://share.gemini.google/dkU0IVHfQ2gu" target="_blank" rel="noopener noreferrer">Gemini で MouthLoop を開く</a></p>
+
+    <h3>⚠️ 保存されないので注意（v1から変わりません）</h3>
+    <p>MouthLoopは、画像も入力内容も<strong>どこにも保存しません</strong>。すべてブラウザの中だけで処理しています。</p>
+    <div class="note warn">
+      そのぶん安心して使えますが、<strong>画面を閉じると作業内容はすべて消えます</strong>。完成したキャラパックZIPは、必ずその場で保存してください。
+    </div>
+
+    <h3>📱 スマホ・タブレットで使うとき</h3>
+    <ul>
+      <li>スマホは <strong>Chromeブラウザ版のGemini</strong> を使ってください（Geminiアプリ内だとファイル保存がブロックされます）</li>
+      <li>iPad・iPhoneのSafari／ChromeはWebPを書き出せないため、<strong>自動でAPNG形式に切り替わります</strong>（操作は同じです）</li>
+    </ul>
+    <div class="note warn">
+      ただし、SlideCast StudioのiPad Safari側が「アニメ画像」のAPNGを読み込めない場合があります。
+      <strong>iPadでは「音声連動」のキャラパックZIPを使う</strong>のが確実です（こちらはiPadでも動作を確認しています）。
+    </div>
+
+    <h3>🌐 日本語／英語を切り替えられます</h3>
+    <p>画面右上の <strong>JA / EN</strong> ボタンで切り替えられます（既定は日本語）。</p>
+    <figure class="shot">
+      <img src="../assets/mouthloop-v2-08.png"
+           width="1200" height="458" loading="lazy" decoding="async"
+           alt="画面右上の JA / EN 切り替えボタン。">
+    </figure>
+  </section>
+
+  <!-- ============ 4. 使い方 ============ -->
+  <section id="howto">
+    <h2>🚀 使い方：全5ステップ</h2>
+    <p class="section-lead">画面上部にステップの帯が出るので、上から順に進めるだけです。</p>
+
+    <figure class="shot">
+      <img src="../assets/mouthloop-v2-09.png"
+           width="1200" height="458" loading="lazy" decoding="async"
+           alt="画面最上部のステップの帯（1〜5）。">
+    </figure>
+
+    <ol class="stepper">
+      <li>マスター画像<i>元になる1枚を決める</i></li>
+      <li>口と目の表情<i>表情・仕草もここで</i></li>
+      <li>フレーム作成<i>範囲を囲む</i></li>
+      <li>確認・保存<i>★保存はここ</i></li>
+      <li>アニメ画像<i>（任意）</i></li>
+    </ol>
+
+    <!-- Step 1 -->
+    <div class="step-head" id="step1" style="margin-top:52px">
+      <span class="step-num">1</span>
+      <h3>ステップ1：マスター画像を用意する</h3>
+    </div>
+    <p>すべての元になる1枚を決めます。方法は2つ。</p>
+    <figure class="shot">
+      <img src="../assets/mouthloop-v2-10.png"
+           width="1200" height="458" loading="lazy" decoding="async"
+           alt="ステップ1で「Geminiで新しく作る」と「手持ちの画像を使う」を選ぶ画面。">
+    </figure>
+
+    <h4>🅰 Geminiで新しく作る</h4>
+    <p>フォームを埋めて生成ボタンを押すだけです。指定できる項目：</p>
+    <ul>
+      <li><strong>構図</strong>：顔・頭だけ／バストアップ（既定）／全身</li>
+      <li><strong>キャラクター</strong>：種類、性別・雰囲気、年代、髪型、髪色、肌の色、自由記述</li>
+      <li><strong>服装</strong>・<strong>画風</strong>（v2では「リアル調イラスト（描き込み）」「劇画・グラフィックノベル」などを追加）</li>
+      <li><strong>参照画像</strong>（最大4枚）：画像ごとに「見た目／服装／画風／配色」のどれを参考にするか割り当て</li>
+      <li><strong>表情</strong>：真顔／やさしい笑顔／自由指定</li>
+      <li><strong>背景色</strong>：キャラクターに使われていない色を選びます</li>
+    </ul>
+
+    <h4><span class="new-badge">NEW</span>v2で追加：アングル・目線</h4>
+    <p>
+      <strong>アングル</strong>（正面／ほぼ正面／斜め45度／真横／やや上から／やや下から／自由記述）と、
+      <strong>目線</strong>（カメラ目線／少しだけ外す／横を見る／やや上・やや下／自由記述）を選べるようになりました。
+      既定は「正面・カメラ目線」で、これは前回と同じ結果になります。
+    </p>
+    <div class="note warn">
+      正面・カメラ目線から外すと、口や目の位置が取りにくくなります。真横などで片目しか見えない構図では、ステップ3で使わない方の目をOFFにしてください（後述）。
+    </div>
+    <p>「プロンプトを表示」を押すと、実際にAIへ送られる文章をそのままコピーできます。ほかのAIサービスで画像を作りたいときにも使えます。</p>
+
+    <h4>🅱 手持ちの画像を使う</h4>
+    <p>自分で用意した画像を読み込みます。ドラッグ＆ドロップや貼り付けにも対応。読み込むと3つから選びます。</p>
+    <ul>
+      <li><strong>そのまま使う</strong>：背景が透過、または外周がはっきりした単色のとき</li>
+      <li><strong>背景だけ整える</strong>：表情・角度・構図はそのままに、背景だけ単色に変える</li>
+      <li><strong>マスター向けに整える</strong>：正面向き・目を開く・口を閉じる、といった調整まで行う</li>
+    </ul>
+    <p>写真や風景など複雑な背景の画像は「そのまま使う」を選べません。下の2つで背景を整えてから進んでください。</p>
+
+    <h4>✂️ 最後に、使う範囲を正方形に切り抜きます</h4>
+    <p>枠をドラッグして位置を決め、四隅で大きさを調整します。中央に近づくと自動で吸着し、ガイドが緑色になります。矢印キーでの微調整も可能です。</p>
+    <figure class="shot">
+      <img src="../assets/mouthloop-v2-11.png"
+           width="1200" height="914" loading="lazy" decoding="async"
+           alt="切り抜き画面。正方形の枠をドラッグして使う範囲を決めているところ。">
+    </figure>
+
+    <h4><span class="new-badge">NEW</span>v2で追加：「余白を足す（仕草を入れるとき）」</h4>
+    <p>バストアップのまま仕草を入れると、<strong>腕や手が画面からはみ出す</strong>ことがあります。そこで、切り抜きのときに <strong>10%〜30%の余白</strong> を足せるようになりました。</p>
+    <figure class="shot">
+      <img src="../assets/mouthloop-v2-12.png"
+           width="1200" height="921" loading="lazy" decoding="async"
+           alt="「余白を足す」を選んだ状態の切り抜き画面。">
+    </figure>
+    <ul>
+      <li>キャラクターが少し小さく配置され、腕を上げる場所ができます</li>
+      <li>元画像の外に出た部分は背景色で埋めます</li>
+      <li>下端で切れている絵は、下端を保ったまま上と左右に余白を足します</li>
+      <li><strong>画像生成は行いません</strong>（API利用枠を消費しません）</li>
+    </ul>
+    <p>その分だけ口や目は小さくなるので、<strong>仕草を使わないなら「なし」のままでOK</strong>です。</p>
+    <p>「この範囲を◯◯×◯◯で確定」を押せばステップ1は完了です。表示されている数字が、このあとの<strong>作業解像度</strong>（切り抜き範囲から自動で決まります。256〜1024px）です。</p>
+    <figure class="shot">
+      <img src="../assets/mouthloop-v2-13.png"
+           width="1200" height="921" loading="lazy" decoding="async"
+           alt="「この範囲を◯◯×◯◯で確定」ボタンと、確定後の作業解像度の表示。">
+    </figure>
+
+    <!-- Step 2 -->
+    <div class="step-head" id="step2" style="margin-top:56px">
+      <span class="step-num">2</span>
+      <h3>ステップ2：口と目の表情をつくる</h3>
+    </div>
+    <p>ここがv2でいちばん大きく変わったところです。上から順に <strong>「作り方を選ぶ」→「表情セット」→「仕草」</strong> の3ブロックになりました。</p>
+
+    <h4>🔧 作り方を選ぶ（既定が変わりました）</h4>
+    <figure class="shot">
+      <img src="../assets/mouthloop-v2-14.png"
+           width="1200" height="227" loading="lazy" decoding="async"
+           alt="「顔だけ差し替える」と「まるごと描き直す」を選ぶ画面。">
+    </figure>
+    <p><strong>顔だけ差し替える（推奨・既定）｜生成3枚</strong><br>
+      マスターを土台に、囲んだ範囲だけを差し替えます。範囲の外は1ピクセルも変わらないので揺れません。そのかわり、口と左右の目を囲む手間がかかります。</p>
+    <p><strong>まるごと描き直す（かんたん）｜生成5枚</strong><br>
+      生成した5枚をそのまま並べます。囲む手間はありませんが、毎回すべてが描き直されるため、コマごとに髪や輪郭が揺れることがあります。</p>
+    <div class="note">
+      v1は「まるごと描き直す（通常）」が既定でしたが、<strong>v2では「顔だけ差し替える」が既定</strong>になりました。
+      <strong>表情セットと仕草は、こちらでのみ使えます。</strong>
+    </div>
+
+    <h4>🙂 表情セットを追加（任意）<span class="new-badge" style="margin-left:8px;margin-right:0">新機能</span></h4>
+    <p><strong>笑顔・悲しみ・怒り</strong>を追加できます。追加した表情ごとに、口パク6枚がまるごと作られます。</p>
+    <figure class="shot">
+      <img src="../assets/mouthloop-v2-15.png"
+           width="1200" height="616" loading="lazy" decoding="async"
+           alt="表情セット（笑顔・悲しみ・怒り）を追加するパネル。">
+    </figure>
+    <p>仕組みはシンプルで、<strong>マスターの目・眉・口だけを描き替えた画像を、表情ごとに1枚だけ生成</strong>します。体・服・背景・腕はマスターのままなので、<strong>表情を増やしても人物は変わりません</strong>。</p>
+    <ul>
+      <li>追加でかかるのは <strong>表情1つにつき画像1枚だけ</strong>（3種類すべてでも3枚）</li>
+      <li>喋っている間の口と瞬きは、通常表情のものを流用します</li>
+      <li>保存すると、表情ごとのフォルダに分かれた1つのZIPになります</li>
+    </ul>
+
+    <h4>👋 仕草を追加（任意）<span class="new-badge" style="margin-left:8px;margin-right:0">新機能</span></h4>
+    <p>手を振る・頭を掻くなどの動きを、<strong>リップシンクの合間に差し込めます</strong>。最大3つまで。</p>
+    <figure class="shot">
+      <img src="../assets/mouthloop-v2-16.png"
+           width="1200" height="634" loading="lazy" decoding="async"
+           alt="仕草を追加するパネル。手を振る・頭を掻くなどの選択肢。">
+    </figure>
+    <p>選べる種類：<strong>手を振る／頭を掻く／指をさす／腕を組む／親指を立てる／手のひらで示す／自由入力</strong></p>
+    <p>各仕草には「片手で」「ゆっくり大きく」のような<strong>追加の指示</strong>も添えられます。</p>
+    <p><strong>仕草は2段階で作ります。</strong></p>
+    <ol>
+      <li><strong>まず到達点（動きの終わり）だけを生成</strong> → イメージ通りか確認</li>
+      <li>違えば ↻ で作り直し → よければ「<strong>残りの中間コマを生成</strong>」</li>
+    </ol>
+    <p>中間コマは到達点をもとに作るため、<strong>先に到達点を確認したほうがやり直しが少なくて済みます</strong>（生成する総枚数は変わりません）。1つの仕草は「到達点1コマ＋中間3コマ（25／50／75%）」の<strong>計4枚</strong>です。</p>
+
+    <h4>💰 生成枚数の目安</h4>
+    <p>v2では生成枚数を自分で組み立てられます。ボタンには常に枚数が表示されるので、押す前に確認できます。</p>
+    <div class="counts">
+      <div><span>口と目の基本（顔だけ差し替える）</span><b>3枚</b></div>
+      <div><span>表情を1つ追加</span><b>＋1枚</b></div>
+      <div><span>仕草を1つ追加</span><b>＋4枚</b></div>
+      <div class="total"><span>フル装備（表情3種＋仕草3つ）</span><b>合計18枚</b></div>
+    </div>
+    <p>生成後は、各プレビューで「口はちゃんと開いているか」「<strong>左右両方</strong>の目が閉じているか」「眉や髪、アクセサリーが変わっていないか」を目視で確認してください。</p>
+
+    <h4><span class="new-badge">NEW</span>v2で追加：再生成に「追加の指示」を添えられます</h4>
+    <p>各カードの「再生成」や、仕草の ↻ を押すとポップアップが開き、「<strong>口を小さく開ける</strong>」のような指示を <strong>160字まで</strong>入力できます（空のままでもOK）。</p>
+    <figure class="shot">
+      <img src="../assets/mouthloop-v2-17.png"
+           width="1200" height="648" loading="lazy" decoding="async"
+           alt="再生成時に「追加の指示」を入力するポップアップ。">
+    </figure>
+    <ul>
+      <li>その指示は<strong>その1回の生成にだけ</strong>使われ、保存されません</li>
+      <li>背景・同じ人物・変えてよい範囲のルールが優先されるため、それに反する指示は無視されます</li>
+    </ul>
+
+    <!-- Step 3 -->
+    <div class="step-head" id="step3" style="margin-top:56px">
+      <span class="step-num">3</span>
+      <h3>ステップ3：フレーム作成（範囲を囲む）</h3>
+    </div>
+    <p>「顔だけ差し替える」では、先に<strong>差し替える範囲</strong>を囲みます。顔の上をドラッグするだけです。わりとざっくりでも上手くいくので、まずはざっくり試してみてください。後から再調整できます。</p>
+    <figure class="shot">
+      <img src="../assets/mouthloop-v2-18.png"
+           width="1200" height="1086" loading="lazy" decoding="async"
+           alt="範囲エディター。口・左目・右目などを囲んでいるところ。">
+    </figure>
+    <p>囲む範囲は、選んだ内容によって増えます。</p>
+    <ul>
+      <li><strong>口</strong>（常に必要）… 小さめに囲むほど安定します</li>
+      <li><strong>左目・右目</strong>（常に必要）… 同上。眉間・鼻筋・メガネのブリッジを差し替え対象から外すため、左右で分けています</li>
+      <li><strong>表情</strong>（表情セットを使うとき）… <strong>眉まで含めて</strong>囲みます。眉が外れると怒り・悲しみがほとんど伝わりません</li>
+      <li><strong>仕草</strong>（仕草を使うとき）… <strong>腕の通り道だけ</strong>をなるべく細く囲みます</li>
+    </ul>
+
+    <h4><span class="new-badge">NEW</span>v2で追加：背景の抜き具合／瞬きに使う目</h4>
+    <figure class="shot">
+      <img src="../assets/mouthloop-v2-19.png"
+           width="1200" height="160" loading="lazy" decoding="async"
+           alt="「背景の抜き具合」と「瞬きに使う目」の設定。">
+    </figure>
+    <ul>
+      <li><strong>背景の抜き具合</strong>（弱め・標準・強め・最強）：輪郭に背景色が残るときは「強め」、髪や服の細い部分が欠けるときは「弱め」。変更後は「6フレームを作成・検証」を押し直すだけで反映されます（<strong>生成はやり直しません</strong>）</li>
+      <li><strong>瞬きに使う目</strong>：横向きや前髪で片目しか見えないときに、使わない方をOFFにできます</li>
+    </ul>
+    <p>全身の構図では顔が小さくなるので、<strong>300%表示</strong>を使うと合わせやすくなります。</p>
+    <p>準備できたら「<strong>6フレームを作成・検証</strong>」を押します。背景が透過処理され、フレームが組み上がります。</p>
+    <figure class="shot">
+      <img src="../assets/mouthloop-v2-20.png"
+           width="1200" height="369" loading="lazy" decoding="async"
+           alt="「6フレームを作成・検証」ボタンと検証結果の表示。">
+    </figure>
+
+    <!-- Step 4 -->
+    <div class="step-head" id="step4" style="margin-top:56px">
+      <span class="step-num">4</span>
+      <h3>ステップ4：できあがりを確認して保存する ★保存はここ</h3>
+    </div>
+
+    <h4><span class="new-badge">NEW</span>v2で追加：その場で動きを確認できます</h4>
+    <p>完成したコマを<strong>その場で再生</strong>して確認できます。<strong>画像生成は行いません</strong>。v1ではWebPを作らないと動きが見られなかったので、確認がぐっと早くなりました。</p>
+    <figure class="shot">
+      <img src="../assets/mouthloop-v2-21.png"
+           width="1200" height="745" loading="lazy" decoding="async"
+           alt="ステップ4の動くプレビュー。完成したコマをその場で再生している画面。">
+    </figure>
+    <div class="note">
+      ここでの速さは完成イメージの確認用です。SlideCast Studioではリップシンクの速さは音声に合わせて自動で決まり、仕草の間隔は別途調整します。
+    </div>
+
+    <h4>💾 「SlideCast Studio用キャラパック（ZIP）」を保存</h4>
+    <p>保存ボタンを押すと、<strong>保存サイズを選ぶダイアログ</strong>が開きます（512／768／1024px）。</p>
+    <figure class="shot grid2">
+      <img src="../assets/mouthloop-v2-22.png"
+           width="1200" height="757" loading="lazy" decoding="async"
+           alt="ステップ4の保存ボタンと「このパックに入る内容」の表示。">
+      <img src="../assets/mouthloop-v2-23.png"
+           width="1118" height="1070" loading="lazy" decoding="async"
+           alt="保存サイズを選ぶダイアログ。512／768／1024pxのカードと実際の容量。">
+      <figcaption>保存前の内容確認と、保存サイズを選ぶダイアログ</figcaption>
+    </figure>
+    <ul>
+      <li>サイズを選ぶとその場でファイルが作られ、<strong>実際の容量が表示されます</strong>。アップロード先の容量制限に引っかかる前に気づけます</li>
+      <li><strong>保存サイズを変えても、生成済みの顔差分は消えません</strong></li>
+      <li>作業解像度より大きいサイズを選ぶと<strong>引き伸ばしになる</strong>ため、その旨がダイアログに表示されます</li>
+      <li>コマ数が多いときは、<strong>512px</strong>が推奨されます（ZIPは50MBが上限です）</li>
+    </ul>
+    <p>保存前に「このパックに入る内容」（基本表情◯枚／追加表情／仕草／合計PNG数）が表示されるので、意図した中身になっているか確認できます。</p>
+    <div class="note good">
+      <strong>ここまでで作業は完了です。</strong> アニメ画像が不要なら、ステップ5は飛ばして構いません。
+    </div>
+
+    <!-- Step 5 -->
+    <div class="step-head" id="step5" style="margin-top:56px">
+      <span class="step-num">5</span>
+      <h3>ステップ5：（任意）アニメ画像として書き出す</h3>
+    </div>
+    <p>音声連動を使わない場面のために、ループアニメーションも作れます。</p>
+    <figure class="shot">
+      <img src="../assets/mouthloop-v2-24.png"
+           width="1200" height="1157" loading="lazy" decoding="async"
+           alt="ステップ5のアニメ画像書き出し画面。速さ・仕草の間隔・保存品質の設定。">
+    </figure>
+    <ul>
+      <li><strong>プレビューする表情</strong>：どの表情でアニメを作るか選びます（ZIPには全表情が入ります）</li>
+      <li><strong>リップシンクの速さ</strong>：速い／標準／ゆっくり</li>
+      <li><strong>仕草を入れる間隔</strong>：短め／標準／長め（リップシンク何回分ごとに仕草を1回入れるか）</li>
+      <li><strong>保存品質</strong>：高いほどきれいですが、ファイルサイズも大きくなります（APNGは劣化なしのため設定なし）</li>
+    </ul>
+    <p>「WebPを作成」（iPad・iPhoneでは「APNGを作成」）を押すとプレビューが表示されます。<strong>3ループ再生して</strong>、ずれや点滅がないか確認してから保存してください。</p>
+    <div class="note good">
+      <b class="label">💡 ヒント</b>
+      仕草を入れる間隔は、<strong>ステップ4の動くプレビューとこのアニメ画像にだけ</strong>効きます。キャラパックZIPには影響しません。
+    </div>
+  </section>
+
+  <!-- ============ 5. SlideCast Studio ============ -->
+  <section id="slidecast">
+    <h2>🎥 SlideCast Studioで使う</h2>
+    <p class="section-lead">MouthLoopで作った素材は、<strong>SlideCast Studio</strong> にそのままアップロードして使えます。アップロード先は「<strong>設定 → キャラ → キャラ素材・動き</strong>」の中です。</p>
+    <figure class="shot">
+      <img src="../assets/mouthloop-v2-25.png"
+           width="1200" height="802" loading="lazy" decoding="async"
+           alt="SlideCast Studio の「設定 → キャラ → キャラ素材・動き」の画面。">
+    </figure>
+
+    <h3>🎙 音声連動として使う（キャラパックZIP）★おすすめ</h3>
+    <p>「キャラ素材・動き」→「<strong>音声連動</strong>」に、ZIPのままアップロードします。</p>
+    <figure class="shot">
+      <img src="../assets/mouthloop-v2-26.png"
+           width="1200" height="809" loading="lazy" decoding="async"
+           alt="キャラパックZIPを「音声連動」にアップロードしている画面。">
+    </figure>
+    <ul>
+      <li>ナレーション音声に合わせて口が動きます（黙っているときは口が閉じます）</li>
+      <li><strong>v2では表情と仕草の情報も一緒に渡ります</strong></li>
+      <li>アニメーションの速度や仕草の頻度は、<strong>SlideCast Studio側で調整</strong>します</li>
+    </ul>
+
+    <h3>🔁 アニメ画像として使う（WebP／APNG）</h3>
+    <p>「キャラ設定」→「<strong>アニメ画像</strong>」にアップロードします。ナレーションに関係なく、一定のリズムで動き続けます。</p>
+    <figure class="shot">
+      <img src="../assets/mouthloop-v2-27.png"
+           width="1200" height="835" loading="lazy" decoding="async"
+           alt="WebP／APNG を「アニメ画像」にアップロードしている画面。">
+    </figure>
+
+    <h3>🤔 どちらを使えばいい？</h3>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th scope="col"></th><th scope="col">📦 キャラパックZIP</th><th scope="col">🔁 アニメ画像（WebP／APNG）</th></tr>
+        </thead>
+        <tbody>
+          <tr><th scope="row">動き方</th><td class="hl">ナレーション音声に連動</td><td>一定のリズムでループ（音声とは非連動）</td></tr>
+          <tr><th scope="row">表情</th><td class="hl">全表情が入る</td><td>選んだ1表情のみ</td></tr>
+          <tr><th scope="row">仕草</th><td class="hl">入る（タイミングはSlideCast Studio側で調整可）</td><td>入る（頻度は書き出し時に固定される）</td></tr>
+          <tr><th scope="row">画質</th><td class="hl">可逆PNG（劣化なし）</td><td>WebPは非可逆／APNGは可逆</td></tr>
+          <tr><th scope="row">iPad</th><td class="hl">利用可</td><td>読み込めない場合あり</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="note good"><strong>迷ったらキャラパックZIP</strong>です。</div>
+  </section>
+
+  <!-- ============ 6. トラブル ============ -->
+  <section id="trouble">
+    <h2>🔧 うまくいかないときは</h2>
+    <p class="section-lead">見出しをタップすると答えが開きます。</p>
+
+    <div class="faq">
+      <details>
+        <summary>👋 仕草や表情のパネルが「使えない」と出る</summary>
+        <div class="body">
+          <p>「作り方を選ぶ」が「<strong>まるごと描き直す</strong>」になっています。「<strong>顔だけ差し替える</strong>」に切り替えてください。仕草の場合は、ステップ1の構図が「顔・頭だけ」になっていないかも確認してください。</p>
+        </div>
+      </details>
+      <details>
+        <summary>🙌 仕草で腕や手が画面からはみ出す</summary>
+        <div class="body">
+          <p>ステップ1の切り抜きで「<strong>余白を足す</strong>」を20%程度にして、やり直してください。足りなければ30%も試せます。</p>
+        </div>
+      </details>
+      <details>
+        <summary>😐 表情を追加したのに、怒りや悲しみが伝わらない</summary>
+        <div class="body">
+          <p>ステップ3の「<strong>表情</strong>」の範囲に、<strong>眉が含まれていない</strong>可能性があります。眉まで含めて囲み直してください。</p>
+        </div>
+      </details>
+      <details>
+        <summary>🌀 仕草を入れたら顔まで動いてしまう</summary>
+        <div class="body">
+          <p>ステップ3の「仕草」の範囲が広すぎます。<strong>腕と手など仕草の動きが通る場所だけ</strong>を細く囲むと安定します。範囲エディターに薄く重なる腕のコマを目安にしてください。</p>
+        </div>
+      </details>
+      <details>
+        <summary>✨ 仕上がりがちらつく</summary>
+        <div class="body">
+          <p>「<strong>顔だけ差し替える</strong>」を使ってください（v2では既定です）。囲む範囲を小さめにすると、さらに安定します。しかし、どうしてもそれぞれのコマの画像生成で微妙に色味が違うとチラつきを感じることがあります。</p>
+        </div>
+      </details>
+      <details>
+        <summary>👀 目が片方しか閉じない／表情が崩れる</summary>
+        <div class="body">
+          <p>そのカードの「再生成」を押してください。v2では「口を小さく開ける」のような<strong>追加の指示</strong>を添えられます。</p>
+          <p>MouthLoopは<strong>出来映えを理由に勝手に作り直すことはしません</strong>。作り直すかどうかは、自分で決めます。</p>
+        </div>
+      </details>
+      <details>
+        <summary>🎨 輪郭に背景色が残る／髪の細い部分が欠ける</summary>
+        <div class="body">
+          <p>ステップ3の「<strong>背景の抜き具合</strong>」を調整して、「6フレームを作成・検証」を押し直してください。<strong>画像の生成はやり直されません</strong>。</p>
+          <figure class="shot">
+            <img src="../assets/mouthloop-v2-28.png"
+                 width="1200" height="433" loading="lazy" decoding="async"
+                 alt="「背景の抜き具合」を弱め・標準・強め・最強から選ぶ画面。">
+          </figure>
+        </div>
+      </details>
+      <details>
+        <summary>📦 ZIPが大きすぎて保存できない</summary>
+        <div class="body">
+          <p>保存サイズを<strong>512px</strong>に下げるか、表情・仕草の数を減らしてください。上限は50MBです。<strong>生成済みの画像は削除されません</strong>。</p>
+        </div>
+      </details>
+      <details>
+        <summary>⏳ 生成に失敗する</summary>
+        <div class="body">
+          <p>しばらく時間をおいてから、もう一度試してください。利用上限に達している場合は、繰り返し押しても改善しません。</p>
+        </div>
+      </details>
+      <details>
+        <summary>📐 出力サイズを大きくすれば高画質になる？</summary>
+        <div class="body">
+          <p>なりません。保存サイズ（512／768／1024px）は<strong>保存サイズ</strong>を決める設定です。作業解像度より大きいサイズを選ぶと引き伸ばしになるだけで、情報量は増えません（ダイアログにも注意が表示されます）。</p>
+        </div>
+      </details>
+    </div>
+  </section>
+
+  <!-- ============ 7. 注意 ============ -->
+  <section id="cautions">
+    <h2>📋 使うときの注意</h2>
+    <ul class="cautions">
+      <li>画像はAI（Google Gemini）が生成します。生成結果をどこまで使ってよいかは、<strong>Googleの利用規約とご自身の用途</strong>に照らして確認してください</li>
+      <li>実在の人物になりすます目的での利用は避けてください</li>
+      <li>入力内容と画像は、<strong>画像を生成するときだけ</strong>Google（Gemini）へ送信されます。このツールでは保存しません</li>
+      <li><strong>画面を閉じると作業内容は消えます</strong>。完成したキャラパックZIPは必ず保存してから閉じましょう</li>
+    </ul>
+  </section>
+
+  <!-- ============ 8. まとめ ============ -->
+  <section id="wrapup">
+    <h2>🎁 まとめ</h2>
+    <div class="wrapup">
+      <p>MouthLoop v2は、「画像1枚 → 口パク素材」だったツールを、「画像1枚 → <strong>表情も仕草も持ったキャラクター素材</strong>」に広げるアップデートです。</p>
+      <ul>
+        <li>🙂 <strong>表情</strong>（笑顔・悲しみ・怒り）を、1表情あたり画像1枚で追加できる</li>
+        <li>👋 <strong>仕草</strong>を最大3つ、到達点を確認してから作れる</li>
+        <li>📦 保存物は <strong>キャラパックZIP 1つ</strong>にまとまり、SlideCast Studioの「音声連動」へそのまま</li>
+        <li>▶️ ステップ4で<strong>その場で動きを確認</strong>できる</li>
+        <li>📱 iPad・iPhoneでも<strong>自動でAPNG</strong>に切り替わる</li>
+        <li>✅ 変わらず <strong>インストール不要・アカウント登録不要・APIキー不要</strong></li>
+      </ul>
+      <p>v1から使ってくださっている方は、まず「<strong>作り方を選ぶ → 顔だけ差し替える</strong>」のまま、表情を1つだけ足してみるのがおすすめです。追加で必要な生成は<strong>画像1枚だけ</strong>なので、気軽に試せます。</p>
+      <div class="hero-actions">
+        <a class="button" href="https://share.gemini.google/dkU0IVHfQ2gu" target="_blank" rel="noopener noreferrer">MouthLoop を開く</a>
+        <a class="button secondary" href="https://note.com/bluezzly/n/n73a045067fbe" target="_blank" rel="noopener noreferrer">note の元記事</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <p>MouthLoop v2 ／ 記事公開日 2026年8月5日</p>
+  <p><a href="../">HOME</a> ／ <a href="../manual/">公式マニュアル</a></p>
+  <p>元記事：<a href="https://note.com/bluezzly/n/n73a045067fbe" target="_blank" rel="noopener noreferrer">note.com/bluezzly</a></p>
+</footer>
+
+<a class="to-top" id="toTop" href="#top" aria-label="ページ先頭へ戻る">↑</a>
+
+<script>
+(function () {
+  'use strict';
+  var progress = document.getElementById('progress');
+  var toTop = document.getElementById('toTop');
+  var ticking = false;
+
+  function update() {
+    ticking = false;
+    var doc = document.documentElement;
+    var max = doc.scrollHeight - doc.clientHeight;
+    var y = window.scrollY || doc.scrollTop || 0;
+    var ratio = max > 0 ? Math.min(1, Math.max(0, y / max)) : 0;
+    progress.style.width = (ratio * 100).toFixed(2) + '%';
+    if (y > 600) { toTop.classList.add('show'); } else { toTop.classList.remove('show'); }
+  }
+
+  function onScroll() {
+    if (ticking) { return; }
+    ticking = true;
+    window.requestAnimationFrame(update);
+  }
+
+  window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('resize', onScroll, { passive: true });
+  update();
+
+  /* ---- どこからでも開ける目次 ---- */
+  var panel = document.getElementById('tocPanel');
+  var backdrop = document.getElementById('tocBackdrop');
+  var openBtn = document.getElementById('tocOpen');
+  var closeBtn = document.getElementById('tocClose');
+  var links = [].slice.call(panel.querySelectorAll('a[href^="#"]'));
+
+  function openToc() {
+    panel.hidden = false;
+    /* hidden解除直後だとtransitionが効かないので1フレーム待つ */
+    window.requestAnimationFrame(function () {
+      panel.classList.add('open');
+      backdrop.classList.add('show');
+    });
+    openBtn.setAttribute('aria-expanded', 'true');
+  }
+
+  function closeToc() {
+    panel.classList.remove('open');
+    backdrop.classList.remove('show');
+    openBtn.setAttribute('aria-expanded', 'false');
+    window.setTimeout(function () {
+      if (!panel.classList.contains('open')) { panel.hidden = true; }
+    }, 300);
+  }
+
+  openBtn.addEventListener('click', function () {
+    if (panel.classList.contains('open')) { closeToc(); } else { openToc(); }
+  });
+  closeBtn.addEventListener('click', closeToc);
+  backdrop.addEventListener('click', closeToc);
+  links.forEach(function (a) { a.addEventListener('click', closeToc); });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && panel.classList.contains('open')) { closeToc(); }
+  });
+
+  /* ---- 現在地のハイライト ---- */
+  var targets = links.map(function (a) {
+    return document.querySelector(a.getAttribute('href'));
+  });
+
+  function markActive() {
+    var best = -1;
+    var line = (window.scrollY || 0) + 140;
+    for (var i = 0; i < targets.length; i++) {
+      var el = targets[i];
+      if (el && el.getBoundingClientRect().top + window.scrollY <= line) { best = i; }
+    }
+    links.forEach(function (a, i) { a.classList.toggle('active', i === best); });
+  }
+
+  window.addEventListener('scroll', function () {
+    if (panel.classList.contains('open')) { markActive(); }
+  }, { passive: true });
+  openBtn.addEventListener('click', markActive);
+  markActive();
+})();
+</script>
+
+</body>
+</html>

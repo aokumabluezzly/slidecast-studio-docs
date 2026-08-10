@@ -12,6 +12,7 @@
 | `intro/` | SlideCast Studio とは（紹介ページ） |
 | `manual/` | 公式マニュアル（v3.4 対応版） |
 | `bundle-builder/` | SlideCast Bundle Builder 使い方ガイド |
+| `mouthloop-v2/` | MouthLoop v2 アップデート・使い方ガイド |
 | `updates/v34/` | v3.4「NUANCE」アップデート |
 | `updates/v33/` | v3.3「SYNC」アップデート |
 

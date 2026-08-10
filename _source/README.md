@@ -13,6 +13,7 @@
 | `retired/home.spec.json` | **旧**トップページの設計データ。現在のトップページは spec から生成していません（下記） |
 | `intro.spec.json` | 紹介ページ（`/intro/index.html`）の設計データ |
 | `bundle-builder.spec.json` | Bundle Builder ガイド（`/bundle-builder/index.html`）の設計データ |
+| `mouthloop-v2/index.html` | note 添付HTMLを元に移行した MouthLoop v2 ガイド（specなし） |
 | `img/` | 各 spec が参照する画像。生成時に `/assets/` へコピーされます |
 | `tools/externalize_images.py` | 設計データが無いページから Base64 画像を抜き出して `/assets/` へ移す移行スクリプト |
 
@@ -88,7 +89,7 @@ YouTube / Vimeo は `video` ブロックで貼ります。**クリックされ�
 
 ## 設計データが無い記事
 
-`manual/`、`updates/v34/`、`updates/v33/` の3本は、この仕組みを整える前に作られたため、設計データが残っていません。これらを大きく直す場合は、元の Markdown 原稿から spec を作り直す形になります。
+`manual/`、`updates/v34/`、`updates/v33/` の3本は、この仕組みを整える前に作られたため、設計データが残っていません。`mouthloop-v2/` は、作者が note 記事内で配布している完成済みHTMLを元に、画像を外部ファイル化してサイトへ移行したページです。これらを大きく直す場合は、元の Markdown 原稿または元HTMLから spec を作り直す形になります。
 
 画像の外部ファイル化だけは spec 無しで済ませてあります。同じことを別のページでやる場合は次のとおりです（ページを上書きするので、実行前に `--dry-run` で件数を確認してください）。
 
