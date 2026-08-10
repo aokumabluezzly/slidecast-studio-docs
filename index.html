@@ -223,22 +223,50 @@ a{color:var(--primary-ink)}
 .guide-card span{color:var(--muted);font-size:.82rem;line-height:1.75}
 .guide-card em{color:var(--primary-ink);font-style:normal;font-size:.78rem;font-weight:var(--fw-title)}
 
-/* ---------- feature list ---------- */
-.feature-panel{
-  padding:clamp(22px,3vw,34px);border-radius:var(--r-lg);
-  border:1px solid var(--line);background:var(--grad-panel);box-shadow:var(--shadow-sm);
+/* ---------- video : クリックされるまで YouTube / Vimeo へ通信しない ---------- */
+.video-strip{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(12px,2vw,22px)}
+.video-item{margin:0}
+.video-facade{
+  position:relative;display:block;width:100%;padding:0;overflow:hidden;cursor:pointer;
+  aspect-ratio:16 / 9;border:1px solid var(--line);border-radius:var(--r-md);background:var(--soft);
+  box-shadow:var(--shadow-sm);transition:transform .2s ease,box-shadow .2s ease;
 }
-.feature-list{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px 26px}
-.feature-list li{
-  position:relative;padding-left:30px;color:var(--ink-soft);font-size:.92rem;line-height:1.8;
+.video-facade:hover{transform:translateY(-3px);box-shadow:var(--shadow)}
+.video-facade img{display:block;width:100%;height:100%;object-fit:cover}
+.video-play{
+  position:absolute;top:50%;left:50%;width:clamp(44px,7vw,72px);height:clamp(44px,7vw,72px);
+  transform:translate(-50%,-50%);border-radius:50%;background:rgba(17,17,27,.62);
+  box-shadow:0 8px 26px rgba(0,0,0,.32);transition:background .2s ease,transform .2s ease;
 }
-.feature-list li::before{
-  content:"";position:absolute;left:0;top:.62em;width:18px;height:18px;border-radius:50%;
-  background:var(--grad-brand);
-  -webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M9.6 16.2 4.8 11.4l1.4-1.4 3.4 3.4 8-8 1.4 1.4z' fill='%23000'/%3E%3C/svg%3E") center/contain no-repeat;
-  mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M9.6 16.2 4.8 11.4l1.4-1.4 3.4 3.4 8-8 1.4 1.4z' fill='%23000'/%3E%3C/svg%3E") center/contain no-repeat;
+.video-play::after{
+  content:"";position:absolute;top:50%;left:55%;transform:translate(-50%,-50%);
+  border-style:solid;border-width:.45em 0 .45em .78em;border-color:transparent transparent transparent #fff;
+  font-size:clamp(16px,2.4vw,26px);
 }
-.feature-foot{margin:22px 0 0;display:flex;flex-wrap:wrap;gap:10px}
+.video-facade:hover .video-play{background:var(--primary);transform:translate(-50%,-50%) scale(1.06)}
+.video-item figcaption{
+  margin-top:10px;text-align:center;color:var(--ink-soft);font-size:.86rem;font-weight:var(--fw-title);line-height:1.6;
+}
+.video-item figcaption small{display:block;color:var(--muted);font-size:.74rem;font-weight:400}
+.video-item iframe{
+  display:block;width:100%;aspect-ratio:16 / 9;border:1px solid var(--line);border-radius:var(--r-md);background:#000;
+}
+
+/* ---------- feature cards ---------- */
+.feature-grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:clamp(10px,1.4vw,14px)}
+.feature-chip{
+  display:flex;flex-direction:column;align-items:center;justify-content:flex-start;gap:9px;
+  padding:20px 12px 18px;border-radius:var(--r-md);text-align:center;
+  background:var(--grad-deep);color:var(--on-deep);box-shadow:var(--shadow-deep);
+  transition:transform .2s ease;
+}
+.feature-chip:hover{transform:translateY(-3px)}
+.feature-chip i{font-size:1.75rem;line-height:1;font-style:normal}
+.feature-chip strong{font-size:.85rem;font-weight:var(--fw-title);line-height:1.55;letter-spacing:.01em}
+.feature-note{
+  margin:20px 0 0;text-align:center;color:var(--muted);font-size:.84rem;line-height:1.8;
+}
+.feature-foot{margin:20px 0 0;display:flex;flex-wrap:wrap;justify-content:center;gap:10px}
 
 /* ---------- timeline ---------- */
 .timeline{list-style:none;margin:0;padding:0 0 0 26px;position:relative}
@@ -291,6 +319,9 @@ a{color:var(--primary-ink)}
 .footer-meta{margin:0;padding-bottom:26px;color:var(--muted);font-size:.76rem}
 
 /* ---------- responsive ---------- */
+@media (max-width:1100px){
+  .feature-grid{grid-template-columns:repeat(4,minmax(0,1fr))}
+}
 @media (max-width:1000px){
   .article-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
   .guide-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
@@ -298,7 +329,7 @@ a{color:var(--primary-ink)}
 @media (max-width:820px){
   .hero-grid{grid-template-columns:1fr}
   .hero-media{order:-1}
-  .feature-list{grid-template-columns:1fr}
+  .feature-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
   .link-grid{grid-template-columns:1fr}
 }
 @media (max-width:560px){
@@ -306,6 +337,10 @@ a{color:var(--primary-ink)}
   .wrap{width:min(100% - 24px,var(--wide))}
   .article-grid{grid-template-columns:1fr}
   .guide-grid{grid-template-columns:1fr}
+  /* 動画は横2枚のまま。縦に積むと記事一覧が画面から押し出されるため */
+  .feature-chip{padding:16px 8px 14px}
+  .feature-chip i{font-size:1.5rem}
+  .feature-chip strong{font-size:.78rem}
   .header-link .label{display:none}
   .btn{width:100%;justify-content:center}
   .cta{flex-direction:column;align-items:flex-start}
@@ -361,6 +396,39 @@ a{color:var(--primary-ink)}
         <figure class="hero-media">
           <img src="assets/hero.jpg" alt="SlideCast Studio のロゴと、スライド・波形タイムラインが表示されたモニターのイメージ" width="1280" height="670">
         </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ サンプル動画（クリックするまで外部へ通信しない） ============ -->
+  <section class="section" id="sample" aria-labelledby="sample-title" style="padding-top:clamp(6px,1vw,12px)">
+    <div class="wrap">
+      <div class="section-head">
+        <h2 id="sample-title">🎥 どんなアプリ？ 30秒で分かります</h2>
+        <p>作った動画と、実際の作り方。クリックすると、この場で再生されます。</p>
+      </div>
+      <div class="video-strip">
+
+        <figure class="video-item">
+          <button class="video-facade" type="button"
+                  data-embed="https://player.vimeo.com/video/1169315924?autoplay=1&amp;dnt=1"
+                  data-title="こんな動画が作れます！" aria-label="こんな動画が作れます！ を再生（Vimeo）">
+            <img src="assets/v34.jpg" alt="" loading="lazy">
+            <span class="video-play" aria-hidden="true"></span>
+          </button>
+          <figcaption>🎥 こんな動画が作れます！<small>サンプル動画（Vimeo）</small></figcaption>
+        </figure>
+
+        <figure class="video-item">
+          <button class="video-facade" type="button"
+                  data-embed="https://www.youtube-nocookie.com/embed/cB0MVpcMdKo?autoplay=1&amp;rel=0"
+                  data-title="こうやって作ります！" aria-label="こうやって作ります！ を再生（YouTube）">
+            <img src="assets/ui-easy.png" alt="" loading="lazy">
+            <span class="video-play" aria-hidden="true"></span>
+          </button>
+          <figcaption>🎬 こうやって作ります！<small>制作の流れ（YouTube）</small></figcaption>
+        </figure>
+
       </div>
     </div>
   </section>
@@ -474,22 +542,28 @@ a{color:var(--primary-ink)}
         <h2 id="about-title">🎬 SlideCast Studio でできること</h2>
         <p>ブラウザだけで完結する、インストール不要のスライド動画作成ツールです。</p>
       </div>
-      <div class="feature-panel">
-        <ul class="feature-list">
-          <li>PDF・画像・動画を読み込んでスライドにする</li>
-          <li>AI ナレーション音声と字幕を自動で付ける</li>
-          <li>キャラクターの口パク・表情・ポーズ仕草を演出する</li>
-          <li>BGM・OP/ED・テロップ・バッジで仕上げる</li>
-          <li>MP4 / WebM の動画として書き出す</li>
-          <li>PPTX / PDF / PNG / JPEG の資料としても書き出す</li>
-          <li>16:9・9:16・1:1 の3サイズに対応</li>
-          <li>データはすべて自分のブラウザ内に保存される</li>
-        </ul>
-        <p class="feature-foot">
-          <a class="btn btn-ghost" href="intro/">💡 紹介ページで詳しく見る</a>
-          <a class="btn btn-ghost" href="intro/#section-1">🎥 サンプル動画を見る</a>
-        </p>
+      <div class="feature-grid">
+        <div class="feature-chip"><i aria-hidden="true">🤖</i><strong>AI台本生成</strong></div>
+        <div class="feature-chip"><i aria-hidden="true">🔊</i><strong>AI音声合成</strong></div>
+        <div class="feature-chip"><i aria-hidden="true">🎭</i><strong>キャラクター演出</strong></div>
+        <div class="feature-chip"><i aria-hidden="true">🎞️</i><strong>スライドアニメ</strong></div>
+        <div class="feature-chip"><i aria-hidden="true">🎬</i><strong>動画スライド</strong></div>
+        <div class="feature-chip"><i aria-hidden="true">🧱</i><strong>空のスライド</strong></div>
+        <div class="feature-chip"><i aria-hidden="true">🎨</i><strong>デザイン設定</strong></div>
+        <div class="feature-chip"><i aria-hidden="true">🎵</i><strong>BGM 最大10トラック</strong></div>
+        <div class="feature-chip"><i aria-hidden="true">🎤</i><strong>マイク録音</strong></div>
+        <div class="feature-chip"><i aria-hidden="true">🔔</i><strong>効果音・文字送り音</strong></div>
+        <div class="feature-chip"><i aria-hidden="true">🕐</i><strong>スライド内タイムライン</strong></div>
+        <div class="feature-chip"><i aria-hidden="true">💬</i><strong>字幕・テロップ</strong></div>
+        <div class="feature-chip"><i aria-hidden="true">📚</i><strong>ブック型PDF</strong></div>
+        <div class="feature-chip"><i aria-hidden="true">💾</i><strong>MP4・PPTX・PDF出力</strong></div>
+        <div class="feature-chip"><i aria-hidden="true">🌐</i><strong>日本語・英語UI</strong></div>
       </div>
+      <p class="feature-note">画面比は 16:9・9:16・1:1 の3サイズに対応。データはすべて自分のブラウザ内に保存されます。</p>
+      <p class="feature-foot">
+        <a class="btn btn-primary" href="intro/">💡 紹介ページで詳しく見る</a>
+        <a class="btn btn-ghost" href="manual/">📘 公式マニュアルを読む</a>
+      </p>
     </div>
   </section>
 
@@ -610,6 +684,19 @@ a{color:var(--primary-ink)}
   document.getElementById('themeToggle').addEventListener('click', () => {
     root.dataset.theme = root.dataset.theme === 'dark' ? 'light' : 'dark';
     localStorage.setItem('article-theme', root.dataset.theme);
+  });
+
+  /* クリックされて初めて YouTube / Vimeo を読み込む。それまでは通信しない */
+  document.querySelectorAll('.video-facade').forEach(button => {
+    button.addEventListener('click', () => {
+      const frame = document.createElement('iframe');
+      frame.src = button.dataset.embed;
+      frame.title = button.dataset.title || '動画';
+      frame.allow = 'autoplay; fullscreen; picture-in-picture; encrypted-media';
+      frame.allowFullscreen = true;
+      frame.referrerPolicy = 'strict-origin-when-cross-origin';
+      button.replaceWith(frame);
+    });
   });
 })();
 </script>
