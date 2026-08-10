@@ -13,7 +13,8 @@
 | `retired/home.spec.json` | **旧**トップページの設計データ。現在のトップページは spec から生成していません（下記） |
 | `intro.spec.json` | 紹介ページ（`/intro/index.html`）の設計データ |
 | `bundle-builder.spec.json` | Bundle Builder ガイド（`/bundle-builder/index.html`）の設計データ |
-| `mouthloop-v2/index.html` | note 添付HTMLを元に移行した MouthLoop v2 ガイド（specなし） |
+| `mouthloop-v2.spec.json` | MouthLoop v2 ガイド（`/mouthloop-v2/index.html`）の設計データ |
+| `mouthloop-v2.extra.css` | 標準テンプレートへ追加する比較・手順・FAQ等の記事専用スタイル |
 | `img/` | 各 spec が参照する画像。生成時に `/assets/` へコピーされます |
 | `tools/externalize_images.py` | 設計データが無いページから Base64 画像を抜き出して `/assets/` へ移す移行スクリプト |
 
@@ -40,6 +41,17 @@ python3 ~/.claude/skills/build-rich-html-article/scripts/build_article.py \
 
 python3 ~/.claude/skills/build-rich-html-article/scripts/build_article.py \
   _source/bundle-builder.spec.json bundle-builder/index.html --assets assets
+```
+
+MouthLoop v2 は標準テンプレートで生成したあと、記事専用モジュールとサイト内リンクを後処理で追加し、画像を外部化します。
+
+```bash
+python3 ~/.codex/skills/build-rich-html-article/scripts/build_article.py \
+  _source/mouthloop-v2.spec.json mouthloop-v2/index.html
+python3 _source/tools/enhance_mouthloop_v2.py mouthloop-v2/index.html \
+  --css _source/mouthloop-v2.extra.css
+python3 _source/tools/externalize_images.py mouthloop-v2/index.html \
+  --assets assets --stem mouthloop-v2
 ```
 
 リンクの接頭辞は、出力先から見た `assets` の相対パス（`assets/`、`../assets/`、`../../assets/`）が自動で入ります。同じ内容の画像は1つのファイルにまとめられ、ヒーロー以外には `loading="lazy"` が付きます。
@@ -89,7 +101,7 @@ YouTube / Vimeo は `video` ブロックで貼ります。**クリックされ�
 
 ## 設計データが無い記事
 
-`manual/`、`updates/v34/`、`updates/v33/` の3本は、この仕組みを整える前に作られたため、設計データが残っていません。`mouthloop-v2/` は、作者が note 記事内で配布している完成済みHTMLを元に、画像を外部ファイル化してサイトへ移行したページです。これらを大きく直す場合は、元の Markdown 原稿または元HTMLから spec を作り直す形になります。
+`manual/`、`updates/v34/`、`updates/v33/` の3本は、この仕組みを整える前に作られたため、設計データが残っていません。これらを大きく直す場合は、元の Markdown 原稿から spec を作り直す形になります。
 
 画像の外部ファイル化だけは spec 無しで済ませてあります。同じことを別のページでやる場合は次のとおりです（ページを上書きするので、実行前に `--dry-run` で件数を確認してください）。
 
