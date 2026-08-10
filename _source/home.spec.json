@@ -1,0 +1,114 @@
+{
+  "title": "SlideCast Studio ドキュメント",
+  "subtitle": "資料を読み込むだけで、ナレーション・字幕・キャラ演出つきの動画へ。記事はすべてこのページからたどれます。",
+  "description": "SlideCast Studio の紹介・公式マニュアル・アップデート情報をまとめたドキュメントサイト。資料とAI音声から動画を作れる買い切りツールです。",
+  "lead": "",
+  "eyebrow": "DOCUMENTATION",
+
+  "brand": "SlideCast ",
+  "brand_accent": "Studio",
+  "brand_badge": "Docs",
+  "author": "aokuma",
+  "date": "2026.08.10",
+  "version": "v3.4 NUANCE",
+  "footer_meta": "SlideCast Studio ドキュメント · aokuma · 最終更新 2026.08.10",
+
+  "theme": {
+    "primary": "#2f74ee",
+    "secondary": "#6d3df2",
+    "accent": "#e85a8a",
+    "surface": "#f2f6ff",
+    "ink": "#16203a"
+  },
+
+  "hero_image": "./img/hero.jpg",
+  "hero_alt": "SlideCast Studio のロゴと、スライド・波形タイムラインが表示されたモニターのイメージ",
+
+  "chips": ["スライド動画", "AI音声（TTS）", "リップシンク", "字幕", "GAS", "Bundle Builder"],
+
+  "stats": [
+    { "icon": "🛒", "value": "買い切り", "label": "月額なし。サブスクではありません" },
+    { "icon": "🔑", "value": "API不要", "label": "買い切り以外の追加費用なしで使えます" },
+    { "icon": "🎛️", "value": "多機能", "label": "細部まで自分好みに設定できます" },
+    { "icon": "🖥️", "value": "インストール不要", "label": "PCブラウザだけで完結します" }
+  ],
+
+  "source_url": "https://note.com/bluezzly/n/nb4c85213c808",
+  "source_label": "note で詳しく見る",
+  "source_title": "SlideCast Studio の入手はこちら",
+  "source_note": "アプリ本体の配布と最新価格は note の記事でご案内しています。",
+  "update_url": "https://note.com/bluezzly/n/nb4c85213c808",
+  "update_label": "note",
+  "sections_label": "MORE",
+
+  "overview": {
+    "icon": "📚",
+    "title": "記事一覧",
+    "blocks": [
+      {
+        "type": "html",
+        "html": "<p><strong>SlideCast Studio</strong> は、PDF などの資料と AI 音声を組み合わせて、ナレーション・字幕つきの動画をブラウザだけで作れる買い切りツールです。<br>このサイトには、製品の紹介・全機能のマニュアル・各バージョンの更新内容をまとめています。</p><ul class=\"link-cards\"><li><a href=\"./intro/\"><span class=\"emoji\" aria-hidden=\"true\">📽️</span><span><strong>SlideCast Studio とは（紹介ページ）</strong><small>できること、料金、動作環境、導入手順まで。まずはここから</small></span></a></li><li><a href=\"./manual/\"><span class=\"emoji\" aria-hidden=\"true\">📘</span><span><strong>公式マニュアル（v3.4 対応版）</strong><small>全16章。全機能の詳しい操作方法をまとめたリファレンス</small></span></a></li><li><a href=\"./updates/v34/\"><span class=\"emoji\" aria-hidden=\"true\">🆕</span><span><strong>v3.4「NUANCE」アップデート</strong><small>表情・ポーズ仕草・おまかせ演技・空のスライド</small></span></a></li><li><a href=\"./updates/v33/\"><span class=\"emoji\" aria-hidden=\"true\">🔄</span><span><strong>v3.3「SYNC」アップデート</strong><small>キャラ素材3方式・6枚リップシンク・吹き出し追従</small></span></a></li></ul>"
+      }
+    ]
+  },
+
+  "sections": [
+    {
+      "icon": "🧭",
+      "category": "GUIDE",
+      "title": "どの記事から読めばいい？",
+      "intro": "目的別に、おすすめの入口をご案内します。",
+      "blocks": [
+        {
+          "type": "html",
+          "html": "<dl class=\"spec-list\"><div><dt>はじめて知った</dt><dd>「SlideCast Studio とは」から。何ができるか、いくらかかるか、自分の PC で動くかが一通り分かります。</dd></div><div><dt>買うか迷っている</dt><dd>同じく紹介ページの「動作環境」「かかるお金の話」「導入手順」の章を。導入手順は購入前に全公開しています。</dd></div><div><dt>もう使っている</dt><dd>「公式マニュアル」で目的の機能を探すのが早いです。</dd></div><div><dt>最新版が気になる</dt><dd>「v3.4 NUANCE」の更新内容をご覧ください。</dd></div></dl>"
+        }
+      ]
+    },
+    {
+      "icon": "🎬",
+      "category": "ABOUT",
+      "title": "SlideCast Studio でできること",
+      "intro": "ブラウザだけで完結する、インストール不要のスライド動画作成ツールです。",
+      "blocks": [
+        {
+          "type": "check_list",
+          "items": [
+            "PDF・画像・動画を読み込んでスライドにする",
+            "AI ナレーション音声と字幕を自動で付ける",
+            "キャラクターの口パク・表情・ポーズ仕草を演出する",
+            "BGM・OP/ED・テロップ・バッジで仕上げる",
+            "MP4 / WebM の動画として書き出す",
+            "PPTX / PDF / PNG / JPEG の資料としても書き出す",
+            "16:9・9:16・1:1 の3サイズに対応",
+            "データはすべて自分のブラウザ内に保存される"
+          ]
+        },
+        {
+          "type": "link_cards",
+          "items": [
+            { "icon": "🎥", "title": "サンプル動画を見る", "text": "このツールで作った動画（Vimeo）", "url": "https://vimeo.com/1169315924" },
+            { "icon": "🎬", "title": "制作の流れを見る", "text": "実際の作り方（YouTube）", "url": "https://youtu.be/cB0MVpcMdKo" }
+          ]
+        }
+      ]
+    },
+    {
+      "icon": "🔗",
+      "category": "LINKS",
+      "title": "関連ツールと外部リンク",
+      "intro": "SlideCast Studio と組み合わせて使える補助ツールです。",
+      "blocks": [
+        {
+          "type": "link_cards",
+          "items": [
+            { "icon": "🧩", "title": "SlideCast Bundle Builder", "text": "APIキーなしで台本と音声を作れる Gemini Canvas アプリ", "url": "https://note.com/bluezzly/n/n9f8dcbb616b6" },
+            { "icon": "👄", "title": "MouthLoop", "text": "1枚の画像から口パク素材を自動生成するアプリ", "url": "https://note.com/bluezzly/n/n54d02ca2b939" },
+            { "icon": "🛠️", "title": "アップデート方法", "text": "GAS版・ローカル版の更新手順", "url": "https://note.com/bluezzly/n/na97ce150da13" },
+            { "icon": "✍️", "title": "aokuma の note", "text": "開発者のnote。更新情報はこちらでお知らせします", "url": "https://note.com/bluezzly" }
+          ]
+        }
+      ]
+    }
+  ]
+}
