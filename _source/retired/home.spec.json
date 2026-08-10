@@ -107,7 +107,7 @@
         {
           "type": "link_cards",
           "items": [
-            { "icon": "🧩", "title": "SlideCast Bundle Builder", "text": "APIキーなしで台本と音声を作れる Gemini Canvas アプリ", "url": "https://note.com/bluezzly/n/n9f8dcbb616b6" },
+            { "icon": "🧩", "title": "SlideCast Bundle Builder", "text": "資料・台本・AI音声・マイク録音をまとめる使い方ガイド", "url": "bundle-builder/" },
             { "icon": "👄", "title": "MouthLoop", "text": "1枚の画像から口パク素材を自動生成するアプリ", "url": "https://note.com/bluezzly/n/n54d02ca2b939" },
             { "icon": "🛠️", "title": "アップデート方法", "text": "GAS版・ローカル版の更新手順", "url": "https://note.com/bluezzly/n/na97ce150da13" },
             { "icon": "✍️", "title": "aokuma の note", "text": "開発者のnote。更新情報はこちらでお知らせします", "url": "https://note.com/bluezzly" }

@@ -181,7 +181,7 @@
           "text": "スイッチひとつで必要最小限の設定だけを表示し、残りはおすすめの内容で自動設定します。慣れてきたら OFF にすれば、細部まで作り込める通常モードに戻ります。"
         },
         { "type": "figure", "image": "./img/ui-easy.png", "alt": "通常モードとかんたんモードの設定画面を並べた比較。かんたんモードでは項目が6つに絞られている", "caption": "左：通常モード（YouTube / Shorts / TikTok などのプリセットつき）／右：かんたんモード" },
-        { "type": "link", "url": "https://note.com/bluezzly/n/n9f8dcbb616b6", "label": "SlideCast Bundle Builder の記事を読む" }
+        { "type": "link", "url": "../bundle-builder/", "label": "SlideCast Bundle Builder の使い方ガイドを読む" }
       ]
     },
 
@@ -703,7 +703,7 @@
           "type": "link_cards",
           "items": [
             { "icon": "📘", "title": "公式マニュアル（v3.4 対応版）", "text": "全16章の詳細リファレンス", "url": "https://note.com/bluezzly/n/n1e95d4cb978e" },
-            { "icon": "🧩", "title": "SlideCast Bundle Builder", "text": "APIキーなしで音声生成できる Gemini Canvas アプリ", "url": "https://note.com/bluezzly/n/n9f8dcbb616b6" },
+            { "icon": "🧩", "title": "SlideCast Bundle Builder", "text": "資料・台本・AI音声・マイク録音をまとめる使い方ガイド", "url": "../bundle-builder/" },
             { "icon": "🛠️", "title": "アップデート方法について", "text": "GASアップデート手順", "url": "https://note.com/bluezzly/n/na97ce150da13" },
             { "icon": "🆕", "title": "v3.4 NUANCE アップデート情報", "text": "2026/8/5 公開", "url": "https://note.com/bluezzly/n/nf4ecad9cf40f" },
             { "icon": "🔄", "title": "v3.3 SYNC アップデート情報", "text": "2026/7/26 公開", "url": "https://note.com/bluezzly/n/n54d02ca2b939" },
