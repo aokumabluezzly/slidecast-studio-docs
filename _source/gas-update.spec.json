@@ -10,7 +10,7 @@
   "author": "aokuma",
   "date": "2026.07.21",
   "version": "GAS版",
-  "footer_meta": "アップデート手順ガイド · 2026.07.21",
+  "footer_meta": "SlideCast Studio ドキュメント · aokuma",
   "hero_image": "./img/gas-update-hero.png",
   "hero_alt": "SlideCast Studio アップデート方法。ファイルを差し替えて同じURL・同じデータのまま更新するイメージ",
   "chips": [

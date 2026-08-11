@@ -91,6 +91,15 @@ python3 ~/.claude/skills/build-rich-html-article/scripts/build_article.py \
 <script src="../assets/ambient-particles.js"></script>
 ```
 
+フッターも生成物のままではサイトの他ページと揃いません。`<footer class="site-footer">` の中身を、他ページと同じ次の形に置き換えます。
+
+```html
+<a class="brand footer-brand" href="../" aria-label="SlideCast Studio トップページ">SlideCast <b>Studio</b></a>
+<nav class="footer-links" aria-label="フッターナビゲーション"><a href="../intro/">SlideCast Studio とは</a><a href="../manual/">公式マニュアル</a><a href="../bundle-builder/">Bundle Builder</a><a href="../mouthloop-v2/">MouthLoop v2</a><a href="https://note.com/bluezzly" target="_blank" rel="noopener noreferrer">note ↗</a></nav>
+```
+
+`footer-meta` は全ページ共通で `SlideCast Studio ドキュメント · aokuma` です。spec 側の `footer_meta` にも同じ文字列を書いておくと、再生成してもこの行だけは戻りません。note の元記事へのリンクは、フッターではなく記事末尾のソースカード（spec の `source_url`）が担当します。
+
 `site-actions.js` はシェアボタンを組み立てるとき `link[rel=canonical]` と `meta[property="og:title"]` を読みます。canonical と og:title を入れ忘れると、シェアされるURLとタイトルが崩れます。
 
 ## ヘッダーとフッターのリンク
