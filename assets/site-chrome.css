@@ -1,4 +1,64 @@
 /* Shared brand and footer rules used by every documentation page. */
+:root {
+  --site-header-height: 64px;
+  --site-header-max-width: 1160px;
+  --site-header-gutter: 32px;
+  --header-h: var(--site-header-height);
+}
+
+.site-header {
+  height: var(--site-header-height);
+}
+
+.site-header .wrap,
+.site-header .header-inner {
+  width: min(var(--site-header-max-width), calc(100% - var(--site-header-gutter)));
+  height: 100%;
+  min-height: var(--site-header-height);
+  margin-inline: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+}
+
+.site-header .brand {
+  height: 40px;
+  display: inline-flex;
+  align-items: center;
+  flex: 0 0 auto;
+  gap: 6px;
+  font-size: 1.05rem;
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: -.02em;
+  white-space: nowrap;
+}
+
+.site-header .brand b {
+  font-weight: inherit;
+}
+
+.site-header .header-nav {
+  min-width: 0;
+  gap: 6px;
+}
+
+.site-header .header-link {
+  font-size: .82rem;
+  line-height: 1;
+}
+
+.site-header .icon-button {
+  padding: 0;
+  flex: 0 0 40px;
+  border-color: var(--line-strong);
+  border-radius: 999px;
+  color: var(--ink-soft);
+  font-size: 1.05rem;
+  line-height: 1;
+}
+
 html:has(body .chapters) {
   background: var(--paper);
 }
@@ -51,10 +111,6 @@ body:has(.chapters) .float-button.primary {
   flex: 0 0 auto;
 }
 
-.site-header .header-nav {
-  min-width: 0;
-}
-
 /* Link-card lists are layout components, not prose lists. Remove the prose
    indentation that otherwise shifts every visible card to the right. */
 .prose .link-cards,
@@ -90,7 +146,19 @@ body:has(.chapters) .float-button.primary {
   line-height: 1.7;
 }
 
+@media (max-width: 720px) {
+  .site-header .nav-label,
+  .site-header .label {
+    display: none;
+  }
+}
+
 @media (max-width: 640px) {
+  :root {
+    --site-header-height: 56px;
+    --site-header-gutter: 24px;
+  }
+
   body:has(.chapters) .chapter-title {
     font-size: clamp(.88rem, 3.8vw, .95rem);
     line-height: 1.4;
@@ -120,9 +188,8 @@ body:has(.chapters) .float-button.primary {
     justify-content: center;
   }
 
-  .site-header .nav-label,
-  .site-header .label {
-    display: none;
+  .site-header .icon-button {
+    flex-basis: 36px;
   }
 
   .site-footer .footer-top {
