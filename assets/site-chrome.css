@@ -14,17 +14,18 @@ body:has(.chapters) {
 body:has(.chapters)::before {
   content: "";
   position: fixed;
-  inset: -24vmax;
+  inset: -8vmax;
   z-index: -1;
   pointer-events: none;
   background:
-    radial-gradient(circle at 76% 16%, color-mix(in srgb, var(--secondary) 15%, transparent), transparent 27%),
-    radial-gradient(circle at 22% 32%, color-mix(in srgb, var(--accent) 13%, transparent), transparent 25%),
-    radial-gradient(circle at 54% 80%, color-mix(in srgb, var(--primary) 11%, transparent), transparent 29%);
-  filter: blur(18px);
-  opacity: .72;
+    radial-gradient(circle at 76% 16%, color-mix(in srgb, var(--secondary) 22%, transparent), transparent 34%),
+    radial-gradient(circle at 22% 32%, color-mix(in srgb, var(--accent) 18%, transparent), transparent 32%),
+    radial-gradient(circle at 54% 80%, color-mix(in srgb, var(--primary) 16%, transparent), transparent 35%);
+  filter: blur(10px);
+  opacity: .88;
+  will-change: transform;
   transform: translate3d(0, 0, 0) scale(1.02);
-  animation: site-ambient-drift 28s ease-in-out infinite alternate;
+  animation: site-ambient-drift 18s ease-in-out infinite alternate;
 }
 
 .brand em {
@@ -48,9 +49,9 @@ body:has(.chapters) .float-button.primary {
 }
 
 @keyframes site-ambient-drift {
-  0% { transform: translate3d(-2%, -1.5%, 0) scale(1.02) rotate(-1deg); }
-  50% { transform: translate3d(2.5%, 1%, 0) scale(1.07) rotate(1deg); }
-  100% { transform: translate3d(-1%, 3%, 0) scale(1.04) rotate(-.5deg); }
+  0% { transform: translate3d(-6%, -4%, 0) scale(1.02) rotate(-1.5deg); }
+  50% { transform: translate3d(5%, 3%, 0) scale(1.09) rotate(1.5deg); }
+  100% { transform: translate3d(-3%, 7%, 0) scale(1.05) rotate(-.8deg); }
 }
 
 @keyframes site-gradient-flow {
