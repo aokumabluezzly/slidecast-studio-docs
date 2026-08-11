@@ -704,7 +704,7 @@
           "items": [
             { "icon": "📘", "title": "公式マニュアル（v3.4 対応版）", "text": "全16章の詳細リファレンス", "url": "https://note.com/bluezzly/n/n1e95d4cb978e" },
             { "icon": "🧩", "title": "SlideCast Bundle Builder", "text": "資料・台本・AI音声・マイク録音をまとめる使い方ガイド", "url": "../bundle-builder/" },
-            { "icon": "🛠️", "title": "アップデート方法について", "text": "GASアップデート手順", "url": "https://note.com/bluezzly/n/na97ce150da13" },
+            { "icon": "🛠️", "title": "アップデート方法について", "text": "GASアップデート手順", "url": "../gas-update/" },
             { "icon": "🆕", "title": "v3.4 NUANCE アップデート情報", "text": "2026/8/5 公開", "url": "https://note.com/bluezzly/n/nf4ecad9cf40f" },
             { "icon": "🔄", "title": "v3.3 SYNC アップデート情報", "text": "2026/7/26 公開", "url": "https://note.com/bluezzly/n/n54d02ca2b939" },
             { "icon": "🔄", "title": "v3.2 アップデート情報", "text": "2026/7/20 公開", "url": "https://note.com/bluezzly/n/n37ae8356a0aa" },

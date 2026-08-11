@@ -14,6 +14,7 @@
 | `intro.spec.json` | 紹介ページ（`/intro/index.html`）の設計データ |
 | `bundle-builder.spec.json` | Bundle Builder ガイド（`/bundle-builder/index.html`）の設計データ |
 | `mouthloop-v2.spec.json` | MouthLoop v2 ガイド（`/mouthloop-v2/index.html`）の設計データ |
+| `gas-update.spec.json` | アップデート方法ガイド（`/gas-update/index.html`）の設計データ |
 | `img/` | 各 spec が参照する画像。生成時に `/assets/` へコピーされます |
 | `tools/externalize_images.py` | 設計データが無いページから Base64 画像を抜き出して `/assets/` へ移す移行スクリプト |
 
@@ -49,9 +50,48 @@ python3 ~/.claude/skills/build-rich-html-article/scripts/build_article.py \
   _source/mouthloop-v2.spec.json mouthloop-v2/index.html --assets assets
 ```
 
+```bash
+python3 ~/.claude/skills/build-rich-html-article/scripts/build_article.py \
+  _source/gas-update.spec.json gas-update/index.html --assets assets
+```
+
 リンクの接頭辞は、出力先から見た `assets` の相対パス（`assets/`、`../assets/`、`../../assets/`）が自動で入ります。同じ内容の画像は1つのファイルにまとめられ、ヒーロー以外には `loading="lazy"` が付きます。
 
 `assets/` に増えたファイルはコミットに含めてください。差し替えで使われなくなったファイルは自動では消えないので、必要なら手で削除します。
+
+## ⚠️ 生成後に手で足している「共通クローム」
+
+`build_article.py` はサイト共通の飾りを知らないため、**生成しただけのページには次が入っていません**。再生成したら毎回入れ直してください。入れ忘れると、そのページだけファビコンとシェアボタンと背景演出が消えます。
+
+`<title>` の直後（`../` は1階層のページの場合。2階層なら `../../`）:
+
+```html
+<link rel="canonical" href="https://aokumabluezzly.github.io/slidecast-studio-docs/＜ページ＞/">
+<link rel="icon" type="image/png" sizes="32x32" href="../assets/brand/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="../assets/brand/favicon-16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="../assets/brand/apple-touch-icon.png">
+<link rel="manifest" href="../site.webmanifest">
+<meta name="theme-color" content="#1957ff">
+<!-- og:type / og:locale / og:site_name / og:title / og:description / og:url /
+     og:image（+width・height・alt）/ twitter:card / twitter:title /
+     twitter:description / twitter:image -->
+```
+
+`</style>` と `</head>` の間:
+
+```html
+<link rel="stylesheet" href="../assets/site-chrome.css">
+<link rel="stylesheet" href="../assets/site-actions.css">
+<script src="../assets/site-actions.js" defer></script>
+```
+
+`</dialog>`（ライトボックス）の直後、ページ末尾のインライン `<script>` の前:
+
+```html
+<script src="../assets/ambient-particles.js"></script>
+```
+
+`site-actions.js` はシェアボタンを組み立てるとき `link[rel=canonical]` と `meta[property="og:title"]` を読みます。canonical と og:title を入れ忘れると、シェアされるURLとタイトルが崩れます。
 
 ## ヘッダーとフッターのリンク
 
