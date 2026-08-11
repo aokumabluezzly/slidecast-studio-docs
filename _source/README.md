@@ -118,7 +118,7 @@ python3 ~/.claude/skills/build-rich-html-article/scripts/build_article.py \
 
 `manual/`・`updates/v34/`・`updates/v33/` は spec が無いため、ヘッダーを直接編集してあります。
 
-本文中の note 記事へのリンクは、サイト内に同等ページがあっても差し替えません。
+本文中の note 記事へのリンクは、原則としてサイト内に同等ページがあっても差し替えません。ただし**アップデート手順だけは例外**で、`/gas-update/` への内部リンクに統一しています（`intro/`・`manual/`・`updates/v33`・`updates/v34`・トップページ）。元記事へのリンクは `/gas-update/` 末尾のソースカードが担います。
 
 ## spec で使っている、見落としやすい指定
 
