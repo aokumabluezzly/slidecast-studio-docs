@@ -8,6 +8,7 @@
 
 .site-header {
   height: var(--site-header-height);
+  -webkit-font-smoothing: auto;
 }
 
 .site-header .wrap,
