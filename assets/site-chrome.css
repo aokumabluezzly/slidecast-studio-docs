@@ -31,6 +31,10 @@ body:has(.chapters) .brand b {
   animation: site-gradient-flow 9s ease-in-out infinite;
 }
 
+body:has(.chapters) .chapter-title {
+  color: color-mix(in srgb, var(--ink) 84%, var(--primary) 16%);
+}
+
 body:has(.chapters) .progress,
 body:has(.chapters) .rule::after,
 body:has(.chapters) .float-button.primary {
@@ -88,7 +92,7 @@ body:has(.chapters) .float-button.primary {
 
 @media (max-width: 640px) {
   body:has(.chapters) .chapter-title {
-    font-size: clamp(.94rem, 4.15vw, 1rem);
+    font-size: clamp(.88rem, 3.8vw, .95rem);
     line-height: 1.48;
     letter-spacing: -.012em;
   }
