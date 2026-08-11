@@ -47,11 +47,19 @@
     }
   };
 
+  const describeAction = (element, label) => {
+    element.setAttribute('aria-label', label);
+    element.dataset.tooltip = label;
+    element.title = label;
+    return element;
+  };
+
   const makeButton = (className, label, icon, action) => {
     const button = document.createElement('button');
     button.type = 'button';
     button.className = `share-action ${className}`;
-    button.innerHTML = `${icon}<span>${label}</span>`;
+    button.innerHTML = icon;
+    describeAction(button, label);
     button.addEventListener('click', action);
     return button;
   };
@@ -111,7 +119,7 @@
   const panel = document.createElement('section');
   panel.className = 'site-share';
   panel.setAttribute('aria-label', 'このページの共有メニュー');
-  panel.innerHTML = '<div class="site-share__lead"><p class="site-share__title">このページをシェア</p><p class="site-share__hint">気になる人へ送ったり、あとで読むために保存できます。</p></div><div class="site-share__actions"></div>';
+  panel.innerHTML = '<div class="site-share__actions"></div>';
   const actions = panel.querySelector('.site-share__actions');
 
   const xLink = document.createElement('a');
@@ -119,17 +127,26 @@
   xLink.href = `https://twitter.com/intent/tweet?text=${encodeURIComponent(shareTitle)}&url=${encodeURIComponent(canonical)}`;
   xLink.target = '_blank';
   xLink.rel = 'noopener noreferrer';
-  xLink.setAttribute('aria-label', 'Xでシェア');
-  xLink.innerHTML = '<span class="share-action__x" aria-hidden="true">𝕏</span><span>Xでシェア</span>';
+  describeAction(xLink, 'Xでシェア');
+  xLink.innerHTML = '<span class="share-action__x" aria-hidden="true">𝕏</span>';
   actions.append(xLink);
 
-  actions.append(makeButton('share-action--substack', 'Substack', icons.substack, async () => {
+  const lineLink = document.createElement('a');
+  lineLink.className = 'share-action share-action--line';
+  lineLink.href = `https://social-plugins.line.me/lineit/share?url=${encodeURIComponent(canonical)}&text=${encodeURIComponent(shareTitle)}`;
+  lineLink.target = '_blank';
+  lineLink.rel = 'noopener noreferrer';
+  describeAction(lineLink, 'LINEで送る');
+  lineLink.innerHTML = '<span class="share-action__line" aria-hidden="true">LINE</span>';
+  actions.append(lineLink);
+
+  actions.append(makeButton('share-action--substack', 'Substackで共有', icons.substack, async () => {
     window.open('https://substack.com/home', '_blank', 'noopener,noreferrer');
     const copied = await copyLink();
     showToast(copied ? 'リンクをコピーしました。SubstackのNoteに貼り付けられます' : 'Substackを開きました。ページURLを貼り付けてください');
   }));
 
-  actions.append(makeButton('share-action--native', '共有', icons.share, async () => {
+  actions.append(makeButton('share-action--native', '共有メニューを開く', icons.share, async () => {
     if (navigator.share) {
       try { await navigator.share({ title: shareTitle, url: canonical }); }
       catch (error) { if (error.name !== 'AbortError') showToast('共有メニューを開けませんでした'); }
