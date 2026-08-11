@@ -1,6 +1,61 @@
 /* Shared brand and footer rules used by every documentation page. */
+html:has(body .chapters) {
+  background: var(--paper);
+}
+
+body:has(.chapters) {
+  position: relative;
+  isolation: isolate;
+  background: var(--paper);
+}
+
+/* Keep the article surfaces still and move only the ambient page light behind
+   them. This gives long pages depth without making the reading area restless. */
+body:has(.chapters)::before {
+  content: "";
+  position: fixed;
+  inset: -24vmax;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 76% 16%, color-mix(in srgb, var(--secondary) 15%, transparent), transparent 27%),
+    radial-gradient(circle at 22% 32%, color-mix(in srgb, var(--accent) 13%, transparent), transparent 25%),
+    radial-gradient(circle at 54% 80%, color-mix(in srgb, var(--primary) 11%, transparent), transparent 29%);
+  filter: blur(18px);
+  opacity: .72;
+  transform: translate3d(0, 0, 0) scale(1.02);
+  animation: site-ambient-drift 28s ease-in-out infinite alternate;
+}
+
 .brand em {
   display: none !important;
+}
+
+body:has(.chapters) .brand b {
+  background: var(--grad-rule);
+  background-size: 240% 240%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: site-gradient-flow 9s ease-in-out infinite;
+}
+
+body:has(.chapters) .progress,
+body:has(.chapters) .rule::after,
+body:has(.chapters) .float-button.primary {
+  background-size: 240% 240%;
+  animation: site-gradient-flow 9s ease-in-out infinite;
+}
+
+@keyframes site-ambient-drift {
+  0% { transform: translate3d(-2%, -1.5%, 0) scale(1.02) rotate(-1deg); }
+  50% { transform: translate3d(2.5%, 1%, 0) scale(1.07) rotate(1deg); }
+  100% { transform: translate3d(-1%, 3%, 0) scale(1.04) rotate(-.5deg); }
+}
+
+@keyframes site-gradient-flow {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
 }
 
 .brand.footer-brand {
@@ -119,5 +174,25 @@
 
   .site-footer .footer-links a:last-child:nth-child(odd) {
     grid-column: auto;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body:has(.chapters)::before,
+  body:has(.chapters) .brand b,
+  body:has(.chapters) .progress,
+  body:has(.chapters) .rule::after,
+  body:has(.chapters) .float-button.primary {
+    animation: none !important;
+  }
+}
+
+@media print {
+  body:has(.chapters) {
+    background: #fff !important;
+  }
+
+  body:has(.chapters)::before {
+    display: none !important;
   }
 }
