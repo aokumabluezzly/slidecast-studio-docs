@@ -75,19 +75,10 @@
 *{box-sizing:border-box}
 html{scroll-behavior:smooth;scroll-padding-top:calc(var(--header-h) + 16px);background:var(--paper)}
 body{
-  position:relative;isolation:isolate;margin:0;overflow-x:hidden;color:var(--ink);background:var(--paper);
+  position:relative;isolation:isolate;margin:0;overflow-x:hidden;color:var(--ink);background:transparent;
   font-family:-apple-system,BlinkMacSystemFont,"Hiragino Sans","Yu Gothic UI","Noto Sans JP",Meiryo,sans-serif;
   font-size:16px;line-height:1.85;
   -webkit-font-smoothing:antialiased;
-}
-body::before{
-  content:"";position:fixed;inset:-8vmax;z-index:-1;pointer-events:none;
-  background:
-    radial-gradient(circle at 74% 18%,color-mix(in srgb,var(--secondary) 25%,transparent),transparent 34%),
-    radial-gradient(circle at 24% 30%,color-mix(in srgb,var(--accent) 21%,transparent),transparent 32%),
-    radial-gradient(circle at 55% 78%,color-mix(in srgb,var(--primary) 18%,transparent),transparent 35%);
-  filter:blur(10px);opacity:.9;will-change:transform;
-  transform:translate3d(0,0,0) scale(1.02);animation:ambient-drift 16s ease-in-out infinite alternate;
 }
 img{max-width:100%}
 a{color:var(--primary-ink)}
@@ -325,11 +316,6 @@ a{color:var(--primary-ink)}
 /* ---------- ambient motion ---------- */
 .brand b,.brand em,.hero h1 b,.btn-primary,.badge-new,.article-card .tag.is-new{
   animation:brand-gradient-flow 8s ease-in-out infinite;
-}
-@keyframes ambient-drift{
-  0%{transform:translate3d(-6%,-4%,0) scale(1.02) rotate(-1.5deg)}
-  50%{transform:translate3d(5%,3%,0) scale(1.09) rotate(1.5deg)}
-  100%{transform:translate3d(-3%,7%,0) scale(1.05) rotate(-.8deg)}
 }
 @keyframes hero-glow{
   from{transform:translate3d(-8%,-3%,0) scale(.92);opacity:.6}
@@ -688,6 +674,7 @@ a{color:var(--primary-ink)}
   </div>
 </footer>
 
+<script src="assets/ambient-particles.js"></script>
 <script>
 (() => {
   const root = document.documentElement;
