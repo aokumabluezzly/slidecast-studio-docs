@@ -1,0 +1,112 @@
+/* Shared brand and footer rules used by every documentation page. */
+.brand em {
+  display: none !important;
+}
+
+.brand.footer-brand {
+  flex: 0 0 auto;
+}
+
+.site-header .header-nav {
+  min-width: 0;
+}
+
+.site-footer .footer-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.site-footer .footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 6px 18px;
+}
+
+.site-footer .footer-links a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 40px;
+}
+
+.site-footer .footer-meta {
+  line-height: 1.7;
+}
+
+@media (max-width: 640px) {
+  .site-header .header-nav {
+    gap: 2px;
+  }
+
+  .site-header .header-link,
+  .site-header .icon-button {
+    width: 36px;
+    min-width: 36px;
+    height: 40px;
+    padding: 0;
+    justify-content: center;
+  }
+
+  .site-header .nav-label,
+  .site-header .label {
+    display: none;
+  }
+
+  .site-footer .footer-top {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 16px;
+  }
+
+  .site-footer .footer-brand {
+    align-self: flex-start;
+    font-size: 1.05rem;
+  }
+
+  .site-footer .footer-links {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+  }
+
+  .site-footer .footer-links a {
+    min-height: 48px;
+    padding: 8px 10px;
+    justify-content: center;
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    background: var(--card);
+    text-align: center;
+    font-size: .76rem;
+    line-height: 1.35;
+  }
+
+  .site-footer .footer-links a:last-child:nth-child(odd) {
+    grid-column: 1 / -1;
+  }
+
+  .site-footer .footer-meta {
+    margin-top: 16px;
+    padding-top: 16px;
+    border-top: 1px solid var(--line);
+    font-size: .72rem;
+  }
+}
+
+@media (max-width: 400px) {
+  .site-header .brand {
+    font-size: .94rem;
+  }
+}
+
+@media (max-width: 360px) {
+  .site-footer .footer-links {
+    grid-template-columns: 1fr;
+  }
+
+  .site-footer .footer-links a:last-child:nth-child(odd) {
+    grid-column: auto;
+  }
+}
