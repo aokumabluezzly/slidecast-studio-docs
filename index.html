@@ -326,9 +326,17 @@ a{color:var(--primary-ink)}
     border-radius:16px;box-shadow:0 4px 14px color-mix(in srgb,var(--ink) 7%,transparent);
   }
   .article-card:hover{transform:none}
-  .article-card .thumb{height:100%;aspect-ratio:auto;padding:0}
-  .article-card .thumb img{object-fit:contain}
-  .article-card .tag{left:7px;top:7px;padding:3px 7px;font-size:.56rem;letter-spacing:.04em}
+  .article-card .thumb{height:100%;aspect-ratio:auto;padding:0;background:#080d2b}
+  .article-card .thumb::before{
+    content:"";position:absolute;inset:-14px;z-index:0;
+    background-image:var(--thumb-image);background-size:cover;background-position:center;
+    filter:blur(10px) saturate(.95);opacity:.72;transform:scale(1.08);
+  }
+  .article-card .thumb::after{
+    content:"";position:absolute;inset:0;z-index:0;background:rgba(5,9,30,.1);
+  }
+  .article-card .thumb img{position:relative;z-index:1;object-fit:contain}
+  .article-card .tag{z-index:2;left:7px;top:7px;padding:3px 7px;font-size:.56rem;letter-spacing:.04em}
   .article-card .body{min-width:0;padding:11px 12px;gap:3px}
   .article-card h3{
     display:-webkit-box;overflow:hidden;-webkit-box-orient:vertical;-webkit-line-clamp:2;
@@ -481,7 +489,7 @@ a{color:var(--primary-ink)}
       <div class="article-grid">
 
         <a class="article-card" href="mouthloop-v2/">
-          <div class="thumb">
+          <div class="thumb" style="--thumb-image:url('assets/mouthloop-v2-01.png')">
             <img src="assets/mouthloop-v2-01.png" alt="" loading="lazy">
             <span class="tag">使い方ガイド</span>
           </div>
@@ -493,7 +501,7 @@ a{color:var(--primary-ink)}
         </a>
 
         <a class="article-card" href="bundle-builder/">
-          <div class="thumb">
+          <div class="thumb" style="--thumb-image:url('assets/bundle-builder-hero.webp')">
             <img src="assets/bundle-builder-hero.webp" alt="" loading="lazy">
             <span class="tag">使い方ガイド</span>
           </div>
@@ -505,7 +513,7 @@ a{color:var(--primary-ink)}
         </a>
 
         <a class="article-card" href="updates/v34/">
-          <div class="thumb">
+          <div class="thumb" style="--thumb-image:url('assets/v34.jpg')">
             <img src="assets/v34.jpg" alt="" loading="lazy">
             <span class="tag is-new">最新版</span>
           </div>
@@ -517,7 +525,7 @@ a{color:var(--primary-ink)}
         </a>
 
         <a class="article-card" href="updates/v33/">
-          <div class="thumb">
+          <div class="thumb" style="--thumb-image:url('assets/v33-01.png')">
             <img src="assets/v33-01.png" alt="" loading="lazy">
             <span class="tag">アップデート</span>
           </div>
