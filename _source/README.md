@@ -116,6 +116,10 @@ python3 ~/.claude/skills/build-rich-html-article/scripts/build_article.py \
 
 `href` は相対パスです。1階層（`intro/`）は `../`、2階層（`updates/v34/`）は `../../`。`update_header: false` を書かないと、note へのリンクがヘッダーにも出てしまいます。
 
+ヘッダーは全8ページで同じ4項目に揃えています。**🏠 ホーム / 💡 概要 / 📘 マニュアル / ☰ 目次**（目次はテンプレートが自動で付けます）。「紹介」ではなく「概要」です。
+
+spec の `nav_links` から出るのはリンクとラベルだけで、`aria-label`（`ホーム` / `SlideCast Studio とは` / `公式マニュアル`）は生成後に手で足しています。再生成したら入れ直してください。
+
 `manual/`・`updates/v34/`・`updates/v33/` は spec が無いため、ヘッダーを直接編集してあります。
 
 本文中の note 記事へのリンクは、原則としてサイト内に同等ページがあっても差し替えません。ただし**アップデート手順だけは例外**で、`/gas-update/` への内部リンクに統一しています（`intro/`・`manual/`・`updates/v33`・`updates/v34`・トップページ）。元記事へのリンクは `/gas-update/` 末尾のソースカードが担います。
