@@ -3,11 +3,46 @@
   --site-header-height: 64px;
   --site-header-max-width: 1160px;
   --site-header-gutter: 32px;
+  --site-header-primary: #2f74ee;
+  --site-header-accent: #e85a8a;
+  --site-header-ink: #16203a;
+  --site-header-ink-soft: color-mix(in srgb, var(--site-header-ink) 82%, #ffffff);
+  --site-header-muted: color-mix(in srgb, var(--site-header-ink) 68%, #ffffff);
+  --site-header-primary-ink: color-mix(in srgb, var(--site-header-primary) 62%, #0d1027);
+  --site-header-paper: #fffdfa;
+  --site-header-card: #ffffff;
+  --site-header-soft: #f2f6ff;
+  --site-header-line: color-mix(in srgb, var(--site-header-primary) 16%, #e6e2ef);
+  --site-header-line-strong: color-mix(in srgb, var(--site-header-primary) 30%, #ded8ec);
+  --site-header-gradient: linear-gradient(90deg, var(--site-header-accent), var(--site-header-primary));
   --header-h: var(--site-header-height);
 }
 
+[data-theme="dark"] {
+  --site-header-ink: #eceaf6;
+  --site-header-ink-soft: color-mix(in srgb, var(--site-header-ink) 86%, #000000);
+  --site-header-muted: color-mix(in srgb, var(--site-header-ink) 62%, #000000);
+  --site-header-primary-ink: color-mix(in srgb, var(--site-header-primary) 68%, #ffffff);
+  --site-header-paper: #14131c;
+  --site-header-card: #1c1b28;
+  --site-header-soft: #232131;
+  --site-header-line: color-mix(in srgb, var(--site-header-primary) 22%, #322f45);
+  --site-header-line-strong: color-mix(in srgb, var(--site-header-primary) 34%, #423e5c);
+}
+
 .site-header {
+  position: sticky;
+  top: 0;
+  z-index: 90;
   height: var(--site-header-height);
+  border-bottom: 1px solid var(--site-header-line);
+  background: color-mix(in srgb, var(--site-header-paper) 88%, transparent);
+  backdrop-filter: blur(16px);
+  font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Yu Gothic UI", "Noto Sans JP", Meiryo, sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.92;
+  letter-spacing: .02em;
   -webkit-font-smoothing: auto;
 }
 
@@ -29,6 +64,7 @@
   align-items: center;
   flex: 0 0 auto;
   gap: 6px;
+  color: var(--site-header-ink);
   font-size: 1.05rem;
   font-weight: 900;
   line-height: 1;
@@ -41,24 +77,81 @@
 }
 
 .site-header .header-nav {
+  display: flex;
+  align-items: center;
+  flex-wrap: nowrap;
   min-width: 0;
   gap: 6px;
 }
 
 .site-header .header-link {
+  height: 40px;
+  padding: 0 12px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  flex: 0 0 auto;
+  border: 0;
+  border-radius: 10px;
+  background: transparent;
+  color: var(--site-header-muted);
+  cursor: pointer;
+  text-decoration: none;
+  font-family: inherit;
   font-size: .82rem;
   font-weight: 800;
   line-height: 1;
+  letter-spacing: .02em;
+  white-space: nowrap;
+}
+
+.site-header .header-link:hover {
+  color: var(--site-header-primary-ink);
+  background: var(--site-header-soft);
 }
 
 .site-header .icon-button {
+  width: 40px;
+  height: 40px;
   padding: 0;
   flex: 0 0 40px;
-  border-color: var(--line-strong);
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--site-header-line-strong);
   border-radius: 999px;
-  color: var(--ink-soft);
+  background: var(--site-header-card);
+  color: var(--site-header-ink-soft);
+  cursor: pointer;
+  font-family: inherit;
   font-size: 1.05rem;
+  font-weight: 400;
   line-height: 1;
+  letter-spacing: normal;
+}
+
+.site-header .icon-button:hover {
+  border-color: var(--site-header-primary);
+  color: var(--site-header-primary-ink);
+}
+
+.site-header .brand:focus-visible,
+.site-header .header-link:focus-visible,
+.site-header .icon-button:focus-visible {
+  outline: 3px solid var(--site-header-primary);
+  outline-offset: 3px;
+}
+
+.site-header .brand:focus-visible {
+  border-radius: 6px;
+}
+
+.site-header .header-link:focus-visible {
+  border-radius: 10px;
+}
+
+.site-header .icon-button:focus-visible {
+  border-radius: 999px;
 }
 
 html:has(body .chapters) {
@@ -85,7 +178,7 @@ body:has(.chapters) {
 }
 
 .site-header .brand b {
-  background: var(--grad-rule);
+  background: var(--site-header-gradient);
   background-size: 240% 240%;
   -webkit-background-clip: text;
   background-clip: text;
