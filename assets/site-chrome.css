@@ -16,7 +16,9 @@
 .prose .link-cards,
 .chapter-inner .link-cards {
   box-sizing: border-box;
-  padding-inline-start: 0;
+  /* The article stylesheet applies 1.4em to every prose list. A physical
+     reset is intentional here so the card edge also lines up on desktop. */
+  padding: 0 !important;
   margin-inline: auto;
 }
 
