@@ -82,7 +82,7 @@ body:has(.chapters) {
   display: none !important;
 }
 
-body:has(.chapters) .brand b {
+.site-header .brand b {
   background: var(--grad-rule);
   background-size: 240% 240%;
   -webkit-background-clip: text;
@@ -250,7 +250,7 @@ body:has(.chapters) .float-button.primary {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  body:has(.chapters) .brand b,
+  .site-header .brand b,
   body:has(.chapters) .progress,
   body:has(.chapters) .rule::after,
   body:has(.chapters) .float-button.primary {

@@ -67,4 +67,48 @@
 - [x] Five-item header navigation standardized across all routes
 - [x] Console and overflow checks passed
 
-final result: passed
+previous audit result: passed
+
+---
+
+# Header parity QA (2026-08-11)
+
+## Comparison target
+
+- Source visual truth: `/var/folders/f0/tvcs7td94ll1rhn6wwpyrrk40000gn/T/codex-clipboard-d1b22dc9-5d88-495c-a328-aed5de65438c.png` (article header, 5118 × 134 px).
+- Browser-rendered implementation: `/tmp/slidecast-home-header-after-67.jpg` (home header after the fix, 2560 × 67 px).
+- Viewport: 2560 × 700 CSS px, device pixel ratio 2, light theme.
+- Density normalization: the source capture represents approximately 2559 × 67 CSS px; the implementation was captured at 2560 × 67 px for the same visible header region.
+
+## Full-view and focused evidence
+
+- Home and article were rendered in the same browser tab at the same 2560 px viewport.
+- Both computed to a 64 px header, 1160 px inner width, 14 px container gap, and identical background, blur, and border values.
+- Both logos computed to 16.8 px, weight 900, 16.8 px line height, -0.336 px letter spacing, 6 px word gap, and a 40 px interaction height.
+- The header itself is the complete comparison target, so a separate subregion crop was unnecessary.
+
+## Required fidelity surfaces
+
+- Fonts and typography: computed logo font size, weight, line height, letter spacing, and gap are identical.
+- Spacing and layout rhythm: header height, inner width, centering, and navigation gap are identical.
+- Colors and visual tokens: both routes use the same brand gradient, paper blend, border token, and blur.
+- Image quality and asset fidelity: the header contains no raster brand asset; both routes use the same text treatment and supplied emoji navigation icons.
+- Copy and content: both routes display `SlideCast Studio` and the same five navigation controls.
+
+## Findings and comparison history
+
+- The original mismatch came from the home page retaining fallback values of 60 px, weight 800, and different letter spacing.
+- Those fallback values were changed to the article header specification, and the shared brand selector was expanded to cover the home route.
+- Post-fix browser metrics are identical. No console errors were reported, and the theme control changed light → dark → light successfully.
+- The browser security policy rejected creation of a combined reference/implementation comparison canvas. Per policy, no indirect workaround was attempted.
+
+## Implementation checklist
+
+- [x] Home fallback header height matches the article header
+- [x] Logo typography and gradient treatment match
+- [x] Header width, padding, navigation spacing, and theme button match
+- [x] Mobile fallback height and gutter match
+- [x] Theme interaction and console checked
+- [ ] Combined visual comparison artifact (blocked by browser URL security policy)
+
+final result: blocked
