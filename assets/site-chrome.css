@@ -11,6 +11,15 @@
   min-width: 0;
 }
 
+/* Link-card lists are layout components, not prose lists. Remove the prose
+   indentation that otherwise shifts every visible card to the right. */
+.prose .link-cards,
+.chapter-inner .link-cards {
+  box-sizing: border-box;
+  padding-inline-start: 0;
+  margin-inline: auto;
+}
+
 .site-footer .footer-top {
   display: flex;
   align-items: flex-start;
