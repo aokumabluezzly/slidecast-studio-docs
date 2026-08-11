@@ -1,0 +1,25 @@
+{
+  "name": "SlideCast Studio ドキュメント",
+  "short_name": "SlideCast",
+  "description": "SlideCast Studioの紹介、公式マニュアル、補助ツールガイド、アップデート情報。",
+  "lang": "ja",
+  "start_url": "/slidecast-studio-docs/",
+  "scope": "/slidecast-studio-docs/",
+  "display": "standalone",
+  "background_color": "#07164d",
+  "theme_color": "#1957ff",
+  "icons": [
+    {
+      "src": "assets/brand/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "assets/brand/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
