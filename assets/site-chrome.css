@@ -93,8 +93,18 @@ body:has(.chapters) .float-button.primary {
 @media (max-width: 640px) {
   body:has(.chapters) .chapter-title {
     font-size: clamp(.88rem, 3.8vw, .95rem);
-    line-height: 1.48;
+    line-height: 1.4;
     letter-spacing: -.012em;
+  }
+
+  body:has(.chapters) .chapter > summary {
+    min-height: 70px;
+    padding-block: 11px;
+    gap: 10px;
+  }
+
+  body:has(.chapters) .chapter-heading {
+    gap: 1px;
   }
 
   .site-header .header-nav {
