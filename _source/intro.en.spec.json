@@ -18,7 +18,7 @@
     "surface": "#f2f6ff",
     "ink": "#16203a"
   },
-  "hero_image": "./img/hero.jpg",
+  "hero_image": "./img/hero-en.jpg",
   "hero_alt": "The SlideCast Studio logo beside a monitor showing a slide and a waveform timeline",
   "chips": [
     "Slide video",
@@ -371,7 +371,7 @@
       "blocks": [
         {
           "type": "figure",
-          "image": "./img/v34.jpg",
+          "image": "./img/v34-en.jpg",
           "alt": "Key art for SlideCast Studio v3.4 NUANCE, showing cards of a character smiling, looking sad, and posing",
           "caption": "The current version, v3.4 “NUANCE”: expressions, gestures and auto-acting"
         },

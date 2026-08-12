@@ -11,7 +11,7 @@
   "date": "Published 2026.04.06 / Updated 2026.07.16",
   "version": "Bundle Builder Guide",
   "footer_meta": "SlideCast Studio Documentation · aokuma",
-  "hero_image": "./img/bundle-builder-hero.webp",
+  "hero_image": "./img/bundle-builder-hero-en.jpg",
   "hero_alt": "SlideCast Bundle Builder collecting slide images, script, AI voice and recordings into a single ZIP for SlideCast Studio",
   "chips": ["Gemini Canvas", "Script generation", "AI voice", "Mic recording", "Bundle ZIP"],
   "theme": {
