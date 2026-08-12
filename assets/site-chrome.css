@@ -355,10 +355,13 @@ body:has(.chapters) .float-button.primary {
     font-size: 1.05rem;
   }
 
+  /* 幅が狭いと、左寄せのままではアイコンの右側に大きな余白が残る。
+     上のリンクカードが横幅いっぱいに広がるぶん、余計に片寄って見えるため中央に揃える。 */
   .site-footer .footer-bottom {
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
     gap: 14px;
+    text-align: center;
   }
 
   .site-footer .footer-links {
