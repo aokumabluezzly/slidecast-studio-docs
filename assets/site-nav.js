@@ -1,6 +1,10 @@
-/* ヘッダーの「ページ」メニュー。
+/* ヘッダーの「ページ」メニューと、サイト全体のページ台帳。
    ページを1本足したら、ここの PAGES に1行足すだけで全ページのメニューに載ります。
-   href はリポジトリのルートからの相対パス。各ページの階層は script.src から自動で解決します。 */
+   href はリポジトリのルートからの相対パス。各ページの階層は script.src から自動で解決します。
+
+   英語版を用意したら、そのページに "en": true を足します。この台帳が
+   assets/site-lang.js（🌐 言語切替）からも参照されるので、englishの有無を
+   2か所に書く必要はありません。site-lang.js より先に読み込んでください。 */
 (() => {
   'use strict';
 
@@ -10,49 +14,77 @@
   const PAGES = [
     {
       group: 'はじめに',
+      group_en: 'Start here',
       items: [
-        { href: '', icon: '🏠', label: 'HOME', desc: 'ドキュメントの入口' },
-        { href: 'intro/', icon: '💡', label: 'SlideCast Studio とは', desc: 'できること・料金の概要' },
-        { href: 'manual/', icon: '📘', label: '公式マニュアル', desc: '全機能の使い方リファレンス' }
+        { href: '', icon: '🏠', label: 'HOME', desc: 'ドキュメントの入口',
+          en: true, label_en: 'HOME', desc_en: 'Entry point of the docs' },
+        { href: 'intro/', icon: '💡', label: 'SlideCast Studio とは', desc: 'できること・料金の概要',
+          en: true, label_en: 'What is SlideCast Studio?', desc_en: 'What it does, and what it costs' },
+        { href: 'manual/', icon: '📘', label: '公式マニュアル', desc: '全機能の使い方リファレンス',
+          label_en: 'Official manual', desc_en: 'Full feature reference' }
       ]
     },
     {
       group: 'ガイド',
+      group_en: 'Guides',
       items: [
-        { href: 'bundle-builder/', icon: '🧩', label: 'SlideCast Bundle Builder', desc: '資料・台本・AI音声をまとめて準備' },
-        { href: 'mouthloop-v2/', icon: '😀', label: 'MouthLoop v2', desc: '画像1枚から口パクキャラ素材を作る' },
-        { href: 'gas-update/', icon: '🔄', label: 'アップデート方法（GAS版）', desc: 'データを引き継いだまま最新版へ' }
+        { href: 'bundle-builder/', icon: '🧩', label: 'SlideCast Bundle Builder', desc: '資料・台本・AI音声をまとめて準備',
+          label_en: 'SlideCast Bundle Builder', desc_en: 'Prepare slides, script and AI voice in one pass' },
+        { href: 'mouthloop-v2/', icon: '😀', label: 'MouthLoop v2', desc: '画像1枚から口パクキャラ素材を作る',
+          label_en: 'MouthLoop v2', desc_en: 'Turn one image into a lip-syncing character' },
+        { href: 'gas-update/', icon: '🔄', label: 'アップデート方法（GAS版）', desc: 'データを引き継いだまま最新版へ',
+          label_en: 'How to update (GAS edition)', desc_en: 'Move to the latest version, keeping your data' }
       ]
     },
     {
       group: '更新履歴',
+      group_en: 'Release notes',
       items: [
-        { href: 'updates/v34/', icon: '🆕', label: 'v3.4「NUANCE」', desc: '表情・ポーズ仕草・おまかせ演技' },
-        { href: 'updates/v33/', icon: '📌', label: 'v3.3「SYNC」', desc: 'キャラ設定まわりの作り直し' }
+        { href: 'updates/v34/', icon: '🆕', label: 'v3.4「NUANCE」', desc: '表情・ポーズ仕草・おまかせ演技',
+          label_en: 'v3.4 "NUANCE"', desc_en: 'Expressions, gestures and auto-acting' },
+        { href: 'updates/v33/', icon: '📌', label: 'v3.3「SYNC」', desc: 'キャラ設定まわりの作り直し',
+          label_en: 'v3.3 "SYNC"', desc_en: 'Character setup, rebuilt' }
       ]
     }
   ];
+
+  /* 末尾の index.html と重複スラッシュを落として比べる */
+  const normalize = path => path.replace(/index\.html$/, '').replace(/\/+$/, '/') || '/';
+  const rootPath = normalize(root.pathname);
+  const here = normalize(location.pathname);
+
+  /* サイトのルートから見た現在位置。英語ページは en/ 配下に同じ構造で置いてある */
+  const relative = here.startsWith(rootPath) ? here.slice(rootPath.length) : '';
+  const lang = (relative === 'en/' || relative.startsWith('en/')) ? 'en' : 'ja';
+
+  /* 言語切替（site-lang.js）と共有する台帳 */
+  window.SlideCastPages = { root, rootPath, here, relative, lang, pages: PAGES, normalize };
 
   const trigger = document.querySelector('[data-site-nav]');
   const header = document.querySelector('.site-header');
   if (!trigger || !header) return;
 
-  /* 末尾の index.html と重複スラッシュを落として比べる */
-  const normalize = path => path.replace(/index\.html$/, '').replace(/\/+$/, '/') || '/';
-  const here = normalize(location.pathname);
-
   const escape = text => text.replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+
+  const english = lang === 'en';
+  const menuTitle = english ? 'All pages' : 'ページ一覧';
 
   const groupsHtml = PAGES.map(section => {
     const links = section.items.map(item => {
-      const url = new URL(item.href, root);
+      /* 英語ページからは英語版へ。まだ無いものは日本語版へ送り、その旨を添える */
+      const hasEn = english && item.en === true;
+      const url = new URL(hasEn ? `en/${item.href}` : item.href, root);
       const current = normalize(url.pathname) === here;
+      const label = english ? (item.label_en || item.label) : item.label;
+      const desc = english ? (item.desc_en || item.desc) : item.desc;
+      const note = english && !hasEn ? ' (Japanese)' : '';
       return `<li><a class="pagenav-item${current ? ' is-current' : ''}" href="${url.pathname}"${current ? ' aria-current="page"' : ''}>` +
         `<span class="pagenav-icon" aria-hidden="true">${item.icon}</span>` +
-        `<span class="pagenav-text"><b>${escape(item.label)}</b><small>${escape(item.desc)}</small></span>` +
+        `<span class="pagenav-text"><b>${escape(label)}</b><small>${escape(desc + note)}</small></span>` +
         `</a></li>`;
     }).join('');
-    return `<section class="pagenav-group"><h2 class="pagenav-group-title">${escape(section.group)}</h2><ul>${links}</ul></section>`;
+    const title = english ? (section.group_en || section.group) : section.group;
+    return `<section class="pagenav-group"><h2 class="pagenav-group-title">${escape(title)}</h2><ul>${links}</ul></section>`;
   }).join('');
 
   const wrapper = document.createElement('div');
@@ -60,9 +92,9 @@
   wrapper.hidden = true;
   wrapper.innerHTML =
     `<div class="pagenav-backdrop" data-pagenav-close></div>` +
-    `<div class="pagenav-panel" role="dialog" aria-label="ページ一覧" aria-modal="false">` +
-      `<div class="pagenav-head"><strong>ページ一覧</strong>` +
-      `<button class="pagenav-close" type="button" aria-label="ページ一覧を閉じる" data-pagenav-close>×</button></div>` +
+    `<div class="pagenav-panel" role="dialog" aria-label="${menuTitle}" aria-modal="false">` +
+      `<div class="pagenav-head"><strong>${menuTitle}</strong>` +
+      `<button class="pagenav-close" type="button" aria-label="${english ? 'Close page list' : 'ページ一覧を閉じる'}" data-pagenav-close>×</button></div>` +
       `<div class="pagenav-body">${groupsHtml}</div>` +
     `</div>`;
   document.body.append(wrapper);

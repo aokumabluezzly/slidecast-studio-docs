@@ -15,10 +15,15 @@
 | `bundle-builder.spec.json` | Bundle Builder ガイド（`/bundle-builder/index.html`）の設計データ |
 | `mouthloop-v2.spec.json` | MouthLoop v2 ガイド（`/mouthloop-v2/index.html`）の設計データ |
 | `gas-update.spec.json` | アップデート方法ガイド（`/gas-update/index.html`）の設計データ |
+| `intro.en.spec.json` | 英語版の紹介ページ（`/en/intro/index.html`）の設計データ |
 | `img/` | 各 spec が参照する画像。生成時に `/assets/` へコピーされます |
+| `article-template.en.html` | **自動生成**。英語ページ用テンプレート（直接編集しない） |
+| `tools/build_en.py` | 英語ページを spec から作り直す入口。生成 → 仕上げまで一括 |
+| `tools/make_en_template.py` | 標準テンプレートの UI 文言を英語化して `article-template.en.html` を作る |
+| `tools/finish_en_page.py` | 生成した英語ページに共通クロームを入れ直す（下記の手作業を自動化したもの） |
 | `tools/externalize_images.py` | 設計データが無いページから Base64 画像を抜き出して `/assets/` へ移す移行スクリプト |
 
-テンプレートは `build-rich-html-article` スキル同梱の**標準テンプレートをそのまま使います**。以前このフォルダに置いていた専用テンプレートは、修正内容を標準側へ取り込んだため廃止しました。
+テンプレートは `build-rich-html-article` スキル同梱の**標準テンプレートをそのまま使います**。以前このフォルダに置いていた専用テンプレートは、修正内容を標準側へ取り込んだため廃止しました。英語ページだけは、テンプレート側に直接書かれた UI 文言（「本文へスキップ」「目次」など）が日本語のままなので、`make_en_template.py` が標準テンプレートから英語版を作り直しています。
 
 ## ⚠️ トップページ（`/index.html`）は spec から生成していません
 
@@ -175,6 +180,45 @@ YouTube / Vimeo は `video` ブロックで貼ります。**クリックされ�
 `thumb` は `img/` に置いたローカル画像です。YouTube の公式サムネイルを直接指定してはいけません（ページを開いただけで読者の訪問が YouTube に伝わります）。`thumb` を省略するとグラデーションの板が出ます。
 
 現在 intro の2本は、専用のサムネイルがまだ無いため、既存のスクリーンショット（`v34.jpg` / `ui-easy.png`）で代用しています。
+
+## 英語版ページの作り方
+
+英語ページは `/en/` 配下に、日本語と**同じ構造**で置きます（`intro/` → `en/intro/`）。日本語ページの URL は変わりません。
+
+再生成は次の1行だけです。テンプレートの英語化・ビルド・共通クロームの差し込みまで通しでやります。
+
+```bash
+python3 _source/tools/build_en.py
+```
+
+1本だけ作り直すときは `python3 _source/tools/build_en.py intro` のように名前を渡します。
+
+**日本語ページのように手でクロームを足す必要はありません。** `finish_en_page.py` が canonical・hreflang・ファビコン・OGP・共通CSS/JS・📚ボタン・背景演出・共通フッター（SNSアイコン込み）を毎回入れ直します。SNS アイコンの SVG はトップページ `index.html` から読み取るので、アイコンを変えるときは `index.html` だけ直せば英語ページにも回ります。
+
+### 英語ページを1本増やすときに触る4か所
+
+1. `_source/＜名前＞.en.spec.json` を作る（日本語 spec の翻訳）
+2. `_source/tools/build_en.py` の `PAGES` に1行足す
+3. `_source/tools/finish_en_page.py` の `PAGE_META` に OGP 用の英語タイトル・説明を足す
+4. `assets/site-nav.js` の該当ページに `"en": true` を足す ← これで 🌐 切替が有効になる
+
+日本語ページ側にも `hreflang` を足してください（`index.html` と `intro/index.html` に入っている3行が見本です）。
+
+### 英語 spec で気をつけること
+
+- **内部リンクの階層が1つ深くなります。** `en/intro/` から見たサイト内リンクは `../../bundle-builder/` です（日本語版は `../bundle-builder/`）。`nav_links` の `href: "../"` は英語版でも `../`（= `/en/`）のままで正しいので、そこだけ変えません。
+- 英語版が無いページへのリンクには `(Japanese)` を添えます。読者が日本語のページに落ちる前に分かるようにするためです。
+- 価格は日本円のまま書きます（note で円建て販売のため）。API 料金の表だけは、為替レートを挟まずに済むよう**日本語版の円表記ではなく米ドルで直接計算**してあります。
+
+### 🌐 言語切替の仕組み
+
+`assets/site-lang.js` がヘッダーに 🌐 ボタンを差し込みます。**自動リダイレクトはしません**（意図しない転送を避けるため、切替は常にユーザー操作）。
+
+- 現在位置が `en/` 配下かどうかで JA / EN を判定します。
+- 対になるページの有無は `assets/site-nav.js` の `PAGES`（`window.SlideCastPages`）から引きます。英語版の有無を2か所に書かなくて済むようにするためです。
+- そのため **`site-lang.js` は `site-nav.js` より後ろに読み込みます**（どちらも `defer` なので記述順で決まります）。
+- 対になるページが無いときは、ボタンを消さずに無効表示にします。英語版が「無い」のか「そもそも多言語対応していない」のかが読者に分かるようにするためです。
+- 📚 ページ一覧も英語ページでは英語で出て、英語版が無い項目には `(Japanese)` が付きます。
 
 ## 設計データが無い記事
 

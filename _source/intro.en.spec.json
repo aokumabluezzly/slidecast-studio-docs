@@ -1,0 +1,1326 @@
+{
+  "title": "SlideCast Studio — turn a slide deck into a narrated, subtitled video, right in your browser",
+  "subtitle": "Load a PDF or a set of images and get back a video with narration, subtitles and an animated character. No install, no video editor.",
+  "description": "English overview of SlideCast Studio v3.4 NUANCE — a one-time-purchase, browser-only tool that builds narrated, subtitled videos from your slides and AI voice.",
+  "lead": "",
+  "eyebrow": "PRODUCT GUIDE",
+  "brand": "SlideCast ",
+  "brand_accent": "Studio",
+  "brand_badge": "v3.4",
+  "author": "aokuma",
+  "date": "2026.08.09",
+  "version": "v3.4 NUANCE",
+  "footer_meta": "SlideCast Studio Documentation · aokuma",
+  "theme": {
+    "primary": "#2f74ee",
+    "secondary": "#6d3df2",
+    "accent": "#e85a8a",
+    "surface": "#f2f6ff",
+    "ink": "#16203a"
+  },
+  "hero_image": "./img/hero.jpg",
+  "hero_alt": "The SlideCast Studio logo beside a monitor showing a slide and a waveform timeline",
+  "chips": [
+    "Slide video",
+    "AI voice (TTS)",
+    "Lip sync",
+    "Subtitles",
+    "Google Apps Script",
+    "Bundle Builder"
+  ],
+  "stats": [
+    {
+      "icon": "🛒",
+      "value": "Buy once",
+      "label": "No monthly fee. Not a subscription"
+    },
+    {
+      "icon": "🔑",
+      "value": "No API key",
+      "label": "Usable with no cost beyond the purchase"
+    },
+    {
+      "icon": "🎛️",
+      "value": "Deeply adjustable",
+      "label": "Tune it down to the details you care about"
+    },
+    {
+      "icon": "🖥️",
+      "value": "Nothing to install",
+      "label": "Runs entirely in a desktop browser"
+    }
+  ],
+  "source_url": "https://note.com/bluezzly/n/nb4c85213c808",
+  "source_label": "Read the original post on note (Japanese)",
+  "source_title": "The note post this page is based on",
+  "source_note": "Announcements, current pricing and the purchase area all live in the note article (in Japanese).",
+  "update_url": "https://note.com/bluezzly/n/n1e95d4cb978e",
+  "update_label": "Official manual",
+  "update_header": false,
+  "nav_links": [
+    {
+      "href": "../",
+      "icon": "🏠",
+      "label": "HOME"
+    }
+  ],
+  "sections_label": "CONTENTS",
+  "overview": {
+    "icon": "👋",
+    "title": "Start here — where this tool came from, and what it is",
+    "blocks": [
+      {
+        "type": "notice",
+        "title": "🛠️ Recent news",
+        "items": [
+          "2026/8/9: The official manual was updated.",
+          "2026/8/5: Updated to v3.4 “NUANCE” (expressions, posed gestures, auto-acting, blank slides).",
+          "2026/7/31: Subtitle settings and character settings were reorganised.",
+          "2026/7/30: Character avatars now drift gently instead of sitting still.",
+          "Earlier entries are collected in the final chapter, “Release history”."
+        ]
+      },
+      {
+        "type": "html",
+        "html": "<p>Hello — I’m aokuma.<br>Let me apologise up front for how long this page is. I would much rather over-explain than have you regret the purchase, and this is what that turned into.</p><p>This is the English edition of the introduction page. The full manual and the companion guides are still Japanese only for now.</p>"
+      },
+      {
+        "type": "heading",
+        "level": 3,
+        "text": "🌱 It started as a fork of “AI Slide Studio”"
+      },
+      {
+        "type": "html",
+        "html": "<p>The origin of this tool is <strong>“AI Slide Studio”, an excellent tool published by Majin</strong>. SlideCast Studio v1.0 was what came out after I took that prompt and modified it well past the point of reason.</p><p>It began as a weekend hack for my own use, and then I fell in. By the end it had reached a quality where even I — someone who would rather not stand out — thought it would be a waste to keep it to myself. So I worked up the nerve and sent Majin a DM.</p><p>Very generously, <strong>Majin published SlideCast Studio v1.0 as a guest post on their note</strong>, where it got a lot of response, and then went further and gave me permission to sell it on my own note. <strong>This tool exists in public because of Majin.</strong> Thank you, again.</p>"
+      },
+      {
+        "type": "link_cards",
+        "items": [
+          {
+            "icon": "📘",
+            "title": "AI Slide Studio (the original)",
+            "text": "Majin’s article (Japanese)",
+            "url": "https://note.com/majin_108/n/n28cebe38881d"
+          },
+          {
+            "icon": "📗",
+            "title": "SlideCast Studio v1.0",
+            "text": "The guest post on Majin’s note (Japanese)",
+            "url": "https://note.com/majin_108/n/nb21118f14ac0"
+          }
+        ]
+      },
+      {
+        "type": "html",
+        "html": "<p>Honestly, when v1.0 went out I was pleased with myself — “a solid 90 out of 100,” I thought. Then I kept using it, kept hitting things it couldn’t quite do, kept finding bugs I had missed, and quietly revised my own score: <strong>“more like a 30 or 40, in hindsight.”</strong> Closing those gaps produced v2.0, and steady work since then has brought it to <strong>v3.4 “NUANCE”</strong>.</p>"
+      },
+      {
+        "type": "divider",
+        "label": "SUMMARY"
+      }
+    ],
+    "cards": [
+      {
+        "icon": "🎬",
+        "title": "What does it do?",
+        "text": "Turns a slide deck plus AI voice into a narrated, subtitled video — or into presentation files — entirely in the browser."
+      },
+      {
+        "icon": "🛒",
+        "title": "One-time purchase",
+        "text": "No monthly billing. Buy once, and every later update comes from the same shared link."
+      },
+      {
+        "icon": "🔑",
+        "title": "Runs at zero API cost",
+        "text": "Bundle Builder generates the voice without an API key, so you can start with no additional spend."
+      },
+      {
+        "icon": "🎛️",
+        "title": "Adjustable to the details",
+        "text": "Subtitles, backgrounds, characters, BGM, captions and transitions are all tunable at a level that satisfies people who fuss."
+      },
+      {
+        "icon": "🎭",
+        "title": "The point of v3.4",
+        "text": "Expressions and poses that change mid-line, plus “auto-acting” that places them for you."
+      },
+      {
+        "icon": "⚠️",
+        "title": "Before you buy",
+        "text": "Desktop browsers only, and there is a one-time setup (copy and paste, nothing more). Please read the requirements chapter."
+      }
+    ]
+  },
+  "sections": [
+    {
+      "icon": "📽️",
+      "category": "OVERVIEW",
+      "title": "❶ What SlideCast Studio can do",
+      "intro": "A slide-video tool that runs start to finish in the browser. Nothing to install.",
+      "blocks": [
+        {
+          "type": "html",
+          "html": "<p>SlideCast Studio is <strong>a slide-video tool that runs entirely in the browser, with nothing to install</strong>.<br>Load PDFs, images or video, add AI voice (TTS), and it produces a video with narration and subtitles already in place.</p><p>You can save the result as video (MP4 / WebM), and also export it as presentation files (PowerPoint and friends) or as images.<br>Explainer videos for YouTube, vertical video for TikTok and Shorts, internal decks — all of it comes together startlingly fast.</p>"
+        },
+        {
+          "type": "figure",
+          "image": "./img/ui-editor.png",
+          "alt": "The SlideCast Studio editor: a subtitle settings panel on the left, a preview with subtitles on the right",
+          "caption": "The editor. Adjust on the left, and see the result immediately in the preview on the right"
+        },
+        {
+          "type": "divider",
+          "label": "SAMPLE"
+        },
+        {
+          "type": "video",
+          "provider": "vimeo",
+          "id": "1169315924",
+          "title": "🎥 Here is the kind of video you can make",
+          "thumb": "./img/demo-movie.jpg",
+          "caption": "Sample video (Vimeo). Click to play it right here"
+        },
+        {
+          "type": "video",
+          "provider": "youtube",
+          "id": "cB0MVpcMdKo",
+          "title": "🎬 And here is how you make it",
+          "thumb": "./img/how-to-use.jpg",
+          "caption": "The production flow (YouTube, narrated in Japanese). Click to play it right here"
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "✨ Main features (as of v3.4)"
+        },
+        {
+          "type": "soft_cards",
+          "items": [
+            {
+              "icon": "🤖",
+              "title": "AI script writing",
+              "text": "Hand it your slides and it drafts the narration script."
+            },
+            {
+              "icon": "🔊",
+              "title": "AI voice synthesis",
+              "text": "Narration from a choice of 30 voices, with tone (emotion) direction supported."
+            },
+            {
+              "icon": "🎭",
+              "title": "Character performance",
+              "text": "Lip sync, expressions, posed gestures and a breathing motion."
+            },
+            {
+              "icon": "🎞️",
+              "title": "Slide animation",
+              "text": "Ken Burns pan and zoom, to give still images some movement."
+            },
+            {
+              "icon": "🎬",
+              "title": "Video slides",
+              "text": "Drop MP4 or WebM in as a slide, and trim the section that plays."
+            },
+            {
+              "icon": "🧱",
+              "title": "Blank slides",
+              "text": "Title cards, chapter breaks and dialogue scenes without any source document."
+            },
+            {
+              "icon": "🎨",
+              "title": "Design settings",
+              "text": "Gradients, strokes, shadows, rounded corners, badges, logos and captions."
+            },
+            {
+              "icon": "🎵",
+              "title": "BGM (up to 10 tracks)",
+              "text": "Switch music per slide, with crossfades."
+            },
+            {
+              "icon": "🎤",
+              "title": "Microphone recording",
+              "text": "Record inside the app and swap the take in (not available in the GAS edition)."
+            },
+            {
+              "icon": "🔔",
+              "title": "Sound and typing effects",
+              "text": "Transition sounds, plus retro-RPG text blips for lines with no voice."
+            },
+            {
+              "icon": "🕐",
+              "title": "Per-slide timeline",
+              "text": "Drag audio, video and pauses to the second."
+            },
+            {
+              "icon": "📚",
+              "title": "Book-style PDF",
+              "text": "Export slide images and subtitles together as a portrait A4 document."
+            },
+            {
+              "icon": "🌐",
+              "title": "UI language",
+              "text": "Japanese and English."
+            },
+            {
+              "icon": "💾",
+              "title": "Export formats",
+              "text": "MP4, WebM, PPTX, PDF, PNG, JPEG. Aspect ratios 16:9, 9:16 and 1:1."
+            }
+          ]
+        },
+        {
+          "type": "figure",
+          "image": "./img/ui-export.png",
+          "alt": "The slide export screen, showing PPTX, PDF and image-ZIP output options next to an export preview",
+          "caption": "Export is not only video: PPTX, PDF (handout or book style) and image ZIPs are all supported"
+        },
+        {
+          "type": "callout",
+          "tone": "info",
+          "title": "🛠️ For how each feature works, see the manual",
+          "text": "This page is about what the tool can do. Step-by-step instructions for every setting live in the 16-chapter official manual (updated for v3.4 NUANCE). The manual is currently available in Japanese only."
+        },
+        {
+          "type": "link",
+          "url": "https://note.com/bluezzly/n/n1e95d4cb978e",
+          "label": "Open the official manual (Japanese)"
+        }
+      ]
+    },
+    {
+      "icon": "🚀",
+      "category": "WORKFLOW",
+      "title": "❷ How you actually build one (no API key needed)",
+      "intro": "Prepare the material in Bundle Builder, finish it in SlideCast Studio. That is the short path.",
+      "blocks": [
+        {
+          "type": "callout",
+          "tone": "good",
+          "title": "🌟 Start with Bundle Builder",
+          "text": "SlideCast Studio Bundle Builder is a companion tool that runs inside Google Gemini Canvas. On the standard models it takes you from script writing all the way to AI voice generation without you obtaining an API key. Open it from the Bundle Builder card on the dashboard."
+        },
+        {
+          "type": "step_list",
+          "items": [
+            {
+              "title": "Prepare everything in Bundle Builder",
+              "text": "Either have the AI generate the slide images on the spot, or upload PDFs and images you already have. From there: script generation → AI voice generation → validation, ending in a ZIP export. No API key registration involved."
+            },
+            {
+              "title": "Load the ZIP into SlideCast Studio",
+              "text": "Drop the ZIP onto “Create from documents” on the dashboard. Slides, script and audio all come in together."
+            },
+            {
+              "title": "Shape the design and the performance",
+              "text": "With the preview open, adjust subtitles, background, character, BGM, captions and transitions."
+            },
+            {
+              "title": "Export",
+              "text": "One click on either [Export video] or [Export documents], depending on what you need. MP4 and WebM, plus PPTX, PDF, PNG and JPEG."
+            }
+          ]
+        },
+        {
+          "type": "figure",
+          "image": "./img/bb-script.png",
+          "alt": "The Bundle Builder script generation screen, with panels for audience, script style, number of speakers and subtitle line count",
+          "caption": "Script generation in Bundle Builder. Pick the audience and the number of speakers, and you have a script"
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "🧩 What Bundle Builder handles for you"
+        },
+        {
+          "type": "check_list",
+          "items": [
+            "Generating the slide images themselves with AI (you specify topic, audience, slide count and art style)",
+            "Automatic script generation (up to six speakers, with control over subtitle layout and furigana)",
+            "Assigning a voice per speaker and generating all the audio in one pass",
+            "Replacing lines with microphone recordings (with head and tail trimming)",
+            "Automatic validation of script, speakers, audio and slide references",
+            "Exporting slides, script and audio together as a ZIP",
+            "Switching the UI between Japanese and English"
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "info",
+          "title": "🟢 Too many settings? Try Simple mode",
+          "text": "One switch reduces the screen to the minimum set of settings and fills in sensible defaults for the rest. Turn it off once you find your feet, and you are back in the full mode where everything is adjustable."
+        },
+        {
+          "type": "figure",
+          "image": "./img/ui-easy.png",
+          "alt": "The normal settings screen and Simple mode side by side; Simple mode shows only six options",
+          "caption": "Left: normal mode (with presets for YouTube, Shorts, TikTok and more). Right: Simple mode"
+        },
+        {
+          "type": "link",
+          "url": "../../bundle-builder/",
+          "label": "Read the SlideCast Bundle Builder guide (Japanese)"
+        }
+      ]
+    },
+    {
+      "icon": "🎭",
+      "category": "WHAT'S NEW",
+      "title": "❸ From v3.0 to v3.4 — highlights by version",
+      "intro": "Updates keep coming after the one-time purchase. Here is what has been added so far.",
+      "blocks": [
+        {
+          "type": "figure",
+          "image": "./img/v34.jpg",
+          "alt": "Key art for SlideCast Studio v3.4 NUANCE, showing cards of a character smiling, looking sad, and posing",
+          "caption": "The current version, v3.4 “NUANCE”: expressions, gestures and auto-acting"
+        },
+        {
+          "type": "tabs",
+          "label": "Highlights by version",
+          "items": [
+            {
+              "label": "v3.4 NUANCE",
+              "blocks": [
+                {
+                  "type": "html",
+                  "html": "<p>The version where the character stopped merely moving its mouth and started <strong>changing expression and pose along with the line being spoken</strong>.</p>"
+                },
+                {
+                  "type": "figure",
+                  "image": "./img/v34-acting.png",
+                  "alt": "Selecting part of a subtitle reveals an “Add performance” button, opening a panel of happy, sad and angry expressions plus poses",
+                  "caption": "Select words in the subtitle and hit “Add performance”. Expression and pose are set right there"
+                },
+                {
+                  "type": "figure",
+                  "image": "./img/v34-auto.png",
+                  "alt": "The auto-acting settings panel, with controls for which expressions and gestures to use, how often, and over what range",
+                  "caption": "Auto-acting places expressions and gestures for you, following the natural breaks in each line"
+                },
+                {
+                  "type": "soft_cards",
+                  "items": [
+                    {
+                      "icon": "😊",
+                      "title": "Expressions and poses mid-line",
+                      "text": "Smile only on “thank you”, point halfway through an explanation — that level of direction."
+                    },
+                    {
+                      "icon": "🪄",
+                      "title": "Auto-acting",
+                      "text": "Places expressions and gestures at the breaks in a line. Choose the frequency and the range, and remove just the automatic ones in one go."
+                    },
+                    {
+                      "icon": "📦",
+                      "title": "MouthLoop character pack ZIP",
+                      "text": "Load a ZIP bundling happy, sad, angry and other expressions along with posed gestures, as is."
+                    },
+                    {
+                      "icon": "🫁",
+                      "title": "Breathing and speech motion",
+                      "text": "Still-image avatars now breathe while silent and bounce in time with speech volume."
+                    },
+                    {
+                      "icon": "🧱",
+                      "title": "Blank slides",
+                      "text": "Title screens, chapter breaks, end cards and dialogue scenes, with no source image at all."
+                    },
+                    {
+                      "icon": "📐",
+                      "title": "Character settings, reorganised",
+                      "text": "Regrouped into three areas — assets and motion, layout, design — so things are findable."
+                    }
+                  ]
+                },
+                {
+                  "type": "callout",
+                  "tone": "good",
+                  "title": "💡 Auto-acting costs no extra API money",
+                  "text": "It does not send the text to a generative model. It uses built-in detection and placement rules, so there is no extra API traffic and no extra billing."
+                },
+                {
+                  "type": "link",
+                  "url": "https://note.com/bluezzly/n/nf4ecad9cf40f",
+                  "label": "Read the v3.4 release post (Japanese)"
+                }
+              ]
+            },
+            {
+              "label": "v3.3 SYNC",
+              "blocks": [
+                {
+                  "type": "html",
+                  "html": "<p>Almost entirely about <strong>character settings</strong> — a ground-up rebuild of how you register a character icon and how it moves.</p>"
+                },
+                {
+                  "type": "heading",
+                  "level": 4,
+                  "text": "Three ways to supply character assets"
+                },
+                {
+                  "type": "table",
+                  "head": [
+                    "Method",
+                    "What you supply",
+                    "How it moves"
+                  ],
+                  "rows": [
+                    [
+                      "Sequence",
+                      "Several still images (two or more)",
+                      "Cycles through them in order while the character speaks. The easiest option"
+                    ],
+                    [
+                      "Animated image",
+                      "One GIF, animated WebP or APNG",
+                      "Plays that animation while the character speaks"
+                    ],
+                    [
+                      "Audio-driven",
+                      "Exactly six still images",
+                      "The mouth follows the narration volume. The most natural option"
+                    ]
+                  ]
+                },
+                {
+                  "type": "figure",
+                  "image": "./img/v33-lipsync.png",
+                  "alt": "The audio-driven tab of character assets: six bear illustrations arranged by eye and mouth state, above lip-sync interval and base motion settings",
+                  "caption": "Audio-driven mode needs only six images. The mouth then follows the narration volume"
+                },
+                {
+                  "type": "html",
+                  "html": "<p>Assets for the three methods are <strong>stored separately</strong>, so switching methods does not discard what you had. Trying something and going back is cheap. On top of that, <strong>moving the icon left or right now moves the speech bubble with it</strong>, which removes a repetitive repositioning chore.</p>"
+                },
+                {
+                  "type": "callout",
+                  "tone": "info",
+                  "title": "🧩 MouthLoop, an app for making the assets",
+                  "text": "The work of preparing six lip-sync images was offloaded to MouthLoop, a standalone app running in Google Gemini Canvas. It generates lip-sync material from a single image, and opens directly from the character settings screen."
+                },
+                {
+                  "type": "link",
+                  "url": "https://note.com/bluezzly/n/n54d02ca2b939",
+                  "label": "Read the v3.3 release post (Japanese)"
+                }
+              ]
+            },
+            {
+              "label": "v3.0 – v3.2",
+              "blocks": [
+                {
+                  "type": "html",
+                  "html": "<p>The stretch that widened the editor’s handling, and everything to do with timing and staging.</p>"
+                },
+                {
+                  "type": "figure",
+                  "image": "./img/v3x-timeline.png",
+                  "alt": "The per-slide timeline, with video, audio and gap lanes laid out along a scale in seconds",
+                  "caption": "The per-slide timeline. Drag video, audio and pauses to the second"
+                },
+                {
+                  "type": "check_list",
+                  "items": [
+                    "Simple mode (shows only the minimum settings)",
+                    "A “Script” tab inside the app (generate, import and paste, all in one place)",
+                    "The per-slide timeline (drag audio, video and pauses to the second)",
+                    "Automatic or manual display duration for still slides",
+                    "Per-boundary transition settings (effect, duration, sound effect, volume)",
+                    "Retro-RPG typing sound for lines with no voice",
+                    "Seven subtitle entrance animations",
+                    "Captions (top and bottom) promoted to their own settings tab",
+                    "A choice of import quality presets for source documents",
+                    "ZIP-format backups, with a choice of what to include",
+                    "Slide export presets, export preview, pre-export checks and range selection",
+                    "Trimming and display options for opening and ending videos",
+                    "Changing the speed and pitch of already-placed audio after the fact"
+                  ]
+                },
+                {
+                  "type": "link_cards",
+                  "items": [
+                    {
+                      "icon": "🔄",
+                      "title": "v3.2 release notes",
+                      "text": "Published 2026/7/20 (Japanese)",
+                      "url": "https://note.com/bluezzly/n/n37ae8356a0aa"
+                    },
+                    {
+                      "icon": "🔄",
+                      "title": "v3.1 release notes",
+                      "text": "Published 2026/7/14 (Japanese)",
+                      "url": "https://note.com/bluezzly/n/ne81357e6adc7"
+                    },
+                    {
+                      "icon": "🔄",
+                      "title": "v3.0 release notes",
+                      "text": "Published 2026/7/1 (Japanese)",
+                      "url": "https://note.com/bluezzly/n/n3304e79ee7ea"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "label": "What v2.0 changed",
+              "blocks": [
+                {
+                  "type": "html",
+                  "html": "<p>The version that worked through v1.0’s “so close, but not quite” list, and became the starting point for the paid release.</p>"
+                },
+                {
+                  "type": "check_list",
+                  "items": [
+                    "Gradients and rounded corners (background, subtitle background, speech bubble, slide image)",
+                    "Strokes and drop shadows, for text that stays readable",
+                    "A colour palette feature (save your own colours, recall them in one click)",
+                    "Better badges (line breaks supported, free placement in any of the four corners)",
+                    "A library feature (background images, BGM and opening/ending videos remembered in the browser)",
+                    "Tone (emotion) direction for AI voice",
+                    "16:9, 9:16 and 1:1 output, plus batch export to PPTX, PDF, PNG and JPEG",
+                    "A quality control for video export",
+                    "A tidied settings modal with accordions",
+                    "Captions in three styles: fixed, scrolling and sliding",
+                    "Animated icons (register several images and cycle them like a GIF)"
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "icon": "💻",
+      "category": "REQUIREMENTS",
+      "title": "❹ System requirements",
+      "intro": "Please read this before buying, and go ahead only if it works for your setup.",
+      "blocks": [
+        {
+          "type": "callout",
+          "tone": "warn",
+          "title": "⚠️ Phones and tablets are not supported",
+          "text": "This is a web app for desktop browsers, with Google Chrome recommended. Running it on a phone or tablet is neither intended nor supported."
+        },
+        {
+          "type": "spec_list",
+          "items": [
+            {
+              "label": "Recommended browser",
+              "value": "Google Chrome (desktop, current version) is the strongest recommendation; Microsoft Edge (current version) also works"
+            },
+            {
+              "label": "Recommended OS",
+              "value": "Windows 11 or later, or macOS 13 or later"
+            },
+            {
+              "label": "CPU",
+              "value": "6 cores or more recommended"
+            },
+            {
+              "label": "Memory",
+              "value": "16 GB or more recommended (32 GB for long or high-resolution projects)"
+            },
+            {
+              "label": "Storage",
+              "value": "SSD recommended"
+            },
+            {
+              "label": "Output resolution",
+              "value": "720p / 1080p / 1440p (at 16:9 that is 1280×720 / 1920×1080 / 2560×1440)"
+            }
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "📄 Roughly how many slides"
+        },
+        {
+          "type": "html",
+          "html": "<p>There is no fixed slide limit in the tool. Rendering, however, <strong>runs on your own machine and uses your browser’s memory</strong>. How heavy a project feels depends not just on slide count but on output resolution, total running time and the weight of your assets.</p>"
+        },
+        {
+          "type": "table",
+          "head": [
+            "Memory",
+            "720p",
+            "1080p",
+            "1440p"
+          ],
+          "rows": [
+            [
+              "8 GB",
+              "around 20–40 slides",
+              "around 10–20 slides",
+              "not recommended"
+            ],
+            [
+              "16 GB (recommended)",
+              "around 50–100 slides",
+              "around 25–50 slides",
+              "around 10–20 slides"
+            ],
+            [
+              "32 GB",
+              "—",
+              "around 50–100 slides",
+              "around 20–40 slides"
+            ]
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "info",
+          "title": "💡 About those numbers",
+          "items": [
+            "They are rough guidance only, and will shift with asset size and video length.",
+            "If you are unsure about your machine, start with a 1080p export at standard quality.",
+            "Video export uses browser memory, so closing other work and spare tabs makes it more stable."
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "📱 About video for TikTok, X and Instagram"
+        },
+        {
+          "type": "html",
+          "html": "<p>Because it exports at 16:9, 9:16 and 1:1, the tool works well for producing footage for TikTok, X and Instagram.</p><p>That said, an MP4 export is not automatically in the ideal state for every platform. Two files can both be MP4 and still use different compression inside — <strong>H.264</strong> and <strong>H.265</strong> being the common pair. Video export here depends partly on what the browser supports, so depending on your browser the MP4 may come out as H.265. When that happens, converting to H.264 is often the more reliable route for some platforms.</p>"
+        },
+        {
+          "type": "callout",
+          "tone": "warn",
+          "title": "📮 An assumption about posting to social platforms",
+          "text": "Please use the tool on the assumption that a final pass — adjustment or format conversion — may be needed before you post."
+        }
+      ]
+    },
+    {
+      "icon": "💾",
+      "category": "DATA & SECURITY",
+      "title": "❺ Where your data lives, and security",
+      "intro": "Projects are stored inside your own browser. Nothing is sent to an external server.",
+      "blocks": [
+        {
+          "type": "html",
+          "html": "<p>All project data is stored <strong>inside your own browser, in IndexedDB</strong>. Nothing is uploaded to an external server.</p>"
+        },
+        {
+          "type": "callout",
+          "tone": "warn",
+          "title": "⚠️ When data disappears",
+          "items": [
+            "When you clear the browser’s history and cookies",
+            "When you uninstall the browser",
+            "When you close an incognito or private window",
+            "Once data is gone, the app cannot recover it. Regular backups are the only defence."
+          ]
+        },
+        {
+          "type": "html",
+          "html": "<p>You can export and restore backups from the dashboard (v3.x added ZIP-format backups and a choice of what to include). If you open the app from a new Apps Script project or a different browser, your earlier data will not appear automatically — restore it from a backup.</p>"
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "🔐 If you do use an API key"
+        },
+        {
+          "type": "check_list",
+          "items": [
+            "Never enter one on a shared PC or at an internet café",
+            "The API key is not stored in project data; it is kept only in the browser",
+            "Turn on “Do not store on this device (session only)” and it is discarded when you close the tab or browser",
+            "Setting usage limits and alerts in the Google Cloud Console is strongly recommended",
+            "A leaked and abused API key can result in a very large bill"
+          ]
+        }
+      ]
+    },
+    {
+      "icon": "💴",
+      "category": "COST",
+      "title": "❻ What it costs (buy once; API is optional)",
+      "intro": "The tool itself is a one-time purchase. An API key is an optional extra for people who want one.",
+      "blocks": [
+        {
+          "type": "compare",
+          "before": {
+            "label": "🛒 What you definitely pay",
+            "text": "The one-time price of SlideCast Studio itself. There is no monthly charge and no subscription."
+          },
+          "after": {
+            "label": "🔑 What you might pay",
+            "text": "If you want to generate AI voice with a single button inside the app, usage-based charges may apply on an API key you obtained yourself. This is optional."
+          }
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "💡 How to run it with no extra cost at all"
+        },
+        {
+          "type": "html",
+          "html": "<p>If you would rather not pay API fees, or the registration sounds like a hassle — that is fine. <strong>Every one of the following routes produces a narrated video without registering an API key.</strong></p>"
+        },
+        {
+          "type": "soft_cards",
+          "items": [
+            {
+              "icon": "🧩",
+              "title": "Use Bundle Builder",
+              "text": "Takes you all the way to AI voice with no API key configured. The recommended entry point (see ❷)."
+            },
+            {
+              "icon": "🧪",
+              "title": "Use Google AI Studio directly",
+              "text": "Have a Flash-tier TTS model with a free allowance (Gemini 3.1 Flash TTS or 2.5 Flash TTS) read the text, then import the saved audio files."
+            },
+            {
+              "icon": "🔊",
+              "title": "Bring voice from another service",
+              "text": "Import audio files made with any other free or paid service."
+            },
+            {
+              "icon": "🎤",
+              "title": "Use your own voice",
+              "text": "Import narration you recorded yourself. In-app microphone recording is also available (except in the GAS edition)."
+            }
+          ]
+        },
+        {
+          "type": "divider",
+          "label": "IF YOU USE AN API"
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "🎙️ Rough costs when using your own API key"
+        },
+        {
+          "type": "html",
+          "html": "<p>To generate everything from inside the app with one button, register a Gemini API key from <a href=\"https://aistudio.google.com/\" target=\"_blank\" rel=\"noopener noreferrer\">Google AI Studio</a> in the settings screen. The free tier works for trying it out, but its per-minute and per-day request limits are tight, and generating dozens of slides at once can stall. For serious use, the paid tier fits better.</p><p>Gemini API TTS is not billed per request or per character. It is billed <strong>on input and output tokens, and the bulk of it is the generated audio side — roughly 32 tokens per second of audio</strong>.</p>"
+        },
+        {
+          "type": "table",
+          "nowrap": true,
+          "head": [
+            "Model",
+            "Audio output / 1M tokens",
+            "Free tier",
+            "1 min",
+            "1 hour",
+            "10 hours"
+          ],
+          "rows": [
+            [
+              "Gemini 3.1 Flash TTS (latest)",
+              "$20",
+              "Yes",
+              "about $0.04",
+              "about $2.30",
+              "about $23"
+            ],
+            [
+              "Gemini 2.5 Flash TTS (fast)",
+              "$10",
+              "Yes",
+              "about $0.02",
+              "about $1.15",
+              "about $11.50"
+            ],
+            [
+              "Gemini 2.5 Pro TTS (high quality)",
+              "$20",
+              "No",
+              "about $0.04",
+              "about $2.30",
+              "about $23"
+            ]
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "good",
+          "title": "💡 How to choose a model",
+          "items": [
+            "3.1 Flash TTS Preview and 2.5 Pro Preview TTS are the same price on the official rate card ($1 input / $20 output per 1M tokens).",
+            "But 3.1 Flash has a free tier and 2.5 Pro does not. At equal prices, the newer model with a free allowance is the easy pick.",
+            "If cost is the only concern, 2.5 Flash Preview TTS at half the unit price is the cheapest."
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "warn",
+          "title": "⚠️ Notes on these figures",
+          "items": [
+            "The estimates assume 32 tokens per second of audio output, based on the official rate card as of August 2026.",
+            "Token costs on the text input side are not included.",
+            "Google’s pricing and specifications can change without notice. Always check the official rate card for current, accurate figures, and use the service at your own discretion."
+          ]
+        },
+        {
+          "type": "link",
+          "url": "https://ai.google.dev/gemini-api/docs/pricing",
+          "label": "Check the official Gemini API pricing"
+        },
+        {
+          "type": "html",
+          "html": "<p>If you would rather have a voice that is even and stable, even at the cost of expressiveness, you can optionally configure <strong>Google Cloud Text-to-Speech</strong> instead. It has a monthly free character allowance, and usage-based pricing beyond it.</p><p>Both are external services provided by Google. Please check Google’s own current terms and pricing.</p>"
+        }
+      ]
+    },
+    {
+      "icon": "📝",
+      "category": "TERMS",
+      "title": "❼ Terms of use and disclaimer",
+      "intro": "Worth reading before you buy.",
+      "blocks": [
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "📝 Terms of use"
+        },
+        {
+          "type": "compare",
+          "before": {
+            "label": "🆗 Permitted",
+            "text": "Commercial use of the videos, images and slide documents you create with this tool (YouTube publishing, business use and so on), and modifying or customising the app code within your own personal use as a purchaser."
+          },
+          "after": {
+            "label": "🈲 Not permitted",
+            "text": "Reposting, redistributing, selling, transferring or publishing the tool’s own files (the HTML and source code) or modified versions of them — including uploading them to a web server where anyone can reach them — is strictly prohibited."
+          }
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "⚖️ Disclaimer, and care when using external services"
+        },
+        {
+          "type": "html",
+          "html": "<p>The app contains no deliberate design on my part to collect or transmit your data, such as slide contents. Even so, please give the following your full attention, <strong>at your own responsibility</strong>.</p>"
+        },
+        {
+          "type": "callout",
+          "tone": "warn",
+          "title": "🔑 Handling API keys, and the risk of leaks",
+          "text": "If you register your own API key to generate AI voice, I cannot accept any liability for damage or loss arising from the use of external services and APIs — including leaks caused by malicious browser extensions or malware infection. Please manage your API keys carefully."
+        },
+        {
+          "type": "callout",
+          "tone": "warn",
+          "title": "⚖️ Following the terms of external services",
+          "text": "If you combine audio made with an external voice service with this tool, you must comply with that service’s terms (whether commercial use is allowed, whether credit is required, and so on). I cannot help with trouble arising from breaches of an external service’s terms. Note too that external services may train on the data you give them, so read their terms carefully."
+        }
+      ]
+    },
+    {
+      "icon": "✨",
+      "category": "SETUP",
+      "title": "❽ Setup — so you can judge, before buying, whether this is doable for you",
+      "intro": "No programming knowledge required. A few clicks and some copy-paste.",
+      "blocks": [
+        {
+          "type": "html",
+          "html": "<p>“What if I buy this paid tool and then can’t get it set up?”<br>For anyone with that worry, <strong>here is the entire setup procedure, in advance</strong>.</p><p>💡 <strong>No programming knowledge is needed.</strong><br>Once you have the app, following the steps below — a few clicks and some copy-paste — gives you your own private web app. It is a one-time setup. Please read through it and decide whether it looks like something you can do, then consider buying.</p>"
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "1. 🖱️ Open the shared link"
+        },
+        {
+          "type": "html",
+          "html": "<p>Click the “Apps Script project shared link” you receive after purchase.</p>"
+        },
+        {
+          "type": "figure",
+          "image": "./img/step1.png",
+          "alt": "The Apps Script project shared link, shown in the paid area of the note article",
+          "caption": "The shared link in the paid area"
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "2. 👯 Copy the project"
+        },
+        {
+          "type": "html",
+          "html": "<p>Click “Make a copy” at the top right. A duplicate of the project is created in your own Google Drive.</p>"
+        },
+        {
+          "type": "figure",
+          "image": "./img/step2a.png",
+          "alt": "The information button at the top left of the Apps Script screen",
+          "caption": "Click the ℹ️ button at the top left"
+        },
+        {
+          "type": "figure",
+          "image": "./img/step2b.png",
+          "alt": "The copy icon at the top right of the project information panel",
+          "caption": "Click the copy icon at the top right"
+        },
+        {
+          "type": "figure",
+          "image": "./img/step2c.png",
+          "alt": "The project list with the new duplicate added",
+          "caption": "The duplicated project appears in your list"
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "3. 🚀 Deploy it as a web app"
+        },
+        {
+          "type": "callout",
+          "tone": "info",
+          "title": "🛡️ About security",
+          "text": "There is nothing malicious in the code I distribute, but if you would rather not take that on faith, feed the code to an AI — ChatGPT, Claude, Gemini — and ask it to check whether the code contains anything malicious. Please satisfy yourself first, then use it."
+        },
+        {
+          "type": "html",
+          "html": "<p>① 🔵 <strong>Start the deployment</strong><br>Click the blue “Deploy” button at the top right, then “New deployment”.</p>"
+        },
+        {
+          "type": "figure",
+          "image": "./img/step3a.png",
+          "alt": "Choosing “New deployment” from the Apps Script deploy button",
+          "caption": "“Deploy” › “New deployment”"
+        },
+        {
+          "type": "html",
+          "html": "<p>② ⚙️ <strong>Choose the type</strong><br>Click the gear icon on the left and choose “Web app”.</p>"
+        },
+        {
+          "type": "figure",
+          "image": "./img/step3b.png",
+          "alt": "Selecting Web app from the gear icon",
+          "caption": "Choose “Web app” from the ⚙️ icon"
+        },
+        {
+          "type": "html",
+          "html": "<p>③ 🛠️ <strong>Check the settings</strong></p>"
+        },
+        {
+          "type": "spec_list",
+          "items": [
+            {
+              "label": "Description",
+              "value": "SlideCast Studio v○○ (anything you like)"
+            },
+            {
+              "label": "Execute as",
+              "value": "Me"
+            },
+            {
+              "label": "Who has access",
+              "value": "Only myself (important!)"
+            }
+          ]
+        },
+        {
+          "type": "html",
+          "html": "<p>Then click “Deploy” at the bottom right.</p>"
+        },
+        {
+          "type": "figure",
+          "image": "./img/step3c.png",
+          "alt": "The deployment settings screen with “Who has access” set to “Only myself”",
+          "caption": "Important: set ❸, “Who has access”, to “Only myself”"
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "4. 🔑 Authorise access (first time only)"
+        },
+        {
+          "type": "html",
+          "html": "<p>When the “Authorize access” screen appears: pick your account, click “Advanced” at the bottom left, then click “Go to ○○ (unsafe)” at the very bottom to grant access. The wording is alarming the first time, but this is the standard ceremony for your own Apps Script project. <strong>That said, the warning exists for a reason — do not click through it for code you have no reason to trust.</strong></p>"
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "5. 🌐 Save the URL"
+        },
+        {
+          "type": "html",
+          "html": "<p>Open the “web app URL” you are given and the app appears, ready to use. It is now a private app only you can reach. Bookmark it and you are one click away next time.</p>"
+        },
+        {
+          "type": "figure",
+          "image": "./img/step3d.png",
+          "alt": "The issued web app URL",
+          "caption": "Open the URL and bookmark it"
+        },
+        {
+          "type": "callout",
+          "tone": "good",
+          "title": "✨ That is the whole setup",
+          "text": "Once it is done, opening your bookmarked URL launches SlideCast Studio, any time."
+        },
+        {
+          "type": "divider",
+          "label": "UPDATE"
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "🔄 Updates come from the same link"
+        },
+        {
+          "type": "html",
+          "html": "<p>Updates are <strong>free</strong>. If you have already bought the tool, copy the latest version from the same paid note shared link as before. If you want to carry over existing projects, libraries and settings, make a backup first from “Save data”, just in case.</p>"
+        },
+        {
+          "type": "link",
+          "url": "../../gas-update/",
+          "label": "Read the Apps Script update guide (Japanese)"
+        }
+      ]
+    },
+    {
+      "icon": "💸",
+      "category": "PRICING",
+      "title": "❾ About the price (set by an AI, and variable)",
+      "intro": "I handed pricing over to an AI, and it will keep moving on the AI’s judgement.",
+      "blocks": [
+        {
+          "type": "html",
+          "html": "<p>Building this took about as much as I had to give. For the last several months my days have looked like this.</p>"
+        },
+        {
+          "type": "spec_list",
+          "items": [
+            {
+              "label": "🕰️ Day job",
+              "value": "9 hours"
+            },
+            {
+              "label": "💻 App development",
+              "value": "8 hours"
+            },
+            {
+              "label": "👨‍👩‍👧 Time with family",
+              "value": "4 hours"
+            },
+            {
+              "label": "😴 Sleep",
+              "value": "3 hours"
+            }
+          ]
+        },
+        {
+          "type": "html",
+          "html": "<p>Nobody asked me to do this; I just wanted the tool to exist that badly. But between a day job and two small children, continuing to develop it at no return is not realistic. Charging for it is what lets it keep improving, and I hope you will read the decision in that light.</p><p>At the same time — I made it, so I want as many people as possible to actually use it. I know nothing about marketing, so I <strong>handed the pricing entirely to an AI</strong>, with the instruction to find a price that values the tool fairly, reaches as many people as possible, and still earns something.</p><p>So the price <strong>gets revised whenever the AI decides it should</strong>, based on how sales go and what has been added. If nothing sells it may come down; if it sells well or gains features it may go up. I genuinely do not know either.</p>"
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "Where the price stands now"
+        },
+        {
+          "type": "html",
+          "html": "<p>What the AI (Gemini 3.1 Pro) said:</p><ul class=\"check-list\"><li>Objective value of the tool: ¥10,000–15,000</li><li>Balancing reach against revenue: ¥3,980 as the floor</li></ul><p>But putting myself in your position: “However useful it looks, handing about ¥4,000 to an individual developer I have never heard of takes some nerve.” And I really did want to put this in more people’s hands.</p><p>So I overruled the AI and set up <strong>a discount through note’s social-promotion feature</strong>. Share (repost) the article on X in support, and you can buy it for <strong>¥1,980</strong> — less than half the AI’s number.<br>(And if you are the sort of saint who buys at the regular ¥3,980 to support development, you are extremely welcome.)</p>"
+        },
+        {
+          "type": "quote",
+          "text": "This is the lowest an individual developer can go. I overruled the AI’s ¥3,980 and made it ¥1,980 with a share. In exchange, please be forgiving about the small early bugs 🙇‍♂️",
+          "cite": "Where the AI and I landed"
+        },
+        {
+          "type": "html",
+          "html": "<p>This special price will also drift towards whatever the AI considers fair as features and activity change. If you have been curious, now is a good moment to pick it up and try SlideCast Studio.</p>"
+        },
+        {
+          "type": "heading",
+          "level": 4,
+          "text": "Price change history"
+        },
+        {
+          "type": "spec_list",
+          "items": [
+            {
+              "label": "At launch",
+              "value": "¥2,980 (¥1,480 with the X share discount)"
+            },
+            {
+              "label": "Current",
+              "value": "¥3,980 (¥1,980 with the X share discount), from 2026/3/20"
+            }
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "info",
+          "title": "💡 Check note for the current price",
+          "text": "The price is revised whenever the AI decides. The figures here reflect 2026/8/9. Always confirm the price at the time of purchase in the note article. The tool is sold in Japanese yen."
+        },
+        {
+          "type": "cta",
+          "title": "Get SlideCast Studio",
+          "text": "The app itself and the Apps Script shared link are provided from the paid area of the note article (in Japanese).",
+          "url": "https://note.com/bluezzly/n/nb4c85213c808",
+          "label": "Open the note sales article"
+        }
+      ]
+    },
+    {
+      "icon": "🗓️",
+      "category": "CHANGELOG",
+      "title": "❿ Release history and related reading",
+      "intro": "Updates continue after the one-time purchase, at no extra cost.",
+      "blocks": [
+        {
+          "type": "timeline",
+          "items": [
+            {
+              "date": "2026.08.09",
+              "title": "Manual updated",
+              "text": "The official manual was fully revised for v3.4 NUANCE."
+            },
+            {
+              "date": "2026.08.05",
+              "title": "v3.4 NUANCE",
+              "text": "Added expressions and posed gestures, auto-acting, character pack ZIPs, breathing and speech motion, and blank slides."
+            },
+            {
+              "date": "2026.07.31",
+              "title": "Settings reorganised",
+              "text": "Tidied up the subtitle settings and the character settings."
+            },
+            {
+              "date": "2026.07.30",
+              "title": "Character avatars",
+              "text": "Character avatars now drift gently instead of sitting still."
+            },
+            {
+              "date": "2026.07.29",
+              "title": "Bug fixes",
+              "text": "Fixed a toast that would not dismiss, and a cursor jump in the subtitle field."
+            },
+            {
+              "date": "2026.07.28",
+              "title": "Asset loading fixes",
+              "text": "Fixed animated asset loading and the MouthLoop links."
+            },
+            {
+              "date": "2026.07.26",
+              "title": "v3.3 SYNC",
+              "text": "Added the three character asset methods, ZIP and folder import, six-frame lip sync, and speech bubbles that follow the icon."
+            },
+            {
+              "date": "2026.07.21",
+              "title": "Update guide published",
+              "text": "Added an article covering the Apps Script update procedure."
+            },
+            {
+              "date": "2026.07.20",
+              "title": "v3.2 VIVID",
+              "text": "Updated to v3.2. See the release post for details."
+            },
+            {
+              "date": "2026.07.16",
+              "title": "Bundle Builder update / audio tuning",
+              "text": "Bundle Builder gained recording support. In SlideCast Studio, audio speed and pitch became adjustable after placement."
+            },
+            {
+              "date": "2026.07.14",
+              "title": "v3.1",
+              "text": "I thought v3.0 was the last one, and then v3.1 happened. Copy it from the shared link."
+            },
+            {
+              "date": "2026.07.06 22:20",
+              "title": "Subtitle animation settings added",
+              "text": "Added animation settings for how subtitles appear."
+            },
+            {
+              "date": "2026.07.06 17:00",
+              "title": "Bundle Builder brought up to date",
+              "text": "Updated the SlideCast Bundle Builder Gemini Canvas app to the latest version."
+            },
+            {
+              "date": "2026.07.05 16:30",
+              "title": "Video slide preview fixes",
+              "text": "More things about video slide previews were bothering me, so they were fixed."
+            },
+            {
+              "date": "2026.07.04 8:30",
+              "title": "Timing and trimming adjustments",
+              "text": "Fixed issues around video slide timing adjustment and trimming."
+            },
+            {
+              "date": "2026.07.01 18:30",
+              "title": "Bug fixes",
+              "text": "A few bugs and glitches, now fixed."
+            },
+            {
+              "date": "2026.07.01",
+              "title": "v3.0",
+              "text": "Updated to SlideCast Studio v3.0, adding Simple mode, the Script tab and the per-slide timeline."
+            }
+          ]
+        },
+        {
+          "type": "divider",
+          "label": "RELATED ARTICLES"
+        },
+        {
+          "type": "link_cards",
+          "items": [
+            {
+              "icon": "📘",
+              "title": "Official manual (v3.4 edition)",
+              "text": "The full 16-chapter reference (Japanese)",
+              "url": "https://note.com/bluezzly/n/n1e95d4cb978e"
+            },
+            {
+              "icon": "🧩",
+              "title": "SlideCast Bundle Builder",
+              "text": "Guide to preparing slides, script, AI voice and mic recordings (Japanese)",
+              "url": "../../bundle-builder/"
+            },
+            {
+              "icon": "🛠️",
+              "title": "How to update",
+              "text": "The Apps Script update procedure (Japanese)",
+              "url": "../../gas-update/"
+            },
+            {
+              "icon": "🆕",
+              "title": "v3.4 NUANCE release notes",
+              "text": "Published 2026/8/5 (Japanese)",
+              "url": "https://note.com/bluezzly/n/nf4ecad9cf40f"
+            },
+            {
+              "icon": "🔄",
+              "title": "v3.3 SYNC release notes",
+              "text": "Published 2026/7/26 (Japanese)",
+              "url": "https://note.com/bluezzly/n/n54d02ca2b939"
+            },
+            {
+              "icon": "🔄",
+              "title": "v3.2 release notes",
+              "text": "Published 2026/7/20 (Japanese)",
+              "url": "https://note.com/bluezzly/n/n37ae8356a0aa"
+            },
+            {
+              "icon": "🔄",
+              "title": "v3.1 release notes",
+              "text": "Published 2026/7/14 (Japanese)",
+              "url": "https://note.com/bluezzly/n/ne81357e6adc7"
+            },
+            {
+              "icon": "🔄",
+              "title": "v3.0 release notes",
+              "text": "Published 2026/7/1 (Japanese)",
+              "url": "https://note.com/bluezzly/n/n3304e79ee7ea"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

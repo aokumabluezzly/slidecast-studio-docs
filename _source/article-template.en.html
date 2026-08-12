@@ -1,43 +1,26 @@
 <!doctype html>
-<html lang="ja" data-theme="light">
+<!-- 自動生成: _source/tools/make_en_template.py が
+     build-rich-html-article の標準テンプレートから作っています。
+     このファイルを直接編集しないでください。 -->
+<html lang="en" data-theme="light">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="description" content="MouthLoop v2の変更点から、キャラパックZIPの保存、SlideCast Studioでの使い方までを画像つきで解説します。">
-<title>MouthLoop v2「表情」と「仕草」を追加</title>
-<link rel="canonical" href="https://aokumabluezzly.github.io/slidecast-studio-docs/mouthloop-v2/">
-<link rel="icon" type="image/png" sizes="32x32" href="../assets/brand/favicon-32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="../assets/brand/favicon-16.png">
-<link rel="apple-touch-icon" sizes="180x180" href="../assets/brand/apple-touch-icon.png">
-<link rel="manifest" href="../site.webmanifest">
-<meta name="theme-color" content="#1957ff">
-<meta property="og:type" content="article">
-<meta property="og:locale" content="ja_JP">
-<meta property="og:site_name" content="SlideCast Studio">
-<meta property="og:title" content="MouthLoop v2「表情」と「仕草」を追加">
-<meta property="og:description" content="MouthLoop v2の変更点、キャラパックZIPの保存、SlideCast Studioでの使い方を画像つきで解説します。">
-<meta property="og:url" content="https://aokumabluezzly.github.io/slidecast-studio-docs/mouthloop-v2/">
-<meta property="og:image" content="https://aokumabluezzly.github.io/slidecast-studio-docs/assets/brand/og-image.png">
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="SlideCast Studio ロゴ">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="MouthLoop v2「表情」と「仕草」を追加">
-<meta name="twitter:description" content="MouthLoop v2の変更点と使い方を画像つきで解説。">
-<meta name="twitter:image" content="https://aokumabluezzly.github.io/slidecast-studio-docs/assets/brand/og-image.png">
+<meta name="description" content="@@DESCRIPTION_ATTR@@">
+<title>@@TITLE_TEXT@@</title>
 <style>
 /* ============================================================
    1. TOKENS  —  the single source of size, weight, color, space
    ============================================================ */
 :root{
   /* palette (replaceable per article) */
-  --primary:#2476D8;
-  --secondary:#6750D8;
-  --accent:#16AFC9;
-  --surface:#F1F7FF;
+  --primary:@@PRIMARY@@;
+  --secondary:@@SECONDARY@@;
+  --accent:@@ACCENT@@;
+  --surface:@@SURFACE@@;
 
   /* text */
-  --ink:#17233F;
+  --ink:@@INK@@;
   --ink-soft:color-mix(in srgb,var(--ink) 82%,#ffffff);
   /* 68%, not 55%: card copy and captions sit on tinted surfaces, where a
      lighter mix falls to ~3.2:1 — under the 4.5:1 gate for small text. */
@@ -222,7 +205,7 @@ h4{font-size:var(--fs-h4)}
 .meta{display:flex;flex-wrap:wrap;gap:8px 16px;margin-top:22px;color:var(--muted);font-size:var(--fs-xs);font-weight:var(--fw-strong)}
 .hero-media{margin:0;padding:clamp(20px,3vw,34px);display:flex;flex-direction:column;justify-content:center}
 .hero-media img{
-  display:block;width:100%;aspect-ratio:1280 / 670;object-fit:cover;
+  display:block;width:100%;aspect-ratio:@@HERO_RATIO@@;object-fit:cover;
   border:1px solid var(--line);border-radius:var(--r-lg);background:var(--soft);box-shadow:var(--shadow);
 }
 .hero-media figcaption{margin-top:10px;color:var(--muted);font-size:var(--fs-xs);font-weight:var(--fw-strong);text-align:center}
@@ -433,6 +416,9 @@ figcaption{margin-top:9px;color:var(--muted);font-size:var(--fs-xs);line-height:
 .video-embed iframe{
   display:block;width:100%;aspect-ratio:16 / 9;border:1px solid var(--line);border-radius:16px;background:#000;
 }
+.video-grid{margin:26px 0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;align-items:start}
+.video-grid .video-embed{min-width:0;margin:0}
+.video-grid .video-embed.is-playing{grid-column:1 / -1}
 
 /* 5.16 inline-link : pill CTA inside prose */
 .link-row{margin:18px 0}
@@ -492,6 +478,7 @@ hr{border:0;height:1px;margin:46px 0;background:linear-gradient(90deg,transparen
 
 /* 5.22 link-cards : related links as a grid */
 .link-cards{margin:22px 0;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;list-style:none}
+.prose .link-cards,.chapter-inner .link-cards{box-sizing:border-box;padding:0;margin-inline:auto}
 .link-cards li{margin:0}
 /* A lone related link is a statement, not a grid: let it use the full column
    so a long title is not squeezed into half the reading width. */
@@ -772,333 +759,80 @@ hr{border:0;height:1px;margin:46px 0;background:linear-gradient(90deg,transparen
   .tab-list,.code-copy{display:none!important}
 }
 </style>
-<link rel="stylesheet" href="../assets/site-chrome.css">
-<link rel="stylesheet" href="../assets/site-actions.css">
-<script src="../assets/site-actions.js" defer></script>
-<script src="../assets/site-nav.js" defer></script>
-<script src="../assets/site-lang.js" defer></script>
 </head>
 <body>
-<a class="skip-link" href="#overview">本文へスキップ</a>
+<a class="skip-link" href="#overview">Skip to content</a>
 <div class="progress" id="progressBar"></div>
 
 <header class="site-header">
   <div class="header-inner">
-    <a class="brand" href="../" aria-label="SlideCast Studio トップページ">SlideCast <b>Studio</b></a>
+    <a class="brand" href="#top">@@BRAND@@</a>
     <span class="header-current" id="currentSection"></span>
-    <nav class="header-nav" aria-label="記事内ナビゲーション"><a class="header-link" href="../" aria-label="トップページ"><span aria-hidden="true">🏠</span><span class="nav-label">HOME</span></a><button class="header-link" type="button" data-site-nav aria-label="ページ一覧"><span aria-hidden="true">📚</span><span class="nav-label">ページ</span></button>
-      <button class="header-link" id="openToc" type="button" aria-label="目次"><span aria-hidden="true">☰</span><span class="nav-label">目次</span></button>
-      
-      <button class="icon-button" id="themeToggle" type="button" aria-label="表示テーマを切り替える"><span class="theme-light" aria-hidden="true">☀️</span><span class="theme-dark" aria-hidden="true">🌙</span></button>
+    <nav class="header-nav" aria-label="Article navigation">@@NAV_LINKS@@
+      <button class="header-link" id="openToc" type="button"><span aria-hidden="true">☰</span><span class="nav-label">Contents</span></button>
+      @@UPDATE_LINK@@
+      <button class="icon-button" id="themeToggle" type="button" aria-label="Switch colour theme"><span class="theme-light" aria-hidden="true">☀️</span><span class="theme-dark" aria-hidden="true">🌙</span></button>
     </nav>
   </div>
 </header>
 
 <main id="top">
-<section class="hero has-image">
+<section class="hero @@HERO_CLASS@@">
   <div class="hero-grid">
     <div class="hero-copy">
-      <p class="kicker">MOUTHLOOP V2 GUIDE</p>
-      <h1>MouthLoop v2「表情」と「仕草」を追加</h1>
-      <p class="hero-subtitle">画像1枚から、表情・仕草つきのリップシンクキャラクター素材を作る無料Gemini Canvasアプリ</p>
-      
-      <ul class="chips"><li class="chip">無料</li><li class="chip">APIキー不要</li><li class="chip">Gemini Canvas</li><li class="chip">表情・仕草</li><li class="chip">SlideCast Studio連携</li></ul>
-      <div class="meta"><span>aokuma</span><span>2026.08.05</span><span>v2</span></div>
+      <p class="kicker">@@EYEBROW@@</p>
+      <h1>@@TITLE@@</h1>
+      <p class="hero-subtitle">@@SUBTITLE@@</p>
+      @@LEAD@@
+      <ul class="chips">@@CHIPS@@</ul>
+      <div class="meta">@@META@@</div>
     </div>
-    <figure class="hero-media"><img src="../assets/mouthloop-v2-01.png" alt="MouthLoop v2。表情と仕草が追加され、口パク用の3段階の口と複数の表情が並ぶイメージ"></figure>
+    @@HERO_IMAGE@@
   </div>
 </section>
-
+@@STATS@@
 
 <div class="reading">
   <section class="panel" id="overview">
-    <p class="kicker">👋 OVERVIEW</p>
-    <h2 class="rule">このページで分かること</h2>
-    <div class="prose"><p>画像1枚から口パク素材を作る無料ツール <strong>MouthLoop</strong> を、v2へアップデートしました。表情（笑顔・悲しみ・怒り）と仕草（手を振る・頭を掻くなど）が加わり、保存物は <strong>SlideCast Studio用キャラパックZIP</strong> にまとまりました。</p><p>前回の記事を読んでいなくても、このページだけで準備から保存、SlideCast Studioへの読み込みまで進められます。</p><div class="callout callout-warn"><p><strong>SlideCast Studioで使う方へ</strong></p><p>SlideCast Studio側もv3.4へのアップデートが必要です。</p></div><figure><img src="../assets/mouthloop-v2-02.gif" alt="MouthLoop v2で作ったキャラクターが、笑顔で口パクしながら手を振るアニメーション" loading="lazy"><figcaption>口パク・瞬きに加えて、表情と仕草が動きます</figcaption></figure><p class="link-row"><a class="inline-link" href="https://share.gemini.google/dkU0IVHfQ2gu" target="_blank" rel="noopener noreferrer">MouthLoopを開く</a></p><p class="link-row"><a class="inline-link" href="https://note.com/bluezzly/n/n73a045067fbe" target="_blank" rel="noopener noreferrer">noteの元記事を読む</a></p></div>
-    
+    <p class="kicker">@@OVERVIEW_ICON@@ OVERVIEW</p>
+    <h2 class="rule">@@OVERVIEW_TITLE@@</h2>
+    <div class="prose">@@OVERVIEW_BODY@@</div>
+    @@OVERVIEW_CARDS@@
   </section>
 
-  <div class="divider">CONTENTS</div>
-  <section class="chapters" aria-label="記事の各章"><details class="chapter" id="section-1"><summary><span class="chapter-icon" aria-hidden="true">🆕</span><span class="chapter-heading" role="heading" aria-level="2"><span class="chapter-category">UPDATE</span><span class="chapter-title">v1から何が変わったか</span></span><span class="chapter-toggle" aria-hidden="true"></span></summary><div class="chapter-body"><div class="chapter-inner"><p class="chapter-intro">「口パクするだけの素材」から「表情も仕草も持ったキャラクター素材へ」というアップデートです。</p><div class="table-wrap"><table class="data-table"><thead><tr><th>項目</th><th>v1</th><th>v2</th></tr></thead><tbody><tr><td>🙂 表情</td><td>1種類のみ</td><td>通常＋笑顔・悲しみ・怒り（最大4種類）</td></tr><tr><td>👋 仕草</td><td>なし</td><td>最大3つ。定型6種または自由入力</td></tr><tr><td>📦 主な保存物</td><td>PNG 6枚ZIP</td><td>キャラパックZIPに一本化</td></tr><tr><td>🔧 既定の作り方</td><td>まるごと描き直す</td><td>顔だけ差し替える（推奨）</td></tr><tr><td>📐 保存サイズ</td><td>事前に選ぶ</td><td>保存時に選択し、実容量も表示</td></tr><tr><td>▶️ 仕上がり確認</td><td>WebP作成後</td><td>ステップ4でその場で再生</td></tr><tr><td>♻️ 再生成</td><td>ボタンを押すだけ</td><td>追加の指示を添えられる</td></tr><tr><td>➕ その他</td><td>—</td><td>アングル、目線、片目OFF、余白、背景の抜き具合、画風を追加</td></tr></tbody></table></div><div class="gallery" data-cols="3"><figure><img src="../assets/mouthloop-v2-03.png" alt="v2で追加された表情セットの画面" loading="lazy"><figcaption>表情セット</figcaption></figure><figure><img src="../assets/mouthloop-v2-04.png" alt="v2で追加された仕草の画面" loading="lazy"><figcaption>仕草</figcaption></figure><figure><img src="../assets/mouthloop-v2-05.png" alt="v2で作られた素材の例" loading="lazy"><figcaption>生成素材</figcaption></figure></div></div></div></details><details class="chapter" id="section-2"><summary><span class="chapter-icon" aria-hidden="true">🎬</span><span class="chapter-heading" role="heading" aria-level="2"><span class="chapter-category">OUTPUT</span><span class="chapter-title">MouthLoop v2で作れるもの</span></span><span class="chapter-toggle" aria-hidden="true"></span></summary><div class="chapter-body"><div class="chapter-inner"><p class="chapter-intro">保存できるファイルは2つです。v2ではPNG 6枚ZIPがキャラパックZIPに置き換わりました。</p><h3>📦 1. SlideCast Studio用キャラパック（ZIP）</h3><figure><img src="../assets/mouthloop-v2-06.png" alt="キャラパックZIPの中身。表情ごとのフォルダとPNG、manifest.json" loading="lazy"><figcaption>slidecast-character-pack.zip</figcaption></figure><p>中身は、<strong>表情ごとに分けられたPNG 6枚</strong>と、<strong>仕草の連番PNG</strong>、そしてそれぞれの意味を書いた <code>manifest.json</code> です。</p><ul class="check-list"><li>口3段階×目2段階の6枚が同じ位置・同じ構図で入る</li><li>追加した表情ごとに同じ6枚が入る</li><li>仕草は1つにつき4コマ入る</li><li>SlideCast Studioの「音声連動」へZIPのまま登録できる</li></ul><div class="callout callout-good"><p><strong>迷ったらキャラパックZIP</strong></p><p>v1の「連番PNG ZIP」はキャラパックへ統合されました。SlideCast Studioで使うなら、このZIPだけ保存すれば大丈夫です。</p></div><div class="divider">OPTION</div><h3>🔁 2. アニメ画像（WebP／APNG）</h3><figure><img src="../assets/mouthloop-v2-07.png" alt="アニメ画像（WebP／APNG）の書き出し画面" loading="lazy"><figcaption>lipsync.webp（iPad・iPhoneでは lipsync-anim.png）</figcaption></figure><p>口パクと瞬き、仕草を組み込んだループアニメーションです。1ファイルで動きますが、<strong>音声とは連動しません</strong>。入るのは選択中の表情1つ分だけです。</p><p>音声連動を使わない場面向けの任意出力です。</p></div></div></details><details class="chapter" id="section-3"><summary><span class="chapter-icon" aria-hidden="true">✅</span><span class="chapter-heading" role="heading" aria-level="2"><span class="chapter-category">BEFORE YOU START</span><span class="chapter-title">使う前に知っておきたいこと</span></span><span class="chapter-toggle" aria-hidden="true"></span></summary><div class="chapter-body"><div class="chapter-inner"><p class="chapter-intro">インストール、追加のアカウント登録、APIキー入力は不要です。</p><h3>🧰 必要なもの</h3><ul class="check-list"><li>Google Gemini（Canvas）が使えるアカウント</li><li>元になる画像。なくてもツール内でAI生成できます</li></ul><p class="link-row"><a class="inline-link" href="https://share.gemini.google/dkU0IVHfQ2gu" target="_blank" rel="noopener noreferrer">GeminiでMouthLoopを開く</a></p><h3>⚠️ 作業内容は保存されません</h3><p>MouthLoopは、画像も入力内容もツール内には保存しません。すべてブラウザの中だけで処理します。</p><div class="callout callout-warn"><p><strong>画面を閉じる前に保存</strong></p><p>画面を閉じると作業内容はすべて消えます。完成したキャラパックZIPは、その場で保存してください。</p></div><h3>📱 スマホ・タブレットで使うとき</h3><ul class="check-list"><li>スマホではChromeブラウザ版Geminiを使う。Geminiアプリ内ではファイル保存がブロックされます</li><li>iPad・iPhoneではWebPの代わりにAPNG形式へ自動で切り替わります</li></ul><div class="callout callout-warn"><p><strong>iPadではキャラパックZIPが確実</strong></p><p>SlideCast StudioのiPad Safari側がAPNGを読み込めない場合があります。「音声連動」のキャラパックZIPはiPadでも動作確認済みです。</p></div><h3>🌐 日本語／英語の切り替え</h3><p>画面右上の <strong>JA / EN</strong> ボタンで切り替えられます。既定は日本語です。</p><figure><img src="../assets/mouthloop-v2-08.png" alt="画面右上のJA／EN切り替えボタン" loading="lazy"></figure></div></div></details><details class="chapter" id="section-4"><summary><span class="chapter-icon" aria-hidden="true">🚀</span><span class="chapter-heading" role="heading" aria-level="2"><span class="chapter-category">HOW TO</span><span class="chapter-title">使い方：全5ステップ</span></span><span class="chapter-toggle" aria-hidden="true"></span></summary><div class="chapter-body"><div class="chapter-inner"><p class="chapter-intro">画面上部のステップ帯に沿って、上から順に進めます。</p>
+  <div class="divider">@@SECTIONS_LABEL@@</div>
+  <section class="chapters" aria-label="Article chapters">@@SECTIONS@@</section>
 
-    <figure >
-      <img src="../assets/mouthloop-v2-09.png"
-           width="1200" height="458" loading="lazy"
-           alt="画面最上部のステップの帯（1〜5）。">
-    </figure>
-
-    <ol class="step-list">
-      <li><strong>マスター画像</strong>元になる1枚を決める</li>
-      <li><strong>口と目の表情</strong>表情・仕草もここで追加する</li>
-      <li><strong>フレーム作成</strong>差し替える範囲を囲む</li>
-      <li><strong>確認・保存</strong>完成を確認し、キャラパックZIPを保存する</li>
-      <li><strong>アニメ画像（任意）</strong>WebP／APNGを書き出す</li>
-    </ol>
-
-    <!-- Step 1 -->
-    <h3 id="step1">ステップ1：マスター画像を用意する</h3>
-    <p>すべての元になる1枚を決めます。方法は2つ。</p>
-    <figure >
-      <img src="../assets/mouthloop-v2-10.png"
-           width="1200" height="458" loading="lazy"
-           alt="ステップ1で「Geminiで新しく作る」と「手持ちの画像を使う」を選ぶ画面。">
-    </figure>
-
-    <h4>🅰 Geminiで新しく作る</h4>
-    <p>フォームを埋めて生成ボタンを押すだけです。指定できる項目：</p>
-    <ul>
-      <li><strong>構図</strong>：顔・頭だけ／バストアップ（既定）／全身</li>
-      <li><strong>キャラクター</strong>：種類、性別・雰囲気、年代、髪型、髪色、肌の色、自由記述</li>
-      <li><strong>服装</strong>・<strong>画風</strong>（v2では「リアル調イラスト（描き込み）」「劇画・グラフィックノベル」などを追加）</li>
-      <li><strong>参照画像</strong>（最大4枚）：画像ごとに「見た目／服装／画風／配色」のどれを参考にするか割り当て</li>
-      <li><strong>表情</strong>：真顔／やさしい笑顔／自由指定</li>
-      <li><strong>背景色</strong>：キャラクターに使われていない色を選びます</li>
-    </ul>
-
-    <h4><span class="tag tag-new">NEW</span>v2で追加：アングル・目線</h4>
-    <p>
-      <strong>アングル</strong>（正面／ほぼ正面／斜め45度／真横／やや上から／やや下から／自由記述）と、
-      <strong>目線</strong>（カメラ目線／少しだけ外す／横を見る／やや上・やや下／自由記述）を選べるようになりました。
-      既定は「正面・カメラ目線」で、これは前回と同じ結果になります。
-    </p>
-    <div class="callout callout-warn">
-      正面・カメラ目線から外すと、口や目の位置が取りにくくなります。真横などで片目しか見えない構図では、ステップ3で使わない方の目をOFFにしてください（後述）。
-    </div>
-    <p>「プロンプトを表示」を押すと、実際にAIへ送られる文章をそのままコピーできます。ほかのAIサービスで画像を作りたいときにも使えます。</p>
-
-    <h4>🅱 手持ちの画像を使う</h4>
-    <p>自分で用意した画像を読み込みます。ドラッグ＆ドロップや貼り付けにも対応。読み込むと3つから選びます。</p>
-    <ul>
-      <li><strong>そのまま使う</strong>：背景が透過、または外周がはっきりした単色のとき</li>
-      <li><strong>背景だけ整える</strong>：表情・角度・構図はそのままに、背景だけ単色に変える</li>
-      <li><strong>マスター向けに整える</strong>：正面向き・目を開く・口を閉じる、といった調整まで行う</li>
-    </ul>
-    <p>写真や風景など複雑な背景の画像は「そのまま使う」を選べません。下の2つで背景を整えてから進んでください。</p>
-
-    <h4>✂️ 最後に、使う範囲を正方形に切り抜きます</h4>
-    <p>枠をドラッグして位置を決め、四隅で大きさを調整します。中央に近づくと自動で吸着し、ガイドが緑色になります。矢印キーでの微調整も可能です。</p>
-    <figure >
-      <img src="../assets/mouthloop-v2-11.png"
-           width="1200" height="914" loading="lazy"
-           alt="切り抜き画面。正方形の枠をドラッグして使う範囲を決めているところ。">
-    </figure>
-
-    <h4><span class="tag tag-new">NEW</span>v2で追加：「余白を足す（仕草を入れるとき）」</h4>
-    <p>バストアップのまま仕草を入れると、<strong>腕や手が画面からはみ出す</strong>ことがあります。そこで、切り抜きのときに <strong>10%〜30%の余白</strong> を足せるようになりました。</p>
-    <figure >
-      <img src="../assets/mouthloop-v2-12.png"
-           width="1200" height="921" loading="lazy"
-           alt="「余白を足す」を選んだ状態の切り抜き画面。">
-    </figure>
-    <ul>
-      <li>キャラクターが少し小さく配置され、腕を上げる場所ができます</li>
-      <li>元画像の外に出た部分は背景色で埋めます</li>
-      <li>下端で切れている絵は、下端を保ったまま上と左右に余白を足します</li>
-      <li><strong>画像生成は行いません</strong>（API利用枠を消費しません）</li>
-    </ul>
-    <p>その分だけ口や目は小さくなるので、<strong>仕草を使わないなら「なし」のままでOK</strong>です。</p>
-    <p>「この範囲を◯◯×◯◯で確定」を押せばステップ1は完了です。表示されている数字が、このあとの<strong>作業解像度</strong>（切り抜き範囲から自動で決まります。256〜1024px）です。</p>
-    <figure >
-      <img src="../assets/mouthloop-v2-13.png"
-           width="1200" height="921" loading="lazy"
-           alt="「この範囲を◯◯×◯◯で確定」ボタンと、確定後の作業解像度の表示。">
-    </figure>
-
-    <!-- Step 2 -->
-    <h3 id="step2">ステップ2：口と目の表情をつくる</h3>
-    <p>ここがv2でいちばん大きく変わったところです。上から順に <strong>「作り方を選ぶ」→「表情セット」→「仕草」</strong> の3ブロックになりました。</p>
-
-    <h4>🔧 作り方を選ぶ（既定が変わりました）</h4>
-    <figure >
-      <img src="../assets/mouthloop-v2-14.png"
-           width="1200" height="227" loading="lazy"
-           alt="「顔だけ差し替える」と「まるごと描き直す」を選ぶ画面。">
-    </figure>
-    <p><strong>顔だけ差し替える（推奨・既定）｜生成3枚</strong><br>
-      マスターを土台に、囲んだ範囲だけを差し替えます。範囲の外は1ピクセルも変わらないので揺れません。そのかわり、口と左右の目を囲む手間がかかります。</p>
-    <p><strong>まるごと描き直す（かんたん）｜生成5枚</strong><br>
-      生成した5枚をそのまま並べます。囲む手間はありませんが、毎回すべてが描き直されるため、コマごとに髪や輪郭が揺れることがあります。</p>
-    <div class="callout">
-      v1は「まるごと描き直す（通常）」が既定でしたが、<strong>v2では「顔だけ差し替える」が既定</strong>になりました。
-      <strong>表情セットと仕草は、こちらでのみ使えます。</strong>
-    </div>
-
-    <h4>🙂 表情セットを追加（任意）<span class="tag tag-new">新機能</span></h4>
-    <p><strong>笑顔・悲しみ・怒り</strong>を追加できます。追加した表情ごとに、口パク6枚がまるごと作られます。</p>
-    <figure >
-      <img src="../assets/mouthloop-v2-15.png"
-           width="1200" height="616" loading="lazy"
-           alt="表情セット（笑顔・悲しみ・怒り）を追加するパネル。">
-    </figure>
-    <p>仕組みはシンプルで、<strong>マスターの目・眉・口だけを描き替えた画像を、表情ごとに1枚だけ生成</strong>します。体・服・背景・腕はマスターのままなので、<strong>表情を増やしても人物は変わりません</strong>。</p>
-    <ul>
-      <li>追加でかかるのは <strong>表情1つにつき画像1枚だけ</strong>（3種類すべてでも3枚）</li>
-      <li>喋っている間の口と瞬きは、通常表情のものを流用します</li>
-      <li>保存すると、表情ごとのフォルダに分かれた1つのZIPになります</li>
-    </ul>
-
-    <h4>👋 仕草を追加（任意）<span class="tag tag-new">新機能</span></h4>
-    <p>手を振る・頭を掻くなどの動きを、<strong>リップシンクの合間に差し込めます</strong>。最大3つまで。</p>
-    <figure >
-      <img src="../assets/mouthloop-v2-16.png"
-           width="1200" height="634" loading="lazy"
-           alt="仕草を追加するパネル。手を振る・頭を掻くなどの選択肢。">
-    </figure>
-    <p>選べる種類：<strong>手を振る／頭を掻く／指をさす／腕を組む／親指を立てる／手のひらで示す／自由入力</strong></p>
-    <p>各仕草には「片手で」「ゆっくり大きく」のような<strong>追加の指示</strong>も添えられます。</p>
-    <p><strong>仕草は2段階で作ります。</strong></p>
-    <ol>
-      <li><strong>まず到達点（動きの終わり）だけを生成</strong> → イメージ通りか確認</li>
-      <li>違えば ↻ で作り直し → よければ「<strong>残りの中間コマを生成</strong>」</li>
-    </ol>
-    <p>中間コマは到達点をもとに作るため、<strong>先に到達点を確認したほうがやり直しが少なくて済みます</strong>（生成する総枚数は変わりません）。1つの仕草は「到達点1コマ＋中間3コマ（25／50／75%）」の<strong>計4枚</strong>です。</p>
-
-    <h4>💰 生成枚数の目安</h4>
-    <p>v2では生成枚数を自分で組み立てられます。ボタンには常に枚数が表示されるので、押す前に確認できます。</p>
-    <dl class="spec-list">
-      <div><dt>口と目の基本（顔だけ差し替える）</dt><dd>3枚</dd></div>
-      <div><dt>表情を1つ追加</dt><dd>＋1枚</dd></div>
-      <div><dt>仕草を1つ追加</dt><dd>＋4枚</dd></div>
-      <div><dt>フル装備（表情3種＋仕草3つ）</dt><dd>合計18枚</dd></div>
-    </dl>
-    <p>生成後は、各プレビューで「口はちゃんと開いているか」「<strong>左右両方</strong>の目が閉じているか」「眉や髪、アクセサリーが変わっていないか」を目視で確認してください。</p>
-
-    <h4><span class="tag tag-new">NEW</span>v2で追加：再生成に「追加の指示」を添えられます</h4>
-    <p>各カードの「再生成」や、仕草の ↻ を押すとポップアップが開き、「<strong>口を小さく開ける</strong>」のような指示を <strong>160字まで</strong>入力できます（空のままでもOK）。</p>
-    <figure >
-      <img src="../assets/mouthloop-v2-17.png"
-           width="1200" height="648" loading="lazy"
-           alt="再生成時に「追加の指示」を入力するポップアップ。">
-    </figure>
-    <ul>
-      <li>その指示は<strong>その1回の生成にだけ</strong>使われ、保存されません</li>
-      <li>背景・同じ人物・変えてよい範囲のルールが優先されるため、それに反する指示は無視されます</li>
-    </ul>
-
-    <!-- Step 3 -->
-    <h3 id="step3">ステップ3：フレーム作成（範囲を囲む）</h3>
-    <p>「顔だけ差し替える」では、先に<strong>差し替える範囲</strong>を囲みます。顔の上をドラッグするだけです。わりとざっくりでも上手くいくので、まずはざっくり試してみてください。後から再調整できます。</p>
-    <figure >
-      <img src="../assets/mouthloop-v2-18.png"
-           width="1200" height="1086" loading="lazy"
-           alt="範囲エディター。口・左目・右目などを囲んでいるところ。">
-    </figure>
-    <p>囲む範囲は、選んだ内容によって増えます。</p>
-    <ul>
-      <li><strong>口</strong>（常に必要）… 小さめに囲むほど安定します</li>
-      <li><strong>左目・右目</strong>（常に必要）… 同上。眉間・鼻筋・メガネのブリッジを差し替え対象から外すため、左右で分けています</li>
-      <li><strong>表情</strong>（表情セットを使うとき）… <strong>眉まで含めて</strong>囲みます。眉が外れると怒り・悲しみがほとんど伝わりません</li>
-      <li><strong>仕草</strong>（仕草を使うとき）… <strong>腕の通り道だけ</strong>をなるべく細く囲みます</li>
-    </ul>
-
-    <h4><span class="tag tag-new">NEW</span>v2で追加：背景の抜き具合／瞬きに使う目</h4>
-    <figure >
-      <img src="../assets/mouthloop-v2-19.png"
-           width="1200" height="160" loading="lazy"
-           alt="「背景の抜き具合」と「瞬きに使う目」の設定。">
-    </figure>
-    <ul>
-      <li><strong>背景の抜き具合</strong>（弱め・標準・強め・最強）：輪郭に背景色が残るときは「強め」、髪や服の細い部分が欠けるときは「弱め」。変更後は「6フレームを作成・検証」を押し直すだけで反映されます（<strong>生成はやり直しません</strong>）</li>
-      <li><strong>瞬きに使う目</strong>：横向きや前髪で片目しか見えないときに、使わない方をOFFにできます</li>
-    </ul>
-    <p>全身の構図では顔が小さくなるので、<strong>300%表示</strong>を使うと合わせやすくなります。</p>
-    <p>準備できたら「<strong>6フレームを作成・検証</strong>」を押します。背景が透過処理され、フレームが組み上がります。</p>
-    <figure >
-      <img src="../assets/mouthloop-v2-20.png"
-           width="1200" height="369" loading="lazy"
-           alt="「6フレームを作成・検証」ボタンと検証結果の表示。">
-    </figure>
-
-    <!-- Step 4 -->
-    <h3 id="step4">ステップ4：できあがりを確認して保存する ★保存はここ</h3>
-
-    <h4><span class="tag tag-new">NEW</span>v2で追加：その場で動きを確認できます</h4>
-    <p>完成したコマを<strong>その場で再生</strong>して確認できます。<strong>画像生成は行いません</strong>。v1ではWebPを作らないと動きが見られなかったので、確認がぐっと早くなりました。</p>
-    <figure >
-      <img src="../assets/mouthloop-v2-21.png"
-           width="1200" height="745" loading="lazy"
-           alt="ステップ4の動くプレビュー。完成したコマをその場で再生している画面。">
-    </figure>
-    <div class="callout">
-      ここでの速さは完成イメージの確認用です。SlideCast Studioではリップシンクの速さは音声に合わせて自動で決まり、仕草の間隔は別途調整します。
-    </div>
-
-    <h4>💾 「SlideCast Studio用キャラパック（ZIP）」を保存</h4>
-    <p>保存ボタンを押すと、<strong>保存サイズを選ぶダイアログ</strong>が開きます（512／768／1024px）。</p>
-    <figure >
-      <img src="../assets/mouthloop-v2-22.png"
-           width="1200" height="757" loading="lazy"
-           alt="ステップ4の保存ボタンと「このパックに入る内容」の表示。">
-      <img src="../assets/mouthloop-v2-23.png"
-           width="1118" height="1070" loading="lazy"
-           alt="保存サイズを選ぶダイアログ。512／768／1024pxのカードと実際の容量。">
-      <figcaption>保存前の内容確認と、保存サイズを選ぶダイアログ</figcaption>
-    </figure>
-    <ul>
-      <li>サイズを選ぶとその場でファイルが作られ、<strong>実際の容量が表示されます</strong>。アップロード先の容量制限に引っかかる前に気づけます</li>
-      <li><strong>保存サイズを変えても、生成済みの顔差分は消えません</strong></li>
-      <li>作業解像度より大きいサイズを選ぶと<strong>引き伸ばしになる</strong>ため、その旨がダイアログに表示されます</li>
-      <li>コマ数が多いときは、<strong>512px</strong>が推奨されます（ZIPは50MBが上限です）</li>
-    </ul>
-    <p>保存前に「このパックに入る内容」（基本表情◯枚／追加表情／仕草／合計PNG数）が表示されるので、意図した中身になっているか確認できます。</p>
-    <div class="callout callout-good">
-      <strong>ここまでで作業は完了です。</strong> アニメ画像が不要なら、ステップ5は飛ばして構いません。
-    </div>
-
-    <!-- Step 5 -->
-    <h3 id="step5">ステップ5：（任意）アニメ画像として書き出す</h3>
-    <p>音声連動を使わない場面のために、ループアニメーションも作れます。</p>
-    <figure >
-      <img src="../assets/mouthloop-v2-24.png"
-           width="1200" height="1157" loading="lazy"
-           alt="ステップ5のアニメ画像書き出し画面。速さ・仕草の間隔・保存品質の設定。">
-    </figure>
-    <ul>
-      <li><strong>プレビューする表情</strong>：どの表情でアニメを作るか選びます（ZIPには全表情が入ります）</li>
-      <li><strong>リップシンクの速さ</strong>：速い／標準／ゆっくり</li>
-      <li><strong>仕草を入れる間隔</strong>：短め／標準／長め（リップシンク何回分ごとに仕草を1回入れるか）</li>
-      <li><strong>保存品質</strong>：高いほどきれいですが、ファイルサイズも大きくなります（APNGは劣化なしのため設定なし）</li>
-    </ul>
-    <p>「WebPを作成」（iPad・iPhoneでは「APNGを作成」）を押すとプレビューが表示されます。<strong>3ループ再生して</strong>、ずれや点滅がないか確認してから保存してください。</p>
-    <div class="callout callout-good">
-      <b class="label">💡 ヒント</b>
-      仕草を入れる間隔は、<strong>ステップ4の動くプレビューとこのアニメ画像にだけ</strong>効きます。キャラパックZIPには影響しません。
-    </div></div></div></details><details class="chapter" id="section-5"><summary><span class="chapter-icon" aria-hidden="true">🎥</span><span class="chapter-heading" role="heading" aria-level="2"><span class="chapter-category">SLIDECAST STUDIO</span><span class="chapter-title">SlideCast Studioで使う</span></span><span class="chapter-toggle" aria-hidden="true"></span></summary><div class="chapter-body"><div class="chapter-inner"><p class="chapter-intro">アップロード先は「設定 → キャラ → キャラ素材・動き」です。</p><figure><img src="../assets/mouthloop-v2-25.png" alt="SlideCast Studioの「設定 → キャラ → キャラ素材・動き」の画面" loading="lazy"></figure><h3>🎙 音声連動として使う（おすすめ）</h3><p>「キャラ素材・動き」→「<strong>音声連動</strong>」に、キャラパックZIPのままアップロードします。</p><figure><img src="../assets/mouthloop-v2-26.png" alt="キャラパックZIPを音声連動へアップロードしている画面" loading="lazy"></figure><ul class="check-list"><li>ナレーション音声に合わせて口が動く</li><li>表情と仕草の情報も一緒に登録される</li><li>速度や仕草の頻度はSlideCast Studio側で調整できる</li></ul><h3>🔁 アニメ画像として使う</h3><p>「キャラ設定」→「<strong>アニメ画像</strong>」にWebP／APNGをアップロードします。ナレーションに関係なく一定のリズムで動き続けます。</p><figure><img src="../assets/mouthloop-v2-27.png" alt="WebP／APNGをアニメ画像へアップロードしている画面" loading="lazy"></figure><h3>🤔 どちらを使えばいい？</h3><div class="table-wrap"><table class="data-table"><thead><tr><th>比較</th><th>📦 キャラパックZIP</th><th>🔁 アニメ画像</th></tr></thead><tbody><tr><td>動き方</td><td>ナレーション音声に連動</td><td>一定のリズムでループ</td></tr><tr><td>表情</td><td>全表情が入る</td><td>選んだ1表情のみ</td></tr><tr><td>仕草</td><td>タイミングを後から調整可</td><td>書き出し時に頻度を固定</td></tr><tr><td>画質</td><td>可逆PNG</td><td>WebPは非可逆／APNGは可逆</td></tr><tr><td>iPad</td><td>利用可</td><td>読み込めない場合あり</td></tr></tbody></table></div><div class="callout callout-good"><p><strong>迷ったらキャラパックZIP</strong></p><p>音声連動、全表情、仕草の後調整に対応します。</p></div></div></div></details><details class="chapter" id="section-6"><summary><span class="chapter-icon" aria-hidden="true">🔧</span><span class="chapter-heading" role="heading" aria-level="2"><span class="chapter-category">TROUBLESHOOTING</span><span class="chapter-title">うまくいかないときは</span></span><span class="chapter-toggle" aria-hidden="true"></span></summary><div class="chapter-body"><div class="chapter-inner"><dl class="faq"><div><dt>仕草や表情のパネルが「使えない」と出る</dt><dd>「作り方を選ぶ」を「顔だけ差し替える」に切り替えてください。仕草の場合はステップ1の構図も確認します。</dd></div><div><dt>仕草で腕や手が画面からはみ出す</dt><dd>ステップ1の切り抜きで「余白を足す」を20%程度にして、やり直してください。足りなければ30%も試せます。</dd></div><div><dt>怒りや悲しみが伝わらない</dt><dd>ステップ3の「表情」の範囲に眉まで含めて囲み直してください。</dd></div><div><dt>仕草を入れたら顔まで動く</dt><dd>「仕草」の範囲を、腕と手など動きが通る場所だけに細く絞ります。</dd></div><div><dt>仕上がりがちらつく</dt><dd>「顔だけ差し替える」を使い、囲む範囲を小さめにします。生成画像ごとの色味の差でちらつく場合もあります。</dd></div><div><dt>目が片方しか閉じない／表情が崩れる</dt><dd>該当カードを再生成します。v2では追加の指示も添えられます。出来映えを理由に自動で作り直すことはありません。</dd></div></dl><h3>🎨 輪郭に背景色が残る／細い部分が欠ける</h3><p>ステップ3の「<strong>背景の抜き具合</strong>」を調整し、「6フレームを作成・検証」を押し直します。画像生成はやり直されません。</p><figure><img src="../assets/mouthloop-v2-28.png" alt="背景の抜き具合を弱め・標準・強め・最強から選ぶ画面" loading="lazy"></figure><dl class="faq"><div><dt>ZIPが大きすぎて保存できない</dt><dd>保存サイズを512pxに下げるか、表情・仕草の数を減らしてください。上限は50MBです。生成済み画像は削除されません。</dd></div><div><dt>生成に失敗する</dt><dd>しばらく時間をおいてから再試行してください。利用上限に達している場合は、繰り返し押しても改善しません。</dd></div><div><dt>出力サイズを大きくすれば高画質になる？</dt><dd>なりません。作業解像度より大きいサイズは引き伸ばしになり、情報量は増えません。</dd></div></dl></div></div></details><details class="chapter" id="section-7"><summary><span class="chapter-icon" aria-hidden="true">📋</span><span class="chapter-heading" role="heading" aria-level="2"><span class="chapter-category">CAUTIONS</span><span class="chapter-title">使うときの注意</span></span><span class="chapter-toggle" aria-hidden="true"></span></summary><div class="chapter-body"><div class="chapter-inner"><ul class="check-list"><li>生成結果の利用可否はGoogleの利用規約と用途に照らして確認する</li><li>実在の人物になりすます目的では利用しない</li><li>入力内容と画像は画像生成時だけGoogle Geminiへ送信され、ツール内には保存されない</li><li>画面を閉じる前に完成したキャラパックZIPを保存する</li></ul></div></div></details><details class="chapter" id="section-8"><summary><span class="chapter-icon" aria-hidden="true">🎁</span><span class="chapter-heading" role="heading" aria-level="2"><span class="chapter-category">SUMMARY</span><span class="chapter-title">まとめ</span></span><span class="chapter-toggle" aria-hidden="true"></span></summary><div class="chapter-body"><div class="chapter-inner"><p class="chapter-intro">MouthLoop v2は、画像1枚から表情も仕草も持ったキャラクター素材を作れるアップデートです。</p><ul class="check-list"><li>笑顔・悲しみ・怒りを1表情あたり画像1枚で追加できる</li><li>仕草を最大3つ、到達点を確認してから作れる</li><li>キャラパックZIPをSlideCast Studioの音声連動へそのまま登録できる</li><li>ステップ4でその場で動きを確認できる</li><li>iPad・iPhoneではAPNGへ自動で切り替わる</li><li>インストール・追加登録・APIキー入力は不要</li></ul><p>v1から使っている方は、まず「<strong>顔だけ差し替える</strong>」のまま表情を1つ追加するところから試すのがおすすめです。追加生成は画像1枚だけです。</p><div class="cta-banner"><div><strong>MouthLoop v2を試す</strong><p>Gemini Canvasの共有リンクから無料で開けます。</p></div><a class="cta-link" href="https://share.gemini.google/dkU0IVHfQ2gu" target="_blank" rel="noopener noreferrer">MouthLoopを開く ↗</a></div></div></div></details></section>
-
-  <div class="source-card"><div><strong>元記事：MouthLoop v2「表情」と「仕草」を追加</strong><small>MouthLoop v2の公開記事です。更新の背景や作者による説明はnoteで確認できます。</small></div><a class="cta-link" href="https://note.com/bluezzly/n/n73a045067fbe" target="_blank" rel="noopener noreferrer">noteの元記事を読む ↗</a></div>
+  @@SOURCE_CARD@@
   <footer class="site-footer">
     <div class="footer-top">
-      <a class="brand footer-brand" href="../" aria-label="SlideCast Studio トップページ">SlideCast <b>Studio</b></a>
-      <nav class="footer-links" aria-label="フッターナビゲーション"><a href="../intro/">SlideCast Studio とは</a><a href="../manual/">公式マニュアル</a><a href="../bundle-builder/">Bundle Builder</a><a href="../mouthloop-v2/">MouthLoop v2</a></nav>
+      <span class="brand">@@BRAND@@</span>
+      <div class="footer-links">@@FOOTER_LINKS@@</div>
     </div>
-    <div class="footer-bottom">
-      <p class="footer-meta">SlideCast Studio ドキュメント · aokuma</p>
-      <nav class="social-links" aria-label="SNSリンク"><a class="social-link" href="https://note.com/bluezzly" target="_blank" rel="noopener noreferrer" aria-label="note" title="note"><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4.4 17.6V6.4h2.9v2C8.3 7 10 6.2 11.9 6.2c3.4 0 5.7 2.4 5.7 6v5.4h-2.9v-5c0-2.2-1.3-3.6-3.2-3.6-2.4 0-4.2 1.8-4.2 4.4v4.2Z"/></svg></a><a class="social-link" href="https://x.com/ai5809514366862" target="_blank" rel="noopener noreferrer" aria-label="X（旧Twitter）"><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231 5.451-6.231Zm-1.161 17.52h1.833L7.084 4.126H5.117L17.083 19.77Z"/></svg></a><a class="social-link" href="https://www.youtube.com/channel/UC2lO3ixD4ICI9VgRSxidRbQ" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814ZM9.545 15.568V8.432L15.818 12l-6.273 3.568Z"/></svg></a><a class="social-link" href="https://substack.com/@aokuma1" target="_blank" rel="noopener noreferrer" aria-label="Substack"><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M22.539 8.242H1.46V5.406h21.08v2.836ZM1.46 10.812V24L12 18.11 22.54 24V10.812H1.46ZM22.54 0H1.46v2.836h21.08V0Z"/></svg></a></nav>
-    </div>
+    <p class="footer-meta">@@FOOTER_META@@</p>
   </footer>
 </div>
 </main>
 
 <div class="float-actions">
-  <button class="float-button" id="closeChapter" type="button" hidden><span aria-hidden="true">×</span><span class="float-label">閉じる</span></button>
-  <button class="float-button primary" id="floatToc" type="button"><span aria-hidden="true">☰</span><span class="float-label">目次</span></button>
-  <button class="float-button" id="backTop" type="button"><span aria-hidden="true">↑</span><span class="float-label">上へ</span></button>
+  <button class="float-button" id="closeChapter" type="button" hidden><span aria-hidden="true">×</span><span class="float-label">Close</span></button>
+  <button class="float-button primary" id="floatToc" type="button"><span aria-hidden="true">☰</span><span class="float-label">Contents</span></button>
+  <button class="float-button" id="backTop" type="button"><span aria-hidden="true">↑</span><span class="float-label">Top</span></button>
 </div>
 
 <dialog class="toc-dialog" id="tocDialog">
-  <div class="toc-head"><strong>目次</strong><button class="icon-button" id="closeToc" type="button" aria-label="目次を閉じる">×</button></div>
-  <nav class="toc-list" aria-label="目次">
-    <button type="button" data-target="overview"><span aria-hidden="true">🏠</span>概要</button>
-    <button type="button" data-target="section-1"><span aria-hidden="true">🆕</span>v1から何が変わったか</button><button type="button" data-target="section-2"><span aria-hidden="true">🎬</span>MouthLoop v2で作れるもの</button><button type="button" data-target="section-3"><span aria-hidden="true">✅</span>使う前に知っておきたいこと</button><button type="button" data-target="section-4"><span aria-hidden="true">🚀</span>使い方：全5ステップ</button><button type="button" data-target="section-5"><span aria-hidden="true">🎥</span>SlideCast Studioで使う</button><button type="button" data-target="section-6"><span aria-hidden="true">🔧</span>うまくいかないときは</button><button type="button" data-target="section-7"><span aria-hidden="true">📋</span>使うときの注意</button><button type="button" data-target="section-8"><span aria-hidden="true">🎁</span>まとめ</button>
+  <div class="toc-head"><strong>Contents</strong><button class="icon-button" id="closeToc" type="button" aria-label="Close contents">×</button></div>
+  <nav class="toc-list" aria-label="Contents">
+    <button type="button" data-target="overview"><span aria-hidden="true">🏠</span>Overview</button>
+    @@TOC_ITEMS@@
   </nav>
 </dialog>
 
 <dialog class="lightbox" id="lightbox">
-  <button class="icon-button" id="lightboxClose" type="button" aria-label="画像を閉じる">×</button>
+  <button class="icon-button" id="lightboxClose" type="button" aria-label="Close image">×</button>
   <img id="lightboxImage" src="" alt="">
 </dialog>
 
-<script src="../assets/ambient-particles.js"></script>
 <script>
 (()=>{'use strict';
 const root=document.documentElement;
@@ -1230,9 +964,10 @@ document.querySelectorAll('[data-tabs]').forEach(group=>{
 /* --- click-to-play video: nothing is requested from the host until here --- */
 document.querySelectorAll('.video-facade').forEach(button=>{
   button.addEventListener('click',()=>{
+    button.closest('.video-embed')?.classList.add('is-playing');
     const frame=document.createElement('iframe');
     frame.src=button.dataset.embed;
-    frame.title=button.dataset.title||'動画';
+    frame.title=button.dataset.title||'Video';
     frame.allow='autoplay; fullscreen; picture-in-picture; encrypted-media';
     frame.allowFullscreen=true;
     frame.referrerPolicy='strict-origin-when-cross-origin';
@@ -1246,8 +981,8 @@ document.querySelectorAll('.code-copy').forEach(button=>{
     const code=button.closest('.code-block').querySelector('code');
     const label=button.dataset.label||button.textContent;
     button.dataset.label=label;
-    try{await navigator.clipboard.writeText(code.textContent);button.textContent='コピーしました';}
-    catch{button.textContent='コピーできません';}
+    try{await navigator.clipboard.writeText(code.textContent);button.textContent='Copied';}
+    catch{button.textContent='Copy failed';}
     setTimeout(()=>{button.textContent=label;},1600);
   });
 });

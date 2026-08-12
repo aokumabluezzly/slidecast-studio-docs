@@ -111,6 +111,28 @@
   background: var(--site-header-soft);
 }
 
+/* ===== 言語切替（assets/site-lang.js が差し込む） =====
+   JA / EN の文字そのものが機能表示なので、狭い画面でもラベルは隠さない。 */
+.site-header .lang-switch {
+  padding: 0 10px;
+  border: 1px solid var(--site-header-line-strong);
+  letter-spacing: .06em;
+}
+
+.site-header .lang-switch .nav-label {
+  display: inline;
+}
+
+.site-header .lang-switch.is-disabled {
+  opacity: .4;
+  cursor: not-allowed;
+}
+
+.site-header .lang-switch.is-disabled:hover {
+  color: var(--site-header-muted);
+  background: transparent;
+}
+
 .site-header .icon-button {
   width: 40px;
   height: 40px;
