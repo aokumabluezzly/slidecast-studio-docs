@@ -121,19 +121,35 @@ python3 ~/.claude/skills/build-rich-html-article/scripts/build_article.py \
 
 ```json
 "nav_links": [
-  { "href": "../", "icon": "🏠", "label": "HOME" },
-  { "href": "../manual/", "icon": "📘", "label": "公式マニュアル" }
+  { "href": "../", "icon": "🏠", "label": "HOME" }
 ],
 "update_header": false
 ```
 
 `href` は相対パスです。1階層（`intro/`）は `../`、2階層（`updates/v34/`）は `../../`。`update_header: false` を書かないと、note へのリンクがヘッダーにも出てしまいます。
 
-ヘッダーは全8ページで同じ4項目に揃えています。**🏠 ホーム / 💡 概要 / 📘 マニュアル / ☰ 目次**（目次はテンプレートが自動で付けます）。「紹介」ではなく「概要」です。
+ヘッダーは全8ページで同じ4項目に揃えています。**🏠 HOME / 📚 ページ / ☰ 目次 / ☀️テーマ**（目次はテンプレートが自動で付けます）。以前ここに並べていた「概要」「マニュアル」は、📚 ページ一覧メニューの中へ移しました。
 
-spec の `nav_links` から出るのはリンクとラベルだけで、`aria-label`（`ホーム` / `SlideCast Studio とは` / `公式マニュアル`）は生成後に手で足しています。再生成したら入れ直してください。
+spec の `nav_links` から出るのはリンクとラベルだけなので、生成後に次の2つを手で足します。再生成したら入れ直してください。
+
+- 🏠 リンクの `aria-label="トップページ"`
+- 🏠 の直後の📚ボタン（下記）
+
+```html
+<button class="header-link" type="button" data-site-nav aria-label="ページ一覧"><span aria-hidden="true">📚</span><span class="nav-label">ページ</span></button>
+```
 
 `manual/`・`updates/v34/`・`updates/v33/` は spec が無いため、ヘッダーを直接編集してあります。
+
+### 📚 ページ一覧メニュー
+
+トップページに戻らなくても全ページへ移動できるように、ヘッダーの📚ボタンでページ一覧を開けます。PCはヘッダー直下のドロップダウン（クリックで開く。マウス環境ではホバーでも開き、クリックすると開いたまま固定）、スマホは下から出るボトムシートです。Esc・背景タップ・×ボタンで閉じます。
+
+- 一覧の中身は **`assets/site-nav.js` の `PAGES` 配列に1箇所だけ**書いてあります。**ページを増やしたらここに1行足すだけ**で、全8ページのメニューに反映されます（各ページのHTMLを触る必要はありません）。
+- `href` はリポジトリのルートからの相対パス（`intro/`、`updates/v34/`、トップは空文字）。ページ側の階層は `script.src` から自動で解決するので、`../` を数える必要はありません。
+- 見た目は `assets/site-chrome.css` の「ページ一覧メニュー」ブロック。640px 以下でボトムシートに切り替わります。
+- 各ページに必要なのは、ヘッダーの📚ボタン（`data-site-nav`）と `<script src="＜相対パス＞assets/site-nav.js" defer></script>` の2つだけです。
+- 520px 以下では `assets/site-actions.css` がヘッダーの3番目（☰目次）を隠します。記事ページには右下のフローティング☰があるためです。**HOME と ページ は隠しません。**
 
 本文中の note 記事へのリンクは、原則としてサイト内に同等ページがあっても差し替えません。ただし**アップデート手順だけは例外**で、`/gas-update/` への内部リンクに統一しています（`intro/`・`manual/`・`updates/v33`・`updates/v34`・トップページ）。元記事へのリンクは `/gas-update/` 末尾のソースカードが担います。
 

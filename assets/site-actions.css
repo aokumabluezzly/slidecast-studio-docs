@@ -74,7 +74,9 @@
   .site-share__actions{gap:6px}
 }
 @media(max-width:520px){
-  .site-header .header-nav>.header-link:nth-child(2),
+  /* 3番目は「目次」。記事ページには右下のフローティング☰があり、
+     トップページはページ一覧が同じ役割を持つので、狭い幅では畳む。
+     1番目のHOMEと2番目のページ一覧は残す（回遊の要） */
   .site-header .header-nav>.header-link:nth-child(3){display:none}
   .site-header .brand{gap:4px}
 }

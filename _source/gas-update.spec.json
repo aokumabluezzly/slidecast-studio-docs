@@ -28,9 +28,7 @@
     "ink": "#17233F"
   },
   "nav_links": [
-    { "href": "../", "icon": "🏠", "label": "ホーム" },
-    { "href": "../intro/", "icon": "💡", "label": "概要" },
-    { "href": "../manual/", "icon": "📘", "label": "マニュアル" }
+    { "href": "../", "icon": "🏠", "label": "HOME" }
   ],
   "source_url": "https://note.com/bluezzly/n/na97ce150da13",
   "source_label": "noteの元記事を読む",

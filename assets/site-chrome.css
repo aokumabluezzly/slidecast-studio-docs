@@ -154,6 +154,220 @@
   border-radius: 999px;
 }
 
+/* ===== ページ一覧メニュー（assets/site-nav.js が組み立てる） =====
+   PCはヘッダー直下のドロップダウン、スマホは下から出るシート。
+   中身のHTMLは共通で、出方だけ 640px で切り替える。 */
+.pagenav[hidden] {
+  display: none;
+}
+
+.pagenav-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  background: rgba(18, 14, 35, .5);
+  backdrop-filter: blur(4px);
+  opacity: 0;
+  transition: opacity .2s ease;
+}
+
+.pagenav.is-open .pagenav-backdrop {
+  opacity: 1;
+}
+
+.pagenav-panel {
+  position: fixed;
+  z-index: 101;
+  top: var(--pagenav-top, 72px);
+  right: var(--pagenav-right, 16px);
+  width: min(340px, calc(100vw - 24px));
+  max-height: min(78dvh, 660px);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  border: 1px solid var(--site-header-line-strong);
+  border-radius: 16px;
+  background: var(--site-header-card);
+  color: var(--site-header-ink);
+  box-shadow: 0 24px 70px rgba(15, 10, 35, .28);
+  font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Yu Gothic UI", "Noto Sans JP", Meiryo, sans-serif;
+  opacity: 0;
+  transform: translateY(-8px);
+  transition: opacity .18s ease, transform .18s ease;
+}
+
+.pagenav.is-open .pagenav-panel {
+  opacity: 1;
+  transform: none;
+}
+
+.pagenav-head {
+  display: none;
+}
+
+.pagenav-body {
+  padding: 10px;
+  display: grid;
+  gap: 4px;
+}
+
+.pagenav-group + .pagenav-group {
+  margin-top: 6px;
+  padding-top: 8px;
+  border-top: 1px solid var(--site-header-line);
+}
+
+.pagenav-group-title {
+  margin: 0;
+  padding: 2px 10px 4px;
+  color: var(--site-header-muted);
+  font-size: .68rem;
+  font-weight: 800;
+  line-height: 1.2;
+  letter-spacing: .12em;
+}
+
+.pagenav-group ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 2px;
+}
+
+.pagenav-item {
+  padding: 8px 10px;
+  display: grid;
+  grid-template-columns: 24px 1fr;
+  align-items: center;
+  gap: 10px;
+  border-radius: 11px;
+  color: var(--site-header-ink-soft);
+  text-decoration: none;
+}
+
+.pagenav-item:hover,
+.pagenav-item:focus-visible {
+  background: var(--site-header-soft);
+  color: var(--site-header-primary-ink);
+}
+
+.pagenav-item:focus-visible {
+  outline: 3px solid var(--site-header-primary);
+  outline-offset: -1px;
+}
+
+.pagenav-item.is-current {
+  background: var(--site-header-soft);
+  color: var(--site-header-primary-ink);
+}
+
+.pagenav-icon {
+  font-size: 1.05rem;
+  line-height: 1;
+  text-align: center;
+}
+
+.pagenav-text {
+  display: grid;
+  gap: 2px;
+  min-width: 0;
+}
+
+.pagenav-text b {
+  font-size: .82rem;
+  font-weight: 800;
+  line-height: 1.35;
+  letter-spacing: .01em;
+}
+
+.pagenav-text small {
+  color: var(--site-header-muted);
+  font-size: .7rem;
+  font-weight: 600;
+  line-height: 1.35;
+}
+
+body.pagenav-locked {
+  overflow: hidden;
+}
+
+@media (max-width: 640px) {
+  /* スマホはボトムシート。項目を親指の届く下側に寄せる */
+  .pagenav-panel {
+    top: auto;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    width: auto;
+    max-height: 82dvh;
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+    border-width: 1px 0 0;
+    border-radius: 18px 18px 0 0;
+    transform: translateY(14px);
+  }
+
+  .pagenav-head {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    padding: 14px 16px 12px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    border-bottom: 1px solid var(--site-header-line);
+    background: var(--site-header-card);
+    font-size: .95rem;
+    font-weight: 800;
+  }
+
+  .pagenav-close {
+    width: 36px;
+    height: 36px;
+    padding: 0;
+    display: grid;
+    place-items: center;
+    border: 1px solid var(--site-header-line-strong);
+    border-radius: 999px;
+    background: transparent;
+    color: var(--site-header-ink-soft);
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 1.1rem;
+    line-height: 1;
+  }
+
+  .pagenav-body {
+    padding: 8px 10px 16px;
+  }
+
+  .pagenav-item {
+    min-height: 52px;
+  }
+
+  .pagenav-text b {
+    font-size: .86rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pagenav-panel,
+  .pagenav-backdrop {
+    transition: none;
+  }
+
+  .pagenav-panel {
+    transform: none;
+  }
+}
+
+/* PCではシート用の暗幕を出さない（クリック外し判定はJS側が持つ） */
+@media (min-width: 641px) {
+  .pagenav-backdrop {
+    display: none;
+  }
+}
+
 html:has(body .chapters) {
   background: var(--paper);
 }
