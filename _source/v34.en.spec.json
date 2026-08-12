@@ -1,0 +1,588 @@
+{
+  "title": "SlideCast Studio v3.4 “NUANCE”",
+  "subtitle": "Update — expressions, posed gestures, auto-acting, blank slides",
+  "description": "Past lip sync. v3.4 “NUANCE” lets you drop expressions and poses into a line as it is spoken, and adds auto-acting and blank slides.",
+  "eyebrow": "SLIDECAST STUDIO · UPDATE",
+  "brand": "SlideCast",
+  "brand_accent": "Studio",
+  "brand_badge": "Docs",
+  "author": "aokuma",
+  "date": "2026.08.05",
+  "version": "v3.4 NUANCE",
+  "footer_meta": "SlideCast Studio Documentation · aokuma",
+  "hero_image": "./img/v34-01.png",
+  "hero_alt": "Header image for SlideCast Studio v3.4 NUANCE",
+  "hero_caption": "SlideCast Studio v3.4 “NUANCE”",
+  "chips": [
+    "🎭 Expressions & posed gestures",
+    "🤖 Auto-acting",
+    "🖼️ Blank slides"
+  ],
+  "stats": [
+    { "icon": "✨", "value": "10+", "label": "New features and fixes" },
+    { "icon": "🖼️", "value": "13", "label": "Screenshots" },
+    { "icon": "💰", "value": "¥0", "label": "Extra API cost" },
+    { "icon": "🚀", "value": "v3.4", "label": "NUANCE" }
+  ],
+  "theme": {
+    "primary": "#7158e2",
+    "secondary": "#3978d4",
+    "accent": "#f05f93",
+    "surface": "#f5f2ff",
+    "ink": "#202033"
+  },
+  "nav_links": [
+    { "href": "../../", "icon": "🏠", "label": "HOME" }
+  ],
+  "source_url": "https://note.com/bluezzly/n/nf4ecad9cf40f",
+  "source_label": "Read on note (Japanese)",
+  "source_title": "📝 Original post and latest information",
+  "source_note": "Later revisions and comments are on the note post (in Japanese).",
+  "update_header": false,
+  "sections_label": "UPDATE INDEX",
+
+  "overview": {
+    "icon": "👋",
+    "title": "To start with — what this update covers",
+    "blocks": [
+      {
+        "type": "html",
+        "html": "<p>Hello.</p><p>SlideCast Studio has been updated to <strong>v3.4 “NUANCE”</strong>.</p><p>The previous release, v3.3 “SYNC”, sorted out how character assets are registered and added audio-driven lip sync built from six images.</p><p>v3.4 takes that a step further, and is mostly a rebuild of one thing: <strong>not just moving the character’s mouth, but changing its expression and pose along with the line being spoken</strong>.</p><p>The main changes are below.</p>"
+      },
+      {
+        "type": "cards",
+        "items": [
+          { "icon": "🎭", "title": "Expressions and posed gestures", "text": "Set a performance partway through a line" },
+          { "icon": "📦", "title": "Character pack ZIP", "text": "Load MouthLoop assets in one go" },
+          { "icon": "🤖", "title": "Auto-acting", "text": "Places expressions and gestures for you" },
+          { "icon": "🌬️", "title": "Breathing and speech motion", "text": "Character icons move a little now" },
+          { "icon": "🗂️", "title": "Character settings, tidied", "text": "Size, position and bubble split into three groups" },
+          { "icon": "🖼️", "title": "Blank slides", "text": "Build a slide with no source image at all" },
+          { "icon": "👀", "title": "Subtitle settings preview", "text": "See the result as you change it" },
+          { "icon": "🎞️", "title": "Animated images", "text": "Better loading for large files" },
+          { "icon": "🔧", "title": "Bug fixes", "text": "Script input and notifications" }
+        ]
+      },
+      {
+        "type": "html",
+        "html": "<p>Even if you don’t use the character feature, blank slides, the subtitle settings and the general usability work should still be worth having.</p>"
+      }
+    ]
+  },
+
+  "sections": [
+    {
+      "icon": "🎭",
+      "category": "PERFORMANCE",
+      "title": "Expressions and poses can now change partway through a line",
+      "intro": "Select some of the subtitle text and an expression and posed gesture drop in at that point.",
+      "blocks": [
+        {
+          "type": "html",
+          "html": "<p>This is the biggest addition in the release.</p><p>Select the characters in the subtitle where you want a performance, and an “Add performance” button appears.</p><p>From there you can set two things.</p>"
+        },
+        {
+          "type": "check_list",
+          "items": ["Expression", "Posed gesture"]
+        },
+        {
+          "type": "html",
+          "html": "<p>For example:</p>"
+        },
+        {
+          "type": "check_list",
+          "items": [
+            "Smile only on the words “thank you”",
+            "Change expression on a line of surprise",
+            "Point halfway through an explanation",
+            "Wave along with a greeting"
+          ]
+        },
+        {
+          "type": "html",
+          "html": "<p>That kind of direction is now possible.</p><p>Expression and pose can also be set at the same time.</p>"
+        },
+        {
+          "type": "figure",
+          "image": "./img/v34-02.png",
+          "alt": "The “Add performance” button that appears when subtitle text is selected",
+          "caption": "Select subtitle text and the “Add performance” button appears"
+        },
+        {
+          "type": "figure",
+          "image": "./img/v34-03.png",
+          "alt": "The panel for setting an expression or gesture on the selected part of the subtitle",
+          "caption": "Set an expression or gesture on the part of the subtitle you selected"
+        },
+        {
+          "type": "html",
+          "html": "<p>Performances you have set are listed underneath the script field.</p>"
+        },
+        {
+          "type": "figure",
+          "image": "./img/v34-04.png",
+          "alt": "The list of expressions and gestures shown below the script field",
+          "caption": "Every expression and gesture set on that script"
+        },
+        {
+          "type": "html",
+          "html": "<p>You can edit or remove them later, so you can adjust while watching the video back.</p>"
+        },
+        {
+          "type": "callout",
+          "tone": "warn",
+          "title": "⚠️ If you rewrite the script",
+          "text": "If you substantially rewrite the text a performance was attached to, that performance may be removed automatically, to stop it drifting to the wrong position."
+        }
+      ]
+    },
+
+    {
+      "icon": "📦",
+      "category": "CHARACTER ASSETS",
+      "title": "MouthLoop’s “character pack ZIP” is now supported",
+      "intro": "Load expression and gesture assets as a ZIP, instead of one image at a time.",
+      "blocks": [
+        {
+          "type": "html",
+          "html": "<p>Registering expression and gesture assets one image at a time is a lot of work, so the <strong>character pack ZIP</strong> that MouthLoop exports can now be loaded as it is.</p>"
+        },
+        {
+          "type": "figure",
+          "image": "./img/v34-05.png",
+          "alt": "The screen for loading a character pack ZIP"
+        },
+        {
+          "type": "html",
+          "html": "<p>Alongside the usual lip-sync assets, a character pack can bundle:</p>"
+        },
+        {
+          "type": "check_list",
+          "items": ["Smiling", "Sad", "Angry", "Posed gestures"]
+        },
+        {
+          "type": "html",
+          "html": "<p>and more, all together.</p><p>Drop the ZIP into the asset upload field in the character settings and SlideCast Studio detects the character pack automatically.</p><p>Before it loads, you are shown:</p>"
+        },
+        {
+          "type": "check_list",
+          "items": [
+            "The number of images",
+            "The size once unpacked",
+            "An estimate of the storage it will take",
+            "Which expressions it contains",
+            "Which posed gestures it contains"
+          ]
+        },
+        {
+          "type": "html",
+          "html": "<p>You can check all of that before registering it to the character.</p>"
+        },
+        {
+          "type": "figure",
+          "image": "./img/v34-06.png",
+          "alt": "Reviewing the contents of a character pack ZIP before loading it"
+        },
+        {
+          "type": "callout",
+          "tone": "warn",
+          "title": "⚠️ Storage",
+          "text": "If the browser is low on free space, you get a warning."
+        },
+        {
+          "type": "html",
+          "html": "<p>An ordinary image ZIP and a MouthLoop character pack are told apart automatically, so there is nothing to switch on your side.</p>"
+        }
+      ]
+    },
+
+    {
+      "icon": "🤖",
+      "category": "AUTOMATIC PLACEMENT",
+      "title": "“Auto-acting” places expressions and gestures for you",
+      "intro": "Let it place them first, then fix by hand only the parts that bother you.",
+      "blocks": [
+        {
+          "type": "html",
+          "html": "<p>Setting a performance by hand on every single line is a lot of work, so “auto-acting” has been added too.</p><p>Turn auto-acting on, press “Place performances automatically”, and expressions and gestures are placed at the natural breaks in each line.</p><p>You can configure:</p>"
+        },
+        {
+          "type": "check_list",
+          "items": [
+            "Which expressions and gestures to use",
+            "How often (sparing / standard / frequent)",
+            "The range (this slide / all slides)"
+          ]
+        },
+        {
+          "type": "html",
+          "html": "<p>The expressions and gestures in play can be chosen per character.</p>"
+        },
+        {
+          "type": "figure",
+          "image": "./img/v34-07.png",
+          "alt": "The auto-acting settings panel",
+          "caption": "It sits below the timeline and slide settings in the editor"
+        },
+        {
+          "type": "html",
+          "html": "<p>For some words — “thank you”, “a shame”, “dangerous” and the like — an expression that matches the meaning is preferred.</p>"
+        },
+        {
+          "type": "callout",
+          "tone": "good",
+          "title": "💰 No extra API charges",
+          "text": "This is not a generative model reading your text. It uses built-in detection and placement rules, so there is no extra API traffic and no extra billing."
+        },
+        {
+          "type": "html",
+          "html": "<p>Automatically placed performances are marked “auto”.</p><p>Press “Remove automatic ones” and only the auto-placed performances go; anything you set by hand stays.</p><p>Placing them automatically first and then fixing the parts that bother you is the way to use it.</p>"
+        }
+      ]
+    },
+
+    {
+      "icon": "🌬️",
+      "category": "MOTION",
+      "title": "Character icons now breathe and move as they speak",
+      "intro": "A small amount of movement on a still image, with no new assets needed.",
+      "blocks": [
+        {
+          "type": "html",
+          "html": "<p>Still-image character icons can now be given a little movement.</p><p>Two things were added.</p>"
+        },
+        {
+          "type": "check_list",
+          "items": [
+            "Slow breathing while the character is silent",
+            "A speech bounce that follows the volume while it is talking"
+          ]
+        },
+        {
+          "type": "html",
+          "html": "<p>There are four settings.</p>"
+        },
+        {
+          "type": "frame_list",
+          "items": ["Off", "Subtle", "Standard", "Strong"]
+        },
+        {
+          "type": "figure",
+          "image": "./img/v34-08.png",
+          "alt": "The settings for breathing and speech motion"
+        },
+        {
+          "type": "html",
+          "html": "<p>No new image assets are required. It simply moves the image you already registered up and down a little.</p><p>Existing characters stay on “Off”, so nothing you have already made changes appearance on its own.</p>"
+        },
+        {
+          "type": "callout",
+          "tone": "warn",
+          "title": "⚠️ How far it moves",
+          "text": "Only the whole icon moving up and down, plus a slight stretch. It won’t tilt, and it won’t produce movement that changes the image itself, such as waving."
+        }
+      ]
+    },
+
+    {
+      "icon": "🗂️",
+      "category": "SETTINGS TIDY-UP",
+      "title": "Character settings, split into three",
+      "intro": "The list had grown too long, so it is now grouped by purpose.",
+      "blocks": [
+        {
+          "type": "html",
+          "html": "<p>There were a lot of character settings by now, so the screen has been reorganised.</p>"
+        },
+        {
+          "type": "figure",
+          "image": "./img/v34-09.png",
+          "alt": "The character settings screen reorganised into three groups"
+        },
+        {
+          "type": "html",
+          "html": "<p>Broadly, into these three.</p>"
+        },
+        {
+          "type": "cards",
+          "items": [
+            { "icon": "🎨", "title": "Assets and motion", "text": "Image assets, animation, lip sync, and breathing and speech motion." },
+            { "icon": "📐", "title": "Layout", "text": "The size, position and alignment of the icon and the speech bubble." },
+            { "icon": "✨", "title": "Design", "text": "The icon’s shape, background, border and shadow, and the bubble colours." }
+          ]
+        },
+        {
+          "type": "html",
+          "html": "<p>As well as making things easier to find, each group can be reset to its defaults on its own.</p>"
+        }
+      ]
+    },
+
+    {
+      "icon": "📐",
+      "category": "LAYOUT",
+      "title": "More control over icon and speech bubble size",
+      "intro": "Decide how big the icon and bubble are without the subtitle settings dragging them around.",
+      "blocks": [
+        {
+          "type": "html",
+          "html": "<p>Until now, changing the subtitle “area height” could pull the size of the character icon and speech bubble along with it.</p><p>In v3.4 you can choose between two ways of sizing the icon.</p>"
+        },
+        {
+          "type": "table",
+          "head": ["Method", "How the size is decided"],
+          "rows": [
+            ["Relative to the subtitle area (multiplier)", "Scales up and down with the height of the subtitle area"],
+            ["Relative to the screen (px)", "Largely unaffected by changes to the subtitle settings"]
+          ]
+        },
+        {
+          "type": "html",
+          "html": "<p>The height of the speech bubble also has two options.</p>"
+        },
+        {
+          "type": "check_list",
+          "items": ["Match the subtitle area", "Stretch to fit the amount of text"]
+        },
+        {
+          "type": "html",
+          "html": "<p>On top of that, these adjustments were added.</p>"
+        },
+        {
+          "type": "check_list",
+          "items": [
+            "Centre-align the icon and the bubble",
+            "Align their bottom edges",
+            "Nudge just the icon in any direction",
+            "Set the text size per character"
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "good",
+          "title": "💡 Which one to pick",
+          "text": "If you want to fine-tune the look of each character, go with “relative to the screen”. If you want it to feel like it always has, “relative to the subtitle area”."
+        },
+        {
+          "type": "figure",
+          "image": "./img/v34-10.png",
+          "alt": "The settings for icon and speech bubble size"
+        },
+        {
+          "type": "html",
+          "html": "<p>Projects with older character settings keep their existing appearance as closely as possible.</p>"
+        }
+      ]
+    },
+
+    {
+      "icon": "👀",
+      "category": "PREVIEW",
+      "title": "The preview while editing subtitle settings is clearer",
+      "intro": "While the subtitle settings are open, the result is shown on the canvas.",
+      "blocks": [
+        {
+          "type": "html",
+          "html": "<p>While the subtitle settings are open, a “subtitle settings preview” now appears on the editing canvas.</p><p>Change the font, text size, colour, border, shadow or subtitle area height and you can see the result right there.</p>"
+        },
+        {
+          "type": "figure",
+          "image": "./img/v34-11.png",
+          "alt": "The subtitle settings preview shown on the canvas"
+        },
+        {
+          "type": "html",
+          "html": "<p>If any character is tied to the subtitle area height, its name is shown as well.</p><p>That makes it easier to notice the “I only meant to adjust the subtitles, but the character icon and bubble changed too” situation.</p>"
+        }
+      ]
+    },
+
+    {
+      "icon": "🖼️",
+      "category": "SLIDES",
+      "title": "“Blank slides” work with no source document",
+      "intro": "Build a slide with subtitles and characters over the background, with no PDF or image.",
+      "blocks": [
+        {
+          "type": "html",
+          "html": "<p>“Add a blank slide” has been added to the add-slide menu.</p>"
+        },
+        {
+          "type": "figure",
+          "image": "./img/v34-12.png",
+          "alt": "“Add a blank slide” in the add-slide menu",
+          "caption": "From the add-slide control at the bottom of the sidebar"
+        },
+        {
+          "type": "figure",
+          "image": "./img/v34-13.png",
+          "alt": "A blank slide, added"
+        },
+        {
+          "type": "html",
+          "html": "<p>A blank slide is a slide with no source material such as a PDF or image behind it.</p><p>It uses the project background, and you can place these on top of it:</p>"
+        },
+        {
+          "type": "check_list",
+          "items": ["Subtitles", "Character icons", "Speech bubbles", "Captions", "Badges and logos"]
+        },
+        {
+          "type": "html",
+          "html": "<p>With a solid or gradient background, that covers things like:</p>"
+        },
+        {
+          "type": "check_list",
+          "items": ["Title screens", "Chapter breaks", "Supplementary notes", "End cards", "Dialogue-only scenes"]
+        },
+        {
+          "type": "figure",
+          "image": "./img/v34-14.png",
+          "alt": "A title screen built from a blank slide"
+        },
+        {
+          "type": "html",
+          "html": "<p>Set an image on a blank slide later and it becomes an ordinary image slide.</p>"
+        },
+        {
+          "type": "callout",
+          "tone": "warn",
+          "title": "⚠️ About Ken Burns",
+          "text": "Ken Burns is an effect applied to an image, so it does not appear on a blank slide."
+        },
+        {
+          "type": "html",
+          "html": "<p>Blank slides support the preview, transitions and slide-image export like any other slide.</p>"
+        }
+      ]
+    },
+
+    {
+      "icon": "🎞️",
+      "category": "LOADING",
+      "title": "Animated images load more reliably",
+      "intro": "Large GIFs and animated WebP files are easier to get in.",
+      "blocks": [
+        {
+          "type": "html",
+          "html": "<p>Handling has been improved for large animated images — GIF, animated WebP, APNG and so on.</p><p>Previously, a large file size or a high total pixel count could make the import fail.</p><p>In v3.4, images likely to exceed the memory ceiling are scaled down automatically where possible and then loaded.</p><p>When that happens, you are told the size it was reduced to.</p><p>And when an image can’t be loaded at all, the message now tells you which of these was the problem.</p>"
+        },
+        {
+          "type": "check_list",
+          "items": ["File size", "Frame count", "Duration", "Image dimensions and total pixel count"]
+        }
+      ]
+    },
+
+    {
+      "icon": "🔧",
+      "category": "BUG FIXES",
+      "title": "Smaller fixes too",
+      "intro": "The fixes made after v3.3 shipped are all folded into v3.4.",
+      "blocks": [
+        { "type": "heading", "level": 3, "text": "Scroll jumping when typing a long script" },
+        {
+          "type": "html",
+          "html": "<p>Typing into a long script could send the script field, or the page, jumping back towards the top.</p><p>The current scroll position is now kept even while the text area resizes itself.</p>"
+        },
+        { "type": "heading", "level": 3, "text": "Notification × buttons not responding" },
+        {
+          "type": "html",
+          "html": "<p>When several notifications appeared at nearly the same time, the × button and the automatic dismissal could stop working correctly.</p><p>Notifications are now managed individually, and the × button’s click area is slightly larger.</p>"
+        },
+        { "type": "heading", "level": 3, "text": "Notification after a bulk replace" },
+        {
+          "type": "html",
+          "html": "<p>Fixed duplicate “done” notifications appearing after a bulk character replacement.</p>"
+        }
+      ]
+    },
+
+    {
+      "icon": "⚠️",
+      "category": "THINGS TO KNOW",
+      "title": "A note on expressions and posed gestures",
+      "intro": "Treat it as an accent on the video, not as strict lip sync.",
+      "blocks": [
+        {
+          "type": "html",
+          "html": "<p>The timing of a performance is calculated from the position of the characters you selected and the length of the audio.</p><p>It is not reading the pronunciation timings out of speech recognition, so <strong>it does not synchronise perfectly word by word.</strong></p><p>A posed gesture plays the numbered images built in MouthLoop once, starting from the position you set.</p><p>For the short time a gesture is playing, the finished mouth shape from the pose takes priority over the usual three-level volume lip sync.</p>"
+        },
+        {
+          "type": "callout",
+          "tone": "warn",
+          "title": "⚠️ What to expect from it",
+          "text": "Think of it as adding a natural accent to the video, rather than as strict lip sync."
+        }
+      ]
+    },
+
+    {
+      "icon": "🚀",
+      "category": "UPDATING",
+      "title": "How to update",
+      "intro": "If you have already bought it, copy v3.4 from the same share link as before.",
+      "blocks": [
+        {
+          "type": "html",
+          "html": "<p>If you have already bought SlideCast Studio, copy v3.4 from the same paid-note share link you used before.</p>"
+        },
+        {
+          "type": "callout",
+          "tone": "warn",
+          "title": "⚠️ Back up first",
+          "text": "If you want to carry over your existing projects, library and settings, save a backup from “Save data” first, just in case."
+        },
+        { "type": "heading", "level": 3, "text": "Updating the Apps Script edition on the same URL" },
+        {
+          "type": "step_list",
+          "items": [
+            { "title": "Make a backup", "text": "Export a backup JSON from “Save data”." },
+            { "title": "Swap the files", "text": "Replace “無題.html” (“Untitled.html” in the Japanese Apps Script UI) and “AppBundle.html” in your existing project with the v3.4 files." },
+            { "title": "Redeploy", "text": "Redeploy the existing deployment as a “New version”." }
+          ]
+        },
+        { "type": "heading", "level": 3, "text": "Using the local HTML edition" },
+        {
+          "type": "html",
+          "html": "<p>Download “SlideCast Studio v3.4〖ローカル版〗.html” — 〖ローカル版〗 means “local edition” — and open it.</p>"
+        },
+        {
+          "type": "callout",
+          "tone": "warn",
+          "title": "⚠️ Carrying your data over",
+          "text": "Opened in a new Apps Script project, or in a different browser, your earlier data does not appear automatically. Restore it from a backup in that case."
+        },
+        {
+          "type": "link",
+          "url": "../../gas-update/",
+          "label": "Read the full update procedure"
+        }
+      ]
+    },
+
+    {
+      "icon": "🙌",
+      "category": "IN CLOSING",
+      "title": "In closing",
+      "intro": "From v3.3’s “move the mouth” to v3.4’s “where, and with what face”.",
+      "blocks": [
+        {
+          "type": "html",
+          "html": "<p>v3.3 was mostly about how you register character assets and how the mouth moves.</p><p>v3.4 lets you give that character somewhat finer direction.</p>"
+        },
+        {
+          "type": "check_list",
+          "items": [
+            "Where you want it to smile",
+            "Where you want a sad face",
+            "Which line gets a pose"
+          ]
+        },
+        {
+          "type": "html",
+          "html": "<p>You can labour over it by hand, or let “auto-acting” rough it in and then fix only the parts that need it.</p><p>Even if you aren’t making character videos, blank slides, the subtitle preview, the sizing controls and the input fixes should make things easier.</p><p>If you hit a bug, or something is hard to follow, a comment telling me so is a real help.</p><p>Thank you, as always.</p><p>And if you like SlideCast Studio, please do spread the word!</p>"
+        }
+      ]
+    }
+  ]
+}

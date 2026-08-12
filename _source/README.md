@@ -21,6 +21,8 @@
 | `gas-update.en.spec.json` | 英語版のアップデート方法ガイド（`/en/gas-update/index.html`）の設計データ |
 | `v33.spec.json` | v3.3「SYNC」アップデート（`/updates/v33/index.html`）の設計データ。既存の日本語ページから起こしたもので、日本語ページの再生成には**使っていません**（下記） |
 | `v33.en.spec.json` | 英語版の v3.3 アップデート（`/en/updates/v33/index.html`）の設計データ |
+| `v34.spec.json` | v3.4「NUANCE」アップデート（`/updates/v34/index.html`）の設計データ。v33 と同じく既存の日本語ページから起こしたもので、日本語ページの再生成には**使っていません**（下記） |
+| `v34.en.spec.json` | 英語版の v3.4 アップデート（`/en/updates/v34/index.html`）の設計データ |
 | `img/` | 各 spec が参照する画像。生成時に `/assets/` へコピーされます |
 | `article-template.en.html` | **自動生成**。英語ページ用テンプレート（直接編集しない） |
 | `tools/build_en.py` | 英語ページを spec から作り直す入口。生成 → 仕上げまで一括 |
@@ -149,7 +151,7 @@ spec の `nav_links` から出るのはリンクとラベルだけなので、�
 <button class="header-link" type="button" data-site-nav aria-label="ページ一覧"><span aria-hidden="true">📚</span><span class="nav-label">ページ</span></button>
 ```
 
-`manual/`・`updates/v34/`・`updates/v33/`（日本語版）は spec から再生成しない運用なので、ヘッダーを直接編集してあります。
+`manual/`・`updates/v34/`・`updates/v33/`（いずれも日本語版）は spec から再生成しない運用なので、ヘッダーを直接編集してあります。
 
 ### 📚 ページ一覧メニュー
 
@@ -227,9 +229,9 @@ python3 _source/tools/build_en.py
 
 ## 設計データが無い記事
 
-`manual/`、`updates/v34/` の2本は、この仕組みを整える前に作られたため、設計データが残っていません。これらを大きく直す場合は、元の Markdown 原稿から spec を作り直す形になります。
+`manual/` は、この仕組みを整える前に作られたため、設計データが残っていません。大きく直す場合は、元の Markdown 原稿から spec を作り直す形になります。
 
-`updates/v33/` は、英語版を作るときに**公開中の日本語 HTML から `v33.spec.json` を起こし直しました**。この spec でビルドすると、記事本文・目次・ソースカードは公開中のページと一致します（唯一の差はヒーロー画像の `loading="lazy"` で、生成側がヒーローを遅延読み込みしなくなったため）。ただし `updates/v33/index.html` は共通クロームを手で足したページなので、**spec からの再生成で上書きしないでください**。日本語側を直すときは HTML を直接編集し、同じ内容を `v33.spec.json` にも反映します（英語版の元データとして使うため）。
+`updates/v33/` と `updates/v34/` は、英語版を作るときに**公開中の日本語 HTML から `v33.spec.json` / `v34.spec.json` を起こし直しました**。この spec でビルドすると、記事本文・目次・ソースカードは公開中のページと一致します（唯一の差はヒーロー画像の `loading="lazy"` で、生成側がヒーローを遅延読み込みしなくなったため）。ただしどちらの日本語ページも共通クロームを手で足したページなので、**spec からの再生成で上書きしないでください**。日本語側を直すときは HTML を直接編集し、同じ内容を spec にも反映します（英語版の元データとして使うため）。
 
 画像の外部ファイル化だけは spec 無しで済ませてあります。同じことを別のページでやる場合は次のとおりです（ページを上書きするので、実行前に `--dry-run` で件数を確認してください）。
 

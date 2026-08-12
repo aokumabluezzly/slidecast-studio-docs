@@ -59,6 +59,13 @@ PAGE_META: dict[str, dict[str, str]] = {
             "and speech bubbles that follow the character."
         ),
     },
+    "en/updates/v34/": {
+        "og_title": "SlideCast Studio v3.4 “NUANCE”",
+        "og_description": (
+            "Expressions and posed gestures partway through a line, auto-acting, character "
+            "pack ZIPs, breathing and speech motion, and blank slides."
+        ),
+    },
 }
 
 # ヘッダーの 📚 ページ一覧ボタン（site-nav.js が拾う data-site-nav が要る）
