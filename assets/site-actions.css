@@ -80,6 +80,11 @@
   .site-header .header-nav>.header-link:nth-child(3){display:none}
   .site-header .brand{gap:4px}
 }
+@media(max-width:360px){
+  /* At the narrowest phone widths the brand itself is already a home link,
+     so remove the duplicate HOME icon before the controls can crowd. */
+  .site-header .header-nav>.header-link:first-child{display:none}
+}
 @media(prefers-reduced-motion:reduce){
   .share-action,.share-toast{transition:none}
 }

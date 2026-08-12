@@ -564,7 +564,12 @@ body:has(.chapters) .float-button.primary {
   }
 
   .site-header .header-nav {
-    gap: 2px;
+    gap: 4px;
+  }
+
+  .site-header .wrap,
+  .site-header .header-inner {
+    gap: 8px;
   }
 
   .site-header .header-link,
@@ -578,6 +583,15 @@ body:has(.chapters) .float-button.primary {
 
   .site-header .icon-button {
     flex-basis: 36px;
+  }
+
+  /* The language control contains both an icon and a two-letter label.
+     Keep enough width for both instead of letting the label overflow into
+     the theme button. */
+  .site-header .lang-switch {
+    width: 52px;
+    min-width: 52px;
+    gap: 3px;
   }
 
   .site-footer .footer-top {
@@ -637,6 +651,15 @@ body:has(.chapters) .float-button.primary {
 }
 
 @media (max-width: 360px) {
+  .site-header .brand {
+    font-size: .88rem;
+  }
+
+  .site-header .wrap,
+  .site-header .header-inner {
+    gap: 4px;
+  }
+
   .site-footer .footer-links {
     grid-template-columns: 1fr;
   }
