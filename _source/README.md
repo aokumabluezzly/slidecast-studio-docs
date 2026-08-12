@@ -95,16 +95,29 @@ python3 ~/.claude/skills/build-rich-html-article/scripts/build_article.py \
 
 ```html
 <a class="brand footer-brand" href="../" aria-label="SlideCast Studio トップページ">SlideCast <b>Studio</b></a>
-<nav class="footer-links" aria-label="フッターナビゲーション"><a href="../intro/">SlideCast Studio とは</a><a href="../manual/">公式マニュアル</a><a href="../bundle-builder/">Bundle Builder</a><a href="../mouthloop-v2/">MouthLoop v2</a><a href="https://note.com/bluezzly" target="_blank" rel="noopener noreferrer">note ↗</a></nav>
+<nav class="footer-links" aria-label="フッターナビゲーション"><a href="../intro/">SlideCast Studio とは</a><a href="../manual/">公式マニュアル</a><a href="../bundle-builder/">Bundle Builder</a><a href="../mouthloop-v2/">MouthLoop v2</a></nav>
 ```
 
-`footer-meta` は全ページ共通で `SlideCast Studio ドキュメント · aokuma` です。spec 側の `footer_meta` にも同じ文字列を書いておくと、再生成してもこの行だけは戻りません。note の元記事へのリンクは、フッターではなく記事末尾のソースカード（spec の `source_url`）が担当します。
+フッターナビは**サイト内リンクだけ**です。note へのリンクは、以前ここに並べていましたが、SNS アイコン行へ移しました。
+
+フッター最下段も生成物には入りません。`<p class="footer-meta">` を `footer-bottom` で包み、SNS アイコン（note / X / YouTube / Substack）の `<nav class="social-links">` を隣に足します。**他ページから丸ごとコピーするのが確実です**（インライン SVG のパスが長いため）。
+
+```html
+<div class="footer-bottom">
+  <p class="footer-meta">SlideCast Studio ドキュメント · aokuma</p>
+  <nav class="social-links" aria-label="SNSリンク"><!-- note / X / YouTube / Substack のアイコンリンク --></nav>
+</div>
+```
+
+`.footer-bottom` と `.social-link` の見た目は `assets/site-chrome.css` にあるので、CSS 側の追記は不要です。SNS リンクはトップページの CTA 直下（`.cta-social`）にも置いてあります。
+
+`footer-meta` は全ページ共通で `SlideCast Studio ドキュメント · aokuma` です。spec 側の `footer_meta` にも同じ文字列を書いておくと、再生成してもこの行だけは戻りません。note の元記事へのリンクは、フッターナビではなく記事末尾のソースカード（spec の `source_url`）が担当します（フッターの note は SNS アイコン行にあるトップページへのリンクです）。
 
 `site-actions.js` はシェアボタンを組み立てるとき `link[rel=canonical]` と `meta[property="og:title"]` を読みます。canonical と og:title を入れ忘れると、シェアされるURLとタイトルが崩れます。
 
 ## ヘッダーとフッターのリンク
 
-ヘッダーは**サイト内の回遊専用**、note の記事リンクは**フッターとソースカードに残す**方針です（note 記事の評価につながるため）。以前は 🏠 リンクを生成後に手で挿入していましたが、いまは spec の `nav_links` から生成されます。
+ヘッダーは**サイト内の回遊専用**、note へのリンクは**フッターの SNS アイコン行とソースカードに残す**方針です（note 記事の評価につながるため）。以前は 🏠 リンクを生成後に手で挿入していましたが、いまは spec の `nav_links` から生成されます。
 
 ```json
 "nav_links": [

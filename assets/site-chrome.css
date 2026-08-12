@@ -241,6 +241,63 @@ body:has(.chapters) .float-button.primary {
   line-height: 1.7;
 }
 
+/* フッター最下段。左にクレジット、右に SNS アイコンを並べる。 */
+.site-footer .footer-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px 24px;
+}
+
+/* SNS アイコンリンク。フッターとトップページの CTA 下で共用する。 */
+.social-links {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.social-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 999px;
+  border: 1px solid var(--site-header-line);
+  background: var(--site-header-card);
+  color: var(--site-header-ink-soft);
+  text-decoration: none;
+  transition: transform .18s ease, color .18s ease,
+    border-color .18s ease, background .18s ease;
+}
+
+.social-link svg {
+  display: block;
+  width: 18px;
+  height: 18px;
+  fill: currentColor;
+}
+
+.social-link:hover,
+.social-link:focus-visible {
+  color: var(--site-header-primary-ink);
+  border-color: var(--site-header-line-strong);
+  background: var(--site-header-soft);
+  transform: translateY(-2px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .social-link {
+    transition: none;
+  }
+
+  .social-link:hover,
+  .social-link:focus-visible {
+    transform: none;
+  }
+}
+
 @media (max-width: 720px) {
   .site-header .nav-label,
   .site-header .label {
@@ -296,6 +353,12 @@ body:has(.chapters) .float-button.primary {
   .site-footer .footer-brand {
     align-self: flex-start;
     font-size: 1.05rem;
+  }
+
+  .site-footer .footer-bottom {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 14px;
   }
 
   .site-footer .footer-links {
