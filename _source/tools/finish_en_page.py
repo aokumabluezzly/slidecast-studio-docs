@@ -31,6 +31,20 @@ PAGE_META: dict[str, dict[str, str]] = {
             "into narrated, subtitled video. What it does, what it costs, and how to set it up."
         ),
     },
+    "en/bundle-builder/": {
+        "og_title": "SlideCast Bundle Builder — how to use it",
+        "og_description": (
+            "Prepare slides, script, AI voice and mic recordings in one pass, validate them, "
+            "and export a Bundle ZIP that SlideCast Studio can import."
+        ),
+    },
+    "en/gas-update/": {
+        "og_title": "How to update SlideCast Studio",
+        "og_description": (
+            "Move the Apps Script edition to the latest version, keeping the same URL and the "
+            "same data: swap two files, then redeploy as a new version."
+        ),
+    },
 }
 
 # ヘッダーの 📚 ページ一覧ボタン（site-nav.js が拾う data-site-nav が要る）
@@ -88,7 +102,7 @@ def footer_html(up: str, en_up: str) -> str:
         '<nav class="footer-links" aria-label="Footer navigation">'
         f'<a href="{en_up}intro/">What is SlideCast Studio?</a>'
         f'<a href="{up}manual/">Official manual (JA)</a>'
-        f'<a href="{up}bundle-builder/">Bundle Builder (JA)</a>'
+        f'<a href="{en_up}bundle-builder/">Bundle Builder</a>'
         f'<a href="{up}mouthloop-v2/">MouthLoop v2 (JA)</a>'
         "</nav>"
     )

@@ -358,8 +358,8 @@
         },
         {
           "type": "link",
-          "url": "../../bundle-builder/",
-          "label": "Read the SlideCast Bundle Builder guide (Japanese)"
+          "url": "../bundle-builder/",
+          "label": "Read the SlideCast Bundle Builder guide"
         }
       ]
     },
@@ -1076,8 +1076,8 @@
         },
         {
           "type": "link",
-          "url": "../../gas-update/",
-          "label": "Read the Apps Script update guide (Japanese)"
+          "url": "../gas-update/",
+          "label": "Read the Apps Script update guide"
         }
       ]
     },
@@ -1279,14 +1279,14 @@
             {
               "icon": "🧩",
               "title": "SlideCast Bundle Builder",
-              "text": "Guide to preparing slides, script, AI voice and mic recordings (Japanese)",
-              "url": "../../bundle-builder/"
+              "text": "Guide to preparing slides, script, AI voice and mic recordings",
+              "url": "../bundle-builder/"
             },
             {
               "icon": "🛠️",
               "title": "How to update",
-              "text": "The Apps Script update procedure (Japanese)",
-              "url": "../../gas-update/"
+              "text": "The Apps Script update procedure",
+              "url": "../gas-update/"
             },
             {
               "icon": "🆕",

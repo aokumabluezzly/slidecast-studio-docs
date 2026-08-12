@@ -1,0 +1,389 @@
+{
+  "title": "How to update SlideCast Studio",
+  "subtitle": "Move the Apps Script edition to the latest version, keeping the same URL and the same data",
+  "description": "A screenshot-by-screenshot guide to updating SlideCast Studio on Google Apps Script, carrying over your projects, library and settings.",
+  "lead": "",
+  "eyebrow": "GAS UPDATE GUIDE",
+  "brand": "SlideCast",
+  "brand_accent": "Studio",
+  "brand_badge": "Docs",
+  "author": "aokuma",
+  "date": "2026.07.21",
+  "version": "Apps Script edition",
+  "footer_meta": "SlideCast Studio Documentation · aokuma",
+  "hero_image": "./img/gas-update-hero.png",
+  "hero_alt": "Updating SlideCast Studio by swapping the files, keeping the same URL and the same data",
+  "chips": [
+    "Apps Script edition",
+    "Same URL",
+    "Data carried over",
+    "About 5 minutes",
+    "Beginner friendly"
+  ],
+  "theme": {
+    "primary": "#2476D8",
+    "secondary": "#4A63C8",
+    "accent": "#14A38B",
+    "surface": "#EFF6FF",
+    "ink": "#17233F"
+  },
+  "nav_links": [
+    { "href": "../", "icon": "🏠", "label": "HOME" }
+  ],
+  "source_url": "https://note.com/bluezzly/n/na97ce150da13",
+  "source_label": "Read the original post on note (Japanese)",
+  "source_title": "Original post: How to update SlideCast Studio (Apps Script procedure)",
+  "source_note": "This procedure is also published on note, where questions and extra notes are welcome (in Japanese).",
+  "update_header": false,
+  "sections_label": "CONTENTS",
+
+  "overview": {
+    "icon": "🔄",
+    "title": "What this page covers",
+    "blocks": [
+      {
+        "type": "html",
+        "html": "<p>If you run SlideCast Studio on Google Apps Script, this page explains <strong>how to move to a new version</strong>.</p><p>Done this way, the slides you have already made, your library and your settings all carry over, and <strong>the URL you have bookmarked stays the same</strong>.</p>"
+      },
+      {
+        "type": "cards",
+        "items": [
+          { "icon": "🔗", "title": "The URL doesn’t change", "text": "You update the existing deployment, so your bookmark keeps working." },
+          { "icon": "💾", "title": "Your data stays", "text": "Projects, asset library and settings remain available in the same browser." },
+          { "icon": "📄", "title": "It’s just a swap", "text": "Paste two HTML files over the old ones and redeploy." }
+        ]
+      },
+      {
+        "type": "callout",
+        "tone": "warn",
+        "title": "⚠️ Back up first, always",
+        "text": "Step 1 saves a backup. Do not delete the old version until the backup is saved and you have confirmed everything came across."
+      }
+    ]
+  },
+
+  "sections": [
+    {
+      "icon": "🧭",
+      "category": "FIRST",
+      "title": "Which case are you in?",
+      "intro": "Start by working out which of these describes your situation. The steps differ.",
+      "blocks": [
+        {
+          "type": "table",
+          "head": ["Case", "What to do", "Where to read"],
+          "rows": [
+            ["You want to update the URL you have been using all along", "Put the new version’s code into the Apps Script project you already have", "The “Steps” section on this page"],
+            ["You already built the new version as a separate Apps Script project on a separate URL", "Save a backup in the old version and restore it in the new one", "“Merging several projects into one”, further down"]
+          ]
+        },
+        {
+          "type": "figure",
+          "image": "./img/gas-update-01.png",
+          "alt": "The two cases side by side: updating the same URL by pasting new code into the old project, versus backing up in the old version and restoring in the new one on a different URL",
+          "caption": "Either way, keep the old version until the backup is saved and the move is confirmed (the diagram is from the v3.2 release)"
+        },
+        {
+          "type": "callout",
+          "tone": "warn",
+          "title": "⚠️ Don’t delete the old version yet",
+          "text": "Keep it until the backup is saved and you have confirmed the move went through."
+        }
+      ]
+    },
+
+    {
+      "icon": "💡",
+      "category": "WHY",
+      "title": "Why swapping the files is the better route",
+      "intro": "You could copy the whole new version from the shared drive, but that costs extra work and brings a few drawbacks.",
+      "blocks": [
+        {
+          "type": "html",
+          "html": "<p>SlideCast Studio itself runs as an <strong>Apps Script project</strong> on Google Drive. The projects, library, settings, images, audio and video you create are stored <strong>in your browser’s storage</strong>.</p><p>So as long as you open the same URL in the same browser and the same browser profile, your earlier data is still there. It will not appear automatically on another computer or in another browser — there you have to restore from a backup.</p>"
+        },
+        {
+          "type": "compare",
+          "before": {
+            "text": "Copying the whole thing: you get a new Apps Script project, so the URL changes and your earlier projects and settings do not appear on their own. You have to save a backup in the old version and restore it in the new one."
+          },
+          "after": {
+            "text": "Swapping the files: the URL stays exactly as it was, and the slides and settings already stored carry straight over."
+          }
+        },
+        {
+          "type": "check_list",
+          "items": [
+            "A full copy means a new URL, and extra backup-and-restore work",
+            "Browser data from environments you no longer use can linger",
+            "A small amount of it has almost no effect on your computer",
+            "Lots of images, audio and video do take up storage, which can affect saving, loading and backups"
+          ]
+        },
+        {
+          "type": "html",
+          "html": "<p>To avoid all of that, the recommended route is to <strong>swap only the files inside the project you are already using, and stay on the same project</strong>.</p>"
+        }
+      ]
+    },
+
+    {
+      "icon": "🛠️",
+      "category": "STEPS",
+      "title": "The standard update: swap the files, then redeploy",
+      "intro": "Ten steps in total. Skim the overview first, then follow the detailed steps below in order.",
+      "blocks": [
+        {
+          "type": "step_list",
+          "items": [
+            { "title": "Save a backup", "text": "Export it from “Save data” on the dashboard" },
+            { "title": "Open your Apps Script project", "text": "From script.google.com or from Google Drive" },
+            { "title": "Replace 無題.html", "text": "Select all, delete, and paste the new contents" },
+            { "title": "Replace AppBundle.html", "text": "Same procedure" },
+            { "title": "Replace any other files mentioned", "text": "Such as コード.gs or GasAsset_*.html" },
+            { "title": "Save", "text": "Press the save icon" },
+            { "title": "Open “Deploy” → “Manage deployments”", "text": "Not “New deployment”" },
+            { "title": "Press the pencil (edit) on the existing deployment", "text": "On the right of the deployment in use" },
+            { "title": "Set Version to “New version” and deploy", "text": "Choose it from the dropdown" },
+            { "title": "Done", "text": "The web app URL is the same as before" }
+          ]
+        },
+        { "type": "divider", "label": "Step by step" },
+
+        { "type": "heading", "level": 3, "text": "1. Save a backup, just in case" },
+        {
+          "type": "html",
+          "html": "<p>Open the SlideCast Studio you are using now and save a backup from <strong>“Save data”</strong> on the dashboard. If you want the library to come across as well as your projects, tick the items you need on the backup screen.</p>"
+        },
+        {
+          "type": "figure",
+          "image": "./img/gas-update-11.png",
+          "alt": "The top of the SlideCast Studio dashboard, with the “Save data” button on the far right outlined in red",
+          "caption": "Export the backup from “Save data” at the right end of the dashboard"
+        },
+
+        { "type": "heading", "level": 3, "text": "2. Open the Apps Script project you use today" },
+        {
+          "type": "html",
+          "html": "<p>Open the Apps Script editor for your current project, either from the project list on <strong>script.google.com</strong> or from Google Drive.</p>"
+        },
+        {
+          "type": "figure",
+          "image": "./img/gas-update-02.png",
+          "alt": "The Apps Script editor, with コード.gs, 無題.html, AppBundle.html and GasAsset_*.html listed in the file pane on the left",
+          "caption": "The file list runs down the left side; open the file you need from there"
+        },
+
+        { "type": "heading", "level": 3, "text": "3. Replace the contents of 無題.html with the new version" },
+        {
+          "type": "html",
+          "html": "<p>Open <strong>無題.html</strong> from the file list, select everything (<code>Cmd</code> / <code>Ctrl</code> + <code>A</code>), delete it, and paste in the contents of the new version’s 無題.html.</p><p>The file names come from the Japanese Apps Script UI: 無題.html is “Untitled.html” and コード.gs is “Code.gs”. Whatever they are called in your editor, the position in the list is the same.</p>"
+        },
+        {
+          "type": "figure",
+          "image": "./img/gas-update-03.png",
+          "alt": "無題.html open in the Apps Script editor with all of the code selected",
+          "caption": "Select everything first, then paste in the new version"
+        },
+
+        { "type": "heading", "level": 3, "text": "4. Do the same for AppBundle.html" },
+        {
+          "type": "html",
+          "html": "<p>Open <strong>AppBundle.html</strong>, select all, delete, and replace it with the new version in the same way.</p>"
+        },
+        {
+          "type": "figure",
+          "image": "./img/gas-update-04.png",
+          "alt": "AppBundle.html open in the Apps Script editor, with a long Base64 string entirely selected",
+          "caption": "AppBundle.html is one very long string, but the procedure is identical"
+        },
+
+        { "type": "heading", "level": 3, "text": "5. Replace any other files the release notes mention" },
+        {
+          "type": "html",
+          "html": "<p>Usually only <strong>無題.html</strong> and <strong>AppBundle.html</strong> need updating, but if the release post says so, replace コード.gs or other files the same way.</p>"
+        },
+
+        { "type": "heading", "level": 3, "text": "6. Save" },
+        {
+          "type": "html",
+          "html": "<p>Once the files are overwritten, save.</p>"
+        },
+        {
+          "type": "figure",
+          "image": "./img/gas-update-05.png",
+          "alt": "The Apps Script editor toolbar, with the save icon outlined in red and marked with an arrow",
+          "caption": "Press the save icon in the toolbar"
+        },
+
+        { "type": "heading", "level": 3, "text": "7. Open “Deploy” → “Manage deployments”" },
+        {
+          "type": "html",
+          "html": "<p>Press <strong>“Deploy”</strong> at the top right and choose <strong>“Manage deployments”</strong>.</p>"
+        },
+        {
+          "type": "figure",
+          "image": "./img/gas-update-06.png",
+          "alt": "The menu opened from the Deploy button at the top right, listing New deployment, Manage deployments and Test deployments",
+          "caption": "❶ Deploy, then ❷ Manage deployments"
+        },
+
+        { "type": "heading", "level": 3, "text": "8. Press the pencil (edit) icon on the existing deployment" },
+        {
+          "type": "html",
+          "html": "<p>On the “Manage deployments” screen, click the <strong>pencil (edit) icon</strong> to the right of the deployment currently in use.</p>"
+        },
+        {
+          "type": "figure",
+          "image": "./img/gas-update-07.png",
+          "alt": "The Manage deployments dialog, with the pencil (edit) icon at the top right outlined in red and marked with an arrow",
+          "caption": "The pencil at the top right is the edit button"
+        },
+
+        { "type": "heading", "level": 3, "text": "9. Set Version to “New version”, then press “Deploy”" },
+        {
+          "type": "html",
+          "html": "<p>From the <strong>Version</strong> dropdown choose <strong>“New version”</strong>, then press <strong>“Deploy”</strong>.</p>"
+        },
+        {
+          "type": "figure",
+          "image": "./img/gas-update-08.png",
+          "alt": "The Version dropdown with “New version” at the top outlined in red, and the Deploy button at the bottom right also highlighted",
+          "caption": "The point is to pick “New version”, right at the top of the list"
+        },
+
+        { "type": "heading", "level": 3, "text": "10. Done" },
+        {
+          "type": "html",
+          "html": "<p>Press <strong>“Done”</strong> and that is it. The web app URL shown is the same one as before.</p>"
+        },
+        {
+          "type": "figure",
+          "image": "./img/gas-update-09.png",
+          "alt": "A dialog reading “Deployment updated”, with the deployment ID and web app URL blurred and the Done button highlighted",
+          "caption": "“Deployment updated” means it worked"
+        },
+        {
+          "type": "callout",
+          "tone": "good",
+          "title": "✅ That’s the update finished",
+          "text": "Your project is the same project; only its contents are now the latest version."
+        }
+      ]
+    },
+
+    {
+      "icon": "⚠️",
+      "category": "WATCH OUT",
+      "title": "Pick “New version”, not “New deployment”",
+      "intro": "This is the single easiest thing to get wrong.",
+      "blocks": [
+        {
+          "type": "html",
+          "html": "<p>When you deploy, the route to take is <strong>“Manage deployments” → edit the existing deployment → “New version”</strong>, not “New deployment”.</p><p>Even inside the same project, choosing “New deployment” issues yet another URL, and the slides and data stored there are treated as a separate set.</p>"
+        },
+        {
+          "type": "compare",
+          "before": {
+            "text": "❌ New deployment → a new URL is issued (and the data is treated separately)"
+          },
+          "after": {
+            "text": "⭕ Manage deployments → edit the existing deployment → New version → the URL stays the same, and the data saved in that browser is still there"
+          }
+        },
+        {
+          "type": "figure",
+          "image": "./img/gas-update-10.png",
+          "alt": "A close-up of the deploy menu, with a “choose this one” arrow pointing at Manage deployments",
+          "caption": "“Manage deployments” is the one to pick"
+        },
+        {
+          "type": "callout",
+          "tone": "warn",
+          "title": "⚠️ Nothing shows up on another computer or browser",
+          "text": "On a different computer, browser or browser profile, your data will not appear automatically. Restore from a backup there."
+        }
+      ]
+    },
+
+    {
+      "icon": "🧩",
+      "category": "GOING FURTHER",
+      "title": "Merging several projects into one",
+      "intro": "What to do if you already built the new version on a separate URL, or if unused versions are still lying around.",
+      "blocks": [
+        {
+          "type": "html",
+          "html": "<p>To bring projects or libraries from a version you no longer use into one place, <strong>save a backup from the SlideCast Studio dashboard and restore it in the copy you intend to keep</strong>.</p>"
+        },
+        {
+          "type": "gallery",
+          "columns": 2,
+          "items": [
+            { "image": "./img/gas-update-11.png", "alt": "The “Save data” button highlighted on the dashboard", "caption": "① In the old copy, back up from “Save data”" },
+            { "image": "./img/gas-update-12.png", "alt": "The “Restore data” button highlighted on the dashboard", "caption": "② In the copy you keep, load it from “Restore data”" }
+          ]
+        },
+        {
+          "type": "check_list",
+          "items": [
+            "Once the move is complete, the old project can be deleted",
+            "After restoring, check that projects, images, audio, video, library and settings all came across",
+            "Do not delete the old version until that check is done"
+          ]
+        },
+        { "type": "heading", "level": 3, "text": "Clearing out data from the old environment" },
+        {
+          "type": "html",
+          "html": "<p>Once the move is finished, you can clear the browser data of the old environment from <strong>“Reset data”</strong> on the old version’s dashboard.</p>"
+        },
+        {
+          "type": "figure",
+          "image": "./img/gas-update-13.png",
+          "alt": "The trash icon on the dashboard and the reset dialog, where projects, asset library, app settings and API keys can be selected for deletion",
+          "caption": "You choose which categories to delete. Open it from the trash icon"
+        },
+        {
+          "type": "callout",
+          "tone": "warn",
+          "title": "⚠️ Resetting data cannot be undone",
+          "text": "Save a backup and confirm that restoring works before you run it."
+        },
+        { "type": "heading", "level": 3, "text": "Deleting the old Apps Script project from Google Drive" },
+        {
+          "type": "html",
+          "html": "<p>After the move to the new version is complete, an Apps Script project you no longer need can be sent to the trash from Google Drive or from the Apps Script project list.</p>"
+        },
+        {
+          "type": "check_list",
+          "items": [
+            "Deleting the Apps Script project makes its web app URL unusable",
+            "Don’t delete anything until the backup and the move are confirmed",
+            "Right after a move, leaving the trash unemptied for a while is the safer choice",
+            "Deleting the Apps Script project does not necessarily delete the project data held in your browser",
+            "An Apps Script project is tiny, so deleting it will not noticeably speed up your computer"
+          ]
+        }
+      ]
+    },
+
+    {
+      "icon": "🙌",
+      "category": "FINALLY",
+      "title": "Finally",
+      "blocks": [
+        {
+          "type": "html",
+          "html": "<p>When you update, please use the route described here — <strong>swap the files, then deploy a new version of the existing deployment</strong> — rather than copying the whole thing from the shared drive.</p><p>If anything here is unclear, or a step doesn’t go the way it is written, do tell me.</p>"
+        },
+        {
+          "type": "link_cards",
+          "items": [
+            { "icon": "📘", "title": "Official manual", "text": "The full reference for SlideCast Studio (Japanese)", "url": "../../manual/" },
+            { "icon": "🏠", "title": "Documentation home", "text": "All the guides and release notes", "url": "../" }
+          ]
+        }
+      ]
+    }
+  ]
+}

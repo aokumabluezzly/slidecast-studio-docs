@@ -24,6 +24,8 @@ TEMPLATE = REPO / "_source/article-template.en.html"
 # 名前 -> (spec, 出力先)
 PAGES: dict[str, tuple[str, str]] = {
     "intro": ("_source/intro.en.spec.json", "en/intro/index.html"),
+    "bundle-builder": ("_source/bundle-builder.en.spec.json", "en/bundle-builder/index.html"),
+    "gas-update": ("_source/gas-update.en.spec.json", "en/gas-update/index.html"),
 }
 
 

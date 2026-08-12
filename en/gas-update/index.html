@@ -1,32 +1,33 @@
 <!doctype html>
-<html lang="ja" data-theme="light">
+<html lang="en" data-theme="light">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="description" content="SlideCast Studio向け補助ツール「SlideCast Bundle Builder」で、資料の準備、台本生成、AI音声またはマイク録音、検証、ZIP出力まで進める方法をまとめたガイドです。">
-<title>SlideCast Bundle Builder 使い方ガイド</title>
-<link rel="canonical" href="https://aokumabluezzly.github.io/slidecast-studio-docs/bundle-builder/">
-<link rel="alternate" hreflang="ja" href="https://aokumabluezzly.github.io/slidecast-studio-docs/bundle-builder/">
-<link rel="alternate" hreflang="en" href="https://aokumabluezzly.github.io/slidecast-studio-docs/en/bundle-builder/">
-<link rel="alternate" hreflang="x-default" href="https://aokumabluezzly.github.io/slidecast-studio-docs/bundle-builder/">
-<link rel="icon" type="image/png" sizes="32x32" href="../assets/brand/favicon-32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="../assets/brand/favicon-16.png">
-<link rel="apple-touch-icon" sizes="180x180" href="../assets/brand/apple-touch-icon.png">
-<link rel="manifest" href="../site.webmanifest">
+<meta name="description" content="A screenshot-by-screenshot guide to updating SlideCast Studio on Google Apps Script, carrying over your projects, library and settings.">
+<title>How to update SlideCast Studio</title>
+<link rel="canonical" href="https://aokumabluezzly.github.io/slidecast-studio-docs/en/gas-update/">
+<link rel="alternate" hreflang="ja" href="https://aokumabluezzly.github.io/slidecast-studio-docs/gas-update/">
+<link rel="alternate" hreflang="en" href="https://aokumabluezzly.github.io/slidecast-studio-docs/en/gas-update/">
+<link rel="alternate" hreflang="x-default" href="https://aokumabluezzly.github.io/slidecast-studio-docs/gas-update/">
+<link rel="icon" type="image/png" sizes="32x32" href="../../assets/brand/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="../../assets/brand/favicon-16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="../../assets/brand/apple-touch-icon.png">
+<link rel="manifest" href="../../site.webmanifest">
 <meta name="theme-color" content="#1957ff">
 <meta property="og:type" content="article">
-<meta property="og:locale" content="ja_JP">
+<meta property="og:locale" content="en_US">
+<meta property="og:locale:alternate" content="ja_JP">
 <meta property="og:site_name" content="SlideCast Studio">
-<meta property="og:title" content="SlideCast Bundle Builder 使い方ガイド">
-<meta property="og:description" content="資料の準備、台本生成、AI音声・マイク録音、検証、ZIP出力までを画像つきで解説します。">
-<meta property="og:url" content="https://aokumabluezzly.github.io/slidecast-studio-docs/bundle-builder/">
+<meta property="og:title" content="How to update SlideCast Studio">
+<meta property="og:description" content="Move the Apps Script edition to the latest version, keeping the same URL and the same data: swap two files, then redeploy as a new version.">
+<meta property="og:url" content="https://aokumabluezzly.github.io/slidecast-studio-docs/en/gas-update/">
 <meta property="og:image" content="https://aokumabluezzly.github.io/slidecast-studio-docs/assets/brand/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="SlideCast Studio ロゴ">
+<meta property="og:image:alt" content="SlideCast Studio logo">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="SlideCast Bundle Builder 使い方ガイド">
-<meta name="twitter:description" content="Bundle Builderの準備からZIP出力までを解説。">
+<meta name="twitter:title" content="How to update SlideCast Studio">
+<meta name="twitter:description" content="Move the Apps Script edition to the latest version, keeping the same URL and the same data: swap two files, then redeploy as a new version.">
 <meta name="twitter:image" content="https://aokumabluezzly.github.io/slidecast-studio-docs/assets/brand/og-image.png">
 <style>
 /* ============================================================
@@ -34,13 +35,13 @@
    ============================================================ */
 :root{
   /* palette (replaceable per article) */
-  --primary:#6D4AFF;
-  --secondary:#00A8C6;
-  --accent:#E7489A;
-  --surface:#F4F6FF;
+  --primary:#2476D8;
+  --secondary:#4A63C8;
+  --accent:#14A38B;
+  --surface:#EFF6FF;
 
   /* text */
-  --ink:#171C31;
+  --ink:#17233F;
   --ink-soft:color-mix(in srgb,var(--ink) 82%,#ffffff);
   /* 68%, not 55%: card copy and captions sit on tinted surfaces, where a
      lighter mix falls to ~3.2:1 — under the 4.5:1 gate for small text. */
@@ -225,7 +226,7 @@ h4{font-size:var(--fs-h4)}
 .meta{display:flex;flex-wrap:wrap;gap:8px 16px;margin-top:22px;color:var(--muted);font-size:var(--fs-xs);font-weight:var(--fw-strong)}
 .hero-media{margin:0;padding:clamp(20px,3vw,34px);display:flex;flex-direction:column;justify-content:center}
 .hero-media img{
-  display:block;width:100%;aspect-ratio:16 / 9;object-fit:cover;
+  display:block;width:100%;aspect-ratio:1280 / 670;object-fit:cover;
   border:1px solid var(--line);border-radius:var(--r-lg);background:var(--soft);box-shadow:var(--shadow);
 }
 .hero-media figcaption{margin-top:10px;color:var(--muted);font-size:var(--fs-xs);font-weight:var(--fw-strong);text-align:center}
@@ -436,6 +437,9 @@ figcaption{margin-top:9px;color:var(--muted);font-size:var(--fs-xs);line-height:
 .video-embed iframe{
   display:block;width:100%;aspect-ratio:16 / 9;border:1px solid var(--line);border-radius:16px;background:#000;
 }
+.video-grid{margin:26px 0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;align-items:start}
+.video-grid .video-embed{min-width:0;margin:0}
+.video-grid .video-embed.is-playing{grid-column:1 / -1}
 
 /* 5.16 inline-link : pill CTA inside prose */
 .link-row{margin:18px 0}
@@ -495,6 +499,7 @@ hr{border:0;height:1px;margin:46px 0;background:linear-gradient(90deg,transparen
 
 /* 5.22 link-cards : related links as a grid */
 .link-cards{margin:22px 0;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;list-style:none}
+.prose .link-cards,.chapter-inner .link-cards{box-sizing:border-box;padding:0;margin-inline:auto}
 .link-cards li{margin:0}
 /* A lone related link is a statement, not a grid: let it use the full column
    so a long title is not squeezed into half the reading width. */
@@ -775,24 +780,24 @@ hr{border:0;height:1px;margin:46px 0;background:linear-gradient(90deg,transparen
   .tab-list,.code-copy{display:none!important}
 }
 </style>
-<link rel="stylesheet" href="../assets/site-chrome.css">
-<link rel="stylesheet" href="../assets/site-actions.css">
-<script src="../assets/site-actions.js" defer></script>
-<script src="../assets/site-nav.js" defer></script>
-<script src="../assets/site-lang.js" defer></script>
+<link rel="stylesheet" href="../../assets/site-chrome.css">
+<link rel="stylesheet" href="../../assets/site-actions.css">
+<script src="../../assets/site-actions.js" defer></script>
+<script src="../../assets/site-nav.js" defer></script>
+<script src="../../assets/site-lang.js" defer></script>
 </head>
 <body>
-<a class="skip-link" href="#overview">本文へスキップ</a>
+<a class="skip-link" href="#overview">Skip to content</a>
 <div class="progress" id="progressBar"></div>
 
 <header class="site-header">
   <div class="header-inner">
-    <a class="brand" href="../" aria-label="SlideCast Studio トップページ">SlideCast <b>Studio</b></a>
+    <a class="brand" href="#top">SlideCast<b>Studio</b><em>Docs</em></a>
     <span class="header-current" id="currentSection"></span>
-    <nav class="header-nav" aria-label="記事内ナビゲーション"><a class="header-link" href="../" aria-label="トップページ"><span aria-hidden="true">🏠</span><span class="nav-label">HOME</span></a><button class="header-link" type="button" data-site-nav aria-label="ページ一覧"><span aria-hidden="true">📚</span><span class="nav-label">ページ</span></button>
-      <button class="header-link" id="openToc" type="button" aria-label="目次"><span aria-hidden="true">☰</span><span class="nav-label">目次</span></button>
+    <nav class="header-nav" aria-label="Article navigation"><a class="header-link" href="../" aria-label="Home"><span aria-hidden="true">🏠</span><span class="nav-label">HOME</span></a><button class="header-link" type="button" data-site-nav aria-label="All pages"><span aria-hidden="true">📚</span><span class="nav-label">Pages</span></button>
+      <button class="header-link" id="openToc" type="button"><span aria-hidden="true">☰</span><span class="nav-label">Contents</span></button>
       
-      <button class="icon-button" id="themeToggle" type="button" aria-label="表示テーマを切り替える"><span class="theme-light" aria-hidden="true">☀️</span><span class="theme-dark" aria-hidden="true">🌙</span></button>
+      <button class="icon-button" id="themeToggle" type="button" aria-label="Switch colour theme"><span class="theme-light" aria-hidden="true">☀️</span><span class="theme-dark" aria-hidden="true">🌙</span></button>
     </nav>
   </div>
 </header>
@@ -801,63 +806,59 @@ hr{border:0;height:1px;margin:46px 0;background:linear-gradient(90deg,transparen
 <section class="hero has-image">
   <div class="hero-grid">
     <div class="hero-copy">
-      <p class="kicker">SLIDECAST WORKFLOW GUIDE</p>
-      <h1>SlideCast Bundle Builder 使い方ガイド</h1>
-      <p class="hero-subtitle">資料・台本・AI音声・マイク録音を、ひとつの流れでBundle ZIPに</p>
+      <p class="kicker">GAS UPDATE GUIDE</p>
+      <h1>How to update SlideCast Studio</h1>
+      <p class="hero-subtitle">Move the Apps Script edition to the latest version, keeping the same URL and the same data</p>
       
-      <ul class="chips"><li class="chip">Gemini Canvas</li><li class="chip">台本生成</li><li class="chip">AI音声</li><li class="chip">マイク録音</li><li class="chip">Bundle ZIP</li></ul>
-      <div class="meta"><span>aokuma</span><span>公開 2026.04.06 / 更新 2026.07.16</span><span>Bundle Builder Guide</span></div>
+      <ul class="chips"><li class="chip">Apps Script edition</li><li class="chip">Same URL</li><li class="chip">Data carried over</li><li class="chip">About 5 minutes</li><li class="chip">Beginner friendly</li></ul>
+      <div class="meta"><span>aokuma</span><span>2026.07.21</span><span>Apps Script edition</span></div>
     </div>
-    <figure class="hero-media"><img src="../assets/bundle-builder-hero.webp" alt="SlideCast Bundle Builderでスライド生成、台本生成、AI音声、音声録音をまとめ、ZIPでSlideCast Studioへ取り込む流れ"></figure>
+    <figure class="hero-media"><img src="../../assets/gas-update-hero.png" alt="Updating SlideCast Studio by swapping the files, keeping the same URL and the same data"></figure>
   </div>
 </section>
 
 
 <div class="reading">
   <section class="panel" id="overview">
-    <p class="kicker">🧩 OVERVIEW</p>
-    <h2 class="rule">Bundle Builder で、素材づくりをひと続きに</h2>
-    <div class="prose"><p><strong>SlideCast Bundle Builder</strong> は、SlideCast Studioへ読み込む資料・台本・音声をまとめて用意するためのGemini Canvasアプリです。資料をその場で作るか手元のファイルを読み込み、台本と音声を整え、最後にBundle ZIPとして書き出します。</p><p>音声はGemini TTSによるAI音声と、自分の声を使うマイク録音の両方に対応しています。全部をAI音声にする、全部を録音する、一部だけ録音へ差し替える、といった使い分けができます。</p><div class="notice-box"><p>主な更新</p><ul><li>2026.07.16：マイク録音、波形確認、前後トリミング、試聴・録り直し・採用に対応</li><li>2026.07.16：トップ画面と資料の拡大プレビューを追加し、各ステップの導線を改善</li><li>2026.07.06：Canvas上でのスライド資料作成と、音声生成中の台本編集に対応</li><li>2026.05.26：台本生成モデル選択、外部AI用プロンプト、台本JSONインポート、字幕文字数設定を追加</li></ul></div><div class="cta-banner"><div><strong>Bundle Builder を使ってみる</strong><p>Geminiの共有ページからアプリを開けます。機密情報や個人情報を含む資料はアップロードしないでください。</p></div><a class="cta-link" href="https://gemini.google.com/share/7dda767f8078" target="_blank" rel="noopener noreferrer">Geminiで開く ↗</a></div></div>
-    <div class="card-grid"><article class="feature-card"><span class="card-icon" aria-hidden="true">🖼️</span><h3>資料を用意</h3><p>Canvas上で作成するか、画像・PDF・ZIP・フォルダを読み込みます。</p></article><article class="feature-card"><span class="card-icon" aria-hidden="true">💬</span><h3>台本を生成</h3><p>読者、長さ、話者数、会話構成などを指定して台本を整えます。</p></article><article class="feature-card"><span class="card-icon" aria-hidden="true">🔊</span><h3>AI音声を生成</h3><p>話者ごとに声を選び、一括またはスライド単位で生成できます。</p></article><article class="feature-card"><span class="card-icon" aria-hidden="true">🎤</span><h3>自分の声を録音</h3><p>原稿を見ながら録音し、波形で前後をトリミングできます。</p></article><article class="feature-card"><span class="card-icon" aria-hidden="true">✅</span><h3>整合性を検証</h3><p>台本・話者・音声・スライド参照の不整合を出力前に確認します。</p></article><article class="feature-card"><span class="card-icon" aria-hidden="true">📦</span><h3>ZIPで取り込む</h3><p>Bundle ZIPを出力し、SlideCast Studioの「資料から作成」へ読み込みます。</p></article></div>
+    <p class="kicker">🔄 OVERVIEW</p>
+    <h2 class="rule">What this page covers</h2>
+    <div class="prose"><p>If you run SlideCast Studio on Google Apps Script, this page explains <strong>how to move to a new version</strong>.</p><p>Done this way, the slides you have already made, your library and your settings all carry over, and <strong>the URL you have bookmarked stays the same</strong>.</p><div class="card-grid"><article class="feature-card"><span class="card-icon" aria-hidden="true">🔗</span><h3>The URL doesn’t change</h3><p>You update the existing deployment, so your bookmark keeps working.</p></article><article class="feature-card"><span class="card-icon" aria-hidden="true">💾</span><h3>Your data stays</h3><p>Projects, asset library and settings remain available in the same browser.</p></article><article class="feature-card"><span class="card-icon" aria-hidden="true">📄</span><h3>It’s just a swap</h3><p>Paste two HTML files over the old ones and redeploy.</p></article></div><div class="callout callout-warn"><p><strong>⚠️ Back up first, always</strong></p><p>Step 1 saves a backup. Do not delete the old version until the backup is saved and you have confirmed everything came across.</p></div></div>
+    
   </section>
 
-  <div class="divider">GUIDE</div>
-  <section class="chapters" aria-label="記事の各章"><details class="chapter" id="section-1"><summary><span class="chapter-icon" aria-hidden="true">🧭</span><span class="chapter-heading" role="heading" aria-level="2"><span class="chapter-category">WORKFLOW</span><span class="chapter-title">まず全体の流れをつかむ</span></span><span class="chapter-toggle" aria-hidden="true"></span></summary><div class="chapter-body"><div class="chapter-inner"><p class="chapter-intro">5つのステップを順に進めれば、SlideCast Studioで仕上げられる素材一式が完成します。</p><ol class="step-list"><li><strong>資料を作成またはアップロード</strong>Canvas上でスライド画像を作るか、手元の資料を読み込みます。</li><li><strong>台本を生成・編集</strong>用途に合わせた条件を選び、各スライドの台本を準備します。</li><li><strong>音声を生成または録音</strong>Gemini TTS、自分の声、または両方を組み合わせて音声をそろえます。</li><li><strong>データを検証</strong>台本、話者、音声、スライドの参照関係をチェックします。</li><li><strong>Bundle ZIPを出力</strong>完成したZIPをSlideCast Studioへ読み込み、演出や音声を調整して書き出します。</li></ol><figure><img src="../assets/bundle-builder-home.webp" alt="Bundle Builderのトップ画面。資料をその場で画像生成する方法と、手元の資料をアップロードする方法を選べる" loading="lazy"><figcaption>最初に資料の用意方法を選びます。録音する場合は、この画面で先にマイクを確認します</figcaption></figure><div class="callout callout-good"><p><strong>途中でトップへ戻っても大丈夫</strong></p><p>各ステップからトップ画面へ戻っても、作成途中のデータは保持されます。</p></div></div></div></details><details class="chapter" id="section-2"><summary><span class="chapter-icon" aria-hidden="true">🖼️</span><span class="chapter-heading" role="heading" aria-level="2"><span class="chapter-category">STEP 1</span><span class="chapter-title">資料を作成・アップロードする</span></span><span class="chapter-toggle" aria-hidden="true"></span></summary><div class="chapter-body"><div class="chapter-inner"><p class="chapter-intro">新しくスライドを作る方法と、手持ちの資料から始める方法があります。</p><div class="compare"><div class="before"><h4>その場で作る</h4><p>テーマや対象者、絵柄などを指定し、Canvas上でスライド画像を用意します。</p></div><div class="after"><h4>手持ち資料を使う</h4><p>PNG、JPEG、PDF、ZIP、フォルダを読み込み、既存資料から始めます。</p></div></div><figure><img src="../assets/bundle-builder-upload.webp" alt="Bundle Builderの資料アップロード画面。PNG、JPEG、PDF、ZIP、フォルダを選択できる" loading="lazy"><figcaption>読み込んだ資料はサムネイルで確認し、台本生成前に順番を並べ替えられます</figcaption></figure><div class="callout callout-warn"><p><strong>録音するなら、作業開始前にマイクを許可</strong></p><p>Gemini Canvasでは、初回のマイク許可時にアプリが再読み込みされる場合があります。録音予定なら、資料を入れる前にトップ画面のマイク確認を済ませてください。</p></div><figure><img src="../assets/bundle-builder-mic-permission.webp" alt="Bundle Builderのトップ画面にあるマイクを確認・許可ボタン" loading="lazy"><figcaption>Gemini TTSだけを使う場合は、マイクを許可する必要はありません</figcaption></figure></div></div></details><details class="chapter" id="section-3"><summary><span class="chapter-icon" aria-hidden="true">💬</span><span class="chapter-heading" role="heading" aria-level="2"><span class="chapter-category">STEP 2</span><span class="chapter-title">用途に合う台本を生成する</span></span><span class="chapter-toggle" aria-hidden="true"></span></summary><div class="chapter-body"><div class="chapter-inner"><p class="chapter-intro">おまかせでも使えますが、読者や話し方を指定すると目的に合わせやすくなります。</p><figure><img src="../assets/bundle-builder-script-settings.webp" alt="Bundle Builderの台本生成設定。ターゲット、話者数、字幕レイアウトなどを選択できる" loading="lazy"><figcaption>ターゲット、台本スタイル、長さ、話者数、字幕レイアウトなどを設定できます</figcaption></figure><ul class="check-list"><li>対象読者と補足条件</li><li>説明調・提案調などの台本スタイル</li><li>台本の長さ</li><li>1〜6人の話者数と会話構成</li><li>読み間違いを減らすふりがな補助</li><li>字幕の比率、1行の長さ、ページ送り行数</li><li>生成する言語</li></ul><figure><img src="../assets/bundle-builder-script-actions.webp" alt="台本生成準備完了画面。自動生成、外部AI用プロンプト表示、台本JSONインポートを選べる" loading="lazy"><figcaption>Canvas内で生成するほか、外部AI用プロンプトと台本JSONインポートも利用できます</figcaption></figure><div class="callout"><p><strong>別のAIで台本を作ることもできます</strong></p><p>表示されたプロンプトと同じ資料を任意のAIへ渡して台本JSONを作り、Bundle Builderへ戻して読み込めます。資料名とスライド順の対応もプロンプトに含まれます。</p></div></div></div></details><details class="chapter" id="section-4"><summary><span class="chapter-icon" aria-hidden="true">🔊</span><span class="chapter-heading" role="heading" aria-level="2"><span class="chapter-category">STEP 3</span><span class="chapter-title">AI音声を生成する</span></span><span class="chapter-toggle" aria-hidden="true"></span></summary><div class="chapter-body"><div class="chapter-inner"><p class="chapter-intro">話者ごとに声を選び、まとめて生成することも、スライドごとに試すこともできます。</p><figure><img src="../assets/bundle-builder-tts.webp" alt="Bundle Builderの音声生成画面。話者の声を選び、音声の一括生成を開始できる" loading="lazy"><figcaption>台本から話者を抽出し、声を割り当てて一括生成します</figcaption></figure><ul class="check-list"><li>話者ごとの音声を試聴して選択</li><li>全スライドの一括生成</li><li>スライド単位の個別生成と再生成</li><li>生成済み音声の試聴</li><li>必要な箇所だけ録音音声へ差し替え</li></ul><div class="callout"><p><strong>APIキーが必要かは選ぶモデルで変わります</strong></p><p>標準設定ではAPIキーなしで利用できる構成ですが、新しいモデルなどを選ぶ場合はGemini APIキーが必要になることがあります。モデル名や提供状況は変更される可能性があります。</p></div><figure><img src="../assets/bundle-builder-record-button.webp" alt="Bundle Builderの音声欄にあるマイク録音ボタン" loading="lazy"><figcaption>各スライドのマイクボタンから、そのセリフだけ自分の声へ差し替えられます</figcaption></figure></div></div></details><details class="chapter" id="section-5"><summary><span class="chapter-icon" aria-hidden="true">🎤</span><span class="chapter-heading" role="heading" aria-level="2"><span class="chapter-category">RECORDING</span><span class="chapter-title">自分の声を録音・トリミングする</span></span><span class="chapter-toggle" aria-hidden="true"></span></summary><div class="chapter-body"><div class="chapter-inner"><p class="chapter-intro">録音画面に原稿が表示されるので、読み上げから採用まで同じ画面で進められます。</p><ol class="step-list"><li><strong>録音する</strong>画面内の字幕台本を見ながら、開始・停止を操作します。</li><li><strong>波形を確認する</strong>録音の長さと音の位置を確認します。</li><li><strong>前後を整える</strong>左右のハンドルで無音、操作音、言い直しなどを取り除きます。</li><li><strong>試聴・録り直し</strong>トリミング後の音を聞き、必要なら再録音します。</li><li><strong>採用する</strong>問題なければ対象スライドの音声としてセットします。</li></ol><figure><img src="../assets/bundle-builder-recording.webp" alt="Bundle Builderのマイク録音画面。字幕台本、録音時間、波形トリミング、試聴、録り直し、採用ボタンが表示されている" loading="lazy"><figcaption>波形を見ながら前後を整え、試聴してから採用できます</figcaption></figure><div class="callout callout-warn"><p><strong>生成済み音声がある場合</strong></p><p>Gemini TTS音声がすでにセットされているスライドでは、録音音声で上書きする前に確認が表示されます。</p></div></div></div></details><details class="chapter" id="section-6"><summary><span class="chapter-icon" aria-hidden="true">📦</span><span class="chapter-heading" role="heading" aria-level="2"><span class="chapter-category">STEP 4–5</span><span class="chapter-title">検証してZIPで取り込む</span></span><span class="chapter-toggle" aria-hidden="true"></span></summary><div class="chapter-body"><div class="chapter-inner"><p class="chapter-intro">出力前のチェックを通し、Bundle ZIPをSlideCast Studioへ読み込みます。</p><figure><img src="../assets/bundle-builder-validation.webp" alt="Bundle Builderのデータ整合性検証画面。台本、話者、音声リンク、スライド参照のチェック結果が表示される" loading="lazy"><figcaption>取り込み後ではなく、ZIP出力前に不整合を見つけられます</figcaption></figure><figure><img src="../assets/bundle-builder-zip.webp" alt="Bundle BuilderのZIP出力画面。SlideCast Studioに取り込み可能なZIPパッケージを出力できる" loading="lazy"><figcaption>準備が整ったらBundle ZIPを書き出します</figcaption></figure><figure><img src="../assets/bundle-builder-import.webp" alt="SlideCast Studioのダッシュボードで「資料から作成」が強調され、Bundle ZIPのアップロード先が示されている" loading="lazy"><figcaption>SlideCast Studioのダッシュボードで「資料から作成」を選び、ZIPをそのまま読み込みます</figcaption></figure><div class="callout callout-good"><p><strong>取り込み後も音声を調整できます</strong></p><p>Gemini TTS音声と録音音声は、SlideCast Studio側で速度やピッチを調整できます。変更した長さはタイムラインへ反映され、元の音声へ戻すこともできます。</p></div></div></div></details><details class="chapter" id="section-7"><summary><span class="chapter-icon" aria-hidden="true">⚠️</span><span class="chapter-heading" role="heading" aria-level="2"><span class="chapter-category">BEFORE YOU START</span><span class="chapter-title">利用前に確認しておきたいこと</span></span><span class="chapter-toggle" aria-hidden="true"></span></summary><div class="chapter-body"><div class="chapter-inner"><p class="chapter-intro">Geminiの提供状況やブラウザ権限に左右されるため、次の点を理解してから使ってください。</p><ul class="soft-grid"><li class="soft-card"><span class="card-icon" aria-hidden="true">🔒</span><h3>機密資料を入れない</h3><p>機密情報、個人情報、社外秘データを含む資料はアップロードしないでください。</p></li><li class="soft-card"><span class="card-icon" aria-hidden="true">⏳</span><h3>制限時は時間を空ける</h3><p>429エラーや失敗が続く場合は利用制限の可能性があります。連打せず時間を空けます。</p></li><li class="soft-card"><span class="card-icon" aria-hidden="true">🧠</span><h3>モデルは変わり得る</h3><p>台本生成やTTSのモデル名、速度、提供条件は予告なく変わる場合があります。</p></li><li class="soft-card"><span class="card-icon" aria-hidden="true">🔑</span><h3>APIキーは必要時だけ</h3><p>標準設定では不要でも、選ぶモデルによってGoogle AI StudioのAPIキーが必要になる場合があります。</p></li><li class="soft-card"><span class="card-icon" aria-hidden="true">🎤</span><h3>マイク権限は任意</h3><p>録音を使う場合だけ許可します。AI音声だけならマイクを許可する必要はありません。</p></li><li class="soft-card"><span class="card-icon" aria-hidden="true">📚</span><h3>長すぎる資料に注意</h3><p>スライド枚数や台本量が大きいと失敗することがあります。必要なら分割して進めます。</p></li></ul><div class="callout callout-warn"><p><strong>Googleの仕様変更で動作が変わることがあります</strong></p><p>Bundle BuilderはGemini Canvas上で動く補助ツールです。Google側の仕様変更、障害、利用上限によって、これまでと同じ動作にならない場合があります。</p></div><dl class="faq"><div><dt>マイクを許可しないと使えませんか？</dt><dd>いいえ。マイク録音以外の機能とGemini TTSは利用できます。</dd></div><div><dt>AI音声と録音音声は混在できますか？</dt><dd>はい。スライド単位で使い分けられます。</dd></div><div><dt>台本生成がうまくいかない場合は？</dt><dd>外部AI用プロンプトで台本JSONを作り、Bundle Builderへインポートする方法があります。</dd></div><div><dt>出力したZIPはどこへ入れますか？</dt><dd>SlideCast Studioのダッシュボードにある「資料から作成」へアップロードします。</dd></div></dl><div class="cta-banner"><div><strong>資料から動画までの準備を、ひとつの流れで</strong><p>資料を用意し、台本と音声を整え、Bundle ZIPをSlideCast Studioへ渡して仕上げます。</p></div><a class="cta-link" href="https://gemini.google.com/share/7dda767f8078" target="_blank" rel="noopener noreferrer">Bundle Builder を開く ↗</a></div></div></div></details></section>
+  <div class="divider">CONTENTS</div>
+  <section class="chapters" aria-label="Article chapters"><details class="chapter" id="section-1"><summary><span class="chapter-icon" aria-hidden="true">🧭</span><span class="chapter-heading" role="heading" aria-level="2"><span class="chapter-category">FIRST</span><span class="chapter-title">Which case are you in?</span></span><span class="chapter-toggle" aria-hidden="true"></span></summary><div class="chapter-body"><div class="chapter-inner"><p class="chapter-intro">Start by working out which of these describes your situation. The steps differ.</p><div class="table-wrap"><table class="data-table"><thead><tr><th>Case</th><th>What to do</th><th>Where to read</th></tr></thead><tbody><tr><td>You want to update the URL you have been using all along</td><td>Put the new version’s code into the Apps Script project you already have</td><td>The “Steps” section on this page</td></tr><tr><td>You already built the new version as a separate Apps Script project on a separate URL</td><td>Save a backup in the old version and restore it in the new one</td><td>“Merging several projects into one”, further down</td></tr></tbody></table></div><figure><img src="../../assets/gas-update-01.png" alt="The two cases side by side: updating the same URL by pasting new code into the old project, versus backing up in the old version and restoring in the new one on a different URL" loading="lazy"><figcaption>Either way, keep the old version until the backup is saved and the move is confirmed (the diagram is from the v3.2 release)</figcaption></figure><div class="callout callout-warn"><p><strong>⚠️ Don’t delete the old version yet</strong></p><p>Keep it until the backup is saved and you have confirmed the move went through.</p></div></div></div></details><details class="chapter" id="section-2"><summary><span class="chapter-icon" aria-hidden="true">💡</span><span class="chapter-heading" role="heading" aria-level="2"><span class="chapter-category">WHY</span><span class="chapter-title">Why swapping the files is the better route</span></span><span class="chapter-toggle" aria-hidden="true"></span></summary><div class="chapter-body"><div class="chapter-inner"><p class="chapter-intro">You could copy the whole new version from the shared drive, but that costs extra work and brings a few drawbacks.</p><p>SlideCast Studio itself runs as an <strong>Apps Script project</strong> on Google Drive. The projects, library, settings, images, audio and video you create are stored <strong>in your browser’s storage</strong>.</p><p>So as long as you open the same URL in the same browser and the same browser profile, your earlier data is still there. It will not appear automatically on another computer or in another browser — there you have to restore from a backup.</p><div class="compare"><div class="before"><h4>BEFORE</h4><p>Copying the whole thing: you get a new Apps Script project, so the URL changes and your earlier projects and settings do not appear on their own. You have to save a backup in the old version and restore it in the new one.</p></div><div class="after"><h4>AFTER</h4><p>Swapping the files: the URL stays exactly as it was, and the slides and settings already stored carry straight over.</p></div></div><ul class="check-list"><li>A full copy means a new URL, and extra backup-and-restore work</li><li>Browser data from environments you no longer use can linger</li><li>A small amount of it has almost no effect on your computer</li><li>Lots of images, audio and video do take up storage, which can affect saving, loading and backups</li></ul><p>To avoid all of that, the recommended route is to <strong>swap only the files inside the project you are already using, and stay on the same project</strong>.</p></div></div></details><details class="chapter" id="section-3"><summary><span class="chapter-icon" aria-hidden="true">🛠️</span><span class="chapter-heading" role="heading" aria-level="2"><span class="chapter-category">STEPS</span><span class="chapter-title">The standard update: swap the files, then redeploy</span></span><span class="chapter-toggle" aria-hidden="true"></span></summary><div class="chapter-body"><div class="chapter-inner"><p class="chapter-intro">Ten steps in total. Skim the overview first, then follow the detailed steps below in order.</p><ol class="step-list"><li><strong>Save a backup</strong>Export it from “Save data” on the dashboard</li><li><strong>Open your Apps Script project</strong>From script.google.com or from Google Drive</li><li><strong>Replace 無題.html</strong>Select all, delete, and paste the new contents</li><li><strong>Replace AppBundle.html</strong>Same procedure</li><li><strong>Replace any other files mentioned</strong>Such as コード.gs or GasAsset_*.html</li><li><strong>Save</strong>Press the save icon</li><li><strong>Open “Deploy” → “Manage deployments”</strong>Not “New deployment”</li><li><strong>Press the pencil (edit) on the existing deployment</strong>On the right of the deployment in use</li><li><strong>Set Version to “New version” and deploy</strong>Choose it from the dropdown</li><li><strong>Done</strong>The web app URL is the same as before</li></ol><div class="divider">Step by step</div><h3>1. Save a backup, just in case</h3><p>Open the SlideCast Studio you are using now and save a backup from <strong>“Save data”</strong> on the dashboard. If you want the library to come across as well as your projects, tick the items you need on the backup screen.</p><figure><img src="../../assets/gas-update-11.png" alt="The top of the SlideCast Studio dashboard, with the “Save data” button on the far right outlined in red" loading="lazy"><figcaption>Export the backup from “Save data” at the right end of the dashboard</figcaption></figure><h3>2. Open the Apps Script project you use today</h3><p>Open the Apps Script editor for your current project, either from the project list on <strong>script.google.com</strong> or from Google Drive.</p><figure><img src="../../assets/gas-update-02.png" alt="The Apps Script editor, with コード.gs, 無題.html, AppBundle.html and GasAsset_*.html listed in the file pane on the left" loading="lazy"><figcaption>The file list runs down the left side; open the file you need from there</figcaption></figure><h3>3. Replace the contents of 無題.html with the new version</h3><p>Open <strong>無題.html</strong> from the file list, select everything (<code>Cmd</code> / <code>Ctrl</code> + <code>A</code>), delete it, and paste in the contents of the new version’s 無題.html.</p><p>The file names come from the Japanese Apps Script UI: 無題.html is “Untitled.html” and コード.gs is “Code.gs”. Whatever they are called in your editor, the position in the list is the same.</p><figure><img src="../../assets/gas-update-03.png" alt="無題.html open in the Apps Script editor with all of the code selected" loading="lazy"><figcaption>Select everything first, then paste in the new version</figcaption></figure><h3>4. Do the same for AppBundle.html</h3><p>Open <strong>AppBundle.html</strong>, select all, delete, and replace it with the new version in the same way.</p><figure><img src="../../assets/gas-update-04.png" alt="AppBundle.html open in the Apps Script editor, with a long Base64 string entirely selected" loading="lazy"><figcaption>AppBundle.html is one very long string, but the procedure is identical</figcaption></figure><h3>5. Replace any other files the release notes mention</h3><p>Usually only <strong>無題.html</strong> and <strong>AppBundle.html</strong> need updating, but if the release post says so, replace コード.gs or other files the same way.</p><h3>6. Save</h3><p>Once the files are overwritten, save.</p><figure><img src="../../assets/gas-update-05.png" alt="The Apps Script editor toolbar, with the save icon outlined in red and marked with an arrow" loading="lazy"><figcaption>Press the save icon in the toolbar</figcaption></figure><h3>7. Open “Deploy” → “Manage deployments”</h3><p>Press <strong>“Deploy”</strong> at the top right and choose <strong>“Manage deployments”</strong>.</p><figure><img src="../../assets/gas-update-06.png" alt="The menu opened from the Deploy button at the top right, listing New deployment, Manage deployments and Test deployments" loading="lazy"><figcaption>❶ Deploy, then ❷ Manage deployments</figcaption></figure><h3>8. Press the pencil (edit) icon on the existing deployment</h3><p>On the “Manage deployments” screen, click the <strong>pencil (edit) icon</strong> to the right of the deployment currently in use.</p><figure><img src="../../assets/gas-update-07.png" alt="The Manage deployments dialog, with the pencil (edit) icon at the top right outlined in red and marked with an arrow" loading="lazy"><figcaption>The pencil at the top right is the edit button</figcaption></figure><h3>9. Set Version to “New version”, then press “Deploy”</h3><p>From the <strong>Version</strong> dropdown choose <strong>“New version”</strong>, then press <strong>“Deploy”</strong>.</p><figure><img src="../../assets/gas-update-08.png" alt="The Version dropdown with “New version” at the top outlined in red, and the Deploy button at the bottom right also highlighted" loading="lazy"><figcaption>The point is to pick “New version”, right at the top of the list</figcaption></figure><h3>10. Done</h3><p>Press <strong>“Done”</strong> and that is it. The web app URL shown is the same one as before.</p><figure><img src="../../assets/gas-update-09.png" alt="A dialog reading “Deployment updated”, with the deployment ID and web app URL blurred and the Done button highlighted" loading="lazy"><figcaption>“Deployment updated” means it worked</figcaption></figure><div class="callout callout-good"><p><strong>✅ That’s the update finished</strong></p><p>Your project is the same project; only its contents are now the latest version.</p></div></div></div></details><details class="chapter" id="section-4"><summary><span class="chapter-icon" aria-hidden="true">⚠️</span><span class="chapter-heading" role="heading" aria-level="2"><span class="chapter-category">WATCH OUT</span><span class="chapter-title">Pick “New version”, not “New deployment”</span></span><span class="chapter-toggle" aria-hidden="true"></span></summary><div class="chapter-body"><div class="chapter-inner"><p class="chapter-intro">This is the single easiest thing to get wrong.</p><p>When you deploy, the route to take is <strong>“Manage deployments” → edit the existing deployment → “New version”</strong>, not “New deployment”.</p><p>Even inside the same project, choosing “New deployment” issues yet another URL, and the slides and data stored there are treated as a separate set.</p><div class="compare"><div class="before"><h4>BEFORE</h4><p>❌ New deployment → a new URL is issued (and the data is treated separately)</p></div><div class="after"><h4>AFTER</h4><p>⭕ Manage deployments → edit the existing deployment → New version → the URL stays the same, and the data saved in that browser is still there</p></div></div><figure><img src="../../assets/gas-update-10.png" alt="A close-up of the deploy menu, with a “choose this one” arrow pointing at Manage deployments" loading="lazy"><figcaption>“Manage deployments” is the one to pick</figcaption></figure><div class="callout callout-warn"><p><strong>⚠️ Nothing shows up on another computer or browser</strong></p><p>On a different computer, browser or browser profile, your data will not appear automatically. Restore from a backup there.</p></div></div></div></details><details class="chapter" id="section-5"><summary><span class="chapter-icon" aria-hidden="true">🧩</span><span class="chapter-heading" role="heading" aria-level="2"><span class="chapter-category">GOING FURTHER</span><span class="chapter-title">Merging several projects into one</span></span><span class="chapter-toggle" aria-hidden="true"></span></summary><div class="chapter-body"><div class="chapter-inner"><p class="chapter-intro">What to do if you already built the new version on a separate URL, or if unused versions are still lying around.</p><p>To bring projects or libraries from a version you no longer use into one place, <strong>save a backup from the SlideCast Studio dashboard and restore it in the copy you intend to keep</strong>.</p><div class="gallery" data-cols="2"><figure><img src="../../assets/gas-update-11.png" alt="The “Save data” button highlighted on the dashboard" loading="lazy"><figcaption>① In the old copy, back up from “Save data”</figcaption></figure><figure><img src="../../assets/gas-update-12.png" alt="The “Restore data” button highlighted on the dashboard" loading="lazy"><figcaption>② In the copy you keep, load it from “Restore data”</figcaption></figure></div><ul class="check-list"><li>Once the move is complete, the old project can be deleted</li><li>After restoring, check that projects, images, audio, video, library and settings all came across</li><li>Do not delete the old version until that check is done</li></ul><h3>Clearing out data from the old environment</h3><p>Once the move is finished, you can clear the browser data of the old environment from <strong>“Reset data”</strong> on the old version’s dashboard.</p><figure><img src="../../assets/gas-update-13.png" alt="The trash icon on the dashboard and the reset dialog, where projects, asset library, app settings and API keys can be selected for deletion" loading="lazy"><figcaption>You choose which categories to delete. Open it from the trash icon</figcaption></figure><div class="callout callout-warn"><p><strong>⚠️ Resetting data cannot be undone</strong></p><p>Save a backup and confirm that restoring works before you run it.</p></div><h3>Deleting the old Apps Script project from Google Drive</h3><p>After the move to the new version is complete, an Apps Script project you no longer need can be sent to the trash from Google Drive or from the Apps Script project list.</p><ul class="check-list"><li>Deleting the Apps Script project makes its web app URL unusable</li><li>Don’t delete anything until the backup and the move are confirmed</li><li>Right after a move, leaving the trash unemptied for a while is the safer choice</li><li>Deleting the Apps Script project does not necessarily delete the project data held in your browser</li><li>An Apps Script project is tiny, so deleting it will not noticeably speed up your computer</li></ul></div></div></details><details class="chapter" id="section-6"><summary><span class="chapter-icon" aria-hidden="true">🙌</span><span class="chapter-heading" role="heading" aria-level="2"><span class="chapter-category">FINALLY</span><span class="chapter-title">Finally</span></span><span class="chapter-toggle" aria-hidden="true"></span></summary><div class="chapter-body"><div class="chapter-inner"><p>When you update, please use the route described here — <strong>swap the files, then deploy a new version of the existing deployment</strong> — rather than copying the whole thing from the shared drive.</p><p>If anything here is unclear, or a step doesn’t go the way it is written, do tell me.</p><ul class="link-cards"><li><a href="../../manual/"><span class="emoji" aria-hidden="true">📘</span><span><strong>Official manual</strong><small>The full reference for SlideCast Studio (Japanese)</small></span></a></li><li><a href="../"><span class="emoji" aria-hidden="true">🏠</span><span><strong>Documentation home</strong><small>All the guides and release notes</small></span></a></li></ul></div></div></details></section>
 
-  <div class="source-card"><div><strong>この記事のもとになった note 投稿</strong><small>更新のお知らせや補足は、元の note 記事でも確認できます。</small></div><a class="cta-link" href="https://note.com/bluezzly/n/n9f8dcbb616b6" target="_blank" rel="noopener noreferrer">note の元記事を読む ↗</a></div>
+  <div class="source-card"><div><strong>Original post: How to update SlideCast Studio (Apps Script procedure)</strong><small>This procedure is also published on note, where questions and extra notes are welcome (in Japanese).</small></div><a class="cta-link" href="https://note.com/bluezzly/n/na97ce150da13" target="_blank" rel="noopener noreferrer">Read the original post on note (Japanese) ↗</a></div>
   <footer class="site-footer">
-    <div class="footer-top">
-      <a class="brand footer-brand" href="../" aria-label="SlideCast Studio トップページ">SlideCast <b>Studio</b></a>
-      <nav class="footer-links" aria-label="フッターナビゲーション"><a href="../intro/">SlideCast Studio とは</a><a href="../manual/">公式マニュアル</a><a href="../bundle-builder/">Bundle Builder</a><a href="../mouthloop-v2/">MouthLoop v2</a></nav>
-    </div>
-    <div class="footer-bottom">
-      <p class="footer-meta">SlideCast Studio ドキュメント · aokuma</p>
-      <nav class="social-links" aria-label="SNSリンク"><a class="social-link" href="https://note.com/bluezzly" target="_blank" rel="noopener noreferrer" aria-label="note" title="note"><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4.4 17.6V6.4h2.9v2C8.3 7 10 6.2 11.9 6.2c3.4 0 5.7 2.4 5.7 6v5.4h-2.9v-5c0-2.2-1.3-3.6-3.2-3.6-2.4 0-4.2 1.8-4.2 4.4v4.2Z"/></svg></a><a class="social-link" href="https://x.com/ai5809514366862" target="_blank" rel="noopener noreferrer" aria-label="X（旧Twitter）"><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231 5.451-6.231Zm-1.161 17.52h1.833L7.084 4.126H5.117L17.083 19.77Z"/></svg></a><a class="social-link" href="https://www.youtube.com/channel/UC2lO3ixD4ICI9VgRSxidRbQ" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814ZM9.545 15.568V8.432L15.818 12l-6.273 3.568Z"/></svg></a><a class="social-link" href="https://substack.com/@aokuma1" target="_blank" rel="noopener noreferrer" aria-label="Substack"><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M22.539 8.242H1.46V5.406h21.08v2.836ZM1.46 10.812V24L12 18.11 22.54 24V10.812H1.46ZM22.54 0H1.46v2.836h21.08V0Z"/></svg></a></nav>
-    </div>
+    <div class="footer-top"><a class="brand footer-brand" href="../" aria-label="SlideCast Studio home">SlideCast <b>Studio</b></a><nav class="footer-links" aria-label="Footer navigation"><a href="../intro/">What is SlideCast Studio?</a><a href="../../manual/">Official manual (JA)</a><a href="../bundle-builder/">Bundle Builder</a><a href="../../mouthloop-v2/">MouthLoop v2 (JA)</a></nav></div><div class="footer-bottom"><p class="footer-meta">SlideCast Studio Documentation · aokuma</p><nav class="social-links" aria-label="Social links"><a class="social-link" href="https://note.com/bluezzly" target="_blank" rel="noopener noreferrer" aria-label="note" title="note"><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4.4 17.6V6.4h2.9v2C8.3 7 10 6.2 11.9 6.2c3.4 0 5.7 2.4 5.7 6v5.4h-2.9v-5c0-2.2-1.3-3.6-3.2-3.6-2.4 0-4.2 1.8-4.2 4.4v4.2Z"/></svg></a>
+          <a class="social-link" href="https://x.com/ai5809514366862" target="_blank" rel="noopener noreferrer" aria-label="X (formerly Twitter)"><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231 5.451-6.231Zm-1.161 17.52h1.833L7.084 4.126H5.117L17.083 19.77Z"/></svg></a>
+          <a class="social-link" href="https://www.youtube.com/channel/UC2lO3ixD4ICI9VgRSxidRbQ" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814ZM9.545 15.568V8.432L15.818 12l-6.273 3.568Z"/></svg></a>
+          <a class="social-link" href="https://substack.com/@aokuma1" target="_blank" rel="noopener noreferrer" aria-label="Substack"><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M22.539 8.242H1.46V5.406h21.08v2.836ZM1.46 10.812V24L12 18.11 22.54 24V10.812H1.46ZM22.54 0H1.46v2.836h21.08V0Z"/></svg></a></nav></div>
   </footer>
 </div>
 </main>
 
 <div class="float-actions">
-  <button class="float-button" id="closeChapter" type="button" hidden><span aria-hidden="true">×</span><span class="float-label">閉じる</span></button>
-  <button class="float-button primary" id="floatToc" type="button"><span aria-hidden="true">☰</span><span class="float-label">目次</span></button>
-  <button class="float-button" id="backTop" type="button"><span aria-hidden="true">↑</span><span class="float-label">上へ</span></button>
+  <button class="float-button" id="closeChapter" type="button" hidden><span aria-hidden="true">×</span><span class="float-label">Close</span></button>
+  <button class="float-button primary" id="floatToc" type="button"><span aria-hidden="true">☰</span><span class="float-label">Contents</span></button>
+  <button class="float-button" id="backTop" type="button"><span aria-hidden="true">↑</span><span class="float-label">Top</span></button>
 </div>
 
 <dialog class="toc-dialog" id="tocDialog">
-  <div class="toc-head"><strong>目次</strong><button class="icon-button" id="closeToc" type="button" aria-label="目次を閉じる">×</button></div>
-  <nav class="toc-list" aria-label="目次">
-    <button type="button" data-target="overview"><span aria-hidden="true">🏠</span>概要</button>
-    <button type="button" data-target="section-1"><span aria-hidden="true">🧭</span>まず全体の流れをつかむ</button><button type="button" data-target="section-2"><span aria-hidden="true">🖼️</span>資料を作成・アップロードする</button><button type="button" data-target="section-3"><span aria-hidden="true">💬</span>用途に合う台本を生成する</button><button type="button" data-target="section-4"><span aria-hidden="true">🔊</span>AI音声を生成する</button><button type="button" data-target="section-5"><span aria-hidden="true">🎤</span>自分の声を録音・トリミングする</button><button type="button" data-target="section-6"><span aria-hidden="true">📦</span>検証してZIPで取り込む</button><button type="button" data-target="section-7"><span aria-hidden="true">⚠️</span>利用前に確認しておきたいこと</button>
+  <div class="toc-head"><strong>Contents</strong><button class="icon-button" id="closeToc" type="button" aria-label="Close contents">×</button></div>
+  <nav class="toc-list" aria-label="Contents">
+    <button type="button" data-target="overview"><span aria-hidden="true">🏠</span>Overview</button>
+    <button type="button" data-target="section-1"><span aria-hidden="true">🧭</span>Which case are you in?</button><button type="button" data-target="section-2"><span aria-hidden="true">💡</span>Why swapping the files is the better route</button><button type="button" data-target="section-3"><span aria-hidden="true">🛠️</span>The standard update: swap the files, then redeploy</button><button type="button" data-target="section-4"><span aria-hidden="true">⚠️</span>Pick “New version”, not “New deployment”</button><button type="button" data-target="section-5"><span aria-hidden="true">🧩</span>Merging several projects into one</button><button type="button" data-target="section-6"><span aria-hidden="true">🙌</span>Finally</button>
   </nav>
 </dialog>
 
 <dialog class="lightbox" id="lightbox">
-  <button class="icon-button" id="lightboxClose" type="button" aria-label="画像を閉じる">×</button>
+  <button class="icon-button" id="lightboxClose" type="button" aria-label="Close image">×</button>
   <img id="lightboxImage" src="" alt="">
 </dialog>
+<script src="../../assets/ambient-particles.js"></script>
 
-<script src="../assets/ambient-particles.js"></script>
 <script>
 (()=>{'use strict';
 const root=document.documentElement;
@@ -989,9 +990,10 @@ document.querySelectorAll('[data-tabs]').forEach(group=>{
 /* --- click-to-play video: nothing is requested from the host until here --- */
 document.querySelectorAll('.video-facade').forEach(button=>{
   button.addEventListener('click',()=>{
+    button.closest('.video-embed')?.classList.add('is-playing');
     const frame=document.createElement('iframe');
     frame.src=button.dataset.embed;
-    frame.title=button.dataset.title||'動画';
+    frame.title=button.dataset.title||'Video';
     frame.allow='autoplay; fullscreen; picture-in-picture; encrypted-media';
     frame.allowFullscreen=true;
     frame.referrerPolicy='strict-origin-when-cross-origin';
@@ -1005,8 +1007,8 @@ document.querySelectorAll('.code-copy').forEach(button=>{
     const code=button.closest('.code-block').querySelector('code');
     const label=button.dataset.label||button.textContent;
     button.dataset.label=label;
-    try{await navigator.clipboard.writeText(code.textContent);button.textContent='コピーしました';}
-    catch{button.textContent='コピーできません';}
+    try{await navigator.clipboard.writeText(code.textContent);button.textContent='Copied';}
+    catch{button.textContent='Copy failed';}
     setTimeout(()=>{button.textContent=label;},1600);
   });
 });

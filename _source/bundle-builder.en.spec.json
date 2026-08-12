@@ -1,0 +1,255 @@
+{
+  "title": "SlideCast Bundle Builder — how to use it",
+  "subtitle": "Slides, script, AI voice and mic recordings, prepared in one pass and packed into a Bundle ZIP",
+  "description": "How to use SlideCast Bundle Builder, the companion tool for SlideCast Studio: prepare your slides, generate a script, add AI voice or record your own, validate everything, and export a Bundle ZIP.",
+  "lead": "",
+  "eyebrow": "SLIDECAST WORKFLOW GUIDE",
+  "brand": "SlideCast",
+  "brand_accent": "Studio",
+  "brand_badge": "Docs",
+  "author": "aokuma",
+  "date": "Published 2026.04.06 / Updated 2026.07.16",
+  "version": "Bundle Builder Guide",
+  "footer_meta": "SlideCast Studio Documentation · aokuma",
+  "hero_image": "./img/bundle-builder-hero.webp",
+  "hero_alt": "SlideCast Bundle Builder collecting slide images, script, AI voice and recordings into a single ZIP for SlideCast Studio",
+  "chips": ["Gemini Canvas", "Script generation", "AI voice", "Mic recording", "Bundle ZIP"],
+  "theme": {
+    "primary": "#6D4AFF",
+    "secondary": "#00A8C6",
+    "accent": "#E7489A",
+    "surface": "#F4F6FF",
+    "ink": "#171C31"
+  },
+  "nav_links": [
+    { "href": "../", "icon": "🏠", "label": "HOME" }
+  ],
+  "source_url": "https://note.com/bluezzly/n/n9f8dcbb616b6",
+  "source_label": "Read the original post on note (Japanese)",
+  "source_title": "The note post this page is based on",
+  "source_note": "Update announcements and extra notes are also posted on the original note article (in Japanese).",
+  "update_url": "https://gemini.google.com/share/7dda767f8078",
+  "update_label": "Open Bundle Builder",
+  "update_header": false,
+  "sections_label": "GUIDE",
+  "overview": {
+    "icon": "🧩",
+    "title": "Everything your video needs, prepared in one place",
+    "blocks": [
+      {
+        "type": "html",
+        "html": "<p><strong>SlideCast Bundle Builder</strong> is a Gemini Canvas app that prepares the slides, script and audio you will later load into SlideCast Studio. Create the slides on the spot or bring your own files, work through the script and the audio, then export the whole set as a Bundle ZIP.</p><p>For audio you can use Gemini TTS, your own voice through the microphone, or both. Generate everything with AI, record everything yourself, or record just the few lines you want in your own voice.</p>"
+      },
+      {
+        "type": "notice",
+        "title": "Recent updates",
+        "items": [
+          "2026.07.16: Mic recording, waveform view, trimming from both ends, preview, re-record and accept",
+          "2026.07.16: New home screen and an enlarged slide preview, with clearer paths between the steps",
+          "2026.07.06: Slides can be created inside Canvas, and the script can be edited while audio is generating",
+          "2026.05.26: Script model selection, a prompt for external AI tools, script JSON import, and subtitle length settings"
+        ]
+      },
+      {
+        "type": "cta",
+        "title": "Try Bundle Builder",
+        "text": "The app opens from a Gemini share link. Do not upload material that contains confidential or personal information.",
+        "url": "https://gemini.google.com/share/7dda767f8078",
+        "label": "Open in Gemini"
+      }
+    ],
+    "cards": [
+      { "icon": "🖼️", "title": "Prepare the slides", "text": "Create them inside Canvas, or load images, PDFs, ZIPs or a folder." },
+      { "icon": "💬", "title": "Generate the script", "text": "Set the audience, the length, the number of speakers, the dialogue style." },
+      { "icon": "🔊", "title": "Generate AI voice", "text": "Pick a voice per speaker and generate all at once, or slide by slide." },
+      { "icon": "🎤", "title": "Record your own voice", "text": "Read from the on-screen script and trim both ends on the waveform." },
+      { "icon": "✅", "title": "Validate", "text": "Catch mismatches between script, speakers, audio and slide references before export." },
+      { "icon": "📦", "title": "Import as a ZIP", "text": "Export the Bundle ZIP and load it into “Create from documents” in SlideCast Studio." }
+    ]
+  },
+  "sections": [
+    {
+      "icon": "🧭",
+      "category": "WORKFLOW",
+      "title": "The shape of the whole thing",
+      "intro": "Five steps, in order. At the end you have a complete set of material to finish in SlideCast Studio.",
+      "blocks": [
+        {
+          "type": "step_list",
+          "items": [
+            { "title": "Create or upload the slides", "text": "Generate slide images inside Canvas, or load material you already have." },
+            { "title": "Generate and edit the script", "text": "Choose the conditions that fit your purpose, then prepare the script for each slide." },
+            { "title": "Generate or record the audio", "text": "Use Gemini TTS, your own voice, or a mix of the two." },
+            { "title": "Validate the data", "text": "Check how the script, speakers, audio and slides refer to each other." },
+            { "title": "Export the Bundle ZIP", "text": "Load the finished ZIP into SlideCast Studio, adjust the staging and the audio, then export the video." }
+          ]
+        },
+        { "type": "figure", "image": "./img/bundle-builder-home.webp", "alt": "The Bundle Builder home screen, offering either to generate slide images on the spot or to upload your own material", "caption": "First choose how the slides will come in. If you plan to record, check the microphone here before anything else" },
+        {
+          "type": "callout",
+          "tone": "good",
+          "title": "Going back to the home screen is safe",
+          "text": "You can return to the home screen from any step; work in progress is kept."
+        }
+      ]
+    },
+    {
+      "icon": "🖼️",
+      "category": "STEP 1",
+      "title": "Create or upload the slides",
+      "intro": "You can build a new deck from scratch, or start from material you already have.",
+      "blocks": [
+        {
+          "type": "compare",
+          "before": { "label": "Create them here", "text": "Give a topic, an audience and an art direction, and the slide images are generated inside Canvas." },
+          "after": { "label": "Use your own", "text": "Load PNG, JPEG, PDF, ZIP or a folder and start from an existing deck." }
+        },
+        { "type": "figure", "image": "./img/bundle-builder-upload.webp", "alt": "The Bundle Builder upload screen, accepting PNG, JPEG, PDF, ZIP and folders", "caption": "Loaded material appears as thumbnails, and you can reorder the slides before generating the script" },
+        {
+          "type": "callout",
+          "tone": "warn",
+          "title": "If you plan to record, allow the microphone first",
+          "text": "In Gemini Canvas the app may reload the first time you grant microphone access. If recording is on your list, finish the microphone check on the home screen before you load any material."
+        },
+        { "type": "figure", "image": "./img/bundle-builder-mic-permission.webp", "alt": "The check and allow microphone button on the Bundle Builder home screen", "caption": "If you only use Gemini TTS, there is no need to allow the microphone at all" }
+      ]
+    },
+    {
+      "icon": "💬",
+      "category": "STEP 2",
+      "title": "Generate a script that fits the job",
+      "intro": "The defaults work fine, but naming your audience and your tone gets you much closer to what you actually want.",
+      "blocks": [
+        { "type": "figure", "image": "./img/bundle-builder-script-settings.webp", "alt": "Bundle Builder script settings, with target audience, number of speakers and subtitle layout", "caption": "Target audience, script style, length, number of speakers, subtitle layout and more" },
+        {
+          "type": "check_list",
+          "items": [
+            "Target audience, plus any extra conditions",
+            "Script style — explanatory, persuasive and so on",
+            "Script length",
+            "1–6 speakers and how they talk to each other",
+            "Reading hints, to cut down on mispronunciation",
+            "Subtitle ratio, line length, and lines per page",
+            "Output language"
+          ]
+        },
+        { "type": "figure", "image": "./img/bundle-builder-script-actions.webp", "alt": "The ready-to-generate screen, offering automatic generation, a prompt for external AI, and script JSON import", "caption": "Besides generating inside Canvas, you can take a prompt to an external AI or import script JSON" },
+        {
+          "type": "callout",
+          "tone": "info",
+          "title": "You can write the script with a different AI",
+          "text": "Hand the displayed prompt and the same material to any AI you like, get script JSON back, and import it into Bundle Builder. The prompt already carries the file names and the slide order."
+        }
+      ]
+    },
+    {
+      "icon": "🔊",
+      "category": "STEP 3",
+      "title": "Generate the AI voice",
+      "intro": "Pick a voice per speaker, then generate everything at once or try one slide at a time.",
+      "blocks": [
+        { "type": "figure", "image": "./img/bundle-builder-tts.webp", "alt": "The Bundle Builder audio screen, choosing a voice per speaker before generating all audio", "caption": "Speakers are pulled out of the script; assign a voice to each and generate in one pass" },
+        {
+          "type": "check_list",
+          "items": [
+            "Preview and choose a voice for each speaker",
+            "Generate audio for every slide at once",
+            "Generate or regenerate a single slide",
+            "Play back what has already been generated",
+            "Swap in a recording wherever you want one"
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "info",
+          "title": "Whether you need an API key depends on the model",
+          "text": "The default setup works without an API key, but some models — newer ones in particular — may require a Gemini API key. Model names and availability can change."
+        },
+        { "type": "figure", "image": "./img/bundle-builder-record-button.webp", "alt": "The microphone recording button in the audio row of a slide in Bundle Builder", "caption": "The microphone button on each slide replaces just that line with your own voice" }
+      ]
+    },
+    {
+      "icon": "🎤",
+      "category": "RECORDING",
+      "title": "Record your own voice and trim it",
+      "intro": "The script is shown on the recording screen, so reading, checking and accepting all happen in one place.",
+      "blocks": [
+        {
+          "type": "step_list",
+          "items": [
+            { "title": "Record", "text": "Start and stop while reading the subtitle script on screen." },
+            { "title": "Check the waveform", "text": "See how long the take is and where the sound actually sits." },
+            { "title": "Trim both ends", "text": "Drag the handles to cut silence, button clicks and false starts." },
+            { "title": "Preview or re-record", "text": "Listen to the trimmed take and record again if it is not right." },
+            { "title": "Accept it", "text": "Set the take as the audio for that slide." }
+          ]
+        },
+        { "type": "figure", "image": "./img/bundle-builder-recording.webp", "alt": "The Bundle Builder recording screen with the subtitle script, elapsed time, waveform trimming, preview, re-record and accept buttons", "caption": "Trim against the waveform, listen back, and accept only when it sounds right" },
+        {
+          "type": "callout",
+          "tone": "warn",
+          "title": "If the slide already has generated audio",
+          "text": "Where Gemini TTS audio is already set, you are asked to confirm before the recording overwrites it."
+        }
+      ]
+    },
+    {
+      "icon": "📦",
+      "category": "STEP 4–5",
+      "title": "Validate, then import the ZIP",
+      "intro": "Run the pre-export check, then load the Bundle ZIP into SlideCast Studio.",
+      "blocks": [
+        { "type": "figure", "image": "./img/bundle-builder-validation.webp", "alt": "The Bundle Builder validation screen, showing check results for script, speakers, audio links and slide references", "caption": "Mismatches surface before the ZIP is written, not after it has been imported" },
+        { "type": "figure", "image": "./img/bundle-builder-zip.webp", "alt": "The Bundle Builder ZIP export screen, producing a package SlideCast Studio can import", "caption": "Once everything is in place, write out the Bundle ZIP" },
+        { "type": "figure", "image": "./img/bundle-builder-import.webp", "alt": "The SlideCast Studio dashboard with “Create from documents” highlighted as the place to upload the Bundle ZIP", "caption": "In the SlideCast Studio dashboard, choose “Create from documents” and load the ZIP as it is" },
+        {
+          "type": "callout",
+          "tone": "good",
+          "title": "The audio stays adjustable after import",
+          "text": "Both Gemini TTS audio and your recordings can have their speed and pitch adjusted inside SlideCast Studio. The new length is reflected on the timeline, and you can always go back to the original."
+        }
+      ]
+    },
+    {
+      "icon": "⚠️",
+      "category": "BEFORE YOU START",
+      "title": "Worth knowing before you begin",
+      "intro": "The tool depends on Gemini’s availability and on browser permissions, so read this part first.",
+      "blocks": [
+        {
+          "type": "soft_cards",
+          "items": [
+            { "icon": "🔒", "title": "No confidential material", "text": "Do not upload material containing confidential information, personal data or anything internal to your company." },
+            { "icon": "⏳", "title": "Back off when limited", "text": "Repeated 429 errors or failures usually mean a usage limit. Wait rather than retrying in quick succession." },
+            { "icon": "🧠", "title": "Models change", "text": "Model names, speed and availability for script generation and TTS can change without notice." },
+            { "icon": "🔑", "title": "API key only when needed", "text": "The defaults need none, but some models require a Google AI Studio API key." },
+            { "icon": "🎤", "title": "Microphone is optional", "text": "Allow it only if you record. AI voice alone needs no microphone access." },
+            { "icon": "📚", "title": "Careful with very long decks", "text": "A large number of slides or a very long script can fail. Split the work when it does." }
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "warn",
+          "title": "Changes on Google’s side can change how this behaves",
+          "text": "Bundle Builder is a companion tool running on Gemini Canvas. Specification changes, outages or usage limits on Google’s side can make it behave differently from what is described here."
+        },
+        {
+          "type": "faq",
+          "items": [
+            { "q": "Is it unusable if I don’t allow the microphone?", "a": "No. Everything except mic recording, Gemini TTS included, works without it." },
+            { "q": "Can AI voice and recordings be mixed?", "a": "Yes, slide by slide." },
+            { "q": "What if script generation doesn’t go well?", "a": "Use the prompt for external AI, build the script JSON elsewhere, and import it into Bundle Builder." },
+            { "q": "Where does the exported ZIP go?", "a": "Upload it to “Create from documents” on the SlideCast Studio dashboard." }
+          ]
+        },
+        {
+          "type": "cta",
+          "title": "From raw material to finished video, in one continuous pass",
+          "text": "Prepare the slides, settle the script and the audio, then hand the Bundle ZIP to SlideCast Studio.",
+          "url": "https://gemini.google.com/share/7dda767f8078",
+          "label": "Open Bundle Builder"
+        }
+      ]
+    }
+  ]
+}
