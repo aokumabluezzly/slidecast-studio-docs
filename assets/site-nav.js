@@ -43,7 +43,7 @@
         { href: 'updates/v34/', icon: '🆕', label: 'v3.4「NUANCE」', desc: '表情・ポーズ仕草・おまかせ演技',
           label_en: 'v3.4 "NUANCE"', desc_en: 'Expressions, gestures and auto-acting' },
         { href: 'updates/v33/', icon: '📌', label: 'v3.3「SYNC」', desc: 'キャラ設定まわりの作り直し',
-          label_en: 'v3.3 "SYNC"', desc_en: 'Character setup, rebuilt' }
+          en: true, label_en: 'v3.3 "SYNC"', desc_en: 'Character setup, rebuilt' }
       ]
     }
   ];

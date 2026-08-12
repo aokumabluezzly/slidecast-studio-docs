@@ -1,0 +1,412 @@
+{
+  "title": "SlideCast Studio v3.3 “SYNC” update",
+  "subtitle": "Three ways to build character assets, ZIP / folder import, speech bubbles that follow",
+  "description": "v3.3 is almost entirely about character settings: how you register a character’s images, and how they move. That whole part has been rebuilt.",
+  "eyebrow": "UPDATE NOTE",
+  "brand": "SlideCast",
+  "brand_accent": "Studio",
+  "brand_badge": "Docs",
+  "author": "aokuma",
+  "date": "2026.07.26",
+  "version": "v3.3 SYNC",
+  "footer_meta": "SlideCast Studio Documentation · aokuma",
+  "hero_image": "./img/v33-01.png",
+  "hero_alt": "Key visual for SlideCast Studio v3.3 SYNC: three ways to build character assets, ZIP / folder import, and six-image lip sync",
+  "chips": [
+    "Character settings",
+    "Lip sync",
+    "ZIP import",
+    "Bubbles that follow",
+    "MouthLoop"
+  ],
+  "stats": [
+    { "icon": "🗂️", "value": "3 methods", "label": "Ways to build a character" },
+    { "icon": "🎬", "value": "6 images", "label": "For lip sync" },
+    { "icon": "📦", "value": "50MB", "label": "ZIP file limit" },
+    { "icon": "🖼️", "value": "200", "label": "Image count limit" }
+  ],
+  "theme": {
+    "primary": "#2f63e6",
+    "secondary": "#7a4dea",
+    "accent": "#e2489f",
+    "surface": "#f2f5ff",
+    "ink": "#1b2140"
+  },
+  "nav_links": [
+    { "href": "../../", "icon": "🏠", "label": "HOME" }
+  ],
+  "source_url": "https://note.com/bluezzly/n/n54d02ca2b939",
+  "source_label": "Read the original post on note (Japanese)",
+  "source_title": "The note post this page is based on",
+  "source_note": "Later additions and comments are on the note post (in Japanese).",
+  "update_header": false,
+  "sections_label": "CONTENTS",
+
+  "overview": {
+    "icon": "👋",
+    "title": "To start with — this update is about character settings",
+    "blocks": [
+      {
+        "type": "notice",
+        "title": "News",
+        "items": [
+          "2026/7/31: Tidied up the subtitle settings and the character settings.",
+          "2026/7/30: Character avatars now drift gently instead of standing still.",
+          "2026/7/29: Fixed a bug where toasts could not be dismissed, and one where the cursor jumped in the subtitle field.",
+          "Added a link to the MouthLoop guide."
+        ]
+      },
+      {
+        "type": "html",
+        "html": "<p>Hello. SlideCast Studio has been updated to <strong>v3.3 “SYNC”</strong>.</p><p>This time it is almost all about character settings: how you register a character’s images, and how they move. That part has been rebuilt.</p>"
+      },
+      {
+        "type": "callout",
+        "title": "💡 If you don’t use the character feature",
+        "text": "You can skip this update. Nothing here changes any other part of making a video."
+      }
+    ],
+    "cards": [
+      { "icon": "🗂️", "title": "Character assets, in three methods", "text": "Sequence / Animated image / Audio-driven. Switch between them with tabs, depending on what you want." },
+      { "icon": "📦", "title": "Much easier to load", "text": "Folder picking, drag and drop, and ZIP files all work. Reordering is a drag too." },
+      { "icon": "💬", "title": "The speech bubble follows", "text": "Move the character left or right and the bubble moves with it, by exactly the same amount." }
+    ]
+  },
+
+  "sections": [
+    {
+      "icon": "🗂️",
+      "category": "CHARACTER ASSETS",
+      "title": "“Icon images” are now “character assets”",
+      "intro": "The images you can register are sorted into three methods, so you can pick the one that fits.",
+      "blocks": [
+        {
+          "type": "html",
+          "html": "<p>Until now, the images you could register for a character were effectively treated as one undifferentiated pile. In practice several kinds of icon asset were already accepted, but that never really came across — so it has been sorted out.</p><p>In v3.3 there are <strong>three methods</strong>.</p>"
+        },
+        {
+          "type": "table",
+          "head": ["Method", "What you supply", "How it moves", "Who it suits"],
+          "rows": [
+            ["Sequence", "Several still images", "Cycles through them in the order you registered them while the character speaks", "Works from a single image. The easiest option"],
+            ["Animated image", "One GIF, animated WebP or APNG", "Loops that animation while the character speaks", "People who already have animated assets"],
+            ["Audio-driven", "Exactly six still images", "The mouth follows the narration volume", "The most natural, and the centrepiece of this release"]
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "good",
+          "title": "🎨 Let another app build the assets",
+          "text": "Assets for “Animated image” and “Audio-driven” can be generated with MouthLoop, the Gemini Canvas app covered further down."
+        },
+        {
+          "type": "html",
+          "html": "<p>The three tabs sit along the top of the settings screen. Click to switch.</p>"
+        },
+        {
+          "type": "figure",
+          "image": "./img/v33-02.png",
+          "alt": "The three tabs — Sequence, Animated image and Audio-driven — along the top of the character settings screen",
+          "caption": "The three tabs sit along the top of the settings screen"
+        }
+      ]
+    },
+
+    {
+      "icon": "💾",
+      "category": "EVERYDAY USE",
+      "title": "Switching methods doesn’t throw away what you had",
+      "intro": "Each of the three methods keeps its own assets, so trying one and going back costs you nothing.",
+      "blocks": [
+        {
+          "type": "html",
+          "html": "<p>This is a quiet but important detail. The assets for the three methods are stored separately.</p>"
+        },
+        {
+          "type": "step_list",
+          "items": [
+            { "title": "Add three images under “Sequence”", "text": "Start with the easy method." },
+            { "title": "Try “Audio-driven”", "text": "Switch tabs and give the other method a go." },
+            { "title": "Go back to “Sequence” after all", "text": "Your original three images are still there." }
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "good",
+          "title": "✅ No need to load them again",
+          "text": "You never have to re-upload assets just because you switched. Try things freely, and go back just as freely."
+        }
+      ]
+    },
+
+    {
+      "icon": "❓",
+      "category": "HELP",
+      "title": "The “?” button explains the method you are on",
+      "intro": "Open the explanation for the method you have selected, only when you need it.",
+      "blocks": [
+        {
+          "type": "html",
+          "html": "<p>There is a small “?” button to the right of the three tabs.</p><p>Press it and <strong>only the explanation for the method you are on</strong> opens underneath. You are not made to read all three at once, so open it only when you are unsure.</p>"
+        },
+        {
+          "type": "figure",
+          "image": "./img/v33-03.png",
+          "alt": "Pressing the “?” button to the right of the tabs expands the explanation for the selected method underneath",
+          "caption": "Only the method you have selected is explained"
+        }
+      ]
+    },
+
+    {
+      "icon": "📦",
+      "category": "LOADING",
+      "title": "Getting assets in is far less work now",
+      "intro": "Folder picking, drag and drop, and ZIP files are all supported.",
+      "blocks": [
+        {
+          "type": "html",
+          "html": "<p>There are more ways to register assets now. Any of them will do.</p><ul class=\"check-list\"><li>Select several files (as before)</li><li>Select a whole folder<span class=\"tag tag-new\">NEW</span></li><li>Drag and drop (files or folders)<span class=\"tag tag-change\">IMPROVED</span></li><li>ZIP file<span class=\"tag tag-new\">NEW</span></li></ul>"
+        },
+        {
+          "type": "html",
+          "html": "<p>ZIP works for “Sequence” and “Audio-driven” (a single-file animation doesn’t need it). The contents are read <strong>in filename order</strong>, so if you number them <code>01.png</code>–<code>06.png</code> they come in exactly in that order.</p>"
+        },
+        {
+          "type": "callout",
+          "tone": "warn",
+          "title": "⚠️ There are limits, just in case",
+          "text": "Go over one and a message appears, and the import stops there."
+        },
+        {
+          "type": "spec_list",
+          "items": [
+            { "label": "ZIP file", "value": "Up to 50MB" },
+            { "label": "Number of images", "value": "Up to 200" },
+            { "label": "Total once unpacked", "value": "Up to 100MB" }
+          ]
+        },
+        {
+          "type": "figure",
+          "image": "./img/v33-04.png",
+          "alt": "The character asset registration screen, showing file selection, folder selection, drag and drop and ZIP side by side",
+          "caption": "Four ways in, whichever suits you"
+        }
+      ]
+    },
+
+    {
+      "icon": "🖱️",
+      "category": "REORDERING",
+      "title": "Reorder by dragging",
+      "intro": "You can now drag a card straight to where you want it.",
+      "blocks": [
+        {
+          "type": "html",
+          "html": "<p>Registered images are laid out as cards. You can now drag a card directly to change the order. While you drag, a <strong>pink vertical line</strong> shows where it will land.</p>"
+        },
+        {
+          "type": "compare",
+          "before": { "label": "Before", "text": "You had to move things one position at a time with the “←/→” arrow buttons." },
+          "after": { "label": "v3.3", "text": "Grab the card and drop it straight into the position you want." }
+        },
+        {
+          "type": "callout",
+          "title": "🔁 The arrow buttons are still there",
+          "text": "When you want to nudge something one step at a time, or dragging is awkward on your device, the old “←/→” buttons still work."
+        }
+      ]
+    },
+
+    {
+      "icon": "🎬",
+      "category": "THE BIG ONE",
+      "title": "About “Audio-driven” (six-image lip sync)",
+      "intro": "Six still images, switched in time with the volume of the narration.",
+      "blocks": [
+        {
+          "type": "html",
+          "html": "<p>This is the centrepiece of the release. Six still images are switched in time with the volume of the narration. Each of the six has a fixed role, and the name of that role is shown on its card.</p>"
+        },
+        {
+          "type": "frame_list",
+          "items": [
+            "Eyes open, mouth closed (idle)",
+            "Eyes open, mouth half open",
+            "Eyes open, mouth open",
+            "Eyes closed, mouth closed",
+            "Eyes closed, mouth half open",
+            "Eyes closed, mouth open"
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "warn",
+          "title": "⚠️ The order matters",
+          "text": "Add them in this order. If you are loading a ZIP, numbering the files 01–06 in this order is the reliable way to do it."
+        },
+        {
+          "type": "figure",
+          "image": "./img/v33-05.png",
+          "alt": "Six lip-sync assets laid out as cards, each labelled with its role",
+          "caption": "Each of the six shows the role it plays"
+        },
+        { "type": "heading", "level": 3, "text": "You can replace them one at a time" },
+        {
+          "type": "html",
+          "html": "<p>When it is only the fourth image you are unhappy with, hover over it and use the “Replace” button that appears to swap out <strong>just that one</strong>. There is no need to start over.</p>"
+        },
+        {
+          "type": "figure",
+          "image": "./img/v33-06.png",
+          "alt": "The “Replace” button that appears when you hover over an asset card",
+          "caption": "Swap out a single image"
+        },
+        { "type": "heading", "level": 3, "text": "Leave the lip-sync interval on “Auto”" },
+        {
+          "type": "html",
+          "html": "<p>The speed the mouth moves at is set to “Auto” by default. For each line it estimates the speaking rate from the <strong>length of the audio</strong> and the <strong>amount of subtitle text</strong>, and matches it.</p>"
+        },
+        {
+          "type": "figure",
+          "image": "./img/v33-07.png",
+          "alt": "The “Auto” / “Manual” switch for the lip-sync interval, with its slider",
+          "caption": "Start with “Auto”"
+        },
+        {
+          "type": "html",
+          "html": "<p>Try it on Auto first, and only switch to “Manual” and reach for the slider if it doesn’t feel right.</p>"
+        }
+      ]
+    },
+
+    {
+      "icon": "💬",
+      "category": "LAYOUT",
+      "title": "Move the character and the speech bubble follows",
+      "intro": "The icon and the bubble now keep their relative positions.",
+      "blocks": [
+        {
+          "type": "compare",
+          "before": { "label": "Before", "text": "Move the character icon left or right and the speech bubble stayed where it was, so you had to line it up by hand every time." },
+          "after": { "label": "v3.3", "text": "Move the icon left or right and the bubble moves with it, by exactly the same amount." }
+        },
+        {
+          "type": "html",
+          "html": "<p>The gap between the icon and the bubble — their relative positions — is preserved, so once you have arranged things nicely you can move the whole pair left and right together. You can of course still <strong>adjust the bubble on its own</strong>, exactly as before.</p>"
+        },
+        {
+          "type": "figure",
+          "image": "./img/v33-08.png",
+          "alt": "Preview showing the speech bubble moving with the character icon by the same amount as it is dragged left and right",
+          "caption": "Move the character and the bubble comes along"
+        }
+      ]
+    },
+
+    {
+      "icon": "🪄",
+      "category": "COMPANION TOOL",
+      "title": "Now connected to “MouthLoop”, the Gemini Canvas app for building assets",
+      "intro": "A separate app that builds lip-sync assets automatically from a single image.",
+      "blocks": [
+        {
+          "type": "html",
+          "html": "<p>“Six lip-sync images? How am I supposed to make those?” — a fair question, so there is now a separate app for building the assets.</p><p>It is called <strong>MouthLoop</strong>, a standalone app that runs on Google Gemini Canvas. Give it one image and it builds the lip-sync assets for you.</p>"
+        },
+        {
+          "type": "check_list",
+          "items": [
+            "Six PNGs (as a ZIP) → drop straight into “Audio-driven” in SlideCast Studio",
+            "An animated WebP → drops straight into “Animated image”"
+          ]
+        },
+        {
+          "type": "html",
+          "html": "<p>A “Build assets in MouthLoop” link is embedded in the character settings screen in SlideCast Studio, so you can open it from there. Download what you made and drag it straight in.</p>"
+        },
+        {
+          "type": "gallery",
+          "columns": 2,
+          "items": [
+            { "image": "./img/v33-09.png", "alt": "The “Build assets in MouthLoop” link embedded in the character settings screen", "caption": "You can go straight there from here" },
+            { "image": "./img/v33-10.png", "alt": "The MouthLoop screen running on Gemini Canvas", "caption": "MouthLoop" }
+          ]
+        },
+        {
+          "type": "link",
+          "url": "https://note.com/bluezzly/n/n9b68bf88ac64",
+          "label": "How to use MouthLoop — generating, cutting out, things to watch for (Japanese)"
+        }
+      ]
+    },
+
+    {
+      "icon": "⬆️",
+      "category": "PROCEDURE",
+      "title": "How to update",
+      "intro": "If you have already bought it, copy v3.3 from the same share link as before.",
+      "blocks": [
+        {
+          "type": "html",
+          "html": "<p>If you have already bought SlideCast Studio, copy v3.3 from the same paid-note share link you used before.</p><p>To carry over your existing projects, library and settings, either of the following works.</p>"
+        },
+        {
+          "type": "step_list",
+          "items": [
+            { "title": "Carry them over with a backup JSON", "text": "Export a backup JSON from your current setup and restore it in v3.3." },
+            { "title": "Swap the files in your Apps Script project", "text": "Replace “無題.html” (“Untitled.html” in the Japanese Apps Script UI) and “AppBundle.html” in your existing project with the v3.3 versions, then redeploy." }
+          ]
+        },
+        {
+          "type": "callout",
+          "title": "💻 For the local HTML edition",
+          "text": "Download “SlideCast Studio v3.3〖ローカル版〗.html” — 〖ローカル版〗 means “local edition” — and double-click to open it."
+        },
+        {
+          "type": "callout",
+          "tone": "warn",
+          "title": "⚠️ If your earlier projects don’t show up",
+          "text": "If you can’t find your projects in the new setup, restore them from a backup JSON."
+        },
+        {
+          "type": "link_cards",
+          "items": [
+            { "icon": "🔗", "title": "SlideCast Studio (paid note)", "text": "Copy v3.3 from the share link (Japanese)", "url": "https://note.com/bluezzly/n/nb4c85213c808" },
+            { "icon": "🛠️", "title": "Swapping the files in an Apps Script project", "text": "Method 2, explained step by step", "url": "../../gas-update/" }
+          ]
+        }
+      ]
+    },
+
+    {
+      "icon": "🍵",
+      "category": "WRAPPING UP",
+      "title": "In closing",
+      "intro": "“Sequence” alone is perfectly usable. Move up to “Audio-driven” when you want to.",
+      "blocks": [
+        {
+          "type": "html",
+          "html": "<p>This update should land well if any of these is you.</p>"
+        },
+        {
+          "type": "check_list",
+          "items": [
+            "You make videos where a character talks, and you want the mouth to look a little more natural",
+            "You have plenty of character images and registering them one at a time was tedious",
+            "You quietly resented fixing the speech bubble every time you moved the character"
+          ]
+        },
+        {
+          "type": "html",
+          "html": "<p>“Sequence” on its own is perfectly usable, and the idea is that you step up to “Audio-driven” when you start to care. So that you don’t have to produce six images up front, <strong>it works from two</strong>.</p><p>The unspoken theme of this release was moving the work of producing those six images out to a separate app. More tools is not usually a good thing, but “making images” and “assembling a video” ask different things of your head, so keeping them apart turns out to be faster.</p>"
+        },
+        {
+          "type": "quote",
+          "text": "If you hit a bug, or something here is hard to follow, a comment telling me so is a real help. Thank you, as always.",
+          "cite": "aokuma"
+        }
+      ]
+    }
+  ]
+}

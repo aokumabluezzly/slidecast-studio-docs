@@ -52,6 +52,13 @@ PAGE_META: dict[str, dict[str, str]] = {
             "same data: swap two files, then redeploy as a new version."
         ),
     },
+    "en/updates/v33/": {
+        "og_title": "SlideCast Studio v3.3 “SYNC” update",
+        "og_description": (
+            "Character assets in three methods, ZIP and folder import, six-image lip sync "
+            "and speech bubbles that follow the character."
+        ),
+    },
 }
 
 # ヘッダーの 📚 ページ一覧ボタン（site-nav.js が拾う data-site-nav が要る）
