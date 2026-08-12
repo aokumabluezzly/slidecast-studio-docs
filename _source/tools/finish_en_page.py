@@ -31,6 +31,13 @@ PAGE_META: dict[str, dict[str, str]] = {
             "into narrated, subtitled video. What it does, what it costs, and how to set it up."
         ),
     },
+    "en/manual/": {
+        "og_title": "SlideCast Studio — the official manual",
+        "og_description": (
+            "The 18-chapter reference for v3.4: slides, script and AI voice, characters, "
+            "design and effects, BGM, opening/ending videos, and every export format."
+        ),
+    },
     "en/bundle-builder/": {
         "og_title": "SlideCast Bundle Builder — how to use it",
         "og_description": (
@@ -115,14 +122,14 @@ def head_extras(rel: str, up: str, meta: dict[str, str]) -> str:
     ])
 
 
-def footer_html(up: str, en_up: str) -> str:
-    """up はサイトのルートまで、en_up は /en/ のルートまでの相対パス。"""
+def footer_html(en_up: str) -> str:
+    """en_up は /en/ のルートまでの相対パス。フッターナビは英語ページ内で完結する。"""
     return (
         f'<a class="brand footer-brand" href="{en_up}" aria-label="SlideCast Studio home">'
         "SlideCast <b>Studio</b></a>"
         '<nav class="footer-links" aria-label="Footer navigation">'
         f'<a href="{en_up}intro/">What is SlideCast Studio?</a>'
-        f'<a href="{up}manual/">Official manual (JA)</a>'
+        f'<a href="{en_up}manual/">Official manual</a>'
         f'<a href="{en_up}bundle-builder/">Bundle Builder</a>'
         f'<a href="{en_up}mouthloop-v2/">MouthLoop v2</a>'
         "</nav>"
@@ -188,7 +195,7 @@ def finish(path: pathlib.Path) -> None:
     html = re.sub(
         r'<div class="footer-top">.*?</div>\s*<p class="footer-meta">(.*?)</p>',
         lambda m: (
-            f'<div class="footer-top">{footer_html(up, en_up)}</div>'
+            f'<div class="footer-top">{footer_html(en_up)}</div>'
             '<div class="footer-bottom">'
             f'<p class="footer-meta">{m.group(1)}</p>'
             f'<nav class="social-links" aria-label="Social links">{social_links()}</nav>'

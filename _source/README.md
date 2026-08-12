@@ -15,6 +15,8 @@
 | `bundle-builder.spec.json` | Bundle Builder ガイド（`/bundle-builder/index.html`）の設計データ |
 | `mouthloop-v2.spec.json` | MouthLoop v2 ガイド（`/mouthloop-v2/index.html`）の設計データ |
 | `gas-update.spec.json` | アップデート方法ガイド（`/gas-update/index.html`）の設計データ |
+| `manual.spec.json` | 公式マニュアル（`/manual/index.html`）の設計データ。v33 / v34 と同じく既存の日本語ページから起こしたもので、日本語ページの再生成には**使っていません**（下記） |
+| `manual.en.spec.json` | 英語版の公式マニュアル（`/en/manual/index.html`）の設計データ |
 | `intro.en.spec.json` | 英語版の紹介ページ（`/en/intro/index.html`）の設計データ |
 | `bundle-builder.en.spec.json` | 英語版の Bundle Builder ガイド（`/en/bundle-builder/index.html`）の設計データ |
 | `mouthloop-v2.en.spec.json` | 英語版の MouthLoop v2 ガイド（`/en/mouthloop-v2/index.html`）の設計データ |
@@ -227,13 +229,18 @@ python3 _source/tools/build_en.py
 - 対になるページが無いときは、ボタンを消さずに無効表示にします。英語版が「無い」のか「そもそも多言語対応していない」のかが読者に分かるようにするためです。
 - 📚 ページ一覧も英語ページでは英語で出て、英語版が無い項目には `(Japanese)` が付きます。
 
-## 設計データが無い記事
+## 公開中の HTML から起こした spec（再生成に使わない）
 
-`manual/` は、この仕組みを整える前に作られたため、設計データが残っていません。大きく直す場合は、元の Markdown 原稿から spec を作り直す形になります。
+`manual/`・`updates/v33/`・`updates/v34/` は、英語版を作るときに**公開中の日本語 HTML から `manual.spec.json` / `v33.spec.json` / `v34.spec.json` を起こし直しました**。この spec でビルドすると、記事本文・目次・ソースカードは公開中のページと一致します（唯一の差はヒーロー画像の `loading="lazy"` で、生成側がヒーローを遅延読み込みしなくなったため）。ただしどれも共通クロームを手で足した日本語ページなので、**spec からの再生成で上書きしないでください**。日本語側を直すときは HTML を直接編集し、同じ内容を spec にも反映します（英語版の元データとして使うため）。
 
-`updates/v33/` と `updates/v34/` は、英語版を作るときに**公開中の日本語 HTML から `v33.spec.json` / `v34.spec.json` を起こし直しました**。この spec でビルドすると、記事本文・目次・ソースカードは公開中のページと一致します（唯一の差はヒーロー画像の `loading="lazy"` で、生成側がヒーローを遅延読み込みしなくなったため）。ただしどちらの日本語ページも共通クロームを手で足したページなので、**spec からの再生成で上書きしないでください**。日本語側を直すときは HTML を直接編集し、同じ内容を spec にも反映します（英語版の元データとして使うため）。
+一致を確かめたいときは、同じディレクトリへ別名で出力して差分を取ります（`index.html` を直接上書きしないこと）。出力先が同じ階層なので、画像の相対パス（`../assets/`）も揃います。
 
-画像の外部ファイル化だけは spec 無しで済ませてあります。同じことを別のページでやる場合は次のとおりです（ページを上書きするので、実行前に `--dry-run` で件数を確認してください）。
+```bash
+python3 ~/.claude/skills/build-rich-html-article/scripts/build_article.py \
+  _source/manual.spec.json manual/_check.html --assets assets
+```
+
+なお、これらのページの Base64 画像を `/assets/` へ移す作業は、spec を起こす前に `externalize_images.py` で済ませてあります。設計データが無いページで同じことをする場合は次のとおりです（ページを上書きするので、実行前に `--dry-run` で件数を確認してください）。
 
 ```bash
 python3 _source/tools/externalize_images.py manual/index.html --assets assets --dry-run

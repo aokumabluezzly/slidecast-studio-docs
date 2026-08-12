@@ -21,7 +21,7 @@
         { href: 'intro/', icon: '💡', label: 'SlideCast Studio とは', desc: 'できること・料金の概要',
           en: true, label_en: 'What is SlideCast Studio?', desc_en: 'What it does, and what it costs' },
         { href: 'manual/', icon: '📘', label: '公式マニュアル', desc: '全機能の使い方リファレンス',
-          label_en: 'Official manual', desc_en: 'Full feature reference' }
+          en: true, label_en: 'Official manual', desc_en: 'Full feature reference' }
       ]
     },
     {

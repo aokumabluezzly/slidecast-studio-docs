@@ -1,0 +1,1018 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="The official manual for SlideCast Studio (v3.4): add AI narration, a lip-syncing character, BGM and opening/ending videos to your slides, and export the whole thing as video from the browser alone.">
+<title>SlideCast Studio — the official manual</title>
+<link rel="canonical" href="https://aokumabluezzly.github.io/slidecast-studio-docs/en/manual/">
+<link rel="alternate" hreflang="ja" href="https://aokumabluezzly.github.io/slidecast-studio-docs/manual/">
+<link rel="alternate" hreflang="en" href="https://aokumabluezzly.github.io/slidecast-studio-docs/en/manual/">
+<link rel="alternate" hreflang="x-default" href="https://aokumabluezzly.github.io/slidecast-studio-docs/manual/">
+<link rel="icon" type="image/png" sizes="32x32" href="../../assets/brand/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="../../assets/brand/favicon-16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="../../assets/brand/apple-touch-icon.png">
+<link rel="manifest" href="../../site.webmanifest">
+<meta name="theme-color" content="#1957ff">
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="og:locale:alternate" content="ja_JP">
+<meta property="og:site_name" content="SlideCast Studio">
+<meta property="og:title" content="SlideCast Studio — the official manual">
+<meta property="og:description" content="The 18-chapter reference for v3.4: slides, script and AI voice, characters, design and effects, BGM, opening/ending videos, and every export format.">
+<meta property="og:url" content="https://aokumabluezzly.github.io/slidecast-studio-docs/en/manual/">
+<meta property="og:image" content="https://aokumabluezzly.github.io/slidecast-studio-docs/assets/brand/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="SlideCast Studio logo">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="SlideCast Studio — the official manual">
+<meta name="twitter:description" content="The 18-chapter reference for v3.4: slides, script and AI voice, characters, design and effects, BGM, opening/ending videos, and every export format.">
+<meta name="twitter:image" content="https://aokumabluezzly.github.io/slidecast-studio-docs/assets/brand/og-image.png">
+<style>
+/* ============================================================
+   1. TOKENS  —  the single source of size, weight, color, space
+   ============================================================ */
+:root{
+  /* palette (replaceable per article) */
+  --primary:#7158e2;
+  --secondary:#3978d4;
+  --accent:#f05f93;
+  --surface:#f5f2ff;
+
+  /* text */
+  --ink:#202033;
+  --ink-soft:color-mix(in srgb,var(--ink) 82%,#ffffff);
+  /* 68%, not 55%: card copy and captions sit on tinted surfaces, where a
+     lighter mix falls to ~3.2:1 — under the 4.5:1 gate for small text. */
+  --muted:color-mix(in srgb,var(--ink) 68%,#ffffff);
+  --on-deep:#ffffff;
+  --on-deep-soft:rgba(255,255,255,.88);
+
+  /* readable accent text (never the raw brand color on light surfaces) */
+  --primary-ink:color-mix(in srgb,var(--primary) 62%,#0d1027);
+  --secondary-ink:color-mix(in srgb,var(--secondary) 62%,#0d1027);
+  --accent-ink:color-mix(in srgb,var(--accent) 62%,#0d1027);
+
+  /* surfaces */
+  --paper:#fffdfa;
+  --card:#ffffff;
+  --soft:var(--surface);
+  --line:color-mix(in srgb,var(--primary) 16%,#e6e2ef);
+  --line-strong:color-mix(in srgb,var(--primary) 30%,#ded8ec);
+
+  /* gradients — every raised surface uses one of these */
+  --grad-rule:linear-gradient(90deg,var(--accent),var(--primary));
+  --grad-brand:linear-gradient(135deg,var(--accent),var(--primary));
+  --grad-panel:linear-gradient(150deg,color-mix(in srgb,var(--card) 96%,transparent),var(--soft));
+  --grad-tint:linear-gradient(150deg,color-mix(in srgb,var(--item-accent,var(--primary)) 11%,var(--card)),color-mix(in srgb,var(--item-accent,var(--primary)) 2%,var(--card)));
+  --grad-deep:
+    radial-gradient(circle at 8% 0%,color-mix(in srgb,var(--accent) 30%,transparent),transparent 46%),
+    radial-gradient(circle at 100% 100%,color-mix(in srgb,var(--secondary) 34%,transparent),transparent 52%),
+    linear-gradient(145deg,color-mix(in srgb,var(--primary) 60%,#272247) 0%,color-mix(in srgb,var(--primary) 46%,#221d3d) 52%,color-mix(in srgb,var(--secondary) 40%,#1c2240) 100%);
+
+  --shadow:0 18px 60px color-mix(in srgb,var(--primary) 16%,transparent);
+  --shadow-sm:0 6px 22px color-mix(in srgb,var(--primary) 11%,transparent);
+  --shadow-deep:0 14px 34px color-mix(in srgb,var(--primary) 24%,transparent);
+
+  /* type scale — blocks must not invent sizes outside this list */
+  --fs-hero:clamp(1.75rem,3.6vw,2.7rem);
+  --fs-h1:clamp(1.75rem,4vw,2.6rem);
+  --fs-h2:clamp(1.4rem,3vw,1.95rem);
+  --fs-h3:clamp(1.12rem,2.2vw,1.3rem);
+  --fs-h4:1.12rem;
+  --fs-lead:clamp(1rem,1.7vw,1.12rem);
+  --fs-body:clamp(.98rem,1.35vw,1.05rem);
+  --fs-sm:.9rem;
+  --fs-xs:.82rem;
+  --fs-label:.72rem;
+
+  /* weight scale */
+  --fw-kicker:900;
+  --fw-title:800;
+  --fw-strong:700;
+  --fw-body:400;
+
+  /* geometry */
+  --w-wide:1160px;
+  --w-read:900px;
+  --gutter:32px;
+  --header-h:64px;
+  --r-lg:24px;
+  --r-md:18px;
+  --r-sm:13px;
+  color-scheme:light;
+}
+[data-theme="dark"]{
+  --ink:#eceaf6;
+  --ink-soft:color-mix(in srgb,var(--ink) 86%,#000000);
+  --muted:color-mix(in srgb,var(--ink) 62%,#000000);
+  --primary-ink:color-mix(in srgb,var(--primary) 68%,#ffffff);
+  --secondary-ink:color-mix(in srgb,var(--secondary) 68%,#ffffff);
+  --accent-ink:color-mix(in srgb,var(--accent) 68%,#ffffff);
+  --paper:#14131c;
+  --card:#1c1b28;
+  --soft:#232131;
+  --line:color-mix(in srgb,var(--primary) 22%,#322f45);
+  --line-strong:color-mix(in srgb,var(--primary) 34%,#423e5c);
+  --shadow:0 18px 60px rgba(0,0,0,.5);
+  --shadow-sm:0 6px 22px rgba(0,0,0,.35);
+  --shadow-deep:0 14px 34px rgba(0,0,0,.45);
+  color-scheme:dark;
+}
+
+/* ============================================================
+   2. BASE
+   ============================================================ */
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:calc(var(--header-h) + 16px)}
+body{
+  margin:0;overflow-x:hidden;color:var(--ink);
+  background:
+    radial-gradient(circle at 12% 3%,color-mix(in srgb,var(--accent) 13%,transparent),transparent 22rem),
+    radial-gradient(circle at 88% 1%,color-mix(in srgb,var(--primary) 16%,transparent),transparent 26rem),
+    var(--paper);
+  font-family:-apple-system,BlinkMacSystemFont,"Hiragino Sans","Yu Gothic UI","Noto Sans JP",Meiryo,sans-serif;
+  font-size:16px;line-height:1.92;letter-spacing:.02em;
+}
+button,a,input,select{font:inherit}
+a{color:var(--primary-ink);text-underline-offset:.18em}
+a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid var(--primary);outline-offset:3px}
+img{max-width:100%}
+h1,h2,h3,h4{line-height:1.4;letter-spacing:-.02em;font-weight:var(--fw-title)}
+h1{font-size:var(--fs-h1)}
+h2{font-size:var(--fs-h2)}
+h3{font-size:var(--fs-h3)}
+h4{font-size:var(--fs-h4)}
+.wide{width:min(var(--w-wide),calc(100% - var(--gutter)));margin-inline:auto}
+.reading{width:min(var(--w-read),calc(100% - var(--gutter)));margin-inline:auto}
+.kicker{margin:0 0 10px;color:var(--primary-ink);font-size:var(--fs-label);font-weight:var(--fw-kicker);letter-spacing:.16em}
+.lead{margin:0;color:var(--muted);font-size:var(--fs-lead)}
+.rule::after{content:"";display:block;width:56px;height:5px;margin-top:14px;border-radius:999px;background:var(--grad-rule)}
+.skip-link{
+  position:fixed;top:8px;left:8px;z-index:200;padding:10px 16px;border-radius:999px;
+  background:var(--grad-brand);color:var(--on-deep);font-size:var(--fs-xs);font-weight:var(--fw-title);text-decoration:none;
+  transform:translateY(-160%);transition:transform .18s ease;
+}
+.skip-link:focus-visible{transform:none}
+
+/* ============================================================
+   3. HEADER RULE
+   Sticky · var(--w-wide) · brand left · controls right ·
+   all controls 40px tall, same center line, radius 10/999px.
+   ============================================================ */
+.progress{position:fixed;inset:0 auto auto 0;z-index:120;width:0;height:4px;background:var(--grad-rule)}
+.site-header{
+  position:sticky;top:0;z-index:90;
+  border-bottom:1px solid var(--line);
+  background:color-mix(in srgb,var(--paper) 88%,transparent);
+  backdrop-filter:blur(16px);
+}
+.header-inner{
+  width:min(var(--w-wide),calc(100% - var(--gutter)));min-height:var(--header-h);margin:auto;
+  display:flex;align-items:center;justify-content:space-between;gap:14px;
+}
+.brand{
+  height:40px;display:inline-flex;align-items:center;flex:0 0 auto;gap:6px;
+  border:0;background:none;color:var(--ink);cursor:pointer;text-decoration:none;
+  font-size:1.05rem;font-weight:var(--fw-kicker);line-height:1;letter-spacing:-.02em;white-space:nowrap;
+}
+.brand b{color:var(--primary-ink);font-weight:inherit}
+.brand em{
+  padding:2px 8px;border-radius:999px;background:var(--grad-brand);color:var(--on-deep);
+  font-size:.68rem;font-style:normal;font-weight:var(--fw-title);letter-spacing:.06em;
+}
+.header-current{
+  min-width:0;flex:1;color:var(--muted);font-size:var(--fs-xs);font-weight:var(--fw-strong);
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;opacity:0;transition:opacity .2s ease;
+}
+.header-current.show{opacity:1}
+.header-nav{display:flex;align-items:center;flex-wrap:nowrap;gap:6px}
+.header-link{
+  height:40px;padding:0 12px;display:inline-flex;align-items:center;justify-content:center;gap:6px;flex:0 0 auto;
+  border:0;border-radius:10px;background:transparent;color:var(--muted);cursor:pointer;text-decoration:none;
+  font-size:var(--fs-xs);font-weight:var(--fw-title);line-height:1;white-space:nowrap;
+}
+.header-link:hover{color:var(--primary-ink);background:var(--soft)}
+.icon-button{
+  width:40px;height:40px;padding:0;flex:0 0 40px;display:grid;place-items:center;
+  border:1px solid var(--line-strong);border-radius:999px;background:var(--card);color:var(--ink-soft);
+  cursor:pointer;font-size:1.05rem;line-height:1;
+}
+.icon-button:hover{border-color:var(--primary);color:var(--primary-ink)}
+.theme-dark{display:none}
+[data-theme="dark"] .theme-light{display:none}
+[data-theme="dark"] .theme-dark{display:inline}
+
+/* ============================================================
+   4. HERO  (wide region)
+   ============================================================ */
+.hero{
+  width:min(var(--w-wide),calc(100% - var(--gutter)));margin:44px auto 34px;overflow:hidden;
+  border:1px solid var(--line);border-radius:34px;background:var(--grad-panel);box-shadow:var(--shadow);
+}
+.hero-grid{display:grid;grid-template-columns:1.02fr .98fr;align-items:center}
+.hero:not(.has-image) .hero-grid{grid-template-columns:1fr}
+.hero-copy{padding:clamp(30px,5.5vw,64px)}
+.hero h1{margin:0;font-size:var(--fs-hero);line-height:1.28;letter-spacing:-.035em;word-break:normal;overflow-wrap:anywhere}
+.hero-subtitle{margin:16px 0 0;color:var(--secondary-ink);font-size:var(--fs-lead);font-weight:var(--fw-title);line-height:1.7}
+.hero-description{margin:14px 0 0;color:var(--muted);font-size:var(--fs-lead)}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:22px 0 0;padding:0;list-style:none}
+.chip{
+  padding:4px 13px;border-radius:999px;
+  background:linear-gradient(135deg,color-mix(in srgb,var(--accent) 15%,transparent),color-mix(in srgb,var(--primary) 15%,transparent));
+  color:var(--primary-ink);font-size:var(--fs-xs);font-weight:var(--fw-title);
+}
+.meta{display:flex;flex-wrap:wrap;gap:8px 16px;margin-top:22px;color:var(--muted);font-size:var(--fs-xs);font-weight:var(--fw-strong)}
+.hero-media{margin:0;padding:clamp(20px,3vw,34px);display:flex;flex-direction:column;justify-content:center}
+.hero-media img{
+  display:block;width:100%;aspect-ratio:1280 / 670;object-fit:cover;
+  border:1px solid var(--line);border-radius:var(--r-lg);background:var(--soft);box-shadow:var(--shadow);
+}
+.hero-media figcaption{margin-top:10px;color:var(--muted);font-size:var(--fs-xs);font-weight:var(--fw-strong);text-align:center}
+
+/* ============================================================
+   5. BLOCK LIBRARY  —  pick, place, retitle, recolor.
+   Every block honours --item-accent, so a wrapper can recolor it.
+   ============================================================ */
+
+/* 5.1 stat-strip : compact metric tiles */
+.stat-strip{
+  width:min(var(--w-wide),calc(100% - var(--gutter)));margin:0 auto 56px;
+  display:grid;grid-template-columns:repeat(4,1fr);gap:14px;
+}
+.stat{
+  padding:20px 18px;border:1px solid var(--line);border-radius:var(--r-md);
+  background:linear-gradient(160deg,color-mix(in srgb,var(--primary) 9%,var(--card)),var(--card) 72%);
+  box-shadow:var(--shadow-sm);text-align:center;
+}
+.stat i{display:block;margin-bottom:2px;font-size:1.35rem;font-style:normal}
+.stat b{display:block;font-size:1.5rem;font-weight:var(--fw-title);line-height:1.4;letter-spacing:-.03em}
+.stat span{display:block;color:var(--muted);font-size:var(--fs-xs);font-weight:var(--fw-strong)}
+
+/* 5.2 section-head : kicker + heading + lead */
+.section-head{margin:0 0 26px}
+.section-head.center{text-align:center}
+.section-head h2{margin:0;font-size:var(--fs-h2);letter-spacing:-.03em}
+.section-head p{max-width:40rem;margin:10px 0 0;color:var(--muted)}
+.section-head.center p{margin-inline:auto}
+
+/* 5.3 panel : the standard light gradient container */
+.panel{
+  padding:clamp(24px,4vw,44px);border:1px solid var(--line);border-radius:28px;
+  background:var(--grad-panel);box-shadow:var(--shadow);
+}
+.panel>:first-child{margin-top:0}
+.panel>:last-child{margin-bottom:0}
+.prose{font-size:var(--fs-body)}
+.prose p{margin:14px 0;color:var(--ink-soft)}
+.prose strong{font-weight:var(--fw-title);background:linear-gradient(transparent 72%,color-mix(in srgb,var(--accent) 24%,transparent) 0)}
+.prose ul,.prose ol{padding-left:1.4em;color:var(--ink-soft)}
+.prose li{margin:6px 0}
+.prose li::marker{color:var(--item-accent,var(--primary));font-weight:var(--fw-kicker)}
+
+/* 5.4 feature-grid : deep gradient summary cards (3 / 2 / 1) */
+/* grid-auto-rows:1fr — a summary grid reads as one set, so every card keeps the
+   same height even when one label wraps to a second line. */
+.card-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));grid-auto-rows:1fr;gap:14px;margin:26px 0 0}
+.feature-card{
+  min-height:178px;padding:22px 20px;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;gap:14px;
+  border:1px solid color-mix(in srgb,var(--primary) 34%,transparent);border-radius:var(--r-md);
+  background:var(--grad-deep);color:var(--on-deep);text-align:center;box-shadow:var(--shadow-deep);
+  transition:transform .2s ease,border-color .2s ease,box-shadow .2s ease;
+}
+.feature-card:hover{transform:translateY(-3px);border-color:color-mix(in srgb,#fff 55%,transparent);box-shadow:0 18px 40px color-mix(in srgb,var(--primary) 30%,transparent)}
+.card-icon{font-size:3rem;line-height:1;filter:drop-shadow(0 7px 12px rgba(20,16,45,.28))}
+.card-image{width:78px;height:78px;object-fit:contain}
+.feature-card h3{margin:0;font-size:var(--fs-h4);font-weight:var(--fw-title);line-height:1.55}
+.feature-card p{margin:0;color:var(--on-deep-soft);font-size:var(--fs-sm);line-height:1.6}
+
+/* 5.5 soft-grid : light gradient cards, for dense or secondary sets */
+.soft-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:24px 0;padding:0;list-style:none}
+.soft-card{
+  margin:0;padding:18px 20px;border:1px solid var(--line);border-radius:var(--r-md);
+  background:var(--grad-tint);box-shadow:var(--shadow-sm);
+}
+.soft-card .card-icon{font-size:1.6rem;filter:none}
+.soft-card h3{margin:8px 0 4px;font-size:var(--fs-h4);color:var(--item-ink,var(--primary-ink))}
+.soft-card p{margin:0;color:var(--muted);font-size:var(--fs-sm)}
+
+/* 5.6 check-list : ✓ cards, 2 columns */
+.check-list{margin:20px 0;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;list-style:none}
+.check-list li{
+  position:relative;min-height:54px;margin:0;padding:13px 14px 13px 42px;
+  border:1px solid var(--line);border-radius:var(--r-sm);background:var(--grad-tint);
+  font-size:var(--fs-sm);line-height:1.65;
+}
+.check-list li::before{
+  content:"✓";position:absolute;left:13px;top:15px;width:20px;height:20px;display:grid;place-items:center;
+  border-radius:50%;background:var(--grad-brand);color:var(--on-deep);font-size:.7rem;font-weight:var(--fw-kicker);
+}
+
+/* 5.7 step-list : numbered procedure */
+.step-list{margin:20px 0;padding:0;display:grid;gap:10px;list-style:none;counter-reset:step}
+.step-list li{
+  position:relative;margin:0;padding:14px 16px 14px 52px;counter-increment:step;
+  border:1px solid var(--line);border-radius:var(--r-sm);background:var(--grad-tint);font-size:var(--fs-sm);
+}
+.step-list li::before{
+  content:counter(step);position:absolute;left:14px;top:14px;width:26px;height:26px;display:grid;place-items:center;
+  border-radius:9px;background:var(--grad-brand);color:var(--on-deep);font-size:.78rem;font-weight:var(--fw-kicker);
+}
+.step-list li strong{display:block;font-weight:var(--fw-title)}
+
+/* 5.8 frame-list : short numbered chips, 3 columns */
+.frame-list{margin:18px 0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;list-style:none;counter-reset:frame}
+/* flex row, not an inline badge nudged with vertical-align: a fixed nudge only
+   lines up at one font size and drifts at every other. */
+.frame-list li{
+  margin:0;padding:12px 14px;display:flex;align-items:center;gap:9px;
+  counter-increment:frame;border:1px solid var(--line);border-radius:var(--r-sm);
+  background:var(--grad-tint);font-size:var(--fs-sm);font-weight:var(--fw-strong);
+}
+.frame-list li::before{
+  content:counter(frame);flex:none;display:grid;place-items:center;width:22px;height:22px;
+  border-radius:50%;background:var(--grad-brand);color:var(--on-deep);font-size:.74rem;font-weight:var(--fw-kicker);
+  line-height:1;
+}
+
+/* 5.9 callout : info / warn / good, gradient left rail */
+.callout{
+  margin:24px 0;padding:16px 18px;border:1px solid var(--line);
+  border-left:4px solid var(--item-accent,var(--primary));border-radius:0 var(--r-sm) var(--r-sm) 0;
+  background:linear-gradient(120deg,color-mix(in srgb,var(--item-accent,var(--primary)) 12%,var(--card)),var(--card) 78%);
+  font-size:var(--fs-sm);
+}
+.callout>:first-child{margin-top:0}
+.callout>:last-child{margin-bottom:0}
+.callout p{margin:0 0 6px;color:var(--ink-soft)}
+.callout strong{font-weight:var(--fw-title);color:var(--ink)}
+.callout-warn{border-left-color:var(--accent);background:linear-gradient(120deg,color-mix(in srgb,var(--accent) 14%,var(--card)),var(--card) 78%)}
+.callout-good{border-left-color:var(--secondary);background:linear-gradient(120deg,color-mix(in srgb,var(--secondary) 14%,var(--card)),var(--card) 78%)}
+
+/* 5.10 notice-box : dated update log / small print */
+.notice-box{
+  margin:0 0 22px;padding:16px 18px;border:1px dashed var(--line-strong);border-radius:var(--r-sm);
+  background:linear-gradient(135deg,color-mix(in srgb,var(--soft) 80%,transparent),transparent);
+}
+.notice-box p{margin:0 0 8px;color:var(--ink);font-weight:var(--fw-title);font-size:var(--fs-sm)}
+.notice-box ul{margin:0;padding-left:1.2em;color:var(--muted);font-size:var(--fs-sm)}
+
+/* 5.11 timeline : chronology with gradient rail */
+.timeline{margin:22px 0;padding:0 0 0 26px;list-style:none;border-left:3px solid transparent;
+  background:linear-gradient(var(--accent),var(--primary)) left/3px 100% no-repeat}
+.timeline li{position:relative;margin:0 0 18px;padding:0}
+.timeline li::before{
+  content:"";position:absolute;left:-33px;top:.62em;width:12px;height:12px;border-radius:50%;
+  background:var(--grad-brand);box-shadow:0 0 0 4px var(--paper);
+}
+.timeline time{display:block;color:var(--primary-ink);font-size:var(--fs-xs);font-weight:var(--fw-kicker);letter-spacing:.06em}
+.timeline strong{display:block;font-weight:var(--fw-title)}
+.timeline p{margin:2px 0 0;color:var(--muted);font-size:var(--fs-sm)}
+
+/* 5.12 compare : before / after pair */
+.compare{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:22px 0}
+.compare>div{padding:18px 20px;border:1px solid var(--line);border-radius:var(--r-md);box-shadow:var(--shadow-sm)}
+.compare .before{background:linear-gradient(150deg,color-mix(in srgb,var(--muted) 14%,var(--card)),var(--card) 74%)}
+.compare .after{background:linear-gradient(150deg,color-mix(in srgb,var(--secondary) 16%,var(--card)),var(--card) 74%)}
+.compare h4{margin:0 0 6px;font-size:var(--fs-xs);font-weight:var(--fw-kicker);letter-spacing:.1em;color:var(--muted)}
+.compare .after h4{color:var(--secondary-ink)}
+.compare p{margin:0;color:var(--ink-soft);font-size:var(--fs-sm)}
+
+/* 5.13 data-table : responsive, stacks on mobile */
+.table-wrap{margin:22px 0;overflow-x:auto;border:1px solid var(--line);border-radius:var(--r-md);box-shadow:var(--shadow-sm)}
+.data-table{width:100%;border-collapse:collapse;font-size:var(--fs-sm);background:var(--card)}
+.data-table th,.data-table td{padding:12px 14px;text-align:left;border-bottom:1px solid var(--line)}
+.data-table.nowrap th:not(:first-child),.data-table.nowrap td:not(:first-child){white-space:nowrap}
+.data-table thead th{background:var(--grad-tint);color:var(--item-ink,var(--primary-ink));font-weight:var(--fw-title);white-space:nowrap}
+.data-table tbody tr:last-child td{border-bottom:0}
+
+/* 5.14 quote : pull quote */
+.pull-quote{
+  margin:26px 0;padding:22px 24px;border:1px solid var(--line);border-radius:var(--r-md);
+  background:var(--grad-panel);box-shadow:var(--shadow-sm);
+}
+.pull-quote p{margin:0;font-size:var(--fs-lead);font-weight:var(--fw-strong);line-height:1.8}
+.pull-quote p::before{content:"“";margin-right:6px;color:color-mix(in srgb,var(--accent) 70%,transparent);font-size:2em;line-height:0;vertical-align:-.32em}
+.pull-quote cite{display:block;margin-top:10px;color:var(--muted);font-size:var(--fs-xs);font-style:normal;font-weight:var(--fw-strong)}
+
+/* 5.15 figure : image + caption + lightbox */
+figure{margin:26px 0}
+figure img{
+  display:block;width:100%;height:auto;max-height:78vh;object-fit:contain;
+  border:1px solid var(--line);border-radius:16px;background:var(--soft);box-shadow:var(--shadow-sm);
+  cursor:zoom-in;transition:transform .2s ease,box-shadow .2s ease;
+}
+figure img:hover{transform:translateY(-2px);box-shadow:var(--shadow)}
+figcaption{margin-top:9px;color:var(--muted);font-size:var(--fs-xs);line-height:1.7;text-align:center}
+
+/* 5.15b video-embed : click-to-play facade, no third-party request until click */
+.video-embed{margin:26px 0}
+.video-facade{
+  position:relative;display:block;width:100%;padding:0;overflow:hidden;cursor:pointer;
+  aspect-ratio:16 / 9;border:1px solid var(--line);border-radius:16px;background:var(--soft);
+  box-shadow:var(--shadow-sm);transition:transform .2s ease,box-shadow .2s ease;
+}
+.video-facade:hover{transform:translateY(-2px);box-shadow:var(--shadow)}
+.video-facade img{
+  display:block;width:100%;height:100%;max-height:none;object-fit:cover;
+  border:0;border-radius:0;box-shadow:none;cursor:inherit;
+}
+.video-thumb-fallback{position:absolute;inset:0;background:var(--grad-brand);opacity:.85}
+.video-play{
+  position:absolute;top:50%;left:50%;width:72px;height:72px;transform:translate(-50%,-50%);
+  border-radius:50%;background:rgba(17,17,27,.62);box-shadow:0 8px 26px rgba(0,0,0,.32);
+  transition:background .2s ease,transform .2s ease;
+}
+.video-play::after{
+  content:"";position:absolute;top:50%;left:54%;transform:translate(-50%,-50%);
+  border-style:solid;border-width:13px 0 13px 22px;border-color:transparent transparent transparent #fff;
+}
+.video-facade:hover .video-play{background:var(--primary);transform:translate(-50%,-50%) scale(1.06)}
+.video-facade-label{
+  position:absolute;left:0;right:0;bottom:0;padding:34px 16px 12px;text-align:left;
+  background:linear-gradient(180deg,transparent,rgba(12,12,22,.78));
+  color:#fff;font-size:var(--fs-sm);font-weight:var(--fw-title);line-height:1.5;
+}
+.video-embed iframe{
+  display:block;width:100%;aspect-ratio:16 / 9;border:1px solid var(--line);border-radius:16px;background:#000;
+}
+.video-grid{margin:26px 0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;align-items:start}
+.video-grid .video-embed{min-width:0;margin:0}
+.video-grid .video-embed.is-playing{grid-column:1 / -1}
+
+/* 5.16 inline-link : pill CTA inside prose */
+.link-row{margin:18px 0}
+.inline-link{
+  display:inline-flex;align-items:center;gap:8px;padding:10px 18px;border-radius:999px;text-decoration:none;
+  border:1px solid color-mix(in srgb,var(--item-accent,var(--primary)) 42%,var(--line));
+  background:linear-gradient(135deg,color-mix(in srgb,var(--item-accent,var(--primary)) 12%,var(--card)),var(--card));
+  color:var(--item-ink,var(--primary-ink));font-size:var(--fs-sm);font-weight:var(--fw-title);
+}
+.inline-link::after{content:"↗";font-weight:var(--fw-kicker)}
+.inline-link:hover{background:linear-gradient(135deg,color-mix(in srgb,var(--item-accent,var(--primary)) 20%,var(--card)),var(--card))}
+.cta-link{
+  display:inline-flex;align-items:center;gap:8px;flex:none;padding:10px 18px;border-radius:999px;
+  background:var(--grad-brand);color:var(--on-deep);font-size:var(--fs-sm);font-weight:var(--fw-title);text-decoration:none;
+}
+
+/* 5.17 divider : small labelled separator between block groups */
+.divider{margin:30px 4px 12px;display:flex;align-items:center;gap:10px;color:var(--muted);font-size:var(--fs-label);font-weight:var(--fw-kicker);letter-spacing:.1em}
+.divider::after{content:"";height:1px;flex:1;background:var(--line)}
+hr{border:0;height:1px;margin:46px 0;background:linear-gradient(90deg,transparent,var(--line-strong),transparent)}
+
+/* 5.18 faq */
+.faq{display:grid;gap:10px;margin:22px 0}
+.faq>div{padding:16px 18px;border:1px solid var(--line);border-radius:var(--r-sm);background:var(--grad-tint)}
+.faq dt{margin:0 0 4px;color:var(--item-ink,var(--primary-ink));font-weight:var(--fw-title);font-size:var(--fs-sm)}
+.faq dd{margin:0;color:var(--ink-soft);font-size:var(--fs-sm)}
+
+/* 5.19 gallery : 2-3 screenshots side by side, lightbox-aware */
+.gallery{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:24px 0}
+.gallery[data-cols="2"]{grid-template-columns:repeat(2,minmax(0,1fr))}
+.gallery figure{margin:0}
+.gallery img{max-height:none;aspect-ratio:4 / 3;object-fit:cover}
+
+/* 5.20 code : monospace block with a copy button */
+.code-block{position:relative;margin:22px 0;border:1px solid var(--line);border-radius:var(--r-sm);overflow:hidden;background:var(--soft)}
+.code-head{
+  padding:8px 12px;display:flex;align-items:center;justify-content:space-between;gap:12px;
+  border-bottom:1px solid var(--line);background:var(--grad-tint);
+  color:var(--item-ink,var(--primary-ink));font-size:var(--fs-xs);font-weight:var(--fw-title);
+}
+.code-copy{
+  height:28px;padding:0 10px;border:1px solid var(--line-strong);border-radius:999px;
+  background:var(--card);color:var(--muted);cursor:pointer;font-size:var(--fs-xs);font-weight:var(--fw-title);line-height:1;
+}
+.code-copy:hover{border-color:var(--primary);color:var(--primary-ink)}
+.code-block pre{margin:0;padding:14px 16px;overflow-x:auto}
+.code-block code{
+  font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,"Noto Sans Mono",monospace;
+  font-size:var(--fs-sm);line-height:1.75;letter-spacing:0;color:var(--ink);white-space:pre;
+}
+
+/* 5.21 spec-list : label / value rows */
+.spec-list{margin:22px 0;display:grid;gap:1px;border:1px solid var(--line);border-radius:var(--r-sm);overflow:hidden;background:var(--line)}
+.spec-list>div{display:grid;grid-template-columns:minmax(0,10rem) minmax(0,1fr);gap:14px;padding:12px 16px;background:var(--card)}
+.spec-list dt{margin:0;color:var(--item-ink,var(--primary-ink));font-size:var(--fs-sm);font-weight:var(--fw-title)}
+.spec-list dd{margin:0;color:var(--ink-soft);font-size:var(--fs-sm)}
+
+/* 5.22 link-cards : related links as a grid */
+.link-cards{margin:22px 0;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;list-style:none}
+.prose .link-cards,.chapter-inner .link-cards{box-sizing:border-box;padding:0;margin-inline:auto}
+.link-cards li{margin:0}
+/* A lone related link is a statement, not a grid: let it use the full column
+   so a long title is not squeezed into half the reading width. */
+.link-cards:has(li:only-child){grid-template-columns:minmax(0,1fr)}
+.link-cards a{
+  position:relative;height:100%;padding:16px 44px 16px 18px;
+  display:grid;grid-template-columns:auto 1fr;align-items:center;gap:13px;
+  border:1px solid var(--line);border-left:3px solid color-mix(in srgb,var(--item-accent,var(--primary)) 55%,var(--line));
+  border-radius:var(--r-sm);background:var(--grad-tint);
+  color:var(--ink);text-decoration:none;
+  transition:transform .2s ease,border-color .2s ease,box-shadow .2s ease;
+}
+.link-cards a::after{
+  content:"↗";position:absolute;top:50%;right:14px;translate:0 -50%;
+  display:grid;place-items:center;width:24px;height:24px;border-radius:999px;
+  background:color-mix(in srgb,var(--item-accent,var(--primary)) 14%,transparent);
+  color:var(--item-ink,var(--primary-ink));font-size:var(--fs-xs);font-weight:var(--fw-kicker);
+  transition:transform .2s ease,background-color .2s ease;
+}
+.link-cards a:hover{
+  transform:translateY(-2px);box-shadow:var(--shadow-sm);
+  border-color:color-mix(in srgb,var(--item-accent,var(--primary)) 50%,var(--line));
+  border-left-color:var(--item-accent,var(--primary));
+}
+.link-cards a:hover::after{transform:translate(2px,-2px);background:color-mix(in srgb,var(--item-accent,var(--primary)) 26%,transparent)}
+.link-cards .emoji{font-size:1.5rem}
+.link-cards strong{display:block;font-size:var(--fs-sm);font-weight:var(--fw-title);line-height:1.55}
+.link-cards small{display:block;color:var(--muted);font-size:var(--fs-xs);line-height:1.6}
+
+/* 5.23 inline-detail : opt-in "more detail" disclosure inside a chapter */
+.inline-detail{margin:22px 0;border:1px solid var(--line);border-radius:var(--r-sm);background:var(--grad-tint);overflow:hidden}
+.inline-detail>summary{
+  padding:12px 16px;display:flex;align-items:center;gap:9px;cursor:pointer;list-style:none;
+  color:var(--item-ink,var(--primary-ink));font-size:var(--fs-sm);font-weight:var(--fw-title);
+}
+.inline-detail>summary::-webkit-details-marker{display:none}
+.inline-detail>summary::before{content:"＋";width:20px;display:grid;place-items:center;font-size:.95rem}
+.inline-detail[open]>summary::before{content:"−"}
+.inline-detail-body{padding:2px 16px 16px;border-top:1px solid var(--line);background:var(--card)}
+.inline-detail-body>:first-child{margin-top:14px}
+.inline-detail-body>:last-child{margin-bottom:0}
+
+/* 5.24 tabs : genuine alternate views of the same subject */
+.tabs{margin:24px 0}
+.tab-list{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:12px}
+.tab-list button{
+  height:38px;padding:0 16px;border:1px solid var(--line);border-radius:999px;
+  background:var(--card);color:var(--muted);cursor:pointer;font-size:var(--fs-sm);font-weight:var(--fw-title);line-height:1;
+}
+.tab-list button:hover{color:var(--item-ink,var(--primary-ink))}
+.tab-list button[aria-selected="true"]{border-color:transparent;background:var(--grad-brand);color:var(--on-deep)}
+.tab-panel{
+  padding:18px 20px;border:1px solid var(--line);border-radius:var(--r-sm);
+  background:linear-gradient(150deg,color-mix(in srgb,var(--item-accent,var(--primary)) 7%,var(--card)),var(--card) 70%);
+}
+.tab-panel[hidden]{display:none}
+.tab-panel>:first-child{margin-top:0}
+.tab-panel>:last-child{margin-bottom:0}
+
+/* 5.25 cta-banner : mid-article call to action */
+.cta-banner{
+  margin:28px 0;padding:22px 24px;display:flex;align-items:center;justify-content:space-between;gap:18px;
+  border:1px solid color-mix(in srgb,var(--primary) 34%,transparent);border-radius:var(--r-md);
+  background:var(--grad-deep);color:var(--on-deep);box-shadow:var(--shadow-deep);
+}
+.cta-banner strong{display:block;font-size:var(--fs-h4);font-weight:var(--fw-title)}
+.cta-banner p{margin:4px 0 0;color:var(--on-deep-soft);font-size:var(--fs-sm)}
+.cta-banner .cta-link{background:var(--card);color:var(--primary-ink)}
+
+/* 5.26 tag : inline status label, for release notes */
+.tag{
+  display:inline-block;margin:0 4px;padding:1px 9px;border-radius:999px;vertical-align:1px;
+  background:var(--grad-brand);color:var(--on-deep);font-size:.68rem;font-weight:var(--fw-kicker);letter-spacing:.04em;
+}
+.tag-new{background:linear-gradient(135deg,var(--accent),var(--primary))}
+.tag-change{background:linear-gradient(135deg,var(--primary),var(--secondary))}
+.tag-fix{background:linear-gradient(135deg,var(--secondary),color-mix(in srgb,var(--secondary) 60%,#1c8f6a))}
+
+/* ============================================================
+   6. CHAPTER ACCORDION  (the visual index)
+   ============================================================ */
+.chapters{display:grid;gap:12px}
+.chapter{
+  --item-accent:var(--primary);
+  --item-ink:var(--primary-ink);
+  overflow:hidden;border:1px solid var(--line);border-radius:var(--r-md);background:var(--card);
+  box-shadow:var(--shadow-sm);scroll-margin-top:calc(var(--header-h) + 8px);
+  transition:border-color .22s ease,box-shadow .22s ease,transform .22s ease;
+}
+.chapter:nth-of-type(3n+2){--item-accent:var(--secondary);--item-ink:var(--secondary-ink)}
+.chapter:nth-of-type(3n){--item-accent:var(--accent);--item-ink:var(--accent-ink)}
+.chapter:hover{border-color:color-mix(in srgb,var(--item-accent) 45%,var(--line));transform:translateY(-1px)}
+.chapter[open]{
+  border-color:color-mix(in srgb,var(--item-accent) 58%,var(--line));
+  box-shadow:0 16px 42px color-mix(in srgb,var(--item-accent) 16%,transparent);transform:none;
+}
+.chapter>summary{
+  min-height:82px;padding:15px 18px;display:grid;grid-template-columns:46px minmax(0,1fr) 32px;
+  align-items:center;gap:14px;cursor:pointer;list-style:none;
+  background:linear-gradient(135deg,color-mix(in srgb,var(--item-accent) 9%,var(--card)),var(--card) 64%);
+}
+.chapter>summary::-webkit-details-marker{display:none}
+.chapter-icon{
+  width:46px;height:46px;display:grid;place-items:center;border-radius:14px;font-size:1.32rem;
+  background:linear-gradient(145deg,color-mix(in srgb,var(--item-accent) 20%,var(--card)),color-mix(in srgb,var(--item-accent) 6%,var(--card)));
+}
+.chapter-heading{min-width:0;display:grid;gap:2px}
+.chapter-category{color:var(--item-ink);font-size:var(--fs-label);font-weight:var(--fw-title);letter-spacing:.08em}
+.chapter-title{color:var(--ink);font-size:var(--fs-h4);font-weight:var(--fw-strong);line-height:1.58}
+.chapter-toggle{
+  width:30px;height:30px;position:relative;border-radius:50%;
+  background:linear-gradient(145deg,color-mix(in srgb,var(--item-accent) 18%,var(--card)),color-mix(in srgb,var(--item-accent) 6%,var(--card)));
+}
+.chapter-toggle::before,.chapter-toggle::after{content:"";position:absolute;inset:14px auto auto 8px;width:14px;height:2px;border-radius:2px;background:var(--item-ink)}
+.chapter-toggle::after{transform:rotate(90deg);transition:transform .22s ease}
+.chapter[open] .chapter-toggle::after{transform:rotate(0)}
+.chapter-body{border-top:1px solid var(--line)}
+.chapter-inner{padding:28px clamp(20px,4vw,42px) 38px;font-size:var(--fs-body)}
+.chapter-inner>:first-child{margin-top:0}
+.chapter-inner p{margin:14px 0;color:var(--ink-soft)}
+.chapter-inner strong{font-weight:var(--fw-title);background:linear-gradient(transparent 72%,color-mix(in srgb,var(--accent) 22%,transparent) 0)}
+/* A block-level <strong> is a component title, not inline emphasis. The marker
+   would stretch the full column and read as a heavy underline, so drop it.
+   Unscoped on purpose: these components also appear inside .prose (the overview
+   panel wraps its blocks in .prose), and the marker must not leak there either. */
+.step-list strong,
+.timeline strong,
+.link-cards strong,
+.cta-banner strong,
+.source-card strong,
+.callout strong{background:none}
+.chapter-inner h3,.chapter-inner h4{
+  margin:34px 0 10px;padding-left:13px;border-left:4px solid var(--item-accent);
+  color:var(--item-ink);line-height:1.55;
+}
+.chapter-inner ul,.chapter-inner ol{padding-left:1.4em;color:var(--ink-soft)}
+.chapter-inner li{margin:6px 0}
+.chapter-inner li::marker{color:var(--item-accent);font-weight:var(--fw-kicker)}
+.chapter-inner a{color:var(--item-ink)}
+/* Cards carry their own type contract. The generic chapter prose rules above
+   are equally specific and come later, so without this they repaint card
+   titles with the heading rule and card copy with dark ink — unreadable on the
+   deep gradient surfaces. */
+.chapter-inner .feature-card h3,.chapter-inner .feature-card h4,
+.chapter-inner .soft-card h3,.chapter-inner .soft-card h4{
+  margin:0;padding-left:0;border-left:0;
+}
+.chapter-inner .soft-card h3,.chapter-inner .soft-card h4{margin:8px 0 4px;color:var(--item-ink,var(--primary-ink))}
+.chapter-inner .feature-card h3,.chapter-inner .feature-card h4{color:var(--on-deep)}
+.chapter-inner .feature-card p,.chapter-inner .cta-banner p{color:var(--on-deep-soft)}
+.chapter-inner .soft-card p{color:var(--muted)}
+.chapter-inner .feature-card a,.chapter-inner .cta-banner a{color:var(--primary-ink)}
+.chapter-intro{
+  margin:0 0 20px;padding:16px 18px;border-left:4px solid var(--item-accent);border-radius:0 12px 12px 0;
+  background:linear-gradient(120deg,color-mix(in srgb,var(--item-accent) 13%,var(--card)),var(--card) 80%);
+  font-size:var(--fs-sm);font-weight:var(--fw-strong);color:var(--ink);
+}
+
+/* ============================================================
+   7. FOOTER RULE
+   Mirrors the header: same brand mark, same link tokens, one
+   hairline, reading width, muted meta line last.
+   ============================================================ */
+.source-card{
+  margin:56px 0 0;padding:24px 26px;display:flex;align-items:center;justify-content:space-between;gap:18px;
+  border:1px solid var(--line);border-radius:22px;background:var(--grad-panel);box-shadow:var(--shadow-sm);
+}
+.source-card strong{display:block;font-size:var(--fs-h4);font-weight:var(--fw-title)}
+.source-card small{display:block;color:var(--muted);font-size:var(--fs-xs)}
+.site-footer{
+  margin:40px 0 72px;padding:26px 0 0;border-top:1px solid var(--line);
+  display:grid;gap:14px;
+}
+.footer-top{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:14px}
+.footer-links{display:flex;flex-wrap:wrap;align-items:center;gap:4px}
+.footer-links a{
+  height:36px;padding:0 12px;display:inline-flex;align-items:center;gap:6px;border-radius:10px;
+  color:var(--muted);font-size:var(--fs-xs);font-weight:var(--fw-title);text-decoration:none;
+}
+.footer-links a:hover{color:var(--primary-ink);background:var(--soft)}
+.footer-meta{color:var(--muted);font-size:var(--fs-xs);line-height:1.7}
+
+/* ============================================================
+   8. FLOATING CONTROLS · TOC · LIGHTBOX
+   ============================================================ */
+.float-actions{position:fixed;right:18px;bottom:max(18px,env(safe-area-inset-bottom));z-index:82;display:grid;justify-items:end;gap:9px}
+.float-button{
+  min-height:44px;padding:0 16px;display:inline-flex;align-items:center;gap:7px;
+  border:1px solid var(--line-strong);border-radius:999px;background:var(--card);color:var(--ink-soft);
+  cursor:pointer;box-shadow:var(--shadow-sm);font-size:var(--fs-xs);font-weight:var(--fw-kicker);
+  transition:opacity .2s ease,transform .2s ease,border-color .2s ease;
+}
+.float-button:hover{border-color:var(--primary);color:var(--primary-ink);transform:translateY(-2px)}
+.float-button.primary{border-color:transparent;background:var(--grad-brand);color:var(--on-deep)}
+.float-button[hidden]{display:none}
+.toc-dialog{
+  width:min(520px,calc(100% - 28px));max-height:min(78dvh,760px);padding:0;
+  border:1px solid var(--line);border-radius:var(--r-lg);background:var(--card);color:var(--ink);
+  box-shadow:0 28px 100px rgba(15,10,35,.35);
+}
+.toc-dialog::backdrop{background:rgba(18,14,35,.55);backdrop-filter:blur(5px)}
+.toc-head{
+  position:sticky;top:0;z-index:2;padding:18px 20px 14px;display:flex;align-items:center;justify-content:space-between;gap:14px;
+  border-bottom:1px solid var(--line);background:var(--card);
+}
+.toc-head strong{font-size:var(--fs-h4);font-weight:var(--fw-title)}
+.toc-list{padding:10px 12px 18px;display:grid;gap:4px}
+.toc-list button{
+  padding:10px 11px;display:grid;grid-template-columns:26px 1fr;align-items:center;gap:9px;
+  border:0;border-radius:11px;background:transparent;color:var(--ink-soft);cursor:pointer;text-align:left;
+  font-size:var(--fs-sm);font-weight:var(--fw-strong);
+}
+.toc-list button:hover,.toc-list button.current{background:var(--soft);color:var(--primary-ink)}
+.lightbox{width:min(1100px,96vw);max-height:94vh;padding:0;border:0;border-radius:20px;background:#101018;box-shadow:0 30px 100px #000a}
+.lightbox::backdrop{background:rgba(5,5,15,.82);backdrop-filter:blur(8px)}
+.lightbox img{display:block;max-width:100%;max-height:90vh;margin:auto;object-fit:contain}
+.lightbox .icon-button{position:absolute;top:10px;right:10px;background:#171724;color:#fff;border-color:#ffffff55}
+
+/* ============================================================
+   9. BREAKPOINTS
+   ============================================================ */
+@media (max-width:960px){
+  .card-grid,.soft-grid,.gallery{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .stat-strip{grid-template-columns:repeat(2,1fr)}
+}
+@media (max-width:900px){
+  .hero{margin-top:24px;border-radius:26px}
+  .hero-grid{grid-template-columns:1fr}
+  .hero-media{order:-1;padding-bottom:0}
+  .hero-copy{padding:28px 24px 36px}
+  .frame-list{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media (max-width:720px){
+  .card-grid,.soft-grid,.check-list,.frame-list,.compare,.gallery,.link-cards{grid-template-columns:1fr}
+  .spec-list>div{grid-template-columns:1fr;gap:2px}
+  .card-grid{gap:11px}
+  .feature-card{
+    min-height:0;padding:18px 20px;display:grid;grid-template-columns:56px minmax(0,1fr);
+    grid-template-rows:auto auto;column-gap:16px;text-align:left;justify-items:start;align-items:center;
+  }
+  .card-icon,.card-image{grid-row:1/3}
+  .card-icon{font-size:2.2rem}
+  .card-image{width:52px;height:52px}
+  .feature-card h3{margin:0}
+  .header-current{display:none}
+  .nav-label{display:none}
+}
+@media (max-width:600px){
+  :root{--gutter:24px;--header-h:56px}
+  body{line-height:1.85}
+  .hero-copy{padding:24px 20px 30px}
+  .hero-media{padding:12px 12px 0}
+  .brand em{display:none}
+  .panel{border-radius:22px}
+  .chapter>summary{min-height:76px;padding:13px 14px;grid-template-columns:42px minmax(0,1fr) 30px;gap:11px}
+  .chapter-icon{width:42px;height:42px}
+  .chapter-inner{padding:22px 18px 30px}
+  .source-card{flex-direction:column;align-items:flex-start;padding:20px 18px}
+  .source-card .cta-link{width:100%;justify-content:center}
+  .table-wrap{border-radius:var(--r-sm)}
+  .float-actions{right:12px;bottom:12px}
+  .float-button{width:48px;min-height:48px;padding:0;justify-content:center}
+  .float-button .float-label{display:none}
+  .cta-banner{flex-direction:column;align-items:flex-start;padding:20px 18px}
+  .cta-banner .cta-link{width:100%;justify-content:center}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation-duration:.001ms!important;transition-duration:.001ms!important}
+}
+@media print{
+  .site-header,.progress,.float-actions,.toc-dialog,.lightbox{display:none!important}
+  body{background:#fff}
+  .hero,.panel,.stat,.source-card,.feature-card{box-shadow:none}
+  .chapter{break-inside:avoid}
+  .chapter-body,.inline-detail-body{display:block!important}
+  .tab-panel[hidden]{display:block!important}
+  .tab-list,.code-copy{display:none!important}
+}
+</style>
+<link rel="stylesheet" href="../../assets/site-chrome.css">
+<link rel="stylesheet" href="../../assets/site-actions.css">
+<script src="../../assets/site-actions.js" defer></script>
+<script src="../../assets/site-nav.js" defer></script>
+<script src="../../assets/site-lang.js" defer></script>
+</head>
+<body>
+<a class="skip-link" href="#overview">Skip to content</a>
+<div class="progress" id="progressBar"></div>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a class="brand" href="#top">SlideCast<b>Studio</b></a>
+    <span class="header-current" id="currentSection"></span>
+    <nav class="header-nav" aria-label="Article navigation"><a class="header-link" href="../" aria-label="Home"><span aria-hidden="true">🏠</span><span class="nav-label">HOME</span></a><button class="header-link" type="button" data-site-nav aria-label="All pages"><span aria-hidden="true">📚</span><span class="nav-label">Pages</span></button>
+      <button class="header-link" id="openToc" type="button"><span aria-hidden="true">☰</span><span class="nav-label">Contents</span></button>
+      
+      <button class="icon-button" id="themeToggle" type="button" aria-label="Switch colour theme"><span class="theme-light" aria-hidden="true">☀️</span><span class="theme-dark" aria-hidden="true">🌙</span></button>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+<section class="hero has-image">
+  <div class="hero-grid">
+    <div class="hero-copy">
+      <p class="kicker">OFFICIAL MANUAL</p>
+      <h1>SlideCast Studio — the official manual</h1>
+      <p class="hero-subtitle">From a slide deck to a subtitled, narrated video.</p>
+      <p class="hero-description">The official manual for SlideCast Studio (v3.4): add AI narration, a lip-syncing character, BGM and opening/ending videos to your slides, and export the whole thing as video from the browser alone.</p>
+      <ul class="chips"><li class="chip">Manual</li><li class="chip">v3.4</li><li class="chip">AI narration</li><li class="chip">Gemini</li><li class="chip">Video export</li></ul>
+      <div class="meta"><span>aokuma</span><span>2026.03.02 (updated 2026.08.08)</span><span>For v3.4</span></div>
+    </div>
+    <figure class="hero-media"><img src="../../assets/manual-01.png" alt="The SlideCast Studio manual header image"></figure>
+  </div>
+</section>
+
+
+<div class="reading">
+  <section class="panel" id="overview">
+    <p class="kicker">👋 OVERVIEW</p>
+    <h2 class="rule">Before you start</h2>
+    <div class="prose"><div class="notice-box"><p>What changed</p><ul><li>2026/8/8: Substantially rewritten to match the current version, v3.4</li></ul></div><p>Welcome to the official SlideCast Studio manual.</p><p>SlideCast Studio is a slide-video tool I built by heavily modifying an idea I found in a note post by Majin. It only exists because Majin published the prompt in the first place.</p><ul class="link-cards"><li><a href="https://note.com/majin_108/n/n28cebe38881d" target="_blank" rel="noopener noreferrer"><span class="emoji" aria-hidden="true">📝</span><span><strong>[Free] The &quot;prompt&quot; that turns NotebookLM slides into a video with audio and subtitles</strong><small>note.com / Majin (Japanese)</small></span></a></li></ul><p>I took that prompt, modified it heavily, and turned it into an Apps Script app: SlideCast Studio v1.0.</p><ul class="link-cards"><li><a href="https://note.com/majin_108/n/nb21118f14ac0" target="_blank" rel="noopener noreferrer"><span class="emoji" aria-hidden="true">🌟</span><span><strong>[Amazing tool] A follower&#x27;s &quot;heavily modified&quot; tool is too good [SlideCast Studio]</strong><small>note.com / Majin (Japanese)</small></span></a></li></ul><p>SlideCast Studio v2 and later — what this manual covers — is a large update on top of that.</p><ul class="link-cards"><li><a href="https://note.com/bluezzly/n/nb4c85213c808" target="_blank" rel="noopener noreferrer"><span class="emoji" aria-hidden="true">🚀</span><span><strong>SlideCast Studio</strong><small>note.com / aokuma (Japanese)</small></span></a></li></ul><div class="callout callout-good"><p><strong>🧭 How to read this manual</strong></p><p>If this is your first time, the shortest path is to start at chapter 3, Bundle Builder. With no API key set up, it takes you through writing a script, generating the voice and exporting a ZIP in one pass. Click any chapter heading to open it.</p></div></div>
+    
+  </section>
+
+  <div class="divider">CONTENTS</div>
+  <section class="chapters" aria-label="Article chapters"><details class="chapter" id="section-1"><summary><span class="chapter-icon" aria-hidden="true">🎬</span><span class="chapter-heading" role="heading" aria-level="2"><span class="chapter-category">Chapter 1</span><span class="chapter-title">What it is, and what it does</span></span><span class="chapter-toggle" aria-hidden="true"></span></summary><div class="chapter-body"><div class="chapter-inner"><p class="chapter-intro">What kind of tool SlideCast Studio is, and what you can do with it.</p><h3>🎬 What SlideCast Studio is</h3><p>An app that loads PDFs, images and video into the browser, adds AI narration, and turns the result into a video directly. Nothing to install — the video is finished in the browser.</p><h3>✨ Main features</h3><div class="card-grid"><article class="feature-card"><span class="card-icon" aria-hidden="true">🤖</span><h3>AI script generation</h3><p>Gemini integration writes the script for you from the documents you hand it</p></article><article class="feature-card"><span class="card-icon" aria-hidden="true">🔊</span><h3>AI voice synthesis</h3><p>Narration from a choice of 30 voices (Gemini TTS). Mic recording and audio file import are supported too</p></article><article class="feature-card"><span class="card-icon" aria-hidden="true">🎭</span><h3>Character performance</h3><p>Lip sync, expressions, posed gestures and a breathing motion</p></article><article class="feature-card"><span class="card-icon" aria-hidden="true">🎞️</span><h3>Slide animation</h3><p>Ken Burns pan and zoom, to give still images some movement</p></article><article class="feature-card"><span class="card-icon" aria-hidden="true">🎬</span><h3>Video slides</h3><p>Insert MP4 and WebM as slides (with a trimmable playback range)</p></article><article class="feature-card"><span class="card-icon" aria-hidden="true">🧱</span><h3>Blank slides</h3><p>Build title cards, chapter breaks and conversation scenes with no source document</p></article><article class="feature-card"><span class="card-icon" aria-hidden="true">🎨</span><h3>Design settings</h3><p>Gradients, strokes, shadows, rounded corners, badges, logos and captions</p></article><article class="feature-card"><span class="card-icon" aria-hidden="true">🎵</span><h3>BGM (up to 10 tracks)</h3><p>Switch BGM per slide, with a crossfade between tracks</p></article><article class="feature-card"><span class="card-icon" aria-hidden="true">🔔</span><h3>Sound effects and text blips</h3><p>Transition sounds, plus retro-style text blips for lines with no voice</p></article><article class="feature-card"><span class="card-icon" aria-hidden="true">🕐</span><h3>Per-slide timeline</h3><p>Adjust audio, video and pauses down to the second</p></article><article class="feature-card"><span class="card-icon" aria-hidden="true">📚</span><h3>Book-style PDF</h3><p>Slide images and subtitles combined, in A4 portrait</p></article><article class="feature-card"><span class="card-icon" aria-hidden="true">📽️</span><h3>Opening/ending branding</h3><p>Opening and ending videos joined automatically around the main body at export time</p></article></div><dl class="spec-list"><div><dt>🌐 UI languages</dt><dd>Japanese and English</dd></div><div><dt>💾 Export formats</dt><dd>MP4, WebM, PPTX, PDF, PNG, JPEG</dd></div></dl></div></div></details><details class="chapter" id="section-2"><summary><span class="chapter-icon" aria-hidden="true">💻</span><span class="chapter-heading" role="heading" aria-level="2"><span class="chapter-category">Chapter 2</span><span class="chapter-title">System requirements and recommended specs</span></span><span class="chapter-toggle" aria-hidden="true"></span></summary><div class="chapter-body"><div class="chapter-inner"><p class="chapter-intro">Video export runs on your own computer. Here is what to aim for if you want it to be comfortable.</p><h3>🌐 Recommended browsers</h3><ul class="check-list"><li>✅ Google Chrome (desktop, current version) ← the top recommendation</li><li>✅ Microsoft Edge (current version)</li><li>⚠️ Phones and tablets are not recommended</li></ul><h3>💻 How many slides you can expect to handle</h3><p>Rendering the video uses your own computer's browser memory.</p><div class="table-wrap"><table class="data-table"><thead><tr><th>Installed memory</th><th>720p</th><th>1080p</th><th>1440p</th></tr></thead><tbody><tr><td>8GB</td><td>roughly 20–40 slides</td><td>roughly 10–20 slides</td><td>not recommended</td></tr><tr><td>16GB (recommended)</td><td>roughly 50–100 slides</td><td>roughly 25–50 slides</td><td>roughly 10–20 slides</td></tr><tr><td>32GB</td><td>—</td><td>roughly 50–100 slides</td><td>roughly 20–40 slides</td></tr></tbody></table></div><p>There are three output resolutions: 720p, 1080p and 1440p (at 16:9 that is 1280×720, 1920×1080 and 2560×1440).</p><h3>Other recommended specs</h3><dl class="spec-list"><div><dt>OS</dt><dd>Windows 11 or later, or macOS 13 or later</dd></div><div><dt>CPU</dt><dd>6 cores or more recommended</dd></div><div><dt>Storage</dt><dd>SSD recommended</dd></div></dl><h3>🐢 If things feel slow</h3><ul class="check-list"><li>Drop the output resolution from 1440p to 1080p or below</li><li>Drop the video quality from “High” to “Standard” or “Low”</li><li>Re-import your documents at a lower import quality (chapter 7)</li><li>Clear out projects and assets you no longer need</li><li>Restart the browser</li><li>Split long jobs across several projects</li></ul><div class="callout callout-warn"><p><strong>🫨 If the exported video looks stuttery</strong></p><p>Video export uses browser memory, so pause your other work while it runs. Closing spare tabs as well improves the quality of the file that comes out.</p></div></div></div></details><details class="chapter" id="section-3"><summary><span class="chapter-icon" aria-hidden="true">🏗️</span><span class="chapter-heading" role="heading" aria-level="2"><span class="chapter-category">Chapter 3</span><span class="chapter-title">Start with Bundle Builder (strongly recommended)</span></span><span class="chapter-toggle" aria-hidden="true"></span></summary><div class="chapter-body"><div class="chapter-inner"><p class="chapter-intro">A companion tool that lets you start producing without setting up an API key.</p><h3>🏗️ What SlideCast Studio Bundle Builder is</h3><p>Bundle Builder is a companion tool built around one idea: start producing without setting up an API key. It is a standalone app that runs inside Google Gemini Canvas, and its step-by-step wizard walks you from script generation through AI voice synthesis to a ZIP export.</p><p>Open it from the Bundle Builder card on the dashboard (the one with the “Start here” badge).</p><div class="gallery" data-cols="2"><figure><img src="../../assets/manual-02.png" alt="The Bundle Builder card on the dashboard" loading="lazy"><figcaption>The Bundle Builder card on the dashboard</figcaption></figure><figure><img src="../../assets/manual-03.png" alt="The Bundle Builder start screen" loading="lazy"><figcaption>The Bundle Builder screen</figcaption></figure></div><h3>🌟 What Bundle Builder gets you</h3><ul class="check-list"><li>No API key setup: on the standard models you can start without obtaining a Gemini API key of your own</li><li>A wizard, so there is nothing to work out: five steps and you are done</li><li>Japanese and English: switch with the 🌐 button at the top right</li></ul><h3>📋 The five Bundle Builder steps</h3><figure><img src="../../assets/manual-04.png" alt="The Bundle Builder step indicator" loading="lazy"><figcaption>Five steps to work through</figcaption></figure><ol class="step-list"><li><strong>Step 1: Input</strong>Choose how your material will be prepared. “Generate slide images here (v3.3 and later)” takes a theme, an audience, a slide count and an art style, and has the AI produce the slide images themselves (regenerate them all, or one at a time, afterwards). “Upload documents” imports PNG, JPEG, PDF, ZIP or a folder. The title used for the output filename is set here too. If you plan to record with a microphone, granting mic permission on this screen makes things smoother later.</li><li><strong>Step 2: Script generation</strong>Decide the audience, script style, sense of length, number of speakers (up to six), subtitle lines per page, subtitle layout and misreading prevention (adding phonetic readings), then generate. Afterwards the script editor lets you edit speaker, tone, body text and subtitles freely. You can also add and delete script blocks, copy or import JSON, and revert to the previous script.</li><li><strong>Step 3: Voice generation</strong>Speakers are extracted from the script automatically; assign a voice model per speaker and generate them in one pass. You can tune how many run at once, stop the run, and regenerate only what did not finish. Recording over a line with the microphone is supported too (with head and tail trimming).</li><li><strong>Step 4: Validation</strong>Four checks run: the script itself (empty text, sequence numbers), speaker consistency, audio links and slide references.</li><li><strong>Step 5: ZIP export</strong>Download a ZIP containing your slide documents, the script and the audio.</li></ol><div class="gallery" data-cols="2"><figure><img src="../../assets/manual-05.png" alt="The Step 1 input screen" loading="lazy"><figcaption>Step 1: Input</figcaption></figure><figure><img src="../../assets/bb-script.png" alt="The Step 2 script generation screen" loading="lazy"><figcaption>Step 2: Script generation</figcaption></figure></div><h3>📥 Bringing it into SlideCast Studio</h3><p>Drop or select the exported ZIP on “Create from documents” on the dashboard — that is all. From there you settle the design and effects in the editor and export.</p></div></div></details><details class="chapter" id="section-4"><summary><span class="chapter-icon" aria-hidden="true">🔐</span><span class="chapter-heading" role="heading" aria-level="2"><span class="chapter-category">Chapter 4</span><span class="chapter-title">Data storage and security</span></span><span class="chapter-toggle" aria-hidden="true"></span></summary><div class="chapter-body"><div class="chapter-inner"><p class="chapter-intro">Please read where your data lives, what can erase it, and how API keys are handled.</p><h3>💾 Where is it stored?</h3><p>All project data is stored inside your own browser, in IndexedDB. Nothing is uploaded to an external server.</p><h3>⚠️ What can erase your data</h3><ul class="check-list"><li>Clearing “browsing history and cookies” in your browser</li><li>Uninstalling the browser</li><li>Closing a private (incognito) window</li></ul><div class="callout callout-warn"><p><strong>🆘 There is no recovery</strong></p><p>Once data is gone, the app cannot bring it back. Backing up regularly is the only defence.</p></div><h3>🔐 If you use an API key</h3><ul class="check-list"><li>Never enter one on a shared PC or at an internet café</li><li>API keys are not stored in project data — they are kept in the browser only</li><li>Turning on “Do not save on this device (session only)” clears the key the moment you close the tab or the browser</li><li>Setting usage limits and alerts in the Google Cloud Console is strongly recommended</li></ul><div class="callout callout-warn"><p><strong>⚠️ Leak risk</strong></p><p>If an API key does leak and gets abused, the bill can get large.</p></div></div></div></details><details class="chapter" id="section-5"><summary><span class="chapter-icon" aria-hidden="true">📊</span><span class="chapter-heading" role="heading" aria-level="2"><span class="chapter-category">Chapter 5</span><span class="chapter-title">Project management (the dashboard)</span></span><span class="chapter-toggle" aria-hidden="true"></span></summary><div class="chapter-body"><div class="chapter-inner"><p class="chapter-intro">Creating, duplicating, backing up and resetting projects all happen on the dashboard.</p><h3>📊 Checking data usage</h3><p>The top of the dashboard shows an estimate of how much browser storage you are using. As you approach the limit, delete projects you no longer need, or back them up and move them off.</p><figure><img src="../../assets/manual-06.png" alt="The data usage display on the dashboard" loading="lazy"><figcaption>The estimated data usage at the top of the dashboard</figcaption></figure><h3>➕ Creating a project</h3><p><strong>Create from documents (recommended)</strong>: select or drag and drop a PDF, PNG, JPEG or ZIP (or a folder). Documents with many pages can take a few minutes. In v3.4 you can choose the import quality before the import starts (chapter 7).</p><p><strong>Create an empty project</strong>: for starting from nothing. You can add material later.</p><h3>🗂️ Working with projects</h3><ul class="check-list"><li>📋 Duplicate: click the copy icon</li><li>✏️ Rename: click the title, or the edit icon</li><li>☁️ Save a backup: the save icon → download the file</li><li>🗑️ Delete: the trash icon (there is no undo afterwards)</li></ul><p>Each card shows a rough data size and an estimated size for an individual backup.</p><h3>💾 Backup and restore</h3><p>The “Save data” button exports a ZIP with the items you choose. These are the options:</p><ul class="check-list"><li>Preferences</li><li>Characters</li><li>Custom presets</li><li>Color palettes</li><li>Media library</li><li>Projects (selectable one by one)</li></ul><p>An estimated backup size is shown, with a three-level warning: safe, caution, danger. At the danger level a restore may fail, so backing projects up individually is recommended.</p><figure><img src="../../assets/manual-07.png" alt="The data backup screen" loading="lazy"><figcaption>“Save data” lets you choose what to include</figcaption></figure><p><strong>Restore (import)</strong>: the “Restore data” button at the top of the dashboard → select or drop a JSON or ZIP file. If a character with the same name, or the same project, already exists, you choose what happens.</p><ul class="check-list"><li>Skip duplicates</li><li>Overwrite duplicates</li><li>Add under a different name</li></ul><figure><img src="../../assets/manual-08.png" alt="The duplicate handling options when restoring data" loading="lazy"><figcaption>On restore, you choose how duplicates are handled</figcaption></figure><h3>🗑️ Resetting data by category</h3><p>“Reset data” lets you tick which categories to delete.</p><ul class="check-list"><li>Projects</li><li>Asset library (shared images, video, BGM and so on)</li><li>App settings (characters, presets, color palettes, Gem URL)</li><li>API keys and other local settings</li></ul><div class="callout callout-warn"><p><strong>⚠️ Deletion cannot be undone</strong></p><p>There is a button to open the backup screen before you delete. Deleted data cannot be brought back.</p></div></div></div></details><details class="chapter" id="section-6"><summary><span class="chapter-icon" aria-hidden="true">🖥️</span><span class="chapter-heading" role="heading" aria-level="2"><span class="chapter-category">Chapter 6</span><span class="chapter-title">Getting around the editor</span></span><span class="chapter-toggle" aria-hidden="true"></span></summary><div class="chapter-body"><div class="chapter-inner"><p class="chapter-intro">The screen is split into four areas. Start by getting a feel for where everything sits.</p><h3>🖥️ The four areas</h3><p><strong>① Header (top)</strong>: the button back to the dashboard, the project name (click to change it), the ⚙️ settings button, statistics (estimated runtime and file size), the Script / Generate all / Export documents / Export video buttons, the Play all button, and the save state (unsaved / saved).</p><p><strong>② Sidebar (left)</strong>: the slide thumbnails. Reorder by drag and drop, drop images, video, PDFs or ZIPs to add several at once, and use the hover menu to change the image, generate TTS, duplicate or delete. Between thumbnails you will see the transition boundary badge (global / per-boundary). The width is draggable.</p><p><strong>③ Preview (center)</strong>: the canvas, live. The preview background can be light, mid or dark. Drag the divider to resize the area. There are playback controls (▶ / ⏸ / a seek bar) and a “Fine-tune timing” button.</p><p><strong>④ Script editor (bottom)</strong>: where you write each slide's lines and subtitles. Exchanges between several characters, performance settings (expressions and poses) and the per-slide timeline all live here.</p><figure><img src="../../assets/manual-09.png" alt="The overall layout of the editor" loading="lazy"><figcaption>The four areas of the editor</figcaption></figure><h3>🟢 Easy mode (v3.0 and later)</h3><p>If the number of settings feels like too much, there is an “Easy” switch. Turn it on and only the essentials are shown; everything else is set for you at sensible values. These are the settings Easy mode exposes.</p><ul class="check-list"><li>Frame size (landscape / portrait / square)</li><li>Subtitles (on/off, split or overlay, four designs, text size)</li><li>Image display (fit whole / fill)</li><li>Slide size (100% / 95% / 90%)</li><li>Screen background color</li><li>Character (name, icon, shape, size, speech bubble, which side it appears on)</li><li>Opening / ending video</li><li>BGM (track and volume)</li></ul><figure><img src="../../assets/ui-easy.png" alt="The Easy mode settings screen" loading="lazy"><figcaption>The settings Easy mode shows</figcaption></figure><p>When you want finer control, switch it off and you are back in the normal mode.</p><h3>▶️ Playback</h3><ul class="check-list"><li>Play the current slide only: the ▶ button at the bottom center / click the canvas / press Space</li><li>Play the whole thing: “Play all” in the header → fullscreen playback including transitions, opening/ending and BGM</li><li>Fine-tune timing: a mode that enlarges the preview so you can settle pauses and audio positions</li></ul><h3>⌨️ Keyboard shortcuts</h3><dl class="spec-list"><div><dt>Save</dt><dd>Ctrl / ⌘ + S</dd></div><div><dt>Play / pause</dt><dd>Space</dd></div><div><dt>Previous / next slide</dt><dd>← / →</dd></div><div><dt>Delete slide</dt><dd>Delete</dd></div><div><dt>Duplicate slide</dt><dd>Ctrl / ⌘ + D</dd></div><div><dt>Undo</dt><dd>Ctrl / ⌘ + Z</dd></div><div><dt>Redo</dt><dd>Ctrl + Y / ⌘ + ⇧ + Z</dd></div></dl></div></div></details><details class="chapter" id="section-7"><summary><span class="chapter-icon" aria-hidden="true">🖼️</span><span class="chapter-heading" role="heading" aria-level="2"><span class="chapter-category">Chapter 7</span><span class="chapter-title">Adding and managing slides</span></span><span class="chapter-toggle" aria-hidden="true"></span></summary><div class="chapter-body"><div class="chapter-inner"><p class="chapter-intro">Import quality, blank slides and video slides — everything to do with slides themselves.</p><h3>➕ Adding slides</h3><p>Use “Add slide” at the bottom of the sidebar, or drag and drop images, video, PDFs or ZIPs onto the sidebar. Every page of a PDF is turned into an image automatically.</p><h3>🖼️ Choosing the import quality (v3.x)</h3><p>When you import documents, you can pick a quality preset.</p><dl class="spec-list"><div><dt>Original quality</dt><dd>Imports at high quality, capped by the original image (PDFs come in at high resolution)</dd></div><div><dt>4K</dt><dd>For 4K video material. Uses noticeably more time and memory</dd></div><div><dt>2K</dt><dd>A balance of quality and speed</dd></div><div><dt>Full HD</dt><dd>For standard YouTube use</dd></div><div><dt>Standard</dt><dd>For ordinary use. Somewhat lighter</dd></div><div><dt>Fast</dt><dd>For checking. Fine text tends to go soft</dd></div></dl><div class="callout callout-warn"><p><strong>⚠️ The original is the ceiling</strong></p><p>You will not get more detail than the original image or PDF holds. Choosing a higher quality does not help if the source is low resolution — the source is the limit.</p></div><figure><img src="../../assets/manual-10.png" alt="The import quality selection screen" loading="lazy"><figcaption>Pick a quality preset as you import</figcaption></figure><h3>🧱 Blank slides (new in v3.4)</h3><p>“Add slide” → “Add blank slide” adds one slide with no source document behind it.</p><figure><img src="../../assets/manual-11.png" alt="Adding a blank slide" loading="lazy"><figcaption>Add a slide with no source document</figcaption></figure><p>On top of the project background (solid color, gradient, image or video) you can place subtitles, the character icon, a speech bubble, captions and badges. It suits cases like these:</p><ul class="check-list"><li>Title cards</li><li>Chapter breaks</li><li>Side notes</li><li>End cards</li><li>Conversation-only scenes</li></ul><p>Set an image later and it turns into an ordinary image slide. Ken Burns is an effect applied to an image, so it does not appear on blank slides. Preview, transitions and slide image export all work.</p><h3>🔀 Reordering and the hover menu</h3><p>Thumbnails can be reordered by drag and drop. The menu that appears on hover offers:</p><ul class="check-list"><li>🖼️ Change image: swap the image, leaving the script alone</li><li>🔊 Generate TTS: generate the audio for that slide only</li><li>📋 Duplicate: copy the slide with both image and lines</li><li>🗑️ Delete: recoverable with Ctrl + Z</li></ul><h3>⏱️ Duration of a still slide (automatic / manual)</h3><p>“Still slide settings” in the script editor switches how the duration is decided.</p><dl class="spec-list"><div><dt>Automatic</dt><dd>Updated automatically from the audio length or character count, plus the pauses before, after and between lines</dd></div><div><dt>Manual</dt><dd>Enter the number of seconds directly</dd></div></dl><p>The per-slide movement (Ken Burns) and its strength can also be set here, slide by slide.</p><h3>🎬 Inserting a video slide</h3><p>MP4 and WebM can be inserted as slides (up to 200MB / 10 minutes). There are three audio modes.</p><dl class="spec-list"><div><dt>🔇 Muted</dt><dd>Cuts the video&#x27;s own audio. BGM continues</dd></div><div><dt>🎬 Video audio only</dt><dd>No narration. BGM is silenced</dd></div><div><dt>🎚️ Mixed with BGM</dt><dd>Both play</dd></div></dl><p>Beyond that, you can set:</p><ul class="check-list"><li>Video volume</li><li>Playback range (trim the start and end)</li><li>Ducking: lower the BGM automatically while the video plays</li><li>Fullscreen: expand the video across the whole canvas (badges and captions are hidden)</li><li>Show subtitles: overlay subtitles on the video, in fullscreen only</li><li>“Preview with these settings”, to hear how the audio will come out beforehand</li></ul><div class="callout callout-good"><p><strong>💡 Note</strong></p><p>Ken Burns is not applied to video slides.</p></div><figure><img src="../../assets/manual-12.png" alt="The video slide settings screen" loading="lazy"><figcaption>Audio mode and trimming for a video slide</figcaption></figure></div></div></details><details class="chapter" id="section-8"><summary><span class="chapter-icon" aria-hidden="true">📝</span><span class="chapter-heading" role="heading" aria-level="2"><span class="chapter-category">Chapter 8</span><span class="chapter-title">Writing the script and making the audio</span></span><span class="chapter-toggle" aria-hidden="true"></span></summary><div class="chapter-body"><div class="chapter-inner"><p class="chapter-intro">From generating and editing the script through to AI voice, external audio and mic recording.</p><h3>🗂️ The “Script” tab (v3.x)</h3><p>The “Script” button in the header opens everything to do with the script in one place.</p><dl class="spec-list"><div><dt>Generate</dt><dd>Pick your conditions, generate a script on the spot and place it on the slides</dd></div><div><dt>Import</dt><dd>Paste script JSON to import it</dd></div><div><dt>Bundle</dt><dd>Load data that came from Bundle Builder</dd></div><div><dt>Paste</dt><dd>Convert from plain text</dd></div></dl><p>The Generate tab covers audience, style, length, number of speakers, subtitle lines per page, subtitle layout, script language, phonetic reading assistance, the generation model, the TTS method, whether to research, and more.</p><p>Instead of generating here, you can display a prompt for an external AI, hand it to ChatGPT, Claude or Gemini along with your documents, and import the JSON that comes back through the “Import” tab.</p><div class="callout callout-warn"><p><strong>⚠️ Video slides are excluded</strong></p><p>Video slides are not covered by script generation (the script is placed on still slides only, in order).</p></div><div class="gallery" data-cols="2"><figure><img src="../../assets/manual-13.png" alt="The generate screen of the Script tab" loading="lazy"><figcaption>Generation settings in the “Script” tab</figcaption></figure><figure><img src="../../assets/manual-14.png" alt="The import screen of the Script tab" loading="lazy"><figcaption>Importing script JSON</figcaption></figure></div><h3>📝 The structure of a script block (Dialogue)</h3><p>Each slide can hold several “script blocks”.</p><p><strong>TTS script (left)</strong>: the text the AI reads aloud. With Gemini TTS, adding phonetic readings in kana or in parentheses for difficult kanji gets them read correctly. A Japanese comma (、) automatically creates a small pause.</p><p><strong>Displayed subtitle (right)</strong>: the caption shown on screen. Leave it empty and the TTS script is shown as is. A line break shows lines together; a blank line (two line breaks) moves to the next subtitle page.</p><figure><img src="../../assets/manual-15.png" alt="The input fields of a script block" loading="lazy"><figcaption>TTS script on the left, displayed subtitle on the right</figcaption></figure><h3>⏳ Setting pauses (Gap) individually</h3><p>Each script block can specify the pauses around it, in seconds.</p><dl class="spec-list"><div><dt>Leading pause</dt><dd>Before the first block (defaults to Pre-Roll)</dd></div><div><dt>Pause</dt><dd>The wait before the next block (defaults to the conversation gap)</dd></div><div><dt>Trailing pause</dt><dd>After the last block (defaults to Post-Roll)</dd></div></dl><p>An individual setting can be returned to the shared value in one click.</p><h3>🔊 Generating AI voice</h3><p><strong>Block by block</strong>: click “Generate” → a few seconds later the green “AI generated” badge appears.</p><p><strong>All slides at once</strong>: from “Generate all” in the header, choose “Generate everything (overwrite existing audio)” or “Only what is missing (keep existing audio)”. Progress and remaining time are shown, and “Emergency stop” halts it at any point. If errors keep coming, the run stops on its own and the audio already generated is kept.</p><div class="callout callout-warn"><p><strong>⚠️ Watch the free tier limits</strong></p><p>The Gemini free tier limits requests not only per minute but per day. If you hit the ceiling, another route is to create the audio in the Google AI Studio Playground and upload it.</p></div><h3>🎭 Tone direction (controlling emotion and delivery)</h3><p>With Gemini TTS you can direct the delivery in each script block's “Tone” field — “calm explanatory, slightly slow”, “bright and upbeat”, “as if surprised”, and so on.</p><h3>🎤 Using external audio</h3><p>Drag and drop an MP3 or WAV onto a script block, or pick a file with the “Load” button.</p><h3>🎙️ Mic recording</h3><p>The “Record” button on each line takes you through record → listen → accept (with trimming).</p><div class="callout"><p><strong>ℹ️ Differences between editions</strong></p><p>The record button does not appear in the Apps Script edition. The local HTML edition is not expected to use TTS, so its audio settings show BGM only (recording and audio file import still work).</p></div></div></div></details><details class="chapter" id="section-9"><summary><span class="chapter-icon" aria-hidden="true">🕐</span><span class="chapter-heading" role="heading" aria-level="2"><span class="chapter-category">Chapter 9</span><span class="chapter-title">The per-slide timeline and fine-tuning timing (v3.x)</span></span><span class="chapter-toggle" aria-hidden="true"></span></summary><div class="chapter-body"><div class="chapter-inner"><p class="chapter-intro">A view for inspecting what happens inside a slide over time, and settling it down to the second.</p><p>“Timeline” in the script editor lets you inspect and adjust the contents of that slide along a time axis. There are three tracks.</p><dl class="spec-list"><div><dt>Visual</dt><dd>Still image or video (the still shown before the video starts appears here too)</dd></div><div><dt>Audio</dt><dd>The audio for each script block</dd></div><div><dt>Pause</dt><dd>The waits before, after and between lines</dd></div></dl><p>These can be adjusted by dragging:</p><ul class="check-list"><li>Where the audio starts</li><li>When the video starts</li><li>How long a still image is shown</li><li>The end of the slide (dragging it switches a still to a manual duration)</li></ul><p>The duration is labelled with an “auto” or “manual” badge, and “Back to automatic” restores it at any time. Where two pieces of audio overlap, an “overlap” badge appears.</p><figure><img src="../../assets/v3x-timeline.png" alt="The per-slide timeline" loading="lazy"><figcaption>Three tracks: visual, audio and pauses</figcaption></figure><p>“Fine-tune timing” above the preview enlarges the preview so you can settle things properly.</p><figure><img src="../../assets/manual-16.png" alt="The fine-tune timing mode" loading="lazy"><figcaption>Fine-tune timing mode</figcaption></figure></div></div></details><details class="chapter" id="section-10"><summary><span class="chapter-icon" aria-hidden="true">🎨</span><span class="chapter-heading" role="heading" aria-level="2"><span class="chapter-category">Chapter 10</span><span class="chapter-title">Design and effects</span></span><span class="chapter-toggle" aria-hidden="true"></span></summary><div class="chapter-body"><div class="chapter-inner"><p class="chapter-intro">The settings modal is split into Basic / Subtitles / Effects / BGM / Badges / Captions / Audio / Characters / Opening-ending tabs. Settings save themselves and apply immediately (character edits are the exception — they apply on “Save”).</p><h3>🎨 Color palettes</h3><p>Register the brand and character colors you use often and your palette stays consistent across projects. Both solid colors and gradients can be saved.</p><h3>⚙️ Basic tab</h3><dl class="spec-list"><div><dt>Presets</dt><dd>Save a set of settings under a name and recall it in one click (what will change is shown before it is applied)</dd></div><div><dt>Frame size</dt><dd>16:9 / 9:16 / 1:1</dd></div><div><dt>Video preview quality</dt><dd>Light / Standard</dd></div><div><dt>Slide image placement</dt><dd>Fit whole (reset) or fill (enlarge), plus zoom, position and slide corner rounding</dd></div><div><dt>Background and wallpaper</dt><dd>Solid color / gradient / background image / background video (background video loops without using its audio)</dd></div><div><dt>Video export stabilisation</dt><dd>Whether to show the recommendations before an export</dd></div></dl><p>Background images and videos can be saved to the library and recalled in one click from another project.</p><h3>💬 Subtitles tab</h3><dl class="spec-list"><div><dt>Subtitle layout</dt><dd>Overlay / split / no subtitles</dd></div><div><dt>Automatic duration</dt><dd>How long a subtitle with no audio is shown (calculated per character, in seconds)</dd></div><div><dt>Font and size</dt><dd>Around 20 fonts, chosen in a modal that lets you compare how they actually look. Weight (light / regular / bold) and italics can be set too</dd></div><div><dt>Area height</dt><dd>The height of the subtitle area (you are warned if a character is sized relative to this height)</dd></div><div><dt>Position</dt><dd>Top / middle / bottom alignment, plus vertical and horizontal margins</dd></div><div><dt>Entrance animation</dt><dd>None / soft fade / blur fade / rise up / slide in from left / pop / typewriter</dd></div><div><dt>Style</dt><dd>Text color (solid or gradient), stroke, shadow, subtitle background band and its opacity</dd></div></dl><figure><img src="../../assets/manual-17.png" alt="The subtitles tab settings screen" loading="lazy"><figcaption>The Subtitles tab</figcaption></figure><p>In v3.4, while the subtitle settings are open the canvas shows a “subtitle settings preview”. Changes to font, size, color, stroke, shadow and area height can be checked on the spot.</p><figure><img src="../../assets/ui-editor.png" alt="The subtitle settings preview" loading="lazy"><figcaption>The subtitle settings preview (v3.4)</figcaption></figure><h3>🎞️ Effects tab: slide animation (Ken Burns)</h3><p>An effect that adds a slow pan and zoom to a still image. The presets are: none, zoom in (center), zoom out (center), pan left to right, pan right to left, pan top to bottom, zoom in from top left, zoom in from bottom right, picture-book sway, impact zoom, impact shake, pop start, and wave sway.</p><dl class="spec-list"><div><dt>Automatic variation</dt><dd>Turn it on and each slide cycles through a different effect automatically</dd></div><div><dt>Effect strength</dt><dd>Subtle / standard / strong</dd></div><div><dt>Hide the background</dt><dd>Zooms in slightly, but only where the movement would expose the edges</dd></div></dl><p>Per-slide settings are possible too.</p><div class="callout callout-warn"><p><strong>⚠️ The preview is a still</strong></p><p>The editor preview is a still image. Check the movement in playback or in the export. It is not applied to video slides.</p></div><h3>🎞️ Effects tab: transitions</h3><ul class="check-list"><li>Cut (no effect)</li><li>Cross dissolve</li><li>Fade</li><li>Slide (left / right / up)</li><li>Zoom in</li><li>Zoom out/in</li><li>Circular wipe</li><li>White flash</li><li>Page swipe</li></ul><p>The transition duration is set in seconds. Turn on “Apply at opening/ending boundaries too” and opening → first slide, and last slide → ending, are joined with the same effect.</p><h3>🔀 Per-boundary settings (v3.x)</h3><p>Click the boundary badge (“Global” / “Custom”) between two slides in the sidebar to override the settings for that boundary alone.</p><ul class="check-list"><li>The effect</li><li>The duration (a cut can be specified)</li><li>The sound effect (follow the global setting / off / play the global sound only here / a custom sound)</li><li>A per-boundary sound volume</li></ul><p>“Reset all” returns everything to the global settings.</p><figure><img src="../../assets/manual-18.png" alt="Per-boundary transition settings" loading="lazy"><figcaption>Override a single boundary from its badge</figcaption></figure><h3>🔔 Transition sound effects (SFX)</h3><p>The built-in sounds are: picture-book page turn, light page turn, page turn (legacy), cinematic, shimmer, soft whoosh, and paper swipe.</p><p>You can also add an MP3 or similar as a custom sound (up to 5MB). Uploaded sounds are saved to the library and can be recalled in other projects.</p><h3>🎮 Text blips for lines with no voice (v3.x)</h3><p>Lays a short retro-RPG-style sound over lines that have no audio set.</p><ul class="check-list"><li>A global on/off, plus the pitch (very low / low / standard / high) and volume for the default narrator</li><li>Per-character overrides for on/off, pitch and volume</li></ul><p>It stays silent on lines that have real audio, on empty lines, and during conversation pauses.</p><figure><img src="../../assets/manual-19.png" alt="The text blip settings" loading="lazy"><figcaption>Text blips for lines with no voice</figcaption></figure><h3>⏱️ Timing adjustments (seconds)</h3><dl class="spec-list"><div><dt>Pre-Roll</dt><dd>The wait between the slide appearing and the speaking starting</dd></div><div><dt>Conversation gap (Gap)</dt><dd>The shared wait used between script blocks</dd></div><div><dt>Post-Roll</dt><dd>The wait between the speaking ending and the move to the next slide</dd></div></dl><p>All three can be overridden per script block (chapter 8).</p><h3>🏷️ Badges tab</h3><p>Each of the four corners can carry its own logo or text badge, independently.</p><p><strong>Create in the app</strong>: multi-line text, text alignment, text color, shadow and stroke, background (solid / gradient / transparent), shape (square / rounded), shadow and border</p><p><strong>Upload an image</strong>: place a logo, such as a transparent PNG. Size and shadow are adjustable</p><p>Badge images can be saved to the library too.</p><div class="callout callout-warn"><p><strong>⚠️ A note on use</strong></p><p>Using a badge to hide another service&#x27;s watermark may breach that service&#x27;s terms.</p></div><h3>📰 Captions tab</h3><p>A band of decoration that runs across the screen. The top and bottom captions are configured independently.</p><dl class="spec-list"><div><dt>Display mode</dt><dd>Fixed / scrolling / slide left</dd></div><div><dt>Content</dt><dd>Add several pieces of text and imagery and run them together</dd></div><div><dt>Adjustments</dt><dd>Scroll speed (px/sec), hold time, switch time, spacing between items, spacing between groups</dd></div><div><dt>Band</dt><dd>Style, color and opacity, text stroke and shadow, font</dd></div></dl><figure><img src="../../assets/manual-20.png" alt="The captions tab settings screen" loading="lazy"><figcaption>The Captions tab</figcaption></figure></div></div></details><details class="chapter" id="section-11"><summary><span class="chapter-icon" aria-hidden="true">🎭</span><span class="chapter-heading" role="heading" aria-level="2"><span class="chapter-category">Chapter 11</span><span class="chapter-title">Character management</span></span><span class="chapter-toggle" aria-hidden="true"></span></summary><div class="chapter-body"><div class="chapter-inner"><p class="chapter-intro">Character settings changed considerably in v3.4. They are now organised into three groups — character assets and motion / layout / design — and each group can be reset to its defaults on its own.</p><h3>👤 Creating a character</h3><p>Settings → Characters → “New”. Set the name, the style (speech bubble / standard subtitle / band), the font, and the weight and italics.</p><figure><img src="../../assets/manual-21.png" alt="The new character screen" loading="lazy"><figcaption>Creating a character</figcaption></figure><h3>🖼️ Character assets (three methods)</h3><p>The images you can register fall into three methods, switched with the tabs at the top.</p><figure><img src="../../assets/manual-22.png" alt="The three character asset method tabs" loading="lazy"><figcaption>Three tabs: Sequence, Animated image and Audio-driven</figcaption></figure><div class="tabs" data-tabs><div class="tab-list" role="tablist" aria-label="Character asset methods"><button role="tab" type="button" id="tab-1-0" aria-controls="tabpanel-1-0" aria-selected="true">Sequence</button><button role="tab" type="button" id="tab-1-1" aria-controls="tabpanel-1-1" aria-selected="false">Animated image</button><button role="tab" type="button" id="tab-1-2" aria-controls="tabpanel-1-2" aria-selected="false">Audio-driven</button></div><div class="tab-panel" role="tabpanel" id="tabpanel-1-0" aria-labelledby="tab-1-0"><p><strong>Sequence animation</strong>: register several still images and they cycle in registration order while the character speaks. Two images is enough. Reorder them by dragging the cards, or with the arrow buttons.</p></div><div class="tab-panel" role="tabpanel" id="tabpanel-1-1" aria-labelledby="tab-1-1" hidden><p><strong>Single-file animation</strong>: register one GIF, animated WebP or APNG and it plays while the character speaks. The playback speed is adjustable.</p></div><div class="tab-panel" role="tabpanel" id="tabpanel-1-2" aria-labelledby="tab-1-2" hidden><p><strong>Six-frame lip sync</strong>: six still images are switched according to the narration volume. The role of each of the six is fixed.</p><ol class="frame-list"><li>Eyes open, mouth closed (idle)</li><li>Eyes open, mouth half open</li><li>Eyes open, mouth open</li><li>Eyes closed, mouth closed</li><li>Eyes closed, mouth half open</li><li>Eyes closed, mouth open</li></ol></div></div><p>Hovering over an image reveals “Replace”, which swaps just that one frame.</p><figure><img src="../../assets/v33-lipsync.png" alt="Registering six-frame lip sync assets" loading="lazy"><figcaption>Assets for six-frame lip sync</figcaption></figure><p>The lip sync interval defaults to “Automatic (recommended)”, which estimates the speaking rate for each line from the audio length and the amount of subtitle text. Only switch to “Manual” and move the slider if it does not feel right.</p><div class="callout callout-good"><p><strong>💡 Assets for the three methods are stored separately</strong></p><p>Switching methods does not discard what you had, so trying something and going back is cheap.</p></div><h3>📥 Ways to supply the assets</h3><ul class="check-list"><li>Select several files</li><li>Select a whole folder</li><li>Drag and drop (files or folders)</li><li>A ZIP file (available for “Sequence” and “Audio-driven”)</li></ul><p>The contents of a ZIP are read in filename order. Numbering them 01.png through 06.png makes it reliable.</p><dl class="spec-list"><div><dt>The ZIP itself</dt><dd>up to 50MB</dd></div><div><dt>Number of images</dt><dd>up to 200</dd></div><div><dt>Total once extracted</dt><dd>up to 100MB</dd></div><div><dt>Single-file animation</dt><dd>up to 12MB / 180 frames (anything larger is scaled down as far as possible, and you are told the size it ended up at)</dd></div></dl><h3>🎭 MouthLoop and character pack ZIPs</h3><p>MouthLoop is a separate app (running in Gemini Canvas) that generates lip sync assets automatically from a single image. Open it from the “Create assets in MouthLoop” link in the character settings.</p><dl class="spec-list"><div><dt>Six PNGs (ZIP)</dt><dd>Goes straight into “Audio-driven”</dd></div><div><dt>Animated WebP</dt><dd>Goes straight into “Animated image”</dd></div><div><dt>Character pack ZIP</dt><dd>Registers expressions such as happy, sad and angry, plus posed gestures, alongside the lip sync assets</dd></div></dl><p>A character pack ZIP is detected automatically, and before it loads you are shown the image count, the extracted size, an estimate of the storage it will take, and which expressions and posed gestures it contains. If free space is short, you get a warning. Ordinary image ZIPs and character packs are told apart automatically, so there is no import mode to switch.</p><h3>😊 Expressions and posed gestures (new in v3.4)</h3><p>Select the characters in a displayed subtitle where you want a performance, and an “Add performance” button appears. From there you set an expression and a posed gesture (both at once, if you like).</p><ul class="check-list"><li>Smile only on the “thank you very much” part</li><li>Change the expression on a surprised line</li><li>Drop a pointing pose into the middle of an explanation</li></ul><p>Performances you have set are listed below the script field, where you can edit or remove them later. If you rewrite the target text substantially, the performance may be released automatically, to avoid it drifting out of position.</p><figure><img src="../../assets/v34-acting.png" alt="Setting expressions and posed gestures" loading="lazy"><figcaption>Adding a performance to the selected characters</figcaption></figure><h3>🪄 Auto-acting (new in v3.4)</h3><p>Turn on “Auto-acting” and press “Place performances automatically”, and expressions and gestures are placed at the breaks in each line.</p><dl class="spec-list"><div><dt>Expressions and gestures to use</dt><dd>Chosen per character</dd></div><div><dt>Frequency</dt><dd>Sparse / standard / frequent</dd></div><div><dt>Range</dt><dd>This slide / everything</dd></div></dl><p>Expressions matching built-in words such as “thank you” and “what a shame” take priority. Nothing is analysed by a generative model, so there is no extra API traffic and no extra API cost.</p><p>Automatically placed performances are marked “auto”, and “Remove automatic” clears only those (anything you set by hand stays). Placing them automatically first and fixing the parts that bother you by hand is a good way to work.</p><figure><img src="../../assets/v34-auto.png" alt="The auto-acting settings" loading="lazy"><figcaption>Auto-acting</figcaption></figure><div class="callout"><p><strong>ℹ️ About the timing</strong></p><p>The timing of a performance is calculated from the position of the selected characters and the length of the audio. Word pronunciation times are not obtained through speech recognition, so this is not a word-level sync. Treat it as an effect.</p></div><h3>🫁 Base motion (breathing and speech bounce)</h3><p>Still character icons can be given movement too.</p><ul class="check-list"><li>Slow breathing while the character is silent</li><li>A speech bounce that follows the volume while the character talks</li></ul><p>There are four levels: none, light, standard and strong. No new image assets are needed, and the preview and the export move the same way. Existing characters stay at “none”, so your earlier projects look exactly as they did.</p><div class="callout"><p><strong>ℹ️ How far it moves</strong></p><p>Only the icon as a whole moves up and down, with a slight stretch. There is no tilt, and nothing that changes the artwork itself, such as waving a hand.</p></div><figure><img src="../../assets/manual-23.png" alt="The base motion settings" loading="lazy"><figcaption>Breathing and speech bounce settings</figcaption></figure><h3>📐 Layout (size, position, alignment)</h3><p>The icon size can be set two ways.</p><dl class="spec-list"><div><dt>Relative to the subtitle area (multiplier)</dt><dd>The previous behaviour. Changing the subtitle “area height” changes the icon size too</dd></div><div><dt>Relative to the frame (px)</dt><dd>Not tied to the subtitle settings. The proportion of the frame is kept even when the export resolution changes</dd></div></dl><p>The speech bubble height also has two modes (match the subtitle area, or match the text — growing and shrinking with the number of lines). Beyond that, you can adjust:</p><ul class="check-list"><li>Vertical alignment with the speech bubble (align centers / align bottoms)</li><li>Moving the icon horizontally and vertically</li><li>The horizontal position of the speech bubble</li><li>Per-character text size (global setting / per character, based on 1080p)</li></ul><div class="callout callout-good"><p><strong>💡 v3.3 and later</strong></p><p>Moving the character left or right moves the speech bubble by the same amount. The relationship holds, so once you have placed them nicely you can move the pair together.</p></div><figure><img src="../../assets/manual-24.png" alt="The character layout settings" loading="lazy"><figcaption>Layout settings</figcaption></figure><h3>🗨️ Design (shape, color, border, shadow)</h3><ul class="check-list"><li>Icon type: circle / original artwork</li><li>Icon shadow</li><li>Speech bubble shape: basic / thought / simple / teardrop</li><li>Speech bubble color, shadow, border and opacity</li><li>The band color (when the band style is selected)</li></ul><h3>📍 Which side they stand on</h3><p>A character can be placed on the left or the right of the frame. For dialogue-style content, splitting them left and right reads naturally.</p><h3>🔊 Voice parameters</h3><p><strong>Gemini TTS (when using a Gemini API key)</strong> — a choice of 30 voices.</p><dl class="spec-list"><div><dt>Female / high</dt><dd>Achernar (soft) / Laomedeia (upbeat) / Leda (youthful) / Zephyr (bright)</dd></div><div><dt>Female / mid</dt><dd>Aoede (light) / Autonoe (bright) / Callirrhoe (natural) / Despina (smooth) / Erinome (clear) / Gacrux (mature) / Kore (firm) / Pulcherrima (positive) / Sulafat (warm) / Vindemiatrix (calm)</dd></div><div><dt>Male / mid</dt><dd>Puck (upbeat) / Rasalgethi (good for explanation) / Sadaltager (intellectual)</dd></div><div><dt>Male / low-mid</dt><dd>Achird (friendly) / Alnilam (firm) / Fenrir (high-energy) / Iapetus (clear) / Orus (firm) / Schedar (even and stable) / Umbriel (natural) / Zubenelgenubi (casual)</dd></div><div><dt>Male / low</dt><dd>Algenib (gravelly) / Algieba (smooth) / Charon (good for explanation) / Enceladus (breathy) / Sadachbia (lively)</dd></div></dl><p>The preview button plays a sample (note that previews consume API quota too).</p><p><strong>Google Cloud TTS (when using a Google Cloud API key)</strong> — choose a Neural2 or WaveNet voice, and adjust speed and pitch.</p><h3>🎚️ Adjusting audio that is already placed (v3.x)</h3><p>Speed and pitch can be applied after the fact to audio you have generated, recorded or uploaded.</p><ul class="check-list"><li>Listen first, then “Apply to every line” to re-convert them all at once</li><li>“Restore the original audio” returns to the untouched sound</li></ul><div class="callout"><p><strong>ℹ️ A preview alone changes nothing</strong></p><p>Previewing on its own does not change the stored audio or the timeline.</p></div><h3>🔄 Replacing a character throughout</h3><p>For when you want to move A's lines over to B. Pick the character to replace and the one to replace it with, press “Run”, and every slide is updated at once. You also choose whether to keep the audio already placed.</p></div></div></details><details class="chapter" id="section-12"><summary><span class="chapter-icon" aria-hidden="true">🎵</span><span class="chapter-heading" role="heading" aria-level="2"><span class="chapter-category">Chapter 12</span><span class="chapter-title">BGM settings (up to 10 tracks)</span></span><span class="chapter-toggle" aria-hidden="true"></span></summary><div class="chapter-body"><div class="chapter-inner"><p class="chapter-intro">Switch BGM slide by slide, joined with a crossfade.</p><h3>🎵 Setting up BGM</h3><p>Drop an MP3, or load one from “Add BGM”. Set a default volume, and override it per track. If the video runs longer than the BGM, the track loops automatically.</p><h3>🎚️ Multiple BGM tracks and crossfades</h3><p>Up to 10 BGM tracks can be registered, each with a “starts at this slide” setting. A crossfade is applied at each switch, and the fade duration is set in seconds.</p><p>For example: a calm track over the intro, switching automatically to something brighter when the explanation begins. The range each track covers (slides X to Y) is shown in a list.</p><h3>📚 The BGM library</h3><p>BGM you upload can be saved to the library and recalled in one click from another project.</p><div class="callout callout-good"><p><strong>💡 How this interacts with video slides</strong></p><p>Over a stretch where a video slide is set to “Video audio only”, the BGM is silenced automatically.</p></div><figure><img src="../../assets/manual-25.png" alt="The BGM settings screen" loading="lazy"><figcaption>The BGM tab</figcaption></figure></div></div></details><details class="chapter" id="section-13"><summary><span class="chapter-icon" aria-hidden="true">🎬</span><span class="chapter-heading" role="heading" aria-level="2"><span class="chapter-category">Chapter 13</span><span class="chapter-title">Opening and ending branding</span></span><span class="chapter-toggle" aria-hidden="true"></span></summary><div class="chapter-body"><div class="chapter-inner"><p class="chapter-intro">Your channel&#x27;s opening and ending videos, joined automatically around the main body at export time.</p><h3>🎬 Inserting opening/ending videos</h3><p>Set your channel's opening and ending videos and they are joined automatically around the main body when you export. MP4 and WebM are supported (up to 500MB, no duration limit). Each frame size (16:9 / 9:16 / 1:1) can be configured and saved separately.</p><h3>✂️ Trimming and display settings (v3.x)</h3><dl class="spec-list"><div><dt>Trimming</dt><dd>Set the start and end seconds with the timeline handles (shown as “playing X–Y of Z seconds”)</dd></div><div><dt>Display mode</dt><dd>Fit whole / fill the frame / stretch</dd></div><div><dt>Zoom</dt><dd>Adjustable</dd></div><div><dt>Letterbox background</dt><dd>Black / follow the global setting</dd></div></dl><p>You can check the result in the video preview as you go.</p><figure><img src="../../assets/manual-26.png" alt="The opening/ending trimming settings" loading="lazy"><figcaption>Trimming and display settings for opening/ending videos</figcaption></figure><h3>📚 The opening/ending library</h3><p>Once uploaded, an opening or ending video is saved to the library and can be applied to your next project in one click.</p></div></div></details><details class="chapter" id="section-14"><summary><span class="chapter-icon" aria-hidden="true">🔑</span><span class="chapter-heading" role="heading" aria-level="2"><span class="chapter-category">Chapter 14</span><span class="chapter-title">Setting up the API yourself (advanced)</span></span><span class="chapter-toggle" aria-hidden="true"></span></summary><div class="chapter-body"><div class="chapter-inner"><p class="chapter-intro">For people who would rather skip Bundle Builder, set up an API key of their own and generate audio from the editor.</p><h3>🔑 Getting a Gemini API key</h3><ol class="step-list"><li><strong>Go to Google AI Studio</strong>Open aistudio.google.com</li><li><strong>Sign in</strong>Sign in with your Google account</li><li><strong>Create an API key</strong>Click “Create API key”</li><li><strong>Copy the key</strong>Copy the key you are issued (a string beginning with AIza)</li><li><strong>Paste it into the app</strong>Paste it into the app&#x27;s “Settings → Audio” tab</li></ol><p class="link-row"><a class="inline-link" href="https://aistudio.google.com/" target="_blank" rel="noopener noreferrer">Open Google AI Studio</a></p><p>The settings screen also lets you:</p><dl class="spec-list"><div><dt>Validate the key</dt><dd>Check on the spot whether it is valid, invalid or missing permissions</dd></div><div><dt>Do not save on this device (session only)</dt><dd>On: cleared when the tab or browser closes</dd></div><div><dt>Clear the API key</dt><dd>Remove the stored key from the browser</dd></div><div><dt>Paid plan (billing enabled)</dt><dd>On: shortens the wait during bulk generation (4 seconds → 1 second per item)</dd></div></dl><p>These Gemini models (with TTS support) can be selected:</p><ul class="check-list"><li>Gemini 3.1 Flash TTS Preview (newest)</li><li>Gemini 2.5 Flash Preview TTS (fast)</li><li>Gemini 2.5 Pro Preview TTS (high quality, for paid use)</li></ul><div class="callout callout-warn"><p><strong>⚠️ Pro TTS tends to fail on the free setting</strong></p><p>On the free usage setting, Pro TTS is likely to fail. Either use Flash TTS or enable the paid plan.</p></div><h3>🔑 Getting a Google Cloud Text-to-Speech API key (optional)</h3><p>Set this up as well if you want an even, stable voice, accepting that the emotional range is more restrained.</p><ol class="step-list"><li><strong>Create a project</strong>Create a project in the Google Cloud Console</li><li><strong>Set up billing</strong>Configure your billing details</li><li><strong>Enable the API</strong>Enable the Cloud Text-to-Speech API</li><li><strong>Create the key and enter it</strong>Create an API key and enter it in the app&#x27;s settings screen</li></ol></div></div></details><details class="chapter" id="section-15"><summary><span class="chapter-icon" aria-hidden="true">📤</span><span class="chapter-heading" role="heading" aria-level="2"><span class="chapter-category">Chapter 15</span><span class="chapter-title">Exporting (video, PDF and other documents)</span></span><span class="chapter-toggle" aria-hidden="true"></span></summary><div class="chapter-body"><div class="chapter-inner"><p class="chapter-intro">Video (MP4 and WebM), plus PPTX, PDF and image exports.</p><h3>🎬 Exporting a video file (MP4, WebM)</h3><p>Press “Export video” and the confirmation screen offers:</p><dl class="spec-list"><div><dt>Export format</dt><dd>Automatic / MP4 / WebM</dd></div><div><dt>Video quality</dt><dd>Low (4Mbps) / Standard (8Mbps) / High (12Mbps)</dd></div><div><dt>Output resolution</dt><dd>720p / 1080p / 1440p</dd></div></dl><p>The frame rate is 30fps, and an estimate of the resulting size is shown.</p><div class="callout"><p><strong>ℹ️ Browsers that do not support MP4</strong></p><p>Some browsers do not support MP4, and in that case the export switches to WebM automatically.</p></div><div class="gallery" data-cols="2"><figure><img src="../../assets/manual-27.png" alt="The video export confirmation screen" loading="lazy"><figcaption>Confirming the export settings</figcaption></figure><figure><img src="../../assets/manual-28.png" alt="Progress during a video export" loading="lazy"><figcaption>The export in progress</figcaption></figure></div><h3>⚠️ While a video export runs</h3><ul class="check-list"><li>Do not close or reload the tab while it is working</li><li>Stay on the tab, and pause anything demanding</li><li>On a laptop, plug in and avoid power saving and sleep</li><li>Check there is free space where the file will be saved</li><li>If it gives you trouble, drop the resolution or the quality one step and try again</li><li>Reload the page afterwards (to release the memory)</li></ul><p>If memory use is high, you are warned before the export starts.</p><div class="callout callout-warn"><p><strong>⚠️ About MP4 compatibility</strong></p><p>An MP4 export is not always in a state you can post as it is. Different internal formats are not always supported by the platform, so convert to H.264 where necessary.</p></div><h3>📄 Exporting documents (PPTX / PDF / images)</h3><p>“Export documents” offers these formats:</p><dl class="spec-list"><div><dt>PPTX</dt><dd>Keeps the appearance as images, with the script copied into the speaker notes</dd></div><div><dt>PDF (slides only)</dt><dd>One slide per page, for handing out</dd></div><div><dt>PDF (book style)</dt><dd>Slides and script combined in A4 portrait</dd></div><div><dt>Image ZIP (PNG)</dt><dd>Quality first</dd></div><div><dt>Image ZIP (JPEG)</dt><dd>File size first</dd></div></dl><p>Beyond that, you can set:</p><ul class="check-list"><li>Choose by purpose (presets): presentation sharing / handout / image assets</li><li>What to output: with your edits / original slides only</li><li>Which pages: all / current only / a range</li><li>The filename</li><li>The output resolution</li><li>Output preview: page through what the output will actually look like</li><li>Pre-export checks: warnings about missing assets, the load from high resolutions, ZIP size and so on</li></ul><h3>📚 Book-style PDF options</h3><p>A document PDF that places the slide image and the subtitle text together in A4 portrait. Long subtitles are split across pages automatically.</p><dl class="spec-list"><div><dt>Subtitle display mode</dt><dd>Text / speech bubble</dd></div><div><dt>Character names</dt><dd>Automatic / always shown / hidden</dd></div><div><dt>Embedded slide quality</dt><dd>Selectable</dd></div></dl><p>Ideal for printed handouts and seminar materials.</p><div class="callout"><p><strong>ℹ️ How video slides are handled</strong></p><p>A video slide is exported as its first frame, as a still. The video itself is not included.</p></div><div class="gallery" data-cols="2"><figure><img src="../../assets/manual-29.png" alt="The document export settings screen" loading="lazy"><figcaption>Document export settings</figcaption></figure><figure><img src="../../assets/ui-export.png" alt="What a book-style PDF looks like" loading="lazy"><figcaption>What a book-style PDF looks like</figcaption></figure></div></div></div></details><details class="chapter" id="section-16"><summary><span class="chapter-icon" aria-hidden="true">🛠️</span><span class="chapter-heading" role="heading" aria-level="2"><span class="chapter-category">Chapter 16</span><span class="chapter-title">Troubleshooting</span></span><span class="chapter-toggle" aria-hidden="true"></span></summary><div class="chapter-body"><div class="chapter-inner"><p class="chapter-intro">Common symptoms and what to do about them.</p><dl class="faq"><div><dt>🔇 No sound, or the preview stops</dt><dd>Cause: the browser&#x27;s autoplay blocking is doing its job. Fix: click somewhere inside the page, then play. If that does not help, reload the tab.</dd></div><div><dt>🐢 Everything is slow, or the export errors out</dt><dd>Cause: the browser is short on memory (RAM). All video processing happens on your own computer. Fixes: delete projects you no longer need from the dashboard / close spare tabs and pause other work / lower the import quality or the output resolution / restart the browser and try again / always reload the page after an export / split long videos into separate projects and export them individually.</dd></div><div><dt>😱 My data is gone</dt><dd>Cause: security software, or clearing “browsing history and cookies” in the browser, erases IndexedDB. Closing a private window does it too. The app cannot recover it. Backing up regularly (ZIP or JSON) is the only defence.</dd></div><div><dt>🖼️ An animated image will not load</dt><dd>The file size, frame count, duration or total pixel count may be over the limit. In v3.4, images likely to exceed a limit are scaled down as far as possible and you are told the resulting size. When a file genuinely cannot load, the message tells you why.</dd></div><div><dt>🎭 Expressions and gestures are not showing</dt><dd>Styles that do not display a character image (the band, for example) do not show expressions or gestures. Also check that the assets a performance needs — a MouthLoop character pack — are registered.</dd></div><div><dt>📊 The runtime and file size shown do not match reality</dt><dd>The statistics in the header are estimates. They can differ slightly from the file you actually export.</dd></div><div><dt>🔑 Voice generation returns an error</dt><dd>“No API key is set” → enter the key under Settings → Audio. “Rate limit” → wait a while and retry (note the free tier&#x27;s daily ceiling as well as the per-minute one). “The API key was rejected” → check you have not entered a Gemini key in the Google Cloud field, and check the key&#x27;s restrictions. “The Google Cloud API is disabled” → enable the Cloud Text-to-Speech API in the Console.</dd></div></dl></div></div></details><details class="chapter" id="section-17"><summary><span class="chapter-icon" aria-hidden="true">🔄</span><span class="chapter-heading" role="heading" aria-level="2"><span class="chapter-category">APPENDIX</span><span class="chapter-title">How to update</span></span><span class="chapter-toggle" aria-hidden="true"></span></summary><div class="chapter-body"><div class="chapter-inner"><p class="chapter-intro">The steps for moving to the latest version.</p><p>If you have already purchased SlideCast Studio, copy the latest version from the same paid note share link you used before.</p><p>If you want to carry over your existing projects, library and settings, create a backup first from “Save data”, just in case.</p><p>To update the Apps Script edition while keeping the same URL, replace these two files in your existing Apps Script project with the latest versions, then redeploy the existing deployment as a “new version”.</p><ul class="check-list"><li>無題.html (“Untitled.html” in the Japanese Apps Script UI)</li><li>AppBundle.html</li></ul><p class="link-row"><a class="inline-link" href="../gas-update/">See the detailed update steps</a></p><p>If you use the local HTML edition, download “SlideCast Studio〖ローカル版〗.html” — 〖ローカル版〗 means “local edition” — and open it.</p><div class="callout callout-warn"><p><strong>⚠️ Carrying your data over</strong></p><p>If you open the app from a new Apps Script project or in a different browser, your earlier data will not appear automatically. Restore it from a backup in that case.</p></div></div></div></details><details class="chapter" id="section-18"><summary><span class="chapter-icon" aria-hidden="true">🙌</span><span class="chapter-heading" role="heading" aria-level="2"><span class="chapter-category">APPENDIX</span><span class="chapter-title">Finally</span></span><span class="chapter-toggle" aria-hidden="true"></span></summary><div class="chapter-body"><div class="chapter-inner"><p>SlideCast Studio is still being updated. For the current news, follow this note and the author's X. Questions, requests and bug reports are welcome in the comments.</p><div class="cta-banner"><div><strong>Try SlideCast Studio</strong><p>The latest version is available from the note sales page (in Japanese).</p></div><a class="cta-link" href="https://note.com/bluezzly/n/nb4c85213c808" target="_blank" rel="noopener noreferrer">Open note (Japanese) ↗</a></div></div></div></details></section>
+
+  <div class="source-card"><div><strong>Source: the note post “📘 The official SlideCast Studio manual”</strong><small>This page is the official manual published on note, rebuilt as HTML you can read offline. For the current wording, always check the original post (in Japanese).</small></div><a class="cta-link" href="https://note.com/bluezzly/n/n1e95d4cb978e" target="_blank" rel="noopener noreferrer">Read the original post on note (Japanese) ↗</a></div>
+  <footer class="site-footer">
+    <div class="footer-top"><a class="brand footer-brand" href="../" aria-label="SlideCast Studio home">SlideCast <b>Studio</b></a><nav class="footer-links" aria-label="Footer navigation"><a href="../intro/">What is SlideCast Studio?</a><a href="../manual/">Official manual</a><a href="../bundle-builder/">Bundle Builder</a><a href="../mouthloop-v2/">MouthLoop v2</a></nav></div><div class="footer-bottom"><p class="footer-meta">SlideCast Studio Documentation · aokuma</p><nav class="social-links" aria-label="Social links"><a class="social-link" href="https://note.com/bluezzly" target="_blank" rel="noopener noreferrer" aria-label="note" title="note"><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4.4 17.6V6.4h2.9v2C8.3 7 10 6.2 11.9 6.2c3.4 0 5.7 2.4 5.7 6v5.4h-2.9v-5c0-2.2-1.3-3.6-3.2-3.6-2.4 0-4.2 1.8-4.2 4.4v4.2Z"/></svg></a>
+          <a class="social-link" href="https://x.com/ai5809514366862" target="_blank" rel="noopener noreferrer" aria-label="X (formerly Twitter)"><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231 5.451-6.231Zm-1.161 17.52h1.833L7.084 4.126H5.117L17.083 19.77Z"/></svg></a>
+          <a class="social-link" href="https://www.youtube.com/channel/UC2lO3ixD4ICI9VgRSxidRbQ" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814ZM9.545 15.568V8.432L15.818 12l-6.273 3.568Z"/></svg></a>
+          <a class="social-link" href="https://substack.com/@aokuma1" target="_blank" rel="noopener noreferrer" aria-label="Substack"><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M22.539 8.242H1.46V5.406h21.08v2.836ZM1.46 10.812V24L12 18.11 22.54 24V10.812H1.46ZM22.54 0H1.46v2.836h21.08V0Z"/></svg></a></nav></div>
+  </footer>
+</div>
+</main>
+
+<div class="float-actions">
+  <button class="float-button" id="closeChapter" type="button" hidden><span aria-hidden="true">×</span><span class="float-label">Close</span></button>
+  <button class="float-button primary" id="floatToc" type="button"><span aria-hidden="true">☰</span><span class="float-label">Contents</span></button>
+  <button class="float-button" id="backTop" type="button"><span aria-hidden="true">↑</span><span class="float-label">Top</span></button>
+</div>
+
+<dialog class="toc-dialog" id="tocDialog">
+  <div class="toc-head"><strong>Contents</strong><button class="icon-button" id="closeToc" type="button" aria-label="Close contents">×</button></div>
+  <nav class="toc-list" aria-label="Contents">
+    <button type="button" data-target="overview"><span aria-hidden="true">🏠</span>Overview</button>
+    <button type="button" data-target="section-1"><span aria-hidden="true">🎬</span>What it is, and what it does</button><button type="button" data-target="section-2"><span aria-hidden="true">💻</span>System requirements and recommended specs</button><button type="button" data-target="section-3"><span aria-hidden="true">🏗️</span>Start with Bundle Builder (strongly recommended)</button><button type="button" data-target="section-4"><span aria-hidden="true">🔐</span>Data storage and security</button><button type="button" data-target="section-5"><span aria-hidden="true">📊</span>Project management (the dashboard)</button><button type="button" data-target="section-6"><span aria-hidden="true">🖥️</span>Getting around the editor</button><button type="button" data-target="section-7"><span aria-hidden="true">🖼️</span>Adding and managing slides</button><button type="button" data-target="section-8"><span aria-hidden="true">📝</span>Writing the script and making the audio</button><button type="button" data-target="section-9"><span aria-hidden="true">🕐</span>The per-slide timeline and fine-tuning timing (v3.x)</button><button type="button" data-target="section-10"><span aria-hidden="true">🎨</span>Design and effects</button><button type="button" data-target="section-11"><span aria-hidden="true">🎭</span>Character management</button><button type="button" data-target="section-12"><span aria-hidden="true">🎵</span>BGM settings (up to 10 tracks)</button><button type="button" data-target="section-13"><span aria-hidden="true">🎬</span>Opening and ending branding</button><button type="button" data-target="section-14"><span aria-hidden="true">🔑</span>Setting up the API yourself (advanced)</button><button type="button" data-target="section-15"><span aria-hidden="true">📤</span>Exporting (video, PDF and other documents)</button><button type="button" data-target="section-16"><span aria-hidden="true">🛠️</span>Troubleshooting</button><button type="button" data-target="section-17"><span aria-hidden="true">🔄</span>How to update</button><button type="button" data-target="section-18"><span aria-hidden="true">🙌</span>Finally</button>
+  </nav>
+</dialog>
+
+<dialog class="lightbox" id="lightbox">
+  <button class="icon-button" id="lightboxClose" type="button" aria-label="Close image">×</button>
+  <img id="lightboxImage" src="" alt="">
+</dialog>
+<script src="../../assets/ambient-particles.js"></script>
+
+<script>
+(()=>{'use strict';
+const root=document.documentElement;
+const header=document.querySelector('.site-header');
+const chapters=[...document.querySelectorAll('.chapter')];
+const tocDialog=document.getElementById('tocDialog');
+const closeChapterBtn=document.getElementById('closeChapter');
+const currentLabel=document.getElementById('currentSection');
+const progress=document.getElementById('progressBar');
+const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+/* --- theme --- */
+const saved=localStorage.getItem('article-theme');
+root.dataset.theme=saved||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');
+document.getElementById('themeToggle').addEventListener('click',()=>{
+  root.dataset.theme=root.dataset.theme==='dark'?'light':'dark';
+  localStorage.setItem('article-theme',root.dataset.theme);
+});
+
+/* --- align an element directly under the sticky header, without motion --- */
+const align=el=>{
+  /* Two frames: the first lets the previously open section finish collapsing,
+     so the target is measured against settled layout, not stale geometry. */
+  requestAnimationFrame(()=>requestAnimationFrame(()=>{
+    const previous=root.style.scrollBehavior;
+    root.style.scrollBehavior='auto';
+    const offset=(header?header.offsetHeight:0)+8;
+    scrollTo(0,Math.max(0,el.getBoundingClientRect().top+scrollY-offset));
+    requestAnimationFrame(()=>{root.style.scrollBehavior=previous;});
+  }));
+};
+
+/* --- one accordion open at a time --- */
+const tocButtons=[...document.querySelectorAll('.toc-list [data-target]')];
+const syncState=()=>{
+  const open=chapters.find(c=>c.open);
+  closeChapterBtn.hidden=!open;
+  if(currentLabel){
+    const title=open?open.querySelector('.chapter-title').textContent.trim():'';
+    currentLabel.textContent=title;
+    currentLabel.classList.toggle('show',Boolean(title));
+  }
+  tocButtons.forEach(btn=>btn.classList.toggle('current',Boolean(open)&&btn.dataset.target===open.id));
+  const url=location.pathname+location.search+(open?'#'+open.id:'');
+  history.replaceState(null,'',url);
+};
+chapters.forEach(chapter=>chapter.addEventListener('toggle',()=>{
+  if(chapter.open)chapters.forEach(other=>{if(other!==chapter)other.open=false;});
+  syncState();
+  if(chapter.open)align(chapter);
+}));
+closeChapterBtn.addEventListener('click',()=>{chapters.forEach(c=>{c.open=false;});syncState();});
+syncState();
+
+/* --- table of contents --- */
+const jump=id=>{
+  const target=document.getElementById(id);
+  if(!target)return;
+  if(target.matches('details')&&!target.open){target.open=true;}
+  else{align(target);}
+  tocDialog.close();
+};
+document.querySelectorAll('[data-target]').forEach(btn=>btn.addEventListener('click',()=>jump(btn.dataset.target)));
+const openToc=()=>tocDialog.showModal();
+document.getElementById('openToc').addEventListener('click',openToc);
+document.getElementById('floatToc').addEventListener('click',openToc);
+document.getElementById('closeToc').addEventListener('click',()=>tocDialog.close());
+tocDialog.addEventListener('click',e=>{if(e.target===tocDialog)tocDialog.close();});
+document.getElementById('backTop').addEventListener('click',()=>scrollTo({top:0,behavior:reduce?'auto':'smooth'}));
+
+/* --- shareable deep links --- */
+const openFromHash=()=>{
+  const id=decodeURIComponent(location.hash.slice(1));
+  if(!id)return;
+  const target=document.getElementById(id);
+  if(!target)return;
+  if(target.classList.contains('chapter')&&!target.open)target.open=true;
+  else align(target);
+};
+addEventListener('hashchange',openFromHash);
+if(location.hash)requestAnimationFrame(openFromHash);
+
+/* --- reading progress --- */
+const onScroll=()=>{
+  const max=document.documentElement.scrollHeight-innerHeight;
+  progress.style.width=(max>0?Math.min(100,scrollY/max*100):0)+'%';
+};
+addEventListener('scroll',onScroll,{passive:true});onScroll();
+
+/* --- image lightbox --- */
+const lightbox=document.getElementById('lightbox');
+const lightboxImage=document.getElementById('lightboxImage');
+document.addEventListener('click',e=>{
+  const img=e.target.closest('figure img');
+  if(!img||img.closest('.video-facade'))return;
+  lightboxImage.src=img.currentSrc||img.src;
+  lightboxImage.alt=img.alt||'';
+  lightbox.showModal();
+});
+document.getElementById('lightboxClose').addEventListener('click',()=>lightbox.close());
+lightbox.addEventListener('click',e=>{if(e.target===lightbox)lightbox.close();});
+
+/* --- tabs --- */
+document.querySelectorAll('[data-tabs]').forEach(group=>{
+  const tabs=[...group.querySelectorAll('[role="tab"]')];
+  const select=index=>{
+    tabs.forEach((tab,i)=>{
+      const selected=i===index;
+      tab.setAttribute('aria-selected',selected);
+      tab.tabIndex=selected?0:-1;
+      document.getElementById(tab.getAttribute('aria-controls')).hidden=!selected;
+    });
+  };
+  tabs.forEach((tab,index)=>{
+    tab.addEventListener('click',()=>select(index));
+    tab.addEventListener('keydown',event=>{
+      const step={ArrowRight:1,ArrowLeft:-1}[event.key];
+      let next=null;
+      if(step)next=(index+step+tabs.length)%tabs.length;
+      if(event.key==='Home')next=0;
+      if(event.key==='End')next=tabs.length-1;
+      if(next===null)return;
+      event.preventDefault();select(next);tabs[next].focus();
+    });
+  });
+  select(0);
+});
+
+/* --- click-to-play video: nothing is requested from the host until here --- */
+document.querySelectorAll('.video-facade').forEach(button=>{
+  button.addEventListener('click',()=>{
+    button.closest('.video-embed')?.classList.add('is-playing');
+    const frame=document.createElement('iframe');
+    frame.src=button.dataset.embed;
+    frame.title=button.dataset.title||'Video';
+    frame.allow='autoplay; fullscreen; picture-in-picture; encrypted-media';
+    frame.allowFullscreen=true;
+    frame.referrerPolicy='strict-origin-when-cross-origin';
+    button.replaceWith(frame);
+  });
+});
+
+/* --- copy buttons on code blocks --- */
+document.querySelectorAll('.code-copy').forEach(button=>{
+  button.addEventListener('click',async()=>{
+    const code=button.closest('.code-block').querySelector('code');
+    const label=button.dataset.label||button.textContent;
+    button.dataset.label=label;
+    try{await navigator.clipboard.writeText(code.textContent);button.textContent='Copied';}
+    catch{button.textContent='Copy failed';}
+    setTimeout(()=>{button.textContent=label;},1600);
+  });
+});
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,1456 @@
+{
+  "title": "SlideCast Studio — the official manual",
+  "subtitle": "From a slide deck to a subtitled, narrated video.",
+  "description": "The official manual for SlideCast Studio (v3.4): add AI narration, a lip-syncing character, BGM and opening/ending videos to your slides, and export the whole thing as video from the browser alone.",
+  "eyebrow": "OFFICIAL MANUAL",
+  "brand": "SlideCast",
+  "brand_accent": "Studio",
+  "author": "aokuma",
+  "date": "2026.03.02 (updated 2026.08.08)",
+  "version": "For v3.4",
+  "footer_meta": "SlideCast Studio Documentation · aokuma",
+  "hero_image": "./img/manual-01.png",
+  "hero_alt": "The SlideCast Studio manual header image",
+  "chips": [
+    "Manual",
+    "v3.4",
+    "AI narration",
+    "Gemini",
+    "Video export"
+  ],
+  "theme": {
+    "primary": "#7158e2",
+    "secondary": "#3978d4",
+    "accent": "#f05f93",
+    "surface": "#f5f2ff",
+    "ink": "#202033"
+  },
+  "nav_links": [
+    { "href": "../", "icon": "🏠", "label": "HOME" }
+  ],
+  "source_url": "https://note.com/bluezzly/n/n1e95d4cb978e",
+  "source_label": "Read the original post on note (Japanese)",
+  "source_title": "Source: the note post “📘 The official SlideCast Studio manual”",
+  "source_note": "This page is the official manual published on note, rebuilt as HTML you can read offline. For the current wording, always check the original post (in Japanese).",
+  "update_header": false,
+  "sections_label": "CONTENTS",
+
+  "overview": {
+    "icon": "👋",
+    "title": "Before you start",
+    "blocks": [
+      {
+        "type": "notice",
+        "title": "What changed",
+        "items": ["2026/8/8: Substantially rewritten to match the current version, v3.4"]
+      },
+      {
+        "type": "html",
+        "html": "<p>Welcome to the official SlideCast Studio manual.</p><p>SlideCast Studio is a slide-video tool I built by heavily modifying an idea I found in a note post by Majin. It only exists because Majin published the prompt in the first place.</p>"
+      },
+      {
+        "type": "link_cards",
+        "items": [
+          {
+            "icon": "📝",
+            "title": "[Free] The \"prompt\" that turns NotebookLM slides into a video with audio and subtitles",
+            "text": "note.com / Majin (Japanese)",
+            "url": "https://note.com/majin_108/n/n28cebe38881d"
+          }
+        ]
+      },
+      {
+        "type": "html",
+        "html": "<p>I took that prompt, modified it heavily, and turned it into an Apps Script app: SlideCast Studio v1.0.</p>"
+      },
+      {
+        "type": "link_cards",
+        "items": [
+          {
+            "icon": "🌟",
+            "title": "[Amazing tool] A follower's \"heavily modified\" tool is too good [SlideCast Studio]",
+            "text": "note.com / Majin (Japanese)",
+            "url": "https://note.com/majin_108/n/nb21118f14ac0"
+          }
+        ]
+      },
+      {
+        "type": "html",
+        "html": "<p>SlideCast Studio v2 and later — what this manual covers — is a large update on top of that.</p>"
+      },
+      {
+        "type": "link_cards",
+        "items": [
+          {
+            "icon": "🚀",
+            "title": "SlideCast Studio",
+            "text": "note.com / aokuma (Japanese)",
+            "url": "https://note.com/bluezzly/n/nb4c85213c808"
+          }
+        ]
+      },
+      {
+        "type": "callout",
+        "tone": "good",
+        "title": "🧭 How to read this manual",
+        "text": "If this is your first time, the shortest path is to start at chapter 3, Bundle Builder. With no API key set up, it takes you through writing a script, generating the voice and exporting a ZIP in one pass. Click any chapter heading to open it."
+      }
+    ]
+  },
+
+  "sections": [
+    {
+      "icon": "🎬",
+      "category": "Chapter 1",
+      "title": "What it is, and what it does",
+      "intro": "What kind of tool SlideCast Studio is, and what you can do with it.",
+      "blocks": [
+        {
+          "type": "html",
+          "html": "<h3>🎬 What SlideCast Studio is</h3><p>An app that loads PDFs, images and video into the browser, adds AI narration, and turns the result into a video directly. Nothing to install — the video is finished in the browser.</p><h3>✨ Main features</h3>"
+        },
+        {
+          "type": "cards",
+          "items": [
+            { "icon": "🤖", "title": "AI script generation", "text": "Gemini integration writes the script for you from the documents you hand it" },
+            { "icon": "🔊", "title": "AI voice synthesis", "text": "Narration from a choice of 30 voices (Gemini TTS). Mic recording and audio file import are supported too" },
+            { "icon": "🎭", "title": "Character performance", "text": "Lip sync, expressions, posed gestures and a breathing motion" },
+            { "icon": "🎞️", "title": "Slide animation", "text": "Ken Burns pan and zoom, to give still images some movement" },
+            { "icon": "🎬", "title": "Video slides", "text": "Insert MP4 and WebM as slides (with a trimmable playback range)" },
+            { "icon": "🧱", "title": "Blank slides", "text": "Build title cards, chapter breaks and conversation scenes with no source document" },
+            { "icon": "🎨", "title": "Design settings", "text": "Gradients, strokes, shadows, rounded corners, badges, logos and captions" },
+            { "icon": "🎵", "title": "BGM (up to 10 tracks)", "text": "Switch BGM per slide, with a crossfade between tracks" },
+            { "icon": "🔔", "title": "Sound effects and text blips", "text": "Transition sounds, plus retro-style text blips for lines with no voice" },
+            { "icon": "🕐", "title": "Per-slide timeline", "text": "Adjust audio, video and pauses down to the second" },
+            { "icon": "📚", "title": "Book-style PDF", "text": "Slide images and subtitles combined, in A4 portrait" },
+            { "icon": "📽️", "title": "Opening/ending branding", "text": "Opening and ending videos joined automatically around the main body at export time" }
+          ]
+        },
+        {
+          "type": "spec_list",
+          "items": [
+            { "label": "🌐 UI languages", "value": "Japanese and English" },
+            { "label": "💾 Export formats", "value": "MP4, WebM, PPTX, PDF, PNG, JPEG" }
+          ]
+        }
+      ]
+    },
+
+    {
+      "icon": "💻",
+      "category": "Chapter 2",
+      "title": "System requirements and recommended specs",
+      "intro": "Video export runs on your own computer. Here is what to aim for if you want it to be comfortable.",
+      "blocks": [
+        { "type": "html", "html": "<h3>🌐 Recommended browsers</h3>" },
+        {
+          "type": "check_list",
+          "items": [
+            "✅ Google Chrome (desktop, current version) ← the top recommendation",
+            "✅ Microsoft Edge (current version)",
+            "⚠️ Phones and tablets are not recommended"
+          ]
+        },
+        {
+          "type": "html",
+          "html": "<h3>💻 How many slides you can expect to handle</h3><p>Rendering the video uses your own computer's browser memory.</p>"
+        },
+        {
+          "type": "table",
+          "head": ["Installed memory", "720p", "1080p", "1440p"],
+          "rows": [
+            ["8GB", "roughly 20–40 slides", "roughly 10–20 slides", "not recommended"],
+            ["16GB (recommended)", "roughly 50–100 slides", "roughly 25–50 slides", "roughly 10–20 slides"],
+            ["32GB", "—", "roughly 50–100 slides", "roughly 20–40 slides"]
+          ]
+        },
+        {
+          "type": "html",
+          "html": "<p>There are three output resolutions: 720p, 1080p and 1440p (at 16:9 that is 1280×720, 1920×1080 and 2560×1440).</p><h3>Other recommended specs</h3>"
+        },
+        {
+          "type": "spec_list",
+          "items": [
+            { "label": "OS", "value": "Windows 11 or later, or macOS 13 or later" },
+            { "label": "CPU", "value": "6 cores or more recommended" },
+            { "label": "Storage", "value": "SSD recommended" }
+          ]
+        },
+        { "type": "html", "html": "<h3>🐢 If things feel slow</h3>" },
+        {
+          "type": "check_list",
+          "items": [
+            "Drop the output resolution from 1440p to 1080p or below",
+            "Drop the video quality from “High” to “Standard” or “Low”",
+            "Re-import your documents at a lower import quality (chapter 7)",
+            "Clear out projects and assets you no longer need",
+            "Restart the browser",
+            "Split long jobs across several projects"
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "warn",
+          "title": "🫨 If the exported video looks stuttery",
+          "text": "Video export uses browser memory, so pause your other work while it runs. Closing spare tabs as well improves the quality of the file that comes out."
+        }
+      ]
+    },
+
+    {
+      "icon": "🏗️",
+      "category": "Chapter 3",
+      "title": "Start with Bundle Builder (strongly recommended)",
+      "intro": "A companion tool that lets you start producing without setting up an API key.",
+      "blocks": [
+        {
+          "type": "html",
+          "html": "<h3>🏗️ What SlideCast Studio Bundle Builder is</h3><p>Bundle Builder is a companion tool built around one idea: start producing without setting up an API key. It is a standalone app that runs inside Google Gemini Canvas, and its step-by-step wizard walks you from script generation through AI voice synthesis to a ZIP export.</p><p>Open it from the Bundle Builder card on the dashboard (the one with the “Start here” badge).</p>"
+        },
+        {
+          "type": "gallery",
+          "items": [
+            { "image": "./img/manual-02.png", "alt": "The Bundle Builder card on the dashboard", "caption": "The Bundle Builder card on the dashboard" },
+            { "image": "./img/manual-03.png", "alt": "The Bundle Builder start screen", "caption": "The Bundle Builder screen" }
+          ]
+        },
+        { "type": "html", "html": "<h3>🌟 What Bundle Builder gets you</h3>" },
+        {
+          "type": "check_list",
+          "items": [
+            "No API key setup: on the standard models you can start without obtaining a Gemini API key of your own",
+            "A wizard, so there is nothing to work out: five steps and you are done",
+            "Japanese and English: switch with the 🌐 button at the top right"
+          ]
+        },
+        { "type": "html", "html": "<h3>📋 The five Bundle Builder steps</h3>" },
+        {
+          "type": "figure",
+          "image": "./img/manual-04.png",
+          "alt": "The Bundle Builder step indicator",
+          "caption": "Five steps to work through"
+        },
+        {
+          "type": "step_list",
+          "items": [
+            { "title": "Step 1: Input", "text": "Choose how your material will be prepared. “Generate slide images here (v3.3 and later)” takes a theme, an audience, a slide count and an art style, and has the AI produce the slide images themselves (regenerate them all, or one at a time, afterwards). “Upload documents” imports PNG, JPEG, PDF, ZIP or a folder. The title used for the output filename is set here too. If you plan to record with a microphone, granting mic permission on this screen makes things smoother later." },
+            { "title": "Step 2: Script generation", "text": "Decide the audience, script style, sense of length, number of speakers (up to six), subtitle lines per page, subtitle layout and misreading prevention (adding phonetic readings), then generate. Afterwards the script editor lets you edit speaker, tone, body text and subtitles freely. You can also add and delete script blocks, copy or import JSON, and revert to the previous script." },
+            { "title": "Step 3: Voice generation", "text": "Speakers are extracted from the script automatically; assign a voice model per speaker and generate them in one pass. You can tune how many run at once, stop the run, and regenerate only what did not finish. Recording over a line with the microphone is supported too (with head and tail trimming)." },
+            { "title": "Step 4: Validation", "text": "Four checks run: the script itself (empty text, sequence numbers), speaker consistency, audio links and slide references." },
+            { "title": "Step 5: ZIP export", "text": "Download a ZIP containing your slide documents, the script and the audio." }
+          ]
+        },
+        {
+          "type": "gallery",
+          "items": [
+            { "image": "./img/manual-05.png", "alt": "The Step 1 input screen", "caption": "Step 1: Input" },
+            { "image": "./img/bb-script.png", "alt": "The Step 2 script generation screen", "caption": "Step 2: Script generation" }
+          ]
+        },
+        {
+          "type": "html",
+          "html": "<h3>📥 Bringing it into SlideCast Studio</h3><p>Drop or select the exported ZIP on “Create from documents” on the dashboard — that is all. From there you settle the design and effects in the editor and export.</p>"
+        }
+      ]
+    },
+
+    {
+      "icon": "🔐",
+      "category": "Chapter 4",
+      "title": "Data storage and security",
+      "intro": "Please read where your data lives, what can erase it, and how API keys are handled.",
+      "blocks": [
+        {
+          "type": "html",
+          "html": "<h3>💾 Where is it stored?</h3><p>All project data is stored inside your own browser, in IndexedDB. Nothing is uploaded to an external server.</p><h3>⚠️ What can erase your data</h3>"
+        },
+        {
+          "type": "check_list",
+          "items": [
+            "Clearing “browsing history and cookies” in your browser",
+            "Uninstalling the browser",
+            "Closing a private (incognito) window"
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "warn",
+          "title": "🆘 There is no recovery",
+          "text": "Once data is gone, the app cannot bring it back. Backing up regularly is the only defence."
+        },
+        { "type": "html", "html": "<h3>🔐 If you use an API key</h3>" },
+        {
+          "type": "check_list",
+          "items": [
+            "Never enter one on a shared PC or at an internet café",
+            "API keys are not stored in project data — they are kept in the browser only",
+            "Turning on “Do not save on this device (session only)” clears the key the moment you close the tab or the browser",
+            "Setting usage limits and alerts in the Google Cloud Console is strongly recommended"
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "warn",
+          "title": "⚠️ Leak risk",
+          "text": "If an API key does leak and gets abused, the bill can get large."
+        }
+      ]
+    },
+
+    {
+      "icon": "📊",
+      "category": "Chapter 5",
+      "title": "Project management (the dashboard)",
+      "intro": "Creating, duplicating, backing up and resetting projects all happen on the dashboard.",
+      "blocks": [
+        {
+          "type": "html",
+          "html": "<h3>📊 Checking data usage</h3><p>The top of the dashboard shows an estimate of how much browser storage you are using. As you approach the limit, delete projects you no longer need, or back them up and move them off.</p>"
+        },
+        {
+          "type": "figure",
+          "image": "./img/manual-06.png",
+          "alt": "The data usage display on the dashboard",
+          "caption": "The estimated data usage at the top of the dashboard"
+        },
+        {
+          "type": "html",
+          "html": "<h3>➕ Creating a project</h3><p><strong>Create from documents (recommended)</strong>: select or drag and drop a PDF, PNG, JPEG or ZIP (or a folder). Documents with many pages can take a few minutes. In v3.4 you can choose the import quality before the import starts (chapter 7).</p><p><strong>Create an empty project</strong>: for starting from nothing. You can add material later.</p><h3>🗂️ Working with projects</h3>"
+        },
+        {
+          "type": "check_list",
+          "items": [
+            "📋 Duplicate: click the copy icon",
+            "✏️ Rename: click the title, or the edit icon",
+            "☁️ Save a backup: the save icon → download the file",
+            "🗑️ Delete: the trash icon (there is no undo afterwards)"
+          ]
+        },
+        {
+          "type": "html",
+          "html": "<p>Each card shows a rough data size and an estimated size for an individual backup.</p><h3>💾 Backup and restore</h3><p>The “Save data” button exports a ZIP with the items you choose. These are the options:</p>"
+        },
+        {
+          "type": "check_list",
+          "items": [
+            "Preferences",
+            "Characters",
+            "Custom presets",
+            "Color palettes",
+            "Media library",
+            "Projects (selectable one by one)"
+          ]
+        },
+        {
+          "type": "html",
+          "html": "<p>An estimated backup size is shown, with a three-level warning: safe, caution, danger. At the danger level a restore may fail, so backing projects up individually is recommended.</p>"
+        },
+        {
+          "type": "figure",
+          "image": "./img/manual-07.png",
+          "alt": "The data backup screen",
+          "caption": "“Save data” lets you choose what to include"
+        },
+        {
+          "type": "html",
+          "html": "<p><strong>Restore (import)</strong>: the “Restore data” button at the top of the dashboard → select or drop a JSON or ZIP file. If a character with the same name, or the same project, already exists, you choose what happens.</p>"
+        },
+        {
+          "type": "check_list",
+          "items": ["Skip duplicates", "Overwrite duplicates", "Add under a different name"]
+        },
+        {
+          "type": "figure",
+          "image": "./img/manual-08.png",
+          "alt": "The duplicate handling options when restoring data",
+          "caption": "On restore, you choose how duplicates are handled"
+        },
+        {
+          "type": "html",
+          "html": "<h3>🗑️ Resetting data by category</h3><p>“Reset data” lets you tick which categories to delete.</p>"
+        },
+        {
+          "type": "check_list",
+          "items": [
+            "Projects",
+            "Asset library (shared images, video, BGM and so on)",
+            "App settings (characters, presets, color palettes, Gem URL)",
+            "API keys and other local settings"
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "warn",
+          "title": "⚠️ Deletion cannot be undone",
+          "text": "There is a button to open the backup screen before you delete. Deleted data cannot be brought back."
+        }
+      ]
+    },
+
+    {
+      "icon": "🖥️",
+      "category": "Chapter 6",
+      "title": "Getting around the editor",
+      "intro": "The screen is split into four areas. Start by getting a feel for where everything sits.",
+      "blocks": [
+        {
+          "type": "html",
+          "html": "<h3>🖥️ The four areas</h3><p><strong>① Header (top)</strong>: the button back to the dashboard, the project name (click to change it), the ⚙️ settings button, statistics (estimated runtime and file size), the Script / Generate all / Export documents / Export video buttons, the Play all button, and the save state (unsaved / saved).</p><p><strong>② Sidebar (left)</strong>: the slide thumbnails. Reorder by drag and drop, drop images, video, PDFs or ZIPs to add several at once, and use the hover menu to change the image, generate TTS, duplicate or delete. Between thumbnails you will see the transition boundary badge (global / per-boundary). The width is draggable.</p><p><strong>③ Preview (center)</strong>: the canvas, live. The preview background can be light, mid or dark. Drag the divider to resize the area. There are playback controls (▶ / ⏸ / a seek bar) and a “Fine-tune timing” button.</p><p><strong>④ Script editor (bottom)</strong>: where you write each slide's lines and subtitles. Exchanges between several characters, performance settings (expressions and poses) and the per-slide timeline all live here.</p>"
+        },
+        {
+          "type": "figure",
+          "image": "./img/manual-09.png",
+          "alt": "The overall layout of the editor",
+          "caption": "The four areas of the editor"
+        },
+        {
+          "type": "html",
+          "html": "<h3>🟢 Easy mode (v3.0 and later)</h3><p>If the number of settings feels like too much, there is an “Easy” switch. Turn it on and only the essentials are shown; everything else is set for you at sensible values. These are the settings Easy mode exposes.</p>"
+        },
+        {
+          "type": "check_list",
+          "items": [
+            "Frame size (landscape / portrait / square)",
+            "Subtitles (on/off, split or overlay, four designs, text size)",
+            "Image display (fit whole / fill)",
+            "Slide size (100% / 95% / 90%)",
+            "Screen background color",
+            "Character (name, icon, shape, size, speech bubble, which side it appears on)",
+            "Opening / ending video",
+            "BGM (track and volume)"
+          ]
+        },
+        {
+          "type": "figure",
+          "image": "./img/ui-easy.png",
+          "alt": "The Easy mode settings screen",
+          "caption": "The settings Easy mode shows"
+        },
+        {
+          "type": "html",
+          "html": "<p>When you want finer control, switch it off and you are back in the normal mode.</p><h3>▶️ Playback</h3>"
+        },
+        {
+          "type": "check_list",
+          "items": [
+            "Play the current slide only: the ▶ button at the bottom center / click the canvas / press Space",
+            "Play the whole thing: “Play all” in the header → fullscreen playback including transitions, opening/ending and BGM",
+            "Fine-tune timing: a mode that enlarges the preview so you can settle pauses and audio positions"
+          ]
+        },
+        { "type": "html", "html": "<h3>⌨️ Keyboard shortcuts</h3>" },
+        {
+          "type": "spec_list",
+          "items": [
+            { "label": "Save", "value": "Ctrl / ⌘ + S" },
+            { "label": "Play / pause", "value": "Space" },
+            { "label": "Previous / next slide", "value": "← / →" },
+            { "label": "Delete slide", "value": "Delete" },
+            { "label": "Duplicate slide", "value": "Ctrl / ⌘ + D" },
+            { "label": "Undo", "value": "Ctrl / ⌘ + Z" },
+            { "label": "Redo", "value": "Ctrl + Y / ⌘ + ⇧ + Z" }
+          ]
+        }
+      ]
+    },
+
+    {
+      "icon": "🖼️",
+      "category": "Chapter 7",
+      "title": "Adding and managing slides",
+      "intro": "Import quality, blank slides and video slides — everything to do with slides themselves.",
+      "blocks": [
+        {
+          "type": "html",
+          "html": "<h3>➕ Adding slides</h3><p>Use “Add slide” at the bottom of the sidebar, or drag and drop images, video, PDFs or ZIPs onto the sidebar. Every page of a PDF is turned into an image automatically.</p><h3>🖼️ Choosing the import quality (v3.x)</h3><p>When you import documents, you can pick a quality preset.</p>"
+        },
+        {
+          "type": "spec_list",
+          "items": [
+            { "label": "Original quality", "value": "Imports at high quality, capped by the original image (PDFs come in at high resolution)" },
+            { "label": "4K", "value": "For 4K video material. Uses noticeably more time and memory" },
+            { "label": "2K", "value": "A balance of quality and speed" },
+            { "label": "Full HD", "value": "For standard YouTube use" },
+            { "label": "Standard", "value": "For ordinary use. Somewhat lighter" },
+            { "label": "Fast", "value": "For checking. Fine text tends to go soft" }
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "warn",
+          "title": "⚠️ The original is the ceiling",
+          "text": "You will not get more detail than the original image or PDF holds. Choosing a higher quality does not help if the source is low resolution — the source is the limit."
+        },
+        {
+          "type": "figure",
+          "image": "./img/manual-10.png",
+          "alt": "The import quality selection screen",
+          "caption": "Pick a quality preset as you import"
+        },
+        {
+          "type": "html",
+          "html": "<h3>🧱 Blank slides (new in v3.4)</h3><p>“Add slide” → “Add blank slide” adds one slide with no source document behind it.</p>"
+        },
+        {
+          "type": "figure",
+          "image": "./img/manual-11.png",
+          "alt": "Adding a blank slide",
+          "caption": "Add a slide with no source document"
+        },
+        {
+          "type": "html",
+          "html": "<p>On top of the project background (solid color, gradient, image or video) you can place subtitles, the character icon, a speech bubble, captions and badges. It suits cases like these:</p>"
+        },
+        {
+          "type": "check_list",
+          "items": ["Title cards", "Chapter breaks", "Side notes", "End cards", "Conversation-only scenes"]
+        },
+        {
+          "type": "html",
+          "html": "<p>Set an image later and it turns into an ordinary image slide. Ken Burns is an effect applied to an image, so it does not appear on blank slides. Preview, transitions and slide image export all work.</p><h3>🔀 Reordering and the hover menu</h3><p>Thumbnails can be reordered by drag and drop. The menu that appears on hover offers:</p>"
+        },
+        {
+          "type": "check_list",
+          "items": [
+            "🖼️ Change image: swap the image, leaving the script alone",
+            "🔊 Generate TTS: generate the audio for that slide only",
+            "📋 Duplicate: copy the slide with both image and lines",
+            "🗑️ Delete: recoverable with Ctrl + Z"
+          ]
+        },
+        {
+          "type": "html",
+          "html": "<h3>⏱️ Duration of a still slide (automatic / manual)</h3><p>“Still slide settings” in the script editor switches how the duration is decided.</p>"
+        },
+        {
+          "type": "spec_list",
+          "items": [
+            { "label": "Automatic", "value": "Updated automatically from the audio length or character count, plus the pauses before, after and between lines" },
+            { "label": "Manual", "value": "Enter the number of seconds directly" }
+          ]
+        },
+        {
+          "type": "html",
+          "html": "<p>The per-slide movement (Ken Burns) and its strength can also be set here, slide by slide.</p><h3>🎬 Inserting a video slide</h3><p>MP4 and WebM can be inserted as slides (up to 200MB / 10 minutes). There are three audio modes.</p>"
+        },
+        {
+          "type": "spec_list",
+          "items": [
+            { "label": "🔇 Muted", "value": "Cuts the video's own audio. BGM continues" },
+            { "label": "🎬 Video audio only", "value": "No narration. BGM is silenced" },
+            { "label": "🎚️ Mixed with BGM", "value": "Both play" }
+          ]
+        },
+        { "type": "html", "html": "<p>Beyond that, you can set:</p>" },
+        {
+          "type": "check_list",
+          "items": [
+            "Video volume",
+            "Playback range (trim the start and end)",
+            "Ducking: lower the BGM automatically while the video plays",
+            "Fullscreen: expand the video across the whole canvas (badges and captions are hidden)",
+            "Show subtitles: overlay subtitles on the video, in fullscreen only",
+            "“Preview with these settings”, to hear how the audio will come out beforehand"
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "good",
+          "title": "💡 Note",
+          "text": "Ken Burns is not applied to video slides."
+        },
+        {
+          "type": "figure",
+          "image": "./img/manual-12.png",
+          "alt": "The video slide settings screen",
+          "caption": "Audio mode and trimming for a video slide"
+        }
+      ]
+    },
+
+    {
+      "icon": "📝",
+      "category": "Chapter 8",
+      "title": "Writing the script and making the audio",
+      "intro": "From generating and editing the script through to AI voice, external audio and mic recording.",
+      "blocks": [
+        {
+          "type": "html",
+          "html": "<h3>🗂️ The “Script” tab (v3.x)</h3><p>The “Script” button in the header opens everything to do with the script in one place.</p>"
+        },
+        {
+          "type": "spec_list",
+          "items": [
+            { "label": "Generate", "value": "Pick your conditions, generate a script on the spot and place it on the slides" },
+            { "label": "Import", "value": "Paste script JSON to import it" },
+            { "label": "Bundle", "value": "Load data that came from Bundle Builder" },
+            { "label": "Paste", "value": "Convert from plain text" }
+          ]
+        },
+        {
+          "type": "html",
+          "html": "<p>The Generate tab covers audience, style, length, number of speakers, subtitle lines per page, subtitle layout, script language, phonetic reading assistance, the generation model, the TTS method, whether to research, and more.</p><p>Instead of generating here, you can display a prompt for an external AI, hand it to ChatGPT, Claude or Gemini along with your documents, and import the JSON that comes back through the “Import” tab.</p>"
+        },
+        {
+          "type": "callout",
+          "tone": "warn",
+          "title": "⚠️ Video slides are excluded",
+          "text": "Video slides are not covered by script generation (the script is placed on still slides only, in order)."
+        },
+        {
+          "type": "gallery",
+          "items": [
+            { "image": "./img/manual-13.png", "alt": "The generate screen of the Script tab", "caption": "Generation settings in the “Script” tab" },
+            { "image": "./img/manual-14.png", "alt": "The import screen of the Script tab", "caption": "Importing script JSON" }
+          ]
+        },
+        {
+          "type": "html",
+          "html": "<h3>📝 The structure of a script block (Dialogue)</h3><p>Each slide can hold several “script blocks”.</p><p><strong>TTS script (left)</strong>: the text the AI reads aloud. With Gemini TTS, adding phonetic readings in kana or in parentheses for difficult kanji gets them read correctly. A Japanese comma (、) automatically creates a small pause.</p><p><strong>Displayed subtitle (right)</strong>: the caption shown on screen. Leave it empty and the TTS script is shown as is. A line break shows lines together; a blank line (two line breaks) moves to the next subtitle page.</p>"
+        },
+        {
+          "type": "figure",
+          "image": "./img/manual-15.png",
+          "alt": "The input fields of a script block",
+          "caption": "TTS script on the left, displayed subtitle on the right"
+        },
+        {
+          "type": "html",
+          "html": "<h3>⏳ Setting pauses (Gap) individually</h3><p>Each script block can specify the pauses around it, in seconds.</p>"
+        },
+        {
+          "type": "spec_list",
+          "items": [
+            { "label": "Leading pause", "value": "Before the first block (defaults to Pre-Roll)" },
+            { "label": "Pause", "value": "The wait before the next block (defaults to the conversation gap)" },
+            { "label": "Trailing pause", "value": "After the last block (defaults to Post-Roll)" }
+          ]
+        },
+        {
+          "type": "html",
+          "html": "<p>An individual setting can be returned to the shared value in one click.</p><h3>🔊 Generating AI voice</h3><p><strong>Block by block</strong>: click “Generate” → a few seconds later the green “AI generated” badge appears.</p><p><strong>All slides at once</strong>: from “Generate all” in the header, choose “Generate everything (overwrite existing audio)” or “Only what is missing (keep existing audio)”. Progress and remaining time are shown, and “Emergency stop” halts it at any point. If errors keep coming, the run stops on its own and the audio already generated is kept.</p>"
+        },
+        {
+          "type": "callout",
+          "tone": "warn",
+          "title": "⚠️ Watch the free tier limits",
+          "text": "The Gemini free tier limits requests not only per minute but per day. If you hit the ceiling, another route is to create the audio in the Google AI Studio Playground and upload it."
+        },
+        {
+          "type": "html",
+          "html": "<h3>🎭 Tone direction (controlling emotion and delivery)</h3><p>With Gemini TTS you can direct the delivery in each script block's “Tone” field — “calm explanatory, slightly slow”, “bright and upbeat”, “as if surprised”, and so on.</p><h3>🎤 Using external audio</h3><p>Drag and drop an MP3 or WAV onto a script block, or pick a file with the “Load” button.</p><h3>🎙️ Mic recording</h3><p>The “Record” button on each line takes you through record → listen → accept (with trimming).</p>"
+        },
+        {
+          "type": "callout",
+          "title": "ℹ️ Differences between editions",
+          "text": "The record button does not appear in the Apps Script edition. The local HTML edition is not expected to use TTS, so its audio settings show BGM only (recording and audio file import still work)."
+        }
+      ]
+    },
+
+    {
+      "icon": "🕐",
+      "category": "Chapter 9",
+      "title": "The per-slide timeline and fine-tuning timing (v3.x)",
+      "intro": "A view for inspecting what happens inside a slide over time, and settling it down to the second.",
+      "blocks": [
+        {
+          "type": "html",
+          "html": "<p>“Timeline” in the script editor lets you inspect and adjust the contents of that slide along a time axis. There are three tracks.</p>"
+        },
+        {
+          "type": "spec_list",
+          "items": [
+            { "label": "Visual", "value": "Still image or video (the still shown before the video starts appears here too)" },
+            { "label": "Audio", "value": "The audio for each script block" },
+            { "label": "Pause", "value": "The waits before, after and between lines" }
+          ]
+        },
+        { "type": "html", "html": "<p>These can be adjusted by dragging:</p>" },
+        {
+          "type": "check_list",
+          "items": [
+            "Where the audio starts",
+            "When the video starts",
+            "How long a still image is shown",
+            "The end of the slide (dragging it switches a still to a manual duration)"
+          ]
+        },
+        {
+          "type": "html",
+          "html": "<p>The duration is labelled with an “auto” or “manual” badge, and “Back to automatic” restores it at any time. Where two pieces of audio overlap, an “overlap” badge appears.</p>"
+        },
+        {
+          "type": "figure",
+          "image": "./img/v3x-timeline.png",
+          "alt": "The per-slide timeline",
+          "caption": "Three tracks: visual, audio and pauses"
+        },
+        {
+          "type": "html",
+          "html": "<p>“Fine-tune timing” above the preview enlarges the preview so you can settle things properly.</p>"
+        },
+        {
+          "type": "figure",
+          "image": "./img/manual-16.png",
+          "alt": "The fine-tune timing mode",
+          "caption": "Fine-tune timing mode"
+        }
+      ]
+    },
+
+    {
+      "icon": "🎨",
+      "category": "Chapter 10",
+      "title": "Design and effects",
+      "intro": "The settings modal is split into Basic / Subtitles / Effects / BGM / Badges / Captions / Audio / Characters / Opening-ending tabs. Settings save themselves and apply immediately (character edits are the exception — they apply on “Save”).",
+      "blocks": [
+        {
+          "type": "html",
+          "html": "<h3>🎨 Color palettes</h3><p>Register the brand and character colors you use often and your palette stays consistent across projects. Both solid colors and gradients can be saved.</p><h3>⚙️ Basic tab</h3>"
+        },
+        {
+          "type": "spec_list",
+          "items": [
+            { "label": "Presets", "value": "Save a set of settings under a name and recall it in one click (what will change is shown before it is applied)" },
+            { "label": "Frame size", "value": "16:9 / 9:16 / 1:1" },
+            { "label": "Video preview quality", "value": "Light / Standard" },
+            { "label": "Slide image placement", "value": "Fit whole (reset) or fill (enlarge), plus zoom, position and slide corner rounding" },
+            { "label": "Background and wallpaper", "value": "Solid color / gradient / background image / background video (background video loops without using its audio)" },
+            { "label": "Video export stabilisation", "value": "Whether to show the recommendations before an export" }
+          ]
+        },
+        {
+          "type": "html",
+          "html": "<p>Background images and videos can be saved to the library and recalled in one click from another project.</p><h3>💬 Subtitles tab</h3>"
+        },
+        {
+          "type": "spec_list",
+          "items": [
+            { "label": "Subtitle layout", "value": "Overlay / split / no subtitles" },
+            { "label": "Automatic duration", "value": "How long a subtitle with no audio is shown (calculated per character, in seconds)" },
+            { "label": "Font and size", "value": "Around 20 fonts, chosen in a modal that lets you compare how they actually look. Weight (light / regular / bold) and italics can be set too" },
+            { "label": "Area height", "value": "The height of the subtitle area (you are warned if a character is sized relative to this height)" },
+            { "label": "Position", "value": "Top / middle / bottom alignment, plus vertical and horizontal margins" },
+            { "label": "Entrance animation", "value": "None / soft fade / blur fade / rise up / slide in from left / pop / typewriter" },
+            { "label": "Style", "value": "Text color (solid or gradient), stroke, shadow, subtitle background band and its opacity" }
+          ]
+        },
+        {
+          "type": "figure",
+          "image": "./img/manual-17.png",
+          "alt": "The subtitles tab settings screen",
+          "caption": "The Subtitles tab"
+        },
+        {
+          "type": "html",
+          "html": "<p>In v3.4, while the subtitle settings are open the canvas shows a “subtitle settings preview”. Changes to font, size, color, stroke, shadow and area height can be checked on the spot.</p>"
+        },
+        {
+          "type": "figure",
+          "image": "./img/ui-editor.png",
+          "alt": "The subtitle settings preview",
+          "caption": "The subtitle settings preview (v3.4)"
+        },
+        {
+          "type": "html",
+          "html": "<h3>🎞️ Effects tab: slide animation (Ken Burns)</h3><p>An effect that adds a slow pan and zoom to a still image. The presets are: none, zoom in (center), zoom out (center), pan left to right, pan right to left, pan top to bottom, zoom in from top left, zoom in from bottom right, picture-book sway, impact zoom, impact shake, pop start, and wave sway.</p>"
+        },
+        {
+          "type": "spec_list",
+          "items": [
+            { "label": "Automatic variation", "value": "Turn it on and each slide cycles through a different effect automatically" },
+            { "label": "Effect strength", "value": "Subtle / standard / strong" },
+            { "label": "Hide the background", "value": "Zooms in slightly, but only where the movement would expose the edges" }
+          ]
+        },
+        { "type": "html", "html": "<p>Per-slide settings are possible too.</p>" },
+        {
+          "type": "callout",
+          "tone": "warn",
+          "title": "⚠️ The preview is a still",
+          "text": "The editor preview is a still image. Check the movement in playback or in the export. It is not applied to video slides."
+        },
+        { "type": "html", "html": "<h3>🎞️ Effects tab: transitions</h3>" },
+        {
+          "type": "check_list",
+          "items": [
+            "Cut (no effect)",
+            "Cross dissolve",
+            "Fade",
+            "Slide (left / right / up)",
+            "Zoom in",
+            "Zoom out/in",
+            "Circular wipe",
+            "White flash",
+            "Page swipe"
+          ]
+        },
+        {
+          "type": "html",
+          "html": "<p>The transition duration is set in seconds. Turn on “Apply at opening/ending boundaries too” and opening → first slide, and last slide → ending, are joined with the same effect.</p><h3>🔀 Per-boundary settings (v3.x)</h3><p>Click the boundary badge (“Global” / “Custom”) between two slides in the sidebar to override the settings for that boundary alone.</p>"
+        },
+        {
+          "type": "check_list",
+          "items": [
+            "The effect",
+            "The duration (a cut can be specified)",
+            "The sound effect (follow the global setting / off / play the global sound only here / a custom sound)",
+            "A per-boundary sound volume"
+          ]
+        },
+        { "type": "html", "html": "<p>“Reset all” returns everything to the global settings.</p>" },
+        {
+          "type": "figure",
+          "image": "./img/manual-18.png",
+          "alt": "Per-boundary transition settings",
+          "caption": "Override a single boundary from its badge"
+        },
+        {
+          "type": "html",
+          "html": "<h3>🔔 Transition sound effects (SFX)</h3><p>The built-in sounds are: picture-book page turn, light page turn, page turn (legacy), cinematic, shimmer, soft whoosh, and paper swipe.</p><p>You can also add an MP3 or similar as a custom sound (up to 5MB). Uploaded sounds are saved to the library and can be recalled in other projects.</p><h3>🎮 Text blips for lines with no voice (v3.x)</h3><p>Lays a short retro-RPG-style sound over lines that have no audio set.</p>"
+        },
+        {
+          "type": "check_list",
+          "items": [
+            "A global on/off, plus the pitch (very low / low / standard / high) and volume for the default narrator",
+            "Per-character overrides for on/off, pitch and volume"
+          ]
+        },
+        { "type": "html", "html": "<p>It stays silent on lines that have real audio, on empty lines, and during conversation pauses.</p>" },
+        {
+          "type": "figure",
+          "image": "./img/manual-19.png",
+          "alt": "The text blip settings",
+          "caption": "Text blips for lines with no voice"
+        },
+        { "type": "html", "html": "<h3>⏱️ Timing adjustments (seconds)</h3>" },
+        {
+          "type": "spec_list",
+          "items": [
+            { "label": "Pre-Roll", "value": "The wait between the slide appearing and the speaking starting" },
+            { "label": "Conversation gap (Gap)", "value": "The shared wait used between script blocks" },
+            { "label": "Post-Roll", "value": "The wait between the speaking ending and the move to the next slide" }
+          ]
+        },
+        {
+          "type": "html",
+          "html": "<p>All three can be overridden per script block (chapter 8).</p><h3>🏷️ Badges tab</h3><p>Each of the four corners can carry its own logo or text badge, independently.</p><p><strong>Create in the app</strong>: multi-line text, text alignment, text color, shadow and stroke, background (solid / gradient / transparent), shape (square / rounded), shadow and border</p><p><strong>Upload an image</strong>: place a logo, such as a transparent PNG. Size and shadow are adjustable</p><p>Badge images can be saved to the library too.</p>"
+        },
+        {
+          "type": "callout",
+          "tone": "warn",
+          "title": "⚠️ A note on use",
+          "text": "Using a badge to hide another service's watermark may breach that service's terms."
+        },
+        {
+          "type": "html",
+          "html": "<h3>📰 Captions tab</h3><p>A band of decoration that runs across the screen. The top and bottom captions are configured independently.</p>"
+        },
+        {
+          "type": "spec_list",
+          "items": [
+            { "label": "Display mode", "value": "Fixed / scrolling / slide left" },
+            { "label": "Content", "value": "Add several pieces of text and imagery and run them together" },
+            { "label": "Adjustments", "value": "Scroll speed (px/sec), hold time, switch time, spacing between items, spacing between groups" },
+            { "label": "Band", "value": "Style, color and opacity, text stroke and shadow, font" }
+          ]
+        },
+        {
+          "type": "figure",
+          "image": "./img/manual-20.png",
+          "alt": "The captions tab settings screen",
+          "caption": "The Captions tab"
+        }
+      ]
+    },
+
+    {
+      "icon": "🎭",
+      "category": "Chapter 11",
+      "title": "Character management",
+      "intro": "Character settings changed considerably in v3.4. They are now organised into three groups — character assets and motion / layout / design — and each group can be reset to its defaults on its own.",
+      "blocks": [
+        {
+          "type": "html",
+          "html": "<h3>👤 Creating a character</h3><p>Settings → Characters → “New”. Set the name, the style (speech bubble / standard subtitle / band), the font, and the weight and italics.</p>"
+        },
+        {
+          "type": "figure",
+          "image": "./img/manual-21.png",
+          "alt": "The new character screen",
+          "caption": "Creating a character"
+        },
+        {
+          "type": "html",
+          "html": "<h3>🖼️ Character assets (three methods)</h3><p>The images you can register fall into three methods, switched with the tabs at the top.</p>"
+        },
+        {
+          "type": "figure",
+          "image": "./img/manual-22.png",
+          "alt": "The three character asset method tabs",
+          "caption": "Three tabs: Sequence, Animated image and Audio-driven"
+        },
+        {
+          "type": "tabs",
+          "label": "Character asset methods",
+          "items": [
+            {
+              "label": "Sequence",
+              "html": "<p><strong>Sequence animation</strong>: register several still images and they cycle in registration order while the character speaks. Two images is enough. Reorder them by dragging the cards, or with the arrow buttons.</p>"
+            },
+            {
+              "label": "Animated image",
+              "html": "<p><strong>Single-file animation</strong>: register one GIF, animated WebP or APNG and it plays while the character speaks. The playback speed is adjustable.</p>"
+            },
+            {
+              "label": "Audio-driven",
+              "blocks": [
+                {
+                  "type": "html",
+                  "html": "<p><strong>Six-frame lip sync</strong>: six still images are switched according to the narration volume. The role of each of the six is fixed.</p>"
+                },
+                {
+                  "type": "frame_list",
+                  "items": [
+                    "Eyes open, mouth closed (idle)",
+                    "Eyes open, mouth half open",
+                    "Eyes open, mouth open",
+                    "Eyes closed, mouth closed",
+                    "Eyes closed, mouth half open",
+                    "Eyes closed, mouth open"
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "html",
+          "html": "<p>Hovering over an image reveals “Replace”, which swaps just that one frame.</p>"
+        },
+        {
+          "type": "figure",
+          "image": "./img/v33-lipsync.png",
+          "alt": "Registering six-frame lip sync assets",
+          "caption": "Assets for six-frame lip sync"
+        },
+        {
+          "type": "html",
+          "html": "<p>The lip sync interval defaults to “Automatic (recommended)”, which estimates the speaking rate for each line from the audio length and the amount of subtitle text. Only switch to “Manual” and move the slider if it does not feel right.</p>"
+        },
+        {
+          "type": "callout",
+          "tone": "good",
+          "title": "💡 Assets for the three methods are stored separately",
+          "text": "Switching methods does not discard what you had, so trying something and going back is cheap."
+        },
+        { "type": "html", "html": "<h3>📥 Ways to supply the assets</h3>" },
+        {
+          "type": "check_list",
+          "items": [
+            "Select several files",
+            "Select a whole folder",
+            "Drag and drop (files or folders)",
+            "A ZIP file (available for “Sequence” and “Audio-driven”)"
+          ]
+        },
+        {
+          "type": "html",
+          "html": "<p>The contents of a ZIP are read in filename order. Numbering them 01.png through 06.png makes it reliable.</p>"
+        },
+        {
+          "type": "spec_list",
+          "items": [
+            { "label": "The ZIP itself", "value": "up to 50MB" },
+            { "label": "Number of images", "value": "up to 200" },
+            { "label": "Total once extracted", "value": "up to 100MB" },
+            { "label": "Single-file animation", "value": "up to 12MB / 180 frames (anything larger is scaled down as far as possible, and you are told the size it ended up at)" }
+          ]
+        },
+        {
+          "type": "html",
+          "html": "<h3>🎭 MouthLoop and character pack ZIPs</h3><p>MouthLoop is a separate app (running in Gemini Canvas) that generates lip sync assets automatically from a single image. Open it from the “Create assets in MouthLoop” link in the character settings.</p>"
+        },
+        {
+          "type": "spec_list",
+          "items": [
+            { "label": "Six PNGs (ZIP)", "value": "Goes straight into “Audio-driven”" },
+            { "label": "Animated WebP", "value": "Goes straight into “Animated image”" },
+            { "label": "Character pack ZIP", "value": "Registers expressions such as happy, sad and angry, plus posed gestures, alongside the lip sync assets" }
+          ]
+        },
+        {
+          "type": "html",
+          "html": "<p>A character pack ZIP is detected automatically, and before it loads you are shown the image count, the extracted size, an estimate of the storage it will take, and which expressions and posed gestures it contains. If free space is short, you get a warning. Ordinary image ZIPs and character packs are told apart automatically, so there is no import mode to switch.</p><h3>😊 Expressions and posed gestures (new in v3.4)</h3><p>Select the characters in a displayed subtitle where you want a performance, and an “Add performance” button appears. From there you set an expression and a posed gesture (both at once, if you like).</p>"
+        },
+        {
+          "type": "check_list",
+          "items": [
+            "Smile only on the “thank you very much” part",
+            "Change the expression on a surprised line",
+            "Drop a pointing pose into the middle of an explanation"
+          ]
+        },
+        {
+          "type": "html",
+          "html": "<p>Performances you have set are listed below the script field, where you can edit or remove them later. If you rewrite the target text substantially, the performance may be released automatically, to avoid it drifting out of position.</p>"
+        },
+        {
+          "type": "figure",
+          "image": "./img/v34-acting.png",
+          "alt": "Setting expressions and posed gestures",
+          "caption": "Adding a performance to the selected characters"
+        },
+        {
+          "type": "html",
+          "html": "<h3>🪄 Auto-acting (new in v3.4)</h3><p>Turn on “Auto-acting” and press “Place performances automatically”, and expressions and gestures are placed at the breaks in each line.</p>"
+        },
+        {
+          "type": "spec_list",
+          "items": [
+            { "label": "Expressions and gestures to use", "value": "Chosen per character" },
+            { "label": "Frequency", "value": "Sparse / standard / frequent" },
+            { "label": "Range", "value": "This slide / everything" }
+          ]
+        },
+        {
+          "type": "html",
+          "html": "<p>Expressions matching built-in words such as “thank you” and “what a shame” take priority. Nothing is analysed by a generative model, so there is no extra API traffic and no extra API cost.</p><p>Automatically placed performances are marked “auto”, and “Remove automatic” clears only those (anything you set by hand stays). Placing them automatically first and fixing the parts that bother you by hand is a good way to work.</p>"
+        },
+        {
+          "type": "figure",
+          "image": "./img/v34-auto.png",
+          "alt": "The auto-acting settings",
+          "caption": "Auto-acting"
+        },
+        {
+          "type": "callout",
+          "title": "ℹ️ About the timing",
+          "text": "The timing of a performance is calculated from the position of the selected characters and the length of the audio. Word pronunciation times are not obtained through speech recognition, so this is not a word-level sync. Treat it as an effect."
+        },
+        {
+          "type": "html",
+          "html": "<h3>🫁 Base motion (breathing and speech bounce)</h3><p>Still character icons can be given movement too.</p>"
+        },
+        {
+          "type": "check_list",
+          "items": [
+            "Slow breathing while the character is silent",
+            "A speech bounce that follows the volume while the character talks"
+          ]
+        },
+        {
+          "type": "html",
+          "html": "<p>There are four levels: none, light, standard and strong. No new image assets are needed, and the preview and the export move the same way. Existing characters stay at “none”, so your earlier projects look exactly as they did.</p>"
+        },
+        {
+          "type": "callout",
+          "title": "ℹ️ How far it moves",
+          "text": "Only the icon as a whole moves up and down, with a slight stretch. There is no tilt, and nothing that changes the artwork itself, such as waving a hand."
+        },
+        {
+          "type": "figure",
+          "image": "./img/manual-23.png",
+          "alt": "The base motion settings",
+          "caption": "Breathing and speech bounce settings"
+        },
+        {
+          "type": "html",
+          "html": "<h3>📐 Layout (size, position, alignment)</h3><p>The icon size can be set two ways.</p>"
+        },
+        {
+          "type": "spec_list",
+          "items": [
+            { "label": "Relative to the subtitle area (multiplier)", "value": "The previous behaviour. Changing the subtitle “area height” changes the icon size too" },
+            { "label": "Relative to the frame (px)", "value": "Not tied to the subtitle settings. The proportion of the frame is kept even when the export resolution changes" }
+          ]
+        },
+        {
+          "type": "html",
+          "html": "<p>The speech bubble height also has two modes (match the subtitle area, or match the text — growing and shrinking with the number of lines). Beyond that, you can adjust:</p>"
+        },
+        {
+          "type": "check_list",
+          "items": [
+            "Vertical alignment with the speech bubble (align centers / align bottoms)",
+            "Moving the icon horizontally and vertically",
+            "The horizontal position of the speech bubble",
+            "Per-character text size (global setting / per character, based on 1080p)"
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "good",
+          "title": "💡 v3.3 and later",
+          "text": "Moving the character left or right moves the speech bubble by the same amount. The relationship holds, so once you have placed them nicely you can move the pair together."
+        },
+        {
+          "type": "figure",
+          "image": "./img/manual-24.png",
+          "alt": "The character layout settings",
+          "caption": "Layout settings"
+        },
+        { "type": "html", "html": "<h3>🗨️ Design (shape, color, border, shadow)</h3>" },
+        {
+          "type": "check_list",
+          "items": [
+            "Icon type: circle / original artwork",
+            "Icon shadow",
+            "Speech bubble shape: basic / thought / simple / teardrop",
+            "Speech bubble color, shadow, border and opacity",
+            "The band color (when the band style is selected)"
+          ]
+        },
+        {
+          "type": "html",
+          "html": "<h3>📍 Which side they stand on</h3><p>A character can be placed on the left or the right of the frame. For dialogue-style content, splitting them left and right reads naturally.</p><h3>🔊 Voice parameters</h3><p><strong>Gemini TTS (when using a Gemini API key)</strong> — a choice of 30 voices.</p>"
+        },
+        {
+          "type": "spec_list",
+          "items": [
+            { "label": "Female / high", "value": "Achernar (soft) / Laomedeia (upbeat) / Leda (youthful) / Zephyr (bright)" },
+            { "label": "Female / mid", "value": "Aoede (light) / Autonoe (bright) / Callirrhoe (natural) / Despina (smooth) / Erinome (clear) / Gacrux (mature) / Kore (firm) / Pulcherrima (positive) / Sulafat (warm) / Vindemiatrix (calm)" },
+            { "label": "Male / mid", "value": "Puck (upbeat) / Rasalgethi (good for explanation) / Sadaltager (intellectual)" },
+            { "label": "Male / low-mid", "value": "Achird (friendly) / Alnilam (firm) / Fenrir (high-energy) / Iapetus (clear) / Orus (firm) / Schedar (even and stable) / Umbriel (natural) / Zubenelgenubi (casual)" },
+            { "label": "Male / low", "value": "Algenib (gravelly) / Algieba (smooth) / Charon (good for explanation) / Enceladus (breathy) / Sadachbia (lively)" }
+          ]
+        },
+        {
+          "type": "html",
+          "html": "<p>The preview button plays a sample (note that previews consume API quota too).</p><p><strong>Google Cloud TTS (when using a Google Cloud API key)</strong> — choose a Neural2 or WaveNet voice, and adjust speed and pitch.</p><h3>🎚️ Adjusting audio that is already placed (v3.x)</h3><p>Speed and pitch can be applied after the fact to audio you have generated, recorded or uploaded.</p>"
+        },
+        {
+          "type": "check_list",
+          "items": [
+            "Listen first, then “Apply to every line” to re-convert them all at once",
+            "“Restore the original audio” returns to the untouched sound"
+          ]
+        },
+        {
+          "type": "callout",
+          "title": "ℹ️ A preview alone changes nothing",
+          "text": "Previewing on its own does not change the stored audio or the timeline."
+        },
+        {
+          "type": "html",
+          "html": "<h3>🔄 Replacing a character throughout</h3><p>For when you want to move A's lines over to B. Pick the character to replace and the one to replace it with, press “Run”, and every slide is updated at once. You also choose whether to keep the audio already placed.</p>"
+        }
+      ]
+    },
+
+    {
+      "icon": "🎵",
+      "category": "Chapter 12",
+      "title": "BGM settings (up to 10 tracks)",
+      "intro": "Switch BGM slide by slide, joined with a crossfade.",
+      "blocks": [
+        {
+          "type": "html",
+          "html": "<h3>🎵 Setting up BGM</h3><p>Drop an MP3, or load one from “Add BGM”. Set a default volume, and override it per track. If the video runs longer than the BGM, the track loops automatically.</p><h3>🎚️ Multiple BGM tracks and crossfades</h3><p>Up to 10 BGM tracks can be registered, each with a “starts at this slide” setting. A crossfade is applied at each switch, and the fade duration is set in seconds.</p><p>For example: a calm track over the intro, switching automatically to something brighter when the explanation begins. The range each track covers (slides X to Y) is shown in a list.</p><h3>📚 The BGM library</h3><p>BGM you upload can be saved to the library and recalled in one click from another project.</p>"
+        },
+        {
+          "type": "callout",
+          "tone": "good",
+          "title": "💡 How this interacts with video slides",
+          "text": "Over a stretch where a video slide is set to “Video audio only”, the BGM is silenced automatically."
+        },
+        {
+          "type": "figure",
+          "image": "./img/manual-25.png",
+          "alt": "The BGM settings screen",
+          "caption": "The BGM tab"
+        }
+      ]
+    },
+
+    {
+      "icon": "🎬",
+      "category": "Chapter 13",
+      "title": "Opening and ending branding",
+      "intro": "Your channel's opening and ending videos, joined automatically around the main body at export time.",
+      "blocks": [
+        {
+          "type": "html",
+          "html": "<h3>🎬 Inserting opening/ending videos</h3><p>Set your channel's opening and ending videos and they are joined automatically around the main body when you export. MP4 and WebM are supported (up to 500MB, no duration limit). Each frame size (16:9 / 9:16 / 1:1) can be configured and saved separately.</p><h3>✂️ Trimming and display settings (v3.x)</h3>"
+        },
+        {
+          "type": "spec_list",
+          "items": [
+            { "label": "Trimming", "value": "Set the start and end seconds with the timeline handles (shown as “playing X–Y of Z seconds”)" },
+            { "label": "Display mode", "value": "Fit whole / fill the frame / stretch" },
+            { "label": "Zoom", "value": "Adjustable" },
+            { "label": "Letterbox background", "value": "Black / follow the global setting" }
+          ]
+        },
+        { "type": "html", "html": "<p>You can check the result in the video preview as you go.</p>" },
+        {
+          "type": "figure",
+          "image": "./img/manual-26.png",
+          "alt": "The opening/ending trimming settings",
+          "caption": "Trimming and display settings for opening/ending videos"
+        },
+        {
+          "type": "html",
+          "html": "<h3>📚 The opening/ending library</h3><p>Once uploaded, an opening or ending video is saved to the library and can be applied to your next project in one click.</p>"
+        }
+      ]
+    },
+
+    {
+      "icon": "🔑",
+      "category": "Chapter 14",
+      "title": "Setting up the API yourself (advanced)",
+      "intro": "For people who would rather skip Bundle Builder, set up an API key of their own and generate audio from the editor.",
+      "blocks": [
+        { "type": "html", "html": "<h3>🔑 Getting a Gemini API key</h3>" },
+        {
+          "type": "step_list",
+          "items": [
+            { "title": "Go to Google AI Studio", "text": "Open aistudio.google.com" },
+            { "title": "Sign in", "text": "Sign in with your Google account" },
+            { "title": "Create an API key", "text": "Click “Create API key”" },
+            { "title": "Copy the key", "text": "Copy the key you are issued (a string beginning with AIza)" },
+            { "title": "Paste it into the app", "text": "Paste it into the app's “Settings → Audio” tab" }
+          ]
+        },
+        { "type": "link", "url": "https://aistudio.google.com/", "label": "Open Google AI Studio" },
+        { "type": "html", "html": "<p>The settings screen also lets you:</p>" },
+        {
+          "type": "spec_list",
+          "items": [
+            { "label": "Validate the key", "value": "Check on the spot whether it is valid, invalid or missing permissions" },
+            { "label": "Do not save on this device (session only)", "value": "On: cleared when the tab or browser closes" },
+            { "label": "Clear the API key", "value": "Remove the stored key from the browser" },
+            { "label": "Paid plan (billing enabled)", "value": "On: shortens the wait during bulk generation (4 seconds → 1 second per item)" }
+          ]
+        },
+        { "type": "html", "html": "<p>These Gemini models (with TTS support) can be selected:</p>" },
+        {
+          "type": "check_list",
+          "items": [
+            "Gemini 3.1 Flash TTS Preview (newest)",
+            "Gemini 2.5 Flash Preview TTS (fast)",
+            "Gemini 2.5 Pro Preview TTS (high quality, for paid use)"
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "warn",
+          "title": "⚠️ Pro TTS tends to fail on the free setting",
+          "text": "On the free usage setting, Pro TTS is likely to fail. Either use Flash TTS or enable the paid plan."
+        },
+        {
+          "type": "html",
+          "html": "<h3>🔑 Getting a Google Cloud Text-to-Speech API key (optional)</h3><p>Set this up as well if you want an even, stable voice, accepting that the emotional range is more restrained.</p>"
+        },
+        {
+          "type": "step_list",
+          "items": [
+            { "title": "Create a project", "text": "Create a project in the Google Cloud Console" },
+            { "title": "Set up billing", "text": "Configure your billing details" },
+            { "title": "Enable the API", "text": "Enable the Cloud Text-to-Speech API" },
+            { "title": "Create the key and enter it", "text": "Create an API key and enter it in the app's settings screen" }
+          ]
+        }
+      ]
+    },
+
+    {
+      "icon": "📤",
+      "category": "Chapter 15",
+      "title": "Exporting (video, PDF and other documents)",
+      "intro": "Video (MP4 and WebM), plus PPTX, PDF and image exports.",
+      "blocks": [
+        {
+          "type": "html",
+          "html": "<h3>🎬 Exporting a video file (MP4, WebM)</h3><p>Press “Export video” and the confirmation screen offers:</p>"
+        },
+        {
+          "type": "spec_list",
+          "items": [
+            { "label": "Export format", "value": "Automatic / MP4 / WebM" },
+            { "label": "Video quality", "value": "Low (4Mbps) / Standard (8Mbps) / High (12Mbps)" },
+            { "label": "Output resolution", "value": "720p / 1080p / 1440p" }
+          ]
+        },
+        { "type": "html", "html": "<p>The frame rate is 30fps, and an estimate of the resulting size is shown.</p>" },
+        {
+          "type": "callout",
+          "title": "ℹ️ Browsers that do not support MP4",
+          "text": "Some browsers do not support MP4, and in that case the export switches to WebM automatically."
+        },
+        {
+          "type": "gallery",
+          "items": [
+            { "image": "./img/manual-27.png", "alt": "The video export confirmation screen", "caption": "Confirming the export settings" },
+            { "image": "./img/manual-28.png", "alt": "Progress during a video export", "caption": "The export in progress" }
+          ]
+        },
+        { "type": "html", "html": "<h3>⚠️ While a video export runs</h3>" },
+        {
+          "type": "check_list",
+          "items": [
+            "Do not close or reload the tab while it is working",
+            "Stay on the tab, and pause anything demanding",
+            "On a laptop, plug in and avoid power saving and sleep",
+            "Check there is free space where the file will be saved",
+            "If it gives you trouble, drop the resolution or the quality one step and try again",
+            "Reload the page afterwards (to release the memory)"
+          ]
+        },
+        { "type": "html", "html": "<p>If memory use is high, you are warned before the export starts.</p>" },
+        {
+          "type": "callout",
+          "tone": "warn",
+          "title": "⚠️ About MP4 compatibility",
+          "text": "An MP4 export is not always in a state you can post as it is. Different internal formats are not always supported by the platform, so convert to H.264 where necessary."
+        },
+        {
+          "type": "html",
+          "html": "<h3>📄 Exporting documents (PPTX / PDF / images)</h3><p>“Export documents” offers these formats:</p>"
+        },
+        {
+          "type": "spec_list",
+          "items": [
+            { "label": "PPTX", "value": "Keeps the appearance as images, with the script copied into the speaker notes" },
+            { "label": "PDF (slides only)", "value": "One slide per page, for handing out" },
+            { "label": "PDF (book style)", "value": "Slides and script combined in A4 portrait" },
+            { "label": "Image ZIP (PNG)", "value": "Quality first" },
+            { "label": "Image ZIP (JPEG)", "value": "File size first" }
+          ]
+        },
+        { "type": "html", "html": "<p>Beyond that, you can set:</p>" },
+        {
+          "type": "check_list",
+          "items": [
+            "Choose by purpose (presets): presentation sharing / handout / image assets",
+            "What to output: with your edits / original slides only",
+            "Which pages: all / current only / a range",
+            "The filename",
+            "The output resolution",
+            "Output preview: page through what the output will actually look like",
+            "Pre-export checks: warnings about missing assets, the load from high resolutions, ZIP size and so on"
+          ]
+        },
+        {
+          "type": "html",
+          "html": "<h3>📚 Book-style PDF options</h3><p>A document PDF that places the slide image and the subtitle text together in A4 portrait. Long subtitles are split across pages automatically.</p>"
+        },
+        {
+          "type": "spec_list",
+          "items": [
+            { "label": "Subtitle display mode", "value": "Text / speech bubble" },
+            { "label": "Character names", "value": "Automatic / always shown / hidden" },
+            { "label": "Embedded slide quality", "value": "Selectable" }
+          ]
+        },
+        { "type": "html", "html": "<p>Ideal for printed handouts and seminar materials.</p>" },
+        {
+          "type": "callout",
+          "title": "ℹ️ How video slides are handled",
+          "text": "A video slide is exported as its first frame, as a still. The video itself is not included."
+        },
+        {
+          "type": "gallery",
+          "items": [
+            { "image": "./img/manual-29.png", "alt": "The document export settings screen", "caption": "Document export settings" },
+            { "image": "./img/ui-export.png", "alt": "What a book-style PDF looks like", "caption": "What a book-style PDF looks like" }
+          ]
+        }
+      ]
+    },
+
+    {
+      "icon": "🛠️",
+      "category": "Chapter 16",
+      "title": "Troubleshooting",
+      "intro": "Common symptoms and what to do about them.",
+      "blocks": [
+        {
+          "type": "faq",
+          "items": [
+            {
+              "q": "🔇 No sound, or the preview stops",
+              "a": "Cause: the browser's autoplay blocking is doing its job. Fix: click somewhere inside the page, then play. If that does not help, reload the tab."
+            },
+            {
+              "q": "🐢 Everything is slow, or the export errors out",
+              "a": "Cause: the browser is short on memory (RAM). All video processing happens on your own computer. Fixes: delete projects you no longer need from the dashboard / close spare tabs and pause other work / lower the import quality or the output resolution / restart the browser and try again / always reload the page after an export / split long videos into separate projects and export them individually."
+            },
+            {
+              "q": "😱 My data is gone",
+              "a": "Cause: security software, or clearing “browsing history and cookies” in the browser, erases IndexedDB. Closing a private window does it too. The app cannot recover it. Backing up regularly (ZIP or JSON) is the only defence."
+            },
+            {
+              "q": "🖼️ An animated image will not load",
+              "a": "The file size, frame count, duration or total pixel count may be over the limit. In v3.4, images likely to exceed a limit are scaled down as far as possible and you are told the resulting size. When a file genuinely cannot load, the message tells you why."
+            },
+            {
+              "q": "🎭 Expressions and gestures are not showing",
+              "a": "Styles that do not display a character image (the band, for example) do not show expressions or gestures. Also check that the assets a performance needs — a MouthLoop character pack — are registered."
+            },
+            {
+              "q": "📊 The runtime and file size shown do not match reality",
+              "a": "The statistics in the header are estimates. They can differ slightly from the file you actually export."
+            },
+            {
+              "q": "🔑 Voice generation returns an error",
+              "a": "“No API key is set” → enter the key under Settings → Audio. “Rate limit” → wait a while and retry (note the free tier's daily ceiling as well as the per-minute one). “The API key was rejected” → check you have not entered a Gemini key in the Google Cloud field, and check the key's restrictions. “The Google Cloud API is disabled” → enable the Cloud Text-to-Speech API in the Console."
+            }
+          ]
+        }
+      ]
+    },
+
+    {
+      "icon": "🔄",
+      "category": "APPENDIX",
+      "title": "How to update",
+      "intro": "The steps for moving to the latest version.",
+      "blocks": [
+        {
+          "type": "html",
+          "html": "<p>If you have already purchased SlideCast Studio, copy the latest version from the same paid note share link you used before.</p><p>If you want to carry over your existing projects, library and settings, create a backup first from “Save data”, just in case.</p><p>To update the Apps Script edition while keeping the same URL, replace these two files in your existing Apps Script project with the latest versions, then redeploy the existing deployment as a “new version”.</p>"
+        },
+        {
+          "type": "check_list",
+          "items": [
+            "無題.html (“Untitled.html” in the Japanese Apps Script UI)",
+            "AppBundle.html"
+          ]
+        },
+        { "type": "link", "url": "../gas-update/", "label": "See the detailed update steps" },
+        {
+          "type": "html",
+          "html": "<p>If you use the local HTML edition, download “SlideCast Studio〖ローカル版〗.html” — 〖ローカル版〗 means “local edition” — and open it.</p>"
+        },
+        {
+          "type": "callout",
+          "tone": "warn",
+          "title": "⚠️ Carrying your data over",
+          "text": "If you open the app from a new Apps Script project or in a different browser, your earlier data will not appear automatically. Restore it from a backup in that case."
+        }
+      ]
+    },
+
+    {
+      "icon": "🙌",
+      "category": "APPENDIX",
+      "title": "Finally",
+      "blocks": [
+        {
+          "type": "html",
+          "html": "<p>SlideCast Studio is still being updated. For the current news, follow this note and the author's X. Questions, requests and bug reports are welcome in the comments.</p>"
+        },
+        {
+          "type": "cta",
+          "title": "Try SlideCast Studio",
+          "text": "The latest version is available from the note sales page (in Japanese).",
+          "url": "https://note.com/bluezzly/n/nb4c85213c808",
+          "label": "Open note (Japanese)"
+        }
+      ]
+    }
+  ]
+}
