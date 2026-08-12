@@ -17,6 +17,7 @@
 | `gas-update.spec.json` | アップデート方法ガイド（`/gas-update/index.html`）の設計データ |
 | `intro.en.spec.json` | 英語版の紹介ページ（`/en/intro/index.html`）の設計データ |
 | `bundle-builder.en.spec.json` | 英語版の Bundle Builder ガイド（`/en/bundle-builder/index.html`）の設計データ |
+| `mouthloop-v2.en.spec.json` | 英語版の MouthLoop v2 ガイド（`/en/mouthloop-v2/index.html`）の設計データ |
 | `gas-update.en.spec.json` | 英語版のアップデート方法ガイド（`/en/gas-update/index.html`）の設計データ |
 | `img/` | 各 spec が参照する画像。生成時に `/assets/` へコピーされます |
 | `article-template.en.html` | **自動生成**。英語ページ用テンプレート（直接編集しない） |

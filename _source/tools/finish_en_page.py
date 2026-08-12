@@ -38,6 +38,13 @@ PAGE_META: dict[str, dict[str, str]] = {
             "and export a Bundle ZIP that SlideCast Studio can import."
         ),
     },
+    "en/mouthloop-v2/": {
+        "og_title": "MouthLoop v2 — expressions and gestures",
+        "og_description": (
+            "A free Gemini Canvas app that turns a single image into lip-sync character assets "
+            "with expressions and gestures, packed as a ZIP SlideCast Studio can import."
+        ),
+    },
     "en/gas-update/": {
         "og_title": "How to update SlideCast Studio",
         "og_description": (
@@ -103,7 +110,7 @@ def footer_html(up: str, en_up: str) -> str:
         f'<a href="{en_up}intro/">What is SlideCast Studio?</a>'
         f'<a href="{up}manual/">Official manual (JA)</a>'
         f'<a href="{en_up}bundle-builder/">Bundle Builder</a>'
-        f'<a href="{up}mouthloop-v2/">MouthLoop v2 (JA)</a>'
+        f'<a href="{en_up}mouthloop-v2/">MouthLoop v2</a>'
         "</nav>"
     )
 

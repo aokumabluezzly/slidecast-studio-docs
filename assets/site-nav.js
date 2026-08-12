@@ -31,7 +31,7 @@
         { href: 'bundle-builder/', icon: '🧩', label: 'SlideCast Bundle Builder', desc: '資料・台本・AI音声をまとめて準備',
           en: true, label_en: 'SlideCast Bundle Builder', desc_en: 'Prepare slides, script and AI voice in one pass' },
         { href: 'mouthloop-v2/', icon: '😀', label: 'MouthLoop v2', desc: '画像1枚から口パクキャラ素材を作る',
-          label_en: 'MouthLoop v2', desc_en: 'Turn one image into a lip-syncing character' },
+          en: true, label_en: 'MouthLoop v2', desc_en: 'Turn one image into a lip-syncing character' },
         { href: 'gas-update/', icon: '🔄', label: 'アップデート方法（GAS版）', desc: 'データを引き継いだまま最新版へ',
           en: true, label_en: 'How to update (GAS edition)', desc_en: 'Move to the latest version, keeping your data' }
       ]

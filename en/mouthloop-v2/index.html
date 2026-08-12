@@ -3,12 +3,12 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="description" content="How to use SlideCast Bundle Builder, the companion tool for SlideCast Studio: prepare your slides, generate a script, add AI voice or record your own, validate everything, and export a Bundle ZIP.">
-<title>SlideCast Bundle Builder — how to use it</title>
-<link rel="canonical" href="https://aokumabluezzly.github.io/slidecast-studio-docs/en/bundle-builder/">
-<link rel="alternate" hreflang="ja" href="https://aokumabluezzly.github.io/slidecast-studio-docs/bundle-builder/">
-<link rel="alternate" hreflang="en" href="https://aokumabluezzly.github.io/slidecast-studio-docs/en/bundle-builder/">
-<link rel="alternate" hreflang="x-default" href="https://aokumabluezzly.github.io/slidecast-studio-docs/bundle-builder/">
+<meta name="description" content="What changed in MouthLoop v2, how to save the character pack ZIP, and how to use it in SlideCast Studio — walked through with screenshots.">
+<title>MouthLoop v2 — expressions and gestures</title>
+<link rel="canonical" href="https://aokumabluezzly.github.io/slidecast-studio-docs/en/mouthloop-v2/">
+<link rel="alternate" hreflang="ja" href="https://aokumabluezzly.github.io/slidecast-studio-docs/mouthloop-v2/">
+<link rel="alternate" hreflang="en" href="https://aokumabluezzly.github.io/slidecast-studio-docs/en/mouthloop-v2/">
+<link rel="alternate" hreflang="x-default" href="https://aokumabluezzly.github.io/slidecast-studio-docs/mouthloop-v2/">
 <link rel="icon" type="image/png" sizes="32x32" href="../../assets/brand/favicon-32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="../../assets/brand/favicon-16.png">
 <link rel="apple-touch-icon" sizes="180x180" href="../../assets/brand/apple-touch-icon.png">
@@ -18,16 +18,16 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:locale:alternate" content="ja_JP">
 <meta property="og:site_name" content="SlideCast Studio">
-<meta property="og:title" content="SlideCast Bundle Builder — how to use it">
-<meta property="og:description" content="Prepare slides, script, AI voice and mic recordings in one pass, validate them, and export a Bundle ZIP that SlideCast Studio can import.">
-<meta property="og:url" content="https://aokumabluezzly.github.io/slidecast-studio-docs/en/bundle-builder/">
+<meta property="og:title" content="MouthLoop v2 — expressions and gestures">
+<meta property="og:description" content="A free Gemini Canvas app that turns a single image into lip-sync character assets with expressions and gestures, packed as a ZIP SlideCast Studio can import.">
+<meta property="og:url" content="https://aokumabluezzly.github.io/slidecast-studio-docs/en/mouthloop-v2/">
 <meta property="og:image" content="https://aokumabluezzly.github.io/slidecast-studio-docs/assets/brand/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="SlideCast Studio logo">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="SlideCast Bundle Builder — how to use it">
-<meta name="twitter:description" content="Prepare slides, script, AI voice and mic recordings in one pass, validate them, and export a Bundle ZIP that SlideCast Studio can import.">
+<meta name="twitter:title" content="MouthLoop v2 — expressions and gestures">
+<meta name="twitter:description" content="A free Gemini Canvas app that turns a single image into lip-sync character assets with expressions and gestures, packed as a ZIP SlideCast Studio can import.">
 <meta name="twitter:image" content="https://aokumabluezzly.github.io/slidecast-studio-docs/assets/brand/og-image.png">
 <style>
 /* ============================================================
@@ -35,13 +35,13 @@
    ============================================================ */
 :root{
   /* palette (replaceable per article) */
-  --primary:#6D4AFF;
-  --secondary:#00A8C6;
-  --accent:#E7489A;
-  --surface:#F4F6FF;
+  --primary:#2476D8;
+  --secondary:#6750D8;
+  --accent:#16AFC9;
+  --surface:#F1F7FF;
 
   /* text */
-  --ink:#171C31;
+  --ink:#17233F;
   --ink-soft:color-mix(in srgb,var(--ink) 82%,#ffffff);
   /* 68%, not 55%: card copy and captions sit on tinted surfaces, where a
      lighter mix falls to ~3.2:1 — under the 4.5:1 gate for small text. */
@@ -226,7 +226,7 @@ h4{font-size:var(--fs-h4)}
 .meta{display:flex;flex-wrap:wrap;gap:8px 16px;margin-top:22px;color:var(--muted);font-size:var(--fs-xs);font-weight:var(--fw-strong)}
 .hero-media{margin:0;padding:clamp(20px,3vw,34px);display:flex;flex-direction:column;justify-content:center}
 .hero-media img{
-  display:block;width:100%;aspect-ratio:16 / 9;object-fit:cover;
+  display:block;width:100%;aspect-ratio:1280 / 670;object-fit:cover;
   border:1px solid var(--line);border-radius:var(--r-lg);background:var(--soft);box-shadow:var(--shadow);
 }
 .hero-media figcaption{margin-top:10px;color:var(--muted);font-size:var(--fs-xs);font-weight:var(--fw-strong);text-align:center}
@@ -806,30 +806,274 @@ hr{border:0;height:1px;margin:46px 0;background:linear-gradient(90deg,transparen
 <section class="hero has-image">
   <div class="hero-grid">
     <div class="hero-copy">
-      <p class="kicker">SLIDECAST WORKFLOW GUIDE</p>
-      <h1>SlideCast Bundle Builder — how to use it</h1>
-      <p class="hero-subtitle">Slides, script, AI voice and mic recordings, prepared in one pass and packed into a Bundle ZIP</p>
+      <p class="kicker">MOUTHLOOP V2 GUIDE</p>
+      <h1>MouthLoop v2 — expressions and gestures</h1>
+      <p class="hero-subtitle">A free Gemini Canvas app that turns a single image into lip-sync character assets, complete with expressions and gestures</p>
       
-      <ul class="chips"><li class="chip">Gemini Canvas</li><li class="chip">Script generation</li><li class="chip">AI voice</li><li class="chip">Mic recording</li><li class="chip">Bundle ZIP</li></ul>
-      <div class="meta"><span>aokuma</span><span>Published 2026.04.06 / Updated 2026.07.16</span><span>Bundle Builder Guide</span></div>
+      <ul class="chips"><li class="chip">Free</li><li class="chip">No API key</li><li class="chip">Gemini Canvas</li><li class="chip">Expressions &amp; gestures</li><li class="chip">Works with SlideCast Studio</li></ul>
+      <div class="meta"><span>aokuma</span><span>2026.08.05</span><span>v2</span></div>
     </div>
-    <figure class="hero-media"><img src="../../assets/bundle-builder-hero.webp" alt="SlideCast Bundle Builder collecting slide images, script, AI voice and recordings into a single ZIP for SlideCast Studio"></figure>
+    <figure class="hero-media"><img src="../../assets/mouthloop-v2-01.png" alt="MouthLoop v2, with expressions and gestures added: a row of three mouth states for lip sync alongside several facial expressions"></figure>
   </div>
 </section>
 
 
 <div class="reading">
   <section class="panel" id="overview">
-    <p class="kicker">🧩 OVERVIEW</p>
-    <h2 class="rule">Everything your video needs, prepared in one place</h2>
-    <div class="prose"><p><strong>SlideCast Bundle Builder</strong> is a Gemini Canvas app that prepares the slides, script and audio you will later load into SlideCast Studio. Create the slides on the spot or bring your own files, work through the script and the audio, then export the whole set as a Bundle ZIP.</p><p>For audio you can use Gemini TTS, your own voice through the microphone, or both. Generate everything with AI, record everything yourself, or record just the few lines you want in your own voice.</p><div class="notice-box"><p>Recent updates</p><ul><li>2026.07.16: Mic recording, waveform view, trimming from both ends, preview, re-record and accept</li><li>2026.07.16: New home screen and an enlarged slide preview, with clearer paths between the steps</li><li>2026.07.06: Slides can be created inside Canvas, and the script can be edited while audio is generating</li><li>2026.05.26: Script model selection, a prompt for external AI tools, script JSON import, and subtitle length settings</li></ul></div><div class="cta-banner"><div><strong>Try Bundle Builder</strong><p>The app opens from a Gemini share link. Do not upload material that contains confidential or personal information.</p></div><a class="cta-link" href="https://gemini.google.com/share/7dda767f8078" target="_blank" rel="noopener noreferrer">Open in Gemini ↗</a></div></div>
-    <div class="card-grid"><article class="feature-card"><span class="card-icon" aria-hidden="true">🖼️</span><h3>Prepare the slides</h3><p>Create them inside Canvas, or load images, PDFs, ZIPs or a folder.</p></article><article class="feature-card"><span class="card-icon" aria-hidden="true">💬</span><h3>Generate the script</h3><p>Set the audience, the length, the number of speakers, the dialogue style.</p></article><article class="feature-card"><span class="card-icon" aria-hidden="true">🔊</span><h3>Generate AI voice</h3><p>Pick a voice per speaker and generate all at once, or slide by slide.</p></article><article class="feature-card"><span class="card-icon" aria-hidden="true">🎤</span><h3>Record your own voice</h3><p>Read from the on-screen script and trim both ends on the waveform.</p></article><article class="feature-card"><span class="card-icon" aria-hidden="true">✅</span><h3>Validate</h3><p>Catch mismatches between script, speakers, audio and slide references before export.</p></article><article class="feature-card"><span class="card-icon" aria-hidden="true">📦</span><h3>Import as a ZIP</h3><p>Export the Bundle ZIP and load it into “Create from documents” in SlideCast Studio.</p></article></div>
+    <p class="kicker">👋 OVERVIEW</p>
+    <h2 class="rule">What this page covers</h2>
+    <div class="prose"><p><strong>MouthLoop</strong>, the free tool that builds lip-sync assets from a single image, has been updated to v2. Expressions (smiling, sad, angry) and gestures (waving, scratching your head and so on) have been added, and everything you save now comes out as a single <strong>character pack ZIP for SlideCast Studio</strong>.</p><p>You do not need to have read the previous article. This page alone takes you from preparation through saving to loading the result into SlideCast Studio.</p><div class="callout callout-warn"><p><strong>If you use this with SlideCast Studio</strong></p><p>SlideCast Studio itself needs to be on v3.4 or later.</p></div><figure><img src="../../assets/mouthloop-v2-02.gif" alt="A character made in MouthLoop v2, smiling and waving while its mouth moves" loading="lazy"><figcaption>On top of lip sync and blinking, expressions and gestures now move too</figcaption></figure><p class="link-row"><a class="inline-link" href="https://share.gemini.google/dkU0IVHfQ2gu" target="_blank" rel="noopener noreferrer">Open MouthLoop</a></p><p class="link-row"><a class="inline-link" href="https://note.com/bluezzly/n/n73a045067fbe" target="_blank" rel="noopener noreferrer">Read the original post on note (Japanese)</a></p></div>
+    
   </section>
 
-  <div class="divider">GUIDE</div>
-  <section class="chapters" aria-label="Article chapters"><details class="chapter" id="section-1"><summary><span class="chapter-icon" aria-hidden="true">🧭</span><span class="chapter-heading" role="heading" aria-level="2"><span class="chapter-category">WORKFLOW</span><span class="chapter-title">The shape of the whole thing</span></span><span class="chapter-toggle" aria-hidden="true"></span></summary><div class="chapter-body"><div class="chapter-inner"><p class="chapter-intro">Five steps, in order. At the end you have a complete set of material to finish in SlideCast Studio.</p><ol class="step-list"><li><strong>Create or upload the slides</strong>Generate slide images inside Canvas, or load material you already have.</li><li><strong>Generate and edit the script</strong>Choose the conditions that fit your purpose, then prepare the script for each slide.</li><li><strong>Generate or record the audio</strong>Use Gemini TTS, your own voice, or a mix of the two.</li><li><strong>Validate the data</strong>Check how the script, speakers, audio and slides refer to each other.</li><li><strong>Export the Bundle ZIP</strong>Load the finished ZIP into SlideCast Studio, adjust the staging and the audio, then export the video.</li></ol><figure><img src="../../assets/bundle-builder-home.webp" alt="The Bundle Builder home screen, offering either to generate slide images on the spot or to upload your own material" loading="lazy"><figcaption>First choose how the slides will come in. If you plan to record, check the microphone here before anything else</figcaption></figure><div class="callout callout-good"><p><strong>Going back to the home screen is safe</strong></p><p>You can return to the home screen from any step; work in progress is kept.</p></div></div></div></details><details class="chapter" id="section-2"><summary><span class="chapter-icon" aria-hidden="true">🖼️</span><span class="chapter-heading" role="heading" aria-level="2"><span class="chapter-category">STEP 1</span><span class="chapter-title">Create or upload the slides</span></span><span class="chapter-toggle" aria-hidden="true"></span></summary><div class="chapter-body"><div class="chapter-inner"><p class="chapter-intro">You can build a new deck from scratch, or start from material you already have.</p><div class="compare"><div class="before"><h4>Create them here</h4><p>Give a topic, an audience and an art direction, and the slide images are generated inside Canvas.</p></div><div class="after"><h4>Use your own</h4><p>Load PNG, JPEG, PDF, ZIP or a folder and start from an existing deck.</p></div></div><figure><img src="../../assets/bundle-builder-upload.webp" alt="The Bundle Builder upload screen, accepting PNG, JPEG, PDF, ZIP and folders" loading="lazy"><figcaption>Loaded material appears as thumbnails, and you can reorder the slides before generating the script</figcaption></figure><div class="callout callout-warn"><p><strong>If you plan to record, allow the microphone first</strong></p><p>In Gemini Canvas the app may reload the first time you grant microphone access. If recording is on your list, finish the microphone check on the home screen before you load any material.</p></div><figure><img src="../../assets/bundle-builder-mic-permission.webp" alt="The check and allow microphone button on the Bundle Builder home screen" loading="lazy"><figcaption>If you only use Gemini TTS, there is no need to allow the microphone at all</figcaption></figure></div></div></details><details class="chapter" id="section-3"><summary><span class="chapter-icon" aria-hidden="true">💬</span><span class="chapter-heading" role="heading" aria-level="2"><span class="chapter-category">STEP 2</span><span class="chapter-title">Generate a script that fits the job</span></span><span class="chapter-toggle" aria-hidden="true"></span></summary><div class="chapter-body"><div class="chapter-inner"><p class="chapter-intro">The defaults work fine, but naming your audience and your tone gets you much closer to what you actually want.</p><figure><img src="../../assets/bundle-builder-script-settings.webp" alt="Bundle Builder script settings, with target audience, number of speakers and subtitle layout" loading="lazy"><figcaption>Target audience, script style, length, number of speakers, subtitle layout and more</figcaption></figure><ul class="check-list"><li>Target audience, plus any extra conditions</li><li>Script style — explanatory, persuasive and so on</li><li>Script length</li><li>1–6 speakers and how they talk to each other</li><li>Reading hints, to cut down on mispronunciation</li><li>Subtitle ratio, line length, and lines per page</li><li>Output language</li></ul><figure><img src="../../assets/bundle-builder-script-actions.webp" alt="The ready-to-generate screen, offering automatic generation, a prompt for external AI, and script JSON import" loading="lazy"><figcaption>Besides generating inside Canvas, you can take a prompt to an external AI or import script JSON</figcaption></figure><div class="callout"><p><strong>You can write the script with a different AI</strong></p><p>Hand the displayed prompt and the same material to any AI you like, get script JSON back, and import it into Bundle Builder. The prompt already carries the file names and the slide order.</p></div></div></div></details><details class="chapter" id="section-4"><summary><span class="chapter-icon" aria-hidden="true">🔊</span><span class="chapter-heading" role="heading" aria-level="2"><span class="chapter-category">STEP 3</span><span class="chapter-title">Generate the AI voice</span></span><span class="chapter-toggle" aria-hidden="true"></span></summary><div class="chapter-body"><div class="chapter-inner"><p class="chapter-intro">Pick a voice per speaker, then generate everything at once or try one slide at a time.</p><figure><img src="../../assets/bundle-builder-tts.webp" alt="The Bundle Builder audio screen, choosing a voice per speaker before generating all audio" loading="lazy"><figcaption>Speakers are pulled out of the script; assign a voice to each and generate in one pass</figcaption></figure><ul class="check-list"><li>Preview and choose a voice for each speaker</li><li>Generate audio for every slide at once</li><li>Generate or regenerate a single slide</li><li>Play back what has already been generated</li><li>Swap in a recording wherever you want one</li></ul><div class="callout"><p><strong>Whether you need an API key depends on the model</strong></p><p>The default setup works without an API key, but some models — newer ones in particular — may require a Gemini API key. Model names and availability can change.</p></div><figure><img src="../../assets/bundle-builder-record-button.webp" alt="The microphone recording button in the audio row of a slide in Bundle Builder" loading="lazy"><figcaption>The microphone button on each slide replaces just that line with your own voice</figcaption></figure></div></div></details><details class="chapter" id="section-5"><summary><span class="chapter-icon" aria-hidden="true">🎤</span><span class="chapter-heading" role="heading" aria-level="2"><span class="chapter-category">RECORDING</span><span class="chapter-title">Record your own voice and trim it</span></span><span class="chapter-toggle" aria-hidden="true"></span></summary><div class="chapter-body"><div class="chapter-inner"><p class="chapter-intro">The script is shown on the recording screen, so reading, checking and accepting all happen in one place.</p><ol class="step-list"><li><strong>Record</strong>Start and stop while reading the subtitle script on screen.</li><li><strong>Check the waveform</strong>See how long the take is and where the sound actually sits.</li><li><strong>Trim both ends</strong>Drag the handles to cut silence, button clicks and false starts.</li><li><strong>Preview or re-record</strong>Listen to the trimmed take and record again if it is not right.</li><li><strong>Accept it</strong>Set the take as the audio for that slide.</li></ol><figure><img src="../../assets/bundle-builder-recording.webp" alt="The Bundle Builder recording screen with the subtitle script, elapsed time, waveform trimming, preview, re-record and accept buttons" loading="lazy"><figcaption>Trim against the waveform, listen back, and accept only when it sounds right</figcaption></figure><div class="callout callout-warn"><p><strong>If the slide already has generated audio</strong></p><p>Where Gemini TTS audio is already set, you are asked to confirm before the recording overwrites it.</p></div></div></div></details><details class="chapter" id="section-6"><summary><span class="chapter-icon" aria-hidden="true">📦</span><span class="chapter-heading" role="heading" aria-level="2"><span class="chapter-category">STEP 4–5</span><span class="chapter-title">Validate, then import the ZIP</span></span><span class="chapter-toggle" aria-hidden="true"></span></summary><div class="chapter-body"><div class="chapter-inner"><p class="chapter-intro">Run the pre-export check, then load the Bundle ZIP into SlideCast Studio.</p><figure><img src="../../assets/bundle-builder-validation.webp" alt="The Bundle Builder validation screen, showing check results for script, speakers, audio links and slide references" loading="lazy"><figcaption>Mismatches surface before the ZIP is written, not after it has been imported</figcaption></figure><figure><img src="../../assets/bundle-builder-zip.webp" alt="The Bundle Builder ZIP export screen, producing a package SlideCast Studio can import" loading="lazy"><figcaption>Once everything is in place, write out the Bundle ZIP</figcaption></figure><figure><img src="../../assets/bundle-builder-import.webp" alt="The SlideCast Studio dashboard with “Create from documents” highlighted as the place to upload the Bundle ZIP" loading="lazy"><figcaption>In the SlideCast Studio dashboard, choose “Create from documents” and load the ZIP as it is</figcaption></figure><div class="callout callout-good"><p><strong>The audio stays adjustable after import</strong></p><p>Both Gemini TTS audio and your recordings can have their speed and pitch adjusted inside SlideCast Studio. The new length is reflected on the timeline, and you can always go back to the original.</p></div></div></div></details><details class="chapter" id="section-7"><summary><span class="chapter-icon" aria-hidden="true">⚠️</span><span class="chapter-heading" role="heading" aria-level="2"><span class="chapter-category">BEFORE YOU START</span><span class="chapter-title">Worth knowing before you begin</span></span><span class="chapter-toggle" aria-hidden="true"></span></summary><div class="chapter-body"><div class="chapter-inner"><p class="chapter-intro">The tool depends on Gemini’s availability and on browser permissions, so read this part first.</p><ul class="soft-grid"><li class="soft-card"><span class="card-icon" aria-hidden="true">🔒</span><h3>No confidential material</h3><p>Do not upload material containing confidential information, personal data or anything internal to your company.</p></li><li class="soft-card"><span class="card-icon" aria-hidden="true">⏳</span><h3>Back off when limited</h3><p>Repeated 429 errors or failures usually mean a usage limit. Wait rather than retrying in quick succession.</p></li><li class="soft-card"><span class="card-icon" aria-hidden="true">🧠</span><h3>Models change</h3><p>Model names, speed and availability for script generation and TTS can change without notice.</p></li><li class="soft-card"><span class="card-icon" aria-hidden="true">🔑</span><h3>API key only when needed</h3><p>The defaults need none, but some models require a Google AI Studio API key.</p></li><li class="soft-card"><span class="card-icon" aria-hidden="true">🎤</span><h3>Microphone is optional</h3><p>Allow it only if you record. AI voice alone needs no microphone access.</p></li><li class="soft-card"><span class="card-icon" aria-hidden="true">📚</span><h3>Careful with very long decks</h3><p>A large number of slides or a very long script can fail. Split the work when it does.</p></li></ul><div class="callout callout-warn"><p><strong>Changes on Google’s side can change how this behaves</strong></p><p>Bundle Builder is a companion tool running on Gemini Canvas. Specification changes, outages or usage limits on Google’s side can make it behave differently from what is described here.</p></div><dl class="faq"><div><dt>Is it unusable if I don’t allow the microphone?</dt><dd>No. Everything except mic recording, Gemini TTS included, works without it.</dd></div><div><dt>Can AI voice and recordings be mixed?</dt><dd>Yes, slide by slide.</dd></div><div><dt>What if script generation doesn’t go well?</dt><dd>Use the prompt for external AI, build the script JSON elsewhere, and import it into Bundle Builder.</dd></div><div><dt>Where does the exported ZIP go?</dt><dd>Upload it to “Create from documents” on the SlideCast Studio dashboard.</dd></div></dl><div class="cta-banner"><div><strong>From raw material to finished video, in one continuous pass</strong><p>Prepare the slides, settle the script and the audio, then hand the Bundle ZIP to SlideCast Studio.</p></div><a class="cta-link" href="https://gemini.google.com/share/7dda767f8078" target="_blank" rel="noopener noreferrer">Open Bundle Builder ↗</a></div></div></div></details></section>
+  <div class="divider">CONTENTS</div>
+  <section class="chapters" aria-label="Article chapters"><details class="chapter" id="section-1"><summary><span class="chapter-icon" aria-hidden="true">🆕</span><span class="chapter-heading" role="heading" aria-level="2"><span class="chapter-category">UPDATE</span><span class="chapter-title">What changed since v1</span></span><span class="chapter-toggle" aria-hidden="true"></span></summary><div class="chapter-body"><div class="chapter-inner"><p class="chapter-intro">This update moves the output from “an asset that only moves its mouth” to “a character with expressions and gestures”.</p><div class="table-wrap"><table class="data-table"><thead><tr><th>Item</th><th>v1</th><th>v2</th></tr></thead><tbody><tr><td>🙂 Expressions</td><td>One only</td><td>Neutral plus smiling, sad and angry (up to four)</td></tr><tr><td>👋 Gestures</td><td>None</td><td>Up to three. Six presets, or write your own</td></tr><tr><td>📦 Main output</td><td>A ZIP of six PNGs</td><td>Consolidated into the character pack ZIP</td></tr><tr><td>🔧 Default method</td><td>Redraw the whole thing</td><td>Replace the face only (recommended)</td></tr><tr><td>📐 Export size</td><td>Chosen up front</td><td>Chosen at save time, with the real file size shown</td></tr><tr><td>▶️ Checking the result</td><td>Only after building the WebP</td><td>Played back on the spot in step 4</td></tr><tr><td>♻️ Regeneration</td><td>Just press the button</td><td>You can attach extra instructions</td></tr><tr><td>➕ Also new</td><td>—</td><td>Camera angle, gaze, single-eye off, margin, background removal strength and art style</td></tr></tbody></table></div><div class="gallery" data-cols="3"><figure><img src="../../assets/mouthloop-v2-03.png" alt="The expression set panel added in v2" loading="lazy"><figcaption>Expression set</figcaption></figure><figure><img src="../../assets/mouthloop-v2-04.png" alt="The gesture panel added in v2" loading="lazy"><figcaption>Gestures</figcaption></figure><figure><img src="../../assets/mouthloop-v2-05.png" alt="Examples of assets produced by v2" loading="lazy"><figcaption>Generated assets</figcaption></figure></div></div></div></details><details class="chapter" id="section-2"><summary><span class="chapter-icon" aria-hidden="true">🎬</span><span class="chapter-heading" role="heading" aria-level="2"><span class="chapter-category">OUTPUT</span><span class="chapter-title">What MouthLoop v2 produces</span></span><span class="chapter-toggle" aria-hidden="true"></span></summary><div class="chapter-body"><div class="chapter-inner"><p class="chapter-intro">There are two files you can save. In v2 the ZIP of six PNGs has been replaced by the character pack ZIP.</p><h3>📦 1. Character pack for SlideCast Studio (ZIP)</h3><figure><img src="../../assets/mouthloop-v2-06.png" alt="Inside the character pack ZIP: one folder of PNGs per expression, plus manifest.json" loading="lazy"><figcaption>slidecast-character-pack.zip</figcaption></figure><p>Inside you get <strong>six PNGs per expression</strong>, the <strong>numbered PNGs for each gesture</strong>, and a <code>manifest.json</code> that says what each of them is.</p><ul class="check-list"><li>Three mouth states × two eye states — six images in the same position and the same framing</li><li>The same six images for every expression you added</li><li>Four frames for each gesture</li><li>Uploads to “Audio-driven” in SlideCast Studio as a ZIP, unopened</li></ul><div class="callout callout-good"><p><strong>When in doubt, take the character pack ZIP</strong></p><p>The “numbered PNG ZIP” from v1 has been folded into the character pack. If you are heading for SlideCast Studio, this one ZIP is all you need to save.</p></div><div class="divider">OPTION</div><h3>🔁 2. Animated image (WebP / APNG)</h3><figure><img src="../../assets/mouthloop-v2-07.png" alt="The export screen for the animated image (WebP / APNG)" loading="lazy"><figcaption>lipsync.webp (lipsync-anim.png on iPad and iPhone)</figcaption></figure><p>A looping animation with the lip sync, the blinking and the gestures baked in. It moves as a single file, but it <strong>does not follow the audio</strong>, and it holds only the one expression you had selected.</p><p>This is an optional export, for places where audio-driven mode is not an option.</p></div></div></details><details class="chapter" id="section-3"><summary><span class="chapter-icon" aria-hidden="true">✅</span><span class="chapter-heading" role="heading" aria-level="2"><span class="chapter-category">BEFORE YOU START</span><span class="chapter-title">Worth knowing before you begin</span></span><span class="chapter-toggle" aria-hidden="true"></span></summary><div class="chapter-body"><div class="chapter-inner"><p class="chapter-intro">There is nothing to install, no extra account to register, and no API key to enter.</p><h3>🧰 What you need</h3><ul class="check-list"><li>An account that can use Google Gemini (Canvas)</li><li>An image to start from — or none, since the tool can generate one for you</li></ul><p class="link-row"><a class="inline-link" href="https://share.gemini.google/dkU0IVHfQ2gu" target="_blank" rel="noopener noreferrer">Open MouthLoop in Gemini</a></p><h3>⚠️ Your work is not saved</h3><p>MouthLoop keeps nothing — neither your images nor what you typed. Everything is processed inside your browser.</p><div class="callout callout-warn"><p><strong>Save before you close the tab</strong></p><p>Closing the screen discards all of your work. Save the finished character pack ZIP while you are still there.</p></div><h3>📱 On phones and tablets</h3><ul class="check-list"><li>On a phone, use Gemini in the Chrome browser. Saving files is blocked inside the Gemini app</li><li>On iPad and iPhone, APNG is used automatically in place of WebP</li></ul><div class="callout callout-warn"><p><strong>On iPad, the character pack ZIP is the safe bet</strong></p><p>SlideCast Studio on iPad Safari cannot always load APNG. The character pack ZIP used in audio-driven mode is confirmed to work on iPad.</p></div><h3>🌐 Switching between Japanese and English</h3><p>Use the <strong>JA / EN</strong> button at the top right of the screen. Japanese is the default.</p><figure><img src="../../assets/mouthloop-v2-08.png" alt="The JA / EN switch at the top right of the screen" loading="lazy"></figure></div></div></details><details class="chapter" id="section-4"><summary><span class="chapter-icon" aria-hidden="true">🚀</span><span class="chapter-heading" role="heading" aria-level="2"><span class="chapter-category">HOW TO</span><span class="chapter-title">How to use it: all five steps</span></span><span class="chapter-toggle" aria-hidden="true"></span></summary><div class="chapter-body"><div class="chapter-inner"><p class="chapter-intro">Follow the step bar across the top of the screen, from top to bottom.</p>
 
-  <div class="source-card"><div><strong>The note post this page is based on</strong><small>Update announcements and extra notes are also posted on the original note article (in Japanese).</small></div><a class="cta-link" href="https://note.com/bluezzly/n/n9f8dcbb616b6" target="_blank" rel="noopener noreferrer">Read the original post on note (Japanese) ↗</a></div>
+    <figure >
+      <img src="../../assets/mouthloop-v2-09.png"
+           width="1200" height="458" loading="lazy"
+           alt="The step bar (1–5) across the top of the screen.">
+    </figure>
+
+    <ol class="step-list">
+      <li><strong>Master image</strong>Settle on the single image everything is built from</li>
+      <li><strong>Mouth and eye expressions</strong>Expressions and gestures are added here too</li>
+      <li><strong>Build the frames</strong>Mark the areas to be replaced</li>
+      <li><strong>Check and save</strong>Confirm the result and save the character pack ZIP</li>
+      <li><strong>Animated image (optional)</strong>Export a WebP / APNG</li>
+    </ol>
+
+    <!-- Step 1 -->
+    <h3 id="step1">Step 1: Prepare the master image</h3>
+    <p>Settle on the one image everything else is built from. There are two ways to get there.</p>
+    <figure >
+      <img src="../../assets/mouthloop-v2-10.png"
+           width="1200" height="458" loading="lazy"
+           alt="Step 1, choosing between “Generate a new one in Gemini” and “Use an image you already have”.">
+    </figure>
+
+    <h4>🅰 Generate a new one in Gemini</h4>
+    <p>Fill in the form and press generate. What you can specify:</p>
+    <ul>
+      <li><strong>Framing</strong>: head only / bust-up (default) / full body</li>
+      <li><strong>Character</strong>: type, gender and mood, age, hairstyle, hair colour, skin tone, and a free-text field</li>
+      <li><strong>Clothing</strong> and <strong>art style</strong> (v2 adds options such as “detailed realistic illustration” and “graphic novel”)</li>
+      <li><strong>Reference images</strong> (up to four): for each one, say whether it is a reference for the look, the clothing, the art style or the colour palette</li>
+      <li><strong>Expression</strong>: neutral / gentle smile / your own wording</li>
+      <li><strong>Background colour</strong>: pick a colour that does not appear on the character</li>
+    </ul>
+
+    <h4><span class="tag tag-new">NEW</span>New in v2: camera angle and gaze</h4>
+    <p>
+      You can now choose the <strong>camera angle</strong> (straight on / nearly straight on / 45 degrees / side view / slightly above / slightly below / your own wording) and the
+      <strong>gaze</strong> (at the camera / just off camera / to the side / slightly up or down / your own wording).
+      The defaults are “straight on, looking at the camera”, which gives you the same result as before.
+    </p>
+    <div class="callout callout-warn">
+      Moving away from straight on and looking at the camera makes the mouth and eyes harder to place. In a framing where only one eye is visible, such as a side view, switch the unused eye off in step 3 (see below).
+    </div>
+    <p>Press “Show prompt” to copy the exact text that will be sent to the AI. It is also handy if you would rather make the image in a different AI service.</p>
+
+    <h4>🅱 Use an image you already have</h4>
+    <p>Load an image of your own. Drag and drop and pasting both work. Once it is loaded, you choose one of three options.</p>
+    <ul>
+      <li><strong>Use it as is</strong>: for images with a transparent background, or a flat colour with a clean outer edge</li>
+      <li><strong>Fix the background only</strong>: keep the expression, the angle and the framing, and turn the background into a flat colour</li>
+      <li><strong>Prepare it as a master</strong>: go further and adjust it to face forward, open the eyes and close the mouth</li>
+    </ul>
+    <p>“Use it as is” is not available for photos or anything else with a busy background. Use one of the other two to clean up the background first.</p>
+
+    <h4>✂️ Finally, crop the area you want to use into a square</h4>
+    <p>Drag the frame into position and resize it from the corners. It snaps as it nears the centre, and the guide turns green. Arrow keys work for fine adjustments.</p>
+    <figure >
+      <img src="../../assets/mouthloop-v2-11.png"
+           width="1200" height="914" loading="lazy"
+           alt="The crop screen, dragging a square frame to choose the area to use.">
+    </figure>
+
+    <h4><span class="tag tag-new">NEW</span>New in v2: “Add margin (for gestures)”</h4>
+    <p>Add a gesture to a bust-up shot and the <strong>arms and hands can run off the edge</strong>. So you can now add <strong>10%–30% of margin</strong> at the crop stage.</p>
+    <figure >
+      <img src="../../assets/mouthloop-v2-12.png"
+           width="1200" height="921" loading="lazy"
+           alt="The crop screen with “Add margin” selected.">
+    </figure>
+    <ul>
+      <li>The character is placed slightly smaller, leaving room to raise an arm</li>
+      <li>Anything outside the original image is filled with the background colour</li>
+      <li>For art that is cut off at the bottom, the bottom edge is kept and margin is added above and to the sides</li>
+      <li><strong>No image generation happens</strong> (it uses none of your API allowance)</li>
+    </ul>
+    <p>The mouth and eyes end up correspondingly smaller, so <strong>leave it at “none” if you are not using gestures</strong>.</p>
+    <p>Press “Confirm this area at ◯◯×◯◯” and step 1 is done. The number shown is the <strong>working resolution</strong> for everything that follows (derived automatically from the crop, between 256 and 1024px).</p>
+    <figure >
+      <img src="../../assets/mouthloop-v2-13.png"
+           width="1200" height="921" loading="lazy"
+           alt="The “Confirm this area at ◯◯×◯◯” button, and the working resolution shown after confirming.">
+    </figure>
+
+    <!-- Step 2 -->
+    <h3 id="step2">Step 2: Build the mouth and eye expressions</h3>
+    <p>This is where v2 changed the most. From the top, it is now three blocks: <strong>“Choose a method” → “Expression set” → “Gestures”</strong>.</p>
+
+    <h4>🔧 Choose a method (the default has changed)</h4>
+    <figure >
+      <img src="../../assets/mouthloop-v2-14.png"
+           width="1200" height="227" loading="lazy"
+           alt="Choosing between “Replace the face only” and “Redraw the whole thing”.">
+    </figure>
+    <p><strong>Replace the face only (recommended, default) | 3 images generated</strong><br>
+      Takes the master as the base and swaps out only the areas you marked. Nothing outside those areas changes by even a pixel, so nothing wobbles. The cost is the work of marking the mouth and each eye.</p>
+    <p><strong>Redraw the whole thing (easy) | 5 images generated</strong><br>
+      Lines up the five generated images as they are. No marking to do, but because everything is redrawn each time, hair and outlines can shift from frame to frame.</p>
+    <div class="callout">
+      In v1 the default was “Redraw the whole thing (standard)”; <strong>in v2 the default is “Replace the face only”</strong>.
+      <strong>Expression sets and gestures are available only in that mode.</strong>
+    </div>
+
+    <h4>🙂 Add an expression set (optional)<span class="tag tag-new">NEW</span></h4>
+    <p>You can add <strong>smiling, sad and angry</strong>. Every expression you add gets a full set of six lip-sync images.</p>
+    <figure >
+      <img src="../../assets/mouthloop-v2-15.png"
+           width="1200" height="616" loading="lazy"
+           alt="The panel for adding expression sets: smiling, sad and angry.">
+    </figure>
+    <p>The mechanism is simple: <strong>one image per expression is generated, redrawing only the eyes, brows and mouth of the master</strong>. The body, the clothes, the background and the arms stay exactly as they were, so <strong>adding expressions never changes the person</strong>.</p>
+    <ul>
+      <li>The extra cost is <strong>one image per expression</strong> (three images for all three)</li>
+      <li>The talking mouth shapes and the blink are reused from the neutral expression</li>
+      <li>Saving gives you a single ZIP with one folder per expression</li>
+    </ul>
+
+    <h4>👋 Add gestures (optional)<span class="tag tag-new">NEW</span></h4>
+    <p>Movements such as waving or scratching your head, <strong>dropped in between stretches of lip sync</strong>. Up to three of them.</p>
+    <figure >
+      <img src="../../assets/mouthloop-v2-16.png"
+           width="1200" height="634" loading="lazy"
+           alt="The panel for adding gestures, with options such as waving and scratching your head.">
+    </figure>
+    <p>The choices: <strong>wave / scratch your head / point / fold your arms / thumbs up / present with an open palm / write your own</strong></p>
+    <p>Each gesture can carry <strong>extra instructions</strong> too, such as “with one hand” or “slowly and broadly”.</p>
+    <p><strong>Gestures are built in two stages.</strong></p>
+    <ol>
+      <li><strong>First generate only the end pose</strong> — then check that it matches what you had in mind</li>
+      <li>If not, press ↻ to redo it; if it is right, press “<strong>Generate the remaining in-between frames</strong>”</li>
+    </ol>
+    <p>The in-between frames are built from the end pose, so <strong>checking the end pose first means less to redo</strong> (the total number of images generated is the same either way). One gesture is <strong>four images</strong>: the end pose plus three in-betweens (25 / 50 / 75%).</p>
+
+    <h4>💰 How many images this takes</h4>
+    <p>In v2 you assemble the workload yourself. The buttons always show the number of images, so you can check before you press.</p>
+    <dl class="spec-list">
+      <div><dt>Mouth and eyes, the basics (replace the face only)</dt><dd>3 images</dd></div>
+      <div><dt>Each expression added</dt><dd>+1 image</dd></div>
+      <div><dt>Each gesture added</dt><dd>+4 images</dd></div>
+      <div><dt>Fully loaded (3 expressions + 3 gestures)</dt><dd>18 images in total</dd></div>
+    </dl>
+    <p>Once they are generated, look through the previews and check that the mouth really is open, that <strong>both</strong> eyes are closed, and that the brows, the hair and any accessories have not changed.</p>
+
+    <h4><span class="tag tag-new">NEW</span>New in v2: regeneration can carry extra instructions</h4>
+    <p>“Regenerate” on any card, and the ↻ on a gesture, open a popup where you can type an instruction such as “<strong>open the mouth less</strong>”, up to <strong>160 characters</strong> (leaving it empty is fine).</p>
+    <figure >
+      <img src="../../assets/mouthloop-v2-17.png"
+           width="1200" height="648" loading="lazy"
+           alt="The popup for typing extra instructions when regenerating.">
+    </figure>
+    <ul>
+      <li>The instruction applies to <strong>that one generation only</strong> and is not stored</li>
+      <li>The rules about the background, keeping the same person and what may change take priority, so instructions that conflict with them are ignored</li>
+    </ul>
+
+    <!-- Step 3 -->
+    <h3 id="step3">Step 3: Build the frames (mark the areas)</h3>
+    <p>With “Replace the face only”, you first mark <strong>the areas to be replaced</strong>. Just drag across the face. Fairly rough marking works well, so try something rough first — you can adjust it afterwards.</p>
+    <figure >
+      <img src="../../assets/mouthloop-v2-18.png"
+           width="1200" height="1086" loading="lazy"
+           alt="The area editor, marking the mouth and the left and right eyes.">
+    </figure>
+    <p>How many areas you mark depends on what you chose.</p>
+    <ul>
+      <li><strong>Mouth</strong> (always) — the smaller you mark it, the more stable the result</li>
+      <li><strong>Left eye and right eye</strong> (always) — the same applies. They are separate so that the brow ridge, the bridge of the nose and the bridge of a pair of glasses stay out of the replaced area</li>
+      <li><strong>Expression</strong> (when using expression sets) — mark it <strong>wide enough to include the brows</strong>. Leave the brows out and anger and sadness barely read at all</li>
+      <li><strong>Gesture</strong> (when using gestures) — mark <strong>only the path the arm travels</strong>, as narrowly as you can</li>
+    </ul>
+
+    <h4><span class="tag tag-new">NEW</span>New in v2: background removal strength, and which eyes blink</h4>
+    <figure >
+      <img src="../../assets/mouthloop-v2-19.png"
+           width="1200" height="160" loading="lazy"
+           alt="The “background removal strength” and “eyes used for blinking” settings.">
+    </figure>
+    <ul>
+      <li><strong>Background removal strength</strong> (light, standard, strong, maximum): use “strong” when the background colour clings to the outline, and “light” when fine details in hair or clothing are being eaten away. After changing it, just press “Build and verify the 6 frames” again (<strong>nothing is regenerated</strong>)</li>
+      <li><strong>Eyes used for blinking</strong>: when only one eye is visible — a side view, or hair covering one — switch the other one off</li>
+    </ul>
+    <p>In a full-body framing the face is small, so the <strong>300% view</strong> makes the marking much easier.</p>
+    <p>When you are ready, press “<strong>Build and verify the 6 frames</strong>”. The background is made transparent and the frames are assembled.</p>
+    <figure >
+      <img src="../../assets/mouthloop-v2-20.png"
+           width="1200" height="369" loading="lazy"
+           alt="The “Build and verify the 6 frames” button and the verification results.">
+    </figure>
+
+    <!-- Step 4 -->
+    <h3 id="step4">Step 4: Check the result and save it ★ this is where you save</h3>
+
+    <h4><span class="tag tag-new">NEW</span>New in v2: check the movement on the spot</h4>
+    <p>You can <strong>play the finished frames right there</strong>. <strong>No image generation happens.</strong> In v1 you could not see the movement without building a WebP first, so this makes checking much faster.</p>
+    <figure >
+      <img src="../../assets/mouthloop-v2-21.png"
+           width="1200" height="745" loading="lazy"
+           alt="The animated preview in step 4, playing the finished frames on the spot.">
+    </figure>
+    <div class="callout">
+      The speed here is only for judging the overall impression. In SlideCast Studio the lip-sync speed is set automatically from the audio, and the gesture interval is adjusted separately.
+    </div>
+
+    <h4>💾 Save the “character pack for SlideCast Studio (ZIP)”</h4>
+    <p>Pressing save opens a <strong>dialog for choosing the export size</strong> (512 / 768 / 1024px).</p>
+    <figure >
+      <img src="../../assets/mouthloop-v2-22.png"
+           width="1200" height="757" loading="lazy"
+           alt="The save button in step 4 and the summary of what goes into the pack.">
+      <img src="../../assets/mouthloop-v2-23.png"
+           width="1118" height="1070" loading="lazy"
+           alt="The export size dialog, with cards for 512 / 768 / 1024px and the resulting file size.">
+      <figcaption>The pre-save summary, and the dialog for choosing the export size</figcaption>
+    </figure>
+    <ul>
+      <li>Choosing a size builds the file there and then, and <strong>shows you the actual size</strong>. You find out before you hit an upload limit, not after</li>
+      <li><strong>Changing the export size does not discard the face variations you have generated</strong></li>
+      <li>Choosing a size larger than the working resolution means <strong>upscaling</strong>, and the dialog says so</li>
+      <li>With a lot of frames, <strong>512px</strong> is recommended (the ZIP limit is 50MB)</li>
+    </ul>
+    <p>Before saving, “what goes into this pack” is listed — the number of base-expression images, the added expressions, the gestures and the total PNG count — so you can confirm the contents are what you intended.</p>
+    <div class="callout callout-good">
+      <strong>That is the work done.</strong> If you do not need an animated image, feel free to skip step 5.
+    </div>
+
+    <!-- Step 5 -->
+    <h3 id="step5">Step 5: (optional) export an animated image</h3>
+    <p>For situations where audio-driven mode is not available, you can also build a looping animation.</p>
+    <figure >
+      <img src="../../assets/mouthloop-v2-24.png"
+           width="1200" height="1157" loading="lazy"
+           alt="The animated image export screen in step 5, with speed, gesture interval and export quality settings.">
+    </figure>
+    <ul>
+      <li><strong>Expression to preview</strong>: which expression the animation is built from (the ZIP still contains all of them)</li>
+      <li><strong>Lip-sync speed</strong>: fast / standard / slow</li>
+      <li><strong>Gesture interval</strong>: short / standard / long (how many rounds of lip sync pass between gestures)</li>
+      <li><strong>Export quality</strong>: higher looks better and weighs more (APNG is lossless, so it has no setting)</li>
+    </ul>
+    <p>Press “Build the WebP” (“Build the APNG” on iPad and iPhone) and a preview appears. <strong>Watch it loop three times</strong> and check for drift or flicker before you save.</p>
+    <div class="callout callout-good">
+      <b class="label">💡 Tip</b>
+      The gesture interval affects <strong>only the animated preview in step 4 and this animated image</strong>. It has no effect on the character pack ZIP.
+    </div></div></div></details><details class="chapter" id="section-5"><summary><span class="chapter-icon" aria-hidden="true">🎥</span><span class="chapter-heading" role="heading" aria-level="2"><span class="chapter-category">SLIDECAST STUDIO</span><span class="chapter-title">Using it in SlideCast Studio</span></span><span class="chapter-toggle" aria-hidden="true"></span></summary><div class="chapter-body"><div class="chapter-inner"><p class="chapter-intro">You upload it under Settings → Character → Character assets and motion.</p><figure><img src="../../assets/mouthloop-v2-25.png" alt="The Settings → Character → Character assets and motion screen in SlideCast Studio" loading="lazy"></figure><h3>🎙 Use it in audio-driven mode (recommended)</h3><p>Under “Character assets and motion”, upload the character pack ZIP to “<strong>Audio-driven</strong>” without unpacking it.</p><figure><img src="../../assets/mouthloop-v2-26.png" alt="Uploading the character pack ZIP to audio-driven mode" loading="lazy"></figure><ul class="check-list"><li>The mouth moves along with the narration audio</li><li>The expressions and gestures are registered at the same time</li><li>Speed and gesture frequency are adjusted on the SlideCast Studio side</li></ul><h3>🔁 Use it as an animated image</h3><p>Under “Character settings”, upload the WebP / APNG to “<strong>Animated image</strong>”. It keeps moving at a steady rhythm, regardless of the narration.</p><figure><img src="../../assets/mouthloop-v2-27.png" alt="Uploading a WebP / APNG as an animated image" loading="lazy"></figure><h3>🤔 Which one should you use?</h3><div class="table-wrap"><table class="data-table"><thead><tr><th>Comparison</th><th>📦 Character pack ZIP</th><th>🔁 Animated image</th></tr></thead><tbody><tr><td>How it moves</td><td>Follows the narration audio</td><td>Loops at a steady rhythm</td></tr><tr><td>Expressions</td><td>All of them are included</td><td>Only the one you picked</td></tr><tr><td>Gestures</td><td>Timing adjustable afterwards</td><td>Frequency fixed at export time</td></tr><tr><td>Image quality</td><td>Lossless PNG</td><td>WebP is lossy; APNG is lossless</td></tr><tr><td>iPad</td><td>Works</td><td>May fail to load</td></tr></tbody></table></div><div class="callout callout-good"><p><strong>When in doubt, take the character pack ZIP</strong></p><p>It gives you audio-driven movement, every expression, and gestures you can retime later.</p></div></div></div></details><details class="chapter" id="section-6"><summary><span class="chapter-icon" aria-hidden="true">🔧</span><span class="chapter-heading" role="heading" aria-level="2"><span class="chapter-category">TROUBLESHOOTING</span><span class="chapter-title">When something does not work</span></span><span class="chapter-toggle" aria-hidden="true"></span></summary><div class="chapter-body"><div class="chapter-inner"><dl class="faq"><div><dt>The gesture or expression panel says it is unavailable</dt><dd>Switch “Choose a method” to “Replace the face only”. For gestures, also check the framing you chose in step 1.</dd></div><div><dt>The arms or hands run off the edge during a gesture</dt><dd>Go back to the crop in step 1, set “Add margin” to around 20%, and try again. 30% is available if that is not enough.</dd></div><div><dt>Anger and sadness do not come across</dt><dd>Mark the “expression” area in step 3 again, this time including the brows.</dd></div><div><dt>Adding a gesture makes the face move too</dt><dd>Narrow the “gesture” area down to just the path the movement travels, such as the arm and hand.</dd></div><div><dt>The result flickers</dt><dd>Use “Replace the face only” and keep the marked areas small. Colour differences between generated images can also cause flicker.</dd></div><div><dt>Only one eye closes, or the expression falls apart</dt><dd>Regenerate that card. In v2 you can attach extra instructions. Nothing is ever regenerated automatically on the grounds of quality.</dd></div></dl><h3>🎨 The background colour clings to the outline, or fine details are eaten away</h3><p>Adjust “<strong>background removal strength</strong>” in step 3 and press “Build and verify the 6 frames” again. No images are regenerated.</p><figure><img src="../../assets/mouthloop-v2-28.png" alt="Choosing background removal strength from light, standard, strong and maximum" loading="lazy"></figure><dl class="faq"><div><dt>The ZIP is too large to save</dt><dd>Drop the export size to 512px, or use fewer expressions and gestures. The limit is 50MB. Images you have already generated are not deleted.</dd></div><div><dt>Generation fails</dt><dd>Wait a while and try again. If you have hit a usage limit, pressing repeatedly will not help.</dd></div><div><dt>Does a larger export size mean better quality?</dt><dd>No. Anything larger than the working resolution is upscaling, and adds no detail.</dd></div></dl></div></div></details><details class="chapter" id="section-7"><summary><span class="chapter-icon" aria-hidden="true">📋</span><span class="chapter-heading" role="heading" aria-level="2"><span class="chapter-category">CAUTIONS</span><span class="chapter-title">Things to keep in mind</span></span><span class="chapter-toggle" aria-hidden="true"></span></summary><div class="chapter-body"><div class="chapter-inner"><ul class="check-list"><li>Check whether your intended use of the generated result is allowed under Google’s terms</li><li>Do not use it to impersonate a real person</li><li>What you type and the images you supply are sent to Google Gemini only while an image is being generated, and are not stored in the tool</li><li>Save the finished character pack ZIP before you close the screen</li></ul></div></div></details><details class="chapter" id="section-8"><summary><span class="chapter-icon" aria-hidden="true">🎁</span><span class="chapter-heading" role="heading" aria-level="2"><span class="chapter-category">SUMMARY</span><span class="chapter-title">In summary</span></span><span class="chapter-toggle" aria-hidden="true"></span></summary><div class="chapter-body"><div class="chapter-inner"><p class="chapter-intro">MouthLoop v2 turns a single image into character assets that have expressions and gestures as well as a moving mouth.</p><ul class="check-list"><li>Smiling, sad and angry, at one generated image per expression</li><li>Up to three gestures, each checked at the end pose before the rest is built</li><li>The character pack ZIP uploads straight into audio-driven mode in SlideCast Studio</li><li>Step 4 plays the movement back on the spot</li><li>APNG is used automatically on iPad and iPhone</li><li>Nothing to install, nothing to register, no API key</li></ul><p>If you are coming from v1, the easiest place to start is to leave it on “<strong>Replace the face only</strong>” and add a single expression. That costs one generated image.</p><div class="cta-banner"><div><strong>Try MouthLoop v2</strong><p>It opens for free from a Gemini Canvas share link.</p></div><a class="cta-link" href="https://share.gemini.google/dkU0IVHfQ2gu" target="_blank" rel="noopener noreferrer">Open MouthLoop ↗</a></div></div></div></details></section>
+
+  <div class="source-card"><div><strong>The note post this page is based on</strong><small>This is the public announcement of MouthLoop v2. The background to the update, in the author’s own words, is on note (in Japanese).</small></div><a class="cta-link" href="https://note.com/bluezzly/n/n73a045067fbe" target="_blank" rel="noopener noreferrer">Read the original post on note (Japanese) ↗</a></div>
   <footer class="site-footer">
     <div class="footer-top"><a class="brand footer-brand" href="../" aria-label="SlideCast Studio home">SlideCast <b>Studio</b></a><nav class="footer-links" aria-label="Footer navigation"><a href="../intro/">What is SlideCast Studio?</a><a href="../../manual/">Official manual (JA)</a><a href="../bundle-builder/">Bundle Builder</a><a href="../mouthloop-v2/">MouthLoop v2</a></nav></div><div class="footer-bottom"><p class="footer-meta">SlideCast Studio Documentation · aokuma</p><nav class="social-links" aria-label="Social links"><a class="social-link" href="https://note.com/bluezzly" target="_blank" rel="noopener noreferrer" aria-label="note" title="note"><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4.4 17.6V6.4h2.9v2C8.3 7 10 6.2 11.9 6.2c3.4 0 5.7 2.4 5.7 6v5.4h-2.9v-5c0-2.2-1.3-3.6-3.2-3.6-2.4 0-4.2 1.8-4.2 4.4v4.2Z"/></svg></a>
           <a class="social-link" href="https://x.com/ai5809514366862" target="_blank" rel="noopener noreferrer" aria-label="X (formerly Twitter)"><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231 5.451-6.231Zm-1.161 17.52h1.833L7.084 4.126H5.117L17.083 19.77Z"/></svg></a>
@@ -849,7 +1093,7 @@ hr{border:0;height:1px;margin:46px 0;background:linear-gradient(90deg,transparen
   <div class="toc-head"><strong>Contents</strong><button class="icon-button" id="closeToc" type="button" aria-label="Close contents">×</button></div>
   <nav class="toc-list" aria-label="Contents">
     <button type="button" data-target="overview"><span aria-hidden="true">🏠</span>Overview</button>
-    <button type="button" data-target="section-1"><span aria-hidden="true">🧭</span>The shape of the whole thing</button><button type="button" data-target="section-2"><span aria-hidden="true">🖼️</span>Create or upload the slides</button><button type="button" data-target="section-3"><span aria-hidden="true">💬</span>Generate a script that fits the job</button><button type="button" data-target="section-4"><span aria-hidden="true">🔊</span>Generate the AI voice</button><button type="button" data-target="section-5"><span aria-hidden="true">🎤</span>Record your own voice and trim it</button><button type="button" data-target="section-6"><span aria-hidden="true">📦</span>Validate, then import the ZIP</button><button type="button" data-target="section-7"><span aria-hidden="true">⚠️</span>Worth knowing before you begin</button>
+    <button type="button" data-target="section-1"><span aria-hidden="true">🆕</span>What changed since v1</button><button type="button" data-target="section-2"><span aria-hidden="true">🎬</span>What MouthLoop v2 produces</button><button type="button" data-target="section-3"><span aria-hidden="true">✅</span>Worth knowing before you begin</button><button type="button" data-target="section-4"><span aria-hidden="true">🚀</span>How to use it: all five steps</button><button type="button" data-target="section-5"><span aria-hidden="true">🎥</span>Using it in SlideCast Studio</button><button type="button" data-target="section-6"><span aria-hidden="true">🔧</span>When something does not work</button><button type="button" data-target="section-7"><span aria-hidden="true">📋</span>Things to keep in mind</button><button type="button" data-target="section-8"><span aria-hidden="true">🎁</span>In summary</button>
   </nav>
 </dialog>
 

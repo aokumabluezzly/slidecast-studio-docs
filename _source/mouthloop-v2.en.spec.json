@@ -1,0 +1,503 @@
+{
+  "title": "MouthLoop v2 — expressions and gestures",
+  "subtitle": "A free Gemini Canvas app that turns a single image into lip-sync character assets, complete with expressions and gestures",
+  "description": "What changed in MouthLoop v2, how to save the character pack ZIP, and how to use it in SlideCast Studio — walked through with screenshots.",
+  "lead": "",
+  "eyebrow": "MOUTHLOOP V2 GUIDE",
+  "brand": "SlideCast",
+  "brand_accent": "Studio",
+  "brand_badge": "Docs",
+  "author": "aokuma",
+  "date": "2026.08.05",
+  "version": "v2",
+  "footer_meta": "SlideCast Studio Documentation · aokuma",
+  "hero_image": "./img/mouthloop-v2-01.png",
+  "hero_alt": "MouthLoop v2, with expressions and gestures added: a row of three mouth states for lip sync alongside several facial expressions",
+  "chips": [
+    "Free",
+    "No API key",
+    "Gemini Canvas",
+    "Expressions & gestures",
+    "Works with SlideCast Studio"
+  ],
+  "theme": {
+    "primary": "#2476D8",
+    "secondary": "#6750D8",
+    "accent": "#16AFC9",
+    "surface": "#F1F7FF",
+    "ink": "#17233F"
+  },
+  "nav_links": [
+    { "href": "../", "icon": "🏠", "label": "HOME" }
+  ],
+  "source_url": "https://note.com/bluezzly/n/n73a045067fbe",
+  "source_label": "Read the original post on note (Japanese)",
+  "source_title": "The note post this page is based on",
+  "source_note": "This is the public announcement of MouthLoop v2. The background to the update, in the author’s own words, is on note (in Japanese).",
+  "update_url": "https://share.gemini.google/dkU0IVHfQ2gu",
+  "update_label": "Open MouthLoop",
+  "update_header": false,
+  "sections_label": "CONTENTS",
+  "overview": {
+    "icon": "👋",
+    "title": "What this page covers",
+    "blocks": [
+      {
+        "type": "html",
+        "html": "<p><strong>MouthLoop</strong>, the free tool that builds lip-sync assets from a single image, has been updated to v2. Expressions (smiling, sad, angry) and gestures (waving, scratching your head and so on) have been added, and everything you save now comes out as a single <strong>character pack ZIP for SlideCast Studio</strong>.</p><p>You do not need to have read the previous article. This page alone takes you from preparation through saving to loading the result into SlideCast Studio.</p>"
+      },
+      {
+        "type": "callout",
+        "tone": "warn",
+        "title": "If you use this with SlideCast Studio",
+        "text": "SlideCast Studio itself needs to be on v3.4 or later."
+      },
+      {
+        "type": "figure",
+        "image": "./img/mouthloop-v2-02.gif",
+        "alt": "A character made in MouthLoop v2, smiling and waving while its mouth moves",
+        "caption": "On top of lip sync and blinking, expressions and gestures now move too"
+      },
+      {
+        "type": "link",
+        "url": "https://share.gemini.google/dkU0IVHfQ2gu",
+        "label": "Open MouthLoop"
+      },
+      {
+        "type": "link",
+        "url": "https://note.com/bluezzly/n/n73a045067fbe",
+        "label": "Read the original post on note (Japanese)"
+      }
+    ]
+  },
+  "sections": [
+    {
+      "icon": "🆕",
+      "category": "UPDATE",
+      "title": "What changed since v1",
+      "intro": "This update moves the output from “an asset that only moves its mouth” to “a character with expressions and gestures”.",
+      "blocks": [
+        {
+          "type": "table",
+          "head": [
+            "Item",
+            "v1",
+            "v2"
+          ],
+          "rows": [
+            [
+              "🙂 Expressions",
+              "One only",
+              "Neutral plus smiling, sad and angry (up to four)"
+            ],
+            [
+              "👋 Gestures",
+              "None",
+              "Up to three. Six presets, or write your own"
+            ],
+            [
+              "📦 Main output",
+              "A ZIP of six PNGs",
+              "Consolidated into the character pack ZIP"
+            ],
+            [
+              "🔧 Default method",
+              "Redraw the whole thing",
+              "Replace the face only (recommended)"
+            ],
+            [
+              "📐 Export size",
+              "Chosen up front",
+              "Chosen at save time, with the real file size shown"
+            ],
+            [
+              "▶️ Checking the result",
+              "Only after building the WebP",
+              "Played back on the spot in step 4"
+            ],
+            [
+              "♻️ Regeneration",
+              "Just press the button",
+              "You can attach extra instructions"
+            ],
+            [
+              "➕ Also new",
+              "—",
+              "Camera angle, gaze, single-eye off, margin, background removal strength and art style"
+            ]
+          ]
+        },
+        {
+          "type": "gallery",
+          "columns": 3,
+          "items": [
+            {
+              "image": "./img/mouthloop-v2-03.png",
+              "alt": "The expression set panel added in v2",
+              "caption": "Expression set"
+            },
+            {
+              "image": "./img/mouthloop-v2-04.png",
+              "alt": "The gesture panel added in v2",
+              "caption": "Gestures"
+            },
+            {
+              "image": "./img/mouthloop-v2-05.png",
+              "alt": "Examples of assets produced by v2",
+              "caption": "Generated assets"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "icon": "🎬",
+      "category": "OUTPUT",
+      "title": "What MouthLoop v2 produces",
+      "intro": "There are two files you can save. In v2 the ZIP of six PNGs has been replaced by the character pack ZIP.",
+      "blocks": [
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "📦 1. Character pack for SlideCast Studio (ZIP)"
+        },
+        {
+          "type": "figure",
+          "image": "./img/mouthloop-v2-06.png",
+          "alt": "Inside the character pack ZIP: one folder of PNGs per expression, plus manifest.json",
+          "caption": "slidecast-character-pack.zip"
+        },
+        {
+          "type": "html",
+          "html": "<p>Inside you get <strong>six PNGs per expression</strong>, the <strong>numbered PNGs for each gesture</strong>, and a <code>manifest.json</code> that says what each of them is.</p>"
+        },
+        {
+          "type": "check_list",
+          "items": [
+            "Three mouth states × two eye states — six images in the same position and the same framing",
+            "The same six images for every expression you added",
+            "Four frames for each gesture",
+            "Uploads to “Audio-driven” in SlideCast Studio as a ZIP, unopened"
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "good",
+          "title": "When in doubt, take the character pack ZIP",
+          "text": "The “numbered PNG ZIP” from v1 has been folded into the character pack. If you are heading for SlideCast Studio, this one ZIP is all you need to save."
+        },
+        {
+          "type": "divider",
+          "label": "OPTION"
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "🔁 2. Animated image (WebP / APNG)"
+        },
+        {
+          "type": "figure",
+          "image": "./img/mouthloop-v2-07.png",
+          "alt": "The export screen for the animated image (WebP / APNG)",
+          "caption": "lipsync.webp (lipsync-anim.png on iPad and iPhone)"
+        },
+        {
+          "type": "html",
+          "html": "<p>A looping animation with the lip sync, the blinking and the gestures baked in. It moves as a single file, but it <strong>does not follow the audio</strong>, and it holds only the one expression you had selected.</p><p>This is an optional export, for places where audio-driven mode is not an option.</p>"
+        }
+      ]
+    },
+    {
+      "icon": "✅",
+      "category": "BEFORE YOU START",
+      "title": "Worth knowing before you begin",
+      "intro": "There is nothing to install, no extra account to register, and no API key to enter.",
+      "blocks": [
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "🧰 What you need"
+        },
+        {
+          "type": "check_list",
+          "items": [
+            "An account that can use Google Gemini (Canvas)",
+            "An image to start from — or none, since the tool can generate one for you"
+          ]
+        },
+        {
+          "type": "link",
+          "url": "https://share.gemini.google/dkU0IVHfQ2gu",
+          "label": "Open MouthLoop in Gemini"
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "⚠️ Your work is not saved"
+        },
+        {
+          "type": "html",
+          "html": "<p>MouthLoop keeps nothing — neither your images nor what you typed. Everything is processed inside your browser.</p>"
+        },
+        {
+          "type": "callout",
+          "tone": "warn",
+          "title": "Save before you close the tab",
+          "text": "Closing the screen discards all of your work. Save the finished character pack ZIP while you are still there."
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "📱 On phones and tablets"
+        },
+        {
+          "type": "check_list",
+          "items": [
+            "On a phone, use Gemini in the Chrome browser. Saving files is blocked inside the Gemini app",
+            "On iPad and iPhone, APNG is used automatically in place of WebP"
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "warn",
+          "title": "On iPad, the character pack ZIP is the safe bet",
+          "text": "SlideCast Studio on iPad Safari cannot always load APNG. The character pack ZIP used in audio-driven mode is confirmed to work on iPad."
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "🌐 Switching between Japanese and English"
+        },
+        {
+          "type": "html",
+          "html": "<p>Use the <strong>JA / EN</strong> button at the top right of the screen. Japanese is the default.</p>"
+        },
+        {
+          "type": "figure",
+          "image": "./img/mouthloop-v2-08.png",
+          "alt": "The JA / EN switch at the top right of the screen"
+        }
+      ]
+    },
+    {
+      "icon": "🚀",
+      "category": "HOW TO",
+      "title": "How to use it: all five steps",
+      "intro": "Follow the step bar across the top of the screen, from top to bottom.",
+      "blocks": [
+        {
+          "type": "html",
+          "html": "\n\n    <figure >\n      <img src=\"./img/mouthloop-v2-09.png\"\n           width=\"1200\" height=\"458\" loading=\"lazy\"\n           alt=\"The step bar (1–5) across the top of the screen.\">\n    </figure>\n\n    <ol class=\"step-list\">\n      <li><strong>Master image</strong>Settle on the single image everything is built from</li>\n      <li><strong>Mouth and eye expressions</strong>Expressions and gestures are added here too</li>\n      <li><strong>Build the frames</strong>Mark the areas to be replaced</li>\n      <li><strong>Check and save</strong>Confirm the result and save the character pack ZIP</li>\n      <li><strong>Animated image (optional)</strong>Export a WebP / APNG</li>\n    </ol>\n\n    <!-- Step 1 -->\n    <h3 id=\"step1\">Step 1: Prepare the master image</h3>\n    <p>Settle on the one image everything else is built from. There are two ways to get there.</p>\n    <figure >\n      <img src=\"./img/mouthloop-v2-10.png\"\n           width=\"1200\" height=\"458\" loading=\"lazy\"\n           alt=\"Step 1, choosing between “Generate a new one in Gemini” and “Use an image you already have”.\">\n    </figure>\n\n    <h4>🅰 Generate a new one in Gemini</h4>\n    <p>Fill in the form and press generate. What you can specify:</p>\n    <ul>\n      <li><strong>Framing</strong>: head only / bust-up (default) / full body</li>\n      <li><strong>Character</strong>: type, gender and mood, age, hairstyle, hair colour, skin tone, and a free-text field</li>\n      <li><strong>Clothing</strong> and <strong>art style</strong> (v2 adds options such as “detailed realistic illustration” and “graphic novel”)</li>\n      <li><strong>Reference images</strong> (up to four): for each one, say whether it is a reference for the look, the clothing, the art style or the colour palette</li>\n      <li><strong>Expression</strong>: neutral / gentle smile / your own wording</li>\n      <li><strong>Background colour</strong>: pick a colour that does not appear on the character</li>\n    </ul>\n\n    <h4><span class=\"tag tag-new\">NEW</span>New in v2: camera angle and gaze</h4>\n    <p>\n      You can now choose the <strong>camera angle</strong> (straight on / nearly straight on / 45 degrees / side view / slightly above / slightly below / your own wording) and the\n      <strong>gaze</strong> (at the camera / just off camera / to the side / slightly up or down / your own wording).\n      The defaults are “straight on, looking at the camera”, which gives you the same result as before.\n    </p>\n    <div class=\"callout callout-warn\">\n      Moving away from straight on and looking at the camera makes the mouth and eyes harder to place. In a framing where only one eye is visible, such as a side view, switch the unused eye off in step 3 (see below).\n    </div>\n    <p>Press “Show prompt” to copy the exact text that will be sent to the AI. It is also handy if you would rather make the image in a different AI service.</p>\n\n    <h4>🅱 Use an image you already have</h4>\n    <p>Load an image of your own. Drag and drop and pasting both work. Once it is loaded, you choose one of three options.</p>\n    <ul>\n      <li><strong>Use it as is</strong>: for images with a transparent background, or a flat colour with a clean outer edge</li>\n      <li><strong>Fix the background only</strong>: keep the expression, the angle and the framing, and turn the background into a flat colour</li>\n      <li><strong>Prepare it as a master</strong>: go further and adjust it to face forward, open the eyes and close the mouth</li>\n    </ul>\n    <p>“Use it as is” is not available for photos or anything else with a busy background. Use one of the other two to clean up the background first.</p>\n\n    <h4>✂️ Finally, crop the area you want to use into a square</h4>\n    <p>Drag the frame into position and resize it from the corners. It snaps as it nears the centre, and the guide turns green. Arrow keys work for fine adjustments.</p>\n    <figure >\n      <img src=\"./img/mouthloop-v2-11.png\"\n           width=\"1200\" height=\"914\" loading=\"lazy\"\n           alt=\"The crop screen, dragging a square frame to choose the area to use.\">\n    </figure>\n\n    <h4><span class=\"tag tag-new\">NEW</span>New in v2: “Add margin (for gestures)”</h4>\n    <p>Add a gesture to a bust-up shot and the <strong>arms and hands can run off the edge</strong>. So you can now add <strong>10%–30% of margin</strong> at the crop stage.</p>\n    <figure >\n      <img src=\"./img/mouthloop-v2-12.png\"\n           width=\"1200\" height=\"921\" loading=\"lazy\"\n           alt=\"The crop screen with “Add margin” selected.\">\n    </figure>\n    <ul>\n      <li>The character is placed slightly smaller, leaving room to raise an arm</li>\n      <li>Anything outside the original image is filled with the background colour</li>\n      <li>For art that is cut off at the bottom, the bottom edge is kept and margin is added above and to the sides</li>\n      <li><strong>No image generation happens</strong> (it uses none of your API allowance)</li>\n    </ul>\n    <p>The mouth and eyes end up correspondingly smaller, so <strong>leave it at “none” if you are not using gestures</strong>.</p>\n    <p>Press “Confirm this area at ◯◯×◯◯” and step 1 is done. The number shown is the <strong>working resolution</strong> for everything that follows (derived automatically from the crop, between 256 and 1024px).</p>\n    <figure >\n      <img src=\"./img/mouthloop-v2-13.png\"\n           width=\"1200\" height=\"921\" loading=\"lazy\"\n           alt=\"The “Confirm this area at ◯◯×◯◯” button, and the working resolution shown after confirming.\">\n    </figure>\n\n    <!-- Step 2 -->\n    <h3 id=\"step2\">Step 2: Build the mouth and eye expressions</h3>\n    <p>This is where v2 changed the most. From the top, it is now three blocks: <strong>“Choose a method” → “Expression set” → “Gestures”</strong>.</p>\n\n    <h4>🔧 Choose a method (the default has changed)</h4>\n    <figure >\n      <img src=\"./img/mouthloop-v2-14.png\"\n           width=\"1200\" height=\"227\" loading=\"lazy\"\n           alt=\"Choosing between “Replace the face only” and “Redraw the whole thing”.\">\n    </figure>\n    <p><strong>Replace the face only (recommended, default) | 3 images generated</strong><br>\n      Takes the master as the base and swaps out only the areas you marked. Nothing outside those areas changes by even a pixel, so nothing wobbles. The cost is the work of marking the mouth and each eye.</p>\n    <p><strong>Redraw the whole thing (easy) | 5 images generated</strong><br>\n      Lines up the five generated images as they are. No marking to do, but because everything is redrawn each time, hair and outlines can shift from frame to frame.</p>\n    <div class=\"callout\">\n      In v1 the default was “Redraw the whole thing (standard)”; <strong>in v2 the default is “Replace the face only”</strong>.\n      <strong>Expression sets and gestures are available only in that mode.</strong>\n    </div>\n\n    <h4>🙂 Add an expression set (optional)<span class=\"tag tag-new\">NEW</span></h4>\n    <p>You can add <strong>smiling, sad and angry</strong>. Every expression you add gets a full set of six lip-sync images.</p>\n    <figure >\n      <img src=\"./img/mouthloop-v2-15.png\"\n           width=\"1200\" height=\"616\" loading=\"lazy\"\n           alt=\"The panel for adding expression sets: smiling, sad and angry.\">\n    </figure>\n    <p>The mechanism is simple: <strong>one image per expression is generated, redrawing only the eyes, brows and mouth of the master</strong>. The body, the clothes, the background and the arms stay exactly as they were, so <strong>adding expressions never changes the person</strong>.</p>\n    <ul>\n      <li>The extra cost is <strong>one image per expression</strong> (three images for all three)</li>\n      <li>The talking mouth shapes and the blink are reused from the neutral expression</li>\n      <li>Saving gives you a single ZIP with one folder per expression</li>\n    </ul>\n\n    <h4>👋 Add gestures (optional)<span class=\"tag tag-new\">NEW</span></h4>\n    <p>Movements such as waving or scratching your head, <strong>dropped in between stretches of lip sync</strong>. Up to three of them.</p>\n    <figure >\n      <img src=\"./img/mouthloop-v2-16.png\"\n           width=\"1200\" height=\"634\" loading=\"lazy\"\n           alt=\"The panel for adding gestures, with options such as waving and scratching your head.\">\n    </figure>\n    <p>The choices: <strong>wave / scratch your head / point / fold your arms / thumbs up / present with an open palm / write your own</strong></p>\n    <p>Each gesture can carry <strong>extra instructions</strong> too, such as “with one hand” or “slowly and broadly”.</p>\n    <p><strong>Gestures are built in two stages.</strong></p>\n    <ol>\n      <li><strong>First generate only the end pose</strong> — then check that it matches what you had in mind</li>\n      <li>If not, press ↻ to redo it; if it is right, press “<strong>Generate the remaining in-between frames</strong>”</li>\n    </ol>\n    <p>The in-between frames are built from the end pose, so <strong>checking the end pose first means less to redo</strong> (the total number of images generated is the same either way). One gesture is <strong>four images</strong>: the end pose plus three in-betweens (25 / 50 / 75%).</p>\n\n    <h4>💰 How many images this takes</h4>\n    <p>In v2 you assemble the workload yourself. The buttons always show the number of images, so you can check before you press.</p>\n    <dl class=\"spec-list\">\n      <div><dt>Mouth and eyes, the basics (replace the face only)</dt><dd>3 images</dd></div>\n      <div><dt>Each expression added</dt><dd>+1 image</dd></div>\n      <div><dt>Each gesture added</dt><dd>+4 images</dd></div>\n      <div><dt>Fully loaded (3 expressions + 3 gestures)</dt><dd>18 images in total</dd></div>\n    </dl>\n    <p>Once they are generated, look through the previews and check that the mouth really is open, that <strong>both</strong> eyes are closed, and that the brows, the hair and any accessories have not changed.</p>\n\n    <h4><span class=\"tag tag-new\">NEW</span>New in v2: regeneration can carry extra instructions</h4>\n    <p>“Regenerate” on any card, and the ↻ on a gesture, open a popup where you can type an instruction such as “<strong>open the mouth less</strong>”, up to <strong>160 characters</strong> (leaving it empty is fine).</p>\n    <figure >\n      <img src=\"./img/mouthloop-v2-17.png\"\n           width=\"1200\" height=\"648\" loading=\"lazy\"\n           alt=\"The popup for typing extra instructions when regenerating.\">\n    </figure>\n    <ul>\n      <li>The instruction applies to <strong>that one generation only</strong> and is not stored</li>\n      <li>The rules about the background, keeping the same person and what may change take priority, so instructions that conflict with them are ignored</li>\n    </ul>\n\n    <!-- Step 3 -->\n    <h3 id=\"step3\">Step 3: Build the frames (mark the areas)</h3>\n    <p>With “Replace the face only”, you first mark <strong>the areas to be replaced</strong>. Just drag across the face. Fairly rough marking works well, so try something rough first — you can adjust it afterwards.</p>\n    <figure >\n      <img src=\"./img/mouthloop-v2-18.png\"\n           width=\"1200\" height=\"1086\" loading=\"lazy\"\n           alt=\"The area editor, marking the mouth and the left and right eyes.\">\n    </figure>\n    <p>How many areas you mark depends on what you chose.</p>\n    <ul>\n      <li><strong>Mouth</strong> (always) — the smaller you mark it, the more stable the result</li>\n      <li><strong>Left eye and right eye</strong> (always) — the same applies. They are separate so that the brow ridge, the bridge of the nose and the bridge of a pair of glasses stay out of the replaced area</li>\n      <li><strong>Expression</strong> (when using expression sets) — mark it <strong>wide enough to include the brows</strong>. Leave the brows out and anger and sadness barely read at all</li>\n      <li><strong>Gesture</strong> (when using gestures) — mark <strong>only the path the arm travels</strong>, as narrowly as you can</li>\n    </ul>\n\n    <h4><span class=\"tag tag-new\">NEW</span>New in v2: background removal strength, and which eyes blink</h4>\n    <figure >\n      <img src=\"./img/mouthloop-v2-19.png\"\n           width=\"1200\" height=\"160\" loading=\"lazy\"\n           alt=\"The “background removal strength” and “eyes used for blinking” settings.\">\n    </figure>\n    <ul>\n      <li><strong>Background removal strength</strong> (light, standard, strong, maximum): use “strong” when the background colour clings to the outline, and “light” when fine details in hair or clothing are being eaten away. After changing it, just press “Build and verify the 6 frames” again (<strong>nothing is regenerated</strong>)</li>\n      <li><strong>Eyes used for blinking</strong>: when only one eye is visible — a side view, or hair covering one — switch the other one off</li>\n    </ul>\n    <p>In a full-body framing the face is small, so the <strong>300% view</strong> makes the marking much easier.</p>\n    <p>When you are ready, press “<strong>Build and verify the 6 frames</strong>”. The background is made transparent and the frames are assembled.</p>\n    <figure >\n      <img src=\"./img/mouthloop-v2-20.png\"\n           width=\"1200\" height=\"369\" loading=\"lazy\"\n           alt=\"The “Build and verify the 6 frames” button and the verification results.\">\n    </figure>\n\n    <!-- Step 4 -->\n    <h3 id=\"step4\">Step 4: Check the result and save it ★ this is where you save</h3>\n\n    <h4><span class=\"tag tag-new\">NEW</span>New in v2: check the movement on the spot</h4>\n    <p>You can <strong>play the finished frames right there</strong>. <strong>No image generation happens.</strong> In v1 you could not see the movement without building a WebP first, so this makes checking much faster.</p>\n    <figure >\n      <img src=\"./img/mouthloop-v2-21.png\"\n           width=\"1200\" height=\"745\" loading=\"lazy\"\n           alt=\"The animated preview in step 4, playing the finished frames on the spot.\">\n    </figure>\n    <div class=\"callout\">\n      The speed here is only for judging the overall impression. In SlideCast Studio the lip-sync speed is set automatically from the audio, and the gesture interval is adjusted separately.\n    </div>\n\n    <h4>💾 Save the “character pack for SlideCast Studio (ZIP)”</h4>\n    <p>Pressing save opens a <strong>dialog for choosing the export size</strong> (512 / 768 / 1024px).</p>\n    <figure >\n      <img src=\"./img/mouthloop-v2-22.png\"\n           width=\"1200\" height=\"757\" loading=\"lazy\"\n           alt=\"The save button in step 4 and the summary of what goes into the pack.\">\n      <img src=\"./img/mouthloop-v2-23.png\"\n           width=\"1118\" height=\"1070\" loading=\"lazy\"\n           alt=\"The export size dialog, with cards for 512 / 768 / 1024px and the resulting file size.\">\n      <figcaption>The pre-save summary, and the dialog for choosing the export size</figcaption>\n    </figure>\n    <ul>\n      <li>Choosing a size builds the file there and then, and <strong>shows you the actual size</strong>. You find out before you hit an upload limit, not after</li>\n      <li><strong>Changing the export size does not discard the face variations you have generated</strong></li>\n      <li>Choosing a size larger than the working resolution means <strong>upscaling</strong>, and the dialog says so</li>\n      <li>With a lot of frames, <strong>512px</strong> is recommended (the ZIP limit is 50MB)</li>\n    </ul>\n    <p>Before saving, “what goes into this pack” is listed — the number of base-expression images, the added expressions, the gestures and the total PNG count — so you can confirm the contents are what you intended.</p>\n    <div class=\"callout callout-good\">\n      <strong>That is the work done.</strong> If you do not need an animated image, feel free to skip step 5.\n    </div>\n\n    <!-- Step 5 -->\n    <h3 id=\"step5\">Step 5: (optional) export an animated image</h3>\n    <p>For situations where audio-driven mode is not available, you can also build a looping animation.</p>\n    <figure >\n      <img src=\"./img/mouthloop-v2-24.png\"\n           width=\"1200\" height=\"1157\" loading=\"lazy\"\n           alt=\"The animated image export screen in step 5, with speed, gesture interval and export quality settings.\">\n    </figure>\n    <ul>\n      <li><strong>Expression to preview</strong>: which expression the animation is built from (the ZIP still contains all of them)</li>\n      <li><strong>Lip-sync speed</strong>: fast / standard / slow</li>\n      <li><strong>Gesture interval</strong>: short / standard / long (how many rounds of lip sync pass between gestures)</li>\n      <li><strong>Export quality</strong>: higher looks better and weighs more (APNG is lossless, so it has no setting)</li>\n    </ul>\n    <p>Press “Build the WebP” (“Build the APNG” on iPad and iPhone) and a preview appears. <strong>Watch it loop three times</strong> and check for drift or flicker before you save.</p>\n    <div class=\"callout callout-good\">\n      <b class=\"label\">💡 Tip</b>\n      The gesture interval affects <strong>only the animated preview in step 4 and this animated image</strong>. It has no effect on the character pack ZIP.\n    </div>"
+        }
+      ]
+    },
+    {
+      "icon": "🎥",
+      "category": "SLIDECAST STUDIO",
+      "title": "Using it in SlideCast Studio",
+      "intro": "You upload it under Settings → Character → Character assets and motion.",
+      "blocks": [
+        {
+          "type": "figure",
+          "image": "./img/mouthloop-v2-25.png",
+          "alt": "The Settings → Character → Character assets and motion screen in SlideCast Studio"
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "🎙 Use it in audio-driven mode (recommended)"
+        },
+        {
+          "type": "html",
+          "html": "<p>Under “Character assets and motion”, upload the character pack ZIP to “<strong>Audio-driven</strong>” without unpacking it.</p>"
+        },
+        {
+          "type": "figure",
+          "image": "./img/mouthloop-v2-26.png",
+          "alt": "Uploading the character pack ZIP to audio-driven mode"
+        },
+        {
+          "type": "check_list",
+          "items": [
+            "The mouth moves along with the narration audio",
+            "The expressions and gestures are registered at the same time",
+            "Speed and gesture frequency are adjusted on the SlideCast Studio side"
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "🔁 Use it as an animated image"
+        },
+        {
+          "type": "html",
+          "html": "<p>Under “Character settings”, upload the WebP / APNG to “<strong>Animated image</strong>”. It keeps moving at a steady rhythm, regardless of the narration.</p>"
+        },
+        {
+          "type": "figure",
+          "image": "./img/mouthloop-v2-27.png",
+          "alt": "Uploading a WebP / APNG as an animated image"
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "🤔 Which one should you use?"
+        },
+        {
+          "type": "table",
+          "head": [
+            "Comparison",
+            "📦 Character pack ZIP",
+            "🔁 Animated image"
+          ],
+          "rows": [
+            [
+              "How it moves",
+              "Follows the narration audio",
+              "Loops at a steady rhythm"
+            ],
+            [
+              "Expressions",
+              "All of them are included",
+              "Only the one you picked"
+            ],
+            [
+              "Gestures",
+              "Timing adjustable afterwards",
+              "Frequency fixed at export time"
+            ],
+            [
+              "Image quality",
+              "Lossless PNG",
+              "WebP is lossy; APNG is lossless"
+            ],
+            [
+              "iPad",
+              "Works",
+              "May fail to load"
+            ]
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "good",
+          "title": "When in doubt, take the character pack ZIP",
+          "text": "It gives you audio-driven movement, every expression, and gestures you can retime later."
+        }
+      ]
+    },
+    {
+      "icon": "🔧",
+      "category": "TROUBLESHOOTING",
+      "title": "When something does not work",
+      "blocks": [
+        {
+          "type": "faq",
+          "items": [
+            {
+              "q": "The gesture or expression panel says it is unavailable",
+              "a": "Switch “Choose a method” to “Replace the face only”. For gestures, also check the framing you chose in step 1."
+            },
+            {
+              "q": "The arms or hands run off the edge during a gesture",
+              "a": "Go back to the crop in step 1, set “Add margin” to around 20%, and try again. 30% is available if that is not enough."
+            },
+            {
+              "q": "Anger and sadness do not come across",
+              "a": "Mark the “expression” area in step 3 again, this time including the brows."
+            },
+            {
+              "q": "Adding a gesture makes the face move too",
+              "a": "Narrow the “gesture” area down to just the path the movement travels, such as the arm and hand."
+            },
+            {
+              "q": "The result flickers",
+              "a": "Use “Replace the face only” and keep the marked areas small. Colour differences between generated images can also cause flicker."
+            },
+            {
+              "q": "Only one eye closes, or the expression falls apart",
+              "a": "Regenerate that card. In v2 you can attach extra instructions. Nothing is ever regenerated automatically on the grounds of quality."
+            }
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "🎨 The background colour clings to the outline, or fine details are eaten away"
+        },
+        {
+          "type": "html",
+          "html": "<p>Adjust “<strong>background removal strength</strong>” in step 3 and press “Build and verify the 6 frames” again. No images are regenerated.</p>"
+        },
+        {
+          "type": "figure",
+          "image": "./img/mouthloop-v2-28.png",
+          "alt": "Choosing background removal strength from light, standard, strong and maximum"
+        },
+        {
+          "type": "faq",
+          "items": [
+            {
+              "q": "The ZIP is too large to save",
+              "a": "Drop the export size to 512px, or use fewer expressions and gestures. The limit is 50MB. Images you have already generated are not deleted."
+            },
+            {
+              "q": "Generation fails",
+              "a": "Wait a while and try again. If you have hit a usage limit, pressing repeatedly will not help."
+            },
+            {
+              "q": "Does a larger export size mean better quality?",
+              "a": "No. Anything larger than the working resolution is upscaling, and adds no detail."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "icon": "📋",
+      "category": "CAUTIONS",
+      "title": "Things to keep in mind",
+      "blocks": [
+        {
+          "type": "check_list",
+          "items": [
+            "Check whether your intended use of the generated result is allowed under Google’s terms",
+            "Do not use it to impersonate a real person",
+            "What you type and the images you supply are sent to Google Gemini only while an image is being generated, and are not stored in the tool",
+            "Save the finished character pack ZIP before you close the screen"
+          ]
+        }
+      ]
+    },
+    {
+      "icon": "🎁",
+      "category": "SUMMARY",
+      "title": "In summary",
+      "intro": "MouthLoop v2 turns a single image into character assets that have expressions and gestures as well as a moving mouth.",
+      "blocks": [
+        {
+          "type": "check_list",
+          "items": [
+            "Smiling, sad and angry, at one generated image per expression",
+            "Up to three gestures, each checked at the end pose before the rest is built",
+            "The character pack ZIP uploads straight into audio-driven mode in SlideCast Studio",
+            "Step 4 plays the movement back on the spot",
+            "APNG is used automatically on iPad and iPhone",
+            "Nothing to install, nothing to register, no API key"
+          ]
+        },
+        {
+          "type": "html",
+          "html": "<p>If you are coming from v1, the easiest place to start is to leave it on “<strong>Replace the face only</strong>” and add a single expression. That costs one generated image.</p>"
+        },
+        {
+          "type": "cta",
+          "title": "Try MouthLoop v2",
+          "text": "It opens for free from a Gemini Canvas share link.",
+          "url": "https://share.gemini.google/dkU0IVHfQ2gu",
+          "label": "Open MouthLoop"
+        }
+      ]
+    }
+  ]
+}
