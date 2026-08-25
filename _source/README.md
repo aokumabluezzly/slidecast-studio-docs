@@ -13,6 +13,7 @@
 | `retired/home.spec.json` | **旧**トップページの設計データ。現在のトップページは spec から生成していません（下記） |
 | `intro.spec.json` | 紹介ページ（`/intro/index.html`）の設計データ |
 | `bundle-builder.spec.json` | Bundle Builder ガイド（`/bundle-builder/index.html`）の設計データ |
+| `ai-code-bgm-studio.spec.json` | AI CODE BGM STUDIO ガイド（`/ai-code-bgm-studio/index.html`）の設計データ |
 | `mouthloop-v2.spec.json` | MouthLoop v2 ガイド（`/mouthloop-v2/index.html`）の設計データ |
 | `gas-update.spec.json` | アップデート方法ガイド（`/gas-update/index.html`）の設計データ |
 | `manual.spec.json` | 公式マニュアル（`/manual/index.html`）の設計データ。v33 / v34 と同じく既存の日本語ページから起こしたもので、日本語ページの再生成には**使っていません**（下記） |

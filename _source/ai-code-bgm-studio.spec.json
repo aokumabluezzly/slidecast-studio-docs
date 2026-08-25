@@ -1,0 +1,280 @@
+{
+  "title": "AI CODE BGM STUDIO でBGMと効果音を作る",
+  "subtitle": "言葉から Web Audio API のコードとしてBGM・効果音を生成する、無料の Gemini Canvas アプリ",
+  "description": "AI CODE BGM STUDIO の使い方をまとめたページです。テーマや雰囲気を指定してBGM・効果音を生成し、MP3として書き出して SlideCast Studio のBGMに使うまでを画像つきで解説します。",
+  "lead": "",
+  "eyebrow": "AI CODE BGM STUDIO GUIDE",
+  "brand": "SlideCast",
+  "brand_accent": "Studio",
+  "brand_badge": "Docs",
+  "author": "aokuma",
+  "date": "2026.08.25",
+  "version": "ガイド",
+  "footer_meta": "AI CODE BGM STUDIO ガイド · 2026.08.25",
+  "hero_image": "./img/bgm-studio-01.jpg",
+  "hero_alt": "AI CODE BGM STUDIO のイメージ。波形とイコライザーの奥に Web Audio API のコードが流れている",
+  "chips": ["無料", "APIキー不要", "Gemini Canvas", "BGM・効果音", "MP3書き出し", "SlideCast Studio連携"],
+  "theme": {
+    "primary": "#7A3FD6",
+    "secondary": "#B82C7E",
+    "accent": "#0E86AE",
+    "surface": "#F6F3FF",
+    "ink": "#1E1B33"
+  },
+  "nav_links": [
+    { "href": "../", "icon": "🏠", "label": "HOME" }
+  ],
+  "source_url": "https://note.com/bluezzly/n/n170bb4f91b45",
+  "source_label": "noteの元記事を読む",
+  "source_title": "元記事：音楽知識がなくても、言葉からBGMや効果音の素材を出せる「AI CODE BGM STUDIO」を作りました",
+  "source_note": "AI CODE BGM STUDIO の公開記事です。作った経緯や作者による説明は note で確認できます。",
+  "update_url": "https://share.gemini.google/aqgD4VAE7KXg",
+  "update_label": "AI CODE BGM STUDIO を開く",
+  "update_header": false,
+  "sections_label": "CONTENTS",
+  "overview": {
+    "icon": "🎧",
+    "title": "このページで分かること",
+    "blocks": [
+      {
+        "type": "html",
+        "html": "<p><strong>AI CODE BGM STUDIO</strong> は、作りたい音のイメージを言葉で書くと、Gemini が <strong>Web Audio API のコード</strong>としてBGMや効果音を組み立ててくれるアプリです。Google の Gemini Canvas 上で動くので、インストールもAPIキーの用意も要りません。</p><p>生成した音はその場で再生でき、<strong>MP3 / WAV</strong> でも、<strong>音を鳴らすコードそのもの</strong>でも持ち出せます。SlideCast Studio のBGMや効果音の当たり出しに、そのまま使えます。</p>"
+      },
+      {
+        "type": "callout",
+        "tone": "warn",
+        "title": "⚠️ 先に言っておきたいこと",
+        "text": "生成にはガチャ要素があります。同じ指示でも毎回同じ品質にはならず、プロ品質の完成品が一発で出るアプリではありません。「叩き台をすばやく出す道具」として使うのが、いちばん相性のいい使い方です。"
+      },
+      {
+        "type": "html",
+        "html": "<p>SlideCast Studio 本体の使い方は <a href=\"../manual/\">公式マニュアル</a>、アプリそのものの紹介は <a href=\"../intro/\">SlideCast Studio とは</a> にまとまっています。このページは、そこへ載せる<strong>音素材を用意する側</strong>の話です。</p>"
+      }
+    ]
+  },
+  "sections": [
+    {
+      "icon": "🎵",
+      "category": "概要",
+      "title": "どんなアプリか",
+      "intro": "テーマを書いて生成ボタンを押すと、条件に沿ったBGMや効果音がその場で鳴ります。",
+      "blocks": [
+        {
+          "type": "html",
+          "html": "<p>動画やアプリを作っていると「ちょっとしたBGMがほしい」「短い効果音がほしい」「雰囲気だけでも先に合わせたい」という場面が出てきます。そこで本格的な作曲に入るのは重い、というときのための道具です。</p><p>たとえば、こんな指定で生成できます。</p>"
+        },
+        {
+          "type": "check_list",
+          "items": [
+            "夜の森を冒険するRPGのフィールド曲",
+            "明るくてポップなホーム画面用BGM",
+            "システム通知に使える短い効果音",
+            "少し近未来感のあるUIサウンド"
+          ]
+        },
+        {
+          "type": "cards",
+          "items": [
+            { "icon": "💬", "title": "言葉から生成", "text": "テーマ・用途・雰囲気を書くだけ。細かい設定は「おまかせ」でも進みます。" },
+            { "icon": "🧾", "title": "音声ではなくコード", "text": "完成した音声ファイルではなく、音を鳴らすコードそのものが出てきます。" },
+            { "icon": "🪄", "title": "追加指示で調整", "text": "いまの結果をベースに「もう少し神秘的に」といった最小変更ができます。" },
+            { "icon": "📎", "title": "資料から補完", "text": "テキスト・画像・PDF・URLを読ませて、ジャンルや雰囲気を自動で埋められます。" }
+          ]
+        },
+        {
+          "type": "figure",
+          "image": "./img/bgm-studio-02.png",
+          "alt": "AI CODE BGM STUDIO の画面。左に生成設定、右に波形ビジュアライザーと再生バー、追加演出指示の入力欄が並ぶ",
+          "caption": "左が生成設定、右が再生と調整。1画面で「決める → 鳴らす → 直す」が完結します"
+        }
+      ]
+    },
+    {
+      "icon": "🎛️",
+      "category": "設定",
+      "title": "指定できること",
+      "intro": "ざっくり書いて生成しても、細かく詰めても、どちらでも使えます。",
+      "blocks": [
+        {
+          "type": "figure",
+          "image": "./img/bgm-studio-03.png",
+          "alt": "生成設定パネル。種類（BGM / 効果音）、テーマ・コンセプト、資料・URLからの自動設定、生成パターン数が並ぶ",
+          "caption": "テーマ欄はイメージや用途を自由に書くところ。詳しく書くほど狙いに寄りやすくなります"
+        },
+        {
+          "type": "spec_list",
+          "items": [
+            { "label": "種類", "value": "BGM / 効果音 (SE)" },
+            { "label": "尺", "value": "秒数で指定（BGMは60秒以内を推奨）" },
+            { "label": "ジャンル・用途", "value": "ゲームBGM、シネマティック、アンビエント、8bit / チップチューン、EDM / トランス、ローファイ・ヒップホップ、システム効果音など" },
+            { "label": "テンポ・動き", "value": "ゆっくり / ふつう / アップテンポ / おまかせ" },
+            { "label": "楽器・音色", "value": "ピアノ、シンセパッド、ストリングス、ドラム、ベルズなど（複数選択可）" },
+            { "label": "雰囲気・感情", "value": "明るい、神秘的、哀愁、緊張感、壮大、達成感など" },
+            { "label": "生成パターン数", "value": "1 / 3 / 5（違うバリエーションを同時に作る）" },
+            { "label": "その他", "value": "特記事項の自由記述、参考資料・URLからの自動設定" }
+          ]
+        },
+        {
+          "type": "html",
+          "html": "<p>どれを選べばいいか分からない項目は、そのまま<strong>「おまかせ」</strong>で構いません。テーマ文だけ書いて生成し、出てきた音を聞いてから設定を足していく方が早いことも多いです。</p><p>「資料・URLから詳細を自動設定」を開いてテキストや画像、PDFを渡すと、<strong>ジャンルや雰囲気の欄を自動で埋めて</strong>くれます。参考情報は抽象化して反映される前提なので、「近い空気感はほしいが、そのまま再現したいわけではない」というときに向いています。</p>"
+        },
+        {
+          "type": "callout",
+          "tone": "info",
+          "title": "🎲 まず3パターン出すのがおすすめ",
+          "text": "生成パターン数を 3 にすると、同じ条件で違うバリエーションが同時に出ます。1本ずつ作り直すより、当たりを見つけるのが速くなります。"
+        }
+      ]
+    },
+    {
+      "icon": "💾",
+      "category": "書き出し",
+      "title": "音とコードの持ち出し方",
+      "intro": "気に入った結果は、音としてもコードとしても保存できます。",
+      "blocks": [
+        {
+          "type": "figure",
+          "image": "./img/bgm-studio-04.png",
+          "alt": "再生バー。トラック名、再生ボタン、経過時間と長さ、MP3 と code のダウンロードボタンが並ぶ",
+          "caption": "再生バーの右側から、音声ファイルと生成コードのどちらでも保存できます"
+        },
+        {
+          "type": "check_list",
+          "items": [
+            "MP3 / WAV で音声ファイルとして保存",
+            "生成コード（.js）としてダウンロード",
+            "複数パターンを作ったときは一括ダウンロード",
+            "ダウンロードしたコードを読み込み直して再生確認",
+            "コードを貼り付けて適用し、そのまま鳴らす",
+            "生成履歴は最大20件。元に戻す・やり直すで何段でも往復できる"
+          ]
+        },
+        {
+          "type": "html",
+          "html": "<p>音声ファイルだけでなく<strong>コードが残る</strong>のがこのアプリの特徴です。あとから少しだけ音量や長さを触りたいとき、同じ曲を別の尺で作り直したいときに扱いやすくなります。ループ再生と音量もアプリ側で確認できるので、動画に載せる前の当たり確認はここで済ませられます。</p>"
+        }
+      ]
+    },
+    {
+      "icon": "🪄",
+      "category": "調整",
+      "title": "追加指示で少しずつ寄せる",
+      "intro": "一発で決めるより、ラフを出してから詰める流れを想定しています。",
+      "blocks": [
+        {
+          "type": "figure",
+          "image": "./img/bgm-studio-05.png",
+          "alt": "追加演出指示の入力欄と「演出追加を反映」ボタン、元に戻す・やり直すボタン",
+          "caption": "「現在の生成結果をベースに最小変更で反映します」。作り直しではなく、いまの音を直す動きです"
+        },
+        {
+          "type": "html",
+          "html": "<p>追加演出指示は、<strong>いまの生成結果を土台にした差分の指示</strong>です。ゼロから作り直さないので、気に入っている部分を壊さずに方向だけ寄せられます。</p>"
+        },
+        {
+          "type": "check_list",
+          "items": [
+            "もう少し神秘的にしたい",
+            "ドラムは控えめにしたい",
+            "冒頭2秒は静かに入りたい",
+            "最後は達成感のある終わり方にしたい"
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "good",
+          "title": "↩️ 戻せるので気軽に試せます",
+          "text": "「元に戻す」「やり直す」で過去の生成結果に何段でも戻れます（最大20件）。行き過ぎたら戻せばいいので、思い切った指示を出して構いません。"
+        }
+      ]
+    },
+    {
+      "icon": "🎬",
+      "category": "連携",
+      "title": "SlideCast Studio と組み合わせる",
+      "intro": "BGMを探す手間を、そのまま作る手間に置き換えられます。",
+      "blocks": [
+        {
+          "type": "html",
+          "html": "<p>SlideCast Studio では BGM と効果音を設定できますが、「そこまでこだわりはないけれど、素材を探すのが面倒」という場面があります。そこを AI CODE BGM STUDIO で埋める、という使い方です。</p>"
+        },
+        {
+          "type": "step_list",
+          "items": [
+            { "title": "動画の雰囲気を言葉にする", "text": "「落ち着いた解説動画の背景に流す、静かなアンビエント」のように、用途と雰囲気を書きます。" },
+            { "title": "尺を決めて生成する", "text": "BGMは60秒以内を推奨。長い動画にはループ前提の短めの曲を作って、SlideCast Studio 側で繰り返す方が扱いやすくなります。" },
+            { "title": "MP3で書き出す", "text": "再生バーの「↓ MP3」で保存します。" },
+            { "title": "SlideCast Studio に読み込む", "text": "BGMトラックへ追加します。効果音として作った短い音は、文字送り音や画面切り替えの音にも使えます。" }
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "info",
+          "title": "🎵 BGMは最大10トラック",
+          "text": "SlideCast Studio 側は BGM を複数トラック重ねられます。全体に敷く1本と、盛り上げたい場面だけの1本、のような組み方もできます。詳しくは公式マニュアルをご覧ください。"
+        },
+        {
+          "type": "link_cards",
+          "items": [
+            { "icon": "📘", "title": "公式マニュアル", "text": "BGM・効果音の設定方法はこちら", "url": "../manual/" },
+            { "icon": "💡", "title": "SlideCast Studio とは", "text": "アプリ本体の紹介ページ", "url": "../intro/" }
+          ]
+        }
+      ]
+    },
+    {
+      "icon": "⚖️",
+      "category": "注意",
+      "title": "期待しすぎないための前置き",
+      "intro": "できることと、できないことをはっきりさせておきます。",
+      "blocks": [
+        {
+          "type": "html",
+          "html": "<p>正直に書くと、このアプリは万能ではありません。生成には<strong>ガチャ要素</strong>があり、同じような指示でも「今回はかなり良い」「でも次は少し違う」ということが普通に起きます。Gemini によるコード生成であることに加えて、ブラウザ上で音を作ること自体にも限界があるためです。</p><p>また、ぶっちゃけて言えば、各種AIサービスに「〇〇のBGMをコードだけで作って。MP3でダウンロードもできるようにして」と雑に頼むだけでも似たことはできます。発想として特別なわけではありません。</p><p>ただ実際には、毎回プロンプトを組み立て直したり、出てきたコードを貼り直したり、再生確認の導線を整えたりするのが地味に面倒です。<strong>そこを毎回やらなくていい形にまとめたのがこのアプリ</strong>、という位置づけです。</p>"
+        },
+        {
+          "type": "compare",
+          "before": { "label": "向いていない使い方", "text": "一発でプロ品質の完成曲を出す。納品物としてそのまま使える音楽を作る。" },
+          "after": { "label": "向いている使い方", "text": "雰囲気の近い素材をすばやく出す。試作用のBGM・SEを用意する。叩き台や当たりを作る。" }
+        },
+        {
+          "type": "check_list",
+          "items": [
+            "動画やアプリに合わせた音素材を素早く作りたい人",
+            "AIで叩き台を出してから微調整したい人",
+            "コードとして管理しやすい形で残したい人",
+            "SlideCast Studio 用のBGMを手早く用意したい人"
+          ]
+        }
+      ]
+    },
+    {
+      "icon": "🔗",
+      "category": "関連",
+      "title": "映像側のアプリと、その他の連携ツール",
+      "intro": "同じ「まず素材を出す」考え方で、映像側とキャラ素材側のアプリもあります。",
+      "blocks": [
+        {
+          "type": "html",
+          "html": "<p><strong>AI CODE MOVIE STUDIO</strong> は、原稿やイメージから HTML Canvas と Web Audio API で動く映像コードを生成するアプリです。こちらも「叩き台を早く作る」用途に向いています。</p>"
+        },
+        {
+          "type": "link_cards",
+          "items": [
+            { "icon": "🎞️", "title": "AI CODE MOVIE STUDIO", "text": "映像側の試作を手早く作るアプリ（note）", "url": "https://note.com/bluezzly/n/ne13c60ce4406" },
+            { "icon": "👄", "title": "MouthLoop v2", "text": "画像1枚から口パクキャラ素材を作るアプリ", "url": "../mouthloop-v2/" },
+            { "icon": "🧩", "title": "SlideCast Bundle Builder", "text": "資料・台本・AI音声をまとめて準備する", "url": "../bundle-builder/" },
+            { "icon": "✍️", "title": "aokuma の note", "text": "更新情報はこちらでお知らせします", "url": "https://note.com/bluezzly" }
+          ]
+        },
+        {
+          "type": "cta",
+          "title": "AI CODE BGM STUDIO を開く",
+          "text": "Gemini Canvas の共有リンクです。アクセスすればそのまま使えます。",
+          "url": "https://share.gemini.google/aqgD4VAE7KXg",
+          "label": "アプリを開く"
+        }
+      ]
+    }
+  ]
+}
