@@ -1,0 +1,302 @@
+{
+  "title": "AI CODE MOVIE STUDIO — make short-form video",
+  "subtitle": "A free Gemini Canvas app that turns a script and references into video code running on HTML Canvas and the Web Audio API",
+  "description": "How to use AI CODE MOVIE STUDIO: feed it a script and references, generate a short video, export it as MP4, and use it as the opening or ending of a SlideCast Studio video — walked through with screenshots.",
+  "lead": "",
+  "eyebrow": "AI CODE MOVIE STUDIO GUIDE",
+  "brand": "SlideCast",
+  "brand_accent": "Studio",
+  "brand_badge": "Docs",
+  "author": "aokuma",
+  "date": "2026.08.25",
+  "version": "Guide",
+  "footer_meta": "SlideCast Studio Documentation · aokuma",
+  "hero_image": "./img/movie-studio-01.jpg",
+  "hero_alt": "AI CODE MOVIE STUDIO: stacked video layers and a timeline in front of streaming Canvas drawing code",
+  "chips": ["Free", "No API key", "Gemini Canvas", "16:9 / 9:16 / 1:1", "MP4 export", "Works with SlideCast Studio"],
+  "theme": {
+    "primary": "#0F7FA8",
+    "secondary": "#6A3FD6",
+    "accent": "#C22C8A",
+    "surface": "#EFF6FB",
+    "ink": "#152233"
+  },
+  "nav_links": [
+    { "href": "../", "icon": "🏠", "label": "HOME" }
+  ],
+  "source_url": "https://note.com/bluezzly/n/ne13c60ce4406",
+  "source_label": "Read the original post on note (Japanese)",
+  "source_title": "The note post this page is based on",
+  "source_note": "This is the public announcement of AI CODE MOVIE STUDIO. Why it was built, in the author’s own words, is on note (in Japanese).",
+  "update_url": "https://share.gemini.google/4Xsw5On1fuyR",
+  "update_label": "Open AI CODE MOVIE STUDIO",
+  "update_header": false,
+  "sections_label": "CONTENTS",
+  "overview": {
+    "icon": "🎞️",
+    "title": "AI CODE MOVIE STUDIO in short",
+    "blocks": [
+      {
+        "type": "html",
+        "html": "<p><strong>AI CODE MOVIE STUDIO</strong> takes a script and reference material and has Gemini build <strong>video code that runs on HTML Canvas and the Web Audio API</strong>. It runs inside Google’s Gemini Canvas, so there is nothing to install and no API key to supply.</p><p>You can preview the result on the spot and take it away either as <strong>MP4 / WebM</strong> or as <strong>the code that draws the video</strong>. That makes it a quick way to rough out the <strong>opening and ending videos</strong> of a SlideCast Studio project.</p>"
+      },
+      {
+        "type": "callout",
+        "tone": "warn",
+        "title": "⚠️ Worth saying up front",
+        "text": "Generation is a lottery. Sometimes it lands; sometimes you get “the structure is fine but the treatment is not quite there”. This is not a magic box that produces a finished video in one shot — it is a way to get one draft out quickly."
+      },
+      {
+        "type": "html",
+        "html": "<p>The audio side is handled by its sibling app, <a href=\"../ai-code-bgm-studio/\">AI CODE BGM STUDIO</a>. Combining the two is the fast way to line up picture and sound. SlideCast Studio itself is covered in the <a href=\"../manual/\">official manual</a>.</p>"
+      },
+      {
+        "type": "callout",
+        "tone": "info",
+        "title": "🇯🇵 The app’s interface is in Japanese",
+        "text": "AI CODE MOVIE STUDIO ships with a Japanese UI, so the screenshots on this page are Japanese. Each field is spelled out in English below, and the script box accepts English text."
+      }
+    ]
+  },
+  "sections": [
+    {
+      "icon": "🎬",
+      "category": "Overview",
+      "title": "What the app does",
+      "intro": "Write the script, press generate, and a short video plays right there.",
+      "blocks": [
+        {
+          "type": "html",
+          "html": "<p>You want a short intro film, a mood piece, or an announcement video — but opening an editor and building it from nothing is heavy. Work out the structure, work out the motion, tidy the frame, add sound if it needs it. This app takes that first step for you.</p><p>The uses it is aimed at:</p>"
+        },
+        {
+          "type": "check_list",
+          "items": [
+            "Opening and ending sequences for YouTube",
+            "Service introduction videos",
+            "Mood pieces that establish a world",
+            "Announcement videos built around on-screen text",
+            "Abstract visual material with motion"
+          ]
+        },
+        {
+          "type": "cards",
+          "items": [
+            { "icon": "📝", "title": "From a script", "text": "Write what you want to say and it works out the on-screen text and the scene structure." },
+            { "icon": "🧾", "title": "Code, not just a file", "text": "You get the code that draws the picture and the code that plays the sound, so it stays editable." },
+            { "icon": "🎨", "title": "Content and look, separately", "text": "Content references and style references are supplied through different slots." },
+            { "icon": "🖼️", "title": "Your own images", "text": "Hand it a logo or a product shot and it uses the actual file in the video." }
+          ]
+        },
+        {
+          "type": "figure",
+          "image": "./img/movie-studio-02.png",
+          "alt": "The AI CODE MOVIE STUDIO screen: generation settings on the left, preview and export controls on the right",
+          "caption": "Settings on the left, preview and export on the right — the generated video plays in place"
+        }
+      ]
+    },
+    {
+      "icon": "🎛️",
+      "category": "Settings",
+      "title": "What you can specify",
+      "intro": "“What to say” and “how it should look” are entered separately.",
+      "blocks": [
+        {
+          "type": "figure",
+          "image": "./img/movie-studio-03.png",
+          "alt": "The settings panel: three aspect-ratio choices, the script box, fill-in-from-a-reference, and the duration slider",
+          "caption": "アスペクト比 = aspect ratio, 動画の内容・原稿 = content and script, 尺（秒数）= duration in seconds"
+        },
+        {
+          "type": "spec_list",
+          "items": [
+            { "label": "Aspect ratio", "value": "16:9 (YouTube) / 9:16 (Shorts) / 1:1 (Instagram)" },
+            { "label": "Duration", "value": "In seconds, from very short up to 15 minutes" },
+            { "label": "Video skill", "value": "Slide video, rich video, service intro, product intro, announcement, teaser, branding, education" },
+            { "label": "Theme", "value": "Cyberpunk, nature, minimal, space, pop, classic, impact, luxury, sea and water, Japanese style, horror" },
+            { "label": "Colour palette", "value": "Blues, neon, monochrome, reds and oranges, pastels, gold, high-contrast black and white, greens, gradient" },
+            { "label": "Motion", "value": "Fast-paced / slow fade / rotation and spin / particles / waves / zoom" },
+            { "label": "Opening & ending", "value": "None / blended / standalone / auto" },
+            { "label": "Also", "value": "A BGM direction, a free-text notes field, content and style references, and image assets" }
+          ]
+        },
+        {
+          "type": "html",
+          "html": "<p>If the settings feel like a chore, leave them on <strong>おまかせ (auto)</strong>. Writing only the script, generating one take and refining from there is often faster.</p>"
+        },
+        {
+          "type": "callout",
+          "tone": "info",
+          "title": "🖼️ You can supply image assets",
+          "text": "Drop in a logo, a product shot, a key visual, a background or a diagram, and tag each one with its role (logo / product / background / opening / ending / diagram). They are not just references — the actual files appear in the video."
+        }
+      ]
+    },
+    {
+      "icon": "🧭",
+      "category": "References",
+      "title": "Content references and style references",
+      "intro": "Keeping these two apart is what the app is really good at.",
+      "blocks": [
+        {
+          "type": "compare",
+          "before": { "label": "Content reference", "text": "Script, product copy, structure notes, factual material — what goes into the video." },
+          "after": { "label": "Style reference", "text": "Colour, texture, pacing, atmosphere — how the video should feel." }
+        },
+        {
+          "type": "html",
+          "html": "<p>Because they are separate, you can say <strong>“base the content on this document, but take the look from that other reference”</strong>. Text, images, PDFs and URLs all work in either slot.</p><p>“Analyse and fill in the details” pushes what it finds into the theme and palette fields. References are abstracted rather than copied wholesale.</p>"
+        }
+      ]
+    },
+    {
+      "icon": "💾",
+      "category": "Export",
+      "title": "Getting the video and the code out",
+      "intro": "Preview first, then save it as a video, as code, or both.",
+      "blocks": [
+        {
+          "type": "figure",
+          "image": "./img/movie-studio-04.png",
+          "alt": "A preview of the generated video: large on-screen text over a drifting particle background",
+          "caption": "The result plays inside the app"
+        },
+        {
+          "type": "figure",
+          "image": "./img/movie-studio-05.png",
+          "alt": "Resolution and recording-quality selects, an MP4 / WebM download button and a code download button",
+          "caption": "解像度 = resolution, 録画画質 = recording quality; then export"
+        },
+        {
+          "type": "check_list",
+          "items": [
+            "Resolution: HD (720p) or FHD (1080p)",
+            "Recording quality selectable, e.g. high quality at 8 Mbps",
+            "Export as MP4 or WebM",
+            "Download the generated code as a .js file",
+            "Load a downloaded file back in to preview it",
+            "Paste code in and apply it to play it straight away"
+          ]
+        },
+        {
+          "type": "html",
+          "html": "<p>Keeping <strong>the code</strong> as well as the video makes it easy to line up rough options side by side and add treatment gradually. The result is material you can work with, not a one-shot output.</p>"
+        }
+      ]
+    },
+    {
+      "icon": "🪄",
+      "category": "Refining",
+      "title": "Nudging the result into shape",
+      "intro": "Get one take out, then steer it.",
+      "blocks": [
+        {
+          "type": "html",
+          "html": "<p>A follow-up instruction is <strong>a diff against the current result</strong>, not a fresh start, so the parts you already like survive while the direction shifts.</p>"
+        },
+        {
+          "type": "check_list",
+          "items": [
+            "Open quietly for the first second",
+            "Land the logo at the end with a little breathing room",
+            "Make the whole thing feel more premium",
+            "Prioritise legibility for the on-screen text"
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "good",
+          "title": "↩️ Nothing is one-way",
+          "text": "Undo and redo take you back to the previous result, so you can afford to ask for something drastic and simply step back if it overshoots."
+        }
+      ]
+    },
+    {
+      "icon": "🎬",
+      "category": "Together",
+      "title": "Using it for SlideCast Studio openings and endings",
+      "intro": "Make the short piece that sits before and after the slides.",
+      "blocks": [
+        {
+          "type": "html",
+          "html": "<p>SlideCast Studio lets you set an opening video and an ending video. Producing that material is the most natural use for this app.</p>"
+        },
+        {
+          "type": "step_list",
+          "items": [
+            { "title": "Describe the opening or ending", "text": "Something like “a five-second opening where the channel name lands as a logo” — length plus the beat it ends on." },
+            { "title": "Match the aspect ratio", "text": "Use the same ratio as your SlideCast Studio project (16:9, 9:16 or 1:1)." },
+            { "title": "Export as MP4", "text": "Pick a resolution and quality, then use the MP4 / WebM download button." },
+            { "title": "Load it into SlideCast Studio", "text": "Set it as the opening or ending video." }
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "info",
+          "title": "🎵 Pair it with BGM STUDIO",
+          "text": "Picture from this app, music and sound effects from AI CODE BGM STUDIO — that combination gets both halves roughed out in one sitting."
+        },
+        {
+          "type": "link_cards",
+          "items": [
+            { "icon": "🎵", "title": "AI CODE BGM STUDIO", "text": "The sibling app for music and sound effects", "url": "../ai-code-bgm-studio/" },
+            { "icon": "📘", "title": "Official manual", "text": "Where opening and ending videos are configured", "url": "../manual/" },
+            { "icon": "💡", "title": "What is SlideCast Studio?", "text": "The introduction to the app itself", "url": "../intro/" }
+          ]
+        }
+      ]
+    },
+    {
+      "icon": "⚖️",
+      "category": "Caveats",
+      "title": "Setting expectations honestly",
+      "intro": "What it is good at, and what it is not.",
+      "blocks": [
+        {
+          "type": "html",
+          "html": "<p>This app is not a magic box either. Generation is <strong>a lottery</strong>: sometimes it lands, sometimes you get “close in feel, but it still needs work”. That comes from Gemini generating code, and from what HTML Canvas can draw, what the Web Audio API can play, what a browser can run, and how stable generated code is.</p><p>And frankly, asking any AI service “make me a video as code only, and let me download it” gets you something similar. The idea is not exotic. What is tedious in practice is writing the prompt every time, pasting the code, checking the output, issuing corrections, and rigging up a download. <strong>This app is that loop, packaged so you do not repeat it.</strong></p>"
+        },
+        {
+          "type": "compare",
+          "before": { "label": "Not what it is for", "text": "Producing a finished video in one shot, or footage you can deliver as-is." },
+          "after": { "label": "What it is for", "text": "Getting one draft out. Building a rough to confirm a direction. Turning prototypes around quickly before the real production." }
+        },
+        {
+          "type": "check_list",
+          "items": [
+            "You want a rough or a prototype of a short video, fast",
+            "You need visual material to confirm a direction",
+            "You would rather react to a draft than start from nothing",
+            "You need opening and ending material for SlideCast Studio",
+            "You want to rough out both picture and sound with AI first"
+          ]
+        }
+      ]
+    },
+    {
+      "icon": "🔗",
+      "category": "Related",
+      "title": "Related tools",
+      "intro": "The audio-side sibling, and the character-asset tool.",
+      "blocks": [
+        {
+          "type": "link_cards",
+          "items": [
+            { "icon": "🎵", "title": "AI CODE BGM STUDIO", "text": "Music and sound effects from a written prompt", "url": "../ai-code-bgm-studio/" },
+            { "icon": "👄", "title": "MouthLoop v2", "text": "Turn one image into lip-sync character assets", "url": "../mouthloop-v2/" },
+            { "icon": "🧩", "title": "SlideCast Bundle Builder", "text": "Prepare slides, script and AI voice in one pass", "url": "../bundle-builder/" },
+            { "icon": "✍️", "title": "aokuma on note", "text": "Where updates are announced (Japanese)", "url": "https://note.com/bluezzly" }
+          ]
+        },
+        {
+          "type": "cta",
+          "title": "Open AI CODE MOVIE STUDIO",
+          "text": "A Gemini Canvas share link — follow it and the app is ready to use.",
+          "url": "https://share.gemini.google/4Xsw5On1fuyR",
+          "label": "Open the app"
+        }
+      ]
+    }
+  ]
+}

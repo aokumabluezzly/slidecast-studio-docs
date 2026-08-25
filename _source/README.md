@@ -13,6 +13,7 @@
 | `retired/home.spec.json` | **旧**トップページの設計データ。現在のトップページは spec から生成していません（下記） |
 | `intro.spec.json` | 紹介ページ（`/intro/index.html`）の設計データ |
 | `bundle-builder.spec.json` | Bundle Builder ガイド（`/bundle-builder/index.html`）の設計データ |
+| `ai-code-movie-studio.spec.json` | AI CODE MOVIE STUDIO ガイド（`/ai-code-movie-studio/index.html`）の設計データ |
 | `ai-code-bgm-studio.spec.json` | AI CODE BGM STUDIO ガイド（`/ai-code-bgm-studio/index.html`）の設計データ |
 | `mouthloop-v2.spec.json` | MouthLoop v2 ガイド（`/mouthloop-v2/index.html`）の設計データ |
 | `gas-update.spec.json` | アップデート方法ガイド（`/gas-update/index.html`）の設計データ |
@@ -20,6 +21,7 @@
 | `manual.en.spec.json` | 英語版の公式マニュアル（`/en/manual/index.html`）の設計データ |
 | `intro.en.spec.json` | 英語版の紹介ページ（`/en/intro/index.html`）の設計データ |
 | `bundle-builder.en.spec.json` | 英語版の Bundle Builder ガイド（`/en/bundle-builder/index.html`）の設計データ |
+| `ai-code-movie-studio.en.spec.json` | 英語版の AI CODE MOVIE STUDIO ガイド（`/en/ai-code-movie-studio/index.html`）の設計データ |
 | `ai-code-bgm-studio.en.spec.json` | 英語版の AI CODE BGM STUDIO ガイド（`/en/ai-code-bgm-studio/index.html`）の設計データ |
 | `mouthloop-v2.en.spec.json` | 英語版の MouthLoop v2 ガイド（`/en/mouthloop-v2/index.html`）の設計データ |
 | `gas-update.en.spec.json` | 英語版のアップデート方法ガイド（`/en/gas-update/index.html`）の設計データ |

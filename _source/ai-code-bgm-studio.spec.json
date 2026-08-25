@@ -256,7 +256,7 @@
       "blocks": [
         {
           "type": "html",
-          "html": "<p><strong>AI CODE MOVIE STUDIO</strong> は、原稿やイメージから HTML Canvas と Web Audio API で動く映像コードを生成するアプリです。こちらも「叩き台を早く作る」用途に向いています。</p>"
+          "html": "<p><a href=\"../ai-code-movie-studio/\"><strong>AI CODE MOVIE STUDIO</strong></a> は、原稿やイメージから HTML Canvas と Web Audio API で動く映像コードを生成するアプリです。こちらも「叩き台を早く作る」用途に向いています。</p>"
         },
         {
           "type": "link_cards",

@@ -34,6 +34,15 @@ PAGE_META: dict[str, dict[str, object]] = {
         "twitter_description": "ステッカーと段階表示で、1枚のスライドを見せる順番まで設計。",
         "en": True,
     },
+    "ai-code-movie-studio/": {
+        "og_title": "AI CODE MOVIE STUDIO で短尺動画を作る",
+        "og_description": (
+            "原稿やイメージから HTML Canvas と Web Audio API の映像コードを生成する無料の Gemini Canvas アプリ。"
+            "設定・書き出し・SlideCast Studio の OP / ED での使い方を画像つきで解説します。"
+        ),
+        "twitter_description": "原稿から短尺動画を作って MP4 で書き出す使い方を画像つきで解説。",
+        "en": True,
+    },
     "ai-code-bgm-studio/": {
         "og_title": "AI CODE BGM STUDIO でBGMと効果音を作る",
         "og_description": (

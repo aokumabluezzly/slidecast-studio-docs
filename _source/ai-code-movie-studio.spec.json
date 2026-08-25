@@ -1,0 +1,296 @@
+{
+  "title": "AI CODE MOVIE STUDIO で短尺動画を作る",
+  "subtitle": "原稿やイメージから HTML Canvas と Web Audio API の映像コードを生成する、無料の Gemini Canvas アプリ",
+  "description": "AI CODE MOVIE STUDIO の使い方をまとめたページです。原稿と参考資料から短尺映像を生成し、MP4 として書き出して SlideCast Studio の OP / ED に使うまでを画像つきで解説します。",
+  "lead": "",
+  "eyebrow": "AI CODE MOVIE STUDIO GUIDE",
+  "brand": "SlideCast",
+  "brand_accent": "Studio",
+  "brand_badge": "Docs",
+  "author": "aokuma",
+  "date": "2026.08.25",
+  "version": "ガイド",
+  "footer_meta": "AI CODE MOVIE STUDIO ガイド · 2026.08.25",
+  "hero_image": "./img/movie-studio-01.jpg",
+  "hero_alt": "AI CODE MOVIE STUDIO のイメージ。重なった映像レイヤーとタイムラインの奥に Canvas の描画コードが流れている",
+  "chips": ["無料", "APIキー不要", "Gemini Canvas", "16:9 / 9:16 / 1:1", "MP4書き出し", "SlideCast Studio連携"],
+  "theme": {
+    "primary": "#0F7FA8",
+    "secondary": "#6A3FD6",
+    "accent": "#C22C8A",
+    "surface": "#EFF6FB",
+    "ink": "#152233"
+  },
+  "nav_links": [
+    { "href": "../", "icon": "🏠", "label": "HOME" }
+  ],
+  "source_url": "https://note.com/bluezzly/n/ne13c60ce4406",
+  "source_label": "noteの元記事を読む",
+  "source_title": "元記事：原稿やイメージから、まず動く映像素材を素早く出せる「AI CODE MOVIE STUDIO」を作りました",
+  "source_note": "AI CODE MOVIE STUDIO の公開記事です。作った経緯や作者による説明は note で確認できます。",
+  "update_url": "https://share.gemini.google/4Xsw5On1fuyR",
+  "update_label": "AI CODE MOVIE STUDIO を開く",
+  "update_header": false,
+  "sections_label": "CONTENTS",
+  "overview": {
+    "icon": "🎞️",
+    "title": "AI CODE MOVIE STUDIO概要",
+    "blocks": [
+      {
+        "type": "html",
+        "html": "<p><strong>AI CODE MOVIE STUDIO</strong> は、原稿や参考資料を渡すと、Gemini が <strong>HTML Canvas と Web Audio API で動く映像コード</strong>を組み立ててくれるアプリです。Google の Gemini Canvas 上で動くので、インストールもAPIキーの用意も要りません。</p><p>生成した映像はその場でプレビューでき、<strong>MP4 / WebM</strong> でも、<strong>映像を描くコードそのもの</strong>でも持ち出せます。SlideCast Studio の <strong>オープニング / エンディング動画</strong>の当たり出しに、そのまま使えます。</p>"
+      },
+      {
+        "type": "callout",
+        "tone": "warn",
+        "title": "⚠️ 先に言っておきたいこと",
+        "text": "生成にはガチャ要素があります。ハマるときもあれば、「構成は悪くないけど演出が少し惜しい」で終わることもあります。完成動画を一発で作る魔法の道具ではなく、叩き台を1本すばやく出す道具として使うのがいちばん相性のいい使い方です。"
+      },
+      {
+        "type": "html",
+        "html": "<p>音のほうは姉妹アプリの <a href=\"../ai-code-bgm-studio/\">AI CODE BGM STUDIO</a> が担当します。映像と音を両方そろえたいときは、2本を組み合わせるのが早いです。SlideCast Studio 本体の使い方は <a href=\"../manual/\">公式マニュアル</a> にまとまっています。</p>"
+      }
+    ]
+  },
+  "sections": [
+    {
+      "icon": "🎬",
+      "category": "概要",
+      "title": "どんなアプリか",
+      "intro": "原稿を書いて生成ボタンを押すと、条件に沿った短尺映像がその場で動きます。",
+      "blocks": [
+        {
+          "type": "html",
+          "html": "<p>短い紹介動画やイメージムービー、告知用の映像を作りたい。けれど編集ソフトを立ち上げて一から作るのは重い。構成を考え、動きを考え、画面を整え、必要なら音もつける——この最初の一歩を肩代わりするためのアプリです。</p><p>想定している用途はこのあたりです。</p>"
+        },
+        {
+          "type": "check_list",
+          "items": [
+            "YouTube などの OP / ED 動画",
+            "サービス紹介動画",
+            "世界観を見せるムービー",
+            "テロップ中心の告知動画",
+            "抽象的な演出付きのビジュアル素材"
+          ]
+        },
+        {
+          "type": "cards",
+          "items": [
+            { "icon": "📝", "title": "原稿から生成", "text": "何を伝えるかを書けば、テロップとシーン構成まで組み立ててくれます。" },
+            { "icon": "🧾", "title": "動画ではなくコード", "text": "映像を描くコードと音を鳴らすコードが出てくるので、あとから触れます。" },
+            { "icon": "🎨", "title": "内容と見た目を分けて指定", "text": "内容参照とスタイル参照を別々に渡せます。" },
+            { "icon": "🖼️", "title": "手持ちの画像を使える", "text": "ロゴや商品画像を渡すと、映像の中で実際に使ってくれます。" }
+          ]
+        },
+        {
+          "type": "figure",
+          "image": "./img/movie-studio-02.png",
+          "alt": "AI CODE MOVIE STUDIO の画面。左に動画生成設定、右にプレビューと書き出しの操作が並ぶ",
+          "caption": "左が設定、右がプレビューと書き出し。生成した映像はその場で動きます"
+        }
+      ]
+    },
+    {
+      "icon": "🎛️",
+      "category": "設定",
+      "title": "指定できること",
+      "intro": "「何を伝えるか」と「どう見せたいか」を分けて入力できます。",
+      "blocks": [
+        {
+          "type": "figure",
+          "image": "./img/movie-studio-03.png",
+          "alt": "動画生成設定パネル。アスペクト比の3択、動画の内容・原稿の入力欄、資料からの自動設定、尺のスライダー",
+          "caption": "アスペクト比は 16:9 / 9:16 / 1:1 の3択。原稿欄は詳しく書くほど精度が上がります"
+        },
+        {
+          "type": "spec_list",
+          "items": [
+            { "label": "アスペクト比", "value": "16:9（YouTube）/ 9:16（Shorts）/ 1:1（Instagram）" },
+            { "label": "尺", "value": "秒数で指定。短尺から15分まで対応" },
+            { "label": "動画 skill", "value": "スライド動画 / リッチ動画 / サービス紹介 / 商品紹介 / 告知・プロモーション / ティーザー / ブランディング / 教育・解説" },
+            { "label": "テーマ・世界観", "value": "サイバーパンク、自然、ミニマル、宇宙、ポップ、クラシック、インパクト、ラグジュアリー、海・水、和風、ホラー" },
+            { "label": "カラーパレット", "value": "青系、ネオンカラー、モノクロ、赤・オレンジ系、パステルカラー、ゴールド系、白黒・高コントラスト、グリーン系、グラデーション" },
+            { "label": "動きのイメージ", "value": "スピード感 / ゆっくりフェード / 回転・スピン / パーティクル / 波形・うねり / ズーム" },
+            { "label": "OP / ED", "value": "なし / 自然 / 独立 / おまかせ" },
+            { "label": "その他", "value": "BGMのイメージ、特記事項の自由記述、内容参照・スタイル参照資料、画像素材" }
+          ]
+        },
+        {
+          "type": "html",
+          "html": "<p>設定が面倒なら、そのまま<strong>「おまかせ」</strong>で構いません。原稿だけ書いて1本出し、出てきた映像を見てから詰めるほうが早いこともあります。</p>"
+        },
+        {
+          "type": "callout",
+          "tone": "info",
+          "title": "🖼️ 画像素材を渡せます",
+          "text": "ロゴ、商品画像、キービジュアル、背景素材、図解などをドロップし、それぞれ用途（ロゴ / 商品画像 / 背景素材 / オープニング / エンディング / 図解）を選べます。参考にするだけでなく、映像の中で実際に使ってくれます。"
+        }
+      ]
+    },
+    {
+      "icon": "🧭",
+      "category": "資料",
+      "title": "内容参照とスタイル参照を分けて渡す",
+      "intro": "このアプリでいちばん効くのが、この2つを分けられることです。",
+      "blocks": [
+        {
+          "type": "compare",
+          "before": { "label": "内容参照", "text": "原稿、説明、構成メモ、事実関係の資料。動画に「何を入れるか」を渡します。" },
+          "after": { "label": "スタイル参照", "text": "色、質感、テンポ、空気感。動画を「どう見せたいか」の方向性を渡します。" }
+        },
+        {
+          "type": "html",
+          "html": "<p>分けられるおかげで、<strong>「内容はこの資料をベースにしたいが、見た目の方向性は別の参考から取りたい」</strong>という指定ができます。テキスト・画像・PDF・URL のどれでも渡せます。</p><p>渡した資料は「解析して詳細を自動入力」でテーマやカラーパレットの欄へ反映されます。完全なコピーではなく抽象化して取り込む前提です。</p>"
+        }
+      ]
+    },
+    {
+      "icon": "💾",
+      "category": "書き出し",
+      "title": "映像とコードの持ち出し方",
+      "intro": "プレビューで確認してから、動画としてもコードとしても保存できます。",
+      "blocks": [
+        {
+          "type": "figure",
+          "image": "./img/movie-studio-04.png",
+          "alt": "生成された映像のプレビュー。粒子が漂う背景に大きなテロップが表示されている",
+          "caption": "生成結果はアプリ内でそのまま再生されます"
+        },
+        {
+          "type": "figure",
+          "image": "./img/movie-studio-05.png",
+          "alt": "解像度と録画画質のセレクト、MP4 / WebM ダウンロードボタンと code ダウンロードボタン",
+          "caption": "解像度と画質を選んでから書き出します"
+        },
+        {
+          "type": "check_list",
+          "items": [
+            "解像度は HD（720p）と FHD（1080p）",
+            "録画画質は高画質（8 Mbps）などから選択",
+            "MP4 / WebM で動画として書き出し",
+            "生成コード（.js）としてダウンロード",
+            "ダウンロードしたコードを読み込み直してプレビュー",
+            "コードを貼り付けて適用し、そのまま再生"
+          ]
+        },
+        {
+          "type": "html",
+          "html": "<p>動画ファイルだけでなく<strong>コードが残る</strong>ので、ラフ案を並べて比べたり、あとから演出を少しずつ足したりできます。生成して終わりではなく、素材として扱える形です。</p>"
+        }
+      ]
+    },
+    {
+      "icon": "🪄",
+      "category": "調整",
+      "title": "追加演出指示で寄せていく",
+      "intro": "まず1本出して、そこから方向を寄せる流れを想定しています。",
+      "blocks": [
+        {
+          "type": "html",
+          "html": "<p>追加演出指示は、<strong>いまの生成結果を土台にした差分の指示</strong>です。作り直しではないので、気に入っている部分を残したまま方向だけ動かせます。</p>"
+        },
+        {
+          "type": "check_list",
+          "items": [
+            "冒頭1秒は静かに立ち上げたい",
+            "最後はロゴを余韻ありで着地させたい",
+            "全体的にもう少し高級感を出したい",
+            "テロップは読みやすさを優先したい"
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "good",
+          "title": "↩️ 戻せるので気軽に試せます",
+          "text": "「元に戻す」「やり直す」で前の生成結果に戻れます。行き過ぎたら戻せばいいので、思い切った指示を出して構いません。"
+        }
+      ]
+    },
+    {
+      "icon": "🎬",
+      "category": "連携",
+      "title": "SlideCast Studio の OP / ED に使う",
+      "intro": "スライド本編の前後に挟む短い映像を、ここで作ります。",
+      "blocks": [
+        {
+          "type": "html",
+          "html": "<p>SlideCast Studio では、冒頭のオープニング動画と終わりのエンディング動画を設定できます。その素材を作るのが、このアプリのいちばん素直な使い道です。</p>"
+        },
+        {
+          "type": "step_list",
+          "items": [
+            { "title": "OP / ED の内容を書く", "text": "「チャンネル名がロゴで着地する5秒のオープニング」のように、尺と着地点を決めて書きます。" },
+            { "title": "アスペクト比を本編に合わせる", "text": "SlideCast Studio 側の画面比（16:9 / 9:16 / 1:1）と揃えます。" },
+            { "title": "MP4 で書き出す", "text": "解像度と画質を選んで「MP4 / WebM ダウンロード」から保存します。" },
+            { "title": "SlideCast Studio に読み込む", "text": "オープニング動画・エンディング動画として設定します。" }
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "info",
+          "title": "🎵 音は BGM STUDIO と組み合わせる",
+          "text": "映像側をこのアプリ、BGM・効果音を AI CODE BGM STUDIO で作ると、映像と音の当たりを短時間で両方そろえられます。"
+        },
+        {
+          "type": "link_cards",
+          "items": [
+            { "icon": "🎵", "title": "AI CODE BGM STUDIO", "text": "BGM・効果音側の姉妹アプリ", "url": "../ai-code-bgm-studio/" },
+            { "icon": "📘", "title": "公式マニュアル", "text": "OP / ED 動画の設定方法はこちら", "url": "../manual/" },
+            { "icon": "💡", "title": "SlideCast Studio とは", "text": "アプリ本体の紹介ページ", "url": "../intro/" }
+          ]
+        }
+      ]
+    },
+    {
+      "icon": "⚖️",
+      "category": "注意",
+      "title": "期待しすぎないための前置き",
+      "intro": "できることと、できないことをはっきりさせておきます。",
+      "blocks": [
+        {
+          "type": "html",
+          "html": "<p>このアプリも万能ではありません。生成には<strong>ガチャ要素</strong>があり、うまくハマることもあれば「雰囲気は近いけどまだ詰めたい」で終わることもあります。Gemini によるコード生成であることに加えて、HTML Canvas で表現できる範囲、Web Audio API の音作りの限界、ブラウザ実行の制約、生成コードの安定性といった要素があるためです。</p><p>正直に言えば、各種AIサービスに「〇〇の動画をコードだけで作って。ダウンロードもできるようにして」と雑に頼んでも同じことはできます。ただ、毎回プロンプトを書き、出てきたコードを貼り、表示を確認し、修正指示を出し、ダウンロードできる形に整える——この往復が地味に面倒です。<strong>そこを毎回やらなくていい形にまとめたのがこのアプリ</strong>、という位置づけです。</p>"
+        },
+        {
+          "type": "compare",
+          "before": { "label": "向いていない使い方", "text": "完成動画を一発で作る。納品物としてそのまま使える映像を期待する。" },
+          "after": { "label": "向いている使い方", "text": "たたき台を1本出す。方向性確認のラフを作る。本制作前の試作を短時間で回す。" }
+        },
+        {
+          "type": "check_list",
+          "items": [
+            "短尺動画のラフや試作を早く作りたい人",
+            "方向性確認のための映像素材がほしい人",
+            "完成品の前に叩き台を出したい人",
+            "SlideCast Studio 用の OP / ED 素材を手早く作りたい人",
+            "映像も音もAIで先に当たりを取りたい人"
+          ]
+        }
+      ]
+    },
+    {
+      "icon": "🔗",
+      "category": "関連",
+      "title": "関連ツール",
+      "intro": "音側の姉妹アプリと、キャラ素材づくりのツールです。",
+      "blocks": [
+        {
+          "type": "link_cards",
+          "items": [
+            { "icon": "🎵", "title": "AI CODE BGM STUDIO", "text": "言葉からBGM・効果音を作る姉妹アプリ", "url": "../ai-code-bgm-studio/" },
+            { "icon": "👄", "title": "MouthLoop v2", "text": "画像1枚から口パクキャラ素材を作るアプリ", "url": "../mouthloop-v2/" },
+            { "icon": "🧩", "title": "SlideCast Bundle Builder", "text": "資料・台本・AI音声をまとめて準備する", "url": "../bundle-builder/" },
+            { "icon": "✍️", "title": "aokuma の note", "text": "更新情報はこちらでお知らせします", "url": "https://note.com/bluezzly" }
+          ]
+        },
+        {
+          "type": "cta",
+          "title": "AI CODE MOVIE STUDIO を開く",
+          "text": "Gemini Canvas の共有リンクです。アクセスすればそのまま使えます。",
+          "url": "https://share.gemini.google/4Xsw5On1fuyR",
+          "label": "アプリを開く"
+        }
+      ]
+    }
+  ]
+}

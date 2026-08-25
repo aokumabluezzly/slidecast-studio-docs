@@ -28,6 +28,7 @@ PAGES: dict[str, tuple[str, str]] = {
     "bundle-builder": ("_source/bundle-builder.en.spec.json", "en/bundle-builder/index.html"),
     "mouthloop-v2": ("_source/mouthloop-v2.en.spec.json", "en/mouthloop-v2/index.html"),
     "ai-code-bgm-studio": ("_source/ai-code-bgm-studio.en.spec.json", "en/ai-code-bgm-studio/index.html"),
+    "ai-code-movie-studio": ("_source/ai-code-movie-studio.en.spec.json", "en/ai-code-movie-studio/index.html"),
     "gas-update": ("_source/gas-update.en.spec.json", "en/gas-update/index.html"),
     "v33": ("_source/v33.en.spec.json", "en/updates/v33/index.html"),
     "v34": ("_source/v34.en.spec.json", "en/updates/v34/index.html"),

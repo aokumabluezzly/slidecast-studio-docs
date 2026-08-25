@@ -262,7 +262,7 @@
       "blocks": [
         {
           "type": "html",
-          "html": "<p><strong>AI CODE MOVIE STUDIO</strong> takes a script or an image and generates video code that runs on HTML Canvas and the Web Audio API. It is aimed at the same thing: a draft, quickly.</p>"
+          "html": "<p><a href=\"../ai-code-movie-studio/\"><strong>AI CODE MOVIE STUDIO</strong></a> takes a script or an image and generates video code that runs on HTML Canvas and the Web Audio API. It is aimed at the same thing: a draft, quickly.</p>"
         },
         {
           "type": "link_cards",

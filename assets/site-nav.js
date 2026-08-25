@@ -34,6 +34,8 @@
           en: true, label_en: 'MouthLoop v2', desc_en: 'Turn one image into a lip-syncing character' },
         { href: 'ai-code-bgm-studio/', icon: '🎵', label: 'AI CODE BGM STUDIO', desc: '言葉からBGM・効果音を作る',
           en: true, label_en: 'AI CODE BGM STUDIO', desc_en: 'Turn a written prompt into music and sound effects' },
+        { href: 'ai-code-movie-studio/', icon: '🎞️', label: 'AI CODE MOVIE STUDIO', desc: '原稿から短尺動画を作る',
+          en: true, label_en: 'AI CODE MOVIE STUDIO', desc_en: 'Turn a script into a short video' },
         { href: 'gas-update/', icon: '🔄', label: 'アップデート方法（GAS版）', desc: 'データを引き継いだまま最新版へ',
           en: true, label_en: 'How to update (GAS edition)', desc_en: 'Move to the latest version, keeping your data' }
       ]

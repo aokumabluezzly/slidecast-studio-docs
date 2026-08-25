@@ -52,6 +52,13 @@ PAGE_META: dict[str, dict[str, str]] = {
             "with expressions and gestures, packed as a ZIP SlideCast Studio can import."
         ),
     },
+    "en/ai-code-movie-studio/": {
+        "og_title": "AI CODE MOVIE STUDIO — short-form video from a script",
+        "og_description": (
+            "A free Gemini Canvas app that generates video as HTML Canvas and Web Audio API code. "
+            "Feed it a script, export MP4, and use it as a SlideCast Studio opening or ending."
+        ),
+    },
     "en/ai-code-bgm-studio/": {
         "og_title": "AI CODE BGM STUDIO — music and sound effects from a prompt",
         "og_description": (
