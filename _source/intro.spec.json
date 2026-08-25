@@ -1,17 +1,17 @@
 {
   "title": "GASで実現！スライドから字幕・音声付き動画を生成する「SlideCast Studio」",
   "subtitle": "PDFなどの資料を読み込むだけで、ナレーション・字幕・キャラ演出つきの動画をブラウザだけで作れます。",
-  "description": "資料とAI音声から、ナレーション・字幕・キャラ演出つきの動画をブラウザだけで作れる買い切りツール「SlideCast Studio」v3.4 NUANCE の紹介ページ。",
+  "description": "資料とAI音声から、ナレーション・字幕・キャラ演出つきの動画をブラウザだけで作れる買い切りツール「SlideCast Studio」v4.0 DECAL の紹介ページ。",
   "lead": "",
   "eyebrow": "PRODUCT GUIDE",
 
   "brand": "SlideCast ",
   "brand_accent": "Studio",
-  "brand_badge": "v3.4",
+  "brand_badge": "v4.0",
   "author": "aokuma",
-  "date": "2026.08.09",
-  "version": "v3.4 NUANCE",
-  "footer_meta": "SlideCast Studio 紹介ページ · aokuma · 最終更新 2026.08.09",
+  "date": "2026.08.25",
+  "version": "v4.0 DECAL",
+  "footer_meta": "SlideCast Studio 紹介ページ · aokuma · 最終更新 2026.08.25",
 
   "theme": {
     "primary": "#2f74ee",
@@ -53,6 +53,7 @@
         "type": "notice",
         "title": "🛠️ 最近のお知らせ",
         "items": [
+          "2026/8/25：v4.0「DECAL」にアップデートしました（スライド内ステッカー・段階表示・登場退場エフェクト）。",
           "2026/8/9：マニュアルを更新しました。",
           "2026/8/5：v3.4「NUANCE」にアップデートしました（表情・ポーズ仕草・おまかせ演技・空のスライド）。",
           "2026/7/31：字幕設定とキャラ設定のところを整理しました。",
@@ -78,7 +79,7 @@
       },
       {
         "type": "html",
-        "html": "<p>実は、v1.0 を公開した当時は「自分的には 90 点くらいの出来だろう！」とかなり満足していたのですが……使うたびに痒いところに手が届かない使いにくさや、見逃していた不具合が目につきはじめ、<strong>「今思えば 30〜40 点程度だったな」</strong>と密かに反省しておりました。そこから不満点を潰し続けて v2.0 として公開し、改良を重ねて、現在は <strong>v3.4「NUANCE」</strong>に至ります。</p>"
+        "html": "<p>実は、v1.0 を公開した当時は「自分的には 90 点くらいの出来だろう！」とかなり満足していたのですが……使うたびに痒いところに手が届かない使いにくさや、見逃していた不具合が目につきはじめ、<strong>「今思えば 30〜40 点程度だったな」</strong>と密かに反省しておりました。そこから不満点を潰し続けて v2.0 として公開し、改良を重ねて、現在は <strong>v4.0「DECAL」</strong>に至ります。</p>"
       },
       { "type": "divider", "label": "SUMMARY" }
     ],
@@ -87,7 +88,7 @@
       { "icon": "🛒", "title": "買い切りです", "text": "月額課金はありません。一度購入すれば、その後のアップデートも同じ共有リンクから使えます。" },
       { "icon": "🔑", "title": "API費用もゼロで使える", "text": "APIキーなしで音声まで作れる Bundle Builder があるので、追加費用なしで始められます。" },
       { "icon": "🎛️", "title": "細部まで設定できる", "text": "字幕・背景・キャラ・BGM・テロップ・トランジションまで、こだわる人が満足できる粒度で調整できます。" },
-      { "icon": "🎭", "title": "v3.4 の目玉", "text": "セリフの途中で表情やポーズを変えられる演技機能と、それを自動配置する「おまかせ演技」。" },
+      { "icon": "🏷️", "title": "v4.0 の目玉", "text": "文字や画像を後から重ね、見せる順番や登場退場まで設計できる「スライド内ステッカー」。" },
       { "icon": "⚠️", "title": "購入前のご確認", "text": "PCブラウザ専用です。初期設定（コピペのみ）が必要なので、動作環境の章もご確認ください。" }
     ]
   },
@@ -107,7 +108,7 @@
         { "type": "divider", "label": "SAMPLE" },
         { "type": "video", "provider": "vimeo", "id": "1169315924", "title": "🎥 こんな動画が作れます！", "thumb": "./img/demo-movie.jpg", "caption": "サンプル動画（Vimeo）。クリックすると、この場で再生されます" },
         { "type": "video", "provider": "youtube", "id": "cB0MVpcMdKo", "title": "🎬 こうやって作ります！", "thumb": "./img/how-to-use.jpg", "caption": "制作の流れ（YouTube）。クリックすると、この場で再生されます" },
-        { "type": "heading", "level": 3, "text": "✨ 主な機能（v3.4 時点）" },
+        { "type": "heading", "level": 3, "text": "✨ 主な機能（v4.0 時点）" },
         {
           "type": "soft_cards",
           "items": [
@@ -187,14 +188,30 @@
     {
       "icon": "🎭",
       "category": "WHAT'S NEW",
-      "title": "❸ v3.0 → v3.4 の進化（バージョン別ハイライト）",
+      "title": "❸ v3.0 → v4.0 の進化（バージョン別ハイライト）",
       "intro": "買い切り後もアップデートを続けています。これまでに増えた主な機能です。",
       "blocks": [
-        { "type": "figure", "image": "./img/v34.jpg", "alt": "SlideCast Studio v3.4 NUANCE のアイキャッチ。キャラクターの笑顔・悲しい顔・ポーズ仕草のカードが並ぶ", "caption": "最新版 v3.4「NUANCE」：表情・仕草・おまかせ演技" },
+        { "type": "figure", "image": "./img/v40-01.png", "alt": "SlideCast Studio v4.0 DECAL のアイキャッチ", "caption": "最新版 v4.0「DECAL」：スライド内ステッカー・段階表示・登場退場エフェクト" },
         {
           "type": "tabs",
           "label": "バージョン別ハイライト",
           "items": [
+            {
+              "label": "v4.0 DECAL",
+              "blocks": [
+                { "type": "html", "html": "<p>完成済みのスライドへ文字や画像を重ね、<strong>見せる順番・登場退場・効果音まで設計できる</strong>ようにしたバージョンです。</p>" },
+                { "type": "figure", "image": "./img/v40-02.png", "alt": "テキスト・矢印・画像などのステッカーを重ねたスライド", "caption": "文字・矢印・画像などをスライドへ後から追加できます" },
+                { "type": "soft_cards", "items": [
+                  { "icon": "🏷️", "title": "テキスト・画像ステッカー", "text": "完成済みのスライドへ強調ラベル、補足、画像を後から追加できます。" },
+                  { "icon": "🙈", "title": "段階表示", "text": "箇条書きやクイズの答えを隠し、説明に合わせて順番に見せられます。" },
+                  { "icon": "✨", "title": "登場・退場", "text": "フェード、ポップ、ワイプなどの動きと速さを設定できます。" },
+                  { "icon": "🔊", "title": "効果音", "text": "登場時と退場時へ別々の効果音を付けられます。" },
+                  { "icon": "🧲", "title": "スナップとライブラリ", "text": "位置・大きさ・時間をそろえ、よく使う素材と設定を再利用できます。" },
+                  { "icon": "🫥", "title": "目隠し", "text": "モザイク、ぼかし、単色の板で見せたくない情報を隠せます。" }
+                ] },
+                { "type": "link", "url": "../updates/v40/", "label": "v4.0 アップデート記事を読む" }
+              ]
+            },
             {
               "label": "v3.4 NUANCE",
               "blocks": [
@@ -678,6 +695,7 @@
         {
           "type": "timeline",
           "items": [
+            { "date": "2026.08.25", "title": "v4.0 DECAL", "text": "スライド内ステッカー、段階表示、登場・退場エフェクト、効果音、目隠しを追加。" },
             { "date": "2026.08.09", "title": "マニュアル更新", "text": "公式マニュアルを v3.4 NUANCE 対応版へ全面改訂しました。" },
             { "date": "2026.08.05", "title": "v3.4 NUANCE", "text": "表情・ポーズ仕草、おまかせ演技、キャラパックZIP、呼吸・発話モーション、空のスライドを追加。" },
             { "date": "2026.07.31", "title": "設定の整理", "text": "字幕設定とキャラ設定のところを整理しました。" },
@@ -704,6 +722,7 @@
             { "icon": "📘", "title": "公式マニュアル（v3.4 対応版）", "text": "全16章の詳細リファレンス", "url": "https://note.com/bluezzly/n/n1e95d4cb978e" },
             { "icon": "🧩", "title": "SlideCast Bundle Builder", "text": "資料・台本・AI音声・マイク録音をまとめる使い方ガイド", "url": "../bundle-builder/" },
             { "icon": "🛠️", "title": "アップデート方法について", "text": "GASアップデート手順", "url": "../gas-update/" },
+            { "icon": "🆕", "title": "v4.0 DECAL アップデート情報", "text": "2026/8/25 公開", "url": "../updates/v40/" },
             { "icon": "🆕", "title": "v3.4 NUANCE アップデート情報", "text": "2026/8/5 公開", "url": "https://note.com/bluezzly/n/nf4ecad9cf40f" },
             { "icon": "🔄", "title": "v3.3 SYNC アップデート情報", "text": "2026/7/26 公開", "url": "https://note.com/bluezzly/n/n54d02ca2b939" },
             { "icon": "🔄", "title": "v3.2 アップデート情報", "text": "2026/7/20 公開", "url": "https://note.com/bluezzly/n/n37ae8356a0aa" },
