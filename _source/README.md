@@ -20,6 +20,7 @@
 | `manual.en.spec.json` | 英語版の公式マニュアル（`/en/manual/index.html`）の設計データ |
 | `intro.en.spec.json` | 英語版の紹介ページ（`/en/intro/index.html`）の設計データ |
 | `bundle-builder.en.spec.json` | 英語版の Bundle Builder ガイド（`/en/bundle-builder/index.html`）の設計データ |
+| `ai-code-bgm-studio.en.spec.json` | 英語版の AI CODE BGM STUDIO ガイド（`/en/ai-code-bgm-studio/index.html`）の設計データ |
 | `mouthloop-v2.en.spec.json` | 英語版の MouthLoop v2 ガイド（`/en/mouthloop-v2/index.html`）の設計データ |
 | `gas-update.en.spec.json` | 英語版のアップデート方法ガイド（`/en/gas-update/index.html`）の設計データ |
 | `v33.spec.json` | v3.3「SYNC」アップデート（`/updates/v33/index.html`）の設計データ。既存の日本語ページから起こしたもので、日本語ページの再生成には**使っていません**（下記） |
@@ -32,6 +33,7 @@
 | `tools/build_en.py` | 英語ページを spec から作り直す入口。生成 → 仕上げまで一括 |
 | `tools/make_en_template.py` | 標準テンプレートの UI 文言を英語化して `article-template.en.html` を作る |
 | `tools/finish_en_page.py` | 生成した英語ページに共通クロームを入れ直す（下記の手作業を自動化したもの） |
+| `tools/finish_ja_page.py` | spec から生成した日本語ページに共通クローム（OGP・ファビコン・📚/🌐・共通フッター）を入れ直す。**再生成したら必ず流す** |
 | `tools/externalize_images.py` | 設計データが無いページから Base64 画像を抜き出して `/assets/` へ移す移行スクリプト |
 
 テンプレートは `build-rich-html-article` スキル同梱の**標準テンプレートをそのまま使います**。以前このフォルダに置いていた専用テンプレートは、修正内容を標準側へ取り込んだため廃止しました。英語ページだけは、テンプレート側に直接書かれた UI 文言（「本文へスキップ」「目次」など）が日本語のままなので、`make_en_template.py` が標準テンプレートから英語版を作り直しています。
