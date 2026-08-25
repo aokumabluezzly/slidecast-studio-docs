@@ -52,6 +52,13 @@ PAGE_META: dict[str, dict[str, str]] = {
             "with expressions and gestures, packed as a ZIP SlideCast Studio can import."
         ),
     },
+    "en/ai-code-bgm-studio/": {
+        "og_title": "AI CODE BGM STUDIO — music and sound effects from a prompt",
+        "og_description": (
+            "A free Gemini Canvas app that generates background music and sound effects as "
+            "Web Audio API code. Describe the mood, export MP3, and use it in SlideCast Studio."
+        ),
+    },
     "en/gas-update/": {
         "og_title": "How to update SlideCast Studio",
         "og_description": (

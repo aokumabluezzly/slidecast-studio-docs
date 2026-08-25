@@ -1,0 +1,286 @@
+{
+  "title": "AI CODE BGM STUDIO — make background music and sound effects",
+  "subtitle": "A free Gemini Canvas app that turns a written idea into background music and sound effects, generated as Web Audio API code",
+  "description": "How to use AI CODE BGM STUDIO: describe the mood you want, generate BGM or a sound effect, export it as MP3, and drop it into SlideCast Studio — walked through with screenshots.",
+  "lead": "",
+  "eyebrow": "AI CODE BGM STUDIO GUIDE",
+  "brand": "SlideCast",
+  "brand_accent": "Studio",
+  "brand_badge": "Docs",
+  "author": "aokuma",
+  "date": "2026.08.25",
+  "version": "Guide",
+  "footer_meta": "SlideCast Studio Documentation · aokuma",
+  "hero_image": "./img/bgm-studio-01.jpg",
+  "hero_alt": "AI CODE BGM STUDIO: a waveform and equalizer bars in front of streaming Web Audio API code",
+  "chips": ["Free", "No API key", "Gemini Canvas", "Music & sound effects", "MP3 export", "Works with SlideCast Studio"],
+  "theme": {
+    "primary": "#7A3FD6",
+    "secondary": "#B82C7E",
+    "accent": "#0E86AE",
+    "surface": "#F6F3FF",
+    "ink": "#1E1B33"
+  },
+  "nav_links": [
+    { "href": "../", "icon": "🏠", "label": "HOME" }
+  ],
+  "source_url": "https://note.com/bluezzly/n/n170bb4f91b45",
+  "source_label": "Read the original post on note (Japanese)",
+  "source_title": "The note post this page is based on",
+  "source_note": "This is the public announcement of AI CODE BGM STUDIO. Why it was built, in the author’s own words, is on note (in Japanese).",
+  "update_url": "https://share.gemini.google/aqgD4VAE7KXg",
+  "update_label": "Open AI CODE BGM STUDIO",
+  "update_header": false,
+  "sections_label": "CONTENTS",
+  "overview": {
+    "icon": "🎧",
+    "title": "AI CODE BGM STUDIO in short",
+    "blocks": [
+      {
+        "type": "html",
+        "html": "<p><strong>AI CODE BGM STUDIO</strong> takes the sound you describe in words and has Gemini build it as <strong>Web Audio API code</strong>. It runs inside Google’s Gemini Canvas, so there is nothing to install and no API key to supply.</p><p>You can play the result on the spot and take it away either as <strong>MP3 / WAV</strong> or as <strong>the code that plays the sound</strong>. That makes it a quick way to rough out background music and sound effects for SlideCast Studio.</p>"
+      },
+      {
+        "type": "callout",
+        "tone": "warn",
+        "title": "⚠️ Worth saying up front",
+        "text": "Generation is a lottery. The same prompt will not give you the same quality every time, and this is not an app that produces a finished, professional track in one shot. It works best as a way to get a usable draft quickly."
+      },
+      {
+        "type": "html",
+        "html": "<p>The app itself is covered in the <a href=\"../manual/\">official manual</a>, and the product is introduced on <a href=\"../intro/\">What is SlideCast Studio?</a>. This page is about the other side of it — <strong>preparing the audio you drop in</strong>.</p>"
+      },
+      {
+        "type": "callout",
+        "tone": "info",
+        "title": "🇯🇵 The app’s interface is in Japanese",
+        "text": "AI CODE BGM STUDIO ships with a Japanese UI, so the screenshots on this page are Japanese. Each field is spelled out in English below, and the theme box accepts English text."
+      }
+    ]
+  },
+  "sections": [
+    {
+      "icon": "🎵",
+      "category": "Overview",
+      "title": "What the app does",
+      "intro": "Describe what you want, press generate, and the track plays right there.",
+      "blocks": [
+        {
+          "type": "html",
+          "html": "<p>While putting a video or an app together, you keep running into “a bit of background music would help here”, “I need a short sound effect”, or “let me at least get the mood right first”. Sitting down to actually compose something is a heavy way to answer that. This app is the light way.</p><p>Prompts can be as plain as these:</p>"
+        },
+        {
+          "type": "check_list",
+          "items": [
+            "A field theme for an RPG set in a forest at night",
+            "Bright, poppy background music for a home screen",
+            "A short sound effect for a system notification",
+            "A slightly futuristic UI sound"
+          ]
+        },
+        {
+          "type": "cards",
+          "items": [
+            { "icon": "💬", "title": "Written prompt in", "text": "Theme, purpose and mood are all you need. Every detailed setting can be left on “auto”." },
+            { "icon": "🧾", "title": "Code, not a file", "text": "What comes back is the code that plays the sound, rather than a finished audio file." },
+            { "icon": "🪄", "title": "Nudge it afterwards", "text": "Ask for “a little more mysterious” and it edits the current result rather than starting over." },
+            { "icon": "📎", "title": "Fill in from a reference", "text": "Feed it text, an image, a PDF or a URL and it fills in genre and mood for you." }
+          ]
+        },
+        {
+          "type": "figure",
+          "image": "./img/bgm-studio-02.png",
+          "alt": "The AI CODE BGM STUDIO screen: generation settings on the left, a waveform visualiser, playback bar and a box for follow-up instructions on the right",
+          "caption": "Settings on the left, playback and refinement on the right — decide, listen, adjust, all on one screen"
+        }
+      ]
+    },
+    {
+      "icon": "🎛️",
+      "category": "Settings",
+      "title": "What you can specify",
+      "intro": "A one-line idea is enough, and so is a fully specified brief.",
+      "blocks": [
+        {
+          "type": "figure",
+          "image": "./img/bgm-studio-03.png",
+          "alt": "The settings panel: type (BGM or sound effect), theme and concept, fill-in-from-a-reference, and the number of patterns to generate",
+          "caption": "種類 = type, テーマ・コンセプト = theme and concept, 生成パターン数 = how many variations to generate"
+        },
+        {
+          "type": "spec_list",
+          "items": [
+            { "label": "Type", "value": "BGM / sound effect (SE)" },
+            { "label": "Length", "value": "In seconds (60 seconds or less recommended for BGM)" },
+            { "label": "Genre", "value": "Game BGM, cinematic, ambient, 8-bit chiptune, EDM / trance, lo-fi hip hop, system sound effects, and more" },
+            { "label": "Tempo", "value": "Slow / normal / upbeat / auto" },
+            { "label": "Instruments", "value": "Piano, synth pad, strings, drums, bells and others (multiple selection)" },
+            { "label": "Mood", "value": "Bright, mysterious, melancholic, tense, epic, triumphant, and more" },
+            { "label": "Patterns", "value": "1 / 3 / 5 — generate that many variations at once" },
+            { "label": "Also", "value": "A free-text notes field, plus auto-fill from reference material or a URL" }
+          ]
+        },
+        {
+          "type": "html",
+          "html": "<p>Anything you are unsure about can be left on <strong>おまかせ (auto)</strong>. Writing only the theme, listening to what comes back, and adding settings afterwards is often the faster route.</p><p>Open <strong>「資料・URLから詳細を自動設定」(fill in details from a reference or URL)</strong> and hand it text, an image or a PDF, and it <strong>fills in the genre and mood fields for you</strong>. References are abstracted rather than copied, which suits the case where you want a similar atmosphere without reproducing the source.</p>"
+        },
+        {
+          "type": "callout",
+          "tone": "info",
+          "title": "🎲 Start with three patterns",
+          "text": "Setting the pattern count to 3 gives you three different takes on the same brief at once. It finds a keeper faster than regenerating one track at a time."
+        }
+      ]
+    },
+    {
+      "icon": "💾",
+      "category": "Export",
+      "title": "Getting the audio and the code out",
+      "intro": "Anything you like can be saved as sound, as code, or both.",
+      "blocks": [
+        {
+          "type": "figure",
+          "image": "./img/bgm-studio-04.png",
+          "alt": "The playback bar: track name, play button, elapsed time and length, and download buttons for MP3 and code",
+          "caption": "The right-hand end of the playback bar saves either the audio file or the generated code"
+        },
+        {
+          "type": "check_list",
+          "items": [
+            "Save the audio as MP3 or WAV",
+            "Download the generated code as a .js file",
+            "Download every pattern at once when you generated several",
+            "Load a downloaded file back in to preview it",
+            "Paste code in and apply it to play it straight away",
+            "Up to 20 items of history — undo and redo as far back as you need"
+          ]
+        },
+        {
+          "type": "html",
+          "html": "<p>Keeping <strong>the code</strong> alongside the audio is the point of the app. It makes the small later edits easy — nudging the volume or the length, or rebuilding the same piece at a different duration. Loop playback and volume are in the app too, so the “does this work?” check happens before anything reaches your video.</p>"
+        }
+      ]
+    },
+    {
+      "icon": "🪄",
+      "category": "Refining",
+      "title": "Nudging the result into shape",
+      "intro": "The app is built for roughing something out and then closing in on it.",
+      "blocks": [
+        {
+          "type": "figure",
+          "image": "./img/bgm-studio-05.png",
+          "alt": "The follow-up instruction box with an apply button, and undo and redo buttons underneath",
+          "caption": "追加演出指示 = follow-up instructions; the note above the box promises the smallest change that satisfies them"
+        },
+        {
+          "type": "html",
+          "html": "<p>A follow-up instruction is <strong>a diff against the current result</strong>, not a fresh start, so the parts you already like survive while the direction shifts.</p>"
+        },
+        {
+          "type": "check_list",
+          "items": [
+            "Make it a little more mysterious",
+            "Keep the drums restrained",
+            "Open quietly for the first two seconds",
+            "End on a sense of achievement"
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "good",
+          "title": "↩️ Nothing is one-way",
+          "text": "Undo and redo walk back through the last 20 results, so you can afford to ask for something drastic and simply step back if it overshoots."
+        }
+      ]
+    },
+    {
+      "icon": "🎬",
+      "category": "Together",
+      "title": "Using it with SlideCast Studio",
+      "intro": "Trade the time you spend hunting for a track for the time it takes to make one.",
+      "blocks": [
+        {
+          "type": "html",
+          "html": "<p>SlideCast Studio lets you set background music and sound effects, but there is a common case where you have no strong preference and simply do not want to go looking for a track. That is the gap this app fills.</p>"
+        },
+        {
+          "type": "step_list",
+          "items": [
+            { "title": "Put the mood of the video into words", "text": "Something like “quiet ambient bed for a calm explainer video” — purpose plus atmosphere." },
+            { "title": "Set a length and generate", "text": "60 seconds or less is recommended for BGM. For a long video, a shorter loopable piece repeated in SlideCast Studio is easier to work with." },
+            { "title": "Export as MP3", "text": "Use the ↓ MP3 button on the playback bar." },
+            { "title": "Load it into SlideCast Studio", "text": "Add it to a BGM track. Short pieces generated as sound effects also work as text-advance or slide-transition sounds." }
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "info",
+          "title": "🎵 Up to 10 BGM tracks",
+          "text": "SlideCast Studio can layer several BGM tracks: one bed across the whole video, plus a second that only lifts the moment you want to emphasise. The official manual has the details."
+        },
+        {
+          "type": "link_cards",
+          "items": [
+            { "icon": "📘", "title": "Official manual", "text": "Where BGM and sound effects are configured", "url": "../manual/" },
+            { "icon": "💡", "title": "What is SlideCast Studio?", "text": "The introduction to the app itself", "url": "../intro/" }
+          ]
+        }
+      ]
+    },
+    {
+      "icon": "⚖️",
+      "category": "Caveats",
+      "title": "Setting expectations honestly",
+      "intro": "What it is good at, and what it is not.",
+      "blocks": [
+        {
+          "type": "html",
+          "html": "<p>To be straight about it: the app is not a magic box. Generation is <strong>a lottery</strong>, and much the same brief will give you “that one is great” one moment and “not quite” the next. That comes from Gemini generating code, and from the limits of making sound in a browser at all.</p><p>And frankly, asking any AI service “write me background music as code only, and let me download it as MP3” gets you something similar. The idea is not exotic.</p><p>What is tedious in practice is rebuilding the prompt every time, pasting the returned code somewhere, and rigging up a way to hear it. <strong>This app is that loop, packaged so you do not repeat it.</strong></p>"
+        },
+        {
+          "type": "compare",
+          "before": { "label": "Not what it is for", "text": "Producing a finished, professional track in one shot, or music you can ship as-is." },
+          "after": { "label": "What it is for", "text": "Getting close to the right atmosphere quickly, prototyping BGM and sound effects, and building drafts to react to." }
+        },
+        {
+          "type": "check_list",
+          "items": [
+            "You want audio that fits a video or app, fast",
+            "You would rather adjust an AI draft than start from silence",
+            "You want the result kept in a form that is easy to manage — code",
+            "You need background music for SlideCast Studio without a detour"
+          ]
+        }
+      ]
+    },
+    {
+      "icon": "🔗",
+      "category": "Related",
+      "title": "The video-side app, and other companions",
+      "intro": "The same “get a draft out first” idea, applied to video and to character assets.",
+      "blocks": [
+        {
+          "type": "html",
+          "html": "<p><strong>AI CODE MOVIE STUDIO</strong> takes a script or an image and generates video code that runs on HTML Canvas and the Web Audio API. It is aimed at the same thing: a draft, quickly.</p>"
+        },
+        {
+          "type": "link_cards",
+          "items": [
+            { "icon": "🎞️", "title": "AI CODE MOVIE STUDIO", "text": "The video-side app, introduced on note (Japanese)", "url": "https://note.com/bluezzly/n/ne13c60ce4406" },
+            { "icon": "👄", "title": "MouthLoop v2", "text": "Turn one image into lip-sync character assets", "url": "../mouthloop-v2/" },
+            { "icon": "🧩", "title": "SlideCast Bundle Builder", "text": "Prepare slides, script and AI voice in one pass", "url": "../bundle-builder/" },
+            { "icon": "✍️", "title": "aokuma on note", "text": "Where updates are announced (Japanese)", "url": "https://note.com/bluezzly" }
+          ]
+        },
+        {
+          "type": "cta",
+          "title": "Open AI CODE BGM STUDIO",
+          "text": "A Gemini Canvas share link — follow it and the app is ready to use.",
+          "url": "https://share.gemini.google/aqgD4VAE7KXg",
+          "label": "Open the app"
+        }
+      ]
+    }
+  ]
+}
