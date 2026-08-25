@@ -42,7 +42,8 @@
       group: '更新履歴',
       group_en: 'Release notes',
       items: [
-        { href: 'updates/v40/', icon: '🆕', label: 'v4.0「DECAL」', desc: 'ステッカー・段階表示・登場退場' },
+        { href: 'updates/v40/', icon: '🆕', label: 'v4.0「DECAL」', desc: 'ステッカー・段階表示・登場退場',
+          en: true, label_en: 'v4.0 "DECAL"', desc_en: 'Stickers, progressive reveals and timed effects' },
         { href: 'updates/v34/', icon: '🆕', label: 'v3.4「NUANCE」', desc: '表情・ポーズ仕草・おまかせ演技',
           en: true, label_en: 'v3.4 "NUANCE"', desc_en: 'Expressions, gestures and auto-acting' },
         { href: 'updates/v33/', icon: '📌', label: 'v3.3「SYNC」', desc: 'キャラ設定まわりの作り直し',

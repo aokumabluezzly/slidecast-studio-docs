@@ -1,0 +1,248 @@
+{
+  "title": "SlideCast Studio v4.0 “DECAL”",
+  "subtitle": "Update — on-slide stickers, progressive reveals, entrance and exit effects",
+  "description": "v4.0 “DECAL” lets you add text and images over finished slides, then control their timing, entrance, exit and sound effects.",
+  "lead": "",
+  "eyebrow": "SLIDECAST STUDIO · UPDATE",
+  "brand": "SlideCast ",
+  "brand_accent": "Studio",
+  "brand_badge": "v4.0",
+  "author": "aokuma",
+  "date": "2026.08.25",
+  "version": "v4.0 DECAL",
+  "footer_meta": "SlideCast Studio documentation · aokuma",
+  "hero_image": "./img/v40-01.png",
+  "hero_alt": "SlideCast Studio v4.0 DECAL title image",
+  "chips": [
+    "🏷️ On-slide stickers",
+    "⏱️ Progressive reveals",
+    "✨ Entrance and exit effects"
+  ],
+  "stats": [
+    { "icon": "🧩", "value": "Up to 10", "label": "stickers per slide" },
+    { "icon": "🔊", "value": "7", "label": "built-in sound effects" },
+    { "icon": "🖼️", "value": "18", "label": "images and animations" },
+    { "icon": "🚀", "value": "v4.0", "label": "DECAL" }
+  ],
+  "theme": {
+    "primary": "#6b4ee6",
+    "secondary": "#1679d8",
+    "accent": "#d94faa",
+    "surface": "#f5f2ff",
+    "ink": "#1c2038"
+  },
+  "nav_links": [
+    { "href": "../../", "icon": "🏠", "label": "HOME" }
+  ],
+  "source_url": "https://note.com/bluezzly/n/n19d75307a695",
+  "source_label": "Read the original on note (Japanese)",
+  "source_title": "📝 Original and latest information",
+  "source_note": "The original note post is in Japanese and may include later additions or comments.",
+  "update_header": false,
+  "sections_label": "UPDATE INDEX",
+  "overview": {
+    "icon": "👋",
+    "title": "Introduction and update overview",
+    "blocks": [
+      {
+        "type": "html",
+        "html": "<p>SlideCast Studio has been updated to <strong>v4.0 “DECAL”</strong>.</p><p>The centrepiece is <strong>on-slide stickers</strong>: text and images that you can add over a finished slide. Without rebuilding the source slide, you can show labels, notes and images at the right point in an explanation, or cover information until you are ready to reveal it.</p>"
+      },
+      {
+        "type": "callout",
+        "tone": "info",
+        "title": "🌐 About the screenshots",
+        "text": "The interface screenshots on this page use the Japanese edition. The English captions explain the relevant controls and behaviour."
+      },
+      {
+        "type": "cards",
+        "items": [
+          { "icon": "🏷️", "title": "Text and image stickers", "text": "Add explanations and artwork to finished slides" },
+          { "icon": "🙈", "title": "Progressive reveals", "text": "Cover bullets or answers, then uncover them in sequence" },
+          { "icon": "✨", "title": "Entrances and exits", "text": "Choose fades, pops, wipes and more" },
+          { "icon": "🔊", "title": "Sound effects", "text": "Set separate sounds for entrance and exit" },
+          { "icon": "🧲", "title": "Snapping", "text": "Align position, size and timing with audio" },
+          { "icon": "📚", "title": "Libraries", "text": "Reuse images and configured stickers" },
+          { "icon": "🫥", "title": "Mosaic and blur", "text": "Hide information you do not want to show" },
+          { "icon": "🗂️", "title": "Tabbed UI", "text": "Find settings and script tools more easily" },
+          { "icon": "🔧", "title": "Type, shadows and stability", "text": "More control, plus playback and export improvements" }
+        ]
+      },
+      {
+        "type": "figure",
+        "image": "./img/v40-02.png",
+        "alt": "A slide with several text and image stickers layered over it",
+        "caption": "Every label, arrow and image shown over the slide is a sticker"
+      }
+    ]
+  },
+  "sections": [
+    {
+      "icon": "🏷️",
+      "category": "MAIN FEATURE",
+      "title": "Add explanations and images after a slide is finished",
+      "intro": "Add text and image stickers without leaving the video editor.",
+      "blocks": [
+        { "type": "html", "html": "<p>Previously, adding a note or emphasis meant returning to the original PowerPoint or image, editing it and importing it again. In v4.0, the editor’s Sticker tab lets you add <strong>text stickers</strong> and <strong>image stickers</strong>.</p><p>Each slide can hold up to ten stickers. Move them directly in the preview, then use the corner and side handles to adjust their size, width and height.</p>" },
+        { "type": "figure", "image": "./img/v40-03.png", "alt": "The sticker list and settings panel", "caption": "Text and images can be combined on the same slide" },
+        { "type": "figure", "image": "./img/v40-04.png", "alt": "Selecting and resizing a sticker in the preview" },
+        { "type": "check_list", "items": [
+          "Font, weight, italics and letter spacing",
+          "Text colour, background colour, gradients and opacity",
+          "Text outline, border, rounded corners and shadow",
+          "PNG, WebP, GIF, animated WebP, APNG and other image formats"
+        ] },
+        { "type": "figure", "image": "./img/v40-05.png", "alt": "The design controls for a text sticker", "caption": "Style each sticker for the purpose and tone of the video" },
+        { "type": "figure", "image": "./img/v40-06.gif", "alt": "An animated example using several stickers", "caption": "Show labels, notes, arrows and images only when they are needed" },
+        { "type": "html", "html": "<p>Placement can be switched between moving with the slide image and staying fixed to the whole canvas. The first option follows slide-image scaling and Ken Burns motion; the second fixes the sticker to the full frame, including areas outside the slide image.</p>" },
+        { "type": "figure", "image": "./img/v40-07.png", "alt": "Controls for choosing the sticker placement reference" }
+      ]
+    },
+    {
+      "icon": "🙈",
+      "category": "TIMING",
+      "title": "Hide information, then reveal it one item at a time",
+      "intro": "Set start and end times to give a static slide a timed sequence.",
+      "blocks": [
+        { "type": "html", "html": "<p>Every sticker can have its own display start and end time. Move its band on the timeline, or drag either end to change how long it remains visible.</p><p>A particularly useful technique is to cover information from the start, then remove the covering stickers one by one as the explanation progresses. You can reveal bullet points or quiz answers on a single static slide instead of duplicating it several times.</p>" },
+        { "type": "figure", "image": "./img/v40-08.gif", "alt": "A sticker sequence revealing bullet points one at a time", "caption": "Reveal a static slide progressively in time with the narration" },
+        { "type": "check_list", "items": [
+          "Show a quiz answer after a few seconds",
+          "Reveal a comparison result after explaining the choices",
+          "Uncover a procedure one step at a time",
+          "Hide part of a photograph or diagram until it is discussed"
+        ] },
+        { "type": "html", "html": "<p>Entrance and exit choices include none, fade, pop or shrink, slide in or out, wipe from the left, and float in from below or move away upwards. Each effect has fast, normal and slow speeds.</p>" },
+        { "type": "figure", "image": "./img/v40-09.png", "alt": "Entrance and exit effect settings for a sticker", "caption": "Choose an entrance, exit and speed for each sticker" },
+        { "type": "figure", "image": "./img/v40-10.png", "alt": "The full timeline used to adjust sticker display timing", "caption": "Sticker timing can also be adjusted from the full timeline" },
+        { "type": "callout", "tone": "good", "title": "🖼️ Still-image, PDF and PPTX export", "text": "Formats without a time axis draw stickers in their state after effects have completed. You can also choose whether stickers are included." }
+      ]
+    },
+    {
+      "icon": "🔊",
+      "category": "SOUND",
+      "title": "Play a sound when a sticker enters or exits",
+      "intro": "Pair visible changes with sound to guide the viewer’s attention.",
+      "blocks": [
+        { "type": "html", "html": "<p>A sticker can use a different sound for its entrance and exit. Seven sounds are built in:</p>" },
+        { "type": "soft_cards", "items": [
+          { "icon": "🔵", "title": "Pop", "text": "Basic" },
+          { "icon": "🔔", "title": "Ping", "text": "Notification-like" },
+          { "icon": "✨", "title": "Sparkle", "text": "Emphasis" },
+          { "icon": "👉", "title": "Tap", "text": "Pointing" },
+          { "icon": "⏭️", "title": "Beep", "text": "Advance / very short" },
+          { "icon": "💥", "title": "Impact", "text": "Strong conclusion" },
+          { "icon": "💨", "title": "Whoosh", "text": "Sideways motion" }
+        ] },
+        { "type": "html", "html": "<p>You can also import your own MP3 and reuse it from the sticker sound-effect library. Put an exit sound on a sticker covering a bullet point, and the sound plays at the instant the item underneath appears.</p>" },
+        { "type": "figure", "image": "./img/v40-11.png", "alt": "The sticker sound-effect settings" }
+      ]
+    },
+    {
+      "icon": "🧲",
+      "category": "LAYOUT AND REUSE",
+      "title": "Align stickers neatly and reuse them from a library",
+      "intro": "Snap position, size and timing, and save frequently used assets and styles.",
+      "blocks": [
+        { "type": "html", "html": "<p>As you move a sticker, it snaps to the edges and centres of other stickers, as well as the centre of the canvas. While resizing, it can match another sticker’s width or height.</p>" },
+        { "type": "figure", "image": "./img/v40-12.gif", "alt": "Sticker position and size snapping into alignment" },
+        { "type": "html", "html": "<p>On the timeline, stickers snap to narration, other stickers’ start and end points, slide boundaries and the current playhead.</p>" },
+        { "type": "figure", "image": "./img/v40-13.gif", "alt": "A sticker time range snapping to audio and the playhead" },
+        { "type": "html", "html": "<p>Save frequently used images to the Sticker Image Library, and configured stickers — including appearance, size and sound effects — to the Sticker Library. Position and display timing are deliberately not saved, so each sticker is easier to fit to a new slide.</p>" },
+        { "type": "figure", "image": "./img/v40-14.png", "alt": "Saving a configured sticker to the Sticker Library", "caption": "A library item can be reused on other slides" }
+      ]
+    },
+    {
+      "icon": "🫥",
+      "category": "REDACTION",
+      "title": "Mosaic and blur masks are now available",
+      "intro": "A text sticker can also act as a panel that hides part of a slide.",
+      "blocks": [
+        { "type": "html", "html": "<p>Choose mosaic or blur and set its strength from 1 to 100. Leave the text empty to use the sticker only as a mask. You can also make just the background colour translucent for decorative uses.</p>" },
+        { "type": "figure", "image": "./img/v40-15.png", "alt": "Mosaic and blur controls for a sticker" },
+        { "type": "callout", "tone": "warn", "title": "⚠️ Hiding personal or confidential information", "text": "A weak mosaic or blur may leave the original content guessable. Use a strong setting or cover it with a fully opaque solid colour." }
+      ]
+    },
+    {
+      "icon": "🗂️",
+      "category": "INTERFACE",
+      "title": "The settings and script area has been reorganised",
+      "intro": "Choose the tab for the task at hand and go directly to the controls you need.",
+      "blocks": [
+        { "type": "html", "html": "<p>Normal mode now has five tabs — Script, Timeline, Slide Settings, Stickers and Auto-acting. Easy mode has three — Script, Stickers and Auto-acting. Showing only the selected group also reduces vertical scrolling.</p>" },
+        { "type": "figure", "image": "./img/v40-16.png", "alt": "The Script, Timeline, Slide Settings, Stickers and Auto-acting tabs" },
+        { "type": "check_list", "items": [
+          "Frequently checked controls such as content, position and timing remain visible",
+          "Details such as colour, borders and shadows are grouped into collapsible sections or popovers",
+          "Collapsed sections still summarise their current settings",
+          "Buttons, inputs, cards and selected states now share a consistent appearance"
+        ] },
+        { "type": "figure", "image": "./img/v40-17.png", "alt": "The reorganised sticker settings panel" }
+      ]
+    },
+    {
+      "icon": "🔤",
+      "category": "TYPE",
+      "title": "More control over lettering and shadows",
+      "intro": "Letter spacing and shadow controls now cover subtitles, captions, badges and stickers.",
+      "blocks": [
+        { "type": "html", "html": "<p>You can adjust letter spacing for subtitles, per-character subtitles, badges, captions and text stickers. Open it slightly for atmosphere, or tighten a long caption to fit.</p><p>Shadow controls are now organised around colour, type, opacity, blur and distance, and are easier to use across character icons, speech bubbles, subtitles, captions, badges and stickers.</p>" },
+        { "type": "figure", "image": "./img/v40-18.png", "alt": "Examples comparing different letter-spacing values" },
+        { "type": "figure", "image": "./img/v40-19.png", "alt": "Controls for adjusting a text shadow" }
+      ]
+    },
+    {
+      "icon": "🔧",
+      "category": "STABILITY",
+      "title": "Bug fixes and stability improvements",
+      "intro": "Memory and processing have been reviewed for long projects and large images.",
+      "blocks": [
+        { "type": "check_list", "items": [
+          "Limit images held during full playback and video export to those currently needed",
+          "Reduce unnecessary screen updates during playback and autosaves during continuous operations",
+          "Fix an overly long seek bar on slides without audio",
+          "Improve the stability of video-background previews",
+          "Fix a crash caused by resetting certain settings",
+          "Fix sticker selection handles shifting after leaving Timing Focus mode"
+        ] }
+      ]
+    },
+    {
+      "icon": "💾",
+      "category": "COMPATIBILITY AND STORAGE",
+      "title": "Existing projects and storage limits",
+      "intro": "Existing visuals and audio do not change on their own. Keep an eye on asset count and memory use.",
+      "blocks": [
+        { "type": "html", "html": "<p>Existing projects with no stickers continue to display without stickers. New sound effects and redaction masks are off by default.</p><p>Images, animated images and sound effects are stored in the browser, so they use storage according to their number and size.</p>" },
+        { "type": "table", "head": ["Library", "Limit"], "rows": [
+          ["Sticker images", "60"],
+          ["Configured stickers", "60"],
+          ["Sticker sound effects", "30"]
+        ], "nowrap": true },
+        { "type": "callout", "tone": "warn", "title": "⚠️ Animated images", "text": "Even a small file can use substantial memory during playback if it has many frames or large dimensions. If performance suffers, try a smaller image or a shorter animation." }
+      ]
+    },
+    {
+      "icon": "⬆️",
+      "category": "UPDATING",
+      "title": "How to update to v4.0",
+      "intro": "If you have already purchased SlideCast Studio, copy v4.0 from the same shared link in the paid note post.",
+      "blocks": [
+        { "type": "callout", "tone": "good", "title": "💾 Make a backup first", "text": "If you want to carry over projects, libraries and settings, create a backup from Data Storage before updating." },
+        { "type": "html", "html": "<p>To update the Apps Script edition without changing its URL, replace “無題.html” and “AppBundle.html” in the existing Apps Script project with the files from the v4.0 distribution folder, then redeploy the existing deployment as a new version.</p>" },
+        { "type": "link", "url": "../../gas-update/", "label": "Detailed update instructions for the Apps Script edition" },
+        { "type": "html", "html": "<p>For the local HTML edition, download and open “SlideCast Studio v4.0【ローカル版】.html”. Data from the previous edition will not appear automatically in a new Apps Script project or a different browser, so restore it from your backup.</p>" }
+      ]
+    },
+    {
+      "icon": "🎬",
+      "category": "SUMMARY",
+      "title": "Design not only a slide, but the order in which it is seen",
+      "intro": "What to add, where to put it, when to show it, how it arrives and leaves, and what sound goes with it.",
+      "blocks": [
+        { "type": "html", "html": "<p>With v4.0, every slide can now define <strong>what to add, where to put it, when to show it, how it appears and disappears, and what sound accompanies it</strong>.</p><p>Use it to make explainers, product introductions, lessons, dialogue videos and short-form videos clearer and easier to follow whenever presentation order matters.</p>" },
+        { "type": "cta", "title": "You can also read the note post", "text": "The original article, later additions and comments are published on note in Japanese.", "url": "https://note.com/bluezzly/n/n19d75307a695", "label": "Read the original on note (Japanese)" }
+      ]
+    }
+  ]
+}

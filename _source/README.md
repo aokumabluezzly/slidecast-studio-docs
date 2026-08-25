@@ -28,6 +28,7 @@
 | `v34.spec.json` | v3.4「NUANCE」アップデート（`/updates/v34/index.html`）の設計データ。v33 と同じく既存の日本語ページから起こしたもので、日本語ページの再生成には**使っていません**（下記） |
 | `v34.en.spec.json` | 英語版の v3.4 アップデート（`/en/updates/v34/index.html`）の設計データ |
 | `v40.spec.json` | v4.0「DECAL」アップデート（`/updates/v40/index.html`）の設計データ |
+| `v40.en.spec.json` | 英語版の v4.0 アップデート（`/en/updates/v40/index.html`）の設計データ |
 | `img/` | 各 spec が参照する画像。生成時に `/assets/` へコピーされます |
 | `article-template.en.html` | **自動生成**。英語ページ用テンプレート（直接編集しない） |
 | `tools/build_en.py` | 英語ページを spec から作り直す入口。生成 → 仕上げまで一括 |

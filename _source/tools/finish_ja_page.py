@@ -25,6 +25,15 @@ BASE_URL = "https://aokumabluezzly.github.io/slidecast-studio-docs/"
 
 # ページごとの、ページ固有メタ情報。`en` は英語版があるかどうか（hreflang に効く）
 PAGE_META: dict[str, dict[str, object]] = {
+    "updates/v40/": {
+        "og_title": "SlideCast Studio v4.0「DECAL」",
+        "og_description": (
+            "スライド内ステッカー、段階表示、登場・退場エフェクト、効果音、"
+            "スナップ、ライブラリ、モザイク・ぼかしを追加したv4.0の更新内容。"
+        ),
+        "twitter_description": "ステッカーと段階表示で、1枚のスライドを見せる順番まで設計。",
+        "en": True,
+    },
     "ai-code-bgm-studio/": {
         "og_title": "AI CODE BGM STUDIO でBGMと効果音を作る",
         "og_description": (

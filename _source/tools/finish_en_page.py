@@ -80,6 +80,13 @@ PAGE_META: dict[str, dict[str, str]] = {
             "pack ZIPs, breathing and speech motion, and blank slides."
         ),
     },
+    "en/updates/v40/": {
+        "og_title": "SlideCast Studio v4.0 “DECAL”",
+        "og_description": (
+            "On-slide text and image stickers, progressive reveals, entrance and exit "
+            "effects, sound effects, snapping, reusable libraries, mosaic and blur."
+        ),
+    },
 }
 
 # ヘッダーの 📚 ページ一覧ボタン（site-nav.js が拾う data-site-nav が要る）
