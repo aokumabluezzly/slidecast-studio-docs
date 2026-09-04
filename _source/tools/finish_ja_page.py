@@ -25,6 +25,24 @@ BASE_URL = "https://aokumabluezzly.github.io/slidecast-studio-docs/"
 
 # ページごとの、ページ固有メタ情報。`en` は英語版があるかどうか（hreflang に効く）
 PAGE_META: dict[str, dict[str, object]] = {
+    "intro/": {
+        "og_title": "SlideCast Studioとは",
+        "og_description": (
+            "資料とAI音声から、ナレーション・字幕・キャラ演出つきの動画をブラウザだけで作れる"
+            "買い切りツール SlideCast Studio v4.1 FRAME の紹介ページ。"
+        ),
+        "twitter_description": "資料とAI音声から、伝わるスライド動画をブラウザだけで作る。",
+        "en": True,
+    },
+    "updates/v41/": {
+        "og_title": "SlideCast Studio v4.1「FRAME」",
+        "og_description": (
+            "スライドごとの画像・キャラ・字幕調整、配置コピー、ステッカーの表示中アニメーション、"
+            "多言語フォント、軽量バックアップ、30／60fps書き出しを追加したv4.1の更新内容。"
+        ),
+        "twitter_description": "画像・キャラ・字幕を、1枚ごとに見やすく整えるv4.1アップデート。",
+        "en": False,
+    },
     "updates/v40/": {
         "og_title": "SlideCast Studio v4.0「DECAL」",
         "og_description": (
