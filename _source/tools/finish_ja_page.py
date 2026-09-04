@@ -41,7 +41,7 @@ PAGE_META: dict[str, dict[str, object]] = {
             "多言語フォント、軽量バックアップ、30／60fps書き出しを追加したv4.1の更新内容。"
         ),
         "twitter_description": "画像・キャラ・字幕を、1枚ごとに見やすく整えるv4.1アップデート。",
-        "en": False,
+        "en": True,
     },
     "updates/v40/": {
         "og_title": "SlideCast Studio v4.0「DECAL」",
@@ -148,6 +148,15 @@ def finish(path: pathlib.Path) -> None:
     # 1. <title> の直後にメタ情報一式
     if 'rel="canonical"' not in html:
         html = html.replace("</title>", "</title>\n" + head_extras(rel, up, meta), 1)
+
+    # 英語版が後から追加されたページにも hreflang を反映する
+    en_link = f'<link rel="alternate" hreflang="en" href="{BASE_URL}en/{rel}">'
+    if meta.get("en") and 'hreflang="en"' not in html:
+        html = html.replace(
+            '<link rel="alternate" hreflang="x-default"',
+            en_link + '\n<link rel="alternate" hreflang="x-default"',
+            1,
+        )
 
     # 2. </head> の前に共通CSS/JS。site-lang.js は site-nav.js より後ろに置く
     if "site-chrome.css" not in html:

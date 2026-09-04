@@ -94,6 +94,13 @@ PAGE_META: dict[str, dict[str, str]] = {
             "effects, sound effects, snapping, reusable libraries, mosaic and blur."
         ),
     },
+    "en/updates/v41/": {
+        "og_title": "SlideCast Studio v4.1 “FRAME”",
+        "og_description": (
+            "Per-slide image, character and subtitle layout, active sticker motion, "
+            "multilingual fonts, lighter backups, and improved 30/60fps video export."
+        ),
+    },
 }
 
 # ヘッダーの 📚 ページ一覧ボタン（site-nav.js が拾う data-site-nav が要る）

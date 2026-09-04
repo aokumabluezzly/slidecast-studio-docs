@@ -1,15 +1,15 @@
 {
   "title": "SlideCast Studio — turn a slide deck into a narrated, subtitled video, right in your browser",
   "subtitle": "Load a PDF or a set of images and get back a video with narration, subtitles and an animated character. No install, no video editor.",
-  "description": "English overview of SlideCast Studio v3.4 NUANCE — a one-time-purchase, browser-only tool that builds narrated, subtitled videos from your slides and AI voice.",
+  "description": "English overview of SlideCast Studio v4.1 FRAME — a one-time-purchase, browser-only tool that builds narrated, subtitled videos from your slides and AI voice.",
   "lead": "",
   "eyebrow": "PRODUCT GUIDE",
   "brand": "SlideCast ",
   "brand_accent": "Studio",
-  "brand_badge": "v3.4",
+  "brand_badge": "v4.1",
   "author": "aokuma",
-  "date": "2026.08.09",
-  "version": "v3.4 NUANCE",
+  "date": "2026.09.04",
+  "version": "v4.1 FRAME",
   "footer_meta": "SlideCast Studio Documentation · aokuma",
   "theme": {
     "primary": "#2f74ee",
@@ -73,6 +73,8 @@
         "type": "notice",
         "title": "🛠️ Recent news",
         "items": [
+          "2026/9/4: Updated to v4.1 “FRAME” (per-slide layout, active sticker motion, multilingual fonts and improved export).",
+          "2026/8/25: Updated to v4.0 “DECAL” (stickers, progressive reveals, effects and sound).",
           "2026/8/9: The official manual was updated.",
           "2026/8/5: Updated to v3.4 “NUANCE” (expressions, posed gestures, auto-acting, blank slides).",
           "2026/7/31: Subtitle settings and character settings were reorganised.",
@@ -82,7 +84,7 @@
       },
       {
         "type": "html",
-        "html": "<p>Hello — I’m aokuma.<br>Let me apologise up front for how long this page is. I would much rather over-explain than have you regret the purchase, and this is what that turned into.</p><p>This is the English edition of the introduction page. The full manual and the companion guides are still Japanese only for now.</p>"
+        "html": "<p>Hello — I’m aokuma.<br>Let me apologise up front for how long this page is. I would much rather over-explain than have you regret the purchase, and this is what that turned into.</p><p>This is the English edition of the introduction page. The official manual, companion guides and release notes are also available in English on this site.</p>"
       },
       {
         "type": "heading",
@@ -112,7 +114,7 @@
       },
       {
         "type": "html",
-        "html": "<p>Honestly, when v1.0 went out I was pleased with myself — “a solid 90 out of 100,” I thought. Then I kept using it, kept hitting things it couldn’t quite do, kept finding bugs I had missed, and quietly revised my own score: <strong>“more like a 30 or 40, in hindsight.”</strong> Closing those gaps produced v2.0, and steady work since then has brought it to <strong>v3.4 “NUANCE”</strong>.</p>"
+        "html": "<p>Honestly, when v1.0 went out I was pleased with myself — “a solid 90 out of 100,” I thought. Then I kept using it, kept hitting things it couldn’t quite do, kept finding bugs I had missed, and quietly revised my own score: <strong>“more like a 30 or 40, in hindsight.”</strong> Closing those gaps produced v2.0, and steady work since then has brought it to <strong>v4.1 “FRAME”</strong>.</p>"
       },
       {
         "type": "divider",
@@ -142,8 +144,8 @@
       },
       {
         "icon": "🎭",
-        "title": "The point of v3.4",
-        "text": "Expressions and poses that change mid-line, plus “auto-acting” that places them for you."
+        "title": "The point of v4.1",
+        "text": "Refine image, character and subtitle layout for each slide, and keep stickers moving while visible."
       },
       {
         "icon": "⚠️",
@@ -192,7 +194,7 @@
         {
           "type": "heading",
           "level": 3,
-          "text": "✨ Main features (as of v3.4)"
+          "text": "✨ Main features (as of v4.1)"
         },
         {
           "type": "soft_cards",
@@ -279,7 +281,7 @@
           "type": "callout",
           "tone": "info",
           "title": "🛠️ For how each feature works, see the manual",
-          "text": "This page is about what the tool can do. Step-by-step instructions for every setting live in the 16-chapter official manual (updated for v3.4 NUANCE). The manual is currently available in Japanese only."
+          "text": "This page is about what the tool can do. Step-by-step instructions for every setting live in the official manual, which is also available in English."
         },
         {
           "type": "link",
@@ -366,19 +368,48 @@
     {
       "icon": "🎭",
       "category": "WHAT'S NEW",
-      "title": "❸ From v3.0 to v3.4 — highlights by version",
+      "title": "❸ From v3.0 to v4.1 — highlights by version",
       "intro": "Updates keep coming after the one-time purchase. Here is what has been added so far.",
       "blocks": [
         {
           "type": "figure",
-          "image": "./img/v34-en.jpg",
-          "alt": "Key art for SlideCast Studio v3.4 NUANCE, showing cards of a character smiling, looking sad, and posing",
-          "caption": "The current version, v3.4 “NUANCE”: expressions, gestures and auto-acting"
+          "image": "./img/v41-hero-en.png",
+          "alt": "Key art for SlideCast Studio v4.1 FRAME",
+          "caption": "The current version, v4.1 “FRAME”: make every slide clearer"
         },
         {
           "type": "tabs",
           "label": "Highlights by version",
           "items": [
+            {
+              "label": "v4.1 FRAME",
+              "blocks": [
+                {
+                  "type": "html",
+                  "html": "<p>Refine the <strong>image, character and subtitle layout on each individual slide</strong>, copy those adjustments where needed, and add looping motion to stickers while they are visible.</p>"
+                },
+                {
+                  "type": "figure",
+                  "image": "./img/v41-01.png",
+                  "alt": "The same slide shown with global settings and a per-slide adjustment in the Japanese interface",
+                  "caption": "The screenshots use the Japanese interface; the English release notes explain each control"
+                },
+                {
+                  "type": "soft_cards",
+                  "items": [
+                    { "icon": "🖼️", "title": "Per-slide layout", "text": "Adjust images, characters, subtitles and speech bubbles without changing other slides." },
+                    { "icon": "✨", "title": "Active sticker motion", "text": "Float, sway, breathe, rock, tremble or spin while a sticker is visible." },
+                    { "icon": "🔤", "title": "Multilingual fonts", "text": "Combine Japanese, Latin, Chinese and Korean font choices." },
+                    { "icon": "🎬", "title": "Improved export", "text": "Choose 30 or 60fps, with fixes for video freezes and audio synchronisation." }
+                  ]
+                },
+                {
+                  "type": "link",
+                  "url": "../updates/v41/",
+                  "label": "Read the v4.1 release notes"
+                }
+              ]
+            },
             {
               "label": "v3.4 NUANCE",
               "blocks": [
@@ -1177,6 +1208,16 @@
           "type": "timeline",
           "items": [
             {
+              "date": "2026.09.04",
+              "title": "v4.1 FRAME",
+              "text": "Added per-slide layout, active sticker motion, multilingual fonts, lighter backups and improved video export."
+            },
+            {
+              "date": "2026.08.25",
+              "title": "v4.0 DECAL",
+              "text": "Added stickers, progressive reveals, entrance and exit effects, sound effects, snapping and reusable libraries."
+            },
+            {
               "date": "2026.08.09",
               "title": "Manual updated",
               "text": "The official manual was fully revised for v3.4 NUANCE."
@@ -1271,10 +1312,22 @@
           "type": "link_cards",
           "items": [
             {
+              "icon": "🆕",
+              "title": "v4.1 FRAME release notes",
+              "text": "Per-slide layout, active sticker motion and export improvements",
+              "url": "../updates/v41/"
+            },
+            {
+              "icon": "🔄",
+              "title": "v4.0 DECAL release notes",
+              "text": "Stickers, progressive reveals, timed effects and sound",
+              "url": "../updates/v40/"
+            },
+            {
               "icon": "📘",
-              "title": "Official manual (v3.4 edition)",
-              "text": "The full 16-chapter reference (Japanese)",
-              "url": "https://note.com/bluezzly/n/n1e95d4cb978e"
+              "title": "Official manual",
+              "text": "The complete English reference",
+              "url": "../manual/"
             },
             {
               "icon": "🧩",

@@ -1,0 +1,153 @@
+{
+  "title": "SlideCast Studio v4.1 “FRAME”",
+  "subtitle": "Update — per-slide layout, active sticker motion and video export improvements",
+  "description": "SlideCast Studio v4.1 FRAME adds per-slide image, character and subtitle layout, layout copying, active sticker motion, multilingual fonts, lighter backups and 30/60fps export.",
+  "lead": "",
+  "eyebrow": "SLIDECAST STUDIO · UPDATE",
+  "brand": "SlideCast ", "brand_accent": "Studio", "brand_badge": "v4.1",
+  "author": "aokuma", "date": "2026.09.04", "version": "v4.1 FRAME",
+  "footer_meta": "SlideCast Studio documentation · aokuma",
+  "hero_image": "./img/v41-hero-en.png",
+  "hero_alt": "SlideCast Studio v4.1 FRAME — Make every slide clearer.",
+  "chips": ["🖼️ Per-slide layout", "🎭 Character and subtitle controls", "🎬 30/60fps export"],
+  "stats": [
+    { "icon": "🧩", "value": "Per slide", "label": "Adjust images, characters and subtitles" },
+    { "icon": "✨", "value": "6 types", "label": "Active sticker motion" },
+    { "icon": "🔤", "value": "4 scripts", "label": "Language-specific fonts" },
+    { "icon": "🚀", "value": "v4.1", "label": "FRAME" }
+  ],
+  "theme": { "primary": "#7657e8", "secondary": "#1689d8", "accent": "#d855bc", "surface": "#f4f3ff", "ink": "#171d38" },
+  "nav_links": [
+    { "href": "../../", "icon": "🏠", "label": "HOME" },
+    { "href": "../../manual/", "icon": "📘", "label": "Official manual" }
+  ],
+  "source_url": "https://note.com/bluezzly/n/nc7f8581ca225",
+  "source_label": "Read the original on note",
+  "source_title": "📝 Original article and updates",
+  "source_note": "See the note article for later additions and comments.",
+  "update_header": false,
+  "sections_label": "UPDATE INDEX",
+  "overview": {
+    "icon": "👋", "title": "Introduction and update overview",
+    "blocks": [
+      { "type": "callout", "tone": "info", "title": "🌐 About the screenshots", "text": "The interface screenshots on this page use the Japanese edition. The English captions explain the relevant controls and behaviour." },
+      { "type": "html", "html": "<p>SlideCast Studio has been updated to <strong>v4.1 “FRAME”</strong>.</p><p>This release focuses on refining <strong>the image, character and subtitle layout on each individual slide</strong>. You can enlarge a diagram on one page, move a character away from important content, or hide subtitles on the final slide without changing the rest of the project.</p>" },
+      { "type": "cards", "items": [
+        { "icon": "🖼️", "title": "Adjust each image", "text": "Set scale and position per slide" },
+        { "icon": "🎭", "title": "Refine characters and subtitles", "text": "Change size, position and visibility per character" },
+        { "icon": "📋", "title": "Copy a layout", "text": "Apply an adjustment to other characters or slides" },
+        { "icon": "✨", "title": "Keep stickers moving", "text": "Six looping motions including float, breathe and spin" },
+        { "icon": "🔤", "title": "Multilingual fonts", "text": "Combine Japanese, Latin, Chinese and Korean fonts" },
+        { "icon": "💾", "title": "Lighter backups", "text": "Choose which characters and videos to include" },
+        { "icon": "🎬", "title": "Improved video export", "text": "30/60fps selection plus video and sync fixes" },
+        { "icon": "🧩", "title": "Bundle Builder updates", "text": "References, page intent, resume and speaking style" }
+      ] },
+      { "type": "figure", "image": "./img/v41-01.png", "alt": "The same slide shown with global settings and a per-slide adjustment", "caption": "Keep the global settings and refine only the slide that needs a different image, character or subtitle layout" }
+    ]
+  },
+  "sections": [
+    {
+      "icon": "🖼️", "category": "SLIDE IMAGE", "title": "Change the image size and position on just one slide", "intro": "Set image scale, horizontal position and vertical position separately for each slide.",
+      "blocks": [
+        { "type": "html", "html": "<p>If a portrait image appears among landscape slides, you can make only that image smaller and centre it. The same controls help you enlarge a diagram or leave room for subtitles.</p><p>Select the slide in Normal mode, open the Slide Settings tab, then turn on the per-slide adjustment. Use the sliders or drag directly in the preview.</p>" },
+        { "type": "figure", "image": "./img/v41-02.png", "alt": "Per-slide adjustment enabled for a still slide image", "caption": "Drag the image in the preview to move it, or use its corner handles to resize it" },
+        { "type": "check_list", "items": ["Switch the override on and off to compare it with the global setting; entered values remain when it is off", "Reset any single value to the global setting", "Available for video slides using the standard layout", "Per-slide adjustment is not used when a video fills the screen"] },
+        { "type": "callout", "tone": "info", "title": "💡 A stable view while adjusting", "text": "Image animation is temporarily removed while you adjust the layout, so the base position stays visible." }
+      ]
+    },
+    {
+      "icon": "🎭", "category": "CHARACTERS AND SUBTITLES", "title": "Refine characters, subtitles and speech bubbles slide by slide", "intro": "Choose a speaking character on the slide and change only that character’s presentation.",
+      "blocks": [
+        { "type": "html", "html": "<p>The new Character &amp; Subtitles tab controls character icon size and position, subtitle or speech-bubble text size and position, and visibility. The character’s main settings and other slides remain unchanged.</p>" },
+        { "type": "figure", "image": "./img/v41-03.png", "alt": "Adjusting a character and speech bubble in the Character and Subtitles tab", "caption": "Drag character icons, subtitles and speech bubbles directly in the preview" },
+        { "type": "check_list", "items": ["Move a character away from a chart", "Reduce speech-bubble text on a slide with a long explanation", "Hide only the character icon when a photograph needs more room", "Hide subtitles while keeping narration", "Match speech-bubble height to the amount of text"] },
+        { "type": "callout", "tone": "info", "title": "🔊 Audio and duration do not change", "text": "Hide affects only visibility; audio and slide duration stay the same. Horizontal subtitle positioning is available for speech-bubble characters." }
+      ]
+    },
+    {
+      "icon": "📋", "category": "COPY", "title": "Copy a layout to other characters or slides", "intro": "Apply a useful adjustment to selected destinations instead of repeating it slide by slide.",
+      "blocks": [
+        { "type": "html", "html": "<p>Copy This Adjustment can apply the settings to another character on the same slide, or to the same character on selected slides. Nothing changes until you select the destinations and confirm the application.</p>" },
+        { "type": "figure", "image": "./img/v41-04.png", "alt": "Dialog for copying character and subtitle adjustments to other slides", "caption": "Slides that already have individual adjustments are marked in the list" },
+        { "type": "callout", "tone": "warn", "title": "⚠️ Existing individual adjustments are overwritten", "text": "One Undo reverses the whole operation. The copied values are offsets and scale relative to global settings, so characters with different base sizes or positions may not look identical." }
+      ]
+    },
+    {
+      "icon": "✨", "category": "STICKERS", "title": "Keep stickers moving while they are visible", "intro": "v4.1 adds looping active motion to the entrance and exit effects introduced in v4.0.",
+      "blocks": [
+        { "type": "soft_cards", "items": [
+          { "icon": "🫧", "title": "Float", "text": "Move gently up and down" },
+          { "icon": "↔️", "title": "Sway", "text": "Move repeatedly from side to side" },
+          { "icon": "🫁", "title": "Breathe", "text": "Expand and contract slightly" },
+          { "icon": "🌿", "title": "Rock", "text": "Swing like a pendulum" },
+          { "icon": "⚡", "title": "Tremble", "text": "Shake with a fine motion" },
+          { "icon": "🔄", "title": "Spin", "text": "Choose direction and rotation duration" }
+        ] },
+        { "type": "figure", "image": "./img/v41-05.gif", "alt": "Several stickers swaying and rotating while visible", "caption": "Speed and intensity can also be adjusted" },
+        { "type": "check_list", "items": ["Snap stickers into evenly spaced positions in the preview", "Drag the sticker list to change front-to-back stacking order"] },
+        { "type": "callout", "tone": "info", "title": "🎞️ Preview and still-document export", "text": "The editor preview updates less frequently, so also check motion in full playback. Still-image and PDF exports place the sticker at its base position without active motion." }
+      ]
+    },
+    {
+      "icon": "🔤", "category": "FONTS", "title": "Combine fonts by language", "intro": "Choose one font in each of four tabs: Japanese, Latin, Chinese and Korean.",
+      "blocks": [
+        { "type": "figure", "image": "./img/v41-06.png", "alt": "Choosing a Latin font from several style groups", "caption": "For example, pair a readable Japanese sans-serif with a display face for Latin headings" },
+        { "type": "html", "html": "<p>This is useful for mixed Japanese and English documents, language-learning materials and multilingual subtitles. It changes the appearance of text; it does not translate it.</p><p>The preview is redrawn after fonts load, and export now waits for the required fonts.</p>" },
+        { "type": "callout", "tone": "warn", "title": "🌐 Downloading additional fonts", "text": "An internet connection is required to load additional fonts." }
+      ]
+    },
+    {
+      "icon": "💾", "category": "BACKUPS", "title": "Choose what to include in a lighter backup", "intro": "Include only the characters used by the project, or leave out the video files themselves.",
+      "blocks": [
+        { "type": "figure", "image": "./img/v41-07.png", "alt": "Choosing characters and videos for a backup and checking its estimated size", "caption": "Review included items and the estimated backup size before saving" },
+        { "type": "html", "html": "<p>If Include Videos is off, editing information such as video-slide duration, thumbnails, audio, subtitles and stickers remains in the backup. When the original video is stored separately, this produces a lighter editing-data backup.</p>" },
+        { "type": "callout", "tone": "warn", "title": "⚠️ Keep excluded media separately", "text": "A backup without videos cannot play the originals in another environment. Select the original files again after restoring. Include the characters you use when moving to another computer." }
+      ]
+    },
+    {
+      "icon": "🎬", "category": "VIDEO EXPORT", "title": "Smoother, better-synchronised video export", "intro": "Choose 30fps (standard) or 60fps (smooth) on the export confirmation screen.",
+      "blocks": [
+        { "type": "figure", "image": "./img/v41-08.png", "alt": "Choosing 30fps or 60fps for video export", "caption": "Use 30fps for mainly static slides, or 60fps for smoother animation and transitions" },
+        { "type": "table", "nowrap": true, "head": ["Setting", "Best for", "Note"], "rows": [["30fps (standard)", "Explanatory videos built mainly from still slides", "Default"], ["60fps (smooth)", "Smoother animation and transitions", "Higher PC load; at the same quality setting, less data is available per frame"]] },
+        { "type": "callout", "tone": "info", "title": "🎞️ Video slides are captured at the equivalent of 60fps", "text": "The source video’s smoothness is retained with either export setting. This does not interpolate motion that was not present in the source." },
+        { "type": "heading", "level": 3, "text": "Fixed issues" },
+        { "type": "check_list", "items": ["Exported video temporarily freezing while media loaded or transitions were prepared", "Lip movement drifting further out of sync with audio toward the end of an MP4 played in QuickTime", "A video slide losing its specified scale when switching slides"] },
+        { "type": "callout", "tone": "good", "title": "✅ Sync fixes apply to new exports", "text": "Previously saved videos do not change automatically. Re-export any required videos with v4.1." }
+      ]
+    },
+    {
+      "icon": "🧩", "category": "BUNDLE BUILDER", "title": "SlideCast Bundle Builder has also been updated", "intro": "Carry the purpose of each generated image into the script, while keeping multi-page visuals and speaking style more consistent.",
+      "blocks": [
+        { "type": "heading", "level": 3, "text": "References and page intent for scripts" },
+        { "type": "check_list", "items": ["Add PDF, image and text files as references for image or script generation", "Pass reference URLs, automatic research, content and extra requests into script generation", "Review and edit What This Page Should Communicate for each image, then carry it into the script"] },
+        { "type": "figure", "image": "./img/v41-09.png", "alt": "Editing what each generated image should communicate in Bundle Builder", "caption": "When images are reordered, their page-intent notes move with them" },
+        { "type": "heading", "level": 3, "text": "Improved series consistency and resume" },
+        { "type": "check_list", "items": ["Set the number of recurring characters and their shared appearance and visual style", "Specify the document style separately from the character style", "Keep generated images and resume image generation from the first unfinished page"] },
+        { "type": "heading", "level": 3, "text": "Choose voice consistency or expression" },
+        { "type": "figure", "image": "./img/v41-10.png", "alt": "Choosing between voice consistency and expression in Bundle Builder", "caption": "Use voice consistency for explanatory videos, or per-line expression for conversations" },
+        { "type": "soft_cards", "items": [{ "icon": "🎙️", "title": "Prioritise voice consistency", "text": "Keep tone instructions consistent for each character" }, { "icon": "🎭", "title": "Prioritise expression", "text": "Vary the tone for each spoken line" }] },
+        { "type": "callout", "tone": "warn", "title": "🔑 Reference files and generation charges", "text": "Reference files are sent to Gemini for analysis. When using an API key, also be aware of charges for generation, research and regeneration." }
+      ]
+    },
+    {
+      "icon": "🔧", "category": "OTHER CHANGES", "title": "Other improvements",
+      "blocks": [{ "type": "check_list", "items": ["Small settings popovers now open near the button that triggered them", "Library and font licence information has been reorganised, with full texts included in the app and distribution"] }]
+    },
+    {
+      "icon": "⬆️", "category": "UPDATING", "title": "How to update to v4.1", "intro": "Existing customers can copy v4.1 from the same shared link in the paid note article.",
+      "blocks": [
+        { "type": "callout", "tone": "good", "title": "💾 Make a backup first", "text": "If you want to carry over projects, libraries and settings, create a backup from Save Data before updating." },
+        { "type": "html", "html": "<p>To update the Apps Script edition while keeping the same URL, replace the existing Untitled.html and AppBundle.html with the v4.1 versions, then redeploy the existing deployment as a new version.</p>" },
+        { "type": "link", "url": "../../gas-update/", "label": "Detailed Apps Script update instructions" },
+        { "type": "html", "html": "<p>For the local HTML edition, download and open the v4.1 local HTML file. Data from the previous browser or Apps Script project does not appear automatically in a new environment, so restore it from a backup.</p>" }
+      ]
+    },
+    {
+      "icon": "🎬", "category": "SUMMARY", "title": "Make every slide clearer.", "intro": "Arrange the image, characters and subtitles to suit the content of each page.",
+      "blocks": [
+        { "type": "html", "html": "<p>v4.0 let you decide what to add above a slide and when it should appear. v4.1 “FRAME” lets you refine where the image, characters and subtitles sit — and how large they should be — while looking at that individual slide.</p><p>The workflow from preparing material and a script in Bundle Builder to finishing each slide in SlideCast Studio is now easier to control.</p>" },
+        { "type": "cta", "title": "Read the note article", "text": "The original Japanese article, later additions and comments are available on note.", "url": "https://note.com/bluezzly/n/nc7f8581ca225", "label": "Open the original article" }
+      ]
+    }
+  ]
+}

@@ -44,7 +44,7 @@
       group: '更新履歴',
       group_en: 'Release notes',
       items: [
-        { href: 'updates/v41/', icon: '🆕', label: 'v4.1「FRAME」', desc: 'スライド別配置・表示中の動き・書き出し改善' },
+        { href: 'updates/v41/', icon: '🆕', label: 'v4.1「FRAME」', desc: 'スライド別配置・表示中の動き・書き出し改善', en: true, label_en: 'v4.1 “FRAME”', desc_en: 'Per-slide layout, active sticker motion and export improvements' },
         { href: 'updates/v40/', icon: '🆕', label: 'v4.0「DECAL」', desc: 'ステッカー・段階表示・登場退場',
           en: true, label_en: 'v4.0 "DECAL"', desc_en: 'Stickers, progressive reveals and timed effects' },
         { href: 'updates/v34/', icon: '🆕', label: 'v3.4「NUANCE」', desc: '表情・ポーズ仕草・おまかせ演技',
