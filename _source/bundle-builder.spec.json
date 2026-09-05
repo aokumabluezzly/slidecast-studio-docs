@@ -28,7 +28,7 @@
   "source_label": "note の元記事を読む",
   "source_title": "この記事のもとになった note 投稿",
   "source_note": "更新のお知らせや補足は、元の note 記事でも確認できます。",
-  "update_url": "https://gemini.google.com/share/7dda767f8078",
+  "update_url": "https://share.gemini.google/XVQ5f7PwaLym",
   "update_label": "Bundle Builder を開く",
   "update_header": false,
   "sections_label": "GUIDE",
@@ -54,7 +54,7 @@
         "type": "cta",
         "title": "Bundle Builder を使ってみる",
         "text": "Geminiの共有ページからアプリを開けます。機密情報や個人情報を含む資料はアップロードしないでください。",
-        "url": "https://gemini.google.com/share/7dda767f8078",
+        "url": "https://share.gemini.google/XVQ5f7PwaLym",
         "label": "Geminiで開く"
       }
     ],
@@ -246,7 +246,7 @@
           "type": "cta",
           "title": "資料から動画までの準備を、ひとつの流れで",
           "text": "資料を用意し、台本と音声を整え、Bundle ZIPをSlideCast Studioへ渡して仕上げます。",
-          "url": "https://gemini.google.com/share/7dda767f8078",
+          "url": "https://share.gemini.google/XVQ5f7PwaLym",
           "label": "Bundle Builder を開く"
         }
       ]

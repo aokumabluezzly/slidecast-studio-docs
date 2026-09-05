@@ -34,7 +34,7 @@
   "source_label": "noteの元記事を読む",
   "source_title": "元記事：MouthLoop v2「表情」と「仕草」を追加",
   "source_note": "MouthLoop v2の公開記事です。更新の背景や作者による説明はnoteで確認できます。",
-  "update_url": "https://share.gemini.google/dkU0IVHfQ2gu",
+  "update_url": "https://share.gemini.google/uZARpbgPFK9V",
   "update_label": "MouthLoopを開く",
   "update_header": false,
   "sections_label": "CONTENTS",
@@ -60,7 +60,7 @@
       },
       {
         "type": "link",
-        "url": "https://share.gemini.google/dkU0IVHfQ2gu",
+        "url": "https://share.gemini.google/uZARpbgPFK9V",
         "label": "MouthLoopを開く"
       },
       {
@@ -227,7 +227,7 @@
         },
         {
           "type": "link",
-          "url": "https://share.gemini.google/dkU0IVHfQ2gu",
+          "url": "https://share.gemini.google/uZARpbgPFK9V",
           "label": "GeminiでMouthLoopを開く"
         },
         {
@@ -494,7 +494,7 @@
           "type": "cta",
           "title": "MouthLoop v2を試す",
           "text": "Gemini Canvasの共有リンクから無料で開けます。",
-          "url": "https://share.gemini.google/dkU0IVHfQ2gu",
+          "url": "https://share.gemini.google/uZARpbgPFK9V",
           "label": "MouthLoopを開く"
         }
       ]

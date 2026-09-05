@@ -28,7 +28,7 @@
   "source_label": "Read the original post on note (Japanese)",
   "source_title": "The note post this page is based on",
   "source_note": "Update announcements and extra notes are also posted on the original note article (in Japanese).",
-  "update_url": "https://gemini.google.com/share/7dda767f8078",
+  "update_url": "https://share.gemini.google/XVQ5f7PwaLym",
   "update_label": "Open Bundle Builder",
   "update_header": false,
   "sections_label": "GUIDE",
@@ -54,7 +54,7 @@
         "type": "cta",
         "title": "Try Bundle Builder",
         "text": "The app opens from a Gemini share link. Do not upload material that contains confidential or personal information.",
-        "url": "https://gemini.google.com/share/7dda767f8078",
+        "url": "https://share.gemini.google/XVQ5f7PwaLym",
         "label": "Open in Gemini"
       }
     ],
@@ -246,7 +246,7 @@
           "type": "cta",
           "title": "From raw material to finished video, in one continuous pass",
           "text": "Prepare the slides, settle the script and the audio, then hand the Bundle ZIP to SlideCast Studio.",
-          "url": "https://gemini.google.com/share/7dda767f8078",
+          "url": "https://share.gemini.google/XVQ5f7PwaLym",
           "label": "Open Bundle Builder"
         }
       ]
