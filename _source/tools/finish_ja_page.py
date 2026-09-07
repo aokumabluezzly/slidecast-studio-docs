@@ -29,9 +29,18 @@ PAGE_META: dict[str, dict[str, object]] = {
         "og_title": "SlideCast Studioとは",
         "og_description": (
             "資料とAI音声から、ナレーション・字幕・キャラ演出つきの動画をブラウザだけで作れる"
-            "買い切りツール SlideCast Studio v4.1 FRAME の紹介ページ。"
+            "買い切りツール SlideCast Studio v4.2 TATE の紹介ページ。"
         ),
         "twitter_description": "資料とAI音声から、伝わるスライド動画をブラウザだけで作る。",
+        "en": True,
+    },
+    "updates/v42/": {
+        "og_title": "SlideCast Studio v4.2「TATE」",
+        "og_description": (
+            "字幕・吹き出しの縦書き、縦書きの帯の位置と英数字の向き、"
+            "バッジ・テキストステッカーの縦書きと内側余白、表情の追加と演技素材の後編集を加えたv4.2の更新内容。"
+        ),
+        "twitter_description": "字幕も吹き出しも縦書きに。縦書きレイアウトのv4.2アップデート。",
         "en": True,
     },
     "updates/v41/": {

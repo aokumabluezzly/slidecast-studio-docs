@@ -1,15 +1,15 @@
 {
   "title": "SlideCast Studio — turn a slide deck into a narrated, subtitled video, right in your browser",
   "subtitle": "Load a PDF or a set of images and get back a video with narration, subtitles and an animated character. No install, no video editor.",
-  "description": "English overview of SlideCast Studio v4.1 FRAME — a one-time-purchase, browser-only tool that builds narrated, subtitled videos from your slides and AI voice.",
+  "description": "English overview of SlideCast Studio v4.2 TATE — a one-time-purchase, browser-only tool that builds narrated, subtitled videos from your slides and AI voice.",
   "lead": "",
   "eyebrow": "PRODUCT GUIDE",
   "brand": "SlideCast ",
   "brand_accent": "Studio",
-  "brand_badge": "v4.1",
+  "brand_badge": "v4.2",
   "author": "aokuma",
   "date": "2026.09.04",
-  "version": "v4.1 FRAME",
+  "version": "v4.2 TATE",
   "footer_meta": "SlideCast Studio Documentation · aokuma",
   "theme": {
     "primary": "#2f74ee",
@@ -73,6 +73,7 @@
         "type": "notice",
         "title": "🛠️ Recent news",
         "items": [
+          "2026/9/8: Updated to v4.2 “TATE” (vertical subtitles and speech bubbles, vertical badges and stickers, editable acting assets).",
           "2026/9/4: Updated to v4.1 “FRAME” (per-slide layout, active sticker motion, multilingual fonts and improved export).",
           "2026/8/25: Updated to v4.0 “DECAL” (stickers, progressive reveals, effects and sound).",
           "2026/8/9: The official manual was updated.",
@@ -114,7 +115,7 @@
       },
       {
         "type": "html",
-        "html": "<p>Honestly, when v1.0 went out I was pleased with myself — “a solid 90 out of 100,” I thought. Then I kept using it, kept hitting things it couldn’t quite do, kept finding bugs I had missed, and quietly revised my own score: <strong>“more like a 30 or 40, in hindsight.”</strong> Closing those gaps produced v2.0, and steady work since then has brought it to <strong>v4.1 “FRAME”</strong>.</p>"
+        "html": "<p>Honestly, when v1.0 went out I was pleased with myself — “a solid 90 out of 100,” I thought. Then I kept using it, kept hitting things it couldn’t quite do, kept finding bugs I had missed, and quietly revised my own score: <strong>“more like a 30 or 40, in hindsight.”</strong> Closing those gaps produced v2.0, and steady work since then has brought it to <strong>v4.2 “TATE”</strong>.</p>"
       },
       {
         "type": "divider",
@@ -143,9 +144,9 @@
         "text": "Subtitles, backgrounds, characters, BGM, captions and transitions are all tunable at a level that satisfies people who fuss."
       },
       {
-        "icon": "🎭",
-        "title": "The point of v4.1",
-        "text": "Refine image, character and subtitle layout for each slide, and keep stickers moving while visible."
+        "icon": "📝",
+        "title": "The point of v4.2",
+        "text": "Subtitles, speech bubbles, badges and stickers can now be set in vertical Japanese writing."
       },
       {
         "icon": "⚠️",
@@ -194,7 +195,7 @@
         {
           "type": "heading",
           "level": 3,
-          "text": "✨ Main features (as of v4.1)"
+          "text": "✨ Main features (as of v4.2)"
         },
         {
           "type": "soft_cards",
@@ -368,19 +369,49 @@
     {
       "icon": "🎭",
       "category": "WHAT'S NEW",
-      "title": "❸ From v3.0 to v4.1 — highlights by version",
+      "title": "❸ From v3.0 to v4.2 — highlights by version",
       "intro": "Updates keep coming after the one-time purchase. Here is what has been added so far.",
       "blocks": [
         {
           "type": "figure",
-          "image": "./img/v41-hero-en.png",
-          "alt": "Key art for SlideCast Studio v4.1 FRAME",
-          "caption": "The current version, v4.1 “FRAME”: make every slide clearer"
+          "image": "./img/v42-hero-en.jpg",
+          "alt": "Key art for SlideCast Studio v4.2 TATE",
+          "caption": "The current version, v4.2 “TATE”: subtitles and bubbles, set vertically"
         },
         {
           "type": "tabs",
           "label": "Highlights by version",
           "items": [
+            {
+              "label": "v4.2 TATE",
+              "blocks": [
+                {
+                  "type": "html",
+                  "html": "<p>Set <strong>subtitles, speech bubbles, badges and text stickers in vertical Japanese writing</strong>, add three more expressions, and edit acting assets after they are imported.</p>"
+                },
+                {
+                  "type": "figure",
+                  "image": "./img/v42-01.png",
+                  "alt": "The same script shown with a horizontal subtitle and a vertical subtitle in the Japanese interface",
+                  "caption": "Switching the text direction presents the same script vertically"
+                },
+                {
+                  "type": "soft_cards",
+                  "items": [
+                    { "icon": "📝", "title": "Vertical subtitles", "text": "Both the subtitle band and speech bubbles can run vertically." },
+                    { "icon": "📐", "title": "Vertical placement", "text": "Put the band left, centre or right, or split the frame." },
+                    { "icon": "🔤", "title": "Latin orientation", "text": "Upright, rotated as a run, or combined into the line." },
+                    { "icon": "🎭", "title": "Six expressions", "text": "Surprised, troubled and thinking join the set." },
+                    { "icon": "🗂️", "title": "Editable assets", "text": "Replace, add or delete expressions and gestures later." }
+                  ]
+                },
+                {
+                  "type": "link",
+                  "url": "../updates/v42/",
+                  "label": "Read the v4.2 release notes"
+                }
+              ]
+            },
             {
               "label": "v4.1 FRAME",
               "blocks": [
@@ -1208,6 +1239,11 @@
           "type": "timeline",
           "items": [
             {
+              "date": "2026.09.08",
+              "title": "v4.2 TATE",
+              "text": "Added vertical subtitles and speech bubbles, vertical badges and stickers with inner padding, three expressions and editable acting assets."
+            },
+            {
               "date": "2026.09.04",
               "title": "v4.1 FRAME",
               "text": "Added per-slide layout, active sticker motion, multilingual fonts, lighter backups and improved video export."
@@ -1311,6 +1347,12 @@
         {
           "type": "link_cards",
           "items": [
+            {
+              "icon": "🆕",
+              "title": "v4.2 TATE release notes",
+              "text": "Vertical subtitles, vertical speech bubbles and editable acting assets",
+              "url": "../updates/v42/"
+            },
             {
               "icon": "🆕",
               "title": "v4.1 FRAME release notes",

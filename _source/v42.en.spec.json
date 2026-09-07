@@ -1,0 +1,260 @@
+{
+  "title": "SlideCast Studio v4.2 “TATE”",
+  "subtitle": "Update — vertical subtitles, vertical speech bubbles and editable acting assets",
+  "description": "SlideCast Studio v4.2 TATE adds a text direction setting for vertical subtitles and speech bubbles, vertical band placement and Latin character orientation, vertical badges and text stickers with inner padding, three new expressions, and editing of acting assets after import.",
+  "lead": "",
+  "eyebrow": "SLIDECAST STUDIO · UPDATE",
+  "brand": "SlideCast ",
+  "brand_accent": "Studio",
+  "brand_badge": "v4.2",
+  "author": "aokuma",
+  "date": "2026.09.08",
+  "version": "v4.2 TATE",
+  "footer_meta": "SlideCast Studio documentation · aokuma",
+  "hero_image": "./img/v42-hero-en.jpg",
+  "hero_alt": "SlideCast Studio v4.2 TATE — Subtitles and bubbles, set vertically.",
+  "chips": [
+    "📝 Vertical subtitles",
+    "💬 Vertical speech bubbles",
+    "🎭 Editable acting assets"
+  ],
+  "stats": [
+    { "icon": "↕️", "value": "2 directions", "label": "Switch between horizontal and vertical" },
+    { "icon": "🔤", "value": "3 options", "label": "Latin characters inside vertical text" },
+    { "icon": "🎭", "value": "6 types", "label": "Available expressions" },
+    { "icon": "🚀", "value": "v4.2", "label": "TATE" }
+  ],
+  "theme": {
+    "primary": "#6b5bf0",
+    "secondary": "#1fa2c8",
+    "accent": "#e0609f",
+    "surface": "#f3f2ff",
+    "ink": "#171d38"
+  },
+  "nav_links": [
+    { "href": "../../", "icon": "🏠", "label": "HOME" },
+    { "href": "../../manual/", "icon": "📘", "label": "Official manual" }
+  ],
+  "source_url": "https://note.com/bluezzly/n/n494f81c1462c",
+  "source_label": "Read the original on note",
+  "source_title": "📝 Original article and updates",
+  "source_note": "See the note article for later additions and comments.",
+  "update_header": false,
+  "sections_label": "UPDATE INDEX",
+  "overview": {
+    "icon": "👋",
+    "title": "Introduction and update overview",
+    "blocks": [
+      { "type": "callout", "tone": "info", "title": "🌐 About the screenshots", "text": "The interface screenshots on this page use the Japanese edition. The English captions explain the relevant controls and behaviour. “TATE” (縦) means vertical writing, the traditional Japanese layout that reads from top to bottom and right to left." },
+      { "type": "html", "html": "<p>SlideCast Studio has been updated to <strong>v4.2 “TATE”</strong>.</p><p>The previous release, v4.1 “FRAME”, let you refine the image, character and subtitle layout on each slide. This release focuses on <strong>making videos that present their text vertically</strong>.</p><p>Vertical writing suits literary and traditional Japanese material: narrated novels and essays, haiku and tanka, product introductions in a Japanese style, language teaching material, and manga-style dialogue. You can switch to it without redoing your horizontal settings.</p>" },
+      {
+        "type": "cards",
+        "items": [
+          { "icon": "📝", "title": "Text direction", "text": "Switch subtitles and speech bubbles to vertical" },
+          { "icon": "📐", "title": "Vertical band position", "text": "Place it left, centre or right, with a split layout" },
+          { "icon": "🔤", "title": "Latin character orientation", "text": "Upright, rotated, or combined into the line" },
+          { "icon": "🏷️", "title": "Badges and stickers", "text": "Vertical text plus adjustable inner padding" },
+          { "icon": "🎭", "title": "Three new expressions", "text": "Surprised, troubled and thinking" },
+          { "icon": "🗂️", "title": "Edit acting assets", "text": "Replace, add and delete expressions and gestures" },
+          { "icon": "💬", "title": "Speech bubble fixes", "text": "Tail shape, line wrapping and drag positioning" },
+          { "icon": "🧩", "title": "Bundle Builder update", "text": "Undo a deleted image or regenerate it in place" }
+        ]
+      },
+      { "type": "figure", "image": "./img/v42-01.png", "alt": "The same script shown with a horizontal subtitle and a vertical subtitle", "caption": "With the same script, switching the text direction moves the subtitle into a vertical band on the right" }
+    ]
+  },
+  "sections": [
+    {
+      "icon": "📝",
+      "category": "TEXT DIRECTION",
+      "title": "Set subtitles and speech bubbles vertically",
+      "intro": "The Subtitle tab of the settings dialog now has a text direction setting.",
+      "blocks": [
+        { "type": "html", "html": "<p>Choose between <strong>horizontal</strong> (as before) and <strong>vertical</strong>. The switch applies to both the subtitle band and the speech bubbles of your characters. Font, text size, colour, outline and shadow settings carry over unchanged.</p>" },
+        { "type": "figure", "image": "./img/v42-02.png", "alt": "The text direction control in the Subtitle tab set to vertical, with the preview beside it", "caption": "Selecting the vertical option (文字の方向 → 縦書き) turns the subtitle in the preview vertical straight away" },
+        { "type": "callout", "tone": "good", "title": "🔒 Horizontal remains the default", "text": "Existing projects open exactly as before. Switch only the projects you want to present vertically." },
+        { "type": "html", "html": "<p>Simple mode shows a note on screen when a project is set to vertical. Change the direction and placement from the Subtitle tab in the detailed settings.</p>" }
+      ]
+    },
+    {
+      "icon": "📐",
+      "category": "LAYOUT",
+      "title": "Place the vertical band on the left, centre or right",
+      "intro": "In vertical mode the position controls change to their vertical equivalents.",
+      "blocks": [
+        { "type": "html", "html": "<p>The <strong>vertical band position</strong> can be set to <strong>left, centre or right</strong>; right is the default. Japanese vertical text reads from right to left, so the default already reads naturally. Centre suits a single short line placed in the middle of the frame. For the left and right positions, the <strong>side margin</strong> (0–500px) sets the distance from the edge of the frame.</p>" },
+        { "type": "figure", "image": "./img/v42-03.png", "alt": "Vertical position settings: band position, bubble vertical alignment, vertical padding and band width", "caption": "Vertical mode offers band position (左・中央・右 = left, centre, right), band width and vertical padding" },
+        {
+          "type": "table",
+          "nowrap": true,
+          "head": ["Vertical setting", "Range", "Horizontal equivalent"],
+          "rows": [
+            ["Band width (bubble size reference)", "50–800px", "Band height"],
+            ["Band vertical padding", "0–400px", "Side padding"],
+            ["Band side margin", "0–500px", "Distance from the frame edge"],
+            ["Speech bubble alignment", "Top, middle, bottom", "Bubble placement"]
+          ]
+        },
+        { "type": "heading", "level": 3, "text": "A left/right split layout is supported too" },
+        { "type": "html", "html": "<p>With the separated layout, vertical mode presents it as a <strong>left/right split</strong>: the subtitle takes one side of the frame and the visuals fill the rest. It keeps subtitles off your documents and photos while staying vertical.</p>" },
+        { "type": "callout", "tone": "warn", "title": "⚠️ When the text does not fit the band", "text": "The settings screen shows a warning asking you to split the script or adjust the text size. Split the script, or revisit the text size and band width." }
+      ]
+    },
+    {
+      "icon": "🔤",
+      "category": "LATIN CHARACTERS",
+      "title": "Choose how numbers and Latin letters appear",
+      "intro": "A new setting offers three ways to present Latin characters inside vertical text.",
+      "blocks": [
+        {
+          "type": "soft_cards",
+          "items": [
+            { "icon": "🎯", "title": "Automatic", "text": "One digit upright, two digits combined into the line; other Latin runs rotated (default)" },
+            { "icon": "⬆️", "title": "Upright, one by one", "text": "Every character stands upright, stacked down the line" },
+            { "icon": "➡️", "title": "Rotated as a run", "text": "Words and URLs stay together and turn on their side" }
+          ]
+        },
+        { "type": "figure", "image": "./img/v42-04.png", "alt": "The same sentence rendered with each of the three Latin character options", "caption": "The same sentence, with numbers and Latin words presented differently by each option" },
+        { "type": "html", "html": "<p>The default is Automatic, which keeps dates and quantities such as “2026年” and “10月” easy to read. Choose the rotated option when a product name or URL should stay legible as a word, and the upright option when numbers or symbols should line up one per row.</p><p>Punctuation, small kana, brackets and the long vowel mark are drawn in their vertical positions and orientations as well.</p>" }
+      ]
+    },
+    {
+      "icon": "🏷️",
+      "category": "BADGES AND STICKERS",
+      "title": "Badges and text stickers can be vertical as well",
+      "intro": "The text direction setting is also available for badges and text stickers.",
+      "blocks": [
+        { "type": "html", "html": "<p>As with subtitles, you set the direction and the Latin character treatment individually. Place a vertical title in a corner of the frame, or add a vertical label beside a document. You can also keep subtitles horizontal and make only the stickers vertical.</p>" },
+        { "type": "figure", "image": "./img/v42-05.png", "alt": "A frame with a vertical badge and a vertical text sticker", "caption": "A vertical title badge and a vertical sticker label combined with a vertical subtitle" },
+        { "type": "heading", "level": 3, "text": "Inner padding is adjustable" },
+        { "type": "html", "html": "<p>Badges and text stickers gained <strong>horizontal padding</strong> and <strong>vertical padding</strong> settings. Both accept 60%–160% in 5% steps and default to 100%, so text can sit tightly inside its background or breathe more.</p><p>When you resize a text sticker by dragging its edge, the padding is preserved as the text rewraps and scales.</p>" },
+        { "type": "callout", "tone": "good", "title": "🔒 Existing data is unchanged", "text": "Items saved before this release keep their previous appearance." }
+      ]
+    },
+    {
+      "icon": "🎭",
+      "category": "EXPRESSIONS AND ASSETS",
+      "title": "Surprised, troubled and thinking join the expressions",
+      "intro": "With happy, sad and angry, six expressions are now available.",
+      "blocks": [
+        { "type": "html", "html": "<p>Characters gained the <strong>surprised, troubled and thinking</strong> expressions. Automatic acting can pick them up from the wording of a line.</p>" },
+        { "type": "callout", "tone": "good", "title": "🔒 Existing characters look the same", "text": "Only the happy expression is enabled automatically, as before, and an expression without artwork is never used." },
+        { "type": "heading", "level": 3, "text": "Replace acting assets one frame at a time" },
+        { "type": "html", "html": "<p>Character settings gained an <strong>acting assets</strong> panel for expressions and gestures, so material imported from a MouthLoop character pack can be edited later.</p>" },
+        {
+          "type": "check_list",
+          "items": [
+            "Replace a single expression frame",
+            "Add an expression from six images of your own, or from a ZIP",
+            "Add a gesture (2–60 frames, up to three gestures)",
+            "Change a gesture’s display name and frame duration",
+            "Delete material you no longer need"
+          ]
+        },
+        { "type": "figure", "image": "./img/v42-06.png", "alt": "The acting assets panel in character settings, listing expressions with buttons to add expressions and gestures", "caption": "Register expressions in the same order as the six base frames (eyes open, mouth closed → eyes closed, mouth open). A ZIP can be selected directly" },
+        { "type": "html", "html": "<p>You can add a missing expression without rebuilding the whole pack, and the same panel is available from character settings in Simple mode. Any acting that referenced deleted material falls back to the standard presentation.</p>" }
+      ]
+    },
+    {
+      "icon": "💬",
+      "category": "SPEECH BUBBLES",
+      "title": "Speech bubble and subtitle fixes",
+      "intro": "Vertical support came with a review of how speech bubbles are drawn.",
+      "blocks": [
+        {
+          "type": "check_list",
+          "items": [
+            "Fixed an unnatural tail growing from the top edge of a wide bubble towards a character in the upper left",
+            "Limited the tail length to 45% of the shorter side and joined its base with a curve",
+            "Fixed an abrupt length change when the tail adjustment was set to zero",
+            "Fixed vertical bubbles drifting up and down with the length of the line (they are now anchored at the top)",
+            "Long lines now rewrap to the space available where you drag the bubble",
+            "Fixed a delayed response when reversing direction after dragging to the edge of the frame",
+            "Entering the character and subtitle tab, or changing slides, moves playback once to the selected character’s line (it stays put after you seek manually)"
+          ]
+        },
+        { "type": "html", "html": "<p>A long line is rebuilt to remain readable wherever you move the bubble. Text that fitted before the move stops at the position where the whole line still fits at the minimum scale.</p>" }
+      ]
+    },
+    {
+      "icon": "⚙️",
+      "category": "INTERFACE TIDYING",
+      "title": "Explanations in the settings and export screens are tidier",
+      "intro": "Long standing explanations now open from a “?” button.",
+      "blocks": [
+        {
+          "type": "check_list",
+          "items": [
+            "Notes about frame rate and resolution in video export moved into the “?” button",
+            "The pre-export summary is laid out in two columns for easier reading",
+            "In the General settings tab, the preset save button moved up to the heading"
+          ]
+        },
+        { "type": "html", "html": "<p>The export procedure and the available settings are unchanged; this only reduces how much you have to scroll to find them.</p>" }
+      ]
+    },
+    {
+      "icon": "🧩",
+      "category": "BUNDLE BUILDER",
+      "title": "SlideCast Bundle Builder was updated too",
+      "intro": "This release focuses on recovering an image you deleted by mistake.",
+      "blocks": [
+        { "type": "heading", "level": 3, "text": "Undo a deleted image" },
+        { "type": "html", "html": "<p>When you delete an image, a placeholder stays in its position and offers three choices.</p>" },
+        {
+          "type": "soft_cards",
+          "items": [
+            { "icon": "↩️", "title": "Undo", "text": "Restore the deleted image as it was" },
+            { "icon": "🔁", "title": "Regenerate here", "text": "Create a new image in the same position (a normal generation runs)" },
+            { "icon": "⏭️", "title": "Close the gap", "text": "Give up on the image and renumber the remaining pages" }
+          ]
+        },
+        { "type": "figure", "image": "./img/v42-07.png", "alt": "Bundle Builder immediately after deleting an image, showing the undo, regenerate and close-the-gap buttons", "caption": "The placeholder keeps the position so you can restore or rebuild the image on the spot" },
+        { "type": "callout", "tone": "warn", "title": "⏳ Recovery lasts until you leave the input screen", "text": "Moving to the next step renumbers the pages without the deleted ones. Starting a full regeneration also discards the recovery data." },
+        { "type": "heading", "level": 3, "text": "Easier reordering and single-image regeneration" },
+        { "type": "html", "html": "<p>Buttons to move an image left or right, and to regenerate just that image, were added to the list. Actions that are hard to undo, such as deleting or regenerating, now ask for confirmation — including inside embedded environments such as Gemini Canvas.</p><p>Image generation can be cancelled while it runs, and the screen says so when it is. The updated build opens from the Bundle Builder link inside SlideCast Studio; if you saved the old link, open it from the app instead.</p>" },
+        { "type": "callout", "tone": "warn", "title": "💰 Generation costs still apply", "text": "Regenerating in place, like any single-image regeneration, runs a normal generation. If you use your own API key, keep its usage charges in mind." }
+      ]
+    },
+    {
+      "icon": "📌",
+      "category": "NOTES",
+      "title": "Before you switch to vertical text",
+      "intro": "A few points worth knowing about this release.",
+      "blocks": [
+        {
+          "type": "check_list",
+          "items": [
+            "Vertical writing affects how subtitles, speech bubbles, badges and text stickers are displayed. It does not rewrite or translate your text",
+            "Switching to vertical replaces the position controls with their vertical equivalents. The horizontal band height and the vertical band width are stored separately, so switching back restores the previous look",
+            "If the text does not fit the vertical band, a warning appears. Adjust by splitting the script, or changing the text size or band width",
+            "Expression and gesture material is stored per character. As it grows, backups grow too, so combine it with the selective backup added in v4.1",
+            "Existing projects open with horizontal text and 100% padding, exactly as before"
+          ]
+        }
+      ]
+    },
+    {
+      "icon": "⬆️",
+      "category": "HOW TO UPDATE",
+      "title": "Updating to v4.2",
+      "intro": "If you have purchased SlideCast Studio, copy v4.2 from the same paid note shared link as before.",
+      "blocks": [
+        { "type": "callout", "tone": "good", "title": "💾 Make a backup first", "text": "If you want to keep your existing projects, libraries and settings, create a backup from the data save screen before updating." },
+        { "type": "html", "html": "<p>To update the GAS edition while keeping the same URL, replace “AppBundle.html” from the v4.2 distribution folder, apply it to your existing Apps Script project, and redeploy the existing deployment as a new version.</p>" },
+        { "type": "link", "url": "../../gas-update/", "label": "Detailed update steps for the GAS edition" },
+        { "type": "html", "html": "<p>For the local HTML edition, download “SlideCast Studio v4.2 (local edition).html” and open it. A new Apps Script project or a different browser will not show your earlier data automatically; restore it from a backup instead.</p>" }
+      ]
+    },
+    {
+      "icon": "🎬",
+      "category": "IN CLOSING",
+      "title": "Which way should the text be read?",
+      "intro": "One script, two very different impressions.",
+      "blocks": [
+        { "type": "html", "html": "<p>v4.1 “FRAME” was about where things sit within a single slide. v4.2 “TATE” is about <strong>which way the text is read</strong>. Horizontal stays as readable as ever, and material that suits vertical writing can now be set vertically — from the same script.</p><p>Vertical subtitles suit traditional Japanese subjects, literary material and a book-like presentation. Try one short slide first and compare the two directions.</p>" },
+        { "type": "cta", "title": "The original article is on note", "text": "The full Japanese article, later additions and comments are published there.", "url": "https://note.com/bluezzly/n/n494f81c1462c", "label": "Read the original on note" }
+      ]
+    }
+  ]
+}

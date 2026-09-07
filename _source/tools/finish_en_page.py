@@ -94,6 +94,14 @@ PAGE_META: dict[str, dict[str, str]] = {
             "effects, sound effects, snapping, reusable libraries, mosaic and blur."
         ),
     },
+    "en/updates/v42/": {
+        "og_title": "SlideCast Studio v4.2 “TATE”",
+        "og_description": (
+            "Vertical subtitles and speech bubbles, vertical band placement and Latin "
+            "character orientation, vertical badges and stickers with inner padding, "
+            "three new expressions, and editable acting assets."
+        ),
+    },
     "en/updates/v41/": {
         "og_title": "SlideCast Studio v4.1 “FRAME”",
         "og_description": (

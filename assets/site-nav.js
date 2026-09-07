@@ -44,6 +44,8 @@
       group: '更新履歴',
       group_en: 'Release notes',
       items: [
+        { href: 'updates/v42/', icon: '🆕', label: 'v4.2「TATE」', desc: '縦書き字幕・縦書きの吹き出し・演技素材の編集',
+          en: true, label_en: 'v4.2 “TATE”', desc_en: 'Vertical subtitles, vertical speech bubbles and editable acting assets' },
         { href: 'updates/v41/', icon: '🆕', label: 'v4.1「FRAME」', desc: 'スライド別配置・表示中の動き・書き出し改善', en: true, label_en: 'v4.1 “FRAME”', desc_en: 'Per-slide layout, active sticker motion and export improvements' },
         { href: 'updates/v40/', icon: '🆕', label: 'v4.0「DECAL」', desc: 'ステッカー・段階表示・登場退場',
           en: true, label_en: 'v4.0 "DECAL"', desc_en: 'Stickers, progressive reveals and timed effects' },
