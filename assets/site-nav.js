@@ -44,6 +44,8 @@
       group: '更新履歴',
       group_en: 'Release notes',
       items: [
+        { href: 'updates/v43/', icon: '🆕', label: 'v4.3「RENDER」', desc: 'フレーム生成の高品質な動画書き出し',
+          en: true, label_en: 'v4.3 “RENDER”', desc_en: 'High-quality, frame-by-frame video export' },
         { href: 'updates/v42/', icon: '🆕', label: 'v4.2「TATE」', desc: '縦書き字幕・縦書きの吹き出し・演技素材の編集',
           en: true, label_en: 'v4.2 “TATE”', desc_en: 'Vertical subtitles, vertical speech bubbles and editable acting assets' },
         { href: 'updates/v41/', icon: '🆕', label: 'v4.1「FRAME」', desc: 'スライド別配置・表示中の動き・書き出し改善', en: true, label_en: 'v4.1 “FRAME”', desc_en: 'Per-slide layout, active sticker motion and export improvements' },

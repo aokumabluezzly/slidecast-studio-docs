@@ -94,6 +94,14 @@ PAGE_META: dict[str, dict[str, str]] = {
             "effects, sound effects, snapping, reusable libraries, mosaic and blur."
         ),
     },
+    "en/updates/v43/": {
+        "og_title": "SlideCast Studio v4.3 “RENDER”",
+        "og_description": (
+            "A high-quality, frame-by-frame video export that never drops frames and "
+            "keeps audio in step with the picture, plus fixes for stalled exports, "
+            "faster 4K footage, and clearer licence terms."
+        ),
+    },
     "en/updates/v42/": {
         "og_title": "SlideCast Studio v4.2 “TATE”",
         "og_description": (
