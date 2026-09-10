@@ -280,12 +280,37 @@ a{color:var(--primary-ink)}
 /* ---------- feature cards ---------- */
 .feature-grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:clamp(10px,1.4vw,14px)}
 .feature-chip{
-  display:flex;flex-direction:column;align-items:center;justify-content:flex-start;gap:9px;
-  padding:20px 12px 18px;border-radius:var(--r-md);text-align:center;
+  position:relative;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;gap:9px;
+  width:100%;padding:20px 12px 18px;border:0;border-radius:var(--r-md);text-align:center;
   background:var(--grad-deep);color:var(--on-deep);box-shadow:var(--shadow-deep);
+  font-family:inherit;cursor:pointer;
   transition:transform .2s ease;
 }
 .feature-chip:hover{transform:translateY(-3px)}
+/* ホバー（スマホはタップ）で出る機能説明 */
+.feature-pop{
+  position:absolute;left:50%;bottom:calc(100% + 12px);z-index:6;
+  width:max-content;max-width:min(268px,74vw);
+  padding:11px 13px;border-radius:var(--r-sm);border:1px solid var(--line-strong);
+  background:var(--card);color:var(--ink-soft);box-shadow:var(--shadow);
+  font-size:.78rem;font-weight:400;line-height:1.75;text-align:left;letter-spacing:normal;
+  opacity:0;visibility:hidden;pointer-events:none;
+  transform:translate(calc(-50% + var(--pop-shift,0px)),5px);
+  transition:opacity .18s ease,transform .18s ease,visibility .18s;
+}
+.feature-pop::after{
+  content:"";position:absolute;top:100%;left:calc(50% - var(--pop-shift,0px));margin-left:-6px;
+  border:6px solid transparent;border-top-color:var(--line-strong);
+}
+.feature-chip.is-open .feature-pop,.feature-chip:focus-visible .feature-pop{
+  opacity:1;visibility:visible;transform:translate(calc(-50% + var(--pop-shift,0px)),0);
+}
+@media (hover:hover){
+  .feature-chip:hover .feature-pop{opacity:1;visibility:visible;transform:translate(calc(-50% + var(--pop-shift,0px)),0)}
+}
+@media (prefers-reduced-motion:reduce){
+  .feature-pop{transition:none}
+}
 .feature-chip i{font-size:1.75rem;line-height:1;font-style:normal}
 .feature-chip strong{font-size:.85rem;font-weight:var(--fw-title);line-height:1.55;letter-spacing:.01em}
 .feature-note{
@@ -533,31 +558,31 @@ a{color:var(--primary-ink)}
         <p>ブラウザだけで完結する、インストール不要のスライド動画作成ツールです。</p>
       </div>
       <div class="feature-grid">
-        <div class="feature-chip"><i aria-hidden="true">🤖</i><strong>AI台本生成</strong></div>
-        <div class="feature-chip"><i aria-hidden="true">🔊</i><strong>AI音声合成</strong></div>
-        <div class="feature-chip"><i aria-hidden="true">🎤</i><strong>マイク録音</strong></div>
-        <div class="feature-chip"><i aria-hidden="true">🧱</i><strong>空のスライド</strong></div>
-        <div class="feature-chip"><i aria-hidden="true">🎬</i><strong>動画スライド</strong></div>
-        <div class="feature-chip"><i aria-hidden="true">🎭</i><strong>キャラクター演出</strong></div>
-        <div class="feature-chip"><i aria-hidden="true">🪄</i><strong>おまかせ演技</strong></div>
-        <div class="feature-chip"><i aria-hidden="true">🎞️</i><strong>スライドアニメ</strong></div>
-        <div class="feature-chip"><i aria-hidden="true">🔀</i><strong>画面切り替え効果</strong></div>
-        <div class="feature-chip"><i aria-hidden="true">🏷️</i><strong>スライド内ステッカー</strong></div>
-        <div class="feature-chip"><i aria-hidden="true">💬</i><strong>字幕・テロップ</strong></div>
-        <div class="feature-chip"><i aria-hidden="true">📝</i><strong>縦書き字幕</strong></div>
-        <div class="feature-chip"><i aria-hidden="true">🎨</i><strong>デザイン設定</strong></div>
-        <div class="feature-chip"><i aria-hidden="true">🖌️</i><strong>カラーパレット・プリセット</strong></div>
-        <div class="feature-chip"><i aria-hidden="true">🗂️</i><strong>素材ライブラリ</strong></div>
-        <div class="feature-chip"><i aria-hidden="true">🎵</i><strong>BGM 最大10トラック</strong></div>
-        <div class="feature-chip"><i aria-hidden="true">🔔</i><strong>効果音・文字送り音</strong></div>
-        <div class="feature-chip"><i aria-hidden="true">🕐</i><strong>スライド内タイムライン</strong></div>
-        <div class="feature-chip"><i aria-hidden="true">🎦</i><strong>OP/ED 動画</strong></div>
-        <div class="feature-chip"><i aria-hidden="true">📚</i><strong>ブック型PDF</strong></div>
-        <div class="feature-chip"><i aria-hidden="true">💾</i><strong>MP4・PPTX・PDF出力</strong></div>
-        <div class="feature-chip"><i aria-hidden="true">🎥</i><strong>高品質書き出し</strong></div>
-        <div class="feature-chip"><i aria-hidden="true">📐</i><strong>16:9・9:16・1:1</strong></div>
-        <div class="feature-chip"><i aria-hidden="true">🌐</i><strong>日本語・英語UI</strong></div>
-        <div class="feature-chip"><i aria-hidden="true">🔒</i><strong>ブラウザ内にデータ保存</strong></div>
+        <button class="feature-chip" type="button" aria-label="AI台本生成" aria-describedby="feature-pop-1" aria-expanded="false"><i aria-hidden="true">🤖</i><strong>AI台本生成</strong><span class="feature-pop" id="feature-pop-1" role="tooltip">資料を渡すだけで、対象読者・長さ・話者数を指定した台本を自動生成できます。</span></button>
+        <button class="feature-chip" type="button" aria-label="AI音声合成" aria-describedby="feature-pop-2" aria-expanded="false"><i aria-hidden="true">🔊</i><strong>AI音声合成</strong><span class="feature-pop" id="feature-pop-2" role="tooltip">30種類の声から選び、トーン（感情）も指定してナレーションを作れます。</span></button>
+        <button class="feature-chip" type="button" aria-label="マイク録音" aria-describedby="feature-pop-3" aria-expanded="false"><i aria-hidden="true">🎤</i><strong>マイク録音</strong><span class="feature-pop" id="feature-pop-3" role="tooltip">原稿を見ながら自分の声で録音し、前後をトリミングして差し替えられます（GAS版を除く）。</span></button>
+        <button class="feature-chip" type="button" aria-label="空のスライド" aria-describedby="feature-pop-4" aria-expanded="false"><i aria-hidden="true">🧱</i><strong>空のスライド</strong><span class="feature-pop" id="feature-pop-4" role="tooltip">資料画像なしで、タイトル・章区切り・エンドカード・会話シーンを作れます。</span></button>
+        <button class="feature-chip" type="button" aria-label="動画スライド" aria-describedby="feature-pop-5" aria-expanded="false"><i aria-hidden="true">🎬</i><strong>動画スライド</strong><span class="feature-pop" id="feature-pop-5" role="tooltip">MP4・WebM をスライドとして挿入し、再生範囲のトリミングもできます。</span></button>
+        <button class="feature-chip" type="button" aria-label="キャラクター演出" aria-describedby="feature-pop-6" aria-expanded="false"><i aria-hidden="true">🎭</i><strong>キャラクター演出</strong><span class="feature-pop" id="feature-pop-6" role="tooltip">口パク・表情・ポーズ仕草・呼吸モーションで、キャラクターが動きます。</span></button>
+        <button class="feature-chip" type="button" aria-label="おまかせ演技" aria-describedby="feature-pop-7" aria-expanded="false"><i aria-hidden="true">🪄</i><strong>おまかせ演技</strong><span class="feature-pop" id="feature-pop-7" role="tooltip">セリフの区切りに合わせて表情や仕草を自動配置します。API料金はかかりません。</span></button>
+        <button class="feature-chip" type="button" aria-label="スライドアニメ" aria-describedby="feature-pop-8" aria-expanded="false"><i aria-hidden="true">🎞️</i><strong>スライドアニメ</strong><span class="feature-pop" id="feature-pop-8" role="tooltip">Ken Burns のパン＆ズームで、静止画にゆっくりした動きを付けられます。</span></button>
+        <button class="feature-chip" type="button" aria-label="画面切り替え効果" aria-describedby="feature-pop-9" aria-expanded="false"><i aria-hidden="true">🔀</i><strong>画面切り替え効果</strong><span class="feature-pop" id="feature-pop-9" role="tooltip">スライドの境界ごとに、効果・時間・効果音・音量を個別に設定できます。</span></button>
+        <button class="feature-chip" type="button" aria-label="スライド内ステッカー" aria-describedby="feature-pop-10" aria-expanded="false"><i aria-hidden="true">🏷️</i><strong>スライド内ステッカー</strong><span class="feature-pop" id="feature-pop-10" role="tooltip">完成済みのスライドへ文字や画像を重ね、表示するタイミングまで決められます。</span></button>
+        <button class="feature-chip" type="button" aria-label="字幕・テロップ" aria-describedby="feature-pop-11" aria-expanded="false"><i aria-hidden="true">💬</i><strong>字幕・テロップ</strong><span class="feature-pop" id="feature-pop-11" role="tooltip">レイアウト・フォント・縁取り・影・表示アニメーションまで細かく調整できます。</span></button>
+        <button class="feature-chip" type="button" aria-label="縦書き字幕" aria-describedby="feature-pop-12" aria-expanded="false"><i aria-hidden="true">📝</i><strong>縦書き字幕</strong><span class="feature-pop" id="feature-pop-12" role="tooltip">字幕や吹き出しを縦書きに切り替え、帯の位置や英数字の向きも選べます。</span></button>
+        <button class="feature-chip" type="button" aria-label="デザイン設定" aria-describedby="feature-pop-13" aria-expanded="false"><i aria-hidden="true">🎨</i><strong>デザイン設定</strong><span class="feature-pop" id="feature-pop-13" role="tooltip">背景・グラデーション・角丸・バッジ・ロゴなど、画面の見た目を整えます。</span></button>
+        <button class="feature-chip" type="button" aria-label="カラーパレット・プリセット" aria-describedby="feature-pop-14" aria-expanded="false"><i aria-hidden="true">🖌️</i><strong>カラーパレット・プリセット</strong><span class="feature-pop" id="feature-pop-14" role="tooltip">よく使う配色や設定一式を保存して、ワンクリックで呼び出せます。</span></button>
+        <button class="feature-chip" type="button" aria-label="素材ライブラリ" aria-describedby="feature-pop-15" aria-expanded="false"><i aria-hidden="true">🗂️</i><strong>素材ライブラリ</strong><span class="feature-pop" id="feature-pop-15" role="tooltip">背景・BGM・OP/ED・ステッカーなどをブラウザに保存して使い回せます。</span></button>
+        <button class="feature-chip" type="button" aria-label="BGM 最大10トラック" aria-describedby="feature-pop-16" aria-expanded="false"><i aria-hidden="true">🎵</i><strong>BGM 最大10トラック</strong><span class="feature-pop" id="feature-pop-16" role="tooltip">スライド単位でBGMを切り替えられ、クロスフェードもかけられます。</span></button>
+        <button class="feature-chip" type="button" aria-label="効果音・文字送り音" aria-describedby="feature-pop-17" aria-expanded="false"><i aria-hidden="true">🔔</i><strong>効果音・文字送り音</strong><span class="feature-pop" id="feature-pop-17" role="tooltip">切り替え音、ステッカーの登場退場音、音声なし台詞のレトロRPG風テキスト音。</span></button>
+        <button class="feature-chip" type="button" aria-label="スライド内タイムライン" aria-describedby="feature-pop-18" aria-expanded="false"><i aria-hidden="true">🕐</i><strong>スライド内タイムライン</strong><span class="feature-pop" id="feature-pop-18" role="tooltip">音声・動画・間（ギャップ）を秒単位でドラッグして調整できます。</span></button>
+        <button class="feature-chip" type="button" aria-label="OP/ED 動画" aria-describedby="feature-pop-19" aria-expanded="false"><i aria-hidden="true">🎦</i><strong>OP/ED 動画</strong><span class="feature-pop" id="feature-pop-19" role="tooltip">オープニング・エンディング動画を差し込み、トリミングや表示方法も選べます。</span></button>
+        <button class="feature-chip" type="button" aria-label="ブック型PDF" aria-describedby="feature-pop-20" aria-expanded="false"><i aria-hidden="true">📚</i><strong>ブック型PDF</strong><span class="feature-pop" id="feature-pop-20" role="tooltip">スライド画像と字幕を1つにまとめた、A4縦の読み物として書き出せます。</span></button>
+        <button class="feature-chip" type="button" aria-label="MP4・PPTX・PDF出力" aria-describedby="feature-pop-21" aria-expanded="false"><i aria-hidden="true">💾</i><strong>MP4・PPTX・PDF出力</strong><span class="feature-pop" id="feature-pop-21" role="tooltip">動画のほか、PowerPoint・PDF・画像ZIPとしても書き出せます。</span></button>
+        <button class="feature-chip" type="button" aria-label="高品質書き出し" aria-describedby="feature-pop-22" aria-expanded="false"><i aria-hidden="true">🎥</i><strong>高品質書き出し</strong><span class="feature-pop" id="feature-pop-22" role="tooltip">1コマずつ描くフレーム生成で、コマ落ちと音ずれのない動画に仕上げます。</span></button>
+        <button class="feature-chip" type="button" aria-label="16:9・9:16・1:1" aria-describedby="feature-pop-23" aria-expanded="false"><i aria-hidden="true">📐</i><strong>16:9・9:16・1:1</strong><span class="feature-pop" id="feature-pop-23" role="tooltip">YouTube、ショート動画、正方形の投稿に合わせて画面比を選べます。</span></button>
+        <button class="feature-chip" type="button" aria-label="日本語・英語UI" aria-describedby="feature-pop-24" aria-expanded="false"><i aria-hidden="true">🌐</i><strong>日本語・英語UI</strong><span class="feature-pop" id="feature-pop-24" role="tooltip">アプリの表示言語を、日本語と英語で切り替えられます。</span></button>
+        <button class="feature-chip" type="button" aria-label="ブラウザ内にデータ保存" aria-describedby="feature-pop-25" aria-expanded="false"><i aria-hidden="true">🔒</i><strong>ブラウザ内にデータ保存</strong><span class="feature-pop" id="feature-pop-25" role="tooltip">作品は自分のブラウザ内（IndexedDB）に保存され、外部サーバーには送りません。</span></button>
       </div>
       <p class="feature-note">まだまだあります。細かい設定は<a href="manual/">公式マニュアル</a>で。</p>
     </div>
@@ -878,6 +903,42 @@ a{color:var(--primary-ink)}
     root.dataset.theme = root.dataset.theme === 'dark' ? 'light' : 'dark';
     localStorage.setItem('article-theme', root.dataset.theme);
   });
+
+  /* できることカード: ホバー（スマホはタップ）で機能説明を出す */
+  const featureChips = Array.from(document.querySelectorAll('.feature-chip'));
+  const placePop = chip => {
+    const pop = chip.querySelector('.feature-pop');
+    if (!pop) return;
+    pop.style.setProperty('--pop-shift', '0px');
+    const rect = pop.getBoundingClientRect();
+    const edge = 12;
+    let shift = 0;
+    if (rect.left < edge) shift = edge - rect.left;
+    else if (rect.right > innerWidth - edge) shift = innerWidth - edge - rect.right;
+    if (shift) pop.style.setProperty('--pop-shift', shift.toFixed(1) + 'px');
+  };
+  const closePops = except => featureChips.forEach(chip => {
+    if (chip === except) return;
+    chip.classList.remove('is-open');
+    chip.setAttribute('aria-expanded', 'false');
+  });
+  featureChips.forEach(chip => {
+    chip.addEventListener('pointerenter', () => placePop(chip));
+    chip.addEventListener('focus', () => placePop(chip));
+    chip.addEventListener('click', event => {
+      event.stopPropagation();
+      const open = !chip.classList.contains('is-open');
+      closePops(chip);
+      chip.classList.toggle('is-open', open);
+      chip.setAttribute('aria-expanded', open ? 'true' : 'false');
+      if (open) placePop(chip);
+    });
+  });
+  if (featureChips.length) {
+    document.addEventListener('click', () => closePops(null));
+    addEventListener('keydown', event => { if (event.key === 'Escape') closePops(null); });
+    addEventListener('resize', () => closePops(null));
+  }
 
   /* クリックされて初めて YouTube / Vimeo を読み込む。それまでは通信しない */
   document.querySelectorAll('.video-facade').forEach(button => {

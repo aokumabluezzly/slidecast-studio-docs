@@ -281,12 +281,37 @@ a{color:var(--primary-ink)}
 /* ---------- feature cards ---------- */
 .feature-grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:clamp(10px,1.4vw,14px)}
 .feature-chip{
-  display:flex;flex-direction:column;align-items:center;justify-content:flex-start;gap:9px;
-  padding:20px 12px 18px;border-radius:var(--r-md);text-align:center;
+  position:relative;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;gap:9px;
+  width:100%;padding:20px 12px 18px;border:0;border-radius:var(--r-md);text-align:center;
   background:var(--grad-deep);color:var(--on-deep);box-shadow:var(--shadow-deep);
+  font-family:inherit;cursor:pointer;
   transition:transform .2s ease;
 }
 .feature-chip:hover{transform:translateY(-3px)}
+/* ホバー（スマホはタップ）で出る機能説明 */
+.feature-pop{
+  position:absolute;left:50%;bottom:calc(100% + 12px);z-index:6;
+  width:max-content;max-width:min(268px,74vw);
+  padding:11px 13px;border-radius:var(--r-sm);border:1px solid var(--line-strong);
+  background:var(--card);color:var(--ink-soft);box-shadow:var(--shadow);
+  font-size:.78rem;font-weight:400;line-height:1.75;text-align:left;letter-spacing:normal;
+  opacity:0;visibility:hidden;pointer-events:none;
+  transform:translate(calc(-50% + var(--pop-shift,0px)),5px);
+  transition:opacity .18s ease,transform .18s ease,visibility .18s;
+}
+.feature-pop::after{
+  content:"";position:absolute;top:100%;left:calc(50% - var(--pop-shift,0px));margin-left:-6px;
+  border:6px solid transparent;border-top-color:var(--line-strong);
+}
+.feature-chip.is-open .feature-pop,.feature-chip:focus-visible .feature-pop{
+  opacity:1;visibility:visible;transform:translate(calc(-50% + var(--pop-shift,0px)),0);
+}
+@media (hover:hover){
+  .feature-chip:hover .feature-pop{opacity:1;visibility:visible;transform:translate(calc(-50% + var(--pop-shift,0px)),0)}
+}
+@media (prefers-reduced-motion:reduce){
+  .feature-pop{transition:none}
+}
 .feature-chip i{font-size:1.75rem;line-height:1;font-style:normal}
 .feature-chip strong{font-size:.85rem;font-weight:var(--fw-title);line-height:1.55;letter-spacing:.01em}
 .feature-note{
@@ -544,31 +569,31 @@ a{color:var(--primary-ink)}
         <p>A slide-video tool that runs start to finish in the browser. Nothing to install.</p>
       </div>
       <div class="feature-grid">
-        <div class="feature-chip"><i aria-hidden="true">🤖</i><strong>AI script writing</strong></div>
-        <div class="feature-chip"><i aria-hidden="true">🔊</i><strong>AI voice synthesis</strong></div>
-        <div class="feature-chip"><i aria-hidden="true">🎤</i><strong>Microphone recording</strong></div>
-        <div class="feature-chip"><i aria-hidden="true">🧱</i><strong>Blank slides</strong></div>
-        <div class="feature-chip"><i aria-hidden="true">🎬</i><strong>Video slides</strong></div>
-        <div class="feature-chip"><i aria-hidden="true">🎭</i><strong>Character performance</strong></div>
-        <div class="feature-chip"><i aria-hidden="true">🪄</i><strong>Automatic acting</strong></div>
-        <div class="feature-chip"><i aria-hidden="true">🎞️</i><strong>Slide animation</strong></div>
-        <div class="feature-chip"><i aria-hidden="true">🔀</i><strong>Slide transitions</strong></div>
-        <div class="feature-chip"><i aria-hidden="true">🏷️</i><strong>In-slide stickers</strong></div>
-        <div class="feature-chip"><i aria-hidden="true">💬</i><strong>Subtitles &amp; captions</strong></div>
-        <div class="feature-chip"><i aria-hidden="true">📝</i><strong>Vertical subtitles</strong></div>
-        <div class="feature-chip"><i aria-hidden="true">🎨</i><strong>Design settings</strong></div>
-        <div class="feature-chip"><i aria-hidden="true">🖌️</i><strong>Palettes &amp; presets</strong></div>
-        <div class="feature-chip"><i aria-hidden="true">🗂️</i><strong>Asset library</strong></div>
-        <div class="feature-chip"><i aria-hidden="true">🎵</i><strong>Up to 10 BGM tracks</strong></div>
-        <div class="feature-chip"><i aria-hidden="true">🔔</i><strong>Sound &amp; typing effects</strong></div>
-        <div class="feature-chip"><i aria-hidden="true">🕐</i><strong>Per-slide timeline</strong></div>
-        <div class="feature-chip"><i aria-hidden="true">🎦</i><strong>Opening &amp; ending videos</strong></div>
-        <div class="feature-chip"><i aria-hidden="true">📚</i><strong>Book-style PDF</strong></div>
-        <div class="feature-chip"><i aria-hidden="true">💾</i><strong>MP4, PPTX &amp; PDF export</strong></div>
-        <div class="feature-chip"><i aria-hidden="true">🎥</i><strong>High-quality export</strong></div>
-        <div class="feature-chip"><i aria-hidden="true">📐</i><strong>16:9, 9:16 &amp; 1:1</strong></div>
-        <div class="feature-chip"><i aria-hidden="true">🌐</i><strong>Japanese &amp; English UI</strong></div>
-        <div class="feature-chip"><i aria-hidden="true">🔒</i><strong>Data stays in your browser</strong></div>
+        <button class="feature-chip" type="button" aria-label="AI script writing" aria-describedby="feature-pop-1" aria-expanded="false"><i aria-hidden="true">🤖</i><strong>AI script writing</strong><span class="feature-pop" id="feature-pop-1" role="tooltip">Hand it your slides and it drafts a script for the audience, length and number of speakers you choose.</span></button>
+        <button class="feature-chip" type="button" aria-label="AI voice synthesis" aria-describedby="feature-pop-2" aria-expanded="false"><i aria-hidden="true">🔊</i><strong>AI voice synthesis</strong><span class="feature-pop" id="feature-pop-2" role="tooltip">Narration from a choice of 30 voices, with tone (emotion) direction.</span></button>
+        <button class="feature-chip" type="button" aria-label="Microphone recording" aria-describedby="feature-pop-3" aria-expanded="false"><i aria-hidden="true">🎤</i><strong>Microphone recording</strong><span class="feature-pop" id="feature-pop-3" role="tooltip">Read the script on screen, record in your own voice, and trim both ends (not in the Apps Script edition).</span></button>
+        <button class="feature-chip" type="button" aria-label="Blank slides" aria-describedby="feature-pop-4" aria-expanded="false"><i aria-hidden="true">🧱</i><strong>Blank slides</strong><span class="feature-pop" id="feature-pop-4" role="tooltip">Build title cards, chapter breaks, end cards and conversation scenes without any source image.</span></button>
+        <button class="feature-chip" type="button" aria-label="Video slides" aria-describedby="feature-pop-5" aria-expanded="false"><i aria-hidden="true">🎬</i><strong>Video slides</strong><span class="feature-pop" id="feature-pop-5" role="tooltip">Drop MP4 or WebM in as a slide, and trim the part that plays.</span></button>
+        <button class="feature-chip" type="button" aria-label="Character performance" aria-describedby="feature-pop-6" aria-expanded="false"><i aria-hidden="true">🎭</i><strong>Character performance</strong><span class="feature-pop" id="feature-pop-6" role="tooltip">Lip sync, expressions, posed gestures and a breathing motion bring the character to life.</span></button>
+        <button class="feature-chip" type="button" aria-label="Automatic acting" aria-describedby="feature-pop-7" aria-expanded="false"><i aria-hidden="true">🪄</i><strong>Automatic acting</strong><span class="feature-pop" id="feature-pop-7" role="tooltip">Expressions and gestures are placed automatically at natural breaks. No API cost.</span></button>
+        <button class="feature-chip" type="button" aria-label="Slide animation" aria-describedby="feature-pop-8" aria-expanded="false"><i aria-hidden="true">🎞️</i><strong>Slide animation</strong><span class="feature-pop" id="feature-pop-8" role="tooltip">Slow Ken Burns pans and zooms give still images some movement.</span></button>
+        <button class="feature-chip" type="button" aria-label="Slide transitions" aria-describedby="feature-pop-9" aria-expanded="false"><i aria-hidden="true">🔀</i><strong>Slide transitions</strong><span class="feature-pop" id="feature-pop-9" role="tooltip">Set the effect, duration, sound and volume separately for every slide boundary.</span></button>
+        <button class="feature-chip" type="button" aria-label="In-slide stickers" aria-describedby="feature-pop-10" aria-expanded="false"><i aria-hidden="true">🏷️</i><strong>In-slide stickers</strong><span class="feature-pop" id="feature-pop-10" role="tooltip">Layer text and images over a finished slide, and decide exactly when they appear.</span></button>
+        <button class="feature-chip" type="button" aria-label="Subtitles &amp; captions" aria-describedby="feature-pop-11" aria-expanded="false"><i aria-hidden="true">💬</i><strong>Subtitles &amp; captions</strong><span class="feature-pop" id="feature-pop-11" role="tooltip">Layout, font, stroke, shadow and entrance animation are all adjustable.</span></button>
+        <button class="feature-chip" type="button" aria-label="Vertical subtitles" aria-describedby="feature-pop-12" aria-expanded="false"><i aria-hidden="true">📝</i><strong>Vertical subtitles</strong><span class="feature-pop" id="feature-pop-12" role="tooltip">Switch subtitles and speech bubbles to vertical, with band position and character orientation.</span></button>
+        <button class="feature-chip" type="button" aria-label="Design settings" aria-describedby="feature-pop-13" aria-expanded="false"><i aria-hidden="true">🎨</i><strong>Design settings</strong><span class="feature-pop" id="feature-pop-13" role="tooltip">Backgrounds, gradients, rounded corners, badges and logos shape the look of the frame.</span></button>
+        <button class="feature-chip" type="button" aria-label="Palettes &amp; presets" aria-describedby="feature-pop-14" aria-expanded="false"><i aria-hidden="true">🖌️</i><strong>Palettes &amp; presets</strong><span class="feature-pop" id="feature-pop-14" role="tooltip">Save the colours and settings you use often and recall them in one click.</span></button>
+        <button class="feature-chip" type="button" aria-label="Asset library" aria-describedby="feature-pop-15" aria-expanded="false"><i aria-hidden="true">🗂️</i><strong>Asset library</strong><span class="feature-pop" id="feature-pop-15" role="tooltip">Keep backgrounds, BGM, opening/ending videos and stickers in the browser and reuse them.</span></button>
+        <button class="feature-chip" type="button" aria-label="Up to 10 BGM tracks" aria-describedby="feature-pop-16" aria-expanded="false"><i aria-hidden="true">🎵</i><strong>Up to 10 BGM tracks</strong><span class="feature-pop" id="feature-pop-16" role="tooltip">Switch the music per slide, with crossfades between tracks.</span></button>
+        <button class="feature-chip" type="button" aria-label="Sound &amp; typing effects" aria-describedby="feature-pop-17" aria-expanded="false"><i aria-hidden="true">🔔</i><strong>Sound &amp; typing effects</strong><span class="feature-pop" id="feature-pop-17" role="tooltip">Transition sounds, sticker enter/exit sounds, and retro RPG-style typing for silent lines.</span></button>
+        <button class="feature-chip" type="button" aria-label="Per-slide timeline" aria-describedby="feature-pop-18" aria-expanded="false"><i aria-hidden="true">🕐</i><strong>Per-slide timeline</strong><span class="feature-pop" id="feature-pop-18" role="tooltip">Drag audio, video and gaps to the second inside a single slide.</span></button>
+        <button class="feature-chip" type="button" aria-label="Opening &amp; ending videos" aria-describedby="feature-pop-19" aria-expanded="false"><i aria-hidden="true">🎦</i><strong>Opening &amp; ending videos</strong><span class="feature-pop" id="feature-pop-19" role="tooltip">Add an opening and ending clip, trim them, and choose how they are shown.</span></button>
+        <button class="feature-chip" type="button" aria-label="Book-style PDF" aria-describedby="feature-pop-20" aria-expanded="false"><i aria-hidden="true">📚</i><strong>Book-style PDF</strong><span class="feature-pop" id="feature-pop-20" role="tooltip">Export slides and subtitles together as a portrait A4 document you can read through.</span></button>
+        <button class="feature-chip" type="button" aria-label="MP4, PPTX &amp; PDF export" aria-describedby="feature-pop-21" aria-expanded="false"><i aria-hidden="true">💾</i><strong>MP4, PPTX &amp; PDF export</strong><span class="feature-pop" id="feature-pop-21" role="tooltip">Beyond video, export to PowerPoint, PDF or a ZIP of images.</span></button>
+        <button class="feature-chip" type="button" aria-label="High-quality export" aria-describedby="feature-pop-22" aria-expanded="false"><i aria-hidden="true">🎥</i><strong>High-quality export</strong><span class="feature-pop" id="feature-pop-22" role="tooltip">Frame-by-frame generation finishes each frame in turn, so nothing drops and audio never drifts.</span></button>
+        <button class="feature-chip" type="button" aria-label="16:9, 9:16 &amp; 1:1" aria-describedby="feature-pop-23" aria-expanded="false"><i aria-hidden="true">📐</i><strong>16:9, 9:16 &amp; 1:1</strong><span class="feature-pop" id="feature-pop-23" role="tooltip">Pick the aspect ratio that fits YouTube, short-form video or square posts.</span></button>
+        <button class="feature-chip" type="button" aria-label="Japanese &amp; English UI" aria-describedby="feature-pop-24" aria-expanded="false"><i aria-hidden="true">🌐</i><strong>Japanese &amp; English UI</strong><span class="feature-pop" id="feature-pop-24" role="tooltip">Switch the app's interface between Japanese and English.</span></button>
+        <button class="feature-chip" type="button" aria-label="Data stays in your browser" aria-describedby="feature-pop-25" aria-expanded="false"><i aria-hidden="true">🔒</i><strong>Data stays in your browser</strong><span class="feature-pop" id="feature-pop-25" role="tooltip">Projects are stored in your own browser (IndexedDB) and never sent to a server.</span></button>
       </div>
       <p class="feature-note">And there is more — the details live in the <a href="manual/">official manual</a>.</p>
     </div>
@@ -904,6 +929,42 @@ a{color:var(--primary-ink)}
     root.dataset.theme = root.dataset.theme === 'dark' ? 'light' : 'dark';
     localStorage.setItem('article-theme', root.dataset.theme);
   });
+
+  /* Feature cards: show the description on hover (tap on touch devices) */
+  const featureChips = Array.from(document.querySelectorAll('.feature-chip'));
+  const placePop = chip => {
+    const pop = chip.querySelector('.feature-pop');
+    if (!pop) return;
+    pop.style.setProperty('--pop-shift', '0px');
+    const rect = pop.getBoundingClientRect();
+    const edge = 12;
+    let shift = 0;
+    if (rect.left < edge) shift = edge - rect.left;
+    else if (rect.right > innerWidth - edge) shift = innerWidth - edge - rect.right;
+    if (shift) pop.style.setProperty('--pop-shift', shift.toFixed(1) + 'px');
+  };
+  const closePops = except => featureChips.forEach(chip => {
+    if (chip === except) return;
+    chip.classList.remove('is-open');
+    chip.setAttribute('aria-expanded', 'false');
+  });
+  featureChips.forEach(chip => {
+    chip.addEventListener('pointerenter', () => placePop(chip));
+    chip.addEventListener('focus', () => placePop(chip));
+    chip.addEventListener('click', event => {
+      event.stopPropagation();
+      const open = !chip.classList.contains('is-open');
+      closePops(chip);
+      chip.classList.toggle('is-open', open);
+      chip.setAttribute('aria-expanded', open ? 'true' : 'false');
+      if (open) placePop(chip);
+    });
+  });
+  if (featureChips.length) {
+    document.addEventListener('click', () => closePops(null));
+    addEventListener('keydown', event => { if (event.key === 'Escape') closePops(null); });
+    addEventListener('resize', () => closePops(null));
+  }
 
   /* クリックされて初めて YouTube / Vimeo を読み込む。それまでは通信しない */
   document.querySelectorAll('.video-facade').forEach(button => {
