@@ -1,15 +1,15 @@
 {
   "title": "SlideCast Studio — turn a slide deck into a narrated, subtitled video, right in your browser",
   "subtitle": "Load a PDF or a set of images and get back a video with narration, subtitles and an animated character. No install, no video editor.",
-  "description": "English overview of SlideCast Studio v4.2 TATE — a one-time-purchase, browser-only tool that builds narrated, subtitled videos from your slides and AI voice.",
+  "description": "English overview of SlideCast Studio v4.3 RENDER — a one-time-purchase, browser-only tool that builds narrated, subtitled videos from your slides and AI voice.",
   "lead": "",
   "eyebrow": "PRODUCT GUIDE",
   "brand": "SlideCast ",
   "brand_accent": "Studio",
-  "brand_badge": "v4.2",
+  "brand_badge": "v4.3",
   "author": "aokuma",
-  "date": "2026.09.04",
-  "version": "v4.2 TATE",
+  "date": "2026.09.10",
+  "version": "v4.3 RENDER",
   "footer_meta": "SlideCast Studio Documentation · aokuma",
   "theme": {
     "primary": "#2f74ee",
@@ -73,6 +73,7 @@
         "type": "notice",
         "title": "🛠️ Recent news",
         "items": [
+          "2026/9/10: Updated to v4.3 “RENDER” (high-quality, frame-by-frame video export).",
           "2026/9/8: Updated to v4.2 “TATE” (vertical subtitles and speech bubbles, vertical badges and stickers, editable acting assets).",
           "2026/9/4: Updated to v4.1 “FRAME” (per-slide layout, active sticker motion, multilingual fonts and improved export).",
           "2026/8/25: Updated to v4.0 “DECAL” (stickers, progressive reveals, effects and sound).",
@@ -115,7 +116,7 @@
       },
       {
         "type": "html",
-        "html": "<p>Honestly, when v1.0 went out I was pleased with myself — “a solid 90 out of 100,” I thought. Then I kept using it, kept hitting things it couldn’t quite do, kept finding bugs I had missed, and quietly revised my own score: <strong>“more like a 30 or 40, in hindsight.”</strong> Closing those gaps produced v2.0, and steady work since then has brought it to <strong>v4.2 “TATE”</strong>.</p>"
+        "html": "<p>Honestly, when v1.0 went out I was pleased with myself — “a solid 90 out of 100,” I thought. Then I kept using it, kept hitting things it couldn’t quite do, kept finding bugs I had missed, and quietly revised my own score: <strong>“more like a 30 or 40, in hindsight.”</strong> Closing those gaps produced v2.0, and steady work since then has brought it to <strong>v4.3 “RENDER”</strong>.</p>"
       },
       {
         "type": "divider",
@@ -144,9 +145,9 @@
         "text": "Subtitles, backgrounds, characters, BGM, captions and transitions are all tunable at a level that satisfies people who fuss."
       },
       {
-        "icon": "📝",
-        "title": "The point of v4.2",
-        "text": "Subtitles, speech bubbles, badges and stickers can now be set in vertical Japanese writing."
+        "icon": "🎞️",
+        "title": "The point of v4.3",
+        "text": "Video export can now render frame by frame — no dropped frames, no audio drift."
       },
       {
         "icon": "⚠️",
@@ -195,7 +196,7 @@
         {
           "type": "heading",
           "level": 3,
-          "text": "✨ Main features (as of v4.2)"
+          "text": "✨ Main features (as of v4.3)"
         },
         {
           "type": "soft_cards",
@@ -369,19 +370,47 @@
     {
       "icon": "🎭",
       "category": "WHAT'S NEW",
-      "title": "❸ From v3.0 to v4.2 — highlights by version",
+      "title": "❸ From v3.0 to v4.3 — highlights by version",
       "intro": "Updates keep coming after the one-time purchase. Here is what has been added so far.",
       "blocks": [
         {
           "type": "figure",
-          "image": "./img/v42-hero-en.jpg",
-          "alt": "Key art for SlideCast Studio v4.2 TATE",
-          "caption": "The current version, v4.2 “TATE”: subtitles and bubbles, set vertically"
+          "image": "./img/v43-hero-en.jpg",
+          "alt": "Key art for SlideCast Studio v4.3 RENDER",
+          "caption": "The current version, v4.3 “RENDER”: exports drawn one frame at a time"
         },
         {
           "type": "tabs",
           "label": "Highlights by version",
           "items": [
+            {
+              "label": "v4.3 RENDER",
+              "blocks": [
+                {
+                  "type": "html",
+                  "html": "<p>Adds a <strong>high-quality, frame-by-frame export mode</strong> so that a busy computer no longer costs you frames or lets the sound drift.</p>"
+                },
+                {
+                  "type": "figure",
+                  "image": "./img/v43-01.png",
+                  "alt": "The export mode row of the export dialog in the Japanese interface, with standard recording and high-quality frame-by-frame",
+                  "caption": "Choose the export mode in the confirmation dialog. Standard recording remains the default"
+                },
+                {
+                  "type": "soft_cards",
+                  "items": [
+                    { "icon": "🎞️", "title": "Frame-by-frame", "text": "Each frame is finished before the next one starts." },
+                    { "icon": "🎯", "title": "No dropped frames", "text": "A slow machine costs time, not frames." },
+                    { "icon": "🔊", "title": "No audio drift", "text": "Picture and sound sit on the same timeline." }
+                  ]
+                },
+                {
+                  "type": "link",
+                  "url": "../updates/v43/",
+                  "label": "Read the v4.3 release notes"
+                }
+              ]
+            },
             {
               "label": "v4.2 TATE",
               "blocks": [
@@ -1239,6 +1268,11 @@
           "type": "timeline",
           "items": [
             {
+              "date": "2026.09.10",
+              "title": "v4.3 RENDER",
+              "text": "Added a high-quality, frame-by-frame video export that drops no frames and keeps audio in step with the picture."
+            },
+            {
               "date": "2026.09.08",
               "title": "v4.2 TATE",
               "text": "Added vertical subtitles and speech bubbles, vertical badges and stickers with inner padding, three expressions and editable acting assets."
@@ -1347,6 +1381,12 @@
         {
           "type": "link_cards",
           "items": [
+            {
+              "icon": "🆕",
+              "title": "v4.3 RENDER release notes",
+              "text": "High-quality, frame-by-frame video export",
+              "url": "../updates/v43/"
+            },
             {
               "icon": "🆕",
               "title": "v4.2 TATE release notes",

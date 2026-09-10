@@ -1,17 +1,17 @@
 {
   "title": "GASで実現！スライドから字幕・音声付き動画を生成する「SlideCast Studio」",
   "subtitle": "PDFなどの資料を読み込むだけで、ナレーション・字幕・キャラ演出つきの動画をブラウザだけで作れます。",
-  "description": "資料とAI音声から、ナレーション・字幕・キャラ演出つきの動画をブラウザだけで作れる買い切りツール「SlideCast Studio」v4.2 TATE の紹介ページ。",
+  "description": "資料とAI音声から、ナレーション・字幕・キャラ演出つきの動画をブラウザだけで作れる買い切りツール「SlideCast Studio」v4.3 RENDER の紹介ページ。",
   "lead": "",
   "eyebrow": "PRODUCT GUIDE",
 
   "brand": "SlideCast ",
   "brand_accent": "Studio",
-  "brand_badge": "v4.2",
+  "brand_badge": "v4.3",
   "author": "aokuma",
-  "date": "2026.09.04",
-  "version": "v4.2 TATE",
-  "footer_meta": "SlideCast Studio 紹介ページ · aokuma · 最終更新 2026.09.04",
+  "date": "2026.09.10",
+  "version": "v4.3 RENDER",
+  "footer_meta": "SlideCast Studio 紹介ページ · aokuma · 最終更新 2026.09.10",
 
   "theme": {
     "primary": "#2f74ee",
@@ -53,6 +53,7 @@
         "type": "notice",
         "title": "🛠️ 最近のお知らせ",
         "items": [
+          "2026/9/10：v4.3「RENDER」にアップデートしました（高品質なフレーム生成の動画書き出し）。",
           "2026/9/8：v4.2「TATE」にアップデートしました（縦書き字幕・縦書きの吹き出し・演技素材の追加編集）。",
           "2026/9/4：v4.1「FRAME」にアップデートしました（スライド別配置・ステッカーの動き・動画書き出し改善）。",
           "2026/8/25：v4.0「DECAL」にアップデートしました（スライド内ステッカー・段階表示・登場退場エフェクト）。",
@@ -81,7 +82,7 @@
       },
       {
         "type": "html",
-        "html": "<p>実は、v1.0 を公開した当時は「自分的には 90 点くらいの出来だろう！」とかなり満足していたのですが……使うたびに痒いところに手が届かない使いにくさや、見逃していた不具合が目につきはじめ、<strong>「今思えば 30〜40 点程度だったな」</strong>と密かに反省しておりました。そこから不満点を潰し続けて v2.0 として公開し、改良を重ねて、現在は <strong>v4.2「TATE」</strong>に至ります。</p>"
+        "html": "<p>実は、v1.0 を公開した当時は「自分的には 90 点くらいの出来だろう！」とかなり満足していたのですが……使うたびに痒いところに手が届かない使いにくさや、見逃していた不具合が目につきはじめ、<strong>「今思えば 30〜40 点程度だったな」</strong>と密かに反省しておりました。そこから不満点を潰し続けて v2.0 として公開し、改良を重ねて、現在は <strong>v4.3「RENDER」</strong>に至ります。</p>"
       },
       { "type": "divider", "label": "SUMMARY" }
     ],
@@ -90,7 +91,7 @@
       { "icon": "🛒", "title": "買い切りです", "text": "月額課金はありません。一度購入すれば、その後のアップデートも同じ共有リンクから使えます。" },
       { "icon": "🔑", "title": "API費用もゼロで使える", "text": "APIキーなしで音声まで作れる Bundle Builder があるので、追加費用なしで始められます。" },
       { "icon": "🎛️", "title": "細部まで設定できる", "text": "字幕・背景・キャラ・BGM・テロップ・トランジションまで、こだわる人が満足できる粒度で調整できます。" },
-      { "icon": "📝", "title": "v4.2 の目玉", "text": "字幕・吹き出し・バッジ・ステッカーを、縦書きでも組めるようになりました。" },
+      { "icon": "🎞️", "title": "v4.3 の目玉", "text": "動画の書き出しに「高品質（フレーム生成）」を追加しました。コマ落ちも音ずれもありません。" },
       { "icon": "⚠️", "title": "購入前のご確認", "text": "PCブラウザ専用です。初期設定（コピペのみ）が必要なので、動作環境の章もご確認ください。" }
     ]
   },
@@ -110,7 +111,7 @@
         { "type": "divider", "label": "SAMPLE" },
         { "type": "video", "provider": "vimeo", "id": "1169315924", "title": "🎥 こんな動画が作れます！", "thumb": "./img/demo-movie.jpg", "caption": "サンプル動画（Vimeo）。クリックすると、この場で再生されます" },
         { "type": "video", "provider": "youtube", "id": "cB0MVpcMdKo", "title": "🎬 こうやって作ります！", "thumb": "./img/how-to-use.jpg", "caption": "制作の流れ（YouTube）。クリックすると、この場で再生されます" },
-        { "type": "heading", "level": 3, "text": "✨ 主な機能（v4.2 時点）" },
+        { "type": "heading", "level": 3, "text": "✨ 主な機能（v4.3 時点）" },
         {
           "type": "soft_cards",
           "items": [
@@ -190,14 +191,27 @@
     {
       "icon": "🎭",
       "category": "WHAT'S NEW",
-      "title": "❸ v3.0 → v4.2 の進化（バージョン別ハイライト）",
+      "title": "❸ v3.0 → v4.3 の進化（バージョン別ハイライト）",
       "intro": "買い切り後もアップデートを続けています。これまでに増えた主な機能です。",
       "blocks": [
-        { "type": "figure", "image": "./img/v42-hero.jpg", "alt": "SlideCast Studio v4.2 TATE のアイキャッチ", "caption": "最新版 v4.2「TATE」：縦書き字幕・縦書きの吹き出し・演技素材の追加編集" },
+        { "type": "figure", "image": "./img/v43-hero.jpg", "alt": "SlideCast Studio v4.3 RENDER のアイキャッチ", "caption": "最新版 v4.3「RENDER」：高品質なフレーム生成の動画書き出し" },
         {
           "type": "tabs",
           "label": "バージョン別ハイライト",
           "items": [
+            {
+              "label": "v4.3 RENDER",
+              "blocks": [
+                { "type": "html", "html": "<p>動画の書き出しに<strong>「高品質（フレーム生成）」</strong>を追加し、PCの負荷によるコマ落ちと音ずれをなくしたバージョンです。</p>" },
+                { "type": "figure", "image": "./img/v43-01.png", "alt": "動画書き出し確認の「書き出し方式」。通常（録画方式）と高品質（フレーム生成）", "caption": "書き出しの確認画面で方式を選べます。既定はこれまでどおりの録画方式です" },
+                { "type": "soft_cards", "items": [
+                  { "icon": "🎞️", "title": "フレーム生成", "text": "1コマずつ完成を待って保存します。" },
+                  { "icon": "🎯", "title": "コマ落ちなし", "text": "処理が遅くなってもコマは抜けません。" },
+                  { "icon": "🔊", "title": "音ずれなし", "text": "映像と音声を同じ時間軸に並べ直します。" }
+                ] },
+                { "type": "link", "url": "../updates/v43/", "label": "v4.3 アップデート記事を読む" }
+              ]
+            },
             {
               "label": "v4.2 TATE",
               "blocks": [
@@ -729,6 +743,7 @@
         {
           "type": "timeline",
           "items": [
+            { "date": "2026.09.10", "title": "v4.3 RENDER", "text": "高品質（フレーム生成）の動画書き出し。負荷によるコマ落ちと音ずれをなくしました。" },
             { "date": "2026.09.08", "title": "v4.2 TATE", "text": "字幕・吹き出しの縦書き、縦書きの帯の位置と英数字の向き、バッジ・ステッカーの縦書きと余白、表情の追加と演技素材の編集。" },
             { "date": "2026.09.04", "title": "v4.1 FRAME", "text": "スライド別配置、キャラ・字幕調整、ステッカーの表示中アニメーション、多言語フォント、軽量バックアップ、動画書き出し改善。" },
             { "date": "2026.08.25", "title": "v4.0 DECAL", "text": "スライド内ステッカー、段階表示、登場・退場エフェクト、効果音、目隠しを追加。" },
@@ -758,6 +773,7 @@
             { "icon": "📘", "title": "公式マニュアル（v3.4 対応版）", "text": "全16章の詳細リファレンス", "url": "https://note.com/bluezzly/n/n1e95d4cb978e" },
             { "icon": "🧩", "title": "SlideCast Bundle Builder", "text": "資料・台本・AI音声・マイク録音をまとめる使い方ガイド", "url": "../bundle-builder/" },
             { "icon": "🛠️", "title": "アップデート方法について", "text": "GASアップデート手順", "url": "../gas-update/" },
+            { "icon": "🆕", "title": "v4.3 RENDER アップデート情報", "text": "2026/9/10 公開", "url": "../updates/v43/" },
             { "icon": "🆕", "title": "v4.2 TATE アップデート情報", "text": "2026/9/8 公開", "url": "../updates/v42/" },
             { "icon": "🆕", "title": "v4.1 FRAME アップデート情報", "text": "2026/9/4 公開", "url": "../updates/v41/" },
             { "icon": "🆕", "title": "v4.0 DECAL アップデート情報", "text": "2026/8/25 公開", "url": "../updates/v40/" },

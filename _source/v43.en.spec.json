@@ -1,0 +1,294 @@
+{
+  "title": "SlideCast Studio v4.3 “RENDER”",
+  "subtitle": "Update — high-quality, frame-by-frame video export",
+  "description": "SlideCast Studio v4.3 RENDER adds a high-quality, frame-by-frame video export mode that never drops frames and keeps audio in step with the picture.",
+  "lead": "",
+  "eyebrow": "SLIDECAST STUDIO · UPDATE",
+  "brand": "SlideCast ",
+  "brand_accent": "Studio",
+  "brand_badge": "v4.3",
+  "author": "aokuma",
+  "date": "2026.09.10",
+  "version": "v4.3 RENDER",
+  "footer_meta": "SlideCast Studio documentation · aokuma",
+  "hero_image": "./img/v43-hero-en.jpg",
+  "hero_alt": "SlideCast Studio v4.3 RENDER — Not a single frame dropped.",
+  "chips": [
+    "🎞️ Frame-by-frame export",
+    "🎯 No dropped frames",
+    "🔊 No audio drift"
+  ],
+  "stats": [
+    {
+      "icon": "🎞️",
+      "value": "2 modes",
+      "label": "Screen recording or frame-by-frame"
+    },
+    {
+      "icon": "🎯",
+      "value": "No drops",
+      "label": "Each frame is finished before the next"
+    },
+    {
+      "icon": "🔊",
+      "value": "One timeline",
+      "label": "Picture and sound laid out together"
+    },
+    {
+      "icon": "🚀",
+      "value": "v4.3",
+      "label": "RENDER"
+    }
+  ],
+  "theme": {
+    "primary": "#5b62f0",
+    "secondary": "#18a8ce",
+    "accent": "#e0609f",
+    "surface": "#f1f3ff",
+    "ink": "#161c36"
+  },
+  "nav_links": [
+    {
+      "href": "../../",
+      "icon": "🏠",
+      "label": "HOME"
+    },
+    {
+      "href": "../../manual/",
+      "icon": "📘",
+      "label": "Official manual"
+    }
+  ],
+  "source_url": "https://note.com/bluezzly/n/nab058cb0fb8f",
+  "source_label": "Read the original on note",
+  "source_title": "📝 Original article and updates",
+  "source_note": "See the note article for later additions and comments.",
+  "update_header": false,
+  "sections_label": "UPDATE INDEX",
+  "overview": {
+    "icon": "👋",
+    "title": "Introduction and update overview",
+    "blocks": [
+      {
+        "type": "callout",
+        "tone": "info",
+        "title": "🌐 About the screenshots",
+        "text": "The interface screenshots on this page use the Japanese edition. The captions explain the relevant controls, and key labels are given in English. “RENDER” refers to the new export mode that draws every frame in turn instead of recording playback."
+      },
+      {
+        "type": "html",
+        "html": "<p>SlideCast Studio has been updated to <strong>v4.3 “RENDER”</strong>.</p><p>The previous release, v4.2 “TATE”, let you set subtitles and speech bubbles vertically. This release focuses on <strong>making the exported video independent of how busy your computer happens to be</strong>.</p><p>If your exports stutter, or the sound drifts away from the slides towards the end, you can now rebuild them with a slower but dependable method. The difference shows up most in long narrated videos, slides that carry video footage, and projects with plenty of lip-sync and sound effects. Depending on your machine, the new mode can even be faster than the old one.</p>"
+      },
+      {
+        "type": "cards",
+        "items": [
+          {
+            "icon": "🎞️",
+            "title": "Choose an export mode",
+            "text": "“Standard (screen recording)” or “High quality (frame-by-frame)”"
+          },
+          {
+            "icon": "🎯",
+            "title": "No dropped frames",
+            "text": "Each frame is finished before the next one starts"
+          },
+          {
+            "icon": "🔊",
+            "title": "No audio drift",
+            "text": "Picture and sound are placed on the same timeline"
+          },
+          {
+            "icon": "⚙️",
+            "title": "Same settings",
+            "text": "Format, quality, frame rate and resolution work as before"
+          }
+        ]
+      },
+      {
+        "type": "figure",
+        "image": "./img/v43-01.png",
+        "alt": "The top of the export confirmation dialog, with the buttons for standard recording and high-quality frame-by-frame export",
+        "caption": "A new “書き出し方式” (export mode) row sits at the top of the export dialog: 通常（録画方式）= standard recording, 高品質（フレーム生成）= high quality, frame-by-frame. Standard stays the default"
+      }
+    ]
+  },
+  "sections": [
+    {
+      "icon": "🎞️",
+      "category": "EXPORT MODE",
+      "title": "A high-quality, frame-by-frame export mode",
+      "intro": "The confirmation dialog that appears when you export a video now starts with an export mode choice.",
+      "blocks": [
+        {
+          "type": "soft_cards",
+          "items": [
+            {
+              "icon": "⏺️",
+              "title": "Standard (screen recording)",
+              "text": "Records the preview as it plays, exactly as before (default)"
+            },
+            {
+              "icon": "🎞️",
+              "title": "High quality (frame-by-frame)",
+              "text": "Waits for each frame to finish, then stores it"
+            }
+          ]
+        },
+        {
+          "type": "html",
+          "html": "<p>The recording mode captures the screen while the project plays. If the computer stalls for a moment, frames are lost, and the sound slips out of step by the same amount.</p><p>Frame-by-frame export never plays anything. It works out <strong>“at 0.033 s the picture looks like this, at 0.066 s like this”</strong> and lays the frames out one by one. Nothing moves on until the current frame is drawn, so a slow machine costs time rather than frames. The audio is placed on the same timeline, so even a long video keeps picture and sound together to the end.</p>"
+        },
+        {
+          "type": "callout",
+          "tone": "good",
+          "title": "🔒 Standard recording remains the default",
+          "text": "If you are happy with your current results, change nothing. Existing projects open and export exactly as before."
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "The settings stay where they were"
+        },
+        {
+          "type": "html",
+          "html": "<p>Format (Auto / WebM / MP4), quality, frame rate (30 or 60 fps) and output resolution are chosen in the same way as before.</p>"
+        },
+        {
+          "type": "check_list",
+          "items": [
+            "With format set to Auto, frame-by-frame export prefers MP4",
+            "If your browser cannot handle the format you picked, you are told before the export starts",
+            "60 fps processes twice as many frames as 30 fps, so expect roughly twice the time"
+          ]
+        },
+        {
+          "type": "figure",
+          "image": "./img/v43-02.png",
+          "alt": "The export confirmation dialog with high-quality frame-by-frame selected, showing export format, video quality, frame rate and output resolution",
+          "caption": "Selecting a mode shows its description underneath. Below it: エクスポート形式 = export format, 動画画質 = video quality, フレームレート = frame rate, 出力解像度 = output resolution"
+        },
+        {
+          "type": "html",
+          "html": "<p>Slide design, subtitles, stickers, avatar lip-sync and transitions all go through the same drawing code in either mode. Changing the mode never changes how your video looks.</p>"
+        }
+      ]
+    },
+    {
+      "icon": "⚖️",
+      "category": "WHICH TO USE",
+      "title": "Which mode should you pick?",
+      "intro": "Frame-by-frame is the better default, but roughly speaking:",
+      "blocks": [
+        {
+          "type": "table",
+          "head": [
+            "Situation",
+            "Suggested mode"
+          ],
+          "rows": [
+            [
+              "You just want something to look at quickly",
+              "Standard (recording)"
+            ],
+            [
+              "Short video that has always exported cleanly",
+              "Standard (recording)"
+            ],
+            [
+              "Your browser does not support frame-by-frame export",
+              "Standard (recording)"
+            ],
+            [
+              "You are exporting the finished version",
+              "High quality (frame-by-frame)"
+            ],
+            [
+              "The video is long, or uses a lot of footage",
+              "High quality (frame-by-frame)"
+            ],
+            [
+              "Recording gave you stutter or audio drift",
+              "High quality (frame-by-frame)"
+            ],
+            [
+              "You want to keep working while it exports",
+              "High quality (frame-by-frame)"
+            ]
+          ]
+        },
+        {
+          "type": "html",
+          "html": "<p>How long frame-by-frame export takes <strong>depends on your computer</strong>. Think of it as the slow, dependable option.</p><p>The warning about avoiding other work during an export is not shown in this mode: load no longer costs you frames.</p>"
+        }
+      ]
+    },
+    {
+      "icon": "📌",
+      "category": "BEFORE YOU START",
+      "title": "Things to know",
+      "intro": "Please check the following before exporting with frame-by-frame mode.",
+      "blocks": [
+        {
+          "type": "check_list",
+          "items": [
+            "Frame-by-frame export needs a browser that supports it — Chrome or Edge, for example. If yours does not, the app says so; use standard recording instead",
+            "Keep the page open until the export finishes, and stop your computer from sleeping. There is no way to resume an interrupted export",
+            "If you cancel, or the export fails, no incomplete video is saved",
+            "Exporting needs free disk space. In browsers without temporary storage, output is limited to 128 MB",
+            "Processing time depends on your computer and your material. For long projects or 4K footage, try a short slide first",
+            "If a video, audio or animated image asset cannot be read, the export stops with a message naming that asset. A video with assets silently omitted is never saved",
+            "Testing was done on Chromium-based browsers. Windows, Safari, Firefox, very long projects and material above 4K are unverified — please report anything that goes wrong",
+            "Differences in fonts and OS encoders mean exact pixel-for-pixel matching across machines is not guaranteed. The goal here is to remove dropped frames and timing drift",
+            "Existing projects open as they always did. Standard recording remains the default export mode, so you start from the same results as before"
+          ]
+        }
+      ]
+    },
+    {
+      "icon": "⬆️",
+      "category": "HOW TO UPDATE",
+      "title": "Updating to v4.3",
+      "intro": "If you have already bought SlideCast Studio, copy v4.3 from the same shared link in the paid note article.",
+      "blocks": [
+        {
+          "type": "callout",
+          "tone": "good",
+          "title": "💾 Make a backup first",
+          "text": "If you want to keep your existing projects, library and settings, create a backup from “データ保存” (Save data) before you update."
+        },
+        {
+          "type": "html",
+          "html": "<p>To update the Apps Script edition in place, the files to replace since v4.2 are <strong>“AppBundle.html” and “無題.html”</strong> in the v4.3 distribution folder. Copy them into your existing Apps Script project and redeploy the existing deployment as a new version. (“code.gs” and the files beginning with “GasAsset_” are unchanged in this release.)</p>"
+        },
+        {
+          "type": "link",
+          "url": "../../gas-update/",
+          "label": "Detailed update steps for the Apps Script edition"
+        },
+        {
+          "type": "html",
+          "html": "<p>For the local HTML edition, download “SlideCast Studio v4.3〖ローカル版〗.html” and open it. A new Apps Script project or a different browser will not show your previous data automatically; restore it from a backup in that case.</p>"
+        }
+      ]
+    },
+    {
+      "icon": "🎬",
+      "category": "IN CLOSING",
+      "title": "How the screen becomes a video",
+      "intro": "One project, two ways to turn it into a file.",
+      "blocks": [
+        {
+          "type": "html",
+          "html": "<p>v4.2 “TATE” let you choose which way the text is read. v4.3 “RENDER” lets you choose <strong>how that screen becomes a video</strong>: recording when you want something to look at quickly, frame-by-frame when you are finishing the real thing.</p><p>If you make long narrated videos, or work with footage on your slides, this is the release that should help most. Try frame-by-frame once on a short slide to confirm it runs in your browser.</p>"
+        },
+        {
+          "type": "cta",
+          "title": "The original article is on note",
+          "text": "The full Japanese article, later notes and comments are published there.",
+          "url": "https://note.com/bluezzly/n/nab058cb0fb8f",
+          "label": "Read the original on note"
+        }
+      ]
+    }
+  ]
+}
