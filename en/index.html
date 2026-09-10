@@ -298,7 +298,10 @@ a{color:var(--primary-ink)}
   display:flex;flex-direction:column;align-items:center;gap:10px;
   width:max-content;max-width:min(340px,calc(100vw - 32px));
   padding:22px 22px 24px;border-radius:var(--r-md);border:1px solid var(--line-strong);
+  /* 上辺のブランドライン。背景の1層にすると角丸に沿って切り抜かれ、はみ出さない */
+  border-top-color:transparent;
   background:
+    var(--grad-brand) top / 100% 4px no-repeat border-box,
     radial-gradient(120% 120% at 50% -20%,color-mix(in srgb,var(--primary) 12%,transparent),transparent 60%),
     var(--card);
   color:var(--ink);box-shadow:0 24px 60px -18px color-mix(in srgb,var(--primary) 55%,transparent),var(--shadow);
@@ -307,10 +310,6 @@ a{color:var(--primary-ink)}
   transform:translate(calc(-50% + var(--pop-shift,0px)),10px) scale(.92);
   transform-origin:bottom center;
   transition:opacity .2s ease,transform .26s cubic-bezier(.2,.9,.25,1.2),visibility .2s;
-}
-.feature-pop::before{
-  content:"";position:absolute;inset:0 0 auto;height:4px;border-radius:var(--r-md) var(--r-md) 0 0;
-  background:var(--grad-brand);
 }
 .feature-pop::after{
   content:"";position:absolute;top:100%;left:calc(50% - var(--pop-shift,0px));margin-left:-9px;
