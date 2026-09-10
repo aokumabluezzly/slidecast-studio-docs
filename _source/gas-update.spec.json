@@ -4,7 +4,7 @@
   "description": "GAS（Google Apps Script）で使っている SlideCast Studio を、作品・ライブラリ・設定を引き継いだまま更新する方法を、画面つきで解説します。",
   "lead": "",
   "eyebrow": "GAS UPDATE GUIDE",
-  "brand": "SlideCast",
+  "brand": "SlideCast ",
   "brand_accent": "Studio",
   "brand_badge": "Docs",
   "author": "aokuma",
@@ -50,7 +50,7 @@
         "items": [
           { "icon": "🔗", "title": "URLが変わらない", "text": "既存のデプロイを更新するので、ブックマークはそのまま使えます。" },
           { "icon": "💾", "title": "データが残る", "text": "作品・素材ライブラリ・設定は、同じブラウザなら引き続き使えます。" },
-          { "icon": "📄", "title": "やることは差し替えだけ", "text": "2つのHTMLファイルを貼り替えて、再デプロイするだけです。" }
+          { "icon": "📄", "title": "やることは差し替えだけ", "text": "アップデート記事で案内されたHTMLファイルを貼り替えて、再デプロイするだけです。" }
         ]
       },
       {
@@ -134,6 +134,11 @@
       "intro": "全体の流れは10ステップです。まず全体像を確認してから、下の詳しい手順を順に進めてください。",
       "blocks": [
         {
+          "type": "callout",
+          "title": "ℹ️ 差し替えるファイルはバージョンによって変わります",
+          "text": "多くのバージョンは「無題.html」と「AppBundle.html」の2ファイルですが、v4.2 のように「AppBundle.html」だけのこともあります。差し替え対象は、そのバージョンのアップデート記事で確認してください。対象外のファイルは触らなくて大丈夫です。"
+        },
+        {
           "type": "step_list",
           "items": [
             { "title": "バックアップを保存する", "text": "ダッシュボードの「データ保存」から書き出します" },
@@ -201,7 +206,7 @@
         { "type": "heading", "level": 3, "text": "5. 案内があった場合は他のファイルも差し替える" },
         {
           "type": "html",
-          "html": "<p>基本的には <strong>無題.html</strong> と <strong>AppBundle.html</strong> だけの更新になりますが、アップデート記事で案内があった場合は「コード.gs」や他のファイルも同じ手順で差し替えます。</p>"
+          "html": "<p>基本的には <strong>無題.html</strong> と <strong>AppBundle.html</strong> だけの更新になりますが、アップデート記事で案内があった場合は「コード.gs」や「GasAsset_」で始まるファイルも同じ手順で差し替えます。</p><p>逆に、差し替えが1ファイルだけのバージョンもあります（v4.2 は「AppBundle.html」のみ）。その場合は手順3を飛ばしてください。</p>"
         },
 
         { "type": "heading", "level": 3, "text": "6. 保存する" },

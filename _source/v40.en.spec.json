@@ -32,7 +32,8 @@
     "ink": "#1c2038"
   },
   "nav_links": [
-    { "href": "../../", "icon": "🏠", "label": "HOME" }
+    { "href": "../../", "icon": "🏠", "label": "HOME" },
+    { "href": "../../manual/", "icon": "📘", "label": "Official manual" }
   ],
   "source_url": "https://note.com/bluezzly/n/n19d75307a695",
   "source_label": "Read the original on note (Japanese)",

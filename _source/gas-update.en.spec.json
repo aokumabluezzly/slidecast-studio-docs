@@ -4,7 +4,7 @@
   "description": "A screenshot-by-screenshot guide to updating SlideCast Studio on Google Apps Script, carrying over your projects, library and settings.",
   "lead": "",
   "eyebrow": "GAS UPDATE GUIDE",
-  "brand": "SlideCast",
+  "brand": "SlideCast ",
   "brand_accent": "Studio",
   "brand_badge": "Docs",
   "author": "aokuma",
@@ -50,7 +50,7 @@
         "items": [
           { "icon": "🔗", "title": "The URL doesn’t change", "text": "You update the existing deployment, so your bookmark keeps working." },
           { "icon": "💾", "title": "Your data stays", "text": "Projects, asset library and settings remain available in the same browser." },
-          { "icon": "📄", "title": "It’s just a swap", "text": "Paste two HTML files over the old ones and redeploy." }
+          { "icon": "📄", "title": "It’s just a swap", "text": "Paste the HTML files named in the update article over the old ones and redeploy." }
         ]
       },
       {
@@ -134,6 +134,11 @@
       "intro": "Ten steps in total. Skim the overview first, then follow the detailed steps below in order.",
       "blocks": [
         {
+          "type": "callout",
+          "title": "ℹ️ Which files to replace depends on the version",
+          "text": "Most versions ship two files — 無題.html and AppBundle.html — but some, such as v4.2, only need AppBundle.html. Check the update article for that release; anything it does not mention can be left alone."
+        },
+        {
           "type": "step_list",
           "items": [
             { "title": "Save a backup", "text": "Export it from “Save data” on the dashboard" },
@@ -201,7 +206,7 @@
         { "type": "heading", "level": 3, "text": "5. Replace any other files the release notes mention" },
         {
           "type": "html",
-          "html": "<p>Usually only <strong>無題.html</strong> and <strong>AppBundle.html</strong> need updating, but if the release post says so, replace コード.gs or other files the same way.</p>"
+          "html": "<p>Usually only <strong>無題.html</strong> and <strong>AppBundle.html</strong> need updating, but if the release post says so, replace コード.gs (“Code.gs”) or files starting with “GasAsset_” the same way.</p><p>Some versions go the other way and need only one file (v4.2 ships AppBundle.html alone). In that case, skip step 3.</p>"
         },
 
         { "type": "heading", "level": 3, "text": "6. Save" },

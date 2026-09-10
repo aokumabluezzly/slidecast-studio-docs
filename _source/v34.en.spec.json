@@ -3,9 +3,9 @@
   "subtitle": "Update — expressions, posed gestures, auto-acting, blank slides",
   "description": "Past lip sync. v3.4 “NUANCE” lets you drop expressions and poses into a line as it is spoken, and adds auto-acting and blank slides.",
   "eyebrow": "SLIDECAST STUDIO · UPDATE",
-  "brand": "SlideCast",
+  "brand": "SlideCast ",
   "brand_accent": "Studio",
-  "brand_badge": "Docs",
+  "brand_badge": "v3.4",
   "author": "aokuma",
   "date": "2026.08.05",
   "version": "v3.4 NUANCE",
@@ -32,7 +32,8 @@
     "ink": "#202033"
   },
   "nav_links": [
-    { "href": "../../", "icon": "🏠", "label": "HOME" }
+    { "href": "../../", "icon": "🏠", "label": "HOME" },
+    { "href": "../../manual/", "icon": "📘", "label": "Official manual" }
   ],
   "source_url": "https://note.com/bluezzly/n/nf4ecad9cf40f",
   "source_label": "Read on note (Japanese)",

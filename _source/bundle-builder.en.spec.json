@@ -4,11 +4,11 @@
   "description": "How to use SlideCast Bundle Builder, the companion tool for SlideCast Studio: prepare your slides, generate a script, add AI voice or record your own, validate everything, and export a Bundle ZIP.",
   "lead": "",
   "eyebrow": "SLIDECAST WORKFLOW GUIDE",
-  "brand": "SlideCast",
+  "brand": "SlideCast ",
   "brand_accent": "Studio",
   "brand_badge": "Docs",
   "author": "aokuma",
-  "date": "Published 2026.04.06 / Updated 2026.07.16",
+  "date": "Published 2026.04.06 / Updated 2026.09.08",
   "version": "Bundle Builder Guide",
   "footer_meta": "SlideCast Studio Documentation · aokuma",
   "hero_image": "./img/bundle-builder-hero-en.jpg",
@@ -31,7 +31,7 @@
   "update_url": "https://share.gemini.google/XVQ5f7PwaLym",
   "update_label": "Open Bundle Builder",
   "update_header": false,
-  "sections_label": "GUIDE",
+  "sections_label": "CONTENTS",
   "overview": {
     "icon": "🧩",
     "title": "Everything your video needs, prepared in one place",
@@ -44,6 +44,8 @@
         "type": "notice",
         "title": "Recent updates",
         "items": [
+          "2026.09.08: Undo a deleted image, regenerate it in place, reorder images, regenerate a single image, and cancel generation",
+          "2026.09.04: Reference material and per-page intent carried into the script, series consistency and resumable generation, and a choice between a steady voice and more expression",
           "2026.07.16: Mic recording, waveform view, trimming from both ends, preview, re-record and accept",
           "2026.07.16: New home screen and an enlarged slide preview, with clearer paths between the steps",
           "2026.07.06: Slides can be created inside Canvas, and the script can be edited while audio is generating",
@@ -56,6 +58,11 @@
         "text": "The app opens from a Gemini share link. Do not upload material that contains confidential or personal information.",
         "url": "https://share.gemini.google/XVQ5f7PwaLym",
         "label": "Open in Gemini"
+      },
+      {
+        "type": "callout",
+        "title": "ℹ️ Opening the latest version",
+        "text": "The updated app also opens from the Bundle Builder card inside SlideCast Studio. If you saved the older share link, open it from inside the app instead."
       }
     ],
     "cards": [
@@ -106,6 +113,16 @@
         },
         { "type": "figure", "image": "./img/bundle-builder-upload.webp", "alt": "The Bundle Builder upload screen, accepting PNG, JPEG, PDF, ZIP and folders", "caption": "Loaded material appears as thumbnails, and you can reorder the slides before generating the script" },
         {
+          "type": "html",
+          "html": "<h3>Reordering, undoing a deletion, and regenerating one image</h3><p>Buttons on each thumbnail move it left or right, and a regenerate button rebuilds just that image. Delete an image and a placeholder stays in its slot, offering “Undo”, “Regenerate here” and “Close the gap”.</p>"
+        },
+        {
+          "type": "callout",
+          "tone": "warn",
+          "title": "⏳ Undo only works until you leave this screen",
+          "text": "Moving on to the next step drops the deleted pages and renumbers the rest. Starting a full regeneration also discards the undo information. “Regenerate here” and single-image regeneration run the usual generation, so watch the cost if you are using your own API key."
+        },
+        {
           "type": "callout",
           "tone": "warn",
           "title": "If you plan to record, allow the microphone first",
@@ -134,6 +151,16 @@
           ]
         },
         { "type": "figure", "image": "./img/bundle-builder-script-actions.webp", "alt": "The ready-to-generate screen, offering automatic generation, a prompt for external AI, and script JSON import", "caption": "Besides generating inside Canvas, you can take a prompt to an external AI or import script JSON" },
+        {
+          "type": "html",
+          "html": "<h3>Reference material and per-page intent</h3><p>PDFs, images and text can be added as reference material for image and script generation, and you can supply reference URLs, automatic research and extra requests. Editing “What this page should convey” for each image carries that intent into the script (it moves with the image when you reorder).</p><h3>Series consistency and resuming generation</h3><p>Set how many recurring characters appear and the shared look and art style for the series. The art style of the deck and of the characters can be set separately, and generation can resume from the images that have not been made yet, keeping the ones you already have.</p>"
+        },
+        {
+          "type": "callout",
+          "tone": "warn",
+          "title": "🔑 Reference material and generation cost",
+          "text": "Reference material is sent to Gemini to be read. Do not add material containing confidential or personal information. If you are using your own API key, watch the cost of generation, research and regeneration."
+        },
         {
           "type": "callout",
           "tone": "info",
@@ -165,7 +192,11 @@
           "title": "Whether you need an API key depends on the model",
           "text": "The default setup works without an API key, but some models — newer ones in particular — may require a Gemini API key. Model names and availability can change."
         },
-        { "type": "figure", "image": "./img/bundle-builder-record-button.webp", "alt": "The microphone recording button in the audio row of a slide in Bundle Builder", "caption": "The microphone button on each slide replaces just that line with your own voice" }
+        { "type": "figure", "image": "./img/bundle-builder-record-button.webp", "alt": "The microphone recording button in the audio row of a slide in Bundle Builder", "caption": "The microphone button on each slide replaces just that line with your own voice" },
+        {
+          "type": "html",
+          "html": "<h3>Steady delivery, or more expression</h3><p>“Prioritise a steady voice” keeps one tone per character, while “Prioritise expression” varies the tone line by line. Explainer videos tend to suit the steady voice; conversational videos suit per-line expression.</p>"
+        }
       ]
     },
     {

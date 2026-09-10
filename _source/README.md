@@ -31,6 +31,12 @@
 | `v34.en.spec.json` | 英語版の v3.4 アップデート（`/en/updates/v34/index.html`）の設計データ |
 | `v40.spec.json` | v4.0「DECAL」アップデート（`/updates/v40/index.html`）の設計データ |
 | `v40.en.spec.json` | 英語版の v4.0 アップデート（`/en/updates/v40/index.html`）の設計データ |
+| `v41.spec.json` | v4.1「FRAME」アップデート（`/updates/v41/index.html`）の設計データ |
+| `v41.en.spec.json` | 英語版の v4.1 アップデート（`/en/updates/v41/index.html`）の設計データ |
+| `v42.spec.json` | v4.2「TATE」アップデート（`/updates/v42/index.html`）の設計データ |
+| `v42.en.spec.json` | 英語版の v4.2 アップデート（`/en/updates/v42/index.html`）の設計データ |
+| `v43.spec.json` | v4.3「RENDER」アップデート（`/updates/v43/index.html`）の設計データ |
+| `v43.en.spec.json` | 英語版の v4.3 アップデート（`/en/updates/v43/index.html`）の設計データ |
 | `img/` | 各 spec が参照する画像。生成時に `/assets/` へコピーされます |
 | `article-template.en.html` | **自動生成**。英語ページ用テンプレート（直接編集しない） |
 | `tools/build_en.py` | 英語ページを spec から作り直す入口。生成 → 仕上げまで一括 |
@@ -116,7 +122,7 @@ python3 ~/.claude/skills/build-rich-html-article/scripts/build_article.py \
 
 ```html
 <a class="brand footer-brand" href="../" aria-label="SlideCast Studio トップページ">SlideCast <b>Studio</b></a>
-<nav class="footer-links" aria-label="フッターナビゲーション"><a href="../intro/">SlideCast Studio とは</a><a href="../manual/">公式マニュアル</a><a href="../bundle-builder/">Bundle Builder</a><a href="../mouthloop-v2/">MouthLoop v2</a></nav>
+<nav class="footer-links" aria-label="フッターナビゲーション"><a href="../intro/">SlideCast Studio とは</a><a href="../manual/">公式マニュアル</a><a href="../bundle-builder/">Bundle Builder</a><a href="../mouthloop-v2/">MouthLoop v2</a><a href="../ai-code-bgm-studio/">AI CODE BGM STUDIO</a><a href="../ai-code-movie-studio/">AI CODE MOVIE STUDIO</a></nav>
 ```
 
 フッターナビは**サイト内リンクだけ**です。note へのリンクは、以前ここに並べていましたが、SNS アイコン行へ移しました。
@@ -149,7 +155,7 @@ python3 ~/.claude/skills/build-rich-html-article/scripts/build_article.py \
 
 `href` は相対パスです。1階層（`intro/`）は `../`、2階層（`updates/v34/`）は `../../`。`update_header: false` を書かないと、note へのリンクがヘッダーにも出てしまいます。
 
-ヘッダーは全8ページで同じ4項目に揃えています。**🏠 HOME / 📚 ページ / ☰ 目次 / ☀️テーマ**（目次はテンプレートが自動で付けます）。以前ここに並べていた「概要」「マニュアル」は、📚 ページ一覧メニューの中へ移しました。
+ヘッダーは全ページで同じ4項目に揃えています。**🏠 HOME / 📚 ページ / ☰ 目次 / ☀️テーマ**（目次はテンプレートが自動で付けます）。アップデート記事（`updates/` 配下）だけは、その間に **📘 公式マニュアル** も並びます。以前ここに並べていた「概要」「マニュアル」は、📚 ページ一覧メニューの中へ移しました。
 
 spec の `nav_links` から出るのはリンクとラベルだけなので、生成後に次の2つを手で足します。再生成したら入れ直してください。
 
@@ -162,11 +168,22 @@ spec の `nav_links` から出るのはリンクとラベルだけなので、�
 
 `manual/`・`updates/v34/`・`updates/v33/`（いずれも日本語版）は spec から再生成しない運用なので、ヘッダーを直接編集してあります。
 
+### ページ間でそろえている見た目
+
+記事を増やすときは、次の4点を既存ページに合わせてください（2026年9月に全ページで統一しました）。
+
+| 項目 | ルール |
+|---|---|
+| ヘッダーのブランド | そのページの言語のトップへのリンク（日本語は `../`、英語は `/en/` を指す `../`）。`href="#top"` のままにしない |
+| ブランドの右のバッジ（`brand_badge`） | ガイド・マニュアルは `Docs`、アップデート記事はその版（`v4.3` など）、紹介ページは最新版。トップページは付けない |
+| 章一覧の見出し（`sections_label`） | ガイド・マニュアルは `CONTENTS`、アップデート記事は `UPDATE INDEX` |
+| フッターナビ | サイト内6ページ（とは／マニュアル／Bundle Builder／MouthLoop v2／BGM STUDIO／MOVIE STUDIO）。`finish_ja_page.py`・`finish_en_page.py` が同じ内容を入れ直します |
+
 ### 📚 ページ一覧メニュー
 
 トップページに戻らなくても全ページへ移動できるように、ヘッダーの📚ボタンでページ一覧を開けます。PCはヘッダー直下のドロップダウン（クリックで開く。マウス環境ではホバーでも開き、クリックすると開いたまま固定）、スマホは下から出るボトムシートです。Esc・背景タップ・×ボタンで閉じます。
 
-- 一覧の中身は **`assets/site-nav.js` の `PAGES` 配列に1箇所だけ**書いてあります。**ページを増やしたらここに1行足すだけ**で、全8ページのメニューに反映されます（各ページのHTMLを触る必要はありません）。
+- 一覧の中身は **`assets/site-nav.js` の `PAGES` 配列に1箇所だけ**書いてあります。**ページを増やしたらここに1行足すだけ**で、全ページのメニューに反映されます（各ページのHTMLを触る必要はありません）。
 - `href` はリポジトリのルートからの相対パス（`intro/`、`updates/v34/`、トップは空文字）。ページ側の階層は `script.src` から自動で解決するので、`../` を数える必要はありません。
 - 見た目は `assets/site-chrome.css` の「ページ一覧メニュー」ブロック。640px 以下でボトムシートに切り替わります。
 - 各ページに必要なのは、ヘッダーの📚ボタン（`data-site-nav`）と `<script src="＜相対パス＞assets/site-nav.js" defer></script>` の2つだけです。

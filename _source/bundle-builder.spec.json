@@ -4,11 +4,11 @@
   "description": "SlideCast Studio向け補助ツール「SlideCast Bundle Builder」で、資料の準備、台本生成、AI音声またはマイク録音、検証、ZIP出力まで進める方法をまとめたガイドです。",
   "lead": "",
   "eyebrow": "SLIDECAST WORKFLOW GUIDE",
-  "brand": "SlideCast",
+  "brand": "SlideCast ",
   "brand_accent": "Studio",
   "brand_badge": "Docs",
   "author": "aokuma",
-  "date": "公開 2026.04.06 / 更新 2026.07.16",
+  "date": "公開 2026.04.06 / 更新 2026.09.08",
   "version": "Bundle Builder Guide",
   "footer_meta": "SlideCast Bundle Builder ガイド · aokuma · 最終更新 2026.08.10",
   "hero_image": "./img/bundle-builder-hero.webp",
@@ -31,7 +31,7 @@
   "update_url": "https://share.gemini.google/XVQ5f7PwaLym",
   "update_label": "Bundle Builder を開く",
   "update_header": false,
-  "sections_label": "GUIDE",
+  "sections_label": "CONTENTS",
   "overview": {
     "icon": "🧩",
     "title": "Bundle Builder で、素材づくりをひと続きに",
@@ -44,6 +44,8 @@
         "type": "notice",
         "title": "主な更新",
         "items": [
+          "2026.09.08：画像削除の取り消し・その場での再生成、並べ替え、1枚だけの再生成、生成の中止に対応",
+          "2026.09.04：参考資料とページの意図を台本へ引き継ぎ、シリーズの一貫性と生成の再開、話し方（声の安定／表現）の選択を追加",
           "2026.07.16：マイク録音、波形確認、前後トリミング、試聴・録り直し・採用に対応",
           "2026.07.16：トップ画面と資料の拡大プレビューを追加し、各ステップの導線を改善",
           "2026.07.06：Canvas上でのスライド資料作成と、音声生成中の台本編集に対応",
@@ -56,6 +58,11 @@
         "text": "Geminiの共有ページからアプリを開けます。機密情報や個人情報を含む資料はアップロードしないでください。",
         "url": "https://share.gemini.google/XVQ5f7PwaLym",
         "label": "Geminiで開く"
+      },
+      {
+        "type": "callout",
+        "title": "ℹ️ 最新版の開き方",
+        "text": "更新版は SlideCast Studio 内の Bundle Builder 案内からも開けます。以前の共有リンクを保存している方は、アプリ内のリンクから開き直してください。"
       }
     ],
     "cards": [
@@ -106,6 +113,16 @@
         },
         { "type": "figure", "image": "./img/bundle-builder-upload.webp", "alt": "Bundle Builderの資料アップロード画面。PNG、JPEG、PDF、ZIP、フォルダを選択できる", "caption": "読み込んだ資料はサムネイルで確認し、台本生成前に順番を並べ替えられます" },
         {
+          "type": "html",
+          "html": "<h3>並べ替え・削除の取り消し・1枚だけの再生成</h3><p>一覧の画像は、左右へ動かすボタンで順番を入れ替えられます。その画像だけを作り直す再生成ボタンもあります。画像を削除すると、その位置に枠が残り「元に戻す」「この位置に再生成」「空きを詰める」から選べます。</p>"
+        },
+        {
+          "type": "callout",
+          "tone": "warn",
+          "title": "⏳ 復元できるのは入力画面を離れるまで",
+          "text": "次のステップへ進むと、削除したページを除いて番号を詰めます。全件の再生成を始めた場合も、復元の情報は破棄されます。「この位置に再生成」や個別の再生成には通常どおり生成の処理が走るので、APIキーを使う場合は利用料金にもご注意ください。"
+        },
+        {
           "type": "callout",
           "tone": "warn",
           "title": "録音するなら、作業開始前にマイクを許可",
@@ -134,6 +151,16 @@
           ]
         },
         { "type": "figure", "image": "./img/bundle-builder-script-actions.webp", "alt": "台本生成準備完了画面。自動生成、外部AI用プロンプト表示、台本JSONインポートを選べる", "caption": "Canvas内で生成するほか、外部AI用プロンプトと台本JSONインポートも利用できます" },
+        {
+          "type": "html",
+          "html": "<h3>参考資料とページの意図を台本へ</h3><p>PDF・画像・テキストを参考資料として追加し、画像生成や台本生成に読み取らせられます。参照URL・自動リサーチ・追加要望も指定できます。画像ごとの「このページで伝える内容」を確認・編集しておくと、その内容が台本へ引き継がれます（画像を並び替えると一緒に移動します）。</p><h3>シリーズの一貫性と生成の再開</h3><p>続けて登場するキャラクターの人数と、シリーズ共通の外見・画風を設定できます。資料全体と登場人物の画風は別々に指定でき、生成済みの画像を残したまま、未生成の続きから再開できます。</p>"
+        },
+        {
+          "type": "callout",
+          "tone": "warn",
+          "title": "🔑 参考資料と生成料金",
+          "text": "参考資料は Gemini へ送信して読み取ります。機密情報や個人情報を含む資料は追加しないでください。APIキーを使う場合は、生成・リサーチ・再生成に伴う利用料金にもご注意ください。"
+        },
         {
           "type": "callout",
           "tone": "info",
@@ -165,7 +192,11 @@
           "title": "APIキーが必要かは選ぶモデルで変わります",
           "text": "標準設定ではAPIキーなしで利用できる構成ですが、新しいモデルなどを選ぶ場合はGemini APIキーが必要になることがあります。モデル名や提供状況は変更される可能性があります。"
         },
-        { "type": "figure", "image": "./img/bundle-builder-record-button.webp", "alt": "Bundle Builderの音声欄にあるマイク録音ボタン", "caption": "各スライドのマイクボタンから、そのセリフだけ自分の声へ差し替えられます" }
+        { "type": "figure", "image": "./img/bundle-builder-record-button.webp", "alt": "Bundle Builderの音声欄にあるマイク録音ボタン", "caption": "各スライドのマイクボタンから、そのセリフだけ自分の声へ差し替えられます" },
+        {
+          "type": "html",
+          "html": "<h3>話し方の安定か、表現かを選べます</h3><p>「声の安定を優先」はキャラごとにトーン指定を揃え、「表現を優先」は発話ごとにトーンを変えます。説明動画は声の安定、会話動画は発話ごとの表現、といった使い分けができます。</p>"
+        }
       ]
     },
     {

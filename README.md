@@ -10,12 +10,19 @@
 |---|---|
 | `index.html` | トップページ（記事一覧） |
 | `intro/` | SlideCast Studio とは（紹介ページ） |
-| `manual/` | 公式マニュアル（v3.4 対応版） |
+| `manual/` | 公式マニュアル（v3.4 対応版。v4.x の追加分は各アップデート記事） |
 | `bundle-builder/` | SlideCast Bundle Builder 使い方ガイド |
 | `mouthloop-v2/` | MouthLoop v2 アップデート・使い方ガイド |
+| `ai-code-movie-studio/` | AI CODE MOVIE STUDIO 使い方ガイド |
+| `ai-code-bgm-studio/` | AI CODE BGM STUDIO 使い方ガイド |
+| `gas-update/` | アップデート方法（GAS版）ガイド |
+| `updates/v43/` | v4.3「RENDER」アップデート |
+| `updates/v42/` | v4.2「TATE」アップデート |
+| `updates/v41/` | v4.1「FRAME」アップデート |
+| `updates/v40/` | v4.0「DECAL」アップデート |
 | `updates/v34/` | v3.4「NUANCE」アップデート |
 | `updates/v33/` | v3.3「SYNC」アップデート |
-| `en/` | 英語版（現在はトップページと紹介ページ） |
+| `en/` | 英語版（上記と同じ構造。トップ・紹介・各ガイド・v3.3〜v4.3 のアップデート記事） |
 
 画像は `assets/` に置き、各ページから相対パスで参照しています。CSSとJavaScriptは各HTMLに含め、外部CDN・トラッカー・フレームワークには依存していません。
 
@@ -27,8 +34,9 @@
 |---|---|
 | `index.html` | `en/index.html` |
 | `intro/index.html` | `en/intro/index.html` |
+| `updates/v43/index.html` | `en/updates/v43/index.html` |
 
-ヘッダーの 🌐 ボタンで切り替えます（`assets/site-lang.js`）。自動リダイレクトはしません。英語版がまだ無いページでは、ボタンは無効表示（English version coming soon）になります。
+現在は全ページに英語版があります。ヘッダーの 🌐 ボタンで切り替えます（`assets/site-lang.js`）。自動リダイレクトはしません。英語版がまだ無いページでは、ボタンは無効表示（English version coming soon）になります。
 
 英語版があるかどうかは **`assets/site-nav.js` の `PAGES` に書いた `"en": true` が唯一の情報源**です。英語ページを増やしたら、そこに `"en": true` を足すと 🌐 が有効になります。手順の詳細は [`_source/README.md`](_source/README.md) の「英語版ページの作り方」を参照してください。
 

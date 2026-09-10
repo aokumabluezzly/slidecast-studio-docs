@@ -148,6 +148,8 @@ def footer_html(up: str) -> str:
         f'<a href="{up}manual/">公式マニュアル</a>'
         f'<a href="{up}bundle-builder/">Bundle Builder</a>'
         f'<a href="{up}mouthloop-v2/">MouthLoop v2</a>'
+        f'<a href="{up}ai-code-bgm-studio/">AI CODE BGM STUDIO</a>'
+        f'<a href="{up}ai-code-movie-studio/">AI CODE MOVIE STUDIO</a>'
         "</nav>"
     )
 

@@ -152,7 +152,7 @@
           ]
         },
         { "type": "figure", "image": "./img/v42-06.png", "alt": "The acting assets panel in character settings, listing expressions with buttons to add expressions and gestures", "caption": "Register expressions in the same order as the six base frames (eyes open, mouth closed → eyes closed, mouth open). A ZIP can be selected directly" },
-        { "type": "html", "html": "<p>You can add a missing expression without rebuilding the whole pack, and the same panel is available from character settings in Simple mode. Any acting that referenced deleted material falls back to the standard presentation.</p>" }
+        { "type": "html", "html": "<p>You can add a missing expression without rebuilding the whole pack, and the same panel is available from character settings in Simple mode. MouthLoop’s expression set only covers smiling, sad and angry, so for surprised, troubled and thinking, build the face in MouthLoop by setting the master image’s expression to free text, then add that material here. Any acting that referenced deleted material falls back to the standard presentation.</p>" }
       ]
     },
     {
@@ -187,7 +187,7 @@
           "items": [
             "Notes about frame rate and resolution in video export moved into the “?” button",
             "The pre-export summary is laid out in two columns for easier reading",
-            "In the General settings tab, the preset save button moved up to the heading"
+            "In the Basic settings tab, the preset save button moved up to the heading"
           ]
         },
         { "type": "html", "html": "<p>The export procedure and the available settings are unchanged; this only reduces how much you have to scroll to find them.</p>" }

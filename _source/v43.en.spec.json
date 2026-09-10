@@ -258,7 +258,7 @@
         },
         {
           "type": "html",
-          "html": "<p>To update the Apps Script edition in place, the files to replace since v4.2 are <strong>“AppBundle.html” and “無題.html”</strong> in the v4.3 distribution folder. Copy them into your existing Apps Script project and redeploy the existing deployment as a new version. (“code.gs” and the files beginning with “GasAsset_” are unchanged in this release.)</p>"
+          "html": "<p>To update the Apps Script edition in place, the files to replace since v4.2 are <strong>“AppBundle.html” and “無題.html”</strong> in the v4.3 distribution folder. Copy them into your existing Apps Script project and redeploy the existing deployment as a new version. (コード.gs and the files beginning with “GasAsset_” are unchanged in this release.)</p>"
         },
         {
           "type": "link",

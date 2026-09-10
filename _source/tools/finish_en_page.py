@@ -175,6 +175,8 @@ def footer_html(en_up: str) -> str:
         f'<a href="{en_up}manual/">Official manual</a>'
         f'<a href="{en_up}bundle-builder/">Bundle Builder</a>'
         f'<a href="{en_up}mouthloop-v2/">MouthLoop v2</a>'
+        f'<a href="{en_up}ai-code-bgm-studio/">AI CODE BGM STUDIO</a>'
+        f'<a href="{en_up}ai-code-movie-studio/">AI CODE MOVIE STUDIO</a>'
         "</nav>"
     )
 
@@ -212,7 +214,12 @@ def finish(path: pathlib.Path) -> None:
             "</head>",
         ]), 1)
 
-    # 4. ヘッダー: 🏠 に aria-label、その直後に 📚 ボタン
+    # 4. ヘッダー: ブランドはサイトのトップへ、🏠 に aria-label、その直後に 📚 ボタン
+    html = html.replace(
+        '<a class="brand" href="#top">',
+        f'<a class="brand" href="{up[:-3] or "./"}" aria-label="SlideCast Studio home">',
+        1,
+    )
     html = html.replace(
         f'<a class="header-link" href="{up[:-3] or "./"}"><span aria-hidden="true">🏠</span>',
         f'<a class="header-link" href="{up[:-3] or "./"}" aria-label="Home"><span aria-hidden="true">🏠</span>',

@@ -2,10 +2,10 @@
   "title": "SlideCast Studio v3.3 “SYNC” update",
   "subtitle": "Three ways to build character assets, ZIP / folder import, speech bubbles that follow",
   "description": "v3.3 is almost entirely about character settings: how you register a character’s images, and how they move. That whole part has been rebuilt.",
-  "eyebrow": "UPDATE NOTE",
-  "brand": "SlideCast",
+  "eyebrow": "SLIDECAST STUDIO · UPDATE",
+  "brand": "SlideCast ",
   "brand_accent": "Studio",
-  "brand_badge": "Docs",
+  "brand_badge": "v3.3",
   "author": "aokuma",
   "date": "2026.07.26",
   "version": "v3.3 SYNC",
@@ -33,14 +33,15 @@
     "ink": "#1b2140"
   },
   "nav_links": [
-    { "href": "../../", "icon": "🏠", "label": "HOME" }
+    { "href": "../../", "icon": "🏠", "label": "HOME" },
+    { "href": "../../manual/", "icon": "📘", "label": "Official manual" }
   ],
   "source_url": "https://note.com/bluezzly/n/n54d02ca2b939",
   "source_label": "Read the original post on note (Japanese)",
   "source_title": "The note post this page is based on",
   "source_note": "Later additions and comments are on the note post (in Japanese).",
   "update_header": false,
-  "sections_label": "CONTENTS",
+  "sections_label": "UPDATE INDEX",
 
   "overview": {
     "icon": "👋",

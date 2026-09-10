@@ -73,6 +73,7 @@
         "type": "notice",
         "title": "🛠️ Recent news",
         "items": [
+          "2026/9/10: The official manual was updated (pointers to what v4.0–v4.3 added, plus the export method and frame rate).",
           "2026/9/10: Updated to v4.3 “RENDER” (high-quality, frame-by-frame video export).",
           "2026/9/8: Updated to v4.2 “TATE” (vertical subtitles and speech bubbles, vertical badges and stickers, editable acting assets).",
           "2026/9/4: Updated to v4.1 “FRAME” (per-slide layout, active sticker motion, multilingual fonts and improved export).",
@@ -267,6 +268,26 @@
               "text": "Japanese and English."
             },
             {
+              "icon": "🏷️",
+              "title": "In-slide stickers",
+              "text": "Layer text and images over a finished slide, with progressive reveals and enter/exit effects."
+            },
+            {
+              "icon": "🖼️",
+              "title": "Per-slide layout",
+              "text": "Adjust the size and position of the image, character and subtitles one slide at a time."
+            },
+            {
+              "icon": "📝",
+              "title": "Vertical subtitles",
+              "text": "Subtitles, speech bubbles, badges and stickers can all be set vertically."
+            },
+            {
+              "icon": "🎞️",
+              "title": "High-quality export",
+              "text": "Frame generation exports without dropped frames or drifting audio (30/60fps)."
+            },
+            {
               "icon": "💾",
               "title": "Export formats",
               "text": "MP4, WebM, PPTX, PDF, PNG, JPEG. Aspect ratios 16:9, 9:16 and 1:1."
@@ -283,7 +304,7 @@
           "type": "callout",
           "tone": "info",
           "title": "🛠️ For how each feature works, see the manual",
-          "text": "This page is about what the tool can do. Step-by-step instructions for every setting live in the official manual, which is also available in English."
+          "text": "This page is about what the tool can do. Step-by-step instructions for every setting live in the official manual, which is also available in English. The manual covers v3.4 “NUANCE”; anything added from v4.0 onwards is in the version highlights below and in the individual update articles."
         },
         {
           "type": "link",

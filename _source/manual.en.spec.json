@@ -3,10 +3,11 @@
   "subtitle": "From a slide deck to a subtitled, narrated video.",
   "description": "The official manual for SlideCast Studio (v3.4): add AI narration, a lip-syncing character, BGM and opening/ending videos to your slides, and export the whole thing as video from the browser alone.",
   "eyebrow": "OFFICIAL MANUAL",
-  "brand": "SlideCast",
+  "brand": "SlideCast ",
   "brand_accent": "Studio",
+  "brand_badge": "Docs",
   "author": "aokuma",
-  "date": "2026.03.02 (updated 2026.08.08)",
+  "date": "Published 2026.03.02 / Updated 2026.09.10",
   "version": "For v3.4",
   "footer_meta": "SlideCast Studio Documentation · aokuma",
   "hero_image": "./img/manual-01-en.jpg",
@@ -107,6 +108,10 @@
       "blocks": [
         {
           "type": "html",
+          "html": "<div class=\"callout\"><p><strong>ℹ️ Which version this manual covers</strong></p><p>This manual describes v3.4 “NUANCE”. Features added from v4.0 onwards are covered in the individual update articles.</p><ul class=\"check-list\"><li><a class=\"inline-link\" href=\"../updates/v40/\">v4.0 “DECAL”</a>: in-slide stickers, progressive reveals and timed enter/exit effects</li><li><a class=\"inline-link\" href=\"../updates/v41/\">v4.1 “FRAME”</a>: per-slide image, character and subtitle layout, multilingual fonts, 30/60fps export</li><li><a class=\"inline-link\" href=\"../updates/v42/\">v4.2 “TATE”</a>: vertical subtitles, speech bubbles, badges and stickers, plus new expressions and editable acting assets</li><li><a class=\"inline-link\" href=\"../updates/v43/\">v4.3 “RENDER”</a>: high-quality (frame generation) video export</li></ul></div>"
+        },
+        {
+          "type": "html",
           "html": "<h3>🎬 What SlideCast Studio is</h3><p>An app that loads PDFs, images and video into the browser, adds AI narration, and turns the result into a video directly. Nothing to install — the video is finished in the browser.</p><h3>✨ Main features</h3>"
         },
         {
@@ -192,7 +197,7 @@
           "type": "callout",
           "tone": "warn",
           "title": "🫨 If the exported video looks stuttery",
-          "text": "Video export uses browser memory, so pause your other work while it runs. Closing spare tabs as well improves the quality of the file that comes out."
+          "text": "Video export uses browser memory, so pause your other work while it runs. Closing spare tabs as well improves the quality of the file that comes out. (From v4.3, choosing “High quality (frame generation)” as the export method means load on the machine can no longer drop frames.)"
         }
       ]
     },
@@ -703,7 +708,7 @@
       "icon": "🎨",
       "category": "Chapter 10",
       "title": "Design and effects",
-      "intro": "The settings modal is split into Basic / Subtitles / Effects / BGM / Badges / Captions / Audio / Characters / Opening-ending tabs. Settings save themselves and apply immediately (character edits are the exception — they apply on “Save”).",
+      "intro": "The settings modal is split into Basic / Subtitles / Effects / BGM / Badges / Captions / Audio / Characters / Opening-ending tabs. Settings save themselves and apply immediately (character edits are the exception — they apply on “Save”). Note that from v4.0 onwards the editor also gained “Slide settings”, “Stickers” and “Character &amp; subtitles” tabs at the bottom of the screen (see the v4.0 “DECAL” and v4.1 “FRAME” update articles).",
       "blocks": [
         {
           "type": "html",
@@ -744,7 +749,7 @@
         },
         {
           "type": "html",
-          "html": "<p>In v3.4, while the subtitle settings are open the canvas shows a “subtitle settings preview”. Changes to font, size, color, stroke, shadow and area height can be checked on the spot.</p>"
+          "html": "<p>In v3.4, while the subtitle settings are open the canvas shows a “subtitle settings preview”. Changes to font, size, color, stroke, shadow and area height can be checked on the spot. From v4.2 the Subtitles tab also has “Text direction” (horizontal / vertical). Choosing vertical switches the position controls to vertical ones — band position (left, center, right), band width, and how numbers and Latin letters are oriented (see the v4.2 “TATE” update article).</p>"
         },
         {
           "type": "figure",
@@ -1016,7 +1021,7 @@
         },
         {
           "type": "html",
-          "html": "<p>Expressions matching built-in words such as “thank you” and “what a shame” take priority. Nothing is analysed by a generative model, so there is no extra API traffic and no extra API cost.</p><p>Automatically placed performances are marked “auto”, and “Remove automatic” clears only those (anything you set by hand stays). Placing them automatically first and fixing the parts that bother you by hand is a good way to work.</p>"
+          "html": "<p>Expressions matching built-in words such as “thank you” and “what a shame” take priority. Nothing is analysed by a generative model, so there is no extra API traffic and no extra API cost. v4.2 added the “surprised”, “troubled” and “thinking” expressions, for six in total, and character settings gained an “Acting assets (expressions and gestures)” panel, so expressions and gestures can be added, replaced or removed later without rebuilding the character pack (see the v4.2 “TATE” update article).</p><p>Automatically placed performances are marked “auto”, and “Remove automatic” clears only those (anything you set by hand stays). Placing them automatically first and fixing the parts that bother you by hand is a good way to work.</p>"
         },
         {
           "type": "figure",
@@ -1274,7 +1279,7 @@
             { "label": "Output resolution", "value": "720p / 1080p / 1440p" }
           ]
         },
-        { "type": "html", "html": "<p>The frame rate is 30fps, and an estimate of the resulting size is shown.</p>" },
+        { "type": "html", "html": "<p>The frame rate can be 30fps or 60fps (added in v4.1; 30fps is the default), and an estimate of the resulting size is shown.</p><div class=\"callout\"><p><strong>🎞️ Export method (added in v4.3)</strong></p><p>At the top of the confirmation screen you can choose between “Standard (screen recording)” and “High quality (frame generation)”. Standard is the default. Frame generation does not play the video back: it finishes one frame at a time before moving on, so no frames are dropped and audio does not drift, even when the machine is busy. It takes longer and needs a supported browser (Chrome / Edge). See the <a class=\"inline-link\" href=\"../updates/v43/\">v4.3 “RENDER” update</a> for details.</p></div>" },
         {
           "type": "callout",
           "title": "ℹ️ Browsers that do not support MP4",
@@ -1299,7 +1304,7 @@
             "Reload the page afterwards (to release the memory)"
           ]
         },
-        { "type": "html", "html": "<p>If memory use is high, you are warned before the export starts.</p>" },
+        { "type": "html", "html": "<p>If memory use is high, you are warned before the export starts.</p><p>The warnings above apply to “Standard (screen recording)”. “High quality (frame generation)” cannot drop frames under load, so you can keep working while it exports (leave the page open and keep the machine awake).</p>" },
         {
           "type": "callout",
           "tone": "warn",
@@ -1411,13 +1416,14 @@
       "blocks": [
         {
           "type": "html",
-          "html": "<p>If you have already purchased SlideCast Studio, copy the latest version from the same paid note share link you used before.</p><p>If you want to carry over your existing projects, library and settings, create a backup first from “Save data”, just in case.</p><p>To update the Apps Script edition while keeping the same URL, replace these two files in your existing Apps Script project with the latest versions, then redeploy the existing deployment as a “new version”.</p>"
+          "html": "<p>If you have already purchased SlideCast Studio, copy the latest version from the same paid note share link you used before.</p><p>If you want to carry over your existing projects, library and settings, create a backup first from “Save data”, just in case.</p><p>To update the Apps Script edition while keeping the same URL, replace the files in your existing Apps Script project with the latest versions, then redeploy the existing deployment as a “new version”. Which files to replace depends on the version, so check the update article for that release.</p>"
         },
         {
           "type": "check_list",
           "items": [
-            "無題.html (“Untitled.html” in the Japanese Apps Script UI)",
-            "AppBundle.html"
+            "Most versions ship two files: 無題.html (“Untitled.html” in the Japanese Apps Script UI) and AppBundle.html (v4.0 / v4.1 / v4.3, for example)",
+            "Some versions only need AppBundle.html (v4.2)",
+            "Replace コード.gs (“Code.gs”) or files starting with “GasAsset_” as well when the update article says so"
           ]
         },
         { "type": "link", "url": "../gas-update/", "label": "See the detailed update steps" },

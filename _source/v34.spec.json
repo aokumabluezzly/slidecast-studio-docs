@@ -3,8 +3,9 @@
   "subtitle": "アップデート｜表情・ポーズ仕草・おまかせ演技・空のスライド",
   "description": "口パクのその先へ。セリフに合わせて表情やポーズを差し込めるようになり、おまかせ演技や空のスライドも追加した v3.4「NUANCE」の更新内容です。",
   "eyebrow": "SLIDECAST STUDIO · UPDATE",
-  "brand": "SlideCast",
+  "brand": "SlideCast ",
   "brand_accent": "Studio",
+  "brand_badge": "v3.4",
   "author": "aokuma",
   "date": "2026.08.05",
   "version": "v3.4 NUANCE",
@@ -31,7 +32,8 @@
     "ink": "#202033"
   },
   "nav_links": [
-    { "href": "../../", "icon": "🏠", "label": "HOME" }
+    { "href": "../../", "icon": "🏠", "label": "HOME" },
+    { "href": "../../manual/", "icon": "📘", "label": "公式マニュアル" }
   ],
   "source_url": "https://note.com/bluezzly/n/nf4ecad9cf40f",
   "source_label": "noteで読む",

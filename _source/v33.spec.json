@@ -2,9 +2,10 @@
   "title": "SlideCast Studio v3.3「SYNC」アップデート",
   "subtitle": "キャラ素材3方式・ZIP／フォルダ読み込み・吹き出し追従",
   "description": "v3.3 はほぼ全部「キャラ設定」まわりの更新です。キャラのアイコンをどう登録して、どう動かすか。ここを作り直しました。",
-  "eyebrow": "UPDATE NOTE",
-  "brand": "SlideCast",
+  "eyebrow": "SLIDECAST STUDIO · UPDATE",
+  "brand": "SlideCast ",
   "brand_accent": "Studio",
+  "brand_badge": "v3.3",
   "author": "aokuma",
   "date": "2026.07.26",
   "version": "v3.3 SYNC",
@@ -32,14 +33,15 @@
     "ink": "#1b2140"
   },
   "nav_links": [
-    { "href": "../../", "icon": "🏠", "label": "HOME" }
+    { "href": "../../", "icon": "🏠", "label": "HOME" },
+    { "href": "../../manual/", "icon": "📘", "label": "公式マニュアル" }
   ],
   "source_url": "https://note.com/bluezzly/n/n54d02ca2b939",
   "source_label": "note の元記事を読む",
   "source_title": "この記事のもとになった note 投稿",
   "source_note": "最新の追記・コメントは note 側でご確認ください。",
   "update_header": false,
-  "sections_label": "CONTENTS",
+  "sections_label": "UPDATE INDEX",
 
   "overview": {
     "icon": "👋",
