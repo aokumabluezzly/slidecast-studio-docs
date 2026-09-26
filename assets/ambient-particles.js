@@ -104,7 +104,8 @@
   }
 
   function resize() {
-    width = innerWidth;
+    /* innerWidth はスマホで横にはみ出した分まで広がり、canvas がその幅を保ってはみ出しを固定してしまうので、実際の画面幅を使う */
+    width = document.documentElement.clientWidth || innerWidth;
     height = innerHeight;
     ratio = Math.min(devicePixelRatio || 1, 2);
     canvas.width = Math.round(width * ratio);

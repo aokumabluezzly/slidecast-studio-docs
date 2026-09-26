@@ -278,6 +278,8 @@ a{color:var(--primary-ink)}
 }
 
 /* ---------- feature cards ---------- */
+/* 閉じている機能説明はスクリプトで位置を合わせる前も幅を持つので、本文の横方向のはみ出しを切り取る（縦は切らない） */
+main{overflow-x:clip}
 .feature-grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:clamp(10px,1.4vw,14px)}
 .feature-chip{
   position:relative;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;gap:9px;
@@ -959,9 +961,11 @@ a{color:var(--primary-ink)}
     const half = pop.offsetWidth / 2;
     const center = chipRect.left + chipRect.width / 2;
     const edge = 12;
+    /* innerWidth はスマホではみ出した分まで広がるので、実際の画面幅（clientWidth）を基準にする */
+    const viewWidth = document.documentElement.clientWidth;
     let shift = 0;
     if (center - half < edge) shift = edge - (center - half);
-    else if (center + half > innerWidth - edge) shift = innerWidth - edge - (center + half);
+    else if (center + half > viewWidth - edge) shift = viewWidth - edge - (center + half);
     pop.style.setProperty('--pop-shift', shift.toFixed(1) + 'px');
   };
   const closePops = except => featureChips.forEach(chip => {
