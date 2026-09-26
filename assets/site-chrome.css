@@ -541,6 +541,13 @@ body:has(.chapters) .float-button.primary {
   }
 }
 
+/* 英語のラベル（Official manual など）は長いので、少し広い幅から畳む。言語切替の文字は残す */
+@media (max-width: 820px) {
+  html[lang="en"] .site-header .header-link:not(.lang-switch) .nav-label {
+    display: none;
+  }
+}
+
 @media (max-width: 640px) {
   :root {
     --site-header-height: 56px;

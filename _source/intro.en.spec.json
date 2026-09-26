@@ -291,7 +291,7 @@
             {
               "icon": "💾",
               "title": "Export formats",
-              "text": "MP4, WebM, PPTX, PDF, PNG, JPEG. Aspect ratios 16:9, 9:16 and 1:1."
+              "text": "MP4, WebM, PPTX, PDF, PNG, JPEG. Aspect ratios 16:9, 9:16, 1:1, 4:5 and 4:3."
             }
           ]
         },
@@ -828,7 +828,7 @@
         },
         {
           "type": "html",
-          "html": "<p>Because it exports at 16:9, 9:16 and 1:1, the tool works well for producing footage for TikTok, X and Instagram.</p><p>That said, an MP4 export is not automatically in the ideal state for every platform. Two files can both be MP4 and still use different compression inside — <strong>H.264</strong> and <strong>H.265</strong> being the common pair. Video export here depends partly on what the browser supports, so depending on your browser the MP4 may come out as H.265. When that happens, converting to H.264 is often the more reliable route for some platforms.</p>"
+          "html": "<p>Because it exports at 16:9, 9:16, 1:1, 4:5 and 4:3, the tool works well for producing footage for TikTok, X and Instagram.</p><p>That said, an MP4 export is not automatically in the ideal state for every platform. Two files can both be MP4 and still use different compression inside — <strong>H.264</strong> and <strong>H.265</strong> being the common pair. Video export here depends partly on what the browser supports, so depending on your browser the MP4 may come out as H.265. When that happens, converting to H.264 is often the more reliable route for some platforms.</p>"
         },
         {
           "type": "callout",

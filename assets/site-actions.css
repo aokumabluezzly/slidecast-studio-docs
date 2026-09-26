@@ -31,6 +31,11 @@
   transition:opacity .15s ease,transform .15s ease;
 }
 .share-action:hover::after,.share-action:focus-visible::after{opacity:1;transform:translate(-50%,0)}
+/* 両端のボタンは吹き出しをボタンの端にそろえる。中央寄せのままだと、隠れている間も幅を持ってスマホ幅の画面外へはみ出す */
+.site-share__actions>.share-action:first-child::after{left:0;transform:translate(0,4px)}
+.site-share__actions>.share-action:last-child::after{left:auto;right:0;transform:translate(0,4px)}
+.site-share__actions>.share-action:first-child:is(:hover,:focus-visible)::after,
+.site-share__actions>.share-action:last-child:is(:hover,:focus-visible)::after{transform:translate(0,0)}
 .share-action__x{font-size:1.05rem;font-weight:700;line-height:1}
 .share-action__line{
   position:relative;width:23px;height:19px;display:grid;place-items:center;border-radius:7px;
@@ -78,6 +83,8 @@
      トップページはページ一覧が同じ役割を持つので、狭い幅では畳む。
      1番目のHOMEと2番目のページ一覧は残す（回遊の要） */
   .site-header .header-nav>.header-link:nth-child(3){display:none}
+  /* ヘッダーに「公式マニュアル」がある記事では目次が4番目になるので、目次ボタンは id でも畳む */
+  .site-header .header-nav>#openToc{display:none}
   .site-header .brand{gap:4px}
 }
 @media(max-width:360px){
