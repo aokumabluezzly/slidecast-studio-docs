@@ -37,6 +37,8 @@
 | `v42.en.spec.json` | 英語版の v4.2 アップデート（`/en/updates/v42/index.html`）の設計データ |
 | `v43.spec.json` | v4.3「RENDER」アップデート（`/updates/v43/index.html`）の設計データ |
 | `v43.en.spec.json` | 英語版の v4.3 アップデート（`/en/updates/v43/index.html`）の設計データ |
+| `v44.spec.json` | v4.4「BLOOM」アップデート（`/updates/v44/index.html`）の設計データ |
+| `v44.en.spec.json` | 英語版の v4.4 アップデート（`/en/updates/v44/index.html`）の設計データ |
 | `img/` | 各 spec が参照する画像。生成時に `/assets/` へコピーされます |
 | `article-template.en.html` | **自動生成**。英語ページ用テンプレート（直接編集しない） |
 | `tools/build_en.py` | 英語ページを spec から作り直す入口。生成 → 仕上げまで一括 |

@@ -36,6 +36,7 @@ PAGES: dict[str, tuple[str, str]] = {
     "v41": ("_source/v41.en.spec.json", "en/updates/v41/index.html"),
     "v42": ("_source/v42.en.spec.json", "en/updates/v42/index.html"),
     "v43": ("_source/v43.en.spec.json", "en/updates/v43/index.html"),
+    "v44": ("_source/v44.en.spec.json", "en/updates/v44/index.html"),
 }
 
 

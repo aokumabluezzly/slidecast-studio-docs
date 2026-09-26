@@ -1,15 +1,15 @@
 {
   "title": "SlideCast Studio — turn a slide deck into a narrated, subtitled video, right in your browser",
   "subtitle": "Load a PDF or a set of images and get back a video with narration, subtitles and an animated character. No install, no video editor.",
-  "description": "English overview of SlideCast Studio v4.3 RENDER — a one-time-purchase, browser-only tool that builds narrated, subtitled videos from your slides and AI voice.",
+  "description": "English overview of SlideCast Studio v4.4 BLOOM — a one-time-purchase, browser-only tool that builds narrated, subtitled videos from your slides and AI voice.",
   "lead": "",
   "eyebrow": "PRODUCT GUIDE",
   "brand": "SlideCast ",
   "brand_accent": "Studio",
-  "brand_badge": "v4.3",
+  "brand_badge": "v4.4",
   "author": "aokuma",
-  "date": "2026.09.10",
-  "version": "v4.3 RENDER",
+  "date": "2026.09.27",
+  "version": "v4.4 BLOOM",
   "footer_meta": "SlideCast Studio Documentation · aokuma",
   "theme": {
     "primary": "#2f74ee",
@@ -73,6 +73,7 @@
         "type": "notice",
         "title": "🛠️ Recent news",
         "items": [
+          "2026/9/27: Updated to v4.4 “BLOOM” (redesigned settings, presets, 4:5 / 4:3 aspect ratios and Gemini 3.8 TTS).",
           "2026/9/10: The official manual was updated (pointers to what v4.0–v4.3 added, plus the export method and frame rate).",
           "2026/9/10: Updated to v4.3 “RENDER” (high-quality, frame-by-frame video export).",
           "2026/9/8: Updated to v4.2 “TATE” (vertical subtitles and speech bubbles, vertical badges and stickers, editable acting assets).",
@@ -146,9 +147,9 @@
         "text": "Subtitles, backgrounds, characters, BGM, captions and transitions are all tunable at a level that satisfies people who fuss."
       },
       {
-        "icon": "🎞️",
-        "title": "The point of v4.3",
-        "text": "Video export can now render frame by frame — no dropped frames, no audio drift."
+        "icon": "🌸",
+        "title": "The point of v4.4",
+        "text": "A tidier settings screen, plus Gemini 3.8 TTS with its voice library and your own (cloned) voices."
       },
       {
         "icon": "⚠️",
@@ -197,7 +198,7 @@
         {
           "type": "heading",
           "level": 3,
-          "text": "✨ Main features (as of v4.3)"
+          "text": "✨ Main features (as of v4.4)"
         },
         {
           "type": "soft_cards",
@@ -391,19 +392,47 @@
     {
       "icon": "🎭",
       "category": "WHAT'S NEW",
-      "title": "❸ From v3.0 to v4.3 — highlights by version",
+      "title": "❸ From v3.0 to v4.4 — highlights by version",
       "intro": "Updates keep coming after the one-time purchase. Here is what has been added so far.",
       "blocks": [
         {
           "type": "figure",
-          "image": "./img/v43-hero-en.jpg",
-          "alt": "Key art for SlideCast Studio v4.3 RENDER",
-          "caption": "The current version, v4.3 “RENDER”: exports drawn one frame at a time"
+          "image": "./img/v44-hero-en.jpg",
+          "alt": "Key art for SlideCast Studio v4.4 BLOOM",
+          "caption": "The current version, v4.4 “BLOOM”: redesigned settings and Gemini 3.8 TTS"
         },
         {
           "type": "tabs",
           "label": "Highlights by version",
           "items": [
+            {
+              "label": "v4.4 BLOOM",
+              "blocks": [
+                {
+                  "type": "html",
+                  "html": "<p>Rebuilds the settings screen so you can <strong>set things up without guesswork</strong>, and adds <strong>Gemini 3.8 Flash TTS</strong> with its voice library and your own voices.</p>"
+                },
+                {
+                  "type": "figure",
+                  "image": "./img/v44-06.png",
+                  "alt": "API settings in the Voice tab of the Japanese interface, numbered: enter the API key, choose Gemini 3.8 Flash TTS, press Search the library",
+                  "caption": "With a Gemini 3.8 model you can pick voices from the voice library or your own voices (API key required)"
+                },
+                {
+                  "type": "soft_cards",
+                  "items": [
+                    { "icon": "🧭", "title": "Tidier settings", "text": "Consistent controls, plus undo and redo for settings." },
+                    { "icon": "🎛️", "title": "Rebuilt presets", "text": "9 platform + 8 subtitle presets; save and apply by part." },
+                    { "icon": "🎙️", "title": "Gemini 3.8 TTS", "text": "Voice-library search, custom and cloned voices." }
+                  ]
+                },
+                {
+                  "type": "link",
+                  "url": "../updates/v44/",
+                  "label": "Read the v4.4 release notes"
+                }
+              ]
+            },
             {
               "label": "v4.3 RENDER",
               "blocks": [
@@ -1289,6 +1318,11 @@
           "type": "timeline",
           "items": [
             {
+              "date": "2026.09.27",
+              "title": "v4.4 BLOOM",
+              "text": "Tidier settings with undo, direct dragging on the preview, rebuilt presets, 4:5 / 4:3 aspect ratios, and Gemini 3.8 TTS with its voice library and your own voices."
+            },
+            {
               "date": "2026.09.10",
               "title": "v4.3 RENDER",
               "text": "Added a high-quality, frame-by-frame video export that drops no frames and keeps audio in step with the picture."
@@ -1402,6 +1436,12 @@
         {
           "type": "link_cards",
           "items": [
+            {
+              "icon": "🆕",
+              "title": "v4.4 BLOOM release notes",
+              "text": "Redesigned settings, presets and Gemini 3.8 TTS",
+              "url": "../updates/v44/"
+            },
             {
               "icon": "🆕",
               "title": "v4.3 RENDER release notes",

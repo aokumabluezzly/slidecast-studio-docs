@@ -94,6 +94,13 @@ PAGE_META: dict[str, dict[str, str]] = {
             "effects, sound effects, snapping, reusable libraries, mosaic and blur."
         ),
     },
+    "en/updates/v44/": {
+        "og_title": "SlideCast Studio v4.4 “BLOOM”",
+        "og_description": (
+            "A tidier settings screen, direct dragging on the preview, rebuilt presets, "
+            "4:5 and 4:3 aspect ratios, and Gemini 3.8 Flash TTS with its voice library and your own voices."
+        ),
+    },
     "en/updates/v43/": {
         "og_title": "SlideCast Studio v4.3 “RENDER”",
         "og_description": (

@@ -1,0 +1,542 @@
+{
+  "title": "SlideCast Studio v4.4 “BLOOM”",
+  "subtitle": "Update — redesigned settings, presets, 4:5 / 4:3 and Gemini 3.8 TTS",
+  "description": "SlideCast Studio v4.4 BLOOM tidies up the settings screen, adds direct dragging on the preview, rebuilt presets, 4:5 and 4:3 aspect ratios, and Gemini 3.8 Flash TTS with its voice library and your own custom voices.",
+  "lead": "",
+  "eyebrow": "SLIDECAST STUDIO · UPDATE",
+  "brand": "SlideCast ",
+  "brand_accent": "Studio",
+  "brand_badge": "v4.4",
+  "author": "aokuma",
+  "date": "2026.09.27",
+  "version": "v4.4 BLOOM",
+  "footer_meta": "SlideCast Studio documentation · aokuma",
+  "hero_image": "./img/v44-hero-en.jpg",
+  "hero_alt": "SlideCast Studio v4.4 BLOOM — Settings, without the guesswork.",
+  "chips": [
+    "🧭 Tidier settings",
+    "🎙️ Gemini 3.8 TTS",
+    "📐 4:5 and 4:3"
+  ],
+  "stats": [
+    {
+      "icon": "↩️",
+      "value": "Undo",
+      "label": "Undo and redo just for settings"
+    },
+    {
+      "icon": "🎛️",
+      "value": "9 + 8",
+      "label": "Built-in platform and subtitle presets"
+    },
+    {
+      "icon": "🎙️",
+      "value": "3.8 TTS",
+      "label": "Voice library and your own voices"
+    },
+    {
+      "icon": "🚀",
+      "value": "v4.4",
+      "label": "BLOOM"
+    }
+  ],
+  "theme": {
+    "primary": "#5b62f0",
+    "secondary": "#18a8ce",
+    "accent": "#e0609f",
+    "surface": "#f1f3ff",
+    "ink": "#161c36"
+  },
+  "nav_links": [
+    {
+      "href": "../../",
+      "icon": "🏠",
+      "label": "HOME"
+    },
+    {
+      "href": "../../manual/",
+      "icon": "📘",
+      "label": "Official manual"
+    }
+  ],
+  "source_url": "https://note.com/bluezzly/n/ne39e997ec350",
+  "source_label": "Read the original on note",
+  "source_title": "📝 Original article and updates",
+  "source_note": "See the note article for later additions and comments.",
+  "update_header": false,
+  "sections_label": "UPDATE INDEX",
+  "overview": {
+    "icon": "👋",
+    "title": "Introduction and overview",
+    "blocks": [
+      {
+        "type": "callout",
+        "tone": "info",
+        "title": "🌐 About the screenshots",
+        "text": "The interface screenshots on this page use the Japanese edition. The captions explain the relevant controls, and key labels are given in English."
+      },
+      {
+        "type": "html",
+        "html": "<p>SlideCast Studio is now at <strong>v4.4 “BLOOM”</strong>.</p><p>v4.3 “RENDER” added a high-quality, frame-by-frame export so that videos come out cleanly whatever your PC is doing. This release focuses on <strong>rebuilding the settings screen so you can set things up without guesswork</strong>, and on <strong>support for Gemini 3.8 Flash TTS</strong>.</p><p>“There are so many settings I don’t know where to start.” “Lining things up with number sliders is tedious.” “I rebuild my settings for every social network.” This update removes those snags one by one. It is also worth a look if you are curious about Gemini 3.8 Flash TTS or want to use a clone of your own voice.</p>"
+      },
+      {
+        "type": "cards",
+        "items": [
+          {
+            "icon": "🧭",
+            "title": "Tidier settings",
+            "text": "Consistent controls, plus undo and redo just for settings"
+          },
+          {
+            "icon": "✋",
+            "title": "Drag on the preview",
+            "text": "Move slide images, badges, character icons and speech bubbles directly"
+          },
+          {
+            "icon": "🎛️",
+            "title": "Rebuilt presets",
+            "text": "9 platform + 8 subtitle presets; choose what to save and apply"
+          },
+          {
+            "icon": "🎙️",
+            "title": "Gemini 3.8 TTS",
+            "text": "Search the voice library and use your own voices (API key required)"
+          }
+        ]
+      },
+      {
+        "type": "check_list",
+        "items": [
+          "Tidier settings screen, with undo and redo just for settings",
+          "Drag slide images, badges, character icons and speech bubbles directly on the preview",
+          "Built-in presets rebuilt as 9 “platform” and 8 “subtitle design” presets; your own presets can save only the parts you choose",
+          "Choose which parts a preset changes when you apply it",
+          "New 4:5 (Instagram portrait) and 4:3 aspect ratios",
+          "Gemini 3.8 Flash TTS / 3.8 Flash Lite TTS, with voice-library search and your own custom voices (API key required)",
+          "SlideCast Bundle Builder also supports Gemini 3.8 TTS and the 4:5 and 4:3 ratios",
+          "Libraries for tickers and badges; badges and stickers now snap to each other",
+          "Character settings grouped by part, and up to six gestures per character",
+          "Refreshed dashboard with links to tutorial videos and news",
+          "Other small fixes"
+        ]
+      },
+      {
+        "type": "figure",
+        "image": "./img/v44-01.png",
+        "alt": "The Basic tab of the settings screen. Under video size and subtitle layout, 4:5 (Instagram) is selected; undo and redo buttons sit at the bottom",
+        "caption": "The Basic tab (基本). 4:5 and 4:3 are new, and undo/redo now sit at the bottom of the settings screen"
+      }
+    ]
+  },
+  "sections": [
+    {
+      "icon": "🧭",
+      "category": "SETTINGS",
+      "title": "A tidier settings screen",
+      "intro": "Easy mode is now a switch inside the same settings screen.",
+      "blocks": [
+        {
+          "type": "html",
+          "html": "<p>Until now, easy mode was a separate “easy settings” panel. From this release, you <strong>turn “かんたん” (Easy) on or off inside the same settings screen</strong>. Both views edit the same settings, so you can decide the basics in easy mode and then switch to detailed mode to fine-tune.</p>"
+        },
+        {
+          "type": "soft_cards",
+          "items": [
+            {
+              "icon": "🌱",
+              "title": "Easy ON",
+              "text": "Shows only the settings you use most"
+            },
+            {
+              "icon": "🔧",
+              "title": "Easy OFF (detailed)",
+              "text": "Shows every setting, as before"
+            }
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "info",
+          "title": "🛠️ Easy mode is still a work in progress",
+          "text": "To be honest, easy mode is not yet as simple as it should be. I will keep improving it."
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "Consistent controls"
+        },
+        {
+          "type": "html",
+          "html": "<p>Buttons, switches, sliders and notes that looked slightly different from tab to tab now use the same components everywhere.</p>"
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "Undo and redo, just for settings"
+        },
+        {
+          "type": "html",
+          "html": "<p>The bottom of the settings screen now has <strong>undo (Ctrl+Z) and redo (Ctrl+Y) for settings</strong>. They are greyed out when there is nothing to undo. Try a different colour or preset, and step straight back if you don’t like it.</p>"
+        },
+        {
+          "type": "figure",
+          "image": "./img/v44-02.png",
+          "alt": "The settings screen with Easy mode on. The undo and redo buttons at the bottom left are outlined in red",
+          "caption": "Settings-only undo and redo sit at the bottom left of the settings screen"
+        }
+      ]
+    },
+    {
+      "icon": "✋",
+      "category": "DIRECT EDITING",
+      "title": "Grab and move things on the preview",
+      "intro": "Positions and sizes you used to set with number sliders can now be dragged directly on the preview.",
+      "blocks": [
+        {
+          "type": "check_list",
+          "items": [
+            "Slide image: while “スライド画像の配置” (Slide image placement) is open, drag the frame to move it and the corners to scale it",
+            "Badges: move and resize the badge selected in the Badge tab. Click a badge on the preview to select it",
+            "Character icon and speech bubble: while character settings are open, move the icon and bubble of a speech-bubble character. The matching “Icon” or “Speech bubble” heading opens in the settings as you grab it"
+          ]
+        },
+        {
+          "type": "html",
+          "html": "<p><strong>Badges and stickers now snap to each other</strong>, stopping neatly at edges and centres, at equal spacing, and at the centre of the screen or image. The Badge tab also has the snap switch, and it shows ON or OFF.</p><p>In the Ticker tab, only the ticker you have open scrolls on the preview, so you can check it on its own.</p>"
+        },
+        {
+          "type": "figure",
+          "image": "./img/v44-03.png",
+          "alt": "The editor with the Badge tab open. Move handles appear on a badge and a sticker in the preview",
+          "caption": "In the Badge tab you can move badges directly on the preview. Snapping is toggled with the switch at the top right of the tab"
+        }
+      ]
+    },
+    {
+      "icon": "🎛️",
+      "category": "PRESETS",
+      "title": "Presets, rebuilt",
+      "intro": "Built-in presets are now “platform” plus “subtitle design”, and your own presets can save and apply only the parts you choose.",
+      "blocks": [
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "Built-in presets: platform plus subtitle design"
+        },
+        {
+          "type": "table",
+          "head": [
+            "Group",
+            "Count",
+            "Presets"
+          ],
+          "rows": [
+            [
+              "Platform (screen size and subtitle position)",
+              "9",
+              "YouTube / YouTube (subtitles overlaid) / YouTube Shorts / TikTok / Instagram Reels / Instagram 1:1 / Instagram 4:5 / X / Presentation (no subtitles)"
+            ],
+            [
+              "Subtitle design",
+              "8",
+              "Standard / Outline / Pop / Soft / News / Cinema / Handwritten / Retro"
+            ]
+          ]
+        },
+        {
+          "type": "html",
+          "html": "<p>Built-in presets <strong>change only the settings they define</strong>. BGM, OP/ED, badges and voices stay as they are, so you can pick TikTok as the platform and then Pop as the subtitle design. For portrait platforms, subtitles and slides move to positions less likely to be covered by the app’s captions and buttons.</p>"
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "Choose what your own presets save"
+        },
+        {
+          "type": "soft_cards",
+          "items": [
+            {
+              "icon": "🎨",
+              "title": "Look",
+              "text": "Screen, background, slide image, subtitles, badges, tickers, OP/ED"
+            },
+            {
+              "icon": "⏱️",
+              "title": "Motion and timing",
+              "text": "Transitions and animation, pacing"
+            },
+            {
+              "icon": "🔊",
+              "title": "Sound",
+              "text": "Sound effects, BGM, narrator voice"
+            }
+          ]
+        },
+        {
+          "type": "html",
+          "html": "<p>Hover over each part to see exactly what is saved. API keys, export settings, background videos and auto-acting are <strong>never saved in presets</strong>, and they keep their current values when you apply one.</p>"
+        },
+        {
+          "type": "figure",
+          "image": "./img/v44-04.png",
+          "alt": "The Save preset dialog, with checkboxes grouped under look, motion and timing, and sound",
+          "caption": "When saving a preset, tick the parts you want to include"
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "Choose what a preset changes when you apply it"
+        },
+        {
+          "type": "html",
+          "html": "<p>The confirmation screen lists the changes grouped by part. <strong>Untick a part to keep its current values.</strong> A note above the Apply button reminds you that you can undo.</p>"
+        }
+      ]
+    },
+    {
+      "icon": "📐",
+      "category": "ASPECT RATIOS",
+      "title": "New 4:5 and 4:3 aspect ratios",
+      "intro": "Choose portrait 4:5 for Instagram feeds, or 4:3 for classic slide decks.",
+      "blocks": [
+        {
+          "type": "html",
+          "html": "<p>The aspect-ratio options now include <strong>4:5</strong> and <strong>4:3</strong>. SlideCast Bundle Builder and AI CODE MOVIE STUDIO also gain 4:5 and 4:3 for image ratios and subtitle layouts (a subtitle line holds about 22 Japanese characters at 4:5 and about 24 at 4:3).</p>"
+        },
+        {
+          "type": "figure",
+          "image": "./img/v44-05.png",
+          "alt": "The editor with 4:5 (Instagram) selected in the Basic tab; the preview has become a 4:5 portrait frame",
+          "caption": "Choose 4:5 under video size and subtitle layout (動画サイズ・字幕レイアウト) in the Basic tab and the preview switches to 4:5"
+        }
+      ]
+    },
+    {
+      "icon": "🎙️",
+      "category": "AI VOICE",
+      "title": "Gemini 3.8 TTS and the voice library",
+      "intro": "Both the in-app AI voice (Gemini) and SlideCast Bundle Builder can now use Gemini 3.8 Flash TTS / 3.8 Flash Lite TTS.",
+      "blocks": [
+        {
+          "type": "soft_cards",
+          "items": [
+            {
+              "icon": "🎙️",
+              "title": "Gemini 3.8 Flash TTS",
+              "text": "Works with library voices and your own voices"
+            },
+            {
+              "icon": "🪶",
+              "title": "Gemini 3.8 Flash Lite TTS",
+              "text": "The lower-cost 3.8 model"
+            }
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "Search the voice library with the 3.8 models"
+        },
+        {
+          "type": "html",
+          "html": "<p>With a 3.8 model selected, a <strong>“ライブラリから探す” (Search the library)</strong> button appears next to the voice field (an API key is required).</p>"
+        },
+        {
+          "type": "check_list",
+          "items": [
+            "Filter by language, gender, pitch and keyword",
+            "Listen to a sample on the spot",
+            "Loading the list is free; samples use your API quota"
+          ]
+        },
+        {
+          "type": "figure",
+          "image": "./img/v44-06.png",
+          "alt": "API settings in the Voice tab, numbered: 1 enter the Gemini API key, 2 select Gemini 3.8 Flash TTS, 3 press “Search the library”",
+          "caption": "In the Voice tab (音声): 1 enter your API key, 2 choose a Gemini 3.8 model, 3 press “ライブラリから探す” (Search the library)"
+        },
+        {
+          "type": "figure",
+          "image": "./img/v44-07.png",
+          "alt": "The voice library dialog, filtered by language, keyword, gender and pitch, with Listen and Select buttons for each voice",
+          "caption": "The voice library. Filter by language, gender, pitch and keyword, and listen on the spot"
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "Use your own voices too"
+        },
+        {
+          "type": "html",
+          "html": "<p>Switch the dialog to “<strong>自作の音声</strong>” (Your voices) to list the voices made in the project behind your API key — voices designed from a prompt, or clones of a voice. You can also type an ID straight into “その他の音声（IDを入力）” (Other voice — enter ID).</p><p>Create custom and cloned voices in Google AI Studio itself; generating speech with them works in SlideCast Studio or SlideCast Bundle Builder.</p>"
+        },
+        {
+          "type": "figure",
+          "image": "./img/v44-08.png",
+          "alt": "The “Your voices” tab of the voice library, listing a cloned voice and prompt-designed voices with expiry dates (IDs are blurred)",
+          "caption": "Your own and cloned voices. Only voices made in the project behind this API key appear"
+        },
+        {
+          "type": "callout",
+          "tone": "warn",
+          "title": "⚠️ Please note",
+          "text": "Library voices and your own voices work only with Gemini 3.8 Flash TTS / 3.8 Flash Lite TTS. Your own and cloned voices belong to your Google AI Studio project and API key, and appear in the list once that key is entered. Generating speech uses your own API quota and charges, as before. When you create an API key, always set a spending cap and keep the key private."
+        }
+      ]
+    },
+    {
+      "icon": "📚",
+      "category": "LIBRARIES",
+      "title": "Ticker and badge libraries",
+      "intro": "Save the tickers and badges you make, and reuse them.",
+      "blocks": [
+        {
+          "type": "check_list",
+          "items": [
+            "Save ticker items and badges to a library and bring them back in other projects or other positions",
+            "The ticker library is shared between top and bottom; the badge library is shared across all four corners",
+            "Ticker items can be reordered with a drag handle, and switched on or off with a switch"
+          ]
+        },
+        {
+          "type": "figure",
+          "image": "./img/v44-09.png",
+          "alt": "The badge library dialog, with Apply and Remove from library buttons on a saved badge",
+          "caption": "The badge library. Press Apply (適用) to bring a saved badge back"
+        }
+      ]
+    },
+    {
+      "icon": "🧑‍🎤",
+      "category": "CHARACTERS",
+      "title": "Tidier character settings and up to six gestures",
+      "intro": "The headings now tell you what each part changes.",
+      "blocks": [
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "Grouped by part"
+        },
+        {
+          "type": "html",
+          "html": "<p>Character settings are now grouped under <strong>Basic → Icon → Speech bubble → Text → Voice</strong>.</p>"
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "Fixed-size icons for new characters"
+        },
+        {
+          "type": "html",
+          "html": "<p>Icons of newly created characters now have a <strong>fixed size that no longer follows the subtitle area</strong>, so changing subtitle settings won’t resize them. Existing characters keep working; opening an older character in easy mode moves it to the fixed-size method while keeping its look.</p>"
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "Up to six gestures"
+        },
+        {
+          "type": "html",
+          "html": "<p>Voice-linked character packs made with MouthLoop can now use <strong>up to six gestures</strong> (previously three). Existing three-gesture packs work as before.</p>"
+        },
+        {
+          "type": "figure",
+          "image": "./img/v44-10.png",
+          "alt": "The character editor, with headings for basic settings, icon, speech bubble, text and voice settings",
+          "caption": "The character editor is now split into headings by part"
+        }
+      ]
+    },
+    {
+      "icon": "🔧",
+      "category": "FIXES",
+      "title": "Other improvements and fixes",
+      "intro": "Smaller usability improvements and bug fixes.",
+      "blocks": [
+        {
+          "type": "check_list",
+          "items": [
+            "Refreshed dashboard, with links to tutorial videos on YouTube, X, the official site and update news (note)",
+            "Fixed input dialogs keeping only the last character when you type one character at a time",
+            "Fixed text settings not applying to standard-subtitle characters, and large text being cut off at the subtitle area",
+            "Swapping a character’s side now mirrors the icon and speech bubble positions correctly",
+            "OP/ED settings can be opened and edited while their switch is off",
+            "Slide exports (images, PDF, PPTX and so on) and their preview no longer include the top and bottom tickers (video settings are unchanged)",
+            "Backups no longer include Gem URLs (older backups still load as before)",
+            "The subtitle animation preview plays once when you change the type, then stops",
+            "Reorganised the still-slide settings so the help bubbles are no longer clipped",
+            "Fixed the dashboard content briefly shifting left after projects load"
+          ]
+        }
+      ]
+    },
+    {
+      "icon": "📌",
+      "category": "NOTES",
+      "title": "Before you update",
+      "intro": "Please check the following.",
+      "blocks": [
+        {
+          "type": "check_list",
+          "items": [
+            "Existing projects open as they are. Aspect ratios, presets and character settings read your existing data",
+            "Presets saved in earlier versions still apply as before. Choosing parts applies to presets you save from now on",
+            "Built-in presets now change only the settings they define; they no longer reset BGM or OP/ED to defaults",
+            "The voice library and your own voices work only with the 3.8 models. Samples and generation use your API quota"
+          ]
+        }
+      ]
+    },
+    {
+      "icon": "⬆️",
+      "category": "HOW TO UPDATE",
+      "title": "Updating to v4.4",
+      "intro": "If you have already bought SlideCast Studio, copy v4.4 from the same shared link in the paid note article.",
+      "blocks": [
+        {
+          "type": "callout",
+          "tone": "good",
+          "title": "💾 Make a backup first",
+          "text": "If you want to keep your existing projects, library and settings, create a backup from “バックアップ” (Backup) on the dashboard before you update."
+        },
+        {
+          "type": "html",
+          "html": "<p>To update the Apps Script edition in place, the files to replace since v4.3 are <strong>“AppBundle.html” and “無題.html”</strong> in the v4.4 distribution folder. Copy them into your existing Apps Script project and redeploy the existing deployment as a new version. (code.gs and the files beginning with “GasAsset_” are unchanged in this release.)</p>"
+        },
+        {
+          "type": "link",
+          "url": "../../gas-update/",
+          "label": "Detailed update steps for the Apps Script edition"
+        },
+        {
+          "type": "html",
+          "html": "<p>For the local HTML edition, download “SlideCast Studio v4.4〖ローカル版〗.html” and open it. A new Apps Script project or a different browser will not show your previous data automatically; restore it from a backup in that case.</p>"
+        }
+      ]
+    },
+    {
+      "icon": "🌸",
+      "category": "IN CLOSING",
+      "title": "Rethinking how you set up the screen",
+      "intro": "What you need, when you need it.",
+      "blocks": [
+        {
+          "type": "html",
+          "html": "<p>v4.3 “RENDER” let you choose <strong>how the screen becomes a video</strong>. v4.4 “BLOOM” goes one step earlier and rethinks <strong>how you set up that screen</strong>. The settings screen is where you spend the most time, so rather than removing options, I rearranged them so that what you need shows up when you need it.</p><p>Gemini 3.8 Flash TTS also widens what your narration can sound like. It needs an API key, but it lets you use custom voices and even a clone of your own voice. Setting up the API may feel like a hurdle, but it is well worth trying.</p><p>Tutorial videos are being added to the YouTube channel as well.</p>"
+        },
+        {
+          "type": "link",
+          "url": "https://www.youtube.com/channel/UC2lO3ixD4ICI9VgRSxidRbQ",
+          "label": "SlideCast Studio on YouTube"
+        },
+        {
+          "type": "cta",
+          "title": "The original article is on note",
+          "text": "The full Japanese article, later notes and comments are published there.",
+          "url": "https://note.com/bluezzly/n/ne39e997ec350",
+          "label": "Read the original on note"
+        }
+      ]
+    }
+  ]
+}

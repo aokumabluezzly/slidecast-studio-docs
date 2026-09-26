@@ -44,6 +44,8 @@
       group: '更新履歴',
       group_en: 'Release notes',
       items: [
+        { href: 'updates/v44/', icon: '🆕', label: 'v4.4「BLOOM」', desc: '設定画面の刷新・プリセット・Gemini 3.8 TTS',
+          en: true, label_en: 'v4.4 “BLOOM”', desc_en: 'Redesigned settings, presets and Gemini 3.8 TTS' },
         { href: 'updates/v43/', icon: '🆕', label: 'v4.3「RENDER」', desc: 'フレーム生成の高品質な動画書き出し',
           en: true, label_en: 'v4.3 “RENDER”', desc_en: 'High-quality, frame-by-frame video export' },
         { href: 'updates/v42/', icon: '🆕', label: 'v4.2「TATE」', desc: '縦書き字幕・縦書きの吹き出し・演技素材の編集',

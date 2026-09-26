@@ -29,9 +29,18 @@ PAGE_META: dict[str, dict[str, object]] = {
         "og_title": "SlideCast Studioとは",
         "og_description": (
             "資料とAI音声から、ナレーション・字幕・キャラ演出つきの動画をブラウザだけで作れる"
-            "買い切りツール SlideCast Studio v4.3 RENDER の紹介ページ。"
+            "買い切りツール SlideCast Studio v4.4 BLOOM の紹介ページ。"
         ),
         "twitter_description": "資料とAI音声から、伝わるスライド動画をブラウザだけで作る。",
+        "en": True,
+    },
+    "updates/v44/": {
+        "og_title": "SlideCast Studio v4.4「BLOOM」",
+        "og_description": (
+            "設定画面の整理、プレビュー上の直接操作、プリセットの作り直し、画面比率4:5／4:3、"
+            "Gemini 3.8 Flash TTSの音声ライブラリと自作音声に対応したv4.4の更新内容。"
+        ),
+        "twitter_description": "迷わず、整う。設定画面の刷新とGemini 3.8 TTS対応のv4.4アップデート。",
         "en": True,
     },
     "updates/v43/": {
