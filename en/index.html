@@ -1010,7 +1010,10 @@ a{color:var(--primary-ink)}
   if (featureChips.length) {
     document.addEventListener('click', () => closePops(null));
     addEventListener('keydown', event => { if (event.key === 'Escape') closePops(null); });
-    addEventListener('resize', () => closePops(null));
+    /* 閉じているポップアップも幅を持つので、端のカードの分が画面外へはみ出さないよう先に位置を合わせておく */
+    const placeAll = () => featureChips.forEach(placePop);
+    placeAll();
+    addEventListener('resize', () => { closePops(null); placeAll(); });
   }
 
   /* クリックされて初めて YouTube / Vimeo を読み込む。それまでは通信しない */
