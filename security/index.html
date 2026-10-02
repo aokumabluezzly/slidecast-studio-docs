@@ -1,0 +1,1016 @@
+<!doctype html>
+<html lang="ja" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="作品の保存先、Googleへの通信、APIキーの保持、AI生成の停止と月額上限、Gemini Canvasアプリのデータ扱い、外部ライブラリの安全対策を解説します。">
+<title>SlideCast Studio のセキュリティについて</title>
+<link rel="canonical" href="https://aokumabluezzly.github.io/slidecast-studio-docs/security/">
+<link rel="alternate" hreflang="ja" href="https://aokumabluezzly.github.io/slidecast-studio-docs/security/">
+<link rel="alternate" hreflang="x-default" href="https://aokumabluezzly.github.io/slidecast-studio-docs/security/">
+<link rel="icon" type="image/png" sizes="32x32" href="../assets/brand/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="../assets/brand/favicon-16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="../assets/brand/apple-touch-icon.png">
+<link rel="manifest" href="../site.webmanifest">
+<meta name="theme-color" content="#1957ff">
+<meta property="og:type" content="article">
+<meta property="og:locale" content="ja_JP">
+<meta property="og:site_name" content="SlideCast Studio">
+<meta property="og:title" content="SlideCast Studio のセキュリティについて（作品・APIキー・料金の守り方）">
+<meta property="og:description" content="作品の保存先、通信先、APIキーの保持、生成の停止と料金の上限、Gemini Canvasアプリと外部ライブラリの安全対策を解説します。">
+<meta property="og:url" content="https://aokumabluezzly.github.io/slidecast-studio-docs/security/">
+<meta property="og:image" content="https://aokumabluezzly.github.io/slidecast-studio-docs/assets/brand/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="SlideCast Studio ロゴ">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="SlideCast Studio のセキュリティについて（作品・APIキー・料金の守り方）">
+<meta name="twitter:description" content="作品の保存先、通信先、APIキーの保持、生成の停止と料金の上限、Gemini Canvasアプリと外部ライブラリの安全対策を解説します。">
+<meta name="twitter:image" content="https://aokumabluezzly.github.io/slidecast-studio-docs/assets/brand/og-image.png">
+<style>
+/* ============================================================
+   1. TOKENS  —  the single source of size, weight, color, space
+   ============================================================ */
+:root{
+  /* palette (replaceable per article) */
+  --primary:#2476D8;
+  --secondary:#4A63C8;
+  --accent:#14A38B;
+  --surface:#EFF6FF;
+
+  /* text */
+  --ink:#17233F;
+  --ink-soft:color-mix(in srgb,var(--ink) 82%,#ffffff);
+  /* 68%, not 55%: card copy and captions sit on tinted surfaces, where a
+     lighter mix falls to ~3.2:1 — under the 4.5:1 gate for small text. */
+  --muted:color-mix(in srgb,var(--ink) 68%,#ffffff);
+  --on-deep:#ffffff;
+  --on-deep-soft:rgba(255,255,255,.88);
+
+  /* readable accent text (never the raw brand color on light surfaces) */
+  --primary-ink:color-mix(in srgb,var(--primary) 62%,#0d1027);
+  --secondary-ink:color-mix(in srgb,var(--secondary) 62%,#0d1027);
+  --accent-ink:color-mix(in srgb,var(--accent) 62%,#0d1027);
+
+  /* surfaces */
+  --paper:#fffdfa;
+  --card:#ffffff;
+  --soft:var(--surface);
+  --line:color-mix(in srgb,var(--primary) 16%,#e6e2ef);
+  --line-strong:color-mix(in srgb,var(--primary) 30%,#ded8ec);
+
+  /* gradients — every raised surface uses one of these */
+  --grad-rule:linear-gradient(90deg,var(--accent),var(--primary));
+  --grad-brand:linear-gradient(135deg,var(--accent),var(--primary));
+  --grad-panel:linear-gradient(150deg,color-mix(in srgb,var(--card) 96%,transparent),var(--soft));
+  --grad-tint:linear-gradient(150deg,color-mix(in srgb,var(--item-accent,var(--primary)) 11%,var(--card)),color-mix(in srgb,var(--item-accent,var(--primary)) 2%,var(--card)));
+  --grad-deep:
+    radial-gradient(circle at 8% 0%,color-mix(in srgb,var(--accent) 30%,transparent),transparent 46%),
+    radial-gradient(circle at 100% 100%,color-mix(in srgb,var(--secondary) 34%,transparent),transparent 52%),
+    linear-gradient(145deg,color-mix(in srgb,var(--primary) 60%,#272247) 0%,color-mix(in srgb,var(--primary) 46%,#221d3d) 52%,color-mix(in srgb,var(--secondary) 40%,#1c2240) 100%);
+
+  --shadow:0 18px 60px color-mix(in srgb,var(--primary) 16%,transparent);
+  --shadow-sm:0 6px 22px color-mix(in srgb,var(--primary) 11%,transparent);
+  --shadow-deep:0 14px 34px color-mix(in srgb,var(--primary) 24%,transparent);
+
+  /* type scale — blocks must not invent sizes outside this list */
+  --fs-hero:clamp(1.75rem,3.6vw,2.7rem);
+  --fs-h1:clamp(1.75rem,4vw,2.6rem);
+  --fs-h2:clamp(1.4rem,3vw,1.95rem);
+  --fs-h3:clamp(1.12rem,2.2vw,1.3rem);
+  --fs-h4:1.12rem;
+  --fs-lead:clamp(1rem,1.7vw,1.12rem);
+  --fs-body:clamp(.98rem,1.35vw,1.05rem);
+  --fs-sm:.9rem;
+  --fs-xs:.82rem;
+  --fs-label:.72rem;
+
+  /* weight scale */
+  --fw-kicker:900;
+  --fw-title:800;
+  --fw-strong:700;
+  --fw-body:400;
+
+  /* geometry */
+  --w-wide:1160px;
+  --w-read:900px;
+  --gutter:32px;
+  --header-h:64px;
+  --r-lg:24px;
+  --r-md:18px;
+  --r-sm:13px;
+  color-scheme:light;
+}
+[data-theme="dark"]{
+  --ink:#eceaf6;
+  --ink-soft:color-mix(in srgb,var(--ink) 86%,#000000);
+  --muted:color-mix(in srgb,var(--ink) 62%,#000000);
+  --primary-ink:color-mix(in srgb,var(--primary) 68%,#ffffff);
+  --secondary-ink:color-mix(in srgb,var(--secondary) 68%,#ffffff);
+  --accent-ink:color-mix(in srgb,var(--accent) 68%,#ffffff);
+  --paper:#14131c;
+  --card:#1c1b28;
+  --soft:#232131;
+  --line:color-mix(in srgb,var(--primary) 22%,#322f45);
+  --line-strong:color-mix(in srgb,var(--primary) 34%,#423e5c);
+  --shadow:0 18px 60px rgba(0,0,0,.5);
+  --shadow-sm:0 6px 22px rgba(0,0,0,.35);
+  --shadow-deep:0 14px 34px rgba(0,0,0,.45);
+  color-scheme:dark;
+}
+
+/* ============================================================
+   2. BASE
+   ============================================================ */
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:calc(var(--header-h) + 16px)}
+body{
+  margin:0;overflow-x:hidden;color:var(--ink);
+  background:
+    radial-gradient(circle at 12% 3%,color-mix(in srgb,var(--accent) 13%,transparent),transparent 22rem),
+    radial-gradient(circle at 88% 1%,color-mix(in srgb,var(--primary) 16%,transparent),transparent 26rem),
+    var(--paper);
+  font-family:-apple-system,BlinkMacSystemFont,"Hiragino Sans","Yu Gothic UI","Noto Sans JP",Meiryo,sans-serif;
+  font-size:16px;line-height:1.92;letter-spacing:.02em;
+}
+button,a,input,select{font:inherit}
+a{color:var(--primary-ink);text-underline-offset:.18em}
+a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid var(--primary);outline-offset:3px}
+img{max-width:100%}
+h1,h2,h3,h4{line-height:1.4;letter-spacing:-.02em;font-weight:var(--fw-title)}
+h1{font-size:var(--fs-h1)}
+h2{font-size:var(--fs-h2)}
+h3{font-size:var(--fs-h3)}
+h4{font-size:var(--fs-h4)}
+.wide{width:min(var(--w-wide),calc(100% - var(--gutter)));margin-inline:auto}
+.reading{width:min(var(--w-read),calc(100% - var(--gutter)));margin-inline:auto}
+.kicker{margin:0 0 10px;color:var(--primary-ink);font-size:var(--fs-label);font-weight:var(--fw-kicker);letter-spacing:.16em}
+.lead{margin:0;color:var(--muted);font-size:var(--fs-lead)}
+.rule::after{content:"";display:block;width:56px;height:5px;margin-top:14px;border-radius:999px;background:var(--grad-rule)}
+.skip-link{
+  position:fixed;top:8px;left:8px;z-index:200;padding:10px 16px;border-radius:999px;
+  background:var(--grad-brand);color:var(--on-deep);font-size:var(--fs-xs);font-weight:var(--fw-title);text-decoration:none;
+  transform:translateY(-160%);transition:transform .18s ease;
+}
+.skip-link:focus-visible{transform:none}
+
+/* ============================================================
+   3. HEADER RULE
+   Sticky · var(--w-wide) · brand left · controls right ·
+   all controls 40px tall, same center line, radius 10/999px.
+   ============================================================ */
+.progress{position:fixed;inset:0 auto auto 0;z-index:120;width:0;height:4px;background:var(--grad-rule)}
+.site-header{
+  position:sticky;top:0;z-index:90;
+  border-bottom:1px solid var(--line);
+  background:color-mix(in srgb,var(--paper) 88%,transparent);
+  backdrop-filter:blur(16px);
+}
+.header-inner{
+  width:min(var(--w-wide),calc(100% - var(--gutter)));min-height:var(--header-h);margin:auto;
+  display:flex;align-items:center;justify-content:space-between;gap:14px;
+}
+.brand{
+  height:40px;display:inline-flex;align-items:center;flex:0 0 auto;gap:6px;
+  border:0;background:none;color:var(--ink);cursor:pointer;text-decoration:none;
+  font-size:1.05rem;font-weight:var(--fw-kicker);line-height:1;letter-spacing:-.02em;white-space:nowrap;
+}
+.brand b{color:var(--primary-ink);font-weight:inherit}
+.brand em{
+  padding:2px 8px;border-radius:999px;background:var(--grad-brand);color:var(--on-deep);
+  font-size:.68rem;font-style:normal;font-weight:var(--fw-title);letter-spacing:.06em;
+}
+.header-current{
+  min-width:0;flex:1;color:var(--muted);font-size:var(--fs-xs);font-weight:var(--fw-strong);
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;opacity:0;transition:opacity .2s ease;
+}
+.header-current.show{opacity:1}
+.header-nav{display:flex;align-items:center;flex-wrap:nowrap;gap:6px}
+.header-link{
+  height:40px;padding:0 12px;display:inline-flex;align-items:center;justify-content:center;gap:6px;flex:0 0 auto;
+  border:0;border-radius:10px;background:transparent;color:var(--muted);cursor:pointer;text-decoration:none;
+  font-size:var(--fs-xs);font-weight:var(--fw-title);line-height:1;white-space:nowrap;
+}
+.header-link:hover{color:var(--primary-ink);background:var(--soft)}
+.icon-button{
+  width:40px;height:40px;padding:0;flex:0 0 40px;display:grid;place-items:center;
+  border:1px solid var(--line-strong);border-radius:999px;background:var(--card);color:var(--ink-soft);
+  cursor:pointer;font-size:1.05rem;line-height:1;
+}
+.icon-button:hover{border-color:var(--primary);color:var(--primary-ink)}
+.theme-dark{display:none}
+[data-theme="dark"] .theme-light{display:none}
+[data-theme="dark"] .theme-dark{display:inline}
+
+/* ============================================================
+   4. HERO  (wide region)
+   ============================================================ */
+.hero{
+  width:min(var(--w-wide),calc(100% - var(--gutter)));margin:44px auto 34px;overflow:hidden;
+  border:1px solid var(--line);border-radius:34px;background:var(--grad-panel);box-shadow:var(--shadow);
+}
+.hero-grid{display:grid;grid-template-columns:1.02fr .98fr;align-items:center}
+.hero:not(.has-image) .hero-grid{grid-template-columns:1fr}
+.hero-copy{padding:clamp(30px,5.5vw,64px)}
+.hero h1{margin:0;font-size:var(--fs-hero);line-height:1.28;letter-spacing:-.035em;word-break:normal;overflow-wrap:anywhere}
+.hero-subtitle{margin:16px 0 0;color:var(--secondary-ink);font-size:var(--fs-lead);font-weight:var(--fw-title);line-height:1.7}
+.hero-description{margin:14px 0 0;color:var(--muted);font-size:var(--fs-lead)}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:22px 0 0;padding:0;list-style:none}
+.chip{
+  padding:4px 13px;border-radius:999px;
+  background:linear-gradient(135deg,color-mix(in srgb,var(--accent) 15%,transparent),color-mix(in srgb,var(--primary) 15%,transparent));
+  color:var(--primary-ink);font-size:var(--fs-xs);font-weight:var(--fw-title);
+}
+.meta{display:flex;flex-wrap:wrap;gap:8px 16px;margin-top:22px;color:var(--muted);font-size:var(--fs-xs);font-weight:var(--fw-strong)}
+.hero-media{margin:0;padding:clamp(20px,3vw,34px);display:flex;flex-direction:column;justify-content:center}
+.hero-media img{
+  display:block;width:100%;aspect-ratio:1280 / 670;object-fit:cover;
+  border:1px solid var(--line);border-radius:var(--r-lg);background:var(--soft);box-shadow:var(--shadow);
+}
+.hero-media figcaption{margin-top:10px;color:var(--muted);font-size:var(--fs-xs);font-weight:var(--fw-strong);text-align:center}
+
+/* ============================================================
+   5. BLOCK LIBRARY  —  pick, place, retitle, recolor.
+   Every block honours --item-accent, so a wrapper can recolor it.
+   ============================================================ */
+
+/* 5.1 stat-strip : compact metric tiles */
+.stat-strip{
+  width:min(var(--w-wide),calc(100% - var(--gutter)));margin:0 auto 56px;
+  display:grid;grid-template-columns:repeat(4,1fr);gap:14px;
+}
+.stat{
+  padding:20px 18px;border:1px solid var(--line);border-radius:var(--r-md);
+  background:linear-gradient(160deg,color-mix(in srgb,var(--primary) 9%,var(--card)),var(--card) 72%);
+  box-shadow:var(--shadow-sm);text-align:center;
+}
+.stat i{display:block;margin-bottom:2px;font-size:1.35rem;font-style:normal}
+.stat b{display:block;font-size:1.5rem;font-weight:var(--fw-title);line-height:1.4;letter-spacing:-.03em}
+.stat span{display:block;color:var(--muted);font-size:var(--fs-xs);font-weight:var(--fw-strong)}
+
+/* 5.2 section-head : kicker + heading + lead */
+.section-head{margin:0 0 26px}
+.section-head.center{text-align:center}
+.section-head h2{margin:0;font-size:var(--fs-h2);letter-spacing:-.03em}
+.section-head p{max-width:40rem;margin:10px 0 0;color:var(--muted)}
+.section-head.center p{margin-inline:auto}
+
+/* 5.3 panel : the standard light gradient container */
+.panel{
+  padding:clamp(24px,4vw,44px);border:1px solid var(--line);border-radius:28px;
+  background:var(--grad-panel);box-shadow:var(--shadow);
+}
+.panel>:first-child{margin-top:0}
+.panel>:last-child{margin-bottom:0}
+.prose{font-size:var(--fs-body)}
+.prose p{margin:14px 0;color:var(--ink-soft)}
+.prose strong{font-weight:var(--fw-title);background:linear-gradient(transparent 72%,color-mix(in srgb,var(--accent) 24%,transparent) 0)}
+.prose ul,.prose ol{padding-left:1.4em;color:var(--ink-soft)}
+.prose li{margin:6px 0}
+.prose li::marker{color:var(--item-accent,var(--primary));font-weight:var(--fw-kicker)}
+
+/* 5.4 feature-grid : deep gradient summary cards (3 / 2 / 1) */
+/* grid-auto-rows:1fr — a summary grid reads as one set, so every card keeps the
+   same height even when one label wraps to a second line. */
+.card-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));grid-auto-rows:1fr;gap:14px;margin:26px 0 0}
+.feature-card{
+  min-height:178px;padding:22px 20px;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;gap:14px;
+  border:1px solid color-mix(in srgb,var(--primary) 34%,transparent);border-radius:var(--r-md);
+  background:var(--grad-deep);color:var(--on-deep);text-align:center;box-shadow:var(--shadow-deep);
+  transition:transform .2s ease,border-color .2s ease,box-shadow .2s ease;
+}
+.feature-card:hover{transform:translateY(-3px);border-color:color-mix(in srgb,#fff 55%,transparent);box-shadow:0 18px 40px color-mix(in srgb,var(--primary) 30%,transparent)}
+.card-icon{font-size:3rem;line-height:1;filter:drop-shadow(0 7px 12px rgba(20,16,45,.28))}
+.card-image{width:78px;height:78px;object-fit:contain}
+.feature-card h3{margin:0;font-size:var(--fs-h4);font-weight:var(--fw-title);line-height:1.55}
+.feature-card p{margin:0;color:var(--on-deep-soft);font-size:var(--fs-sm);line-height:1.6}
+
+/* 5.5 soft-grid : light gradient cards, for dense or secondary sets */
+.soft-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:24px 0;padding:0;list-style:none}
+.soft-card{
+  margin:0;padding:18px 20px;border:1px solid var(--line);border-radius:var(--r-md);
+  background:var(--grad-tint);box-shadow:var(--shadow-sm);
+}
+.soft-card .card-icon{font-size:1.6rem;filter:none}
+.soft-card h3{margin:8px 0 4px;font-size:var(--fs-h4);color:var(--item-ink,var(--primary-ink))}
+.soft-card p{margin:0;color:var(--muted);font-size:var(--fs-sm)}
+
+/* 5.6 check-list : ✓ cards, 2 columns */
+.check-list{margin:20px 0;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;list-style:none}
+.check-list li{
+  position:relative;min-height:54px;margin:0;padding:13px 14px 13px 42px;
+  border:1px solid var(--line);border-radius:var(--r-sm);background:var(--grad-tint);
+  font-size:var(--fs-sm);line-height:1.65;
+}
+.check-list li::before{
+  content:"✓";position:absolute;left:13px;top:15px;width:20px;height:20px;display:grid;place-items:center;
+  border-radius:50%;background:var(--grad-brand);color:var(--on-deep);font-size:.7rem;font-weight:var(--fw-kicker);
+}
+
+/* 5.7 step-list : numbered procedure */
+.step-list{margin:20px 0;padding:0;display:grid;gap:10px;list-style:none;counter-reset:step}
+.step-list li{
+  position:relative;margin:0;padding:14px 16px 14px 52px;counter-increment:step;
+  border:1px solid var(--line);border-radius:var(--r-sm);background:var(--grad-tint);font-size:var(--fs-sm);
+}
+.step-list li::before{
+  content:counter(step);position:absolute;left:14px;top:14px;width:26px;height:26px;display:grid;place-items:center;
+  border-radius:9px;background:var(--grad-brand);color:var(--on-deep);font-size:.78rem;font-weight:var(--fw-kicker);
+}
+.step-list li strong{display:block;font-weight:var(--fw-title)}
+
+/* 5.8 frame-list : short numbered chips, 3 columns */
+.frame-list{margin:18px 0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;list-style:none;counter-reset:frame}
+/* flex row, not an inline badge nudged with vertical-align: a fixed nudge only
+   lines up at one font size and drifts at every other. */
+.frame-list li{
+  margin:0;padding:12px 14px;display:flex;align-items:center;gap:9px;
+  counter-increment:frame;border:1px solid var(--line);border-radius:var(--r-sm);
+  background:var(--grad-tint);font-size:var(--fs-sm);font-weight:var(--fw-strong);
+}
+.frame-list li::before{
+  content:counter(frame);flex:none;display:grid;place-items:center;width:22px;height:22px;
+  border-radius:50%;background:var(--grad-brand);color:var(--on-deep);font-size:.74rem;font-weight:var(--fw-kicker);
+  line-height:1;
+}
+
+/* 5.9 callout : info / warn / good, gradient left rail */
+.callout{
+  margin:24px 0;padding:16px 18px;border:1px solid var(--line);
+  border-left:4px solid var(--item-accent,var(--primary));border-radius:0 var(--r-sm) var(--r-sm) 0;
+  background:linear-gradient(120deg,color-mix(in srgb,var(--item-accent,var(--primary)) 12%,var(--card)),var(--card) 78%);
+  font-size:var(--fs-sm);
+}
+.callout>:first-child{margin-top:0}
+.callout>:last-child{margin-bottom:0}
+.callout p{margin:0 0 6px;color:var(--ink-soft)}
+.callout strong{font-weight:var(--fw-title);color:var(--ink)}
+.callout-warn{border-left-color:var(--accent);background:linear-gradient(120deg,color-mix(in srgb,var(--accent) 14%,var(--card)),var(--card) 78%)}
+.callout-good{border-left-color:var(--secondary);background:linear-gradient(120deg,color-mix(in srgb,var(--secondary) 14%,var(--card)),var(--card) 78%)}
+
+/* 5.10 notice-box : dated update log / small print */
+.notice-box{
+  margin:0 0 22px;padding:16px 18px;border:1px dashed var(--line-strong);border-radius:var(--r-sm);
+  background:linear-gradient(135deg,color-mix(in srgb,var(--soft) 80%,transparent),transparent);
+}
+.notice-box p{margin:0 0 8px;color:var(--ink);font-weight:var(--fw-title);font-size:var(--fs-sm)}
+.notice-box ul{margin:0;padding-left:1.2em;color:var(--muted);font-size:var(--fs-sm)}
+
+/* 5.11 timeline : chronology with gradient rail */
+.timeline{margin:22px 0;padding:0 0 0 26px;list-style:none;border-left:3px solid transparent;
+  background:linear-gradient(var(--accent),var(--primary)) left/3px 100% no-repeat}
+.timeline li{position:relative;margin:0 0 18px;padding:0}
+.timeline li::before{
+  content:"";position:absolute;left:-33px;top:.62em;width:12px;height:12px;border-radius:50%;
+  background:var(--grad-brand);box-shadow:0 0 0 4px var(--paper);
+}
+.timeline time{display:block;color:var(--primary-ink);font-size:var(--fs-xs);font-weight:var(--fw-kicker);letter-spacing:.06em}
+.timeline strong{display:block;font-weight:var(--fw-title)}
+.timeline p{margin:2px 0 0;color:var(--muted);font-size:var(--fs-sm)}
+
+/* 5.12 compare : before / after pair */
+.compare{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:22px 0}
+.compare>div{padding:18px 20px;border:1px solid var(--line);border-radius:var(--r-md);box-shadow:var(--shadow-sm)}
+.compare .before{background:linear-gradient(150deg,color-mix(in srgb,var(--muted) 14%,var(--card)),var(--card) 74%)}
+.compare .after{background:linear-gradient(150deg,color-mix(in srgb,var(--secondary) 16%,var(--card)),var(--card) 74%)}
+.compare h4{margin:0 0 6px;font-size:var(--fs-xs);font-weight:var(--fw-kicker);letter-spacing:.1em;color:var(--muted)}
+.compare .after h4{color:var(--secondary-ink)}
+.compare p{margin:0;color:var(--ink-soft);font-size:var(--fs-sm)}
+
+/* 5.13 data-table : responsive, stacks on mobile */
+.table-wrap{margin:22px 0;overflow-x:auto;border:1px solid var(--line);border-radius:var(--r-md);box-shadow:var(--shadow-sm)}
+.data-table{width:100%;border-collapse:collapse;font-size:var(--fs-sm);background:var(--card)}
+.data-table th,.data-table td{padding:12px 14px;text-align:left;border-bottom:1px solid var(--line)}
+.data-table.nowrap th:not(:first-child),.data-table.nowrap td:not(:first-child){white-space:nowrap}
+.data-table thead th{background:var(--grad-tint);color:var(--item-ink,var(--primary-ink));font-weight:var(--fw-title);white-space:nowrap}
+.data-table tbody tr:last-child td{border-bottom:0}
+
+/* 5.14 quote : pull quote */
+.pull-quote{
+  margin:26px 0;padding:22px 24px;border:1px solid var(--line);border-radius:var(--r-md);
+  background:var(--grad-panel);box-shadow:var(--shadow-sm);
+}
+.pull-quote p{margin:0;font-size:var(--fs-lead);font-weight:var(--fw-strong);line-height:1.8}
+.pull-quote p::before{content:"“";margin-right:6px;color:color-mix(in srgb,var(--accent) 70%,transparent);font-size:2em;line-height:0;vertical-align:-.32em}
+.pull-quote cite{display:block;margin-top:10px;color:var(--muted);font-size:var(--fs-xs);font-style:normal;font-weight:var(--fw-strong)}
+
+/* 5.15 figure : image + caption + lightbox */
+figure{margin:26px 0}
+figure img{
+  display:block;width:100%;height:auto;max-height:78vh;object-fit:contain;
+  border:1px solid var(--line);border-radius:16px;background:var(--soft);box-shadow:var(--shadow-sm);
+  cursor:zoom-in;transition:transform .2s ease,box-shadow .2s ease;
+}
+figure img:hover{transform:translateY(-2px);box-shadow:var(--shadow)}
+figcaption{margin-top:9px;color:var(--muted);font-size:var(--fs-xs);line-height:1.7;text-align:center}
+
+/* 5.15b video-embed : click-to-play facade, no third-party request until click */
+.video-embed{margin:26px 0}
+.video-facade{
+  position:relative;display:block;width:100%;padding:0;overflow:hidden;cursor:pointer;
+  aspect-ratio:16 / 9;border:1px solid var(--line);border-radius:16px;background:var(--soft);
+  box-shadow:var(--shadow-sm);transition:transform .2s ease,box-shadow .2s ease;
+}
+.video-facade:hover{transform:translateY(-2px);box-shadow:var(--shadow)}
+.video-facade img{
+  display:block;width:100%;height:100%;max-height:none;object-fit:cover;
+  border:0;border-radius:0;box-shadow:none;cursor:inherit;
+}
+.video-thumb-fallback{position:absolute;inset:0;background:var(--grad-brand);opacity:.85}
+.video-play{
+  position:absolute;top:50%;left:50%;width:72px;height:72px;transform:translate(-50%,-50%);
+  border-radius:50%;background:rgba(17,17,27,.62);box-shadow:0 8px 26px rgba(0,0,0,.32);
+  transition:background .2s ease,transform .2s ease;
+}
+.video-play::after{
+  content:"";position:absolute;top:50%;left:54%;transform:translate(-50%,-50%);
+  border-style:solid;border-width:13px 0 13px 22px;border-color:transparent transparent transparent #fff;
+}
+.video-facade:hover .video-play{background:var(--primary);transform:translate(-50%,-50%) scale(1.06)}
+.video-facade-label{
+  position:absolute;left:0;right:0;bottom:0;padding:34px 16px 12px;text-align:left;
+  background:linear-gradient(180deg,transparent,rgba(12,12,22,.78));
+  color:#fff;font-size:var(--fs-sm);font-weight:var(--fw-title);line-height:1.5;
+}
+.video-embed iframe{
+  display:block;width:100%;aspect-ratio:16 / 9;border:1px solid var(--line);border-radius:16px;background:#000;
+}
+.video-grid{margin:26px 0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;align-items:start}
+.video-grid .video-embed{min-width:0;margin:0}
+.video-grid .video-embed.is-playing{grid-column:1 / -1}
+
+/* 5.16 inline-link : pill CTA inside prose */
+.link-row{margin:18px 0}
+.inline-link{
+  display:inline-flex;align-items:center;gap:8px;padding:10px 18px;border-radius:999px;text-decoration:none;
+  border:1px solid color-mix(in srgb,var(--item-accent,var(--primary)) 42%,var(--line));
+  background:linear-gradient(135deg,color-mix(in srgb,var(--item-accent,var(--primary)) 12%,var(--card)),var(--card));
+  color:var(--item-ink,var(--primary-ink));font-size:var(--fs-sm);font-weight:var(--fw-title);
+}
+.inline-link::after{content:"↗";font-weight:var(--fw-kicker)}
+.inline-link:hover{background:linear-gradient(135deg,color-mix(in srgb,var(--item-accent,var(--primary)) 20%,var(--card)),var(--card))}
+.cta-link{
+  display:inline-flex;align-items:center;gap:8px;flex:none;padding:10px 18px;border-radius:999px;
+  background:var(--grad-brand);color:var(--on-deep);font-size:var(--fs-sm);font-weight:var(--fw-title);text-decoration:none;
+}
+
+/* 5.17 divider : small labelled separator between block groups */
+.divider{margin:30px 4px 12px;display:flex;align-items:center;gap:10px;color:var(--muted);font-size:var(--fs-label);font-weight:var(--fw-kicker);letter-spacing:.1em}
+.divider::after{content:"";height:1px;flex:1;background:var(--line)}
+hr{border:0;height:1px;margin:46px 0;background:linear-gradient(90deg,transparent,var(--line-strong),transparent)}
+
+/* 5.18 faq */
+.faq{display:grid;gap:10px;margin:22px 0}
+.faq>div{padding:16px 18px;border:1px solid var(--line);border-radius:var(--r-sm);background:var(--grad-tint)}
+.faq dt{margin:0 0 4px;color:var(--item-ink,var(--primary-ink));font-weight:var(--fw-title);font-size:var(--fs-sm)}
+.faq dd{margin:0;color:var(--ink-soft);font-size:var(--fs-sm)}
+
+/* 5.19 gallery : 2-3 screenshots side by side, lightbox-aware */
+.gallery{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:24px 0}
+.gallery[data-cols="2"]{grid-template-columns:repeat(2,minmax(0,1fr))}
+.gallery figure{margin:0}
+.gallery img{max-height:none;aspect-ratio:4 / 3;object-fit:cover}
+
+/* 5.20 code : monospace block with a copy button */
+.code-block{position:relative;margin:22px 0;border:1px solid var(--line);border-radius:var(--r-sm);overflow:hidden;background:var(--soft)}
+.code-head{
+  padding:8px 12px;display:flex;align-items:center;justify-content:space-between;gap:12px;
+  border-bottom:1px solid var(--line);background:var(--grad-tint);
+  color:var(--item-ink,var(--primary-ink));font-size:var(--fs-xs);font-weight:var(--fw-title);
+}
+.code-copy{
+  height:28px;padding:0 10px;border:1px solid var(--line-strong);border-radius:999px;
+  background:var(--card);color:var(--muted);cursor:pointer;font-size:var(--fs-xs);font-weight:var(--fw-title);line-height:1;
+}
+.code-copy:hover{border-color:var(--primary);color:var(--primary-ink)}
+.code-block pre{margin:0;padding:14px 16px;overflow-x:auto}
+.code-block code{
+  font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,"Noto Sans Mono",monospace;
+  font-size:var(--fs-sm);line-height:1.75;letter-spacing:0;color:var(--ink);white-space:pre;
+}
+
+/* 5.21 spec-list : label / value rows */
+.spec-list{margin:22px 0;display:grid;gap:1px;border:1px solid var(--line);border-radius:var(--r-sm);overflow:hidden;background:var(--line)}
+.spec-list>div{display:grid;grid-template-columns:minmax(0,10rem) minmax(0,1fr);gap:14px;padding:12px 16px;background:var(--card)}
+.spec-list dt{margin:0;color:var(--item-ink,var(--primary-ink));font-size:var(--fs-sm);font-weight:var(--fw-title)}
+.spec-list dd{margin:0;color:var(--ink-soft);font-size:var(--fs-sm)}
+
+/* 5.22 link-cards : related links as a grid */
+.link-cards{margin:22px 0;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;list-style:none}
+.prose .link-cards,.chapter-inner .link-cards{box-sizing:border-box;padding:0;margin-inline:auto}
+.link-cards li{margin:0}
+/* A lone related link is a statement, not a grid: let it use the full column
+   so a long title is not squeezed into half the reading width. */
+.link-cards:has(li:only-child){grid-template-columns:minmax(0,1fr)}
+.link-cards a{
+  position:relative;height:100%;padding:16px 44px 16px 18px;
+  display:grid;grid-template-columns:auto 1fr;align-items:center;gap:13px;
+  border:1px solid var(--line);border-left:3px solid color-mix(in srgb,var(--item-accent,var(--primary)) 55%,var(--line));
+  border-radius:var(--r-sm);background:var(--grad-tint);
+  color:var(--ink);text-decoration:none;
+  transition:transform .2s ease,border-color .2s ease,box-shadow .2s ease;
+}
+.link-cards a::after{
+  content:"↗";position:absolute;top:50%;right:14px;translate:0 -50%;
+  display:grid;place-items:center;width:24px;height:24px;border-radius:999px;
+  background:color-mix(in srgb,var(--item-accent,var(--primary)) 14%,transparent);
+  color:var(--item-ink,var(--primary-ink));font-size:var(--fs-xs);font-weight:var(--fw-kicker);
+  transition:transform .2s ease,background-color .2s ease;
+}
+.link-cards a:hover{
+  transform:translateY(-2px);box-shadow:var(--shadow-sm);
+  border-color:color-mix(in srgb,var(--item-accent,var(--primary)) 50%,var(--line));
+  border-left-color:var(--item-accent,var(--primary));
+}
+.link-cards a:hover::after{transform:translate(2px,-2px);background:color-mix(in srgb,var(--item-accent,var(--primary)) 26%,transparent)}
+.link-cards .emoji{font-size:1.5rem}
+.link-cards strong{display:block;font-size:var(--fs-sm);font-weight:var(--fw-title);line-height:1.55}
+.link-cards small{display:block;color:var(--muted);font-size:var(--fs-xs);line-height:1.6}
+
+/* 5.23 inline-detail : opt-in "more detail" disclosure inside a chapter */
+.inline-detail{margin:22px 0;border:1px solid var(--line);border-radius:var(--r-sm);background:var(--grad-tint);overflow:hidden}
+.inline-detail>summary{
+  padding:12px 16px;display:flex;align-items:center;gap:9px;cursor:pointer;list-style:none;
+  color:var(--item-ink,var(--primary-ink));font-size:var(--fs-sm);font-weight:var(--fw-title);
+}
+.inline-detail>summary::-webkit-details-marker{display:none}
+.inline-detail>summary::before{content:"＋";width:20px;display:grid;place-items:center;font-size:.95rem}
+.inline-detail[open]>summary::before{content:"−"}
+.inline-detail-body{padding:2px 16px 16px;border-top:1px solid var(--line);background:var(--card)}
+.inline-detail-body>:first-child{margin-top:14px}
+.inline-detail-body>:last-child{margin-bottom:0}
+
+/* 5.24 tabs : genuine alternate views of the same subject */
+.tabs{margin:24px 0}
+.tab-list{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:12px}
+.tab-list button{
+  height:38px;padding:0 16px;border:1px solid var(--line);border-radius:999px;
+  background:var(--card);color:var(--muted);cursor:pointer;font-size:var(--fs-sm);font-weight:var(--fw-title);line-height:1;
+}
+.tab-list button:hover{color:var(--item-ink,var(--primary-ink))}
+.tab-list button[aria-selected="true"]{border-color:transparent;background:var(--grad-brand);color:var(--on-deep)}
+.tab-panel{
+  padding:18px 20px;border:1px solid var(--line);border-radius:var(--r-sm);
+  background:linear-gradient(150deg,color-mix(in srgb,var(--item-accent,var(--primary)) 7%,var(--card)),var(--card) 70%);
+}
+.tab-panel[hidden]{display:none}
+.tab-panel>:first-child{margin-top:0}
+.tab-panel>:last-child{margin-bottom:0}
+
+/* 5.25 cta-banner : mid-article call to action */
+.cta-banner{
+  margin:28px 0;padding:22px 24px;display:flex;align-items:center;justify-content:space-between;gap:18px;
+  border:1px solid color-mix(in srgb,var(--primary) 34%,transparent);border-radius:var(--r-md);
+  background:var(--grad-deep);color:var(--on-deep);box-shadow:var(--shadow-deep);
+}
+.cta-banner strong{display:block;font-size:var(--fs-h4);font-weight:var(--fw-title)}
+.cta-banner p{margin:4px 0 0;color:var(--on-deep-soft);font-size:var(--fs-sm)}
+.cta-banner .cta-link{background:var(--card);color:var(--primary-ink)}
+
+/* 5.26 tag : inline status label, for release notes */
+.tag{
+  display:inline-block;margin:0 4px;padding:1px 9px;border-radius:999px;vertical-align:1px;
+  background:var(--grad-brand);color:var(--on-deep);font-size:.68rem;font-weight:var(--fw-kicker);letter-spacing:.04em;
+}
+.tag-new{background:linear-gradient(135deg,var(--accent),var(--primary))}
+.tag-change{background:linear-gradient(135deg,var(--primary),var(--secondary))}
+.tag-fix{background:linear-gradient(135deg,var(--secondary),color-mix(in srgb,var(--secondary) 60%,#1c8f6a))}
+
+/* ============================================================
+   6. CHAPTER ACCORDION  (the visual index)
+   ============================================================ */
+.chapters{display:grid;gap:12px}
+.chapter{
+  --item-accent:var(--primary);
+  --item-ink:var(--primary-ink);
+  overflow:hidden;border:1px solid var(--line);border-radius:var(--r-md);background:var(--card);
+  box-shadow:var(--shadow-sm);scroll-margin-top:calc(var(--header-h) + 8px);
+  transition:border-color .22s ease,box-shadow .22s ease,transform .22s ease;
+}
+.chapter:nth-of-type(3n+2){--item-accent:var(--secondary);--item-ink:var(--secondary-ink)}
+.chapter:nth-of-type(3n){--item-accent:var(--accent);--item-ink:var(--accent-ink)}
+.chapter:hover{border-color:color-mix(in srgb,var(--item-accent) 45%,var(--line));transform:translateY(-1px)}
+.chapter[open]{
+  border-color:color-mix(in srgb,var(--item-accent) 58%,var(--line));
+  box-shadow:0 16px 42px color-mix(in srgb,var(--item-accent) 16%,transparent);transform:none;
+}
+.chapter>summary{
+  min-height:82px;padding:15px 18px;display:grid;grid-template-columns:46px minmax(0,1fr) 32px;
+  align-items:center;gap:14px;cursor:pointer;list-style:none;
+  background:linear-gradient(135deg,color-mix(in srgb,var(--item-accent) 9%,var(--card)),var(--card) 64%);
+}
+.chapter>summary::-webkit-details-marker{display:none}
+.chapter-icon{
+  width:46px;height:46px;display:grid;place-items:center;border-radius:14px;font-size:1.32rem;
+  background:linear-gradient(145deg,color-mix(in srgb,var(--item-accent) 20%,var(--card)),color-mix(in srgb,var(--item-accent) 6%,var(--card)));
+}
+.chapter-heading{min-width:0;display:grid;gap:2px}
+.chapter-category{color:var(--item-ink);font-size:var(--fs-label);font-weight:var(--fw-title);letter-spacing:.08em}
+.chapter-title{color:var(--ink);font-size:var(--fs-h4);font-weight:var(--fw-strong);line-height:1.58}
+.chapter-toggle{
+  width:30px;height:30px;position:relative;border-radius:50%;
+  background:linear-gradient(145deg,color-mix(in srgb,var(--item-accent) 18%,var(--card)),color-mix(in srgb,var(--item-accent) 6%,var(--card)));
+}
+.chapter-toggle::before,.chapter-toggle::after{content:"";position:absolute;inset:14px auto auto 8px;width:14px;height:2px;border-radius:2px;background:var(--item-ink)}
+.chapter-toggle::after{transform:rotate(90deg);transition:transform .22s ease}
+.chapter[open] .chapter-toggle::after{transform:rotate(0)}
+.chapter-body{border-top:1px solid var(--line)}
+.chapter-inner{padding:28px clamp(20px,4vw,42px) 38px;font-size:var(--fs-body)}
+.chapter-inner>:first-child{margin-top:0}
+.chapter-inner p{margin:14px 0;color:var(--ink-soft)}
+.chapter-inner strong{font-weight:var(--fw-title);background:linear-gradient(transparent 72%,color-mix(in srgb,var(--accent) 22%,transparent) 0)}
+/* A block-level <strong> is a component title, not inline emphasis. The marker
+   would stretch the full column and read as a heavy underline, so drop it.
+   Unscoped on purpose: these components also appear inside .prose (the overview
+   panel wraps its blocks in .prose), and the marker must not leak there either. */
+.step-list strong,
+.timeline strong,
+.link-cards strong,
+.cta-banner strong,
+.source-card strong,
+.callout strong{background:none}
+.chapter-inner h3,.chapter-inner h4{
+  margin:34px 0 10px;padding-left:13px;border-left:4px solid var(--item-accent);
+  color:var(--item-ink);line-height:1.55;
+}
+.chapter-inner ul,.chapter-inner ol{padding-left:1.4em;color:var(--ink-soft)}
+.chapter-inner li{margin:6px 0}
+.chapter-inner li::marker{color:var(--item-accent);font-weight:var(--fw-kicker)}
+.chapter-inner a{color:var(--item-ink)}
+/* Cards carry their own type contract. The generic chapter prose rules above
+   are equally specific and come later, so without this they repaint card
+   titles with the heading rule and card copy with dark ink — unreadable on the
+   deep gradient surfaces. */
+.chapter-inner .feature-card h3,.chapter-inner .feature-card h4,
+.chapter-inner .soft-card h3,.chapter-inner .soft-card h4{
+  margin:0;padding-left:0;border-left:0;
+}
+.chapter-inner .soft-card h3,.chapter-inner .soft-card h4{margin:8px 0 4px;color:var(--item-ink,var(--primary-ink))}
+.chapter-inner .feature-card h3,.chapter-inner .feature-card h4{color:var(--on-deep)}
+.chapter-inner .feature-card p,.chapter-inner .cta-banner p{color:var(--on-deep-soft)}
+.chapter-inner .soft-card p{color:var(--muted)}
+.chapter-inner .feature-card a,.chapter-inner .cta-banner a{color:var(--primary-ink)}
+.chapter-intro{
+  margin:0 0 20px;padding:16px 18px;border-left:4px solid var(--item-accent);border-radius:0 12px 12px 0;
+  background:linear-gradient(120deg,color-mix(in srgb,var(--item-accent) 13%,var(--card)),var(--card) 80%);
+  font-size:var(--fs-sm);font-weight:var(--fw-strong);color:var(--ink);
+}
+
+/* ============================================================
+   7. FOOTER RULE
+   Mirrors the header: same brand mark, same link tokens, one
+   hairline, reading width, muted meta line last.
+   ============================================================ */
+.source-card{
+  margin:56px 0 0;padding:24px 26px;display:flex;align-items:center;justify-content:space-between;gap:18px;
+  border:1px solid var(--line);border-radius:22px;background:var(--grad-panel);box-shadow:var(--shadow-sm);
+}
+.source-card strong{display:block;font-size:var(--fs-h4);font-weight:var(--fw-title)}
+.source-card small{display:block;color:var(--muted);font-size:var(--fs-xs)}
+.site-footer{
+  margin:40px 0 72px;padding:26px 0 0;border-top:1px solid var(--line);
+  display:grid;gap:14px;
+}
+.footer-top{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:14px}
+.footer-links{display:flex;flex-wrap:wrap;align-items:center;gap:4px}
+.footer-links a{
+  height:36px;padding:0 12px;display:inline-flex;align-items:center;gap:6px;border-radius:10px;
+  color:var(--muted);font-size:var(--fs-xs);font-weight:var(--fw-title);text-decoration:none;
+}
+.footer-links a:hover{color:var(--primary-ink);background:var(--soft)}
+.footer-meta{color:var(--muted);font-size:var(--fs-xs);line-height:1.7}
+
+/* ============================================================
+   8. FLOATING CONTROLS · TOC · LIGHTBOX
+   ============================================================ */
+.float-actions{position:fixed;right:18px;bottom:max(18px,env(safe-area-inset-bottom));z-index:82;display:grid;justify-items:end;gap:9px}
+.float-button{
+  min-height:44px;padding:0 16px;display:inline-flex;align-items:center;gap:7px;
+  border:1px solid var(--line-strong);border-radius:999px;background:var(--card);color:var(--ink-soft);
+  cursor:pointer;box-shadow:var(--shadow-sm);font-size:var(--fs-xs);font-weight:var(--fw-kicker);
+  transition:opacity .2s ease,transform .2s ease,border-color .2s ease;
+}
+.float-button:hover{border-color:var(--primary);color:var(--primary-ink);transform:translateY(-2px)}
+.float-button.primary{border-color:transparent;background:var(--grad-brand);color:var(--on-deep)}
+.float-button[hidden]{display:none}
+.toc-dialog{
+  width:min(520px,calc(100% - 28px));max-height:min(78dvh,760px);padding:0;
+  border:1px solid var(--line);border-radius:var(--r-lg);background:var(--card);color:var(--ink);
+  box-shadow:0 28px 100px rgba(15,10,35,.35);
+}
+.toc-dialog::backdrop{background:rgba(18,14,35,.55);backdrop-filter:blur(5px)}
+.toc-head{
+  position:sticky;top:0;z-index:2;padding:18px 20px 14px;display:flex;align-items:center;justify-content:space-between;gap:14px;
+  border-bottom:1px solid var(--line);background:var(--card);
+}
+.toc-head strong{font-size:var(--fs-h4);font-weight:var(--fw-title)}
+.toc-list{padding:10px 12px 18px;display:grid;gap:4px}
+.toc-list button{
+  padding:10px 11px;display:grid;grid-template-columns:26px 1fr;align-items:center;gap:9px;
+  border:0;border-radius:11px;background:transparent;color:var(--ink-soft);cursor:pointer;text-align:left;
+  font-size:var(--fs-sm);font-weight:var(--fw-strong);
+}
+.toc-list button:hover,.toc-list button.current{background:var(--soft);color:var(--primary-ink)}
+.lightbox{width:min(1100px,96vw);max-height:94vh;padding:0;border:0;border-radius:20px;background:#101018;box-shadow:0 30px 100px #000a}
+.lightbox::backdrop{background:rgba(5,5,15,.82);backdrop-filter:blur(8px)}
+.lightbox img{display:block;max-width:100%;max-height:90vh;margin:auto;object-fit:contain}
+.lightbox .icon-button{position:absolute;top:10px;right:10px;background:#171724;color:#fff;border-color:#ffffff55}
+
+/* ============================================================
+   9. BREAKPOINTS
+   ============================================================ */
+@media (max-width:960px){
+  .card-grid,.soft-grid,.gallery{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .stat-strip{grid-template-columns:repeat(2,1fr)}
+}
+@media (max-width:900px){
+  .hero{margin-top:24px;border-radius:26px}
+  .hero-grid{grid-template-columns:1fr}
+  .hero-media{order:-1;padding-bottom:0}
+  .hero-copy{padding:28px 24px 36px}
+  .frame-list{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media (max-width:720px){
+  .card-grid,.soft-grid,.check-list,.frame-list,.compare,.gallery,.link-cards{grid-template-columns:1fr}
+  .spec-list>div{grid-template-columns:1fr;gap:2px}
+  .card-grid{gap:11px}
+  .feature-card{
+    min-height:0;padding:18px 20px;display:grid;grid-template-columns:56px minmax(0,1fr);
+    grid-template-rows:auto auto;column-gap:16px;text-align:left;justify-items:start;align-items:center;
+  }
+  .card-icon,.card-image{grid-row:1/3}
+  .card-icon{font-size:2.2rem}
+  .card-image{width:52px;height:52px}
+  .feature-card h3{margin:0}
+  .header-current{display:none}
+  .nav-label{display:none}
+}
+@media (max-width:600px){
+  :root{--gutter:24px;--header-h:56px}
+  body{line-height:1.85}
+  .hero-copy{padding:24px 20px 30px}
+  .hero-media{padding:12px 12px 0}
+  .brand em{display:none}
+  .panel{border-radius:22px}
+  .chapter>summary{min-height:76px;padding:13px 14px;grid-template-columns:42px minmax(0,1fr) 30px;gap:11px}
+  .chapter-icon{width:42px;height:42px}
+  .chapter-inner{padding:22px 18px 30px}
+  .source-card{flex-direction:column;align-items:flex-start;padding:20px 18px}
+  .source-card .cta-link{width:100%;justify-content:center}
+  .table-wrap{border-radius:var(--r-sm)}
+  .float-actions{right:12px;bottom:12px}
+  .float-button{width:48px;min-height:48px;padding:0;justify-content:center}
+  .float-button .float-label{display:none}
+  .cta-banner{flex-direction:column;align-items:flex-start;padding:20px 18px}
+  .cta-banner .cta-link{width:100%;justify-content:center}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation-duration:.001ms!important;transition-duration:.001ms!important}
+}
+@media print{
+  .site-header,.progress,.float-actions,.toc-dialog,.lightbox{display:none!important}
+  body{background:#fff}
+  .hero,.panel,.stat,.source-card,.feature-card{box-shadow:none}
+  .chapter{break-inside:avoid}
+  .chapter-body,.inline-detail-body{display:block!important}
+  .tab-panel[hidden]{display:block!important}
+  .tab-list,.code-copy{display:none!important}
+}
+</style>
+<link rel="stylesheet" href="../assets/site-chrome.css">
+<link rel="stylesheet" href="../assets/site-actions.css">
+<script src="../assets/site-actions.js" defer></script>
+<script src="../assets/site-nav.js" defer></script>
+<script src="../assets/site-lang.js" defer></script>
+</head>
+<body>
+<a class="skip-link" href="#overview">本文へスキップ</a>
+<div class="progress" id="progressBar"></div>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a class="brand" href="../" aria-label="SlideCast Studio トップページ">SlideCast <b>Studio</b><em>Docs</em></a>
+    <span class="header-current" id="currentSection"></span>
+    <nav class="header-nav" aria-label="記事内ナビゲーション"><a class="header-link" href="../" aria-label="トップページ"><span aria-hidden="true">🏠</span><span class="nav-label">HOME</span></a><button class="header-link" type="button" data-site-nav aria-label="ページ一覧"><span aria-hidden="true">📚</span><span class="nav-label">ページ</span></button>
+      <button class="header-link" id="openToc" type="button" aria-label="目次"><span aria-hidden="true">☰</span><span class="nav-label">目次</span></button>
+
+      <button class="icon-button" id="themeToggle" type="button" aria-label="表示テーマを切り替える"><span class="theme-light" aria-hidden="true">☀️</span><span class="theme-dark" aria-hidden="true">🌙</span></button>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+<section class="hero has-image">
+  <div class="hero-grid">
+    <div class="hero-copy">
+      <p class="kicker">SECURITY GUIDE</p>
+      <h1><span style="display:inline-block">SlideCast Studio の</span> <span style="display:inline-block">セキュリティについて</span></h1>
+      <p class="hero-subtitle">作品・APIキー・料金の守り方</p>
+
+      <ul class="chips"><li class="chip">ブラウザ内に保存</li><li class="chip">APIキーの保持</li><li class="chip">通信先の確認</li><li class="chip">料金の上限</li><li class="chip">サプライチェーン対策</li></ul>
+      <div class="meta"><span>aokuma</span><span>2026.10.02</span></div>
+    </div>
+    <figure class="hero-media"><img src="../assets/security-hero.png" alt="SlideCast Studio のセキュリティについて。作品・APIキー・料金の守り方"></figure>
+  </div>
+</section>
+
+
+<div class="reading">
+  <section class="panel" id="overview">
+    <p class="kicker">🛡️ OVERVIEW</p>
+    <h2 class="rule">まず結論</h2>
+    <div class="prose"><p>こんにちは。</p><p>SlideCast Studioは、スライドとナレーションを組み合わせて、スライド動画を作るアプリです。APIキーなしでも、用意した画像・台本・音声を取り込んで動画を作れます。アプリ内で台本や音声をAI生成するときには、ご自身のAPIキーを使う方法もあります。</p><p>「作ったスライドはどこかに送られる？」「APIキーを入れて大丈夫？」「料金が勝手に増えない？」と気になる方もいると思います。</p><p>SlideCast Studioは開発初期から、<strong>作品・APIキー・料金の扱い</strong>を、いちばん気をつけて作ってきました。</p><p>この記事では、その仕組みと、なぜそうしているのかをまとめてご紹介します。すでにお使いの方も、購入を迷っている方も、判断の材料にしていただけたらうれしいです。</p><div class="card-grid"><article class="feature-card"><span class="card-icon" aria-hidden="true">💾</span><h3>作品は、あなたのブラウザの中に保存されます。</h3><p>作者（私）のサーバーはなく、作品が作者（私）に届くことはありません</p></article><article class="feature-card"><span class="card-icon" aria-hidden="true">🌐</span><h3>アプリの通信先は、Googleのサービスだけです。</h3><p>何を送るかは、この記事とアプリ内のヘルプで確かめられます</p></article><article class="feature-card"><span class="card-icon" aria-hidden="true">🔑</span><h3>APIキーも、ブラウザ内で保持し、Googleへの認証に使います。</h3><p>プロジェクト保存やバックアップには入りません</p></article><article class="feature-card"><span class="card-icon" aria-hidden="true">⏸️</span><h3>APIキーを使うときも、使いすぎを防ぐ仕組みがあります。</h3><p>大量の生成の前には確認が出て、途中でも止められます</p></article><article class="feature-card"><span class="card-icon" aria-hidden="true">🛡️</span><h3>外部のプログラムに頼りすぎない作りにしています。</h3><p>本体で使う部品は配布物に同梱しており、外部CDNから取得しません</p></article></div></div>
+
+  </section>
+
+  <div class="divider">CONTENTS</div>
+  <section class="chapters" aria-label="記事の各章"><details class="chapter" id="storage"><summary><span class="chapter-icon" aria-hidden="true">💾</span><span class="chapter-heading" role="heading" aria-level="2"><span class="chapter-category">セキュリティ</span><span class="chapter-title">作品は、あなたのブラウザの中にあります</span></span><span class="chapter-toggle" aria-hidden="true"></span></summary><div class="chapter-body"><div class="chapter-inner"><p>作ったプロジェクトや、登録した画像・音声・BGMなどの素材は、<strong>あなたのブラウザの中</strong>に保存されます。GAS版でも、ローカルHTML版でも同じです。</p><blockquote class="pull-quote"><p>※補足：作品や素材の保存には、ブラウザ内のデータベース「IndexedDB」を使っています。</p></blockquote><p>作者（私）の側にはサーバーがないので、作品を作者（私）へ送る仕組みがそもそもありません。</p><h3>なぜこうしているか</h3><p>作品やデータをどこかのサーバーに集める仕組みだと、そのサーバーが攻撃されたり、設定を誤ったりしたときに、たくさんの人の作品が一度に流出するおそれがあります。</p><p>SlideCast Studioは、はじめから<strong>預からない</strong>作りにしているので、作者（私）の側から作品が漏れることはありません。</p><h3>通信するのは、次のときだけです</h3><p>アプリが外と通信するのは、次のときだけです。</p><figure><img src="../assets/security-01.png" alt="アプリの通信タイミングとGoogleへの送信内容をまとめた図" loading="lazy"></figure><ul><li><p><strong>アプリを開いたとき</strong><br>GAS版では、アプリ本体を、ご自身のGoogleアカウントにデプロイしたGASから取得します。また、Google Fontsからフォントを取得します（IPアドレスはGoogleに届きますが、作品の内容は送りません）</p></li><li><p><strong>台本を自動で作るとき</strong><br>スライド画像と、選んだ設定・話者名をGemini APIへ</p></li><li><p><strong>音声を作るとき</strong><br>セリフの文章をGemini APIまたはGoogle Cloud Text-to-Speechへ</p></li><li><p><strong>APIキーの確認・声の一覧を取るとき</strong><br>APIキーをGoogleへ（料金はかかりません）</p></li><li><p><strong>リンクをクリックしたとき</strong><br>そのリンク先へ移動します</p></li></ul><p>Googleへ送った内容がGoogle側でどう扱われるかは、<strong><a href="#google-data">Googleに送った内容の扱い（無料と有料で変わります）</a>で解説します</strong>。無料枠と有料枠で扱いが変わるので、あわせてご覧ください。</p><p>v4.4からは、この内容をアプリ内のヘルプにある<strong>「通信と安全」タブ</strong>でも見られるようにしました。</p><figure><img src="../assets/security-02.png" alt="ヘルプの「通信と安全」タブ。送信先と安全対策の案内" loading="lazy"></figure></div></div></details><details class="chapter" id="api-keys"><summary><span class="chapter-icon" aria-hidden="true">🔑</span><span class="chapter-heading" role="heading" aria-level="2"><span class="chapter-category">セキュリティ</span><span class="chapter-title">APIキーは、ブラウザ内で保持し、Googleへの認証に使います</span></span><span class="chapter-toggle" aria-hidden="true"></span></summary><div class="chapter-body"><div class="chapter-inner"><h3>なぜ気をつける必要があるか</h3><p>APIキーは、Googleのサービスを使うときに、利用するプロジェクトを識別するための鍵のようなものです。料金の有無は、そのプロジェクトの課金設定や利用内容によって決まります。有料枠のキーが漏れると、他の人に使われた分の料金が請求されるおそれがあります。</p><p>そのため、SlideCast Studioでは、キーが外に出る経路をできるだけ作らないようにしています。</p><p>※Google AI StudioやGemini、ChatGPTなど外部で台本や音声を生成する場合はAPIキーなしでも利用可能です</p><h3>保存するかどうかを選べます</h3><p>APIキーの保存方法は、<strong>設定 &gt; 音声</strong>の「この端末に保存しない（セッションのみ）」で選べます。</p><p><strong>ON（おすすめ）</strong>：セッション限定で保持し、通常はタブを閉じるとキーが消えます。ただし、ブラウザの復元機能によって保持される場合があります。</p><p>OFF：この端末のブラウザに保存され、次回もそのまま使えます。</p><p>自分だけが使うPCならOFFでも便利に使えます。共有PCでは、ONになっていることを確認してください。以前からキーを保存していた方は、OFFになっている場合があります。利用後にキーを確実に消したいときは、設定 &gt; 音声の「消去」を使ってください。</p><figure><img src="../assets/security-03.png" alt="設定の音声タブにあるAPIキーのセッション限定保持と消去ボタン" loading="lazy"></figure><h3>ブラウザの拡張機能に注意</h3><p>ブラウザの拡張機能の中には、「すべてのサイトのデータの読み取りと変更」ができる権限を持つものがあります。この権限があると、開いているページの入力欄や、ブラウザに保存されたデータを読むことができます。</p><p>そのため、<strong>悪意のある拡張機能が入っていると、画面に入れたAPIキーを読み取られるおそれがあります。</strong> はじめは問題のなかった拡張機能が、あとから他の人の手に渡ったり、乗っ取られたりして、悪意のある動きをするようになる例もあります。</p><p>これはSlideCast Studioに限らず、ブラウザでAPIキーやパスワードを扱うすべてのサイトに共通する注意点で、アプリの側だけでは防ぎきれません。次のことを心がけてください。</p><ul><li><p>拡張機能は、公式ストアから、信頼できる提供元のものだけを入れる</p></li><li><p>使っていない拡張機能は削除する</p></li><li><p>「すべてのサイトのデータの読み取りと変更」の権限を持つ拡張機能は、本当に必要か見直す</p></li><li><p>気になる場合は、拡張機能を入れていない別のブラウザ（またはChromeの別プロフィール）でSlideCast Studioを使う</p></li></ul><p>APIキーを「セッションのみ」にしておくと、端末に長く保存することを避けられます。ただし、画面を開いている間は読み取られるおそれがあるので、拡張機能の見直しとあわせて、有料枠を使う方は<a href="#monthly-cap">料金の上限は、Google側で決めておくと安心です</a>の月額上限も設定しておくと安心です。</p><h3>保存やバックアップには入りません</h3><p>APIキーは、次のどれにも入りません。</p><ul><li><p>プロジェクトの保存データ</p></li><li><p>バックアップファイル</p></li><li><p>プリセット</p></li></ul><p>バックアップやプロジェクトは、PCの引っ越しや、人との共有に使うことがあります。そこにキーが入っていると、ファイルを渡した相手にキーまで渡ってしまいます。そうならないように、キーはどのファイルにも書き出さないようにしています。</p><h3>URLにキーを載せません</h3><p>APIキーは、URLには載せず、Googleへのリクエストの中（ヘッダー）に入れて送ります。</p><p>URLは、閲覧の履歴や通信の記録に残りやすい部分です。そこにキーを載せないことで、思わぬところにキーが残るのを防いでいます。</p><h3>消したいとき</h3><p>ダッシュボードのヘッダーの「<strong>データを初期化</strong>」（ゴミ箱アイコン）で「APIキー・その他のローカル設定」を選ぶと、ブラウザに保存したキーを消せます。</p><figure><img src="../assets/security-04.png" alt="データ初期化で「APIキー・その他のローカル設定」を選ぶ画面" loading="lazy"></figure></div></div></details><details class="chapter" id="generation-controls"><summary><span class="chapter-icon" aria-hidden="true">⏸️</span><span class="chapter-heading" role="heading" aria-level="2"><span class="chapter-category">セキュリティ</span><span class="chapter-title">料金が増えすぎないための仕組み</span></span><span class="chapter-toggle" aria-hidden="true"></span></summary><div class="chapter-body"><div class="chapter-inner"><h3>なぜ気をつける必要があるか</h3><p>SlideCast Studioで、<strong>APIキーを使って台本や音声を生成するときは、</strong>あなたのAPIキーの利用量を使います。</p><p>うっかり大量に実行したり、エラーで同じ処理が何度も繰り返されたりすると、気づかないうちに料金が増えてしまうおそれがあります。そうならないように、次の仕組みを入れています。</p><h3>音声の一括生成</h3><ul><li><p>1件ずつ順番に生成します（同時にたくさん送りません）</p></li><li><p>音声生成が3件連続で失敗すると、一括生成を自動停止します。1件の生成では、エラーの種類に応じて最大3回の試行を行います</p></li><li><p>生成中は「<strong>緊急停止</strong>」ボタンで、次の音声の生成へ進むのを止められます。実行中の1件は、再試行を含めて処理が続く場合があります</p></li><li><p>実行前に、対象の件数と文字数を表示します</p></li></ul><h3>台本の自動生成</h3><ul><li><p>実行前に、スライド画像をGeminiへ送ることを画面に表示します</p></li><li><p>v4.4からは、次のようにしました</p><ul><li><p>実行中に「<strong>中断</strong>」ボタンで止められます</p></li><li><p>約3分たっても終わらないときは、「待ち続ける」か「中断する」かを選べます</p></li><li><p><strong>スライドが30枚を超えるときは、実行前に確認</strong>が出ます</p></li><li><p>台本生成の画面を閉じると、通信も止まります</p></li></ul></li></ul><p>これらは「確認を挟む・止められる」ための仕組みで、件数や枚数そのものは制限していません。料金の上限をしっかり決めておきたい方は、次の章の月額上限をおすすめします。</p></div></div></details><details class="chapter" id="monthly-cap"><summary><span class="chapter-icon" aria-hidden="true">💰</span><span class="chapter-heading" role="heading" aria-level="2"><span class="chapter-category">セキュリティ</span><span class="chapter-title">料金の上限は、Google側で決めておくと安心です</span></span><span class="chapter-toggle" aria-hidden="true"></span></summary><div class="chapter-body"><div class="chapter-inner"><p>アプリ側の確認に加えて、Google AI Studioの「利用額」ページで、プロジェクトごとにGemini APIの月額上限を設定できます。上限に達すると、そのプロジェクトのGemini APIの利用が一時停止します。</p><figure><img src="../assets/security-05.png" alt="Google AI Studioの利用額ページで設定するプロジェクトの月額上限" loading="lazy"></figure><p>アプリ側の仕組みは、SlideCast Studioの中での操作にしか効きません。Google側の月額上限は、同じプロジェクトのキーを他の場所で使った分も含め、Gemini APIの利用額に適用されます。有料枠を使う方は設定しておくことをおすすめします。Google Cloud Text-to-Speechなど、ほかのサービスの料金には、この上限は適用されません。</p><p>以下は補足として知っておくとよい点です。</p><ul><li><p>月額上限は実験的な機能です。集計には約10分の遅れがあり、長時間の処理などでも設定額を超える場合があります。設定額を絶対に超えない保証ではありません</p></li><li><p>無料枠のプロジェクトには設定できません（無料枠は料金がかからない代わりに、使える量に制限があります）</p></li><li><p>Google Cloud Text-to-Speechを使う場合は、Google Cloudコンソールの「予算とアラート」で通知を設定できます（こちらは通知だけで、自動では止まりません）</p></li></ul><p>v4.4からは、アプリの<strong>設定 &gt; 音声</strong>にも、この案内と公式ページへのリンクを置いています。</p><p>👇<a href="https://ai.google.dev/gemini-api/docs/billing" target="_blank" rel="noopener noreferrer">Google公式：Gemini APIの課金と月額上限</a></p></div></div></details><details class="chapter" id="google-data"><summary><span class="chapter-icon" aria-hidden="true">🔍</span><span class="chapter-heading" role="heading" aria-level="2"><span class="chapter-category">セキュリティ</span><span class="chapter-title">Googleに送った内容の扱い（無料と有料で変わります）</span></span><span class="chapter-toggle" aria-hidden="true"></span></summary><div class="chapter-body"><div class="chapter-inner"><p>台本や音声を作るとき、スライド画像やセリフはGoogleへ送られます。その内容の扱いは、Google側の規約で決まっていて、<strong>無料枠と有料枠で大きく変わります</strong>（2026年9月30日時点の公式情報です）。</p><figure><img src="../assets/security-06.png" alt="Googleに送るデータの扱い。Gemini APIの無料枠・有料枠とCloud Text-to-Speechの比較" loading="lazy"></figure><h3>Gemini API の無料枠</h3><ul><li><p>送った内容は、Googleの製品の改善（AIの学習を含む）に使われます</p></li><li><p><strong>Googleの品質確認の担当者（レビュアー）が、内容を読むことがあります。</strong> 担当者が見る前に、あなたのGoogleアカウントやAPIキーとの結び付きは外されます</p></li><li><p>Googleは、無料枠に機密情報・個人情報を送らないよう案内しています</p></li></ul><h3>Gemini API の有料枠（請求先を設定したプロジェクトのキー）</h3><ul><li><p>送った内容は、<strong>AIの学習を含む、Googleの製品の改善には使われません</strong></p></li><li><p>ただし、不正利用の検知や法律上の対応のため、一定期間は記録されます</p></li></ul><h3>Google Cloud Text-to-Speech</h3><p>入力した文章は記録されません</p><h3>どうすればいいか</h3><ul><li><p><strong>機密情報や個人情報を含む資料を、無料枠で送るのは避けてください</strong></p></li><li><p>社内資料などを扱うときは、有料枠のキーを使うか、AIに送らないようにしてください</p></li></ul><p>この注意は、設定 &gt; 音声に表示しています。v4.4からは、台本生成の画面にも表示するようにしました。</p><p>規約は変わることがあります。最新の内容は、公式ページでご確認ください。</p><ul><li><p><a href="https://ai.google.dev/gemini-api/terms" target="_blank" rel="noopener noreferrer">Gemini API 利用規約</a></p></li><li><p><a href="https://ai.google.dev/gemini-api/docs/billing" target="_blank" rel="noopener noreferrer">Gemini API の課金</a></p></li></ul></div></div></details><details class="chapter" id="canvas-apps"><summary><span class="chapter-icon" aria-hidden="true">🧩</span><span class="chapter-heading" role="heading" aria-level="2"><span class="chapter-category">セキュリティ</span><span class="chapter-title">Gemini Canvas のアプリ4つについて</span></span><span class="chapter-toggle" aria-hidden="true"></span></summary><div class="chapter-body"><div class="chapter-inner"><p>SlideCast Studioと一緒に使う、Gemini Canvas上のアプリ4つ（<strong>Bundle Builder / MouthLoop / AI CODE MOVIE STUDIO / AI CODE BGM STUDIO</strong>）も、同じ考え方で作っています。</p><ul><li><p>Geminiアプリの中で動き、AI生成のための送信先はGeminiです。作者（私）のサーバーへは送りません。部品の読み込みでは、<a href="#supply-chain">外部のプログラムに頼りすぎない作り（サプライチェーン攻撃への備え）</a>に記載したCDNへの通信もあります</p></li><li><p>基本の使い方では、<strong>APIキーは不要</strong>です</p></li><li><p>AI CODE BGM STUDIO は、入力した内容をご自身のブラウザにだけ保存します</p></li><li><p>MouthLoop は、作業内容を保存しません。画面を閉じると消えるので、完成したキャラパックはZIPで保存してください</p></li></ul><h3>Bundle Builder でAPIキーを使う場合</h3><p>Bundle Builderは、標準モデルなら通常APIキーなしで動きます。それ以外のモデルを使う場合や、API設定の「キーなしで動くモデルにもAPIキーを使う」をONにした場合は、ご自身のGemini APIキーで実行します。</p><ul><li><p>入れたキーは、ページを開いている間だけ保持し、端末には保存しません</p></li><li><p>キーはURLに載せず、ヘッダーで送ります</p></li><li><p>キーを使った生成は、あなたのキーの料金の対象になり、送った内容の扱いは<a href="#google-data">Googleに送った内容の扱い（無料と有料で変わります）</a>の無料枠・有料枠の説明と同じです</p></li></ul><h3>入力した内容の扱い</h3><p>Googleの案内では、ユーザーが作ったCanvasアプリの場合、アプリの作成者が、共有されたデータを見たり保存したりできると説明されています。私のアプリ4つには、入力した内容を作者（私）へ送ったり、作者（私）の側に保存したりする処理は入っていません。</p><p>以下では、Geminiでのチャットに関するデータの扱いを説明します。Canvasアプリ内での入力や生成内容にも同じ設定が当てはまるかは、Googleの公式情報には明記されていません。</p><p><strong>個人のGoogleアカウントの場合</strong></p><ul><li><p>「<strong>アクティビティの保存</strong>」がONだと、入力が学習に使われることがあり、一部はGoogleの担当者（Googleが委託した人を含む）が読む可能性があります</p></li><li><p>OFFにすると、その後のチャットは、Googleへフィードバックを送らない限りAIモデルの学習には使われません。処理や安全対策のため72時間保持され、その目的で人が確認する場合はあります</p></li></ul><p><strong>仕事用・学校用のアカウント（Google Workspace）の場合</strong></p><ul><li><p>Googleは、あなたの許可なく、チャットやアップロードしたファイルを人が読んだり、AIの学習に使ったりしないと説明しています</p></li><li><p>ただし、使える機能や扱いは組織の契約・設定によって変わることがあるので、詳しくは組織の管理者にご確認ください</p></li></ul><p>この場合、APIの無料枠・有料枠の違いは関係しません。</p><p>👇<a href="https://support.google.com/gemini/answer/13594961" target="_blank" rel="noopener noreferrer">Google公式：Geminiアプリのプライバシー</a></p></div></div></details><details class="chapter" id="supply-chain"><summary><span class="chapter-icon" aria-hidden="true">🛡️</span><span class="chapter-heading" role="heading" aria-level="2"><span class="chapter-category">セキュリティ</span><span class="chapter-title">外部のプログラムに頼りすぎない作り（サプライチェーン攻撃への備え）</span></span><span class="chapter-toggle" aria-hidden="true"></span></summary><div class="chapter-body"><div class="chapter-inner"><h3>サプライチェーン攻撃とは</h3><p>多くのアプリは、PDFの読み込みやZIPの作成などを、公開されている<strong>部品（ライブラリ）</strong>を組み合わせて作っています。</p><p>サプライチェーン攻撃は、アプリそのものではなく、<strong>この部品や、部品の配布元がハッキングされて、悪いプログラムを混ぜられる</strong>攻撃です。部品はアプリの中で動くので、混ぜられたプログラムが、画面に入れたAPIキーや作品を盗み出すおそれがあります。</p><p>特に、アプリを開くたびに部品を<strong>CDN（部品をネットで配る仕組み）</strong>から読み込むアプリは、配布元のファイルが書き換えられると、その瞬間から使っている全員が影響を受けます。またCDNが止まれば、アプリも動かなくなります。</p><h3>SlideCast Studio 本体の備え</h3><ul><li><p>本体で使う部品は配布物に同梱しています。GAS版ではご自身のGoogleアカウントにデプロイしたGASから、ローカルHTML版では手元の配布ファイルから読み込みます。外部CDNからは取得しないため、CDNのファイルがあとから書き換えられたり、CDNが停止したりしても、同梱した部品には影響しません</p></li><li><p>部品は<strong>版を固定</strong>して入れています。知らないうちに新しい版に入れ替わることはありません</p></li><li><p>部品に既知の問題が見つかったときは、内容を確認し、必要に応じて修正された版に更新しています</p></li><li><p>フォントはGoogle Fontsから取得します。外部CDNからプログラムを取得することはありません</p></li></ul><h3>Gemini Canvas のアプリの備え</h3><p>Canvasのアプリは、1つのファイルの中に部品をすべて入れることができないため、Bundle Builder と AI CODE MOVIE STUDIO（3D演出を使うときだけ）は、必要な部品を公開のCDN（cdnjs）から読み込みます。そのため、次の2つの対策をしています。</p><ul><li><p><strong>版を固定する</strong>：「最新版」ではなく、決まった版を指定して読み込みます。配布元に新しい版が置かれても、勝手に切り替わりません</p></li><li><p><strong>中身の指紋を照合する</strong>：読み込む部品のファイルが、あらかじめ記録しておいた「指紋」（ファイルの中身から計算した値）と一致するかを、ブラウザが確かめます。1文字でも書き換えられていれば指紋が変わるので、<strong>ブラウザはその部品を動かしません</strong></p></li></ul><blockquote class="pull-quote"><p>※補足：スクリプトの読み込みには、SRI（Subresource Integrity）を使っています。ハッシュ値（中身の指紋）を照合し、想定と異なるファイルの実行を防ぐブラウザの機能です。</p></blockquote><figure><img src="../assets/security-07.png" alt="外部ライブラリの版固定とSRIによる中身の照合の説明図" loading="lazy"></figure></div></div></details><details class="chapter" id="safety-checklist"><summary><span class="chapter-icon" aria-hidden="true">✅</span><span class="chapter-heading" role="heading" aria-level="2"><span class="chapter-category">セキュリティ</span><span class="chapter-title">安心して使うためにできること</span></span><span class="chapter-toggle" aria-hidden="true"></span></summary><div class="chapter-body"><div class="chapter-inner"><p>最後に、利用する側でできることをまとめます。</p><ul><li><p><strong>Google AI Studioで月額上限を設定しておく</strong>（有料枠を使う場合）</p></li><li><p><strong>共有PCでは、APIキーの「セッションのみ」がON</strong>になっていることを確認し、利用後は設定 &gt; 音声の「消去」を使う</p></li><li><p><strong>機密情報・個人情報を含む資料は、無料枠で送らない</strong></p></li><li><p>APIキーは人に渡さない。SNSや画面共有にも映さない</p></li><li><p>万一キーが漏れたかもしれないときは、Google AI Studioでそのキーを削除して、新しいキーを作る</p></li><li><p>Gemini Canvas のアプリを使う場合は、Geminiアプリの「アクティビティの保存」の設定を確認しておく</p></li><li><p>ブラウザの拡張機能を見直し、信頼できるものだけにする</p></li><li><p>SlideCast Studioを新しい版に更新しておく</p></li></ul></div></div></details><details class="chapter" id="closing"><summary><span class="chapter-icon" aria-hidden="true">💬</span><span class="chapter-heading" role="heading" aria-level="2"><span class="chapter-category">作者より</span><span class="chapter-title">おわりに</span></span><span class="chapter-toggle" aria-hidden="true"></span></summary><div class="chapter-body"><div class="chapter-inner"><p>SlideCast Studioは、あなたのブラウザの中で動くアプリです。</p><p>だからこそ、「どこに何が送られるのか」「料金はどう止められるのか」を、使う方が自分で確かめられるようにしておきたいと考えています。アプリ内のヘルプの「通信と安全」タブにも、同じ内容をまとめています。</p><p>不安な点や「ここがよく分からない」という点がありましたら、コメントで教えていただけると助かります。</p><p>いつもありがとうございます。</p><p>SlideCast Studioが気に入りましたら、ぜひ拡散をお願いします！</p></div></div></details><details class="chapter" id="afterword"><summary><span class="chapter-icon" aria-hidden="true">✍️</span><span class="chapter-heading" role="heading" aria-level="2"><span class="chapter-category">作者より</span><span class="chapter-title">編集後記</span></span><span class="chapter-toggle" aria-hidden="true"></span></summary><div class="chapter-body"><div class="chapter-inner"><p>今回は、SlideCast Studioのセキュリティについての記事でした。</p><p>開発の初期から、セキュリティの設計や実装については、Antigravity、Codex、Claudeに何度も確認してもらってきました。</p><p>最初は、セキュリティについてほとんど知識がありませんでした。だからこそ、わからないことをそのままにせず、しつこいくらい確認を重ねていました。その過程で、少しずつ知識も身についてきたと思います。</p><p>とはいえ、経験豊富なエンジニアの方から見ると、やりすぎな対策や、まだ足りない部分もあるかもしれません。気づいたことがありましたら、ぜひ教えていただけるとうれしいです。できれば、優しくお願いします。</p><p>ちなみにこの編集後記に対するcodexの回答は以下の通り</p><blockquote class="pull-quote"><p>今回確認した範囲では、対策不足が目立つというより、必要な対策を丁寧に積み上げていると感じます。APIキーを保存データに含めないこと、通信先を明示すること、生成の停止や再試行の上限を設けることなどは、やりすぎではなく、利用者を守るために意味のある対策です。ただ、確認の回数やAIの数だけで安全性が保証されるわけではありません。「もう完全に安全」と言い切らず、根拠を確かめ、気づいた問題を直していく。その姿勢も含めて、今回の取り組みは誠実だと思います。</p><cite>codexより</cite></blockquote></div></div></details></section>
+
+  <div class="source-card"><div><strong>元記事：SlideCast Studio のセキュリティについて</strong><small>補足やご質問は、noteの元記事のコメント欄へお寄せください。</small></div><a class="cta-link" href="https://note.com/bluezzly/n/n5cc0fb9c1ea8" target="_blank" rel="noopener noreferrer">noteの元記事を読む ↗</a></div>
+  <footer class="site-footer">
+    <div class="footer-top"><a class="brand footer-brand" href="../" aria-label="SlideCast Studio トップページ">SlideCast <b>Studio</b></a><nav class="footer-links" aria-label="フッターナビゲーション"><a href="../intro/">SlideCast Studio とは</a><a href="../manual/">公式マニュアル</a><a href="../bundle-builder/">Bundle Builder</a><a href="../mouthloop-v2/">MouthLoop v2</a><a href="../ai-code-bgm-studio/">AI CODE BGM STUDIO</a><a href="../ai-code-movie-studio/">AI CODE MOVIE STUDIO</a></nav></div><div class="footer-bottom"><p class="footer-meta">SlideCast Studio ドキュメント · aokuma</p><nav class="social-links" aria-label="SNSリンク"><a class="social-link" href="https://note.com/bluezzly" target="_blank" rel="noopener noreferrer" aria-label="note" title="note"><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4.4 17.6V6.4h2.9v2C8.3 7 10 6.2 11.9 6.2c3.4 0 5.7 2.4 5.7 6v5.4h-2.9v-5c0-2.2-1.3-3.6-3.2-3.6-2.4 0-4.2 1.8-4.2 4.4v4.2Z"/></svg></a>
+          <a class="social-link" href="https://x.com/ai5809514366862" target="_blank" rel="noopener noreferrer" aria-label="X（旧Twitter）"><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231 5.451-6.231Zm-1.161 17.52h1.833L7.084 4.126H5.117L17.083 19.77Z"/></svg></a>
+          <a class="social-link" href="https://www.youtube.com/channel/UC2lO3ixD4ICI9VgRSxidRbQ" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814ZM9.545 15.568V8.432L15.818 12l-6.273 3.568Z"/></svg></a>
+          <a class="social-link" href="https://substack.com/@aokuma1" target="_blank" rel="noopener noreferrer" aria-label="Substack"><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M22.539 8.242H1.46V5.406h21.08v2.836ZM1.46 10.812V24L12 18.11 22.54 24V10.812H1.46ZM22.54 0H1.46v2.836h21.08V0Z"/></svg></a></nav></div>
+  </footer>
+</div>
+</main>
+
+<div class="float-actions">
+  <button class="float-button" id="closeChapter" type="button" hidden><span aria-hidden="true">×</span><span class="float-label">閉じる</span></button>
+  <button class="float-button primary" id="floatToc" type="button"><span aria-hidden="true">☰</span><span class="float-label">目次</span></button>
+  <button class="float-button" id="backTop" type="button"><span aria-hidden="true">↑</span><span class="float-label">上へ</span></button>
+</div>
+
+<dialog class="toc-dialog" id="tocDialog">
+  <div class="toc-head"><strong>目次</strong><button class="icon-button" id="closeToc" type="button" aria-label="目次を閉じる">×</button></div>
+  <nav class="toc-list" aria-label="目次">
+    <button type="button" data-target="overview"><span aria-hidden="true">🏠</span>概要</button>
+    <button type="button" data-target="storage"><span aria-hidden="true">💾</span>作品は、あなたのブラウザの中にあります</button><button type="button" data-target="api-keys"><span aria-hidden="true">🔑</span>APIキーは、ブラウザ内で保持し、Googleへの認証に使います</button><button type="button" data-target="generation-controls"><span aria-hidden="true">⏸️</span>料金が増えすぎないための仕組み</button><button type="button" data-target="monthly-cap"><span aria-hidden="true">💰</span>料金の上限は、Google側で決めておくと安心です</button><button type="button" data-target="google-data"><span aria-hidden="true">🔍</span>Googleに送った内容の扱い（無料と有料で変わります）</button><button type="button" data-target="canvas-apps"><span aria-hidden="true">🧩</span>Gemini Canvas のアプリ4つについて</button><button type="button" data-target="supply-chain"><span aria-hidden="true">🛡️</span>外部のプログラムに頼りすぎない作り（サプライチェーン攻撃への備え）</button><button type="button" data-target="safety-checklist"><span aria-hidden="true">✅</span>安心して使うためにできること</button><button type="button" data-target="closing"><span aria-hidden="true">💬</span>おわりに</button><button type="button" data-target="afterword"><span aria-hidden="true">✍️</span>編集後記</button>
+  </nav>
+</dialog>
+
+<dialog class="lightbox" id="lightbox">
+  <button class="icon-button" id="lightboxClose" type="button" aria-label="画像を閉じる">×</button>
+  <img id="lightboxImage" src="" alt="">
+</dialog>
+<script src="../assets/ambient-particles.js"></script>
+
+<script>
+(()=>{'use strict';
+const root=document.documentElement;
+const header=document.querySelector('.site-header');
+const chapters=[...document.querySelectorAll('.chapter')];
+const tocDialog=document.getElementById('tocDialog');
+const closeChapterBtn=document.getElementById('closeChapter');
+const currentLabel=document.getElementById('currentSection');
+const progress=document.getElementById('progressBar');
+const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+/* --- theme --- */
+const saved=localStorage.getItem('article-theme');
+root.dataset.theme=saved||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');
+document.getElementById('themeToggle').addEventListener('click',()=>{
+  root.dataset.theme=root.dataset.theme==='dark'?'light':'dark';
+  localStorage.setItem('article-theme',root.dataset.theme);
+});
+
+/* --- align an element directly under the sticky header, without motion --- */
+const align=el=>{
+  /* Two frames: the first lets the previously open section finish collapsing,
+     so the target is measured against settled layout, not stale geometry. */
+  requestAnimationFrame(()=>requestAnimationFrame(()=>{
+    const previous=root.style.scrollBehavior;
+    root.style.scrollBehavior='auto';
+    const offset=(header?header.offsetHeight:0)+8;
+    scrollTo(0,Math.max(0,el.getBoundingClientRect().top+scrollY-offset));
+    requestAnimationFrame(()=>{root.style.scrollBehavior=previous;});
+  }));
+};
+
+/* --- one accordion open at a time --- */
+const tocButtons=[...document.querySelectorAll('.toc-list [data-target]')];
+const syncState=()=>{
+  const open=chapters.find(c=>c.open);
+  closeChapterBtn.hidden=!open;
+  if(currentLabel){
+    const title=open?open.querySelector('.chapter-title').textContent.trim():'';
+    currentLabel.textContent=title;
+    currentLabel.classList.toggle('show',Boolean(title));
+  }
+  tocButtons.forEach(btn=>btn.classList.toggle('current',Boolean(open)&&btn.dataset.target===open.id));
+  const url=location.pathname+location.search+(open?'#'+open.id:'');
+  history.replaceState(null,'',url);
+};
+chapters.forEach(chapter=>chapter.addEventListener('toggle',()=>{
+  if(chapter.open)chapters.forEach(other=>{if(other!==chapter)other.open=false;});
+  syncState();
+  if(chapter.open)align(chapter);
+}));
+closeChapterBtn.addEventListener('click',()=>{chapters.forEach(c=>{c.open=false;});syncState();});
+syncState();
+
+/* --- table of contents --- */
+const jump=id=>{
+  const target=document.getElementById(id);
+  if(!target)return;
+  if(target.matches('details')&&!target.open){target.open=true;}
+  else{align(target);}
+  tocDialog.close();
+};
+document.querySelectorAll('[data-target]').forEach(btn=>btn.addEventListener('click',()=>jump(btn.dataset.target)));
+const openToc=()=>tocDialog.showModal();
+document.getElementById('openToc').addEventListener('click',openToc);
+document.getElementById('floatToc').addEventListener('click',openToc);
+document.getElementById('closeToc').addEventListener('click',()=>tocDialog.close());
+tocDialog.addEventListener('click',e=>{if(e.target===tocDialog)tocDialog.close();});
+document.getElementById('backTop').addEventListener('click',()=>scrollTo({top:0,behavior:reduce?'auto':'smooth'}));
+
+/* --- shareable deep links --- */
+const openFromHash=()=>{
+  const id=decodeURIComponent(location.hash.slice(1));
+  if(!id)return;
+  const target=document.getElementById(id);
+  if(!target)return;
+  if(target.classList.contains('chapter')&&!target.open)target.open=true;
+  else align(target);
+};
+addEventListener('hashchange',openFromHash);
+if(location.hash)requestAnimationFrame(openFromHash);
+
+/* --- reading progress --- */
+const onScroll=()=>{
+  const max=document.documentElement.scrollHeight-innerHeight;
+  progress.style.width=(max>0?Math.min(100,scrollY/max*100):0)+'%';
+};
+addEventListener('scroll',onScroll,{passive:true});onScroll();
+
+/* --- image lightbox --- */
+const lightbox=document.getElementById('lightbox');
+const lightboxImage=document.getElementById('lightboxImage');
+document.addEventListener('click',e=>{
+  const img=e.target.closest('figure img');
+  if(!img||img.closest('.video-facade'))return;
+  lightboxImage.src=img.currentSrc||img.src;
+  lightboxImage.alt=img.alt||'';
+  lightbox.showModal();
+});
+document.getElementById('lightboxClose').addEventListener('click',()=>lightbox.close());
+lightbox.addEventListener('click',e=>{if(e.target===lightbox)lightbox.close();});
+
+/* --- tabs --- */
+document.querySelectorAll('[data-tabs]').forEach(group=>{
+  const tabs=[...group.querySelectorAll('[role="tab"]')];
+  const select=index=>{
+    tabs.forEach((tab,i)=>{
+      const selected=i===index;
+      tab.setAttribute('aria-selected',selected);
+      tab.tabIndex=selected?0:-1;
+      document.getElementById(tab.getAttribute('aria-controls')).hidden=!selected;
+    });
+  };
+  tabs.forEach((tab,index)=>{
+    tab.addEventListener('click',()=>select(index));
+    tab.addEventListener('keydown',event=>{
+      const step={ArrowRight:1,ArrowLeft:-1}[event.key];
+      let next=null;
+      if(step)next=(index+step+tabs.length)%tabs.length;
+      if(event.key==='Home')next=0;
+      if(event.key==='End')next=tabs.length-1;
+      if(next===null)return;
+      event.preventDefault();select(next);tabs[next].focus();
+    });
+  });
+  select(0);
+});
+
+/* --- click-to-play video: nothing is requested from the host until here --- */
+document.querySelectorAll('.video-facade').forEach(button=>{
+  button.addEventListener('click',()=>{
+    button.closest('.video-embed')?.classList.add('is-playing');
+    const frame=document.createElement('iframe');
+    frame.src=button.dataset.embed;
+    frame.title=button.dataset.title||'動画';
+    frame.allow='autoplay; fullscreen; picture-in-picture; encrypted-media';
+    frame.allowFullscreen=true;
+    frame.referrerPolicy='strict-origin-when-cross-origin';
+    button.replaceWith(frame);
+  });
+});
+
+/* --- copy buttons on code blocks --- */
+document.querySelectorAll('.code-copy').forEach(button=>{
+  button.addEventListener('click',async()=>{
+    const code=button.closest('.code-block').querySelector('code');
+    const label=button.dataset.label||button.textContent;
+    button.dataset.label=label;
+    try{await navigator.clipboard.writeText(code.textContent);button.textContent='コピーしました';}
+    catch{button.textContent='コピーできません';}
+    setTimeout(()=>{button.textContent=label;},1600);
+  });
+});
+})();
+</script>
+</body>
+</html>

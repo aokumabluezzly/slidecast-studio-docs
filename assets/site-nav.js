@@ -28,6 +28,8 @@
       group: 'ガイド',
       group_en: 'Guides',
       items: [
+        { href: 'security/', icon: '🛡️', label: 'セキュリティについて', desc: '作品・APIキー・料金の守り方',
+          label_en: 'Security', desc_en: 'Protecting projects, API keys and usage costs' },
         { href: 'bundle-builder/', icon: '🧩', label: 'SlideCast Bundle Builder', desc: '資料・台本・AI音声をまとめて準備',
           en: true, label_en: 'SlideCast Bundle Builder', desc_en: 'Prepare slides, script and AI voice in one pass' },
         { href: 'mouthloop-v2/', icon: '😀', label: 'MouthLoop v2', desc: '画像1枚から口パクキャラ素材を作る',

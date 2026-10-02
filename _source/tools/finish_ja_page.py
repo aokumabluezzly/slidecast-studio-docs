@@ -25,6 +25,11 @@ BASE_URL = "https://aokumabluezzly.github.io/slidecast-studio-docs/"
 
 # ページごとの、ページ固有メタ情報。`en` は英語版があるかどうか（hreflang に効く）
 PAGE_META: dict[str, dict[str, object]] = {
+    "security/": {
+        "og_title": "SlideCast Studio のセキュリティについて（作品・APIキー・料金の守り方）",
+        "og_description": "作品の保存先、通信先、APIキーの保持、生成の停止と料金の上限、Gemini Canvasアプリと外部ライブラリの安全対策を解説します。",
+        "en": False,
+    },
     "intro/": {
         "og_title": "SlideCast Studioとは",
         "og_description": (
@@ -171,6 +176,15 @@ def finish(path: pathlib.Path) -> None:
     up = "../" * rel.count("/")            # ai-code-bgm-studio/ → ../ （サイトのルートまで）
     html = path.read_text(encoding="utf-8")
 
+    # 長い記事名を、製品名と主題のまとまりで折り返す。
+    if rel == "security/":
+        html = html.replace(
+            '<h1>SlideCast Studio のセキュリティについて</h1>',
+            '<h1><span style="display:inline-block">SlideCast Studio の</span> '
+            '<span style="display:inline-block">セキュリティについて</span></h1>',
+            1,
+        )
+
     # 生成テンプレートの注意書きは、公開ページには要らない
     html = re.sub(r"<!-- 自動生成:.*?-->\n?", "", html, count=1, flags=re.S)
 
@@ -245,6 +259,8 @@ def finish(path: pathlib.Path) -> None:
         flags=re.S,
     )
 
+    if rel == "security/":
+        html = "\n".join(line.rstrip() for line in html.splitlines()) + "\n"
     path.write_text(html, encoding="utf-8")
     print(f"仕上げました: {path.relative_to(REPO)}")
 
