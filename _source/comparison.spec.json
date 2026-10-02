@@ -1,0 +1,320 @@
+{
+  "title": "SlideCast Studio と Google Vids・AIエージェント・動画編集ソフトとの違い",
+  "subtitle": "それぞれの特徴と、向いている人",
+  "description": "Google Vids、Claude Code・CodexなどのAIエージェント、動画編集ソフトとSlideCast Studioの違いを、素材づくり・操作・費用・学習の面から整理します。",
+  "lead": "",
+  "eyebrow": "COMPARISON GUIDE",
+  "brand": "SlideCast ",
+  "brand_accent": "Studio",
+  "brand_badge": "Docs",
+  "author": "aokuma",
+  "date": "2026.09.28",
+  "footer_meta": "SlideCast Studio ドキュメント · aokuma",
+  "hero_image": "./img/comparison-hero.png",
+  "hero_alt": "スライド動画、どれで作る？ Google Vids・AIエージェント・動画編集ソフト・SlideCast Studio、それぞれの違いと向いている人",
+  "chips": [
+    "Google Vids",
+    "AIエージェント",
+    "動画編集ソフト",
+    "素材づくりと仕上げ",
+    "買い切り"
+  ],
+  "theme": {
+    "primary": "#6857D9",
+    "secondary": "#376FD6",
+    "accent": "#C049A2",
+    "surface": "#F7F5FF",
+    "ink": "#202039"
+  },
+  "nav_links": [
+    {
+      "href": "../",
+      "icon": "🏠",
+      "label": "HOME"
+    }
+  ],
+  "source_url": "https://note.com/bluezzly/n/n70de74730bd9",
+  "source_label": "noteの元記事を読む",
+  "source_title": "元記事：Google Vids・AIエージェント・動画編集ソフトとの違い",
+  "source_note": "補足やご質問は、noteの元記事のコメント欄へお寄せください。",
+  "update_header": false,
+  "sections_label": "CONTENTS",
+  "overview": {
+    "icon": "👋",
+    "title": "はじめに",
+    "blocks": [
+      {
+        "type": "html",
+        "html": "<p>スライドとナレーションで動画を作る方法は、ここ1〜2年で一気に増えました。私も SlideCast Studio の開発を続けていますが、比較対象として想定しているのは、Google の <strong>Google Vids</strong> と、Claude Code や Codex などの <strong>AIエージェント</strong> です。<strong>動画編集ソフト</strong> と比べる方もいると思います。</p>"
+      },
+      {
+        "type": "html",
+        "html": "<p>「SlideCast Studio は Google Vids とどう違うの？」<br>「Google Vids で十分じゃない？」<br>「今なら Claude Code とか Codex で動画を作らせた方が良くない？」</p>"
+      },
+      {
+        "type": "html",
+        "html": "<p>と迷う方も多いと思います。どのツールにも良さがあり、向いている人が違います。この記事では、それぞれの特徴を公開情報と実際の機能をもとに整理します。</p>"
+      },
+      {
+        "type": "figure",
+        "image": "./img/comparison-01.png",
+        "alt": "動画づくりの選択肢：Google Vids・AIエージェント・動画編集ソフト・SlideCast Studioの特徴"
+      },
+      {
+        "type": "html",
+        "html": "<p>SlideCast Studioって何？と言う方はこちら↓</p>"
+      },
+      {
+        "type": "link_cards",
+        "items": [
+          {
+            "icon": "📚",
+            "title": "SlideCast Studio ドキュメント",
+            "text": "紹介・公式マニュアル・補助ツールガイド・アップデート情報",
+            "url": "../"
+          }
+        ]
+      },
+      {
+        "type": "html",
+        "html": "<p>SlideCast Studioはスライド資料をナレーション音声入りの動画にするツールです。</p>"
+      }
+    ]
+  },
+  "sections": [
+    {
+      "id": "google-vids",
+      "icon": "🎬",
+      "category": "比較ガイド",
+      "title": "Google Vids との違い",
+      "blocks": [
+        {
+          "type": "figure",
+          "image": "./img/comparison-02.png",
+          "alt": "Google VidsとSlideCast Studioの違い：素材生成と仕上げの作り方"
+        },
+        {
+          "type": "html",
+          "html": "<p>Google Vids と SlideCast Studio は、スライドとナレーションで動画を作るという点ではよく似ています。大きな違いは「<strong>素材をどこで作るか</strong>」です。</p>"
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "Google Vids のメリット"
+        },
+        {
+          "type": "html",
+          "html": "<ul class=\"check-list\"><li><p>動画、アバター、画像、BGM などを、編集画面の中でそのまま AI 生成できる</p></li><li><p>Google スライドから簡単に動画に変換できる</p></li><li><p>チームでの共同編集や、YouTube への直接公開に対応</p></li><li><p>無料で始められる（AI 生成を使える回数は Google の契約プランによって変わります）</p></li></ul>"
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "SlideCast Studio のメリット"
+        },
+        {
+          "type": "html",
+          "html": "<ul class=\"check-list\"><li><p>素材は <strong>Gemini・ChatGPT など、好きなサービス</strong>で作って取り込める（写真や手描きイラストでも OK）</p></li><li><p>アプリ本体に、回数や長さの上限がない</p></li><li><p>リップシンクするキャラクターに、表情や仕草も付けられる</p></li><li><p>テロップ、字幕、ステッカー、縦書き、OP/ED、スライドごとの BGM 切り替えなど、仕上げの機能が充実</p></li><li><p>PowerPoint、Canva、Keynote、Google スライドなど、どのツールで作った資料でも取り込める</p></li><li><p>動画（MP4 / WebM）に加えて、PPTX や台本入りのブック型 PDF も書き出せる</p></li></ul>"
+        },
+        {
+          "type": "html",
+          "html": "<p>素材を別のサービスで用意する一手間はかかりますが、そのぶん作り方を自由に選べます。</p>"
+        },
+        {
+          "type": "html",
+          "html": "<p>SlideCast Studioでは以下のツールも用意しています。</p>"
+        },
+        {
+          "type": "html",
+          "html": "<ul class=\"check-list\"><li><p>台本づくりの Bundle Builder</p></li><li><p>リップシンク素材づくりの MouthLoop</p></li><li><p>BGM づくりの AI CODE BGM STUDIO</p></li><li><p>動画づくりの AI CODE MOVIE STUDIO</p></li></ul>"
+        },
+        {
+          "type": "html",
+          "html": "<p>いずれも Gemini Canvas 上で無料で使えます。もちろん、上記以外のツールで作った素材も利用できます。</p>"
+        },
+        {
+          "type": "quote",
+          "text": "Google Vids は「素材づくりから仕上げまで、ひとつの画面で完結できる」 SlideCast Studio は「素材は好きなサービスで作り、仕上げをじっくり作り込める」"
+        }
+      ]
+    },
+    {
+      "id": "ai-agents",
+      "icon": "🤖",
+      "category": "比較ガイド",
+      "title": "AIエージェントとの違い",
+      "blocks": [
+        {
+          "type": "figure",
+          "image": "./img/comparison-03.png",
+          "alt": "AIエージェントとSlideCast Studioの違い：自由度・利用環境・操作方法"
+        },
+        {
+          "type": "html",
+          "html": "<p>最近は Claude Code や Codex などの AIエージェントに頼めば、動画を組み立てて、音声まで付けて書き出すことができます。</p>"
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "AIエージェントのメリット"
+        },
+        {
+          "type": "html",
+          "html": "<ul class=\"check-list\"><li><p>コードで表現できる動きなら何でも作れる、圧倒的な自由度</p></li><li><p>API キーを設定しておけば、音声生成まで自動で進められる</p></li></ul>"
+        },
+        {
+          "type": "html",
+          "html": "<p><strong>使いこなせる方なら、より高品質な動画を作れます。そういう方には AIエージェントをおすすめします。</strong></p>"
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "使うときに必要なこと・注意しなければならないこと"
+        },
+        {
+          "type": "html",
+          "html": "<ul class=\"check-list\"><li><p>月額の有料プラン</p></li><li><p>トークンを消費する（テンプレを作るなど節約対策推奨）</p></li><li><p>セキュリティへの配慮（パソコンのファイル操作やコマンドの実行を AI に任せるため）</p></li><li><p>使い方や環境設定への慣れ</p></li><li><p>職場で使う場合は、利用ルールの確認（セキュリティの問題で禁止されているケースも多いため）</p></li></ul>"
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "SlideCast Studio のメリット"
+        },
+        {
+          "type": "html",
+          "html": "<ul class=\"check-list\"><li><p>ブラウザで開くだけで使える</p></li><li><p>素材づくりには、普段使っているチャット AI やその他のサービスをそのまま使える</p></li><li><p>画面を見ながらクリックやドラッグで直して、すぐにプレビューできる</p></li><li><p>慣れて自分の型（テンプレートや設定のパターン）ができれば、素早く動画を作れる</p></li><li><p>SlideCast Studio本体は利用上限もなくトークン消費もない</p></li><li><p>GAS 版とローカル HTML 版から選べて、職場でも使いやすい</p></li></ul>"
+        },
+        {
+          "type": "quote",
+          "text": "AIエージェントは「自由度と品質をとことん追求できる」 SlideCast Studio は「いつものチャット AI とブラウザだけで、見ながら仕上げられる」"
+        }
+      ]
+    },
+    {
+      "id": "video-editors",
+      "icon": "🎞️",
+      "category": "比較ガイド",
+      "title": "動画編集ソフトとの違い",
+      "blocks": [
+        {
+          "type": "figure",
+          "image": "./img/comparison-04.png",
+          "alt": "動画編集ソフトとSlideCast Studioの違い：編集機能・学習・費用"
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "動画編集ソフトのメリット"
+        },
+        {
+          "type": "html",
+          "html": "<ul class=\"check-list\"><li><p>カット編集、色の調整、合成、細かなアニメーションなど、<strong>SlideCast Studio より更に高度なこと</strong>ができる</p></li></ul>"
+        },
+        {
+          "type": "html",
+          "html": "<p>映像作品を本格的に作り込みたい方には、動画編集ソフトをおすすめします。</p>"
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "使うときに必要なこと・注意しなければならないこと"
+        },
+        {
+          "type": "html",
+          "html": "<ul class=\"check-list\"><li><p>本格的なソフトは有料（月額や高価な買い切り）のものが多い</p></li><li><p>機能が多いぶん、使いこなすには学習と慣れが必要</p></li></ul>"
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "SlideCast Studio のメリット"
+        },
+        {
+          "type": "html",
+          "html": "<ul class=\"check-list\"><li><p>スライドとナレーションの解説動画に機能を絞っているので、覚えることが少ない</p></li><li><p>台本から音声を作ると、スライドの切り替えが音声の長さに合わせて進む（タイムラインで一つひとつ合わせる必要がない）</p></li><li><p>買い切りで使える</p></li></ul>"
+        },
+        {
+          "type": "quote",
+          "text": "動画編集ソフトは「どんな映像も作れるが、費用と学習が必要」 SlideCast Studio は「スライド動画に絞ったぶん、学習コストが低く、手頃な価格ですぐに使える」"
+        }
+      ]
+    },
+    {
+      "id": "recommended",
+      "icon": "✨",
+      "category": "比較ガイド",
+      "title": "こんな人には SlideCast Studio がおすすめです",
+      "blocks": [
+        {
+          "type": "html",
+          "html": "<ul class=\"check-list\"><li><p>素材を好きな AI サービスで作りたい</p></li><li><p>派手な演出は不要な人</p></li><li><p>自分のキャラクターで、解説動画・講座・ショート動画を作り込みたい</p></li><li><p>回数や長さを気にせず、何本でも作りたい</p></li><li><p>Google Vidsに物足らなさや使いにくさを感じた人</p></li><li><p>職場でAIエージェントの使用が許可されていない人</p></li><li><p>動画編集ソフトを一から覚えるのは大変だと感じている</p></li><li><p>月額ではなく、買い切りで使いたい（音声は Gemini 2.5 Flash TTS なら無料で作れます）</p></li></ul>"
+        },
+        {
+          "type": "html",
+          "html": "<p>Google Vids、AIエージェント、動画編集ソフト、SlideCast Studio は、どれかひとつが正解というものではありません。素材づくりは Google Vids や AI で、仕上げは SlideCast Studio で、という組み合わせもできます。目的や作業環境に合わせて、使いやすいものを選んでみてください。</p>"
+        }
+      ]
+    },
+    {
+      "id": "afterword",
+      "icon": "📝",
+      "category": "作者より",
+      "title": "あとがき",
+      "blocks": [
+        {
+          "type": "html",
+          "html": "<p>実は私も、最初は Google Vids で動画を作ろうとしていました。ただ、自分の用途では痒いところに手が届かず、使いにくさを感じていました。そうやって四苦八苦していたときに出会ったのが、まじんさんの AI Slide Studio です。何となく魔改造しているうちに「これ、なんでもいけるじゃん！」と気づき、開発にのめり込んで今に至ります。</p>"
+        },
+        {
+          "type": "html",
+          "html": "<p>開発を続けているあいだに Google Vids もどんどん進化していて、「あ、SlideCast Studio もそろそろお役御免かな」と思いながら、久しぶりに使ってみました。それでも、個人的には SlideCast Studio の方が圧倒的に使いやすく、痒いところに手が届きます。</p>"
+        },
+        {
+          "type": "html",
+          "html": "<p>まあ、当たり前ですよね。自分で自分のために開発しているツールなのですから。使い方は当然熟知していますし、欲しい機能もひと通り入れています。ただ、ほかの方が使ったときにどう感じるかは分かりません。できるだけ分かりやすく使っていただけるよう、最近は YouTube チャンネルを開設して、使い方動画もたくさんアップしています。</p>"
+        },
+        {
+          "type": "html",
+          "html": "<p>ぶっちゃけて言うと、Claude Code や Codex を使える方は、AIエージェントで動画を作る流れを組んだ方が良いと感じています。私自身、それくらい凄まじい進歩を実感しています。実は YouTube の使い方動画も、Claude Code で作っています。SlideCast Studio で作っても良かったのですが、本数があまりにも多く、とても時間がかかってしまうからです。</p>"
+        },
+        {
+          "type": "html",
+          "html": "<p>これから AIエージェントを使うなら、今は Claude Code で Claude Opus 5.5 に、Gemini 3.8 Flash TTS を使わせて動画を作るのがおすすめです。</p>"
+        },
+        {
+          "type": "html",
+          "html": "<p>それでも、SlideCast Studio にはこんな良いところがあります。</p>"
+        },
+        {
+          "type": "html",
+          "html": "<ul class=\"check-list\"><li><p>自分の目でリアルタイムに確認しながら、好みに合わせて調整しやすい</p></li><li><p>GAS で動くので、職場でも利用できる</p></li><li><p>AIエージェントと違って、トークンを消費しない</p></li><li><p>買い切りなので、使い方次第（無料のサービスで素材を用意するなど）では、追加の費用をかけずに使い続けられる</p></li><li><p>自分の土台（型）ができあがれば、かなり速く動画を完成させられる</p></li></ul>"
+        },
+        {
+          "type": "html",
+          "html": "<p>AI の進化はとても速く、動画づくりの方法はこれからも次々と変わっていくと思います。それでも、「自分の目で確かめながら、自分の手で仕上げたい」という方には、SlideCast Studio がきっと役に立つはずです。私自身も一人のユーザーとして、これからも使いながら改良を続けていきます。</p>"
+        },
+        {
+          "type": "html",
+          "html": "<p>どのツールを選ぶにしても、この記事が、みなさんに合った動画づくりの方法を見つけるきっかけになればうれしいです。最後まで読んでいただき、ありがとうございました。</p>"
+        },
+        {
+          "type": "html",
+          "html": "<p>👉 SlideCast Studio の詳細・ご購入はこちら</p>"
+        },
+        {
+          "type": "link_cards",
+          "items": [
+            {
+              "icon": "🎬",
+              "title": "SlideCast Studio の詳細・ご購入",
+              "text": "アプリ本体の配布と最新情報はnoteの記事へ",
+              "url": "https://note.com/bluezzly/n/nb4c85213c808"
+            }
+          ]
+        },
+        {
+          "type": "html",
+          "html": "<p>※ Google Vids・AIエージェント・動画編集ソフトの機能や利用条件は、執筆時点の情報です。最新の情報は各サービスの公式ページをご確認ください。</p>"
+        }
+      ]
+    }
+  ]
+}

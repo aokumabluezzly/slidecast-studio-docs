@@ -28,6 +28,8 @@
       group: 'ガイド',
       group_en: 'Guides',
       items: [
+        { href: 'comparison/', icon: '⚖️', label: '他の動画制作ツールとの違い', desc: 'Google Vids・AIエージェント・動画編集ソフトと比較',
+          label_en: 'Compare video creation tools', desc_en: 'Google Vids, AI agents and video editors' },
         { href: 'security/', icon: '🛡️', label: 'セキュリティについて', desc: '作品・APIキー・料金の守り方',
           label_en: 'Security', desc_en: 'Protecting projects, API keys and usage costs' },
         { href: 'bundle-builder/', icon: '🧩', label: 'SlideCast Bundle Builder', desc: '資料・台本・AI音声をまとめて準備',

@@ -25,6 +25,11 @@ BASE_URL = "https://aokumabluezzly.github.io/slidecast-studio-docs/"
 
 # ページごとの、ページ固有メタ情報。`en` は英語版があるかどうか（hreflang に効く）
 PAGE_META: dict[str, dict[str, object]] = {
+    "comparison/": {
+        "og_title": "SlideCast Studio と Google Vids・AIエージェント・動画編集ソフトとの違い",
+        "og_description": "素材づくり・自由度・操作・費用・学習の面から動画づくりの選択肢を比較し、向いている人を整理します。",
+        "en": False,
+    },
     "security/": {
         "og_title": "SlideCast Studio のセキュリティについて（作品・APIキー・料金の守り方）",
         "og_description": "作品の保存先、通信先、APIキーの保持、生成の停止と料金の上限、Gemini Canvasアプリと外部ライブラリの安全対策を解説します。",
@@ -182,6 +187,16 @@ def finish(path: pathlib.Path) -> None:
             '<h1>SlideCast Studio のセキュリティについて</h1>',
             '<h1><span style="display:inline-block">SlideCast Studio の</span> '
             '<span style="display:inline-block">セキュリティについて</span></h1>',
+            1,
+        )
+
+    if rel == "comparison/":
+        html = html.replace(
+            '<h1>SlideCast Studio と Google Vids・AIエージェント・動画編集ソフトとの違い</h1>',
+            '<h1><span style="display:inline-block">SlideCast Studio と</span> '
+            '<span style="display:inline-block">Google Vids</span>・'
+            '<span style="display:inline-block">AIエージェント</span>・'
+            '<span style="display:inline-block">動画編集ソフト</span>との違い</h1>',
             1,
         )
 

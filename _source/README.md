@@ -16,6 +16,7 @@
 | `ai-code-movie-studio.spec.json` | AI CODE MOVIE STUDIO ガイド（`/ai-code-movie-studio/index.html`）の設計データ |
 | `ai-code-bgm-studio.spec.json` | AI CODE BGM STUDIO ガイド（`/ai-code-bgm-studio/index.html`）の設計データ |
 | `mouthloop-v2.spec.json` | MouthLoop v2 ガイド（`/mouthloop-v2/index.html`）の設計データ |
+| `comparison.spec.json` | 他の動画制作ツールとの比較ガイド（`/comparison/index.html`）の設計データ。note公開日 2026.09.28。本文・表紙と4枚の図・あとがきを掲載 |
 | `security.spec.json` | セキュリティガイド（`/security/index.html`）の設計データ。note公開日 2026.10.02。本文・7枚の図と編集後記を掲載 |
 | `gas-update.spec.json` | アップデート方法ガイド（`/gas-update/index.html`）の設計データ |
 | `manual.spec.json` | 公式マニュアル（`/manual/index.html`）の設計データ。v33 / v34 と同じく既存の日本語ページから起こしたもので、日本語ページの再生成には**使っていません**（下記） |
