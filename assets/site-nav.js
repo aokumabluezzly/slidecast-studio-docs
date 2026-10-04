@@ -28,6 +28,8 @@
       group: 'ガイド',
       group_en: 'Guides',
       items: [
+        { href: 'videos/', icon: '🎬', label: '使い方動画マップ', desc: 'YouTubeの使い方動画を章と機能から探す',
+          label_en: 'Tutorial video map', desc_en: 'Find the YouTube tutorials by chapter and feature' },
         { href: 'comparison/', icon: '⚖️', label: '他の動画制作ツールとの違い', desc: 'Google Vids・AIエージェント・動画編集ソフトと比較',
           label_en: 'Compare video creation tools', desc_en: 'Google Vids, AI agents and video editors' },
         { href: 'security/', icon: '🛡️', label: 'セキュリティについて', desc: '作品・APIキー・料金の守り方',

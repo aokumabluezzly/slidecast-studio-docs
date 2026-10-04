@@ -35,6 +35,11 @@ PAGE_META: dict[str, dict[str, object]] = {
         "og_description": "作品の保存先、通信先、APIキーの保持、生成の停止と料金の上限、Gemini Canvasアプリと外部ライブラリの安全対策を解説します。",
         "en": False,
     },
+    "videos/": {
+        "og_title": "SlideCast Studio 使い方動画マップ",
+        "og_description": "YouTube の使い方動画（章別まとめ10本・機能別28本）を、全11章の流れに沿って一覧にしました。",
+        "en": False,
+    },
     "intro/": {
         "og_title": "SlideCast Studioとは",
         "og_description": (
