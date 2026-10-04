@@ -21,15 +21,15 @@
         { href: 'intro/', icon: '💡', label: 'SlideCast Studio とは', desc: 'できること・料金の概要',
           en: true, label_en: 'What is SlideCast Studio?', desc_en: 'What it does, and what it costs' },
         { href: 'manual/', icon: '📘', label: '公式マニュアル', desc: '全機能の使い方リファレンス',
-          en: true, label_en: 'Official manual', desc_en: 'Full feature reference' }
+          en: true, label_en: 'Official manual', desc_en: 'Full feature reference' },
+        { href: 'videos/', icon: '🎬', label: '動画マニュアル', desc: '使い方を動画で。章と機能から探す',
+          label_en: 'Video manual', desc_en: 'Learn by video, by chapter and feature (Japanese)' }
       ]
     },
     {
       group: 'ガイド',
       group_en: 'Guides',
       items: [
-        { href: 'videos/', icon: '🎬', label: '使い方動画マップ', desc: 'YouTubeの使い方動画を章と機能から探す',
-          label_en: 'Tutorial video map', desc_en: 'Find the YouTube tutorials by chapter and feature' },
         { href: 'comparison/', icon: '⚖️', label: '他の動画制作ツールとの違い', desc: 'Google Vids・AIエージェント・動画編集ソフトと比較',
           label_en: 'Compare video creation tools', desc_en: 'Google Vids, AI agents and video editors' },
         { href: 'security/', icon: '🛡️', label: 'セキュリティについて', desc: '作品・APIキー・料金の守り方',

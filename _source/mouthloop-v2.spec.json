@@ -67,7 +67,9 @@
         "type": "link",
         "url": "https://note.com/bluezzly/n/n73a045067fbe",
         "label": "noteの元記事を読む"
-      }
+      },
+      {"type": "callout", "title": "🎬 動画で見る", "text": "口パク素材の作り方から、表情と仕草の追加、SlideCast Studio での使い方までを、動画マニュアルの第9章「キャラクター素材を作る」で紹介しています。"},
+      {"type": "link", "url": "../videos/#ch9", "label": "🎬 第9章の動画を見る"}
     ]
   },
   "sections": [

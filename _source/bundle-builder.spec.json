@@ -63,7 +63,9 @@
         "type": "callout",
         "title": "ℹ️ 最新版の開き方",
         "text": "更新版は SlideCast Studio 内の Bundle Builder 案内からも開けます。以前の共有リンクを保存している方は、アプリ内のリンクから開き直してください。"
-      }
+      },
+      {"type": "callout", "title": "🎬 動画で見る", "text": "台本と音声づくりから SlideCast Studio への取り込みまでを、動画マニュアルの第1章「作品を作る」で実際の画面とともに紹介しています。"},
+      {"type": "link", "url": "../videos/#ch1", "label": "🎬 第1章の動画を見る"}
     ],
     "cards": [
       { "icon": "🖼️", "title": "資料を用意", "text": "Canvas上で作成するか、画像・PDF・ZIP・フォルダを読み込みます。" },

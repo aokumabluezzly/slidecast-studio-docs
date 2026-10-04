@@ -36,8 +36,8 @@ PAGE_META: dict[str, dict[str, object]] = {
         "en": False,
     },
     "videos/": {
-        "og_title": "SlideCast Studio 使い方動画マップ",
-        "og_description": "YouTube の使い方動画（章別まとめ10本・機能別28本）を、全11章の流れに沿って一覧にしました。",
+        "og_title": "SlideCast Studio 動画マニュアル",
+        "og_description": "SlideCast Studio の使い方を動画で。章別まとめ10本・機能別28本を全11章に沿って並べ、見たい機能の場面から再生できます。",
         "en": False,
     },
     "intro/": {
@@ -170,6 +170,7 @@ def footer_html(up: str) -> str:
         '<nav class="footer-links" aria-label="フッターナビゲーション">'
         f'<a href="{up}intro/">SlideCast Studio とは</a>'
         f'<a href="{up}manual/">公式マニュアル</a>'
+        f'<a href="{up}videos/">動画マニュアル</a>'
         f'<a href="{up}bundle-builder/">Bundle Builder</a>'
         f'<a href="{up}mouthloop-v2/">MouthLoop v2</a>'
         f'<a href="{up}ai-code-bgm-studio/">AI CODE BGM STUDIO</a>'

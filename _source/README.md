@@ -19,6 +19,7 @@
 | `comparison.spec.json` | 他の動画制作ツールとの比較ガイド（`/comparison/index.html`）の設計データ。note公開日 2026.09.28。本文・表紙と4枚の図・あとがきを掲載 |
 | `security.spec.json` | セキュリティガイド（`/security/index.html`）の設計データ。note公開日 2026.10.02。本文・7枚の図と編集後記を掲載 |
 | `gas-update.spec.json` | アップデート方法ガイド（`/gas-update/index.html`）の設計データ |
+| `videos.spec.json` | 動画マニュアル（`/videos/index.html`）の設計データ。YouTube の章別まとめ10本・機能別28本を全11章で並べる。日本語版のみ（下記） |
 | `manual.spec.json` | 公式マニュアル（`/manual/index.html`）の設計データ。v33 / v34 と同じく既存の日本語ページから起こしたもので、日本語ページの再生成には**使っていません**（下記） |
 | `manual.en.spec.json` | 英語版の公式マニュアル（`/en/manual/index.html`）の設計データ |
 | `intro.en.spec.json` | 英語版の紹介ページ（`/en/intro/index.html`）の設計データ |
@@ -126,7 +127,7 @@ python3 ~/.claude/skills/build-rich-html-article/scripts/build_article.py \
 
 ```html
 <a class="brand footer-brand" href="../" aria-label="SlideCast Studio トップページ">SlideCast <b>Studio</b></a>
-<nav class="footer-links" aria-label="フッターナビゲーション"><a href="../intro/">SlideCast Studio とは</a><a href="../manual/">公式マニュアル</a><a href="../bundle-builder/">Bundle Builder</a><a href="../mouthloop-v2/">MouthLoop v2</a><a href="../ai-code-bgm-studio/">AI CODE BGM STUDIO</a><a href="../ai-code-movie-studio/">AI CODE MOVIE STUDIO</a></nav>
+<nav class="footer-links" aria-label="フッターナビゲーション"><a href="../intro/">SlideCast Studio とは</a><a href="../manual/">公式マニュアル</a><a href="../videos/">動画マニュアル</a><a href="../bundle-builder/">Bundle Builder</a><a href="../mouthloop-v2/">MouthLoop v2</a><a href="../ai-code-bgm-studio/">AI CODE BGM STUDIO</a><a href="../ai-code-movie-studio/">AI CODE MOVIE STUDIO</a></nav>
 ```
 
 フッターナビは**サイト内リンクだけ**です。note へのリンクは、以前ここに並べていましたが、SNS アイコン行へ移しました。
@@ -181,7 +182,7 @@ spec の `nav_links` から出るのはリンクとラベルだけなので、�
 | ヘッダーのブランド | そのページの言語のトップへのリンク（日本語は `../`、英語は `/en/` を指す `../`）。`href="#top"` のままにしない |
 | ブランドの右のバッジ（`brand_badge`） | ガイド・マニュアルは `Docs`、アップデート記事はその版（`v4.3` など）、紹介ページは最新版。トップページは付けない |
 | 章一覧の見出し（`sections_label`） | ガイド・マニュアルは `CONTENTS`、アップデート記事は `UPDATE INDEX` |
-| フッターナビ | サイト内6ページ（とは／マニュアル／Bundle Builder／MouthLoop v2／BGM STUDIO／MOVIE STUDIO）。`finish_ja_page.py`・`finish_en_page.py` が同じ内容を入れ直します |
+| フッターナビ | サイト内7ページ（とは／マニュアル／動画マニュアル／Bundle Builder／MouthLoop v2／BGM STUDIO／MOVIE STUDIO）。英語ページは動画マニュアルを除く6ページ。`finish_ja_page.py`・`finish_en_page.py` が同じ内容を入れ直します |
 
 ### 📚 ページ一覧メニュー
 
@@ -278,3 +279,15 @@ python3 _source/tools/externalize_images.py manual/index.html --assets assets
 ## セキュリティガイドの再生成
 
 `security.spec.json` から `security/index.html` を生成し、`--assets assets` を付けたあと `python3 _source/tools/finish_ja_page.py security/index.html` を実行します。トップページのカードとフッターは直接編集しています。英語版は未作成です。
+
+## 動画マニュアルの再生成
+
+`videos.spec.json` から `videos/index.html` を生成し、`--assets assets` を付けたあと `python3 _source/tools/finish_ja_page.py videos/index.html` を実行します。英語版は作っていません（動画が日本語のみのため）。
+
+- 各章の表は `html` ブロックに直接書いてあります。題名を押すと、同じ章の埋め込み動画を `data-start`（秒）の位置から再生します。位置は `tutorial-video/out/M*-chapter*/chapters.txt`（製品リポジトリ）の見出し時刻を、単体動画の長さと突き合わせて決めました。
+- 冒頭の説明ブロックに、このページ専用の CSS と小さなスクリプト（章を閉じたらプレーヤーを外す・表から該当場面を再生する）を入れています。
+- サイト内の導線: トップ（ヒーローのボタン・「どんなアプリ？」の下・機能一覧の注記・記事一覧・関連リンク・フッター）、📚 ページ一覧の「はじめに」、全日本語ページの共通フッター、公式マニュアル・紹介ページ・Bundle Builder（第1章）・MouthLoop v2（第9章）・セキュリティ（第10章）の冒頭。
+
+## 再生成で変わってしまうページ（2026-10-05 確認）
+
+`comparison/`・`updates/v40/`・`updates/v41/` は spec から作り直すと、内容以外の差分が出ます（v40 は手で調整した OGP 画像・説明文が既定値に戻る。comparison と v41 は空白のみ）。フッターなどの小さな変更は HTML を直接編集してください。

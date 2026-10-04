@@ -144,7 +144,8 @@
           "title": "🛠️ 各機能の詳しい使い方はマニュアルへ",
           "text": "この記事は「何ができるか」を知っていただくためのページです。設定項目ひとつひとつの操作方法は、全16章の公式マニュアル（v3.4 NUANCE 対応版）にまとめています。v4.0 以降で追加された機能は、下の「バージョン別ハイライト」と各アップデート記事をご覧ください。"
         },
-        { "type": "link", "url": "https://note.com/bluezzly/n/n1e95d4cb978e", "label": "公式マニュアルを見る" }
+        { "type": "link", "url": "https://note.com/bluezzly/n/n1e95d4cb978e", "label": "公式マニュアルを見る" },
+        { "type": "link", "url": "../videos/", "label": "🎬 動画マニュアルで操作を見る" }
       ]
     },
 
@@ -791,6 +792,7 @@
           "type": "link_cards",
           "items": [
             { "icon": "📘", "title": "公式マニュアル（v3.4 対応版）", "text": "全16章の詳細リファレンス", "url": "https://note.com/bluezzly/n/n1e95d4cb978e" },
+            { "icon": "🎬", "title": "動画マニュアル", "text": "全11章・機能別28本の使い方動画", "url": "../videos/" },
             { "icon": "🧩", "title": "SlideCast Bundle Builder", "text": "資料・台本・AI音声・マイク録音をまとめる使い方ガイド", "url": "../bundle-builder/" },
             { "icon": "🛠️", "title": "アップデート方法について", "text": "GASアップデート手順", "url": "../gas-update/" },
             { "icon": "🆕", "title": "v4.4 BLOOM アップデート情報", "text": "2026/9/27 公開", "url": "../updates/v44/" },
