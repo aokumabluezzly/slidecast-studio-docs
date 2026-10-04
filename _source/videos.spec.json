@@ -72,7 +72,7 @@
     "blocks": [
       {
         "type": "html",
-        "html": "<style>.chapter .video-facade-label{display:none}</style><script>addEventListener('DOMContentLoaded',()=>{document.querySelectorAll('.chapter .video-embed').forEach(fig=>{fig._facade=fig.querySelector('.video-facade');});document.querySelectorAll('details.chapter').forEach(ch=>ch.addEventListener('toggle',()=>{if(ch.open)return;ch.querySelectorAll('.video-embed.is-playing').forEach(fig=>{const frame=fig.querySelector('iframe');if(frame&&fig._facade){frame.replaceWith(fig._facade);fig.classList.remove('is-playing');}});}));});</script><p>SlideCast Studio の使い方動画を、作品づくりの流れに沿って<strong>全11章</strong>に分けて並べました。各章には、章全体を通して見られる<strong>まとめ動画</strong>と、1つの機能だけを短く解説する<strong>機能別の動画</strong>があります。</p>"
+        "html": "<style>.chapter .video-facade-label{display:none}.data-table .seek-at{display:inline-block;margin-left:.4em;color:var(--muted);font-size:.85em;white-space:nowrap}.data-table .yt-out{margin-left:.5em;text-decoration:none}</style><script>addEventListener('DOMContentLoaded',()=>{document.querySelectorAll('.chapter .video-embed').forEach(fig=>{fig._facade=fig.querySelector('.video-facade');fig._embed=fig._facade&&fig._facade.dataset.embed;});document.querySelectorAll('details.chapter').forEach(ch=>ch.addEventListener('toggle',()=>{if(ch.open)return;ch.querySelectorAll('.video-embed.is-playing').forEach(fig=>{const frame=fig.querySelector('iframe');if(frame&&fig._facade){frame.replaceWith(fig._facade);fig.classList.remove('is-playing');}});}));document.querySelectorAll('a.seek[data-start]').forEach(a=>a.addEventListener('click',e=>{const fig=a.closest('.chapter-inner')&&a.closest('.chapter-inner').querySelector('.video-embed');if(!fig||!fig._embed)return;e.preventDefault();const url=fig._embed+'&start='+Number(a.dataset.start);const frame=fig.querySelector('iframe');if(frame){frame.src=url;}else{fig._facade.dataset.embed=url;fig._facade.click();fig._facade.dataset.embed=fig._embed;}fig.scrollIntoView({block:'center'});}));});</script><p>SlideCast Studio の使い方動画を、作品づくりの流れに沿って<strong>全11章</strong>に分けて並べました。各章には、章全体を通して見られる<strong>まとめ動画</strong>と、1つの機能だけを短く解説する<strong>機能別の動画</strong>があります。</p>"
       },
       {
         "type": "cards",
@@ -191,7 +191,7 @@
         "type": "callout",
         "tone": "good",
         "title": "▶️ 再生について",
-        "text": "このページの動画は、再生ボタンを押すまで YouTube へ接続しません。表のタイトルは YouTube を新しいタブで開きます。"
+        "text": "このページの動画は、再生ボタンか表の題名を押すまで YouTube へ接続しません。表の題名を押すと、その章の動画が該当の場面から再生されます。↗ は単体の動画を YouTube の新しいタブで開きます。"
       }
     ]
   },
@@ -213,7 +213,7 @@
         },
         {
           "type": "html",
-          "html": "<div class=\"table-wrap\"><table class=\"data-table\"><thead><tr><th>機能別の動画（YouTube）</th><th style=\"white-space:nowrap\">長さ</th></tr></thead><tbody><tr><td>#01&ensp;<a href=\"https://youtu.be/RTYhoWquwvs\" target=\"_blank\" rel=\"noopener noreferrer\">Bundle Builder で台本と音声を作る</a></td><td style=\"white-space:nowrap\">2:51</td></tr><tr><td>#02&ensp;<a href=\"https://youtu.be/X_3nUNbn1Qs\" target=\"_blank\" rel=\"noopener noreferrer\">完成Bundle ZIP を取り込む</a></td><td style=\"white-space:nowrap\">2:15</td></tr><tr><td>#03&ensp;<a href=\"https://youtu.be/Ce91uqDHIAw\" target=\"_blank\" rel=\"noopener noreferrer\">資料からプロジェクトを作る</a></td><td style=\"white-space:nowrap\">2:31</td></tr></tbody></table></div>"
+          "html": "<div class=\"table-wrap\"><table class=\"data-table\"><thead><tr><th>機能別の動画</th><th style=\"white-space:nowrap\">長さ</th></tr></thead><tbody><tr><td>#01&ensp;<a class=\"seek\" href=\"https://youtu.be/RTYhoWquwvs\" data-start=\"4\">Bundle Builder で台本と音声を作る</a><span class=\"seek-at\">▶ 0:04〜</span></td><td style=\"white-space:nowrap\">2:51<a class=\"yt-out\" href=\"https://youtu.be/RTYhoWquwvs\" target=\"_blank\" rel=\"noopener noreferrer\" aria-label=\"#01 Bundle Builder で台本と音声を作る を YouTube で開く\" title=\"YouTube で開く\">↗</a></td></tr><tr><td>#02&ensp;<a class=\"seek\" href=\"https://youtu.be/X_3nUNbn1Qs\" data-start=\"158\">完成Bundle ZIP を取り込む</a><span class=\"seek-at\">▶ 2:38〜</span></td><td style=\"white-space:nowrap\">2:15<a class=\"yt-out\" href=\"https://youtu.be/X_3nUNbn1Qs\" target=\"_blank\" rel=\"noopener noreferrer\" aria-label=\"#02 完成Bundle ZIP を取り込む を YouTube で開く\" title=\"YouTube で開く\">↗</a></td></tr><tr><td>#03&ensp;<a class=\"seek\" href=\"https://youtu.be/Ce91uqDHIAw\" data-start=\"283\">資料からプロジェクトを作る</a><span class=\"seek-at\">▶ 4:43〜</span></td><td style=\"white-space:nowrap\">2:31<a class=\"yt-out\" href=\"https://youtu.be/Ce91uqDHIAw\" target=\"_blank\" rel=\"noopener noreferrer\" aria-label=\"#03 資料からプロジェクトを作る を YouTube で開く\" title=\"YouTube で開く\">↗</a></td></tr></tbody></table></div>"
         }
       ]
     },
@@ -234,7 +234,7 @@
         },
         {
           "type": "html",
-          "html": "<div class=\"table-wrap\"><table class=\"data-table\"><thead><tr><th>機能別の動画（YouTube）</th><th style=\"white-space:nowrap\">長さ</th></tr></thead><tbody><tr><td>#04&ensp;<a href=\"https://youtu.be/LSdjbHM6TjI\" target=\"_blank\" rel=\"noopener noreferrer\">字幕を整える</a></td><td style=\"white-space:nowrap\">6:22</td></tr><tr><td>#05&ensp;<a href=\"https://youtu.be/-B-YaRCfCAQ\" target=\"_blank\" rel=\"noopener noreferrer\">スライドに動きを付ける</a></td><td style=\"white-space:nowrap\">8:31</td></tr><tr><td>#06&ensp;<a href=\"https://youtu.be/WXjKuCVx3j4\" target=\"_blank\" rel=\"noopener noreferrer\">画面の切り替え効果</a></td><td style=\"white-space:nowrap\">10:29</td></tr></tbody></table></div>"
+          "html": "<div class=\"table-wrap\"><table class=\"data-table\"><thead><tr><th>機能別の動画</th><th style=\"white-space:nowrap\">長さ</th></tr></thead><tbody><tr><td>#04&ensp;<a class=\"seek\" href=\"https://youtu.be/LSdjbHM6TjI\" data-start=\"4\">字幕を整える</a><span class=\"seek-at\">▶ 0:04〜</span></td><td style=\"white-space:nowrap\">6:22<a class=\"yt-out\" href=\"https://youtu.be/LSdjbHM6TjI\" target=\"_blank\" rel=\"noopener noreferrer\" aria-label=\"#04 字幕を整える を YouTube で開く\" title=\"YouTube で開く\">↗</a></td></tr><tr><td>#05&ensp;<a class=\"seek\" href=\"https://youtu.be/-B-YaRCfCAQ\" data-start=\"382\">スライドに動きを付ける</a><span class=\"seek-at\">▶ 6:22〜</span></td><td style=\"white-space:nowrap\">8:31<a class=\"yt-out\" href=\"https://youtu.be/-B-YaRCfCAQ\" target=\"_blank\" rel=\"noopener noreferrer\" aria-label=\"#05 スライドに動きを付ける を YouTube で開く\" title=\"YouTube で開く\">↗</a></td></tr><tr><td>#06&ensp;<a class=\"seek\" href=\"https://youtu.be/WXjKuCVx3j4\" data-start=\"888\">画面の切り替え効果</a><span class=\"seek-at\">▶ 14:48〜</span></td><td style=\"white-space:nowrap\">10:29<a class=\"yt-out\" href=\"https://youtu.be/WXjKuCVx3j4\" target=\"_blank\" rel=\"noopener noreferrer\" aria-label=\"#06 画面の切り替え効果 を YouTube で開く\" title=\"YouTube で開く\">↗</a></td></tr></tbody></table></div>"
         }
       ]
     },
@@ -255,7 +255,7 @@
         },
         {
           "type": "html",
-          "html": "<div class=\"table-wrap\"><table class=\"data-table\"><thead><tr><th>機能別の動画（YouTube）</th><th style=\"white-space:nowrap\">長さ</th></tr></thead><tbody><tr><td>#07&ensp;<a href=\"https://youtu.be/weR33hn8kHQ\" target=\"_blank\" rel=\"noopener noreferrer\">BGMを敷く</a></td><td style=\"white-space:nowrap\">8:39</td></tr><tr><td>#08&ensp;<a href=\"https://youtu.be/feuQua6MsdQ\" target=\"_blank\" rel=\"noopener noreferrer\">動画に書き出す</a></td><td style=\"white-space:nowrap\">6:10</td></tr></tbody></table></div>"
+          "html": "<div class=\"table-wrap\"><table class=\"data-table\"><thead><tr><th>機能別の動画</th><th style=\"white-space:nowrap\">長さ</th></tr></thead><tbody><tr><td>#07&ensp;<a class=\"seek\" href=\"https://youtu.be/weR33hn8kHQ\" data-start=\"4\">BGMを敷く</a><span class=\"seek-at\">▶ 0:04〜</span></td><td style=\"white-space:nowrap\">8:39<a class=\"yt-out\" href=\"https://youtu.be/weR33hn8kHQ\" target=\"_blank\" rel=\"noopener noreferrer\" aria-label=\"#07 BGMを敷く を YouTube で開く\" title=\"YouTube で開く\">↗</a></td></tr><tr><td>#08&ensp;<a class=\"seek\" href=\"https://youtu.be/feuQua6MsdQ\" data-start=\"518\">動画に書き出す</a><span class=\"seek-at\">▶ 8:38〜</span></td><td style=\"white-space:nowrap\">6:10<a class=\"yt-out\" href=\"https://youtu.be/feuQua6MsdQ\" target=\"_blank\" rel=\"noopener noreferrer\" aria-label=\"#08 動画に書き出す を YouTube で開く\" title=\"YouTube で開く\">↗</a></td></tr></tbody></table></div>"
         }
       ]
     },
@@ -276,7 +276,7 @@
         },
         {
           "type": "html",
-          "html": "<div class=\"table-wrap\"><table class=\"data-table\"><thead><tr><th>機能別の動画（YouTube）</th><th style=\"white-space:nowrap\">長さ</th></tr></thead><tbody><tr><td>#09&ensp;<a href=\"https://youtu.be/oDVqVs6Tl7g\" target=\"_blank\" rel=\"noopener noreferrer\">キャラを作って台詞に割り当てる</a></td><td style=\"white-space:nowrap\">7:46</td></tr><tr><td>#10&ensp;<a href=\"https://youtu.be/Txdt4ormScs\" target=\"_blank\" rel=\"noopener noreferrer\">キャラを動かす</a></td><td style=\"white-space:nowrap\">8:55</td></tr><tr><td>#11&ensp;<a href=\"https://youtu.be/kIBVhZPOMZk\" target=\"_blank\" rel=\"noopener noreferrer\">表情と仕草で演技させる</a></td><td style=\"white-space:nowrap\">5:49</td></tr></tbody></table></div>"
+          "html": "<div class=\"table-wrap\"><table class=\"data-table\"><thead><tr><th>機能別の動画</th><th style=\"white-space:nowrap\">長さ</th></tr></thead><tbody><tr><td>#09&ensp;<a class=\"seek\" href=\"https://youtu.be/oDVqVs6Tl7g\" data-start=\"4\">キャラを作って台詞に割り当てる</a><span class=\"seek-at\">▶ 0:04〜</span></td><td style=\"white-space:nowrap\">7:46<a class=\"yt-out\" href=\"https://youtu.be/oDVqVs6Tl7g\" target=\"_blank\" rel=\"noopener noreferrer\" aria-label=\"#09 キャラを作って台詞に割り当てる を YouTube で開く\" title=\"YouTube で開く\">↗</a></td></tr><tr><td>#10&ensp;<a class=\"seek\" href=\"https://youtu.be/Txdt4ormScs\" data-start=\"465\">キャラを動かす</a><span class=\"seek-at\">▶ 7:45〜</span></td><td style=\"white-space:nowrap\">8:55<a class=\"yt-out\" href=\"https://youtu.be/Txdt4ormScs\" target=\"_blank\" rel=\"noopener noreferrer\" aria-label=\"#10 キャラを動かす を YouTube で開く\" title=\"YouTube で開く\">↗</a></td></tr><tr><td>#11&ensp;<a class=\"seek\" href=\"https://youtu.be/kIBVhZPOMZk\" data-start=\"991\">表情と仕草で演技させる</a><span class=\"seek-at\">▶ 16:31〜</span></td><td style=\"white-space:nowrap\">5:49<a class=\"yt-out\" href=\"https://youtu.be/kIBVhZPOMZk\" target=\"_blank\" rel=\"noopener noreferrer\" aria-label=\"#11 表情と仕草で演技させる を YouTube で開く\" title=\"YouTube で開く\">↗</a></td></tr></tbody></table></div>"
         }
       ]
     },
@@ -297,7 +297,7 @@
         },
         {
           "type": "html",
-          "html": "<div class=\"table-wrap\"><table class=\"data-table\"><thead><tr><th>機能別の動画（YouTube）</th><th style=\"white-space:nowrap\">長さ</th></tr></thead><tbody><tr><td>#12&ensp;<a href=\"https://youtu.be/qoYA1GxHP98\" target=\"_blank\" rel=\"noopener noreferrer\">ステッカーを置く</a></td><td style=\"white-space:nowrap\">10:06</td></tr><tr><td>#13&ensp;<a href=\"https://youtu.be/H43A2W3kDdo\" target=\"_blank\" rel=\"noopener noreferrer\">ステッカーで隠す・動かす</a></td><td style=\"white-space:nowrap\">6:48</td></tr><tr><td>#14&ensp;<a href=\"https://youtu.be/g9zvxYsXhyM\" target=\"_blank\" rel=\"noopener noreferrer\">動画スライドを差し込む</a></td><td style=\"white-space:nowrap\">9:06</td></tr></tbody></table></div>"
+          "html": "<div class=\"table-wrap\"><table class=\"data-table\"><thead><tr><th>機能別の動画</th><th style=\"white-space:nowrap\">長さ</th></tr></thead><tbody><tr><td>#12&ensp;<a class=\"seek\" href=\"https://youtu.be/qoYA1GxHP98\" data-start=\"4\">ステッカーを置く</a><span class=\"seek-at\">▶ 0:04〜</span></td><td style=\"white-space:nowrap\">10:06<a class=\"yt-out\" href=\"https://youtu.be/qoYA1GxHP98\" target=\"_blank\" rel=\"noopener noreferrer\" aria-label=\"#12 ステッカーを置く を YouTube で開く\" title=\"YouTube で開く\">↗</a></td></tr><tr><td>#13&ensp;<a class=\"seek\" href=\"https://youtu.be/H43A2W3kDdo\" data-start=\"599\">ステッカーで隠す・動かす</a><span class=\"seek-at\">▶ 9:59〜</span></td><td style=\"white-space:nowrap\">6:48<a class=\"yt-out\" href=\"https://youtu.be/H43A2W3kDdo\" target=\"_blank\" rel=\"noopener noreferrer\" aria-label=\"#13 ステッカーで隠す・動かす を YouTube で開く\" title=\"YouTube で開く\">↗</a></td></tr><tr><td>#14&ensp;<a class=\"seek\" href=\"https://youtu.be/g9zvxYsXhyM\" data-start=\"1002\">動画スライドを差し込む</a><span class=\"seek-at\">▶ 16:42〜</span></td><td style=\"white-space:nowrap\">9:06<a class=\"yt-out\" href=\"https://youtu.be/g9zvxYsXhyM\" target=\"_blank\" rel=\"noopener noreferrer\" aria-label=\"#14 動画スライドを差し込む を YouTube で開く\" title=\"YouTube で開く\">↗</a></td></tr></tbody></table></div>"
         }
       ]
     },
@@ -318,7 +318,7 @@
         },
         {
           "type": "html",
-          "html": "<div class=\"table-wrap\"><table class=\"data-table\"><thead><tr><th>機能別の動画（YouTube）</th><th style=\"white-space:nowrap\">長さ</th></tr></thead><tbody><tr><td>#15&ensp;<a href=\"https://youtu.be/iGj0gfDnDZA\" target=\"_blank\" rel=\"noopener noreferrer\">タイムラインで間を整える</a></td><td style=\"white-space:nowrap\">7:14</td></tr><tr><td>#16&ensp;<a href=\"https://youtu.be/IskNg98PJtY\" target=\"_blank\" rel=\"noopener noreferrer\">OP・ED を付ける</a></td><td style=\"white-space:nowrap\">7:44</td></tr></tbody></table></div>"
+          "html": "<div class=\"table-wrap\"><table class=\"data-table\"><thead><tr><th>機能別の動画</th><th style=\"white-space:nowrap\">長さ</th></tr></thead><tbody><tr><td>#15&ensp;<a class=\"seek\" href=\"https://youtu.be/iGj0gfDnDZA\" data-start=\"4\">タイムラインで間を整える</a><span class=\"seek-at\">▶ 0:04〜</span></td><td style=\"white-space:nowrap\">7:14<a class=\"yt-out\" href=\"https://youtu.be/iGj0gfDnDZA\" target=\"_blank\" rel=\"noopener noreferrer\" aria-label=\"#15 タイムラインで間を整える を YouTube で開く\" title=\"YouTube で開く\">↗</a></td></tr><tr><td>#16&ensp;<a class=\"seek\" href=\"https://youtu.be/IskNg98PJtY\" data-start=\"435\">OP・ED を付ける</a><span class=\"seek-at\">▶ 7:15〜</span></td><td style=\"white-space:nowrap\">7:44<a class=\"yt-out\" href=\"https://youtu.be/IskNg98PJtY\" target=\"_blank\" rel=\"noopener noreferrer\" aria-label=\"#16 OP・ED を付ける を YouTube で開く\" title=\"YouTube で開く\">↗</a></td></tr></tbody></table></div>"
         },
         {
           "type": "callout",
@@ -344,7 +344,7 @@
         },
         {
           "type": "html",
-          "html": "<div class=\"table-wrap\"><table class=\"data-table\"><thead><tr><th>機能別の動画（YouTube）</th><th style=\"white-space:nowrap\">長さ</th></tr></thead><tbody><tr><td>#18&ensp;<a href=\"https://youtu.be/u9F7wlK5I_c\" target=\"_blank\" rel=\"noopener noreferrer\">テロップとバッジで飾る</a></td><td style=\"white-space:nowrap\">7:01</td></tr><tr><td>#19&ensp;<a href=\"https://youtu.be/c71UomC89Vk\" target=\"_blank\" rel=\"noopener noreferrer\">作品全体の設定を決める</a></td><td style=\"white-space:nowrap\">7:00</td></tr></tbody></table></div>"
+          "html": "<div class=\"table-wrap\"><table class=\"data-table\"><thead><tr><th>機能別の動画</th><th style=\"white-space:nowrap\">長さ</th></tr></thead><tbody><tr><td>#18&ensp;<a class=\"seek\" href=\"https://youtu.be/u9F7wlK5I_c\" data-start=\"4\">テロップとバッジで飾る</a><span class=\"seek-at\">▶ 0:04〜</span></td><td style=\"white-space:nowrap\">7:01<a class=\"yt-out\" href=\"https://youtu.be/u9F7wlK5I_c\" target=\"_blank\" rel=\"noopener noreferrer\" aria-label=\"#18 テロップとバッジで飾る を YouTube で開く\" title=\"YouTube で開く\">↗</a></td></tr><tr><td>#19&ensp;<a class=\"seek\" href=\"https://youtu.be/c71UomC89Vk\" data-start=\"421\">作品全体の設定を決める</a><span class=\"seek-at\">▶ 7:01〜</span></td><td style=\"white-space:nowrap\">7:00<a class=\"yt-out\" href=\"https://youtu.be/c71UomC89Vk\" target=\"_blank\" rel=\"noopener noreferrer\" aria-label=\"#19 作品全体の設定を決める を YouTube で開く\" title=\"YouTube で開く\">↗</a></td></tr></tbody></table></div>"
         }
       ]
     },
@@ -365,7 +365,7 @@
         },
         {
           "type": "html",
-          "html": "<div class=\"table-wrap\"><table class=\"data-table\"><thead><tr><th>機能別の動画（YouTube）</th><th style=\"white-space:nowrap\">長さ</th></tr></thead><tbody><tr><td>#20&ensp;<a href=\"https://youtu.be/FT4Jrf-MiTE\" target=\"_blank\" rel=\"noopener noreferrer\">スライドを書き出す</a></td><td style=\"white-space:nowrap\">5:10</td></tr><tr><td>#21&ensp;<a href=\"https://youtu.be/vIA0J_NlVU0\" target=\"_blank\" rel=\"noopener noreferrer\">ブック型PDFで配布資料を作る</a></td><td style=\"white-space:nowrap\">4:08</td></tr><tr><td>#22&ensp;<a href=\"https://youtu.be/6ew8soQtzHo\" target=\"_blank\" rel=\"noopener noreferrer\">バックアップと復元</a></td><td style=\"white-space:nowrap\">6:26</td></tr></tbody></table></div>"
+          "html": "<div class=\"table-wrap\"><table class=\"data-table\"><thead><tr><th>機能別の動画</th><th style=\"white-space:nowrap\">長さ</th></tr></thead><tbody><tr><td>#20&ensp;<a class=\"seek\" href=\"https://youtu.be/FT4Jrf-MiTE\" data-start=\"4\">スライドを書き出す</a><span class=\"seek-at\">▶ 0:04〜</span></td><td style=\"white-space:nowrap\">5:10<a class=\"yt-out\" href=\"https://youtu.be/FT4Jrf-MiTE\" target=\"_blank\" rel=\"noopener noreferrer\" aria-label=\"#20 スライドを書き出す を YouTube で開く\" title=\"YouTube で開く\">↗</a></td></tr><tr><td>#21&ensp;<a class=\"seek\" href=\"https://youtu.be/vIA0J_NlVU0\" data-start=\"310\">ブック型PDFで配布資料を作る</a><span class=\"seek-at\">▶ 5:10〜</span></td><td style=\"white-space:nowrap\">4:08<a class=\"yt-out\" href=\"https://youtu.be/vIA0J_NlVU0\" target=\"_blank\" rel=\"noopener noreferrer\" aria-label=\"#21 ブック型PDFで配布資料を作る を YouTube で開く\" title=\"YouTube で開く\">↗</a></td></tr><tr><td>#22&ensp;<a class=\"seek\" href=\"https://youtu.be/6ew8soQtzHo\" data-start=\"554\">バックアップと復元</a><span class=\"seek-at\">▶ 9:14〜</span></td><td style=\"white-space:nowrap\">6:26<a class=\"yt-out\" href=\"https://youtu.be/6ew8soQtzHo\" target=\"_blank\" rel=\"noopener noreferrer\" aria-label=\"#22 バックアップと復元 を YouTube で開く\" title=\"YouTube で開く\">↗</a></td></tr></tbody></table></div>"
         }
       ]
     },
@@ -386,7 +386,7 @@
         },
         {
           "type": "html",
-          "html": "<div class=\"table-wrap\"><table class=\"data-table\"><thead><tr><th>機能別の動画（YouTube）</th><th style=\"white-space:nowrap\">長さ</th></tr></thead><tbody><tr><td>#23&ensp;<a href=\"https://youtu.be/Ut9ooSU2jw8\" target=\"_blank\" rel=\"noopener noreferrer\">MouthLoop で口パク素材を作る</a></td><td style=\"white-space:nowrap\">8:42</td></tr><tr><td>#24&ensp;<a href=\"https://youtu.be/8mLyzPi0564\" target=\"_blank\" rel=\"noopener noreferrer\">MouthLoop で表情と仕草を足す</a></td><td style=\"white-space:nowrap\">8:20</td></tr></tbody></table></div>"
+          "html": "<div class=\"table-wrap\"><table class=\"data-table\"><thead><tr><th>機能別の動画</th><th style=\"white-space:nowrap\">長さ</th></tr></thead><tbody><tr><td>#23&ensp;<a class=\"seek\" href=\"https://youtu.be/Ut9ooSU2jw8\" data-start=\"4\">MouthLoop で口パク素材を作る</a><span class=\"seek-at\">▶ 0:04〜</span></td><td style=\"white-space:nowrap\">8:42<a class=\"yt-out\" href=\"https://youtu.be/Ut9ooSU2jw8\" target=\"_blank\" rel=\"noopener noreferrer\" aria-label=\"#23 MouthLoop で口パク素材を作る を YouTube で開く\" title=\"YouTube で開く\">↗</a></td></tr><tr><td>#24&ensp;<a class=\"seek\" href=\"https://youtu.be/8mLyzPi0564\" data-start=\"510\">MouthLoop で表情と仕草を足す</a><span class=\"seek-at\">▶ 8:30〜</span></td><td style=\"white-space:nowrap\">8:20<a class=\"yt-out\" href=\"https://youtu.be/8mLyzPi0564\" target=\"_blank\" rel=\"noopener noreferrer\" aria-label=\"#24 MouthLoop で表情と仕草を足す を YouTube で開く\" title=\"YouTube で開く\">↗</a></td></tr></tbody></table></div>"
         }
       ]
     },
@@ -407,7 +407,7 @@
         },
         {
           "type": "html",
-          "html": "<div class=\"table-wrap\"><table class=\"data-table\"><thead><tr><th>機能別の動画（YouTube）</th><th style=\"white-space:nowrap\">長さ</th></tr></thead><tbody><tr><td>#25&ensp;<a href=\"https://youtu.be/jqoeTxL7mR4\" target=\"_blank\" rel=\"noopener noreferrer\">データの置き場所と外部通信</a></td><td style=\"white-space:nowrap\">8:06</td></tr></tbody></table></div>"
+          "html": "<div class=\"table-wrap\"><table class=\"data-table\"><thead><tr><th>機能別の動画</th><th style=\"white-space:nowrap\">長さ</th></tr></thead><tbody><tr><td>#25&ensp;<a class=\"seek\" href=\"https://youtu.be/jqoeTxL7mR4\" data-start=\"0\">データの置き場所と外部通信</a><span class=\"seek-at\">▶ 0:00〜</span></td><td style=\"white-space:nowrap\">8:06<a class=\"yt-out\" href=\"https://youtu.be/jqoeTxL7mR4\" target=\"_blank\" rel=\"noopener noreferrer\" aria-label=\"#25 データの置き場所と外部通信 を YouTube で開く\" title=\"YouTube で開く\">↗</a></td></tr></tbody></table></div>"
         },
         {
           "type": "callout",
@@ -433,7 +433,7 @@
         },
         {
           "type": "html",
-          "html": "<div class=\"table-wrap\"><table class=\"data-table\"><thead><tr><th>機能別の動画（YouTube）</th><th style=\"white-space:nowrap\">長さ</th></tr></thead><tbody><tr><td>#26&ensp;<a href=\"https://youtu.be/MOR6PZLFbAg\" target=\"_blank\" rel=\"noopener noreferrer\">APIキーを設定してアプリ内で音声を作る</a></td><td style=\"white-space:nowrap\">8:59</td></tr><tr><td>#27&ensp;<a href=\"https://youtu.be/BhHmKFrWx-I\" target=\"_blank\" rel=\"noopener noreferrer\">Gemini 3.8 TTSの音声ライブラリから声を選ぶ</a></td><td style=\"white-space:nowrap\">6:18</td></tr><tr><td>#28&ensp;<a href=\"https://youtu.be/TdrdYPFEJNY\" target=\"_blank\" rel=\"noopener noreferrer\">説明文から自作ボイスを作って使う</a></td><td style=\"white-space:nowrap\">6:09</td></tr><tr><td>#29&ensp;<a href=\"https://youtu.be/gS_W-fgkwU0\" target=\"_blank\" rel=\"noopener noreferrer\">クローンボイスを作って使う</a></td><td style=\"white-space:nowrap\">4:27</td></tr></tbody></table></div>"
+          "html": "<div class=\"table-wrap\"><table class=\"data-table\"><thead><tr><th>機能別の動画</th><th style=\"white-space:nowrap\">長さ</th></tr></thead><tbody><tr><td>#26&ensp;<a class=\"seek\" href=\"https://youtu.be/MOR6PZLFbAg\" data-start=\"4\">APIキーを設定してアプリ内で音声を作る</a><span class=\"seek-at\">▶ 0:04〜</span></td><td style=\"white-space:nowrap\">8:59<a class=\"yt-out\" href=\"https://youtu.be/MOR6PZLFbAg\" target=\"_blank\" rel=\"noopener noreferrer\" aria-label=\"#26 APIキーを設定してアプリ内で音声を作る を YouTube で開く\" title=\"YouTube で開く\">↗</a></td></tr><tr><td>#27&ensp;<a class=\"seek\" href=\"https://youtu.be/BhHmKFrWx-I\" data-start=\"537\">Gemini 3.8 TTSの音声ライブラリから声を選ぶ</a><span class=\"seek-at\">▶ 8:57〜</span></td><td style=\"white-space:nowrap\">6:18<a class=\"yt-out\" href=\"https://youtu.be/BhHmKFrWx-I\" target=\"_blank\" rel=\"noopener noreferrer\" aria-label=\"#27 Gemini 3.8 TTSの音声ライブラリから声を選ぶ を YouTube で開く\" title=\"YouTube で開く\">↗</a></td></tr><tr><td>#28&ensp;<a class=\"seek\" href=\"https://youtu.be/TdrdYPFEJNY\" data-start=\"890\">説明文から自作ボイスを作って使う</a><span class=\"seek-at\">▶ 14:50〜</span></td><td style=\"white-space:nowrap\">6:09<a class=\"yt-out\" href=\"https://youtu.be/TdrdYPFEJNY\" target=\"_blank\" rel=\"noopener noreferrer\" aria-label=\"#28 説明文から自作ボイスを作って使う を YouTube で開く\" title=\"YouTube で開く\">↗</a></td></tr><tr><td>#29&ensp;<a class=\"seek\" href=\"https://youtu.be/gS_W-fgkwU0\" data-start=\"1226\">クローンボイスを作って使う</a><span class=\"seek-at\">▶ 20:26〜</span></td><td style=\"white-space:nowrap\">4:27<a class=\"yt-out\" href=\"https://youtu.be/gS_W-fgkwU0\" target=\"_blank\" rel=\"noopener noreferrer\" aria-label=\"#29 クローンボイスを作って使う を YouTube で開く\" title=\"YouTube で開く\">↗</a></td></tr></tbody></table></div>"
         },
         {
           "type": "callout",
