@@ -19,10 +19,26 @@
     "🖍️ Emphasis and karaoke"
   ],
   "stats": [
-    { "icon": "🧩", "value": "23", "label": "Layouts for captions and characters" },
-    { "icon": "🎨", "value": "32", "label": "Caption designs" },
-    { "icon": "🎞️", "value": "30", "label": "Transitions (including directions)" },
-    { "icon": "🚀", "value": "v5.0", "label": "STAGE" }
+    {
+      "icon": "🧩",
+      "value": "23",
+      "label": "Layouts for captions and characters"
+    },
+    {
+      "icon": "🎨",
+      "value": "32",
+      "label": "Caption designs"
+    },
+    {
+      "icon": "🎞️",
+      "value": "30",
+      "label": "Transitions (including directions)"
+    },
+    {
+      "icon": "🚀",
+      "value": "v5.0",
+      "label": "STAGE"
+    }
   ],
   "theme": {
     "primary": "#5b62f0",
@@ -32,8 +48,16 @@
     "ink": "#161c36"
   },
   "nav_links": [
-    { "href": "../../", "icon": "🏠", "label": "HOME" },
-    { "href": "../../manual/", "icon": "📘", "label": "Official manual" }
+    {
+      "href": "../../",
+      "icon": "🏠",
+      "label": "HOME"
+    },
+    {
+      "href": "../../manual/",
+      "icon": "📘",
+      "label": "Official manual"
+    }
   ],
   "source_url": "https://note.com/bluezzly/n/n00e8e573be2b",
   "source_label": "Read the original on note",
@@ -56,12 +80,36 @@
         "html": "<p>SlideCast Studio is now at <strong>v5.0 “STAGE”</strong>.</p><p>v4.4 “BLOOM” rebuilt the settings screen so you could set things up without guesswork, with presets and dragging on the preview. This release focuses on <strong>setting the stage: how slides, captions and characters are arranged on screen</strong>, and revisits almost every part of the app. That is why the major version has gone up.</p><p>“I don’t know what to decide first when I start.” “I hunt for caption and character positions with sliders every time.” “I want my captions to feel a bit more like a real video.” This update answers those wishes by rethinking how the screen is set up.</p>"
       },
       {
+        "type": "video",
+        "provider": "youtube",
+        "id": "AVN9sHfEHuw",
+        "title": "🎬 v5.0 “STAGE” in one minute",
+        "thumb": "./img/v50-video.jpg",
+        "caption": "A one-minute digest of v5.0 (YouTube, Japanese narration with Japanese captions). Click to play it here."
+      },
+      {
         "type": "cards",
         "items": [
-          { "icon": "🧩", "title": "Screen layouts", "text": "Choose how captions and characters appear from a table of 23 layouts" },
-          { "icon": "🧭", "title": "Start from a use", "text": "Build a project in four steps: screen, materials, characters, design" },
-          { "icon": "🎨", "title": "32 caption designs", "text": "Plus name badges and matching looks across a project" },
-          { "icon": "🖍️", "title": "Emphasis and karaoke", "text": "Color only the words you pick, and color text as it is read aloud" }
+          {
+            "icon": "🧩",
+            "title": "Screen layouts",
+            "text": "Choose how captions and characters appear from a table of 23 layouts"
+          },
+          {
+            "icon": "🧭",
+            "title": "Start from a use",
+            "text": "Build a project in four steps: screen, materials, characters, design"
+          },
+          {
+            "icon": "🎨",
+            "title": "32 caption designs",
+            "text": "Plus name badges and matching looks across a project"
+          },
+          {
+            "icon": "🖍️",
+            "title": "Emphasis and karaoke",
+            "text": "Color only the words you pick, and color text as it is read aloud"
+          }
         ]
       },
       {
@@ -130,9 +178,21 @@
         {
           "type": "soft_cards",
           "items": [
-            { "icon": "↔️", "title": "Horizontal (横書き)", "text": "Three ways to show speech — captions only, characters with speech bubbles, wipe — combined with four placements: below the slide, or overlaid at the bottom, middle or top" },
-            { "icon": "↕️", "title": "Vertical (縦書き)", "text": "Captions only or speech bubbles, overlaid on the right, center or left, or set apart on the right or left" },
-            { "icon": "➕", "title": "Other (そのほか)", "text": "Two characters left and right, characters only, no captions" }
+            {
+              "icon": "↔️",
+              "title": "Horizontal (横書き)",
+              "text": "Three ways to show speech — captions only, characters with speech bubbles, wipe — combined with four placements: below the slide, or overlaid at the bottom, middle or top"
+            },
+            {
+              "icon": "↕️",
+              "title": "Vertical (縦書き)",
+              "text": "Captions only or speech bubbles, overlaid on the right, center or left, or set apart on the right or left"
+            },
+            {
+              "icon": "➕",
+              "title": "Other (そのほか)",
+              "text": "Two characters left and right, characters only, no captions"
+            }
           ]
         },
         {
@@ -176,10 +236,22 @@
         {
           "type": "step_list",
           "items": [
-            { "title": "Screen (画面)", "text": "Choose the aspect ratio and layout, then a recommended use that sets caption size and more" },
-            { "title": "Materials (資料)", "text": "Add slide images, PDFs, a Bundle Builder ZIP and so on" },
-            { "title": "Characters (キャラ)", "text": "Pick which character to show for each speaker in the script. You can also add a new character on the spot from images or a MouthLoop zip" },
-            { "title": "Design (デザイン)", "text": "Choose caption and speech-bubble designs for the narration and for each character" }
+            {
+              "title": "Screen (画面)",
+              "text": "Choose the aspect ratio and layout, then a recommended use that sets caption size and more"
+            },
+            {
+              "title": "Materials (資料)",
+              "text": "Add slide images, PDFs, a Bundle Builder ZIP and so on"
+            },
+            {
+              "title": "Characters (キャラ)",
+              "text": "Pick which character to show for each speaker in the script. You can also add a new character on the spot from images or a MouthLoop zip"
+            },
+            {
+              "title": "Design (デザイン)",
+              "text": "Choose caption and speech-bubble designs for the narration and for each character"
+            }
           ]
         },
         {
@@ -197,13 +269,31 @@
         },
         {
           "type": "table",
-          "head": ["Ratio", "Uses"],
+          "head": [
+            "Ratio",
+            "Uses"
+          ],
           "rows": [
-            ["16:9", "Captions below / Captions overlaid / Captions below, large / Character wipe / Captions slightly raised / Vertical writing / Two characters (vertical writing)"],
-            ["9:16", "Landscape slides / Portrait slides / Landscape slides, large captions"],
-            ["1:1", "Square / Captions below"],
-            ["4:5", "Portrait feed / Captions below"],
-            ["4:3", "Captions below / Captions below, large / Vertical writing"]
+            [
+              "16:9",
+              "Captions below / Captions overlaid / Captions below, large / Character wipe / Captions slightly raised / Vertical writing / Two characters (vertical writing)"
+            ],
+            [
+              "9:16",
+              "Landscape slides / Portrait slides / Landscape slides, large captions"
+            ],
+            [
+              "1:1",
+              "Square / Captions below"
+            ],
+            [
+              "4:5",
+              "Portrait feed / Captions below"
+            ],
+            [
+              "4:3",
+              "Captions below / Captions below, large / Vertical writing"
+            ]
           ]
         }
       ]
@@ -322,12 +412,32 @@
         },
         {
           "type": "table",
-          "head": ["Item", "v4.4", "v5.0"],
+          "head": [
+            "Item",
+            "v4.4",
+            "v5.0"
+          ],
           "rows": [
-            ["Transitions", "11", "21 (30 including directions)"],
-            ["Slide animations", "13", "22"],
-            ["Caption animations", "6", "22"],
-            ["Badge and text-sticker shapes", "2", "12"]
+            [
+              "Transitions",
+              "11",
+              "21 (30 including directions)"
+            ],
+            [
+              "Slide animations",
+              "13",
+              "22"
+            ],
+            [
+              "Caption animations",
+              "6",
+              "22"
+            ],
+            [
+              "Badge and text-sticker shapes",
+              "2",
+              "12"
+            ]
           ]
         },
         {
