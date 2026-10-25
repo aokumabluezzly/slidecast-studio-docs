@@ -1,15 +1,15 @@
 {
   "title": "SlideCast Studio — turn a slide deck into a narrated, subtitled video, right in your browser",
   "subtitle": "Load a PDF or a set of images and get back a video with narration, subtitles and an animated character. No install, no video editor.",
-  "description": "English overview of SlideCast Studio v4.4 BLOOM — a one-time-purchase, browser-only tool that builds narrated, subtitled videos from your slides and AI voice.",
+  "description": "English overview of SlideCast Studio v5.0 STAGE — a one-time-purchase, browser-only tool that builds narrated, subtitled videos from your slides and AI voice.",
   "lead": "",
   "eyebrow": "PRODUCT GUIDE",
   "brand": "SlideCast ",
   "brand_accent": "Studio",
-  "brand_badge": "v4.4",
+  "brand_badge": "v5.0",
   "author": "aokuma",
-  "date": "2026.09.27",
-  "version": "v4.4 BLOOM",
+  "date": "2026.10.25",
+  "version": "v5.0 STAGE",
   "footer_meta": "SlideCast Studio Documentation · aokuma",
   "theme": {
     "primary": "#2f74ee",
@@ -73,6 +73,7 @@
         "type": "notice",
         "title": "🛠️ Recent news",
         "items": [
+          "2026/10/25: Updated to v5.0 “STAGE” (screen layouts, Start from a use, 32 caption designs, emphasis and karaoke captions).",
           "2026/9/27: Updated to v4.4 “BLOOM” (redesigned settings, presets, 4:5 / 4:3 aspect ratios and Gemini 3.8 TTS).",
           "2026/9/10: The official manual was updated (pointers to what v4.0–v4.3 added, plus the export method and frame rate).",
           "2026/9/10: Updated to v4.3 “RENDER” (high-quality, frame-by-frame video export).",
@@ -147,9 +148,9 @@
         "text": "Subtitles, backgrounds, characters, BGM, captions and transitions are all tunable at a level that satisfies people who fuss."
       },
       {
-        "icon": "🌸",
-        "title": "The point of v4.4",
-        "text": "A tidier settings screen, plus Gemini 3.8 TTS with its voice library and your own (cloned) voices."
+        "icon": "🎬",
+        "title": "The point of v5.0",
+        "text": "Choose how captions and characters appear from 23 layouts, plus Start from a use, 32 caption designs, and emphasis and karaoke captions."
       },
       {
         "icon": "⚠️",
@@ -198,7 +199,7 @@
         {
           "type": "heading",
           "level": 3,
-          "text": "✨ Main features (as of v4.4)"
+          "text": "✨ Main features (as of v5.0)"
         },
         {
           "type": "soft_cards",
@@ -373,14 +374,14 @@
         {
           "type": "callout",
           "tone": "info",
-          "title": "🟢 Too many settings? Try Simple mode",
-          "text": "One switch reduces the screen to the minimum set of settings and fills in sensible defaults for the rest. Turn it off once you find your feet, and you are back in the full mode where everything is adjustable."
+          "title": "🟢 Not sure where to start? Try “Start from a use”",
+          "text": "Go through four steps — screen, materials, characters, design — and the whole project is set up. Fine-tune later in the settings, where most options can be previewed just by hovering."
         },
         {
           "type": "figure",
-          "image": "./img/ui-easy.png",
-          "alt": "The normal settings screen and Simple mode side by side; Simple mode shows only six options",
-          "caption": "Left: normal mode (with presets for YouTube, Shorts, TikTok and more). Right: Simple mode"
+          "image": "./img/v50-02.png",
+          "alt": "The character step of Start from a use. The four steps — screen, materials, characters, design — run across the top, with a menu to choose a character for each speaker",
+          "caption": "Start from a use (用途から作成): go through screen → materials → characters → design"
         },
         {
           "type": "link",
@@ -392,19 +393,59 @@
     {
       "icon": "🎭",
       "category": "WHAT'S NEW",
-      "title": "❸ From v3.0 to v4.4 — highlights by version",
+      "title": "❸ From v3.0 to v5.0 — highlights by version",
       "intro": "Updates keep coming after the one-time purchase. Here is what has been added so far.",
       "blocks": [
         {
           "type": "figure",
-          "image": "./img/v44-hero-en.jpg",
-          "alt": "Key art for SlideCast Studio v4.4 BLOOM",
-          "caption": "The current version, v4.4 “BLOOM”: redesigned settings and Gemini 3.8 TTS"
+          "image": "./img/v50-hero-en.jpg",
+          "alt": "Key art for SlideCast Studio v5.0 STAGE",
+          "caption": "The current version, v5.0 “STAGE”: screen layouts and more expressive captions"
         },
         {
           "type": "tabs",
           "label": "Highlights by version",
           "items": [
+            {
+              "label": "v5.0 STAGE",
+              "blocks": [
+                {
+                  "type": "html",
+                  "html": "<p>This version lets you choose how captions and characters appear from <strong>23 screen layouts</strong>, and adds <strong>Start from a use</strong>, <strong>32 caption designs</strong>, and <strong>emphasis and karaoke captions</strong>.</p>"
+                },
+                {
+                  "type": "figure",
+                  "image": "./img/v50-01.png",
+                  "alt": "The screen step of Start from a use, with a table of layouts and a preview of the chosen layout",
+                  "caption": "Pick a layout from the table and the preview updates right away"
+                },
+                {
+                  "type": "soft_cards",
+                  "items": [
+                    {
+                      "icon": "🧩",
+                      "title": "Screen layouts",
+                      "text": "Choose how captions and characters appear from 23 layouts."
+                    },
+                    {
+                      "icon": "🧭",
+                      "title": "Start from a use",
+                      "text": "Build a project in four steps: screen, materials, characters, design."
+                    },
+                    {
+                      "icon": "🖍️",
+                      "title": "Emphasis and karaoke",
+                      "text": "Color only the words you pick, and color text as it is read aloud."
+                    }
+                  ]
+                },
+                {
+                  "type": "link",
+                  "url": "../updates/v50/",
+                  "label": "Read the v5.0 release notes"
+                }
+              ]
+            },
             {
               "label": "v4.4 BLOOM",
               "blocks": [
@@ -421,9 +462,21 @@
                 {
                   "type": "soft_cards",
                   "items": [
-                    { "icon": "🧭", "title": "Tidier settings", "text": "Consistent controls, plus undo and redo for settings." },
-                    { "icon": "🎛️", "title": "Rebuilt presets", "text": "9 platform + 8 subtitle presets; save and apply by part." },
-                    { "icon": "🎙️", "title": "Gemini 3.8 TTS", "text": "Voice-library search, custom and cloned voices." }
+                    {
+                      "icon": "🧭",
+                      "title": "Tidier settings",
+                      "text": "Consistent controls, plus undo and redo for settings."
+                    },
+                    {
+                      "icon": "🎛️",
+                      "title": "Rebuilt presets",
+                      "text": "9 platform + 8 subtitle presets; save and apply by part."
+                    },
+                    {
+                      "icon": "🎙️",
+                      "title": "Gemini 3.8 TTS",
+                      "text": "Voice-library search, custom and cloned voices."
+                    }
                   ]
                 },
                 {
@@ -449,9 +502,21 @@
                 {
                   "type": "soft_cards",
                   "items": [
-                    { "icon": "🎞️", "title": "Frame-by-frame", "text": "Each frame is finished before the next one starts." },
-                    { "icon": "🎯", "title": "No dropped frames", "text": "A slow machine costs time, not frames." },
-                    { "icon": "🔊", "title": "No audio drift", "text": "Picture and sound sit on the same timeline." }
+                    {
+                      "icon": "🎞️",
+                      "title": "Frame-by-frame",
+                      "text": "Each frame is finished before the next one starts."
+                    },
+                    {
+                      "icon": "🎯",
+                      "title": "No dropped frames",
+                      "text": "A slow machine costs time, not frames."
+                    },
+                    {
+                      "icon": "🔊",
+                      "title": "No audio drift",
+                      "text": "Picture and sound sit on the same timeline."
+                    }
                   ]
                 },
                 {
@@ -477,11 +542,31 @@
                 {
                   "type": "soft_cards",
                   "items": [
-                    { "icon": "📝", "title": "Vertical subtitles", "text": "Both the subtitle band and speech bubbles can run vertically." },
-                    { "icon": "📐", "title": "Vertical placement", "text": "Put the band left, centre or right, or split the frame." },
-                    { "icon": "🔤", "title": "Latin orientation", "text": "Upright, rotated as a run, or combined into the line." },
-                    { "icon": "🎭", "title": "Six expressions", "text": "Surprised, troubled and thinking join the set." },
-                    { "icon": "🗂️", "title": "Editable assets", "text": "Replace, add or delete expressions and gestures later." }
+                    {
+                      "icon": "📝",
+                      "title": "Vertical subtitles",
+                      "text": "Both the subtitle band and speech bubbles can run vertically."
+                    },
+                    {
+                      "icon": "📐",
+                      "title": "Vertical placement",
+                      "text": "Put the band left, centre or right, or split the frame."
+                    },
+                    {
+                      "icon": "🔤",
+                      "title": "Latin orientation",
+                      "text": "Upright, rotated as a run, or combined into the line."
+                    },
+                    {
+                      "icon": "🎭",
+                      "title": "Six expressions",
+                      "text": "Surprised, troubled and thinking join the set."
+                    },
+                    {
+                      "icon": "🗂️",
+                      "title": "Editable assets",
+                      "text": "Replace, add or delete expressions and gestures later."
+                    }
                   ]
                 },
                 {
@@ -507,10 +592,26 @@
                 {
                   "type": "soft_cards",
                   "items": [
-                    { "icon": "🖼️", "title": "Per-slide layout", "text": "Adjust images, characters, subtitles and speech bubbles without changing other slides." },
-                    { "icon": "✨", "title": "Active sticker motion", "text": "Float, sway, breathe, rock, tremble or spin while a sticker is visible." },
-                    { "icon": "🔤", "title": "Multilingual fonts", "text": "Combine Japanese, Latin, Chinese and Korean font choices." },
-                    { "icon": "🎬", "title": "Improved export", "text": "Choose 30 or 60fps, with fixes for video freezes and audio synchronisation." }
+                    {
+                      "icon": "🖼️",
+                      "title": "Per-slide layout",
+                      "text": "Adjust images, characters, subtitles and speech bubbles without changing other slides."
+                    },
+                    {
+                      "icon": "✨",
+                      "title": "Active sticker motion",
+                      "text": "Float, sway, breathe, rock, tremble or spin while a sticker is visible."
+                    },
+                    {
+                      "icon": "🔤",
+                      "title": "Multilingual fonts",
+                      "text": "Combine Japanese, Latin, Chinese and Korean font choices."
+                    },
+                    {
+                      "icon": "🎬",
+                      "title": "Improved export",
+                      "text": "Choose 30 or 60fps, with fixes for video freezes and audio synchronisation."
+                    }
                   ]
                 },
                 {
@@ -1318,6 +1419,11 @@
           "type": "timeline",
           "items": [
             {
+              "date": "2026.10.25",
+              "title": "v5.0 STAGE",
+              "text": "23 layouts for captions and characters, Start from a use, 32 caption designs and name badges, emphasis and karaoke captions, many more effects, and settings search."
+            },
+            {
               "date": "2026.09.27",
               "title": "v4.4 BLOOM",
               "text": "Tidier settings with undo, direct dragging on the preview, rebuilt presets, 4:5 / 4:3 aspect ratios, and Gemini 3.8 TTS with its voice library and your own voices."
@@ -1436,6 +1542,12 @@
         {
           "type": "link_cards",
           "items": [
+            {
+              "icon": "🆕",
+              "title": "v5.0 STAGE release notes",
+              "text": "Screen layouts, Start from a use, 32 caption designs, emphasis and karaoke",
+              "url": "../updates/v50/"
+            },
             {
               "icon": "🆕",
               "title": "v4.4 BLOOM release notes",

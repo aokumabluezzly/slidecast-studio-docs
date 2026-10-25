@@ -1,0 +1,517 @@
+{
+  "title": "SlideCast Studio v5.0 “STAGE”",
+  "subtitle": "Update — screen layouts, guided project setup, 32 caption designs, emphasis and karaoke",
+  "description": "SlideCast Studio v5.0 STAGE lets you pick how captions and characters appear from a table of 23 layouts, adds a four-step guided project setup, 32 caption designs, name badges, emphasis and karaoke captions, many more effects, and a settings search.",
+  "lead": "",
+  "eyebrow": "SLIDECAST STUDIO · UPDATE",
+  "brand": "SlideCast ",
+  "brand_accent": "Studio",
+  "brand_badge": "v5.0",
+  "author": "aokuma",
+  "date": "2026.10.25",
+  "version": "v5.0 STAGE",
+  "footer_meta": "SlideCast Studio documentation · aokuma",
+  "hero_image": "./img/v50-hero-en.jpg",
+  "hero_alt": "SlideCast Studio v5.0 STAGE — Build the screen from a layout.",
+  "chips": [
+    "🎬 Screen layouts",
+    "✨ 32 caption designs",
+    "🖍️ Emphasis and karaoke"
+  ],
+  "stats": [
+    { "icon": "🧩", "value": "23", "label": "Layouts for captions and characters" },
+    { "icon": "🎨", "value": "32", "label": "Caption designs" },
+    { "icon": "🎞️", "value": "30", "label": "Transitions (including directions)" },
+    { "icon": "🚀", "value": "v5.0", "label": "STAGE" }
+  ],
+  "theme": {
+    "primary": "#5b62f0",
+    "secondary": "#18a8ce",
+    "accent": "#e0609f",
+    "surface": "#f1f3ff",
+    "ink": "#161c36"
+  },
+  "nav_links": [
+    { "href": "../../", "icon": "🏠", "label": "HOME" },
+    { "href": "../../manual/", "icon": "📘", "label": "Official manual" }
+  ],
+  "source_url": "https://note.com/bluezzly/n/n00e8e573be2b",
+  "source_label": "Read the original on note",
+  "source_title": "📝 Original article and updates",
+  "source_note": "See the note article for later additions and comments.",
+  "update_header": false,
+  "sections_label": "UPDATE INDEX",
+  "overview": {
+    "icon": "👋",
+    "title": "Introduction and overview",
+    "blocks": [
+      {
+        "type": "callout",
+        "tone": "info",
+        "title": "🌐 About the screenshots",
+        "text": "The interface screenshots on this page use the Japanese edition. The captions explain the relevant controls, and key labels are given in English."
+      },
+      {
+        "type": "html",
+        "html": "<p>SlideCast Studio is now at <strong>v5.0 “STAGE”</strong>.</p><p>v4.4 “BLOOM” rebuilt the settings screen so you could set things up without guesswork, with presets and dragging on the preview. This release focuses on <strong>setting the stage: how slides, captions and characters are arranged on screen</strong>, and revisits almost every part of the app. That is why the major version has gone up.</p><p>“I don’t know what to decide first when I start.” “I hunt for caption and character positions with sliders every time.” “I want my captions to feel a bit more like a real video.” This update answers those wishes by rethinking how the screen is set up.</p>"
+      },
+      {
+        "type": "cards",
+        "items": [
+          { "icon": "🧩", "title": "Screen layouts", "text": "Choose how captions and characters appear from a table of 23 layouts" },
+          { "icon": "🧭", "title": "Start from a use", "text": "Build a project in four steps: screen, materials, characters, design" },
+          { "icon": "🎨", "title": "32 caption designs", "text": "Plus name badges and matching looks across a project" },
+          { "icon": "🖍️", "title": "Emphasis and karaoke", "text": "Color only the words you pick, and color text as it is read aloud" }
+        ]
+      },
+      {
+        "type": "check_list",
+        "items": [
+          "Choose how captions and characters appear from a table of 23 screen layouts",
+          "New “用途から作成” (Start from a use): build a new project in four steps",
+          "32 caption designs, and name badges for characters",
+          "Emphasis that colors only the words you pick, and karaoke captions that change color as they are read aloud",
+          "Many more effects, including 22 caption animations and 30 transitions",
+          "A search box in the settings, and step buttons plus “個別” (Custom) for sliders"
+        ]
+      }
+    ]
+  },
+  "sections": [
+    {
+      "icon": "🖱️",
+      "category": "FOR v4.4 USERS",
+      "title": "Coming from v4.4? Try things by hovering first",
+      "intro": "The screens changed a lot, so you can now check most options without changing anything.",
+      "blocks": [
+        {
+          "type": "html",
+          "html": "<p>To make SlideCast Studio clearer and easier to use, this release changes the order and logic of the settings quite a lot. If you are used to v4.4, you may sometimes wonder where a setting went.</p><p>So this time, <strong>you can check most options in the preview just by hovering over them, without changing any settings</strong>.</p>"
+        },
+        {
+          "type": "check_list",
+          "items": [
+            "The caption and speech-bubble design lists",
+            "Screen layouts",
+            "Transitions and slide animations",
+            "Caption animations, and the motion of stickers, badges and tickers",
+            "Badge and text-sticker shapes, and how characters move while talking",
+            "Color swatches and the font list"
+          ]
+        },
+        {
+          "type": "html",
+          "html": "<p>The preview changes only while the pointer is over an option, and goes back when you move away. Your project does not change until you click. Hover and compare first, then choose.</p>"
+        },
+        {
+          "type": "callout",
+          "tone": "info",
+          "title": "🔎 Can’t find a setting?",
+          "text": "Type its name into the search box just below the settings tabs (see “Easier to find, easier to use”)."
+        }
+      ]
+    },
+    {
+      "icon": "🧩",
+      "category": "SCREEN LAYOUTS",
+      "title": "Choose how captions and characters appear from a layout table",
+      "intro": "The screen setup is now just two choices: aspect ratio and layout.",
+      "blocks": [
+        {
+          "type": "html",
+          "html": "<p>Until now, you combined several items such as how characters are shown, caption layout and writing direction. These are now <strong>two choices: aspect ratio and layout (型)</strong>. You pick the layout from a table of thumbnails.</p>"
+        },
+        {
+          "type": "figure",
+          "image": "./img/v50-01.png",
+          "alt": "The screen step of Start from a use. Below the aspect-ratio buttons is a table of layouts grouped into horizontal, vertical and other, with a preview of the chosen layout on the right",
+          "caption": "Pick a layout from the table (型の表から選ぶ) and the preview updates right away (すぐプレビューに)"
+        },
+        {
+          "type": "soft_cards",
+          "items": [
+            { "icon": "↔️", "title": "Horizontal (横書き)", "text": "Three ways to show speech — captions only, characters with speech bubbles, wipe — combined with four placements: below the slide, or overlaid at the bottom, middle or top" },
+            { "icon": "↕️", "title": "Vertical (縦書き)", "text": "Captions only or speech bubbles, overlaid on the right, center or left, or set apart on the right or left" },
+            { "icon": "➕", "title": "Other (そのほか)", "text": "Two characters left and right, characters only, no captions" }
+          ]
+        },
+        {
+          "type": "html",
+          "html": "<p>That makes <strong>23 layouts</strong> in all. Examples of new layouts:</p>"
+        },
+        {
+          "type": "check_list",
+          "items": [
+            "Wipe (ワイプ): lines appear as captions, and the speaking character is shown large in a corner of the screen",
+            "Characters only (キャラだけ): no captions, just characters standing at the bottom of the screen"
+          ]
+        },
+        {
+          "type": "html",
+          "html": "<p>After choosing a layout, you only adjust margins, heights and sizes with buttons such as “Small / Medium / Large”. For finer control, “個別” (Custom) lets you enter values. You can <strong>grab and move</strong> characters on the preview to change their position and size.</p>"
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "Character placement is now per project"
+        },
+        {
+          "type": "html",
+          "html": "<p>Where a character stands and how large it is are now remembered <strong>for each project</strong>. Changing the placement in one project does not move the characters in others. Use “この配置を既定にする” (Make this the default) to reuse a placement you like in other projects.</p>"
+        }
+      ]
+    },
+    {
+      "icon": "🧭",
+      "category": "START FROM A USE",
+      "title": "Build new projects with “Start from a use”",
+      "intro": "From “用途から作成” (Start from a use) on the dashboard, you can set up a whole project in four steps.",
+      "blocks": [
+        {
+          "type": "figure",
+          "image": "./img/v50-02.png",
+          "alt": "The character step of Start from a use. The four steps — screen, materials, characters, design — run across the top, with a menu to choose a character for each speaker in the script",
+          "caption": "Go through screen → materials → characters → design (画面 → 資料 → キャラ → デザイン), choosing a character for each speaker"
+        },
+        {
+          "type": "step_list",
+          "items": [
+            { "title": "Screen (画面)", "text": "Choose the aspect ratio and layout, then a recommended use that sets caption size and more" },
+            { "title": "Materials (資料)", "text": "Add slide images, PDFs, a Bundle Builder ZIP and so on" },
+            { "title": "Characters (キャラ)", "text": "Pick which character to show for each speaker in the script. You can also add a new character on the spot from images or a MouthLoop zip" },
+            { "title": "Design (デザイン)", "text": "Choose caption and speech-bubble designs for the narration and for each character" }
+          ]
+        },
+        {
+          "type": "html",
+          "html": "<p>If you have not decided on characters yet, <strong>placeholder characters A and B</strong> are used. You can swap in real characters later with bulk replace.</p>"
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "17 recommended uses"
+        },
+        {
+          "type": "html",
+          "html": "<p>The recommended uses have been revised for each aspect ratio. They are now named after how they look, not after services such as “YouTube”.</p>"
+        },
+        {
+          "type": "table",
+          "head": ["Ratio", "Uses"],
+          "rows": [
+            ["16:9", "Captions below / Captions overlaid / Captions below, large / Character wipe / Captions slightly raised / Vertical writing / Two characters (vertical writing)"],
+            ["9:16", "Landscape slides / Portrait slides / Landscape slides, large captions"],
+            ["1:1", "Square / Captions below"],
+            ["4:5", "Portrait feed / Captions below"],
+            ["4:3", "Captions below / Captions below, large / Vertical writing"]
+          ]
+        }
+      ]
+    },
+    {
+      "icon": "🎨",
+      "category": "CAPTION DESIGNS",
+      "title": "32 caption designs, and name badges",
+      "intro": "Designs are grouped into bands, text-fitted bands, outlines, and shadows and glows.",
+      "blocks": [
+        {
+          "type": "html",
+          "html": "<p>Caption designs have grown <strong>from 8 to 32</strong>. Just hover over a design and the preview switches to it.</p>"
+        },
+        {
+          "type": "figure",
+          "image": "./img/v50-03.png",
+          "alt": "The Captions tab in the settings. Caption designs are listed in rows for bands and text-fitted bands; hovering over Marker switches the preview caption to that design",
+          "caption": "Hover over a design (乗せるだけでプレビュー) and the preview changes to it — 32 designs in all"
+        },
+        {
+          "type": "check_list",
+          "items": [
+            "New designs draw the band to fit the width of the text, such as “Marker”, “Underline” and “Rounded band”",
+            "Speech-bubble designs now number 21, and each character can use a different bubble",
+            "Use “デザインを調整” (Adjust design) to change text color, font, outline, shadow and more"
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "Name badges for characters"
+        },
+        {
+          "type": "html",
+          "html": "<p>Captions and speech bubbles can now show <strong>a name badge for the speaking character</strong>. Choose the shape, background and text, or use an image instead of the name. Drag the badge on the preview to place it.</p>"
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "Match the look across a project"
+        },
+        {
+          "type": "html",
+          "html": "<p>You can <strong>make the text look the same across captions and speech bubbles within one project</strong>, for the narration and every character. Check it in the preview before applying, and undo it if you change your mind.</p>"
+        }
+      ]
+    },
+    {
+      "icon": "🖍️",
+      "category": "EMPHASIS AND KARAOKE",
+      "title": "Make captions feel like a real video with emphasis and karaoke",
+      "intro": "Color only the words you pick, or change the color as the text is read aloud.",
+      "blocks": [
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "Emphasis: color only the words you pick"
+        },
+        {
+          "type": "html",
+          "html": "<p>Select words in the displayed-caption field of the script and press “<strong>強調</strong>” (Emphasis). Only those words change their look in the caption.</p>"
+        },
+        {
+          "type": "figure",
+          "image": "./img/v50-04.png",
+          "alt": "The displayed-caption field of the script. Selecting a phrase shows the Add acting, Emphasis and Character count buttons, and the Emphasis button is highlighted",
+          "caption": "① Select words in the displayed caption (表示字幕), then ② press the “強調” (Emphasis) button that appears"
+        },
+        {
+          "type": "figure",
+          "image": "./img/v50-05.png",
+          "alt": "The caption in the preview, with only the selected phrase shown in yellow",
+          "caption": "Only the emphasized words change color in the caption"
+        },
+        {
+          "type": "check_list",
+          "items": [
+            "You can create up to six emphasis styles, with text color, size, weight, outline, marker and more — as detailed as the caption itself",
+            "Works with horizontal and vertical captions and with speech bubbles",
+            "Does not affect the voice that reads the text",
+            "Can also be applied in the book-style PDF export"
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "Karaoke: color the text as it is read"
+        },
+        {
+          "type": "html",
+          "html": "<p>The new karaoke style <strong>colors the text up to the point that has been read aloud</strong>. Turn it on under “字幕の動き” (Caption motion) in the Captions tab, and set the color under “デザインを調整” (Adjust design) → “カラオケ色” (Karaoke color) in the caption design. The color changes during playback and in exported videos.</p><p>Combined with emphasis, an emphasized word takes on its emphasis look <strong>only when the reading reaches it</strong>, so viewers are not shown what is coming next.</p>"
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "22 caption animations"
+        },
+        {
+          "type": "html",
+          "html": "<p>Caption entrance animations have grown <strong>from 6 to 22</strong>. Besides whole-caption motions such as dropping in, zooming in, bouncing and shaking, characters can also appear one at a time with fade, pop, drop or blur.</p>"
+        }
+      ]
+    },
+    {
+      "icon": "🎞️",
+      "category": "EFFECTS",
+      "title": "Many more effects",
+      "intro": "For every effect, hovering over a type plays it on repeat in the preview.",
+      "blocks": [
+        {
+          "type": "figure",
+          "image": "./img/v50-06.png",
+          "alt": "The Effects tab in the settings. The effect type list shows 21 transitions, and the preview on the right is highlighted",
+          "caption": "21 transitions, 30 with directions (21種・向き違いを含めて30種). Hovering plays the effect on repeat (乗せている間、プレビューで繰り返す), so you can compare without playing the video"
+        },
+        {
+          "type": "table",
+          "head": ["Item", "v4.4", "v5.0"],
+          "rows": [
+            ["Transitions", "11", "21 (30 including directions)"],
+            ["Slide animations", "13", "22"],
+            ["Caption animations", "6", "22"],
+            ["Badge and text-sticker shapes", "2", "12"]
+          ]
+        },
+        {
+          "type": "check_list",
+          "items": [
+            "Transitions: door, circle wipe, blinds, glitch and more",
+            "Stickers: new entrance and exit motions such as bounce, spin and flip, and new idle motions such as hop, dangle and blink",
+            "Badges: the same idle motions as stickers",
+            "Badge and text-sticker shapes: ribbon, flag, sticky note, jagged and more, besides square and rounded",
+            "Tickers: choose from 9 switching styles, such as fade, flip and typewriter",
+            "How characters move while talking: 6 styles, such as up-and-down, bounce, sway and gentle rock"
+          ]
+        }
+      ]
+    },
+    {
+      "icon": "🔎",
+      "category": "SETTINGS",
+      "title": "Easier to find, easier to use",
+      "intro": "A settings search, plus tidier tabs and controls.",
+      "blocks": [
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "Search the settings"
+        },
+        {
+          "type": "html",
+          "html": "<p>There is now a <strong>search box</strong> just below the settings tabs. Type words such as “帯の余白” (band padding), “BGM” or “APIキー” (API key) to jump straight to that setting.</p>"
+        },
+        {
+          "type": "figure",
+          "image": "./img/v50-07.png",
+          "alt": "Typing band padding into the settings search box shows the matching setting in the caption design section of the Captions tab",
+          "caption": "Search the settings by name (言葉で設定を探せる) and press a result to jump there (押すとその場所へ)"
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "Separate Screen and Captions tabs"
+        },
+        {
+          "type": "html",
+          "html": "<p>The “Basic” tab had grown too long, so it is now two tabs: <strong>Screen</strong> (aspect ratio, layout, background, slide images) and <strong>Captions</strong> (caption design, caption motion, emphasis).</p>"
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "Consistent controls"
+        },
+        {
+          "type": "check_list",
+          "items": [
+            "Sliders for position, size and timing are now step buttons such as “Short / Standard / Long” plus “個別” (Custom). The current value is always shown next to the item name",
+            "Colors and fonts can be previewed just by hovering",
+            "On phones and tablets, you can scroll sideways to reach parts of the screen that were cut off"
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "Simple mode has been removed"
+        },
+        {
+          "type": "html",
+          "html": "<p>The “Simple / Advanced” switch added in v4.4 is gone, and there is now <strong>a single settings screen</strong>. Decide the overall setup quickly with Start from a use and the step buttons, and fine-tune with “個別” (Custom) on the same screen.</p>"
+        }
+      ]
+    },
+    {
+      "icon": "🧰",
+      "category": "BUNDLE BUILDER",
+      "title": "SlideCast Bundle Builder updates",
+      "intro": "Less work preparing scripts and images.",
+      "blocks": [
+        {
+          "type": "check_list",
+          "items": [
+            "Choose the cast of the script by whether there is a narrator and how many characters there are (no narrator is also possible)",
+            "Gemini Nano Banana 2.1 added as an image generation model",
+            "Save generated images as a ZIP in their current order",
+            "When you load a Bundle in Start from a use, the aspect ratio can be matched"
+          ]
+        },
+        {
+          "type": "html",
+          "html": "<p>The Bundle Builder link has been updated to a new shared URL.</p>"
+        },
+        {
+          "type": "link",
+          "url": "../../bundle-builder/",
+          "label": "SlideCast Bundle Builder guide"
+        }
+      ]
+    },
+    {
+      "icon": "🔧",
+      "category": "IMPROVEMENTS",
+      "title": "Other improvements and fixes",
+      "intro": "Smaller usability improvements and bug fixes.",
+      "blocks": [
+        {
+          "type": "check_list",
+          "items": [
+            "Characters in speech bubbles and wipes are now sized by the height of the figure itself, regardless of empty space in the image",
+            "Horizontal captions no longer start a line with a punctuation mark when wrapping",
+            "Added a snap switch to the slide image zoom and position settings",
+            "Reordering and adding lines in the script is easier",
+            "Improved video slide settings and preview",
+            "Fixed OP/ED and custom sound effects losing their link when a backup is restored on another device",
+            "Fixed the settings freezing when a WebM video, such as a screen recording, is used for the OP/ED"
+          ]
+        }
+      ]
+    },
+    {
+      "icon": "📌",
+      "category": "BEFORE YOU UPDATE",
+      "title": "Before you update",
+      "intro": "Please check the following before updating.",
+      "blocks": [
+        {
+          "type": "check_list",
+          "items": [
+            "Existing projects open as they are. Their layout is chosen automatically from their current settings",
+            "You can go back to an earlier version, but settings added in v5.0 (layouts, emphasis, new designs and so on) are not available there, so things may look different. Make a backup before updating, just in case",
+            "The recommended uses have been renamed, from service names such as YouTube and TikTok to names that describe how they look",
+            "The caption option “音声の無音に合わせる” (Match silences in the audio) has been removed; caption timing is now distributed according to the kind of characters",
+            "In older projects, character icons may look a different size. Fix this with “キャラごとの調整” (Per-character adjustment) in the Screen tab",
+            "Generating voices and Bundle Builder images uses your own API key’s quota and charges, as before"
+          ]
+        }
+      ]
+    },
+    {
+      "icon": "⬆️",
+      "category": "HOW TO UPDATE",
+      "title": "Updating to v5.0",
+      "intro": "If you have already bought SlideCast Studio, copy v5.0 from the same shared link in the paid note article.",
+      "blocks": [
+        {
+          "type": "callout",
+          "tone": "good",
+          "title": "💾 Make a backup first",
+          "text": "If you want to keep your existing projects, library and settings, create a backup from “バックアップ” (Backup) on the dashboard before you update."
+        },
+        {
+          "type": "html",
+          "html": "<p>To update the Apps Script edition in place, the files to replace since v4.4 are <strong>“AppBundle.html” and “無題.html”</strong> in the v5.0 distribution folder. Copy them into your existing Apps Script project and redeploy the existing deployment as a new version. (code.gs and the files beginning with “GasAsset_” are unchanged in this release.) If you are unsure, replacing every file is fine too.</p>"
+        },
+        {
+          "type": "link",
+          "url": "../../gas-update/",
+          "label": "Detailed update steps for the Apps Script edition"
+        },
+        {
+          "type": "html",
+          "html": "<p>For the local HTML edition, download “SlideCast Studio v5.0〖ローカル版〗.html” and open it. A new Apps Script project or a different browser will not show your previous data automatically; restore it from a backup in that case.</p>"
+        }
+      ]
+    },
+    {
+      "icon": "🎭",
+      "category": "SUMMARY",
+      "title": "Decide first what stage to show it on",
+      "intro": "From videos that simply read slides aloud, to “shows” where characters stand and captions move.",
+      "blocks": [
+        {
+          "type": "html",
+          "html": "<p>v4.4 “BLOOM” rearranged the settings so you could <strong>set things up without guesswork</strong>. v5.0 “STAGE” goes one step earlier, letting you start from <strong>what stage to show your video on</strong>. Choose an aspect ratio, pick a layout from the table, and set the mood with a caption design. With emphasis, karaoke and name badges, the captions themselves can now carry expression.</p><p>I have tried to put the whole stage in place for that. If it has been a while, try making one video with Start from a use.</p><p>Because so much changed this time, bugs came up again and again during development and took time to fix. There may still be bugs I have not noticed. If you find a problem or something unclear, please let me know in the comments on note.</p>"
+        },
+        {
+          "type": "link",
+          "url": "https://www.youtube.com/channel/UC2lO3ixD4ICI9VgRSxidRbQ",
+          "label": "SlideCast Studio on YouTube"
+        },
+        {
+          "type": "cta",
+          "title": "Read the original on note",
+          "text": "The original Japanese article, later additions and comments are on note.",
+          "url": "https://note.com/bluezzly/n/n00e8e573be2b",
+          "label": "Read the original on note"
+        }
+      ]
+    }
+  ]
+}

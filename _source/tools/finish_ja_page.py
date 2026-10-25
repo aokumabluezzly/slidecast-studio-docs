@@ -44,9 +44,18 @@ PAGE_META: dict[str, dict[str, object]] = {
         "og_title": "SlideCast Studioとは",
         "og_description": (
             "資料とAI音声から、ナレーション・字幕・キャラ演出つきの動画をブラウザだけで作れる"
-            "買い切りツール SlideCast Studio v4.4 BLOOM の紹介ページ。"
+            "買い切りツール SlideCast Studio v5.0 STAGE の紹介ページ。"
         ),
         "twitter_description": "資料とAI音声から、伝わるスライド動画をブラウザだけで作る。",
+        "en": True,
+    },
+    "updates/v50/": {
+        "og_title": "SlideCast Studio v5.0「STAGE」",
+        "og_description": (
+            "字幕とキャラの見せ方を23パターンの「型」から選べるようにし、用途から作成、字幕デザイン32種、"
+            "名前バッジ、強調とカラオケ風、演出の追加、設定の検索に対応したv5.0の更新内容。"
+        ),
+        "twitter_description": "画面を、型から組み立てる。字幕とキャラの見せ方を選べるv5.0アップデート。",
         "en": True,
     },
     "updates/v44/": {

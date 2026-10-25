@@ -94,6 +94,13 @@ PAGE_META: dict[str, dict[str, str]] = {
             "effects, sound effects, snapping, reusable libraries, mosaic and blur."
         ),
     },
+    "en/updates/v50/": {
+        "og_title": "SlideCast Studio v5.0 “STAGE”",
+        "og_description": (
+            "Pick how captions and characters appear from a table of 23 layouts, build a project in four steps, "
+            "32 caption designs, name badges, emphasis and karaoke captions, many more effects, and settings search."
+        ),
+    },
     "en/updates/v44/": {
         "og_title": "SlideCast Studio v4.4 “BLOOM”",
         "og_description": (

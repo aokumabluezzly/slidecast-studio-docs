@@ -1,17 +1,17 @@
 {
   "title": "GASで実現！スライドから字幕・音声付き動画を生成する「SlideCast Studio」",
   "subtitle": "PDFなどの資料を読み込むだけで、ナレーション・字幕・キャラ演出つきの動画をブラウザだけで作れます。",
-  "description": "資料とAI音声から、ナレーション・字幕・キャラ演出つきの動画をブラウザだけで作れる買い切りツール「SlideCast Studio」v4.4 BLOOM の紹介ページ。",
+  "description": "資料とAI音声から、ナレーション・字幕・キャラ演出つきの動画をブラウザだけで作れる買い切りツール「SlideCast Studio」v5.0 STAGE の紹介ページ。",
   "lead": "",
   "eyebrow": "PRODUCT GUIDE",
 
   "brand": "SlideCast ",
   "brand_accent": "Studio",
-  "brand_badge": "v4.4",
+  "brand_badge": "v5.0",
   "author": "aokuma",
-  "date": "2026.09.27",
-  "version": "v4.4 BLOOM",
-  "footer_meta": "SlideCast Studio 紹介ページ · aokuma · 最終更新 2026.09.27",
+  "date": "2026.10.25",
+  "version": "v5.0 STAGE",
+  "footer_meta": "SlideCast Studio 紹介ページ · aokuma · 最終更新 2026.10.25",
 
   "theme": {
     "primary": "#2f74ee",
@@ -53,6 +53,7 @@
         "type": "notice",
         "title": "🛠️ 最近のお知らせ",
         "items": [
+          "2026/10/25：v5.0「STAGE」にアップデートしました（画面の型・用途から作成・字幕デザイン32種・強調とカラオケ風）。",
           "2026/9/27：v4.4「BLOOM」にアップデートしました（設定画面の刷新・プリセット・画面比率4:5／4:3・Gemini 3.8 TTS）。",
           "2026/9/10：マニュアルを更新しました（v4.0〜v4.3 で追加された機能の案内、書き出し方式・フレームレートの記述を更新）。",
           "2026/9/10：v4.3「RENDER」にアップデートしました（高品質なフレーム生成の動画書き出し）。",
@@ -93,7 +94,7 @@
       { "icon": "🛒", "title": "買い切りです", "text": "月額課金はありません。一度購入すれば、その後のアップデートも同じ共有リンクから使えます。" },
       { "icon": "🔑", "title": "API費用もゼロで使える", "text": "APIキーなしで音声まで作れる Bundle Builder があるので、追加費用なしで始められます。" },
       { "icon": "🎛️", "title": "細部まで設定できる", "text": "字幕・背景・キャラ・BGM・テロップ・トランジションまで、こだわる人が満足できる粒度で調整できます。" },
-      { "icon": "🌸", "title": "v4.4 の目玉", "text": "設定画面を整理し、Gemini 3.8 TTS の音声ライブラリと自作音声（クローンボイス）に対応しました。" },
+      { "icon": "🎬", "title": "v5.0 の目玉", "text": "字幕とキャラの見せ方を23パターンの「型」から選べるようにし、用途から作成・字幕デザイン32種・強調とカラオケ風に対応しました。" },
       { "icon": "⚠️", "title": "購入前のご確認", "text": "PCブラウザ専用です。初期設定（コピペのみ）が必要なので、動作環境の章もご確認ください。" }
     ]
   },
@@ -113,7 +114,7 @@
         { "type": "divider", "label": "SAMPLE" },
         { "type": "video", "provider": "vimeo", "id": "1169315924", "title": "🎥 こんな動画が作れます！", "thumb": "./img/demo-movie.jpg", "caption": "サンプル動画（Vimeo）。クリックすると、この場で再生されます" },
         { "type": "video", "provider": "youtube", "id": "cB0MVpcMdKo", "title": "🎬 こうやって作ります！", "thumb": "./img/how-to-use.jpg", "caption": "制作の流れ（YouTube）。クリックすると、この場で再生されます" },
-        { "type": "heading", "level": 3, "text": "✨ 主な機能（v4.4 時点）" },
+        { "type": "heading", "level": 3, "text": "✨ 主な機能（v5.0 時点）" },
         {
           "type": "soft_cards",
           "items": [
@@ -187,10 +188,10 @@
         {
           "type": "callout",
           "tone": "info",
-          "title": "🟢 設定が多すぎると感じたら「かんたんモード」",
-          "text": "スイッチひとつで必要最小限の設定だけを表示し、残りはおすすめの内容で自動設定します。慣れてきたら OFF にすれば、細部まで作り込める通常モードに戻ります。"
+          "title": "🟢 何から決めればいいか迷ったら「用途から作成」",
+          "text": "画面 → 資料 → キャラ → デザインの4つの手順を選ぶだけで、作品をひと通り組み立てられます。細かい調整はあとから設定画面で行えます。設定の多くは、マウスを乗せるだけでプレビューで確かめられます。"
         },
-        { "type": "figure", "image": "./img/ui-easy.png", "alt": "通常モードとかんたんモードの設定画面を並べた比較。かんたんモードでは項目が6つに絞られている", "caption": "左：通常モード（YouTube / Shorts / TikTok などのプリセットつき）／右：かんたんモード" },
+        { "type": "figure", "image": "./img/v50-02.png", "alt": "用途から作成のキャラの手順。上に画面・資料・キャラ・デザインの4つの手順が並び、台本の話者ごとにキャラを選ぶメニューがある", "caption": "用途から作成：画面→資料→キャラ→デザインの順に進みます" },
         { "type": "link", "url": "../bundle-builder/", "label": "SlideCast Bundle Builder の使い方ガイドを読む" }
       ]
     },
@@ -198,14 +199,27 @@
     {
       "icon": "🎭",
       "category": "WHAT'S NEW",
-      "title": "❸ v3.0 → v4.4 の進化（バージョン別ハイライト）",
+      "title": "❸ v3.0 → v5.0 の進化（バージョン別ハイライト）",
       "intro": "買い切り後もアップデートを続けています。これまでに増えた主な機能です。",
       "blocks": [
-        { "type": "figure", "image": "./img/v44-hero.jpg", "alt": "SlideCast Studio v4.4 BLOOM のアイキャッチ", "caption": "最新版 v4.4「BLOOM」：設定画面の刷新と Gemini 3.8 TTS" },
+        { "type": "figure", "image": "./img/v50-hero.jpg", "alt": "SlideCast Studio v5.0 STAGE のアイキャッチ", "caption": "最新版 v5.0「STAGE」：画面の型と字幕の表現" },
         {
           "type": "tabs",
           "label": "バージョン別ハイライト",
           "items": [
+            {
+              "label": "v5.0 STAGE",
+              "blocks": [
+                { "type": "html", "html": "<p>字幕とキャラの見せ方を<strong>23パターンの「型」</strong>から選べるようにし、<strong>用途から作成</strong>・<strong>字幕デザイン32種</strong>・<strong>強調とカラオケ風</strong>に対応したバージョンです。</p>" },
+                { "type": "figure", "image": "./img/v50-01.png", "alt": "用途から作成の画面の手順。比率のボタンの下に、横書き・縦書き・そのほかに分かれた型の表があり、右に選んだ型のプレビューが出ている", "caption": "型の表から選ぶと、すぐにプレビューに反映されます" },
+                { "type": "soft_cards", "items": [
+                  { "icon": "🧩", "title": "画面の「型」", "text": "字幕とキャラの見せ方を23パターンの表から選ぶ。" },
+                  { "icon": "🧭", "title": "用途から作成", "text": "画面→資料→キャラ→デザインの4手順で組み立てる。" },
+                  { "icon": "🖍️", "title": "強調とカラオケ風", "text": "選んだ語だけ色を変え、読み上げに合わせて色を変える。" }
+                ] },
+                { "type": "link", "url": "../updates/v50/", "label": "v5.0 アップデート記事を読む" }
+              ]
+            },
             {
               "label": "v4.4 BLOOM",
               "blocks": [
@@ -763,6 +777,7 @@
         {
           "type": "timeline",
           "items": [
+            { "date": "2026.10.25", "title": "v5.0 STAGE", "text": "字幕とキャラの見せ方を選ぶ23パターンの型、用途から作成、字幕デザイン32種と名前バッジ、強調とカラオケ風、演出の大幅な追加、設定の検索。" },
             { "date": "2026.09.27", "title": "v4.4 BLOOM", "text": "設定画面の整理と元に戻す、プレビュー上の直接操作、プリセットの作り直し、画面比率4:5／4:3、Gemini 3.8 TTS の音声ライブラリと自作音声。" },
             { "date": "2026.09.10", "title": "v4.3 RENDER", "text": "高品質（フレーム生成）の動画書き出し。負荷によるコマ落ちと音ずれをなくしました。" },
             { "date": "2026.09.08", "title": "v4.2 TATE", "text": "字幕・吹き出しの縦書き、縦書きの帯の位置と英数字の向き、バッジ・ステッカーの縦書きと余白、表情の追加と演技素材の編集。" },
@@ -795,6 +810,7 @@
             { "icon": "🎬", "title": "動画マニュアル", "text": "全11章・機能別28本の使い方動画", "url": "../videos/" },
             { "icon": "🧩", "title": "SlideCast Bundle Builder", "text": "資料・台本・AI音声・マイク録音をまとめる使い方ガイド", "url": "../bundle-builder/" },
             { "icon": "🛠️", "title": "アップデート方法について", "text": "GASアップデート手順", "url": "../gas-update/" },
+            { "icon": "🆕", "title": "v5.0 STAGE アップデート情報", "text": "2026/10/25 公開", "url": "../updates/v50/" },
             { "icon": "🆕", "title": "v4.4 BLOOM アップデート情報", "text": "2026/9/27 公開", "url": "../updates/v44/" },
             { "icon": "🆕", "title": "v4.3 RENDER アップデート情報", "text": "2026/9/10 公開", "url": "../updates/v43/" },
             { "icon": "🆕", "title": "v4.2 TATE アップデート情報", "text": "2026/9/8 公開", "url": "../updates/v42/" },
