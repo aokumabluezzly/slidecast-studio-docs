@@ -19,11 +19,17 @@ import pathlib
 import re
 import sys
 
+from setup_page import finish_setup_html
+
 REPO = pathlib.Path(__file__).resolve().parents[2]
 BASE_URL = "https://aokumabluezzly.github.io/slidecast-studio-docs/"
 
 # /en/ 配下のページごとの、ページ固有メタ情報
 PAGE_META: dict[str, dict[str, str]] = {
+    "en/setup/": {
+        "og_title": "SlideCast Studio — Initial setup guide",
+        "og_description": "Copy the project, deploy for yourself only, and launch SlideCast Studio. Follow the screenshots and bookmark your app for next time.",
+    },
     "en/intro/": {
         "og_title": "What is SlideCast Studio?",
         "og_description": (
@@ -203,6 +209,9 @@ def finish(path: pathlib.Path) -> None:
     en_up = "../" * (rel.count("/") - 1)   # en/intro/ → ../   （/en/ のルートまで）
     html = path.read_text(encoding="utf-8")
 
+    if rel == "en/setup/":
+        html = finish_setup_html(html)
+
     # 生成テンプレートの注意書きは、公開ページには要らない
     html = re.sub(r"<!-- 自動生成:.*?-->\n?", "", html, count=1, flags=re.S)
 
@@ -270,6 +279,8 @@ def finish(path: pathlib.Path) -> None:
         flags=re.S,
     )
 
+    if rel == "en/setup/":
+        html = "\n".join(line.rstrip() for line in html.splitlines()) + "\n"
     path.write_text(html, encoding="utf-8")
     print(f"仕上げました: {path.relative_to(REPO)}")
 

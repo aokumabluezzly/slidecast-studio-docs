@@ -20,6 +20,8 @@ import pathlib
 import re
 import sys
 
+from setup_page import finish_setup_html
+
 REPO = pathlib.Path(__file__).resolve().parents[2]
 BASE_URL = "https://aokumabluezzly.github.io/slidecast-studio-docs/"
 
@@ -28,7 +30,7 @@ PAGE_META: dict[str, dict[str, object]] = {
     "setup/": {
         "og_title": "SlideCast Studio の初期設定・セットアップガイド",
         "og_description": "コピーから起動まで、動画と画面を見ながら初期設定。アクセスは自分のみ、次回は同じアカウントでブックマークから。",
-        "en": False,
+        "en": True,
     },
     "comparison/": {
         "og_title": "SlideCast Studio と Google Vids・AIエージェント・動画編集ソフトとの違い",
@@ -229,17 +231,8 @@ def finish(path: pathlib.Path) -> None:
             1,
         )
 
-    # 初期の syncState() が消す前にハッシュを保持し、新記事の直接リンクを復元する。
     if rel == "setup/":
-        html = html.replace(
-            "const chapters=[...document.querySelectorAll('.chapter')];",
-            "const chapters=[...document.querySelectorAll('.chapter')];\nconst initialHash=location.hash;",
-            1,
-        )
-        html = html.replace("const openFromHash=()=>{", "const openFromHash=(hash=location.hash)=>{", 1)
-        html = html.replace("decodeURIComponent(location.hash.slice(1))", "decodeURIComponent(hash.slice(1))", 1)
-        html = html.replace("addEventListener('hashchange',openFromHash);", "addEventListener('hashchange',()=>openFromHash());", 1)
-        html = html.replace("if(location.hash)requestAnimationFrame(openFromHash);", "if(initialHash)requestAnimationFrame(()=>openFromHash(initialHash));", 1)
+        html = finish_setup_html(html)
 
     # 生成テンプレートの注意書きは、公開ページには要らない
     html = re.sub(r"<!-- 自動生成:.*?-->\n?", "", html, count=1, flags=re.S)

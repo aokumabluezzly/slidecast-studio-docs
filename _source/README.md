@@ -18,6 +18,7 @@
 | `mouthloop-v2.spec.json` | MouthLoop v2 ガイド（`/mouthloop-v2/index.html`）の設計データ |
 | `comparison.spec.json` | 他の動画制作ツールとの比較ガイド（`/comparison/index.html`）の設計データ。note公開日 2026.09.28。本文・表紙と4枚の図・あとがきを掲載 |
 | `security.spec.json` | セキュリティガイド（`/security/index.html`）の設計データ。note公開日 2026.10.02。本文・7枚の図と編集後記を掲載 |
+| `setup.en.spec.json` | 英語版の初期設定・セットアップガイド（`/en/setup/index.html`）。日本語の実演画面は共用し、操作名・キャプションを英訳 |
 | `setup.spec.json` | 初期設定・セットアップガイド（`/setup/index.html`）。ユーザー承認済み動画からのモザイク処理済み画面8枚と動画埋め込み |
 | `gas-update.spec.json` | アップデート方法ガイド（`/gas-update/index.html`）の設計データ |
 | `videos.spec.json` | 動画マニュアル（`/videos/index.html`）の設計データ。YouTube の章別まとめ10本・機能別28本を全11章で並べる。日本語版のみ（下記） |
@@ -295,4 +296,4 @@ python3 _source/tools/externalize_images.py manual/index.html --assets assets
 
 ## 初期設定・セットアップガイド
 
-`setup.spec.json` を標準テンプレートで `setup/index.html --assets assets` に生成し、`_source/tools/finish_ja_page.py setup/index.html` で仕上げます。画像の原本は `img/setup-*.jpg` と `img/setup-hero.png`。配布フォルダの共有URL・個人用アプリURLは掲載しません。動画IDは `WEIrqU1Buww`。日本語版のみ。
+`setup.spec.json` を標準テンプレートで `setup/index.html --assets assets` に生成し、`_source/tools/finish_ja_page.py setup/index.html` で仕上げます。画像の原本は `img/setup-*.jpg` と `img/setup-hero.png`。配布フォルダの共有URL・個人用アプリURLは掲載しません。動画IDは `WEIrqU1Buww`。英語版は `setup.en.spec.json` から `python3 _source/tools/build_en.py setup` で生成します。仕上げ処理は `tools/setup_page.py` を共有し、再実行しても同じ結果になるようにしています。回帰検査は `python3 _source/tools/test_setup_page.py`。

@@ -1,0 +1,401 @@
+{
+  "title": "SlideCast Studio — Initial setup guide",
+  "subtitle": "Follow the screens, from copying the project to opening your app",
+  "description": "Copy SlideCast Studio to your Google Drive, deploy it for yourself only, and launch the app. Follow the video and screenshots, then bookmark your app for next time.",
+  "lead": "",
+  "eyebrow": "SETUP GUIDE",
+  "brand": "SlideCast ",
+  "brand_accent": "Studio",
+  "brand_badge": "Docs",
+  "author": "aokuma",
+  "date": "2026.10.26",
+  "version": "Apps Script edition",
+  "footer_meta": "SlideCast Studio Documentation · aokuma",
+  "hero_image": "./img/setup-hero-en.png",
+  "hero_alt": "SlideCast Studio — Initial setup guide",
+  "chips": [
+    "First-time setup",
+    "Video and screenshots",
+    "For your account only"
+  ],
+  "theme": {
+    "primary": "#2476D8",
+    "secondary": "#4A63C8",
+    "accent": "#14A38B",
+    "surface": "#EFF6FF",
+    "ink": "#17233F"
+  },
+  "nav_links": [
+    {
+      "href": "../",
+      "icon": "🏠",
+      "label": "HOME"
+    }
+  ],
+  "update_header": false,
+  "source_url": "https://youtu.be/WEIrqU1Buww",
+  "source_title": "Video: Setting up SlideCast Studio",
+  "source_label": "Watch on YouTube (Japanese)",
+  "source_note": "The same steps are demonstrated in a Japanese-language video, about 3 minutes 22 seconds long.",
+  "sections_label": "CONTENTS",
+  "overview": {
+    "icon": "🚀",
+    "title": "Start using the app with your own account",
+    "blocks": [
+      {
+        "type": "html",
+        "html": "<p>Copy the distributed project to your Google Drive, then make it available as an app you can open in your browser. You do not need to edit the code. The recording demonstrates the Lite distribution folder.</p>"
+      },
+      {
+        "type": "callout",
+        "title": "The demonstration uses Japanese",
+        "text": "The video and screenshots show a Japanese interface. The key labels are translated beside each step so you can follow along. The narration is in Japanese.",
+        "tone": "good"
+      },
+      {
+        "type": "cards",
+        "items": [
+          {
+            "icon": "📁",
+            "title": "Copy to your Drive",
+            "text": "Check that you own the copy before opening it."
+          },
+          {
+            "icon": "🔒",
+            "title": "Allow access only for yourself",
+            "text": "Limit access to the Google account you use to deploy the app."
+          },
+          {
+            "icon": "🔖",
+            "title": "Bookmark the app",
+            "text": "You only need to copy and deploy it during the initial setup."
+          }
+        ]
+      },
+      {
+        "type": "callout",
+        "title": "Important: set access to “Only myself”",
+        "text": "“Execute as: Me” and “Who has access: Only myself” are separate settings. Check both before deploying.",
+        "tone": "warn"
+      },
+      {
+        "type": "video",
+        "provider": "youtube",
+        "id": "WEIrqU1Buww",
+        "title": "SlideCast Studio — Initial setup demonstration (Japanese)",
+        "thumb": "./img/setup-hero-en.png",
+        "caption": "About 3:22. Copy, deploy, launch and bookmark the app. Japanese narration and interface."
+      }
+    ]
+  },
+  "sections": [
+    {
+      "id": "prepare",
+      "icon": "🧭",
+      "category": "BEFORE YOU START",
+      "title": "What you need",
+      "blocks": [
+        {
+          "type": "check_list",
+          "items": [
+            "The Google account you want to use for SlideCast Studio",
+            "The Google Drive link provided on your distribution page",
+            "A desktop browser (Chrome is used in the video)"
+          ]
+        },
+        {
+          "type": "html",
+          "html": "<p>Sign in to the Google account you want to use. If you have several accounts, keep the same account selected when you open the folder, make your copy and deploy the app.</p><p>Find the distribution link on the page for your edition. This guide does not include a direct link to the distribution folder.</p>"
+        },
+        {
+          "type": "spec_list",
+          "items": [
+            {
+              "label": "Google Drive",
+              "value": "Where you make a copy of the distributed project for your own account."
+            },
+            {
+              "label": "Apps Script",
+              "value": "Google’s service for opening the copied project and configuring its deployment."
+            },
+            {
+              "label": "Deploy",
+              "value": "The operation that creates a URL for opening the app in your browser."
+            }
+          ]
+        },
+        {
+          "type": "html",
+          "html": "<p>Already using the app and want a newer version? Follow <a href=\"../gas-update/\">How to update the Apps Script edition</a> instead.</p>"
+        }
+      ]
+    },
+    {
+      "id": "copy",
+      "icon": "📁",
+      "category": "STEP 1",
+      "title": "Copy the project and check its owner",
+      "blocks": [
+        {
+          "type": "step_list",
+          "items": [
+            {
+              "title": "Open the distribution folder",
+              "text": "Open the Google Drive link from your distribution page using the Google account you want to use."
+            },
+            {
+              "title": "Make a copy of the Apps Script project",
+              "text": "Open the project’s menu and choose “Make a copy” (コピーを作成). In the video, the project is named “SlideCast Studio Lite”."
+            }
+          ]
+        },
+        {
+          "type": "figure",
+          "image": "./img/setup-copy.jpg",
+          "alt": "The project menu in Google Drive, with Make a copy highlighted",
+          "caption": "Choose コピーを作成 (Make a copy) from the Apps Script project’s menu."
+        },
+        {
+          "type": "step_list",
+          "items": [
+            {
+              "title": "Find the copy in My Drive",
+              "text": "Look for the copied project. In the Japanese demonstration, its name ends with “のコピー” (copy)."
+            },
+            {
+              "title": "Check that the owner is you",
+              "text": "Open your own copy rather than the original project in the distribution folder."
+            }
+          ]
+        },
+        {
+          "type": "figure",
+          "image": "./img/setup-owner.jpg",
+          "alt": "The copied project in My Drive with the owner shown as yourself",
+          "caption": "マイドライブ means My Drive; 自分 in the owner column means you."
+        }
+      ]
+    },
+    {
+      "id": "deploy",
+      "icon": "⚙️",
+      "category": "STEP 2",
+      "title": "Open the web app deployment settings",
+      "blocks": [
+        {
+          "type": "step_list",
+          "items": [
+            {
+              "title": "Start a new deployment",
+              "text": "In the Apps Script editor, open “Deploy” at the top right and choose “New deployment”."
+            }
+          ]
+        },
+        {
+          "type": "figure",
+          "image": "./img/setup-new-deployment.jpg",
+          "alt": "The Apps Script Deploy menu with New deployment highlighted",
+          "caption": "デプロイ → 新しいデプロイ (Deploy → New deployment) is used for the initial setup."
+        },
+        {
+          "type": "step_list",
+          "items": [
+            {
+              "title": "Select Web app as the type",
+              "text": "Open the gear menu beside “Select type” and choose “Web app”."
+            },
+            {
+              "title": "Add an optional description",
+              "text": "You can leave the description empty. The video enters “初回デプロイ” (initial deployment) to make it easier to identify later."
+            }
+          ]
+        },
+        {
+          "type": "figure",
+          "image": "./img/setup-description.jpg",
+          "alt": "Web app settings with a description for the initial deployment",
+          "caption": "ウェブアプリ means Web app. The description is optional; next, check execution identity and access."
+        }
+      ]
+    },
+    {
+      "id": "self-only",
+      "icon": "🔒",
+      "category": "IMPORTANT",
+      "title": "Execute as “Me”; allow access for “Only myself”",
+      "blocks": [
+        {
+          "type": "html",
+          "html": "<p>There are two separate settings. Check them in this order:</p>"
+        },
+        {
+          "type": "spec_list",
+          "items": [
+            {
+              "label": "Execute as",
+              "value": "Me (自分) — the app runs as the account you use to deploy it."
+            },
+            {
+              "label": "Who has access",
+              "value": "Only myself (自分のみ) — only that account can open the app."
+            }
+          ]
+        },
+        {
+          "type": "figure",
+          "image": "./img/setup-self-only.jpg",
+          "alt": "Web app settings showing execution as Me and access limited to Only myself",
+          "caption": "次のユーザーとして実行: 自分 (Execute as: Me). アクセスできるユーザー: 自分のみ (Who has access: Only myself)."
+        },
+        {
+          "type": "callout",
+          "title": "Keep access limited to yourself",
+          "text": "Choosing “Anyone with a Google account” or “Anyone” allows access beyond your own account. For this personal setup, choose “Only myself”.",
+          "tone": "warn"
+        },
+        {
+          "type": "html",
+          "html": "<p>With “Only myself”, someone who learns your app URL cannot open it with their own Google account. Setting the execution identity to “Me” alone does not limit who can access the app, so check both settings.</p>"
+        },
+        {
+          "type": "step_list",
+          "items": [
+            {
+              "title": "Check the settings and deploy",
+              "text": "Review the description, execution identity and access setting. Click “Deploy” at the bottom right, then wait for completion."
+            }
+          ]
+        },
+        {
+          "type": "html",
+          "html": "<p>For the general Apps Script deployment procedure, see <a href=\"https://developers.google.com/apps-script/guides/web\" target=\"_blank\" rel=\"noopener noreferrer\">Google’s official guide</a>.</p>"
+        }
+      ]
+    },
+    {
+      "id": "launch",
+      "icon": "🚀",
+      "category": "STEP 3",
+      "title": "Open the web app URL",
+      "blocks": [
+        {
+          "type": "step_list",
+          "items": [
+            {
+              "title": "Open the URL under Web app",
+              "text": "Once deployment is complete, open the URL in the “Web app” section. Use the web app URL, rather than the deployment ID."
+            }
+          ]
+        },
+        {
+          "type": "figure",
+          "image": "./img/setup-app-url.jpg",
+          "alt": "The completed deployment dialog with the web app URL highlighted",
+          "caption": "Open the URL under ウェブアプリ (Web app) on the completion screen."
+        },
+        {
+          "type": "step_list",
+          "items": [
+            {
+              "title": "Check the welcome screen",
+              "text": "When “Welcome to SlideCast Studio” appears, the app has launched."
+            },
+            {
+              "title": "Read the first-use notices",
+              "text": "Read the guidance and notices on this screen before you start using the app."
+            }
+          ]
+        },
+        {
+          "type": "figure",
+          "image": "./img/setup-welcome.jpg",
+          "alt": "The SlideCast Studio welcome screen after launching the app",
+          "caption": "“SlideCast Studioへようこそ” means “Welcome to SlideCast Studio”."
+        }
+      ]
+    },
+    {
+      "id": "bookmark",
+      "icon": "🔖",
+      "category": "NEXT TIME",
+      "title": "Bookmark the app page",
+      "blocks": [
+        {
+          "type": "html",
+          "html": "<p>Use the star in your browser to bookmark the app page. Save the page where <strong>SlideCast Studio is running</strong>, rather than the distribution folder or the Apps Script editor.</p>"
+        },
+        {
+          "type": "figure",
+          "image": "./img/setup-bookmark.jpg",
+          "alt": "The app page with an arrow pointing to the bookmark star",
+          "caption": "Save the app page so you can open it easily next time."
+        },
+        {
+          "type": "table",
+          "head": [
+            "When",
+            "What to do"
+          ],
+          "rows": [
+            [
+              "First time",
+              "Copy the project → deploy for yourself only → open the app"
+            ],
+            [
+              "Next time",
+              "Sign in with the same Google account → open your bookmark"
+            ]
+          ]
+        },
+        {
+          "type": "callout",
+          "title": "You do not need to copy and deploy every time",
+          "text": "Next time, sign in with the same Google account you used for deployment and open the bookmark.",
+          "tone": "good"
+        },
+        {
+          "type": "faq",
+          "items": [
+            {
+              "q": "What if the bookmark does not open the app?",
+              "a": "Check that you are signed in with the account used for deployment. An app limited to “Only myself” cannot be opened with a different account. Also check that the bookmark points to the running app, rather than the Apps Script editor or the distribution folder."
+            },
+            {
+              "q": "Do I start by making another copy when updating?",
+              "a": "Updating is a separate procedure. “How to update the Apps Script edition” explains how to update while keeping your existing URL."
+            }
+          ]
+        },
+        {
+          "type": "link_cards",
+          "items": [
+            {
+              "icon": "🎬",
+              "title": "Video manual (Japanese)",
+              "text": "See the app’s features in action after setup.",
+              "url": "../../videos/"
+            },
+            {
+              "icon": "🔄",
+              "title": "How to update",
+              "text": "Update an app you already use on Apps Script.",
+              "url": "../gas-update/"
+            },
+            {
+              "icon": "📘",
+              "title": "Official manual",
+              "text": "Look up the details of each feature.",
+              "url": "../manual/"
+            },
+            {
+              "icon": "🛡️",
+              "title": "Security guide (Japanese)",
+              "text": "Read about projects, API keys and usage costs.",
+              "url": "../../security/"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
