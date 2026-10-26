@@ -18,6 +18,7 @@
 | `mouthloop-v2.spec.json` | MouthLoop v2 ガイド（`/mouthloop-v2/index.html`）の設計データ |
 | `comparison.spec.json` | 他の動画制作ツールとの比較ガイド（`/comparison/index.html`）の設計データ。note公開日 2026.09.28。本文・表紙と4枚の図・あとがきを掲載 |
 | `security.spec.json` | セキュリティガイド（`/security/index.html`）の設計データ。note公開日 2026.10.02。本文・7枚の図と編集後記を掲載 |
+| `setup.spec.json` | 初期設定・セットアップガイド（`/setup/index.html`）。ユーザー承認済み動画からのモザイク処理済み画面8枚と動画埋め込み |
 | `gas-update.spec.json` | アップデート方法ガイド（`/gas-update/index.html`）の設計データ |
 | `videos.spec.json` | 動画マニュアル（`/videos/index.html`）の設計データ。YouTube の章別まとめ10本・機能別28本を全11章で並べる。日本語版のみ（下記） |
 | `manual.spec.json` | 公式マニュアル（`/manual/index.html`）の設計データ。v33 / v34 と同じく既存の日本語ページから起こしたもので、日本語ページの再生成には**使っていません**（下記） |
@@ -291,3 +292,7 @@ python3 _source/tools/externalize_images.py manual/index.html --assets assets
 ## 再生成で変わってしまうページ（2026-10-05 確認）
 
 `comparison/`・`updates/v40/`・`updates/v41/` は spec から作り直すと、内容以外の差分が出ます（v40 は手で調整した OGP 画像・説明文が既定値に戻る。comparison と v41 は空白のみ）。フッターなどの小さな変更は HTML を直接編集してください。
+
+## 初期設定・セットアップガイド
+
+`setup.spec.json` を標準テンプレートで `setup/index.html --assets assets` に生成し、`_source/tools/finish_ja_page.py setup/index.html` で仕上げます。画像の原本は `img/setup-*.jpg` と `img/setup-hero.png`。配布フォルダの共有URL・個人用アプリURLは掲載しません。動画IDは `WEIrqU1Buww`。日本語版のみ。

@@ -25,6 +25,11 @@ BASE_URL = "https://aokumabluezzly.github.io/slidecast-studio-docs/"
 
 # ページごとの、ページ固有メタ情報。`en` は英語版があるかどうか（hreflang に効く）
 PAGE_META: dict[str, dict[str, object]] = {
+    "setup/": {
+        "og_title": "SlideCast Studio の初期設定・セットアップガイド",
+        "og_description": "コピーから起動まで、動画と画面を見ながら初期設定。アクセスは自分のみ、次回は同じアカウントでブックマークから。",
+        "en": False,
+    },
     "comparison/": {
         "og_title": "SlideCast Studio と Google Vids・AIエージェント・動画編集ソフトとの違い",
         "og_description": "素材づくり・自由度・操作・費用・学習の面から動画づくりの選択肢を比較し、向いている人を整理します。",
@@ -215,6 +220,27 @@ def finish(path: pathlib.Path) -> None:
             1,
         )
 
+    if rel == "setup/":
+        html = html.replace(
+            "<h1>SlideCast Studio の初期設定・セットアップガイド</h1>",
+            '<h1><span style="display:inline-block">SlideCast Studio</span> '
+            '<span style="display:inline-block">の初期設定・</span>'
+            '<span style="display:inline-block">セットアップガイド</span></h1>',
+            1,
+        )
+
+    # 初期の syncState() が消す前にハッシュを保持し、新記事の直接リンクを復元する。
+    if rel == "setup/":
+        html = html.replace(
+            "const chapters=[...document.querySelectorAll('.chapter')];",
+            "const chapters=[...document.querySelectorAll('.chapter')];\nconst initialHash=location.hash;",
+            1,
+        )
+        html = html.replace("const openFromHash=()=>{", "const openFromHash=(hash=location.hash)=>{", 1)
+        html = html.replace("decodeURIComponent(location.hash.slice(1))", "decodeURIComponent(hash.slice(1))", 1)
+        html = html.replace("addEventListener('hashchange',openFromHash);", "addEventListener('hashchange',()=>openFromHash());", 1)
+        html = html.replace("if(location.hash)requestAnimationFrame(openFromHash);", "if(initialHash)requestAnimationFrame(()=>openFromHash(initialHash));", 1)
+
     # 生成テンプレートの注意書きは、公開ページには要らない
     html = re.sub(r"<!-- 自動生成:.*?-->\n?", "", html, count=1, flags=re.S)
 
@@ -289,7 +315,7 @@ def finish(path: pathlib.Path) -> None:
         flags=re.S,
     )
 
-    if rel == "security/":
+    if rel in {"security/", "setup/"}:
         html = "\n".join(line.rstrip() for line in html.splitlines()) + "\n"
     path.write_text(html, encoding="utf-8")
     print(f"仕上げました: {path.relative_to(REPO)}")
