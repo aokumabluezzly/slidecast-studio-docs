@@ -1,15 +1,15 @@
 {
   "title": "SlideCast Studio — turn a slide deck into a narrated, subtitled video, right in your browser",
   "subtitle": "Load a PDF or a set of images and get back a video with narration, subtitles and an animated character. No install, no video editor.",
-  "description": "English overview of SlideCast Studio v5.0 STAGE — a one-time-purchase, browser-only tool that builds narrated, subtitled videos from your slides and AI voice.",
+  "description": "English overview of SlideCast Studio v5.5 SPOTLIGHT — a one-time-purchase, browser-only tool that builds narrated, subtitled videos from your slides and AI voice.",
   "lead": "",
   "eyebrow": "PRODUCT GUIDE",
   "brand": "SlideCast ",
   "brand_accent": "Studio",
-  "brand_badge": "v5.0",
+  "brand_badge": "v5.5",
   "author": "aokuma",
-  "date": "2026.10.25",
-  "version": "v5.0 STAGE",
+  "date": "2026.11.02",
+  "version": "v5.5 SPOTLIGHT",
   "footer_meta": "SlideCast Studio Documentation · aokuma",
   "theme": {
     "primary": "#2f74ee",
@@ -73,6 +73,7 @@
         "type": "notice",
         "title": "🛠️ Recent news",
         "items": [
+          "2026/11/2: Updated to v5.5 “SPOTLIGHT” (preview to settings, a new editor layout, wider emphasis, tilted stickers).",
           "2026/10/25: Updated to v5.0 “STAGE” (screen layouts, Start from a use, 32 caption designs, emphasis and karaoke captions).",
           "2026/9/27: Updated to v4.4 “BLOOM” (redesigned settings, presets, 4:5 / 4:3 aspect ratios and Gemini 3.8 TTS).",
           "2026/9/10: The official manual was updated (pointers to what v4.0–v4.3 added, plus the export method and frame rate).",
@@ -148,9 +149,9 @@
         "text": "Subtitles, backgrounds, characters, BGM, captions and transitions are all tunable at a level that satisfies people who fuss."
       },
       {
-        "icon": "🎬",
-        "title": "The point of v5.0",
-        "text": "Choose how captions and characters appear from 23 layouts, plus Start from a use, 32 caption designs, and emphasis and karaoke captions."
+        "icon": "🔦",
+        "title": "The point of v5.5",
+        "text": "Click what you want to change in the preview to jump to its setting, plus a new editor layout, inline emphasis and tilted stickers."
       },
       {
         "icon": "⚠️",
@@ -199,7 +200,7 @@
         {
           "type": "heading",
           "level": 3,
-          "text": "✨ Main features (as of v5.0)"
+          "text": "✨ Main features (as of v5.5)"
         },
         {
           "type": "soft_cards",
@@ -393,19 +394,59 @@
     {
       "icon": "🎭",
       "category": "WHAT'S NEW",
-      "title": "❸ From v3.0 to v5.0 — highlights by version",
+      "title": "❸ From v3.0 to v5.5 — highlights by version",
       "intro": "Updates keep coming after the one-time purchase. Here is what has been added so far.",
       "blocks": [
         {
           "type": "figure",
-          "image": "./img/v50-hero-en.jpg",
-          "alt": "Key art for SlideCast Studio v5.0 STAGE",
-          "caption": "The current version, v5.0 “STAGE”: screen layouts and more expressive captions"
+          "image": "./img/v55-hero-en.jpg",
+          "alt": "Key art for SlideCast Studio v5.5 SPOTLIGHT",
+          "caption": "The current version, v5.5 “SPOTLIGHT”: click it, and go to its setting"
         },
         {
           "type": "tabs",
           "label": "Highlights by version",
           "items": [
+            {
+              "label": "v5.5 SPOTLIGHT",
+              "blocks": [
+                {
+                  "type": "html",
+                  "html": "<p>This version lets you <strong>click what you want to change in the preview to jump to its setting</strong>, and redesigns the editor around a <strong>left-hand icon rail</strong>. It also adds inline emphasis with presets and tilted stickers.</p>"
+                },
+                {
+                  "type": "figure",
+                  "image": "./img/v55-04.png",
+                  "alt": "The Adjust this menu after clicking the caption in the preview, with rows and buttons for individual items (Japanese UI)",
+                  "caption": "Click a caption in the preview to open the Adjust this menu"
+                },
+                {
+                  "type": "soft_cards",
+                  "items": [
+                    {
+                      "icon": "🎯",
+                      "title": "Preview to settings",
+                      "text": "Click what you want to change and jump to its setting."
+                    },
+                    {
+                      "icon": "🗂️",
+                      "title": "This slide and Project",
+                      "text": "Per-slide adjustments and project-wide settings, shown apart."
+                    },
+                    {
+                      "icon": "🖍️",
+                      "title": "Wider emphasis",
+                      "text": "Adjust on the spot, save presets, and emphasize sticker and ticker text."
+                    }
+                  ]
+                },
+                {
+                  "type": "link",
+                  "url": "../updates/v55/",
+                  "label": "Read the v5.5 release notes"
+                }
+              ]
+            },
             {
               "label": "v5.0 STAGE",
               "blocks": [
@@ -1419,6 +1460,11 @@
           "type": "timeline",
           "items": [
             {
+              "date": "2026.11.02",
+              "title": "v5.5 SPOTLIGHT",
+              "text": "Click the preview to jump to a setting, a new editor layout with a left-hand icon rail, This slide vs. Project, inline emphasis with presets, emphasis on sticker, badge and ticker text, and tilted stickers and badges."
+            },
+            {
               "date": "2026.10.25",
               "title": "v5.0 STAGE",
               "text": "23 layouts for captions and characters, Start from a use, 32 caption designs and name badges, emphasis and karaoke captions, many more effects, and settings search."
@@ -1542,6 +1588,12 @@
         {
           "type": "link_cards",
           "items": [
+            {
+              "icon": "🆕",
+              "title": "v5.5 SPOTLIGHT release notes",
+              "text": "Preview to settings, a new editor layout, wider emphasis, tilted stickers",
+              "url": "../updates/v55/"
+            },
             {
               "icon": "🆕",
               "title": "v5.0 STAGE release notes",

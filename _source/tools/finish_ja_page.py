@@ -56,6 +56,15 @@ PAGE_META: dict[str, dict[str, object]] = {
         "twitter_description": "資料とAI音声から、伝わるスライド動画をブラウザだけで作る。",
         "en": True,
     },
+    "updates/v55/": {
+        "og_title": "SlideCast Studio v5.5「SPOTLIGHT」",
+        "og_description": (
+            "プレビューで変えたい所を押すとその設定へ移れるように。画面配置の一新、「この1枚」と「全体設定」、"
+            "強調のその場調整とプリセット登録、ステッカー・バッジ・テロップの文字の強調、傾きに対応したv5.5の更新内容。"
+        ),
+        "twitter_description": "押した所から、その設定へ。プレビューから設定へ移れるv5.5アップデート。",
+        "en": True,
+    },
     "updates/v50/": {
         "og_title": "SlideCast Studio v5.0「STAGE」",
         "og_description": (

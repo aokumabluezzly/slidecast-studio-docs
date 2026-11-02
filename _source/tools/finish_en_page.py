@@ -100,6 +100,13 @@ PAGE_META: dict[str, dict[str, str]] = {
             "effects, sound effects, snapping, reusable libraries, mosaic and blur."
         ),
     },
+    "en/updates/v55/": {
+        "og_title": "SlideCast Studio v5.5 “SPOTLIGHT”",
+        "og_description": (
+            "Click what you want to change in the preview to jump to its setting, a redesigned editor layout, "
+            "“This slide” vs. “Global settings”, inline emphasis with presets, emphasis on sticker text, and tilted stickers."
+        ),
+    },
     "en/updates/v50/": {
         "og_title": "SlideCast Studio v5.0 “STAGE”",
         "og_description": (

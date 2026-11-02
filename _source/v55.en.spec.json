@@ -1,0 +1,420 @@
+{
+  "title": "SlideCast Studio v5.5 “SPOTLIGHT”",
+  "subtitle": "Update — preview to settings, a new editor layout, wider emphasis, tilted stickers",
+  "description": "SlideCast Studio v5.5 SPOTLIGHT lets you click what you want to change in the preview to jump to its setting, redesigns the editor around a left-hand icon rail, separates “This slide” from project-wide settings, adds inline emphasis with presets, emphasis on sticker, badge and ticker text, and tilted stickers and badges.",
+  "lead": "",
+  "eyebrow": "SLIDECAST STUDIO · UPDATE",
+  "brand": "SlideCast ",
+  "brand_accent": "Studio",
+  "brand_badge": "v5.5",
+  "author": "aokuma",
+  "date": "2026.11.02",
+  "version": "v5.5 SPOTLIGHT",
+  "footer_meta": "SlideCast Studio documentation · aokuma",
+  "hero_image": "./img/v55-hero-en.jpg",
+  "hero_alt": "SlideCast Studio v5.5 SPOTLIGHT — Click it, and go to its setting.",
+  "chips": [
+    "🎯 Preview to settings",
+    "🖍️ Wider emphasis",
+    "↪️ Tilted stickers"
+  ],
+  "stats": [
+    {"icon": "🎯", "value": "8", "label": "Kinds of things you can click in the preview"},
+    {"icon": "🖍️", "value": "No limit", "label": "Emphasis styles (previously up to 6)"},
+    {"icon": "📐", "value": "±45°", "label": "Sticker and badge tilt"},
+    {"icon": "🚀", "value": "v5.5", "label": "SPOTLIGHT"}
+  ],
+  "theme": {
+    "primary": "#5b62f0",
+    "secondary": "#18a8ce",
+    "accent": "#e0609f",
+    "surface": "#f1f3ff",
+    "ink": "#161c36"
+  },
+  "nav_links": [
+    {"href": "../../", "icon": "🏠", "label": "HOME"},
+    {"href": "../../manual/", "icon": "📘", "label": "Official manual"}
+  ],
+  "source_url": "https://note.com/bluezzly/n/n1c22c269767c",
+  "source_label": "Read the original on note",
+  "source_title": "📝 Original article and updates",
+  "source_note": "See the note article for later additions and comments.",
+  "update_header": false,
+  "sections_label": "UPDATE INDEX",
+  "overview": {
+    "icon": "👋",
+    "title": "Introduction and overview",
+    "blocks": [
+      {
+        "type": "callout",
+        "tone": "info",
+        "title": "🌐 About the screenshots",
+        "text": "The interface screenshots on this page use the Japanese edition. The captions explain the relevant controls, and key labels are given in English. In the English edition, the left-hand rail reads Slides, Script, This slide and Project."
+      },
+      {
+        "type": "html",
+        "html": "<p>SlideCast Studio is now at <strong>v5.5 “SPOTLIGHT”</strong>.</p><p>v5.0 “STAGE” let you start from <strong>what stage to show your video on</strong>, with screen layouts, guided project setup and 32 caption designs.</p><p>That also meant more settings. You may have found yourself thinking, “I want to change this caption in the preview, but which tab was it on?” So this update centers on <strong>going straight from what you are looking at to its setting</strong>.</p>"
+      },
+      {
+        "type": "link",
+        "url": "../../intro/",
+        "label": "New to SlideCast Studio? Start here"
+      },
+      {
+        "type": "cards",
+        "items": [
+          {"icon": "🎯", "title": "Preview to settings", "text": "Click what you want to change and jump to its setting"},
+          {"icon": "🗂️", "title": "New editor layout", "text": "Switch between Slides, Script, This slide and Project from the left-hand rail"},
+          {"icon": "🖍️", "title": "Wider emphasis", "text": "Adjust it on the spot and save presets. Now on sticker and ticker text too"},
+          {"icon": "↪️", "title": "Tilted stickers", "text": "Tilt stickers and badges, or turn them with a rotation handle"}
+        ]
+      },
+      {
+        "type": "check_list",
+        "items": [
+          "Click what you want to change in the preview to jump to that setting",
+          "A redesigned editor: switch between Slides, Script, This slide and Project from the icon rail on the left",
+          "Per-slide adjustments live in This slide, project-wide ones in Project, so you can see what each change affects",
+          "Adjust emphasized text on the spot and save a look you like as a preset. The limit on emphasis styles is gone",
+          "Emphasis now works on sticker, badge and ticker text",
+          "Stickers and badges can be tilted, including with a rotation handle on the preview"
+        ]
+      }
+    ]
+  },
+  "sections": [
+    {
+      "icon": "🧭",
+      "category": "START HERE",
+      "title": "If you used v5.0 or earlier: the layout has changed",
+      "intro": "Buttons may not be where you expect, so here is a summary first.",
+      "blocks": [
+        {
+          "type": "html",
+          "html": "<p>The biggest change in this release is the <strong>layout of the editor</strong>.</p>"
+        },
+        {
+          "type": "figure",
+          "image": "./img/v55-01.png",
+          "alt": "The new editor: a vertical icon rail on the left, the preview in the middle and a playback bar under the preview",
+          "caption": "The new editor as a whole (Japanese UI)"
+        },
+        {
+          "type": "check_list",
+          "items": [
+            "The script and timeline panel at the bottom is gone. Open the script in the sidebar from Script (台本) on the left-hand rail. The script is what you see first when you open the editor",
+            "Show or hide the timeline under the preview with the clock button (Timeline) at the top left of the preview. Drag the handle between them to change its height",
+            "Slide, character, sticker and auto-acting adjustments moved from the bottom panel to This slide (この1枚) on the left",
+            "The settings and help buttons and the display language moved from the top header to the left-hand rail. The language button switches between Japanese and English each time you click it",
+            "Clicking the preview no longer plays or pauses. Use the button in the playback bar under the preview. The bar also has previous / next slide buttons and a “Slide n / N” indicator",
+            "The settings search box introduced in v5.0 has been removed. Use “click the preview to go to the setting”, described in the next section, instead"
+          ]
+        },
+        {
+          "type": "figure",
+          "image": "./img/v55-02.png",
+          "alt": "The timeline shown under the preview after clicking the clock button at the top left of the preview",
+          "caption": "The timeline shown under the preview with the clock button"
+        },
+        {
+          "type": "callout",
+          "tone": "info",
+          "title": "🔎 Can’t find a setting?",
+          "text": "Start by clicking the part of the preview you want to change."
+        }
+      ]
+    },
+    {
+      "icon": "🎯",
+      "category": "PREVIEW TO SETTINGS",
+      "title": "❶ Click what you want to change in the preview to go to its setting",
+      "intro": "Find your way from what is in front of you, without hunting for setting names.",
+      "blocks": [
+        {
+          "type": "html",
+          "html": "<p>Hover over the paused preview and the frontmost item (caption, character, name badge, sticker, badge, ticker, slide image or background) is outlined with a <strong>dashed frame and a name tag</strong>.</p>"
+        },
+        {
+          "type": "figure",
+          "image": "./img/v55-03.png",
+          "alt": "Hovering over the caption in the preview: the caption is outlined with a dashed frame and a “字幕” (Caption) name tag",
+          "caption": "Hovering over the caption shows a dashed frame and a name tag (字幕 = Caption)"
+        },
+        {
+          "type": "html",
+          "html": "<p>Click it, and an <strong>Adjust this</strong> (ここを調整する) menu opens next to where you clicked.</p>"
+        },
+        {
+          "type": "figure",
+          "image": "./img/v55-04.png",
+          "alt": "The Adjust this menu after clicking the caption, with rows for how the caption looks and how it appears, and buttons for individual items under each row",
+          "caption": "The Adjust this (ここを調整する) menu for a caption"
+        },
+        {
+          "type": "check_list",
+          "items": [
+            "The menu lists what you can change about that item (for a caption, for example, how it looks and how it appears)",
+            "Under each row are buttons that go straight to the items inside: for a caption, design, font, text color, outline, band / speech bubble, size / spacing, how it appears, karaoke, and more",
+            "Clicking one opens that spot in This slide or Project, and the item you land on flashes so you can see it",
+            "Click a character to go to its image, motion, look, caption / speech bubble or name. Click a sticker to go, with that sticker selected, to its content / text, shape / placement, style, timing / motion or sound effect",
+            "Close the menu by clicking outside it or pressing Esc. Clicking something else while it is open switches to that item’s menu"
+          ]
+        },
+        {
+          "type": "figure",
+          "image": "./img/v55-05.png",
+          "alt": "After clicking Outline (縁取り) in the menu, the caption design editor opens on its outline tab in the project settings",
+          "caption": "Clicking Outline (縁取り) opens the caption design editor on the outline tab"
+        },
+        {
+          "type": "html",
+          "html": "<p>Background music does not appear on screen, so you reach its setting from the <strong>music note at the top left of the preview</strong>.</p>"
+        },
+        {
+          "type": "callout",
+          "tone": "info",
+          "title": "💡 When the guide appears",
+          "text": "The guide does not appear while This slide or Project is open, so it never gets in the way of adjusting or dragging. It works while the slide list or script is showing, or with the sidebar closed."
+        },
+        {
+          "type": "html",
+          "html": "<p>“I don’t know what the setting is called, but <strong>I want to change this caption’s outline</strong>.” In moments like that, you can follow what is in front of you instead of searching for a name.</p>"
+        }
+      ]
+    },
+    {
+      "icon": "🗂️",
+      "category": "THIS SLIDE AND PROJECT",
+      "title": "❷ This slide and Project show what each change affects",
+      "intro": "Per-slide adjustments and project-wide settings are now separate.",
+      "blocks": [
+        {
+          "type": "html",
+          "html": "<p>From top to bottom, the left-hand rail has <strong>Slides</strong> (スライド), <strong>Script</strong> (台本), <strong>This slide</strong> (この1枚) and <strong>Project</strong> (全体設定). Click the one that is open again to close the sidebar.</p>"
+        },
+        {
+          "type": "figure",
+          "image": "./img/v55-06.png",
+          "alt": "The sidebar with This slide open; the band at the top says other slides stay the same",
+          "caption": "The band at the top of This slide (この1枚)"
+        },
+        {
+          "type": "figure",
+          "image": "./img/v55-07.png",
+          "alt": "The sidebar with Project open; the band at the top says the settings apply to every slide",
+          "caption": "The band at the top of Project (全体設定)"
+        },
+        {
+          "type": "soft_cards",
+          "items": [
+            {"icon": "🖼️", "title": "This slide", "text": "Adjustments for that slide only. Tabs for still-image display (video playback on video slides), character placement, stickers and auto acting"},
+            {"icon": "🌐", "title": "Project", "text": "Settings that apply to every slide"}
+          ]
+        },
+        {
+          "type": "html",
+          "html": "<p>Above This slide and Script you can <strong>move to the previous or next slide</strong>, or jump to any slide by number. Go through the slides in order and polish them one at a time. You can still use the ← → keys on the keyboard as before.</p>"
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "Open This slide from the slide list"
+        },
+        {
+          "type": "html",
+          "html": "<p>Click a marker on a slide-list thumbnail (it shows the slide has its own settings) to open the matching tab in This slide. There is now also a marker for the number of stickers.</p>"
+        },
+        {
+          "type": "figure",
+          "image": "./img/v55-08.png",
+          "alt": "A slide-list thumbnail with a marker showing the number of stickers",
+          "caption": "The sticker-count marker in the slide list"
+        },
+        {
+          "type": "html",
+          "html": "<p>When you widen the list, the markers sit to the right of the card instead of over the thumbnail.</p>"
+        }
+      ]
+    },
+    {
+      "icon": "🖍️",
+      "category": "EMPHASIS",
+      "title": "❸ Adjust emphasis on the spot and save it as a preset",
+      "intro": "Emphasis, added in v5.0 to change the look of chosen words in captions, now goes further.",
+      "blocks": [
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "Adjust on the spot and save"
+        },
+        {
+          "type": "html",
+          "html": "<p>Select words in a line’s displayed caption in the script and click Emphasis: the list now has <strong>Customize here…</strong> (その場で調整…).</p>"
+        },
+        {
+          "type": "figure",
+          "image": "./img/v55-09.png",
+          "alt": "Customize here… opened for words selected in the script, changing the emphasis color and weight",
+          "caption": "Changing the emphasis look with Customize here… (その場で調整…)"
+        },
+        {
+          "type": "check_list",
+          "items": [
+            "Change the look of just the selected part: color, weight, italic, size, outline, shadow and marker",
+            "While you adjust, the selection stays visible in the preview, and hovering over a color or weight previews it",
+            "Give a look you like a name and choose Save as preset (プリセットとして登録). It joins the list of emphasis styles so you can use it elsewhere"
+          ]
+        },
+        {
+          "type": "html",
+          "html": "<p>The previous limit of six emphasis styles is gone. You can now create <strong>as many as you like</strong>.</p>"
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "Emphasis on sticker, badge and ticker text"
+        },
+        {
+          "type": "html",
+          "html": "<p>Select text in a <strong>sticker, badge or ticker</strong> to use the same Emphasis list and Customize here… as in the script.</p>"
+        },
+        {
+          "type": "figure",
+          "image": "./img/v55-10.png",
+          "alt": "A preview where only part of a sticker’s text is emphasized",
+          "caption": "Part of a sticker’s text emphasized in the preview"
+        },
+        {
+          "type": "check_list",
+          "items": [
+            "Emphasis styles are shared with captions, so you can make “just this part stand out” with the same look as your captions",
+            "Saving a sticker, badge or ticker to the library also saves its emphasis, so it looks the same when you bring it into another project"
+          ]
+        },
+        {
+          "type": "html",
+          "html": "<p>Emphasis with a different font no longer looks shifted up or down, and the extra width of outlines, shadows and italics no longer makes it run into neighboring characters.</p>"
+        }
+      ]
+    },
+    {
+      "icon": "↪️",
+      "category": "TILT",
+      "title": "❹ Tilt stickers and badges",
+      "intro": "Give things a slightly casual look, like a handwritten note stuck on the slide.",
+      "blocks": [
+        {
+          "type": "html",
+          "html": "<p>Stickers and badges now have a <strong>Tilt</strong> (傾き) setting.</p>"
+        },
+        {
+          "type": "figure",
+          "image": "./img/v55-11.png",
+          "alt": "A tilted sticker in the preview, the rotation handle below its frame, and the tilt setting in the settings panel",
+          "caption": "A tilted sticker with its rotation handle and the Tilt (傾き) setting"
+        },
+        {
+          "type": "check_list",
+          "items": [
+            "In the settings, choose None, Slight or Strong (なし・少し・大きく), or set up to ±45° with Custom (個別). When tilted, you can also choose Rising or Falling (右上がり・右下がり)",
+            "When you select it in the preview, a rotation handle appears below its frame. Drag it to tilt around the center of the frame",
+            "It snaps near 0°, ±6° and ±12°. Hold Shift for 15° steps, or Option (Alt) to turn snapping off",
+            "The angle is shown while you rotate, and the Tilt setting updates when you let go. A single Undo puts it back",
+            "Tilted items are kept inside the screen so they are not cut off at the edges",
+            "Tilt is saved to the library too"
+          ]
+        }
+      ]
+    },
+    {
+      "icon": "🔧",
+      "category": "IMPROVEMENTS AND FIXES",
+      "title": "❺ Other improvements and fixes",
+      "intro": "Smaller usability improvements and bug fixes.",
+      "blocks": [
+        {
+          "type": "check_list",
+          "items": [
+            "While you hover over a screen layout button, the preview now looks exactly as it will right after you click it",
+            "Hovering over an auto-acting expression or gesture makes the character in the preview act it out",
+            "Name badge settings now have their own section under the caption design on the Caption tab. Turn them on or off from the heading and choose characters right there",
+            "Name badges now appear and disappear together with the icon, and the text shrinks to fit the width",
+            "Touching anything in Placement (キャラ配置) now creates an adjustment for that slide only",
+            "The dashboard has a refreshed design with a new logo before the title, and the display language is now a button that switches each time you click it",
+            "Fixed captions appearing slightly before the audio in the preview of video slides",
+            "Fixed the slide looking enlarged in the preview on some tabs while settings were open and playback was stopped",
+            "Fixed slide animations running during hover previews, vertical-text wipes appearing in front of the caption band, and arrow keys on a slider switching slides",
+            "New stickers now start with a white background and black text"
+          ]
+        }
+      ]
+    },
+    {
+      "icon": "📌",
+      "category": "NOTES",
+      "title": "Before you update",
+      "intro": "Please check the following before updating.",
+      "blocks": [
+        {
+          "type": "check_list",
+          "items": [
+            "Existing projects open as they are. The saved data format has not changed since v5.0",
+            "You can go back to v5.0, but settings added in v5.5 (emphasis on stickers, badges and tickers, tilt, and so on) are not available there, so things may look different. Make a backup before updating, just in case",
+            "The settings search box and Timing adjustment mode have been removed (see “the layout has changed” above)"
+          ]
+        }
+      ]
+    },
+    {
+      "icon": "⬆️",
+      "category": "HOW TO UPDATE",
+      "title": "Updating to v5.5",
+      "intro": "If you have already bought SlideCast Studio, copy v5.5 from the same shared link in the paid note article.",
+      "blocks": [
+        {
+          "type": "callout",
+          "tone": "good",
+          "title": "💾 Make a backup first",
+          "text": "If you want to keep your existing projects, library and settings, create a backup from “バックアップ” (Backup) on the dashboard before you update."
+        },
+        {
+          "type": "html",
+          "html": "<p>To update the Apps Script edition in place and keep your data, the files to replace since v5.0 are <strong>“AppBundle.html”, “無題.html” and the three files beginning with “GasAsset_”</strong> in the v5.5 distribution folder (the parts used for PDF and PPTX export were updated too). Copy them into your existing Apps Script project and redeploy the existing deployment as a new version. (code.gs is unchanged in this release.)</p>"
+        },
+        {
+          "type": "link",
+          "url": "../../gas-update/",
+          "label": "Detailed update steps for the Apps Script edition"
+        },
+        {
+          "type": "html",
+          "html": "<p>For the local HTML edition, download “SlideCast Studio v5.5〖ローカル版〗.html” and open it. A new Apps Script project or a different browser will not show your previous data automatically; restore it from a backup in that case.</p>"
+        }
+      ]
+    },
+    {
+      "icon": "🔦",
+      "category": "SUMMARY",
+      "title": "Reach the part you want to change, right away",
+      "intro": "Even without remembering setting names, you can find your way from the preview in front of you.",
+      "blocks": [
+        {
+          "type": "html",
+          "html": "<p>v5.0 “STAGE” put the whole stage for captions and characters in place.</p><p>v5.5 “SPOTLIGHT” makes it so that, on that stage, <strong>whatever you want to change is right at hand</strong>. Click the preview to go to the setting. One slide? Use This slide. Everything? Use Project. And emphasis now reaches beyond captions to sticker and ticker text.</p><p>The layout has changed a lot, so start by clicking around the preview. If you find a problem or something unclear, please let me know in the comments on note.</p>"
+        },
+        {
+          "type": "link",
+          "url": "https://www.youtube.com/channel/UC2lO3ixD4ICI9VgRSxidRbQ",
+          "label": "SlideCast Studio on YouTube"
+        },
+        {
+          "type": "cta",
+          "title": "Read the original on note",
+          "text": "The original Japanese article, later additions and comments are on note.",
+          "url": "https://note.com/bluezzly/n/n1c22c269767c",
+          "label": "Read the original on note"
+        }
+      ]
+    }
+  ]
+}
