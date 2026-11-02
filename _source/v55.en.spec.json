@@ -19,10 +19,26 @@
     "↪️ Tilted stickers"
   ],
   "stats": [
-    {"icon": "🎯", "value": "8", "label": "Kinds of things you can click in the preview"},
-    {"icon": "🖍️", "value": "No limit", "label": "Emphasis styles (previously up to 6)"},
-    {"icon": "📐", "value": "±45°", "label": "Sticker and badge tilt"},
-    {"icon": "🚀", "value": "v5.5", "label": "SPOTLIGHT"}
+    {
+      "icon": "🎯",
+      "value": "8",
+      "label": "Kinds of things you can click in the preview"
+    },
+    {
+      "icon": "🖍️",
+      "value": "No limit",
+      "label": "Emphasis styles (previously up to 6)"
+    },
+    {
+      "icon": "📐",
+      "value": "±45°",
+      "label": "Sticker and badge tilt"
+    },
+    {
+      "icon": "🚀",
+      "value": "v5.5",
+      "label": "SPOTLIGHT"
+    }
   ],
   "theme": {
     "primary": "#5b62f0",
@@ -32,8 +48,16 @@
     "ink": "#161c36"
   },
   "nav_links": [
-    {"href": "../../", "icon": "🏠", "label": "HOME"},
-    {"href": "../../manual/", "icon": "📘", "label": "Official manual"}
+    {
+      "href": "../../",
+      "icon": "🏠",
+      "label": "HOME"
+    },
+    {
+      "href": "../../manual/",
+      "icon": "📘",
+      "label": "Official manual"
+    }
   ],
   "source_url": "https://note.com/bluezzly/n/n1c22c269767c",
   "source_label": "Read the original on note",
@@ -61,12 +85,36 @@
         "label": "New to SlideCast Studio? Start here"
       },
       {
+        "type": "video",
+        "provider": "youtube",
+        "id": "mp1HAcW21Qk",
+        "title": "🎬 v5.5 “SPOTLIGHT” in one minute",
+        "thumb": "./img/v55-video.jpg",
+        "caption": "A one-minute digest of v5.5 (YouTube, Japanese narration with Japanese captions). Click to play it here."
+      },
+      {
         "type": "cards",
         "items": [
-          {"icon": "🎯", "title": "Preview to settings", "text": "Click what you want to change and jump to its setting"},
-          {"icon": "🗂️", "title": "New editor layout", "text": "Switch between Slides, Script, This slide and Project from the left-hand rail"},
-          {"icon": "🖍️", "title": "Wider emphasis", "text": "Adjust it on the spot and save presets. Now on sticker and ticker text too"},
-          {"icon": "↪️", "title": "Tilted stickers", "text": "Tilt stickers and badges, or turn them with a rotation handle"}
+          {
+            "icon": "🎯",
+            "title": "Preview to settings",
+            "text": "Click what you want to change and jump to its setting"
+          },
+          {
+            "icon": "🗂️",
+            "title": "New editor layout",
+            "text": "Switch between Slides, Script, This slide and Project from the left-hand rail"
+          },
+          {
+            "icon": "🖍️",
+            "title": "Wider emphasis",
+            "text": "Adjust it on the spot and save presets. Now on sticker and ticker text too"
+          },
+          {
+            "icon": "↪️",
+            "title": "Tilted stickers",
+            "text": "Tilt stickers and badges, or turn them with a rotation handle"
+          }
         ]
       },
       {
@@ -207,8 +255,16 @@
         {
           "type": "soft_cards",
           "items": [
-            {"icon": "🖼️", "title": "This slide", "text": "Adjustments for that slide only. Tabs for still-image display (video playback on video slides), character placement, stickers and auto acting"},
-            {"icon": "🌐", "title": "Project", "text": "Settings that apply to every slide"}
+            {
+              "icon": "🖼️",
+              "title": "This slide",
+              "text": "Adjustments for that slide only. Tabs for still-image display (video playback on video slides), character placement, stickers and auto acting"
+            },
+            {
+              "icon": "🌐",
+              "title": "Project",
+              "text": "Settings that apply to every slide"
+            }
           ]
         },
         {
