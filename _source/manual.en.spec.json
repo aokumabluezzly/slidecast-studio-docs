@@ -1842,12 +1842,14 @@
               "title": "#17 Adding an OP and ED",
               "text": "Tutorial video (v5.5, Japanese) · 8:43",
               "url": "https://youtu.be/-ugt2ZvMq7E"
+            },
+            {
+              "icon": "🎬",
+              "title": "#18 Project-wide settings (aspect ratio and type)",
+              "text": "Tutorial video (v5.5, Japanese) · 7:46",
+              "url": "https://youtu.be/DA8YaPKUpNI"
             }
           ]
-        },
-        {
-          "type": "html",
-          "html": "<p class=\"small\">The v5.5 video for the project-wide settings is in production. Until then, see the <a href=\"../../videos/#legacy\">older videos on the video manual page</a> (v4.4 screens, Japanese).</p>"
         }
       ],
       "intro": "Lay down music, tune the timing within a slide, and decide what comes before, after and around everything."
