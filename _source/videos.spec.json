@@ -1,44 +1,44 @@
 {
   "title": "SlideCast Studio 動画マニュアル",
   "subtitle": "全機能の使い方を、動画で。章と機能から探せる動画版の公式マニュアル",
-  "description": "SlideCast Studio の使い方を動画で学べる動画マニュアルです。章別まとめ10本・機能別28本を全11章の流れに沿って並べ、見たい機能の場面からすぐに再生できます。",
+  "description": "SlideCast Studio v5.5 の使い方を動画で学べる動画マニュアルです。v5.5 版の章別まとめ5本・機能別の動画を、作る順の章に沿って並べ、見たい機能の場面からすぐに再生できます。",
   "lead": "",
   "eyebrow": "VIDEO MANUAL",
   "brand": "SlideCast ",
   "brand_accent": "Studio",
   "brand_badge": "Docs",
   "author": "aokuma",
-  "date": "2026.10.04",
+  "date": "2026.11.12",
   "version": "YouTube",
   "footer_meta": "SlideCast Studio ドキュメント · aokuma",
-  "hero_image": "./img/videos-hero.jpg",
-  "hero_alt": "使い方動画のサムネイル一覧。第1章から第11章までのまとめ動画と v4.4 BLOOM の紹介動画",
+  "hero_image": "./img/videos-v55-m1.jpg",
+  "hero_alt": "v5.5 版の使い方動画「第1章 作品を作る」のサムネイル",
   "chips": [
-    "全11章",
-    "章別まとめ10本",
-    "機能別28本",
+    "v5.5 対応",
+    "章別まとめ5本",
+    "機能別17本",
     "無料で見られる"
   ],
   "stats": [
     {
       "icon": "📚",
-      "value": "11",
-      "label": "章"
+      "value": "序＋6",
+      "label": "公開中の章"
     },
     {
       "icon": "🎞️",
-      "value": "10",
+      "value": "5",
       "label": "章別まとめ"
     },
     {
       "icon": "🔧",
-      "value": "28",
+      "value": "17",
       "label": "機能別の動画"
     },
     {
-      "icon": "📺",
-      "value": "42",
-      "label": "公開中の動画"
+      "icon": "🗄️",
+      "value": "38",
+      "label": "旧版の動画"
     }
   ],
   "theme": {
@@ -72,7 +72,7 @@
     "blocks": [
       {
         "type": "html",
-        "html": "<style>.chapter .video-facade-label{display:none}.data-table .seek-at{display:inline-block;margin-left:.4em;color:var(--muted);font-size:.85em;white-space:nowrap}.data-table .yt-out{margin-left:.5em;text-decoration:none}</style><script>addEventListener('DOMContentLoaded',()=>{document.querySelectorAll('.chapter .video-embed').forEach(fig=>{fig._facade=fig.querySelector('.video-facade');fig._embed=fig._facade&&fig._facade.dataset.embed;});document.querySelectorAll('details.chapter').forEach(ch=>ch.addEventListener('toggle',()=>{if(ch.open)return;ch.querySelectorAll('.video-embed.is-playing').forEach(fig=>{const frame=fig.querySelector('iframe');if(frame&&fig._facade){frame.replaceWith(fig._facade);fig.classList.remove('is-playing');}});}));document.querySelectorAll('a.seek[data-start]').forEach(a=>a.addEventListener('click',e=>{const fig=a.closest('.chapter-inner')&&a.closest('.chapter-inner').querySelector('.video-embed');if(!fig||!fig._embed)return;e.preventDefault();const url=fig._embed+'&start='+Number(a.dataset.start);const frame=fig.querySelector('iframe');if(frame){frame.src=url;}else{fig._facade.dataset.embed=url;fig._facade.click();fig._facade.dataset.embed=fig._embed;}fig.scrollIntoView({block:'center'});}));});</script><p>SlideCast Studio の使い方動画を、作品づくりの流れに沿って<strong>全11章</strong>に分けて並べました。各章には、章全体を通して見られる<strong>まとめ動画</strong>と、1つの機能だけを短く解説する<strong>機能別の動画</strong>があります。</p>"
+        "html": "<style>.chapter .video-facade-label{display:none}.data-table .seek-at{display:inline-block;margin-left:.4em;color:var(--muted);font-size:.85em;white-space:nowrap}.data-table .yt-out{margin-left:.5em;text-decoration:none}</style><script>addEventListener('DOMContentLoaded',()=>{document.querySelectorAll('.chapter .video-embed').forEach(fig=>{fig._facade=fig.querySelector('.video-facade');fig._embed=fig._facade&&fig._facade.dataset.embed;});document.querySelectorAll('details.chapter').forEach(ch=>ch.addEventListener('toggle',()=>{if(ch.open)return;ch.querySelectorAll('.video-embed.is-playing').forEach(fig=>{const frame=fig.querySelector('iframe');if(frame&&fig._facade){frame.replaceWith(fig._facade);fig.classList.remove('is-playing');}});}));document.querySelectorAll('a.seek[data-start]').forEach(a=>a.addEventListener('click',e=>{const box=a.closest('.inline-detail-body')||a.closest('.chapter-inner');const fig=box&&box.querySelector('.video-embed');if(!fig||!fig._embed)return;e.preventDefault();const url=fig._embed+'&start='+Number(a.dataset.start);const frame=fig.querySelector('iframe');if(frame){frame.src=url;}else{fig._facade.dataset.embed=url;fig._facade.click();fig._facade.dataset.embed=fig._embed;}fig.scrollIntoView({block:'center'});}));});</script><p>SlideCast Studio の使い方動画を、作品を作る順に章へ分けて並べました。<strong>v5.5「SPOTLIGHT」の画面</strong>で撮り直したシリーズ（第2版）です。各章には、章全体を通して見られる<strong>まとめ動画</strong>と、1つの機能だけを短く解説する<strong>機能別の動画</strong>があります。</p>"
       },
       {
         "type": "cards",
@@ -90,7 +90,7 @@
           {
             "icon": "🔔",
             "title": "新しい動画は",
-            "text": "YouTube チャンネルで公開します。再生リストにも順次追加します。"
+            "text": "YouTube チャンネルで公開し、このページにも順次追加します。"
           }
         ]
       },
@@ -99,15 +99,15 @@
         "items": [
           {
             "icon": "🎞️",
-            "title": "再生リスト：章別まとめ",
-            "text": "10本",
-            "url": "https://www.youtube.com/playlist?list=PLNep53d9dno8"
+            "title": "再生リスト：章別まとめ（v5〜）",
+            "text": "公開中 5本",
+            "url": "https://www.youtube.com/playlist?list=PLeNIbEcD0Eck"
           },
           {
             "icon": "🔧",
-            "title": "再生リスト：機能別",
-            "text": "28本・番号順",
-            "url": "https://www.youtube.com/playlist?list=PLGiC4qicQeto"
+            "title": "再生リスト：機能別（v5〜）",
+            "text": "番号順",
+            "url": "https://www.youtube.com/playlist?list=PLfqGP-ZsBq0A"
           }
         ]
       },
@@ -120,70 +120,58 @@
         "type": "link_cards",
         "items": [
           {
+            "icon": "🗺️",
+            "title": "序 エディタの画面の地図",
+            "text": "はじめに見る1本",
+            "url": "#ch0"
+          },
+          {
             "icon": "🎬",
             "title": "第1章 作品を作る",
-            "text": "台本・音声・資料の取り込み",
+            "text": "Bundle Builder・用途から作成・資料から",
             "url": "#ch1"
           },
           {
-            "icon": "🎨",
-            "title": "第2章 見せ方を決める",
-            "text": "字幕・動き・切り替え",
+            "icon": "💬",
+            "title": "第2章 字幕を整える",
+            "text": "デザイン・動き・強調・カラオケ風",
             "url": "#ch2"
           },
           {
-            "icon": "📤",
-            "title": "第3章 仕上げて出す",
-            "text": "BGM・動画書き出し",
+            "icon": "🎞️",
+            "title": "第3章 動きを付ける",
+            "text": "スライドアニメ・切り替え効果",
             "url": "#ch3"
           },
           {
             "icon": "🧑‍🎤",
-            "title": "第4章 登場人物を出す",
-            "text": "キャラクター・立ち絵・演技",
+            "title": "第4章 キャラ",
+            "text": "作成・配置・表情と仕草",
             "url": "#ch4"
           },
           {
             "icon": "✨",
             "title": "第5章 画面に足す",
-            "text": "ステッカーと動画スライド",
+            "text": "ステッカー・テロップ・バッジ・動画",
             "url": "#ch5"
           },
           {
-            "icon": "🧭",
-            "title": "第6章 全体を整える",
-            "text": "タイムラインと OP・ED",
+            "icon": "🎵",
+            "title": "第6章 音と時間",
+            "text": "BGM・タイムライン",
             "url": "#ch6"
           },
           {
-            "icon": "🏷️",
-            "title": "第7章 画面を整える",
-            "text": "テロップ・バッジと全体の設定",
-            "url": "#ch7"
+            "icon": "🛠️",
+            "title": "制作中の章",
+            "text": "書き出し・MouthLoop・データと音声",
+            "url": "#next"
           },
           {
-            "icon": "💾",
-            "title": "第8章 書き出して残す",
-            "text": "スライド出力とバックアップ",
-            "url": "#ch8"
-          },
-          {
-            "icon": "😀",
-            "title": "第9章 キャラクター素材を作る（MouthLoop）",
-            "text": "口パク・表情・仕草",
-            "url": "#ch9"
-          },
-          {
-            "icon": "🛡️",
-            "title": "第10章 データと安全性",
-            "text": "作品・APIキー・料金の守り方",
-            "url": "#ch10"
-          },
-          {
-            "icon": "🎙️",
-            "title": "第11章 音声を作る",
-            "text": "アプリ内TTS・声選び・自作ボイス",
-            "url": "#ch11"
+            "icon": "🗄️",
+            "title": "旧版（〜v4.4）の動画",
+            "text": "全11章・38本",
+            "url": "#legacy"
           }
         ]
       },
@@ -197,65 +185,88 @@
   },
   "sections": [
     {
-      "id": "ch1",
-      "icon": "🎬",
-      "category": "第1章",
-      "title": "作品を作る",
-      "intro": "台本・音声・資料の取り込み",
+      "id": "ch0",
+      "icon": "🗺️",
+      "category": "序",
+      "title": "エディタの画面の地図",
+      "intro": "どこに何があるか・「この1枚」と「全体設定」・プレビューから設定へ",
       "blocks": [
         {
           "type": "video",
           "provider": "youtube",
-          "id": "84yMSXr-iUY",
+          "id": "RVk2vgRY8Ng",
+          "title": "#00 エディタの画面の地図",
+          "thumb": "./img/videos-v55-00.jpg",
+          "caption": "#00 · 4:34"
+        },
+        {
+          "type": "callout",
+          "tone": "good",
+          "title": "💡 はじめに見る1本",
+          "text": "v5.5 で画面の配置が大きく変わりました。v5.0 以前からお使いの方も、まずこの動画で場所を確かめてください。"
+        }
+      ]
+    },
+    {
+      "id": "ch1",
+      "icon": "🎬",
+      "category": "第1章",
+      "title": "作品を作る",
+      "intro": "Bundle Builder・用途から作成・資料と白紙から",
+      "blocks": [
+        {
+          "type": "video",
+          "provider": "youtube",
+          "id": "EF5npCOm0MA",
           "title": "第1章 作品を作る（まとめ）",
-          "thumb": "./img/videos-m1.jpg",
-          "caption": "章のまとめ動画 · 7:04"
+          "thumb": "./img/videos-v55-m1.jpg",
+          "caption": "章のまとめ動画 · 12:56"
         },
         {
           "type": "html",
-          "html": "<div class=\"table-wrap\"><table class=\"data-table\"><thead><tr><th>機能別の動画</th><th style=\"white-space:nowrap\">長さ</th></tr></thead><tbody><tr><td>#01&ensp;<a class=\"seek\" href=\"https://youtu.be/RTYhoWquwvs\" data-start=\"4\">Bundle Builder で台本と音声を作る</a><span class=\"seek-at\">▶ 0:04〜</span></td><td style=\"white-space:nowrap\">2:51<a class=\"yt-out\" href=\"https://youtu.be/RTYhoWquwvs\" target=\"_blank\" rel=\"noopener noreferrer\" aria-label=\"#01 Bundle Builder で台本と音声を作る を YouTube で開く\" title=\"YouTube で開く\">↗</a></td></tr><tr><td>#02&ensp;<a class=\"seek\" href=\"https://youtu.be/X_3nUNbn1Qs\" data-start=\"158\">完成Bundle ZIP を取り込む</a><span class=\"seek-at\">▶ 2:38〜</span></td><td style=\"white-space:nowrap\">2:15<a class=\"yt-out\" href=\"https://youtu.be/X_3nUNbn1Qs\" target=\"_blank\" rel=\"noopener noreferrer\" aria-label=\"#02 完成Bundle ZIP を取り込む を YouTube で開く\" title=\"YouTube で開く\">↗</a></td></tr><tr><td>#03&ensp;<a class=\"seek\" href=\"https://youtu.be/Ce91uqDHIAw\" data-start=\"283\">資料からプロジェクトを作る</a><span class=\"seek-at\">▶ 4:43〜</span></td><td style=\"white-space:nowrap\">2:31<a class=\"yt-out\" href=\"https://youtu.be/Ce91uqDHIAw\" target=\"_blank\" rel=\"noopener noreferrer\" aria-label=\"#03 資料からプロジェクトを作る を YouTube で開く\" title=\"YouTube で開く\">↗</a></td></tr></tbody></table></div>"
+          "html": "<div class=\"table-wrap\"><table class=\"data-table\"><thead><tr><th>機能別の動画</th><th style=\"white-space:nowrap\">長さ</th></tr></thead><tbody><tr><td>#01&ensp;<a class=\"seek\" href=\"https://youtu.be/kGlxe2-LC6s\" data-start=\"4\">Bundle Builder で台本と音声を作る</a><span class=\"seek-at\">▶ 0:04〜</span></td><td style=\"white-space:nowrap\">3:52<a class=\"yt-out\" href=\"https://youtu.be/kGlxe2-LC6s\" target=\"_blank\" rel=\"noopener noreferrer\" aria-label=\"#01 Bundle Builder で台本と音声を作る を YouTube で開く\" title=\"YouTube で開く\">↗</a></td></tr><tr><td>#02&ensp;<a class=\"seek\" href=\"https://youtu.be/3H2GaQUfmR0\" data-start=\"226\">「用途から作成」で完成Bundleから作る</a><span class=\"seek-at\">▶ 3:46〜</span></td><td style=\"white-space:nowrap\">5:05<a class=\"yt-out\" href=\"https://youtu.be/3H2GaQUfmR0\" target=\"_blank\" rel=\"noopener noreferrer\" aria-label=\"#02 「用途から作成」で完成Bundleから作る を YouTube で開く\" title=\"YouTube で開く\">↗</a></td></tr><tr><td>#03&ensp;<a class=\"seek\" href=\"https://youtu.be/nP9drrxnz1k\" data-start=\"528\">資料・画像・白紙から作る</a><span class=\"seek-at\">▶ 8:48〜</span></td><td style=\"white-space:nowrap\">4:12<a class=\"yt-out\" href=\"https://youtu.be/nP9drrxnz1k\" target=\"_blank\" rel=\"noopener noreferrer\" aria-label=\"#03 資料・画像・白紙から作る を YouTube で開く\" title=\"YouTube で開く\">↗</a></td></tr></tbody></table></div>"
         }
       ]
     },
     {
       "id": "ch2",
-      "icon": "🎨",
+      "icon": "💬",
       "category": "第2章",
-      "title": "見せ方を決める",
-      "intro": "字幕・動き・切り替え",
+      "title": "字幕を整える",
+      "intro": "デザイン・置き方・名前バッジ・動き・強調・カラオケ風",
       "blocks": [
         {
           "type": "video",
           "provider": "youtube",
-          "id": "XdiHl4dloos",
-          "title": "第2章 見せ方を決める（まとめ）",
-          "thumb": "./img/videos-m2.jpg",
-          "caption": "章のまとめ動画 · 25:13"
+          "id": "jhO3coUzzSI",
+          "title": "第2章 字幕を整える（まとめ）",
+          "thumb": "./img/videos-v55-m2.jpg",
+          "caption": "章のまとめ動画 · 13:16"
         },
         {
           "type": "html",
-          "html": "<div class=\"table-wrap\"><table class=\"data-table\"><thead><tr><th>機能別の動画</th><th style=\"white-space:nowrap\">長さ</th></tr></thead><tbody><tr><td>#04&ensp;<a class=\"seek\" href=\"https://youtu.be/LSdjbHM6TjI\" data-start=\"4\">字幕を整える</a><span class=\"seek-at\">▶ 0:04〜</span></td><td style=\"white-space:nowrap\">6:22<a class=\"yt-out\" href=\"https://youtu.be/LSdjbHM6TjI\" target=\"_blank\" rel=\"noopener noreferrer\" aria-label=\"#04 字幕を整える を YouTube で開く\" title=\"YouTube で開く\">↗</a></td></tr><tr><td>#05&ensp;<a class=\"seek\" href=\"https://youtu.be/-B-YaRCfCAQ\" data-start=\"382\">スライドに動きを付ける</a><span class=\"seek-at\">▶ 6:22〜</span></td><td style=\"white-space:nowrap\">8:31<a class=\"yt-out\" href=\"https://youtu.be/-B-YaRCfCAQ\" target=\"_blank\" rel=\"noopener noreferrer\" aria-label=\"#05 スライドに動きを付ける を YouTube で開く\" title=\"YouTube で開く\">↗</a></td></tr><tr><td>#06&ensp;<a class=\"seek\" href=\"https://youtu.be/WXjKuCVx3j4\" data-start=\"888\">画面の切り替え効果</a><span class=\"seek-at\">▶ 14:48〜</span></td><td style=\"white-space:nowrap\">10:29<a class=\"yt-out\" href=\"https://youtu.be/WXjKuCVx3j4\" target=\"_blank\" rel=\"noopener noreferrer\" aria-label=\"#06 画面の切り替え効果 を YouTube で開く\" title=\"YouTube で開く\">↗</a></td></tr></tbody></table></div>"
+          "html": "<div class=\"table-wrap\"><table class=\"data-table\"><thead><tr><th>機能別の動画</th><th style=\"white-space:nowrap\">長さ</th></tr></thead><tbody><tr><td>#04&ensp;<a class=\"seek\" href=\"https://youtu.be/bA1DmPdb-4U\" data-start=\"4\">字幕の見た目を整える</a><span class=\"seek-at\">▶ 0:04〜</span></td><td style=\"white-space:nowrap\">6:47<a class=\"yt-out\" href=\"https://youtu.be/bA1DmPdb-4U\" target=\"_blank\" rel=\"noopener noreferrer\" aria-label=\"#04 字幕の見た目を整える を YouTube で開く\" title=\"YouTube で開く\">↗</a></td></tr><tr><td>#05&ensp;<a class=\"seek\" href=\"https://youtu.be/OfY1jhyVJic\" data-start=\"402\">字幕の動き・強調・カラオケ風</a><span class=\"seek-at\">▶ 6:42〜</span></td><td style=\"white-space:nowrap\">6:37<a class=\"yt-out\" href=\"https://youtu.be/OfY1jhyVJic\" target=\"_blank\" rel=\"noopener noreferrer\" aria-label=\"#05 字幕の動き・強調・カラオケ風 を YouTube で開く\" title=\"YouTube で開く\">↗</a></td></tr></tbody></table></div>"
         }
       ]
     },
     {
       "id": "ch3",
-      "icon": "📤",
+      "icon": "🎞️",
       "category": "第3章",
-      "title": "仕上げて出す",
-      "intro": "BGM・動画書き出し",
+      "title": "動きを付ける",
+      "intro": "スライドアニメーションと画面の切り替え効果",
       "blocks": [
         {
           "type": "video",
           "provider": "youtube",
-          "id": "VUwp7zQPPdo",
-          "title": "第3章 仕上げて出す（まとめ）",
-          "thumb": "./img/videos-m3.jpg",
-          "caption": "章のまとめ動画 · 14:44"
+          "id": "9BqkJcjhR10",
+          "title": "第3章 動きを付ける（まとめ）",
+          "thumb": "./img/videos-v55-m3.jpg",
+          "caption": "章のまとめ動画 · 17:14"
         },
         {
           "type": "html",
-          "html": "<div class=\"table-wrap\"><table class=\"data-table\"><thead><tr><th>機能別の動画</th><th style=\"white-space:nowrap\">長さ</th></tr></thead><tbody><tr><td>#07&ensp;<a class=\"seek\" href=\"https://youtu.be/weR33hn8kHQ\" data-start=\"4\">BGMを敷く</a><span class=\"seek-at\">▶ 0:04〜</span></td><td style=\"white-space:nowrap\">8:39<a class=\"yt-out\" href=\"https://youtu.be/weR33hn8kHQ\" target=\"_blank\" rel=\"noopener noreferrer\" aria-label=\"#07 BGMを敷く を YouTube で開く\" title=\"YouTube で開く\">↗</a></td></tr><tr><td>#08&ensp;<a class=\"seek\" href=\"https://youtu.be/feuQua6MsdQ\" data-start=\"518\">動画に書き出す</a><span class=\"seek-at\">▶ 8:38〜</span></td><td style=\"white-space:nowrap\">6:10<a class=\"yt-out\" href=\"https://youtu.be/feuQua6MsdQ\" target=\"_blank\" rel=\"noopener noreferrer\" aria-label=\"#08 動画に書き出す を YouTube で開く\" title=\"YouTube で開く\">↗</a></td></tr></tbody></table></div>"
+          "html": "<div class=\"table-wrap\"><table class=\"data-table\"><thead><tr><th>機能別の動画</th><th style=\"white-space:nowrap\">長さ</th></tr></thead><tbody><tr><td>#06&ensp;<a class=\"seek\" href=\"https://youtu.be/pXyGh7ABx4M\" data-start=\"4\">スライドに動きを付ける</a><span class=\"seek-at\">▶ 0:04〜</span></td><td style=\"white-space:nowrap\">6:33<a class=\"yt-out\" href=\"https://youtu.be/pXyGh7ABx4M\" target=\"_blank\" rel=\"noopener noreferrer\" aria-label=\"#06 スライドに動きを付ける を YouTube で開く\" title=\"YouTube で開く\">↗</a></td></tr><tr><td>#07&ensp;<a class=\"seek\" href=\"https://youtu.be/ub4KKszQKN0\" data-start=\"386\">画面の切り替え効果</a><span class=\"seek-at\">▶ 6:26〜</span></td><td style=\"white-space:nowrap\">10:51<a class=\"yt-out\" href=\"https://youtu.be/ub4KKszQKN0\" target=\"_blank\" rel=\"noopener noreferrer\" aria-label=\"#07 画面の切り替え効果 を YouTube で開く\" title=\"YouTube で開く\">↗</a></td></tr></tbody></table></div>"
         }
       ]
     },
@@ -263,20 +274,20 @@
       "id": "ch4",
       "icon": "🧑‍🎤",
       "category": "第4章",
-      "title": "登場人物を出す",
-      "intro": "キャラクター・立ち絵・演技",
+      "title": "キャラ",
+      "intro": "作る・割り当てる・配置と動き・表情と仕草",
       "blocks": [
         {
           "type": "video",
           "provider": "youtube",
-          "id": "lzZsueJYf2g",
-          "title": "第4章 登場人物を出す（まとめ）",
-          "thumb": "./img/videos-m4.jpg",
-          "caption": "章のまとめ動画 · 22:16"
+          "id": "bof_B_aL3nk",
+          "title": "第4章 キャラ（まとめ）",
+          "thumb": "./img/videos-v55-m4.jpg",
+          "caption": "章のまとめ動画 · 22:44"
         },
         {
           "type": "html",
-          "html": "<div class=\"table-wrap\"><table class=\"data-table\"><thead><tr><th>機能別の動画</th><th style=\"white-space:nowrap\">長さ</th></tr></thead><tbody><tr><td>#09&ensp;<a class=\"seek\" href=\"https://youtu.be/oDVqVs6Tl7g\" data-start=\"4\">キャラを作って台詞に割り当てる</a><span class=\"seek-at\">▶ 0:04〜</span></td><td style=\"white-space:nowrap\">7:46<a class=\"yt-out\" href=\"https://youtu.be/oDVqVs6Tl7g\" target=\"_blank\" rel=\"noopener noreferrer\" aria-label=\"#09 キャラを作って台詞に割り当てる を YouTube で開く\" title=\"YouTube で開く\">↗</a></td></tr><tr><td>#10&ensp;<a class=\"seek\" href=\"https://youtu.be/Txdt4ormScs\" data-start=\"465\">キャラを動かす</a><span class=\"seek-at\">▶ 7:45〜</span></td><td style=\"white-space:nowrap\">8:55<a class=\"yt-out\" href=\"https://youtu.be/Txdt4ormScs\" target=\"_blank\" rel=\"noopener noreferrer\" aria-label=\"#10 キャラを動かす を YouTube で開く\" title=\"YouTube で開く\">↗</a></td></tr><tr><td>#11&ensp;<a class=\"seek\" href=\"https://youtu.be/kIBVhZPOMZk\" data-start=\"991\">表情と仕草で演技させる</a><span class=\"seek-at\">▶ 16:31〜</span></td><td style=\"white-space:nowrap\">5:49<a class=\"yt-out\" href=\"https://youtu.be/kIBVhZPOMZk\" target=\"_blank\" rel=\"noopener noreferrer\" aria-label=\"#11 表情と仕草で演技させる を YouTube で開く\" title=\"YouTube で開く\">↗</a></td></tr></tbody></table></div>"
+          "html": "<div class=\"table-wrap\"><table class=\"data-table\"><thead><tr><th>機能別の動画</th><th style=\"white-space:nowrap\">長さ</th></tr></thead><tbody><tr><td>#08&ensp;<a class=\"seek\" href=\"https://youtu.be/DDLRpIjyE-Q\" data-start=\"4\">キャラを作って話者に割り当てる</a><span class=\"seek-at\">▶ 0:04〜</span></td><td style=\"white-space:nowrap\">7:47<a class=\"yt-out\" href=\"https://youtu.be/DDLRpIjyE-Q\" target=\"_blank\" rel=\"noopener noreferrer\" aria-label=\"#08 キャラを作って話者に割り当てる を YouTube で開く\" title=\"YouTube で開く\">↗</a></td></tr><tr><td>#09&ensp;<a class=\"seek\" href=\"https://youtu.be/ZLkARliwiEo\" data-start=\"461\">キャラの配置と立ち絵の動き</a><span class=\"seek-at\">▶ 7:41〜</span></td><td style=\"white-space:nowrap\">8:16<a class=\"yt-out\" href=\"https://youtu.be/ZLkARliwiEo\" target=\"_blank\" rel=\"noopener noreferrer\" aria-label=\"#09 キャラの配置と立ち絵の動き を YouTube で開く\" title=\"YouTube で開く\">↗</a></td></tr><tr><td>#10&ensp;<a class=\"seek\" href=\"https://youtu.be/aB0yxh4uw84\" data-start=\"947\">表情・仕草・おまかせ演技</a><span class=\"seek-at\">▶ 15:47〜</span></td><td style=\"white-space:nowrap\">7:01<a class=\"yt-out\" href=\"https://youtu.be/aB0yxh4uw84\" target=\"_blank\" rel=\"noopener noreferrer\" aria-label=\"#10 表情・仕草・おまかせ演技 を YouTube で開く\" title=\"YouTube で開く\">↗</a></td></tr></tbody></table></div>"
         }
       ]
     },
@@ -285,160 +296,333 @@
       "icon": "✨",
       "category": "第5章",
       "title": "画面に足す",
-      "intro": "ステッカーと動画スライド",
+      "intro": "ステッカー・テロップ・バッジ・動画スライド",
       "blocks": [
         {
           "type": "video",
           "provider": "youtube",
-          "id": "0ox0zH88uwY",
+          "id": "eaEqN_r0Rx8",
           "title": "第5章 画面に足す（まとめ）",
-          "thumb": "./img/videos-m5.jpg",
-          "caption": "章のまとめ動画 · 25:44"
+          "thumb": "./img/videos-v55-m5.jpg",
+          "caption": "章のまとめ動画 · 35:07"
         },
         {
           "type": "html",
-          "html": "<div class=\"table-wrap\"><table class=\"data-table\"><thead><tr><th>機能別の動画</th><th style=\"white-space:nowrap\">長さ</th></tr></thead><tbody><tr><td>#12&ensp;<a class=\"seek\" href=\"https://youtu.be/qoYA1GxHP98\" data-start=\"4\">ステッカーを置く</a><span class=\"seek-at\">▶ 0:04〜</span></td><td style=\"white-space:nowrap\">10:06<a class=\"yt-out\" href=\"https://youtu.be/qoYA1GxHP98\" target=\"_blank\" rel=\"noopener noreferrer\" aria-label=\"#12 ステッカーを置く を YouTube で開く\" title=\"YouTube で開く\">↗</a></td></tr><tr><td>#13&ensp;<a class=\"seek\" href=\"https://youtu.be/H43A2W3kDdo\" data-start=\"599\">ステッカーで隠す・動かす</a><span class=\"seek-at\">▶ 9:59〜</span></td><td style=\"white-space:nowrap\">6:48<a class=\"yt-out\" href=\"https://youtu.be/H43A2W3kDdo\" target=\"_blank\" rel=\"noopener noreferrer\" aria-label=\"#13 ステッカーで隠す・動かす を YouTube で開く\" title=\"YouTube で開く\">↗</a></td></tr><tr><td>#14&ensp;<a class=\"seek\" href=\"https://youtu.be/g9zvxYsXhyM\" data-start=\"1002\">動画スライドを差し込む</a><span class=\"seek-at\">▶ 16:42〜</span></td><td style=\"white-space:nowrap\">9:06<a class=\"yt-out\" href=\"https://youtu.be/g9zvxYsXhyM\" target=\"_blank\" rel=\"noopener noreferrer\" aria-label=\"#14 動画スライドを差し込む を YouTube で開く\" title=\"YouTube で開く\">↗</a></td></tr></tbody></table></div>"
+          "html": "<div class=\"table-wrap\"><table class=\"data-table\"><thead><tr><th>機能別の動画</th><th style=\"white-space:nowrap\">長さ</th></tr></thead><tbody><tr><td>#11&ensp;<a class=\"seek\" href=\"https://youtu.be/SB1OP5MnZiw\" data-start=\"4\">ステッカーを置く</a><span class=\"seek-at\">▶ 0:04〜</span></td><td style=\"white-space:nowrap\">8:37<a class=\"yt-out\" href=\"https://youtu.be/SB1OP5MnZiw\" target=\"_blank\" rel=\"noopener noreferrer\" aria-label=\"#11 ステッカーを置く を YouTube で開く\" title=\"YouTube で開く\">↗</a></td></tr><tr><td>#12&ensp;<a class=\"seek\" href=\"https://youtu.be/rkIc1mbguFs\" data-start=\"511\">ステッカーで隠す・動かす・強調する</a><span class=\"seek-at\">▶ 8:31〜</span></td><td style=\"white-space:nowrap\">7:49<a class=\"yt-out\" href=\"https://youtu.be/rkIc1mbguFs\" target=\"_blank\" rel=\"noopener noreferrer\" aria-label=\"#12 ステッカーで隠す・動かす・強調する を YouTube で開く\" title=\"YouTube で開く\">↗</a></td></tr><tr><td>#13&ensp;<a class=\"seek\" href=\"https://youtu.be/lBv2ga3wr_c\" data-start=\"970\">テロップとバッジ</a><span class=\"seek-at\">▶ 16:10〜</span></td><td style=\"white-space:nowrap\">10:27<a class=\"yt-out\" href=\"https://youtu.be/lBv2ga3wr_c\" target=\"_blank\" rel=\"noopener noreferrer\" aria-label=\"#13 テロップとバッジ を YouTube で開く\" title=\"YouTube で開く\">↗</a></td></tr><tr><td>#14&ensp;<a class=\"seek\" href=\"https://youtu.be/OkqrcXDpdYo\" data-start=\"1587\">動画スライドを差し込む</a><span class=\"seek-at\">▶ 26:27〜</span></td><td style=\"white-space:nowrap\">8:44<a class=\"yt-out\" href=\"https://youtu.be/OkqrcXDpdYo\" target=\"_blank\" rel=\"noopener noreferrer\" aria-label=\"#14 動画スライドを差し込む を YouTube で開く\" title=\"YouTube で開く\">↗</a></td></tr></tbody></table></div>"
         }
       ]
     },
     {
       "id": "ch6",
-      "icon": "🧭",
+      "icon": "🎵",
       "category": "第6章",
-      "title": "全体を整える",
-      "intro": "タイムラインと OP・ED",
+      "title": "音と時間",
+      "intro": "BGM・タイムライン（OP・ED と作品全体の設定は制作中）",
       "blocks": [
         {
-          "type": "video",
-          "provider": "youtube",
-          "id": "bc0RZV7BOEI",
-          "title": "第6章 全体を整える（まとめ）",
-          "thumb": "./img/videos-m6.jpg",
-          "caption": "章のまとめ動画 · 14:55"
-        },
-        {
-          "type": "html",
-          "html": "<div class=\"table-wrap\"><table class=\"data-table\"><thead><tr><th>機能別の動画</th><th style=\"white-space:nowrap\">長さ</th></tr></thead><tbody><tr><td>#15&ensp;<a class=\"seek\" href=\"https://youtu.be/iGj0gfDnDZA\" data-start=\"4\">タイムラインで間を整える</a><span class=\"seek-at\">▶ 0:04〜</span></td><td style=\"white-space:nowrap\">7:14<a class=\"yt-out\" href=\"https://youtu.be/iGj0gfDnDZA\" target=\"_blank\" rel=\"noopener noreferrer\" aria-label=\"#15 タイムラインで間を整える を YouTube で開く\" title=\"YouTube で開く\">↗</a></td></tr><tr><td>#16&ensp;<a class=\"seek\" href=\"https://youtu.be/IskNg98PJtY\" data-start=\"435\">OP・ED を付ける</a><span class=\"seek-at\">▶ 7:15〜</span></td><td style=\"white-space:nowrap\">7:44<a class=\"yt-out\" href=\"https://youtu.be/IskNg98PJtY\" target=\"_blank\" rel=\"noopener noreferrer\" aria-label=\"#16 OP・ED を付ける を YouTube で開く\" title=\"YouTube で開く\">↗</a></td></tr></tbody></table></div>"
+          "type": "video_grid",
+          "items": [
+            {
+              "type": "video",
+              "provider": "youtube",
+              "id": "tbJFgkNTahc",
+              "title": "#15 BGM を敷く",
+              "thumb": "./img/videos-v55-15.jpg",
+              "caption": "#15 BGM を敷く · 8:24"
+            },
+            {
+              "type": "video",
+              "provider": "youtube",
+              "id": "cqvMKUY16lo",
+              "title": "#16 タイムラインで間を整える",
+              "thumb": "./img/videos-v55-16.jpg",
+              "caption": "#16 タイムラインで間を整える · 7:29"
+            }
+          ]
         },
         {
           "type": "callout",
-          "title": "ℹ️ 補足",
-          "text": "#17「かんたんモードで作る」は、機能の刷新に合わせて作り直すため公開を保留しています。"
+          "title": "🛠️ 制作中",
+          "text": "#17「OP・ED を付ける」と #18「作品全体の設定（画面の比率と型）」は v5.5 版を制作中です。それまでは下の「旧版の動画」の第6章 #16・第7章 #19 をご覧ください（画面の配置は v4.4 のものです）。"
         }
       ]
     },
     {
-      "id": "ch7",
-      "icon": "🏷️",
-      "category": "第7章",
-      "title": "画面を整える",
-      "intro": "テロップ・バッジと全体の設定",
+      "id": "next",
+      "icon": "🛠️",
+      "category": "これから",
+      "title": "v5.5 版で制作中の章",
+      "intro": "書き出し・MouthLoop・データと音声",
       "blocks": [
         {
-          "type": "video",
-          "provider": "youtube",
-          "id": "-sl4dJ4-D6o",
-          "title": "第7章 画面を整える（まとめ）",
-          "thumb": "./img/videos-m7.jpg",
-          "caption": "章のまとめ動画 · 13:57"
+          "type": "html",
+          "html": "<p>次の章は v5.5 版を制作中です。公開までは、内容がほぼ同じ旧版の動画をご覧ください。<strong>画面の配置は v4.4 のもの</strong>なので、ボタンの場所は「序 エディタの画面の地図」と<a href=\"../manual/\">公式マニュアル</a>で読み替えてください。</p>"
         },
         {
-          "type": "html",
-          "html": "<div class=\"table-wrap\"><table class=\"data-table\"><thead><tr><th>機能別の動画</th><th style=\"white-space:nowrap\">長さ</th></tr></thead><tbody><tr><td>#18&ensp;<a class=\"seek\" href=\"https://youtu.be/u9F7wlK5I_c\" data-start=\"4\">テロップとバッジで飾る</a><span class=\"seek-at\">▶ 0:04〜</span></td><td style=\"white-space:nowrap\">7:01<a class=\"yt-out\" href=\"https://youtu.be/u9F7wlK5I_c\" target=\"_blank\" rel=\"noopener noreferrer\" aria-label=\"#18 テロップとバッジで飾る を YouTube で開く\" title=\"YouTube で開く\">↗</a></td></tr><tr><td>#19&ensp;<a class=\"seek\" href=\"https://youtu.be/c71UomC89Vk\" data-start=\"421\">作品全体の設定を決める</a><span class=\"seek-at\">▶ 7:01〜</span></td><td style=\"white-space:nowrap\">7:00<a class=\"yt-out\" href=\"https://youtu.be/c71UomC89Vk\" target=\"_blank\" rel=\"noopener noreferrer\" aria-label=\"#19 作品全体の設定を決める を YouTube で開く\" title=\"YouTube で開く\">↗</a></td></tr></tbody></table></div>"
+          "type": "table",
+          "head": [
+            "v5.5 版の章",
+            "今見られる旧版の動画"
+          ],
+          "rows": [
+            [
+              "第7章 書き出して残す（動画・スライド・ブック型PDF・バックアップ）",
+              "旧 第3章 #08・旧 第8章 #20〜#22"
+            ],
+            [
+              "第8章 キャラ素材（MouthLoop）",
+              "旧 第9章 #23・#24（MouthLoop 側の操作は今も同じです）"
+            ],
+            [
+              "第9章 データと音声（通信と安全・アプリ内TTS・音声ライブラリ・自作ボイス・クローンボイス）",
+              "旧 第10章 #25・旧 第11章 #26〜#29"
+            ]
+          ]
         }
       ]
     },
     {
-      "id": "ch8",
-      "icon": "💾",
-      "category": "第8章",
-      "title": "書き出して残す",
-      "intro": "スライド出力とバックアップ",
+      "id": "legacy",
+      "icon": "🗄️",
+      "category": "旧版",
+      "title": "旧版（〜v4.4）の動画",
+      "intro": "v5.5 版がまだ無い内容の参考に",
       "blocks": [
-        {
-          "type": "video",
-          "provider": "youtube",
-          "id": "yX0K_wFRBSg",
-          "title": "第8章 書き出して残す（まとめ）",
-          "thumb": "./img/videos-m8.jpg",
-          "caption": "章のまとめ動画 · 15:36"
-        },
-        {
-          "type": "html",
-          "html": "<div class=\"table-wrap\"><table class=\"data-table\"><thead><tr><th>機能別の動画</th><th style=\"white-space:nowrap\">長さ</th></tr></thead><tbody><tr><td>#20&ensp;<a class=\"seek\" href=\"https://youtu.be/FT4Jrf-MiTE\" data-start=\"4\">スライドを書き出す</a><span class=\"seek-at\">▶ 0:04〜</span></td><td style=\"white-space:nowrap\">5:10<a class=\"yt-out\" href=\"https://youtu.be/FT4Jrf-MiTE\" target=\"_blank\" rel=\"noopener noreferrer\" aria-label=\"#20 スライドを書き出す を YouTube で開く\" title=\"YouTube で開く\">↗</a></td></tr><tr><td>#21&ensp;<a class=\"seek\" href=\"https://youtu.be/vIA0J_NlVU0\" data-start=\"310\">ブック型PDFで配布資料を作る</a><span class=\"seek-at\">▶ 5:10〜</span></td><td style=\"white-space:nowrap\">4:08<a class=\"yt-out\" href=\"https://youtu.be/vIA0J_NlVU0\" target=\"_blank\" rel=\"noopener noreferrer\" aria-label=\"#21 ブック型PDFで配布資料を作る を YouTube で開く\" title=\"YouTube で開く\">↗</a></td></tr><tr><td>#22&ensp;<a class=\"seek\" href=\"https://youtu.be/6ew8soQtzHo\" data-start=\"554\">バックアップと復元</a><span class=\"seek-at\">▶ 9:14〜</span></td><td style=\"white-space:nowrap\">6:26<a class=\"yt-out\" href=\"https://youtu.be/6ew8soQtzHo\" target=\"_blank\" rel=\"noopener noreferrer\" aria-label=\"#22 バックアップと復元 を YouTube で開く\" title=\"YouTube で開く\">↗</a></td></tr></tbody></table></div>"
-        }
-      ]
-    },
-    {
-      "id": "ch9",
-      "icon": "😀",
-      "category": "第9章",
-      "title": "キャラクター素材を作る（MouthLoop）",
-      "intro": "口パク・表情・仕草",
-      "blocks": [
-        {
-          "type": "video",
-          "provider": "youtube",
-          "id": "jGXqpocV0RI",
-          "title": "第9章 キャラクター素材を作る（MouthLoop）（まとめ）",
-          "thumb": "./img/videos-m9.jpg",
-          "caption": "章のまとめ動画 · 16:50"
-        },
-        {
-          "type": "html",
-          "html": "<div class=\"table-wrap\"><table class=\"data-table\"><thead><tr><th>機能別の動画</th><th style=\"white-space:nowrap\">長さ</th></tr></thead><tbody><tr><td>#23&ensp;<a class=\"seek\" href=\"https://youtu.be/Ut9ooSU2jw8\" data-start=\"4\">MouthLoop で口パク素材を作る</a><span class=\"seek-at\">▶ 0:04〜</span></td><td style=\"white-space:nowrap\">8:42<a class=\"yt-out\" href=\"https://youtu.be/Ut9ooSU2jw8\" target=\"_blank\" rel=\"noopener noreferrer\" aria-label=\"#23 MouthLoop で口パク素材を作る を YouTube で開く\" title=\"YouTube で開く\">↗</a></td></tr><tr><td>#24&ensp;<a class=\"seek\" href=\"https://youtu.be/8mLyzPi0564\" data-start=\"510\">MouthLoop で表情と仕草を足す</a><span class=\"seek-at\">▶ 8:30〜</span></td><td style=\"white-space:nowrap\">8:20<a class=\"yt-out\" href=\"https://youtu.be/8mLyzPi0564\" target=\"_blank\" rel=\"noopener noreferrer\" aria-label=\"#24 MouthLoop で表情と仕草を足す を YouTube で開く\" title=\"YouTube で開く\">↗</a></td></tr></tbody></table></div>"
-        }
-      ]
-    },
-    {
-      "id": "ch10",
-      "icon": "🛡️",
-      "category": "第10章",
-      "title": "データと安全性",
-      "intro": "作品・APIキー・料金の守り方",
-      "blocks": [
-        {
-          "type": "video",
-          "provider": "youtube",
-          "id": "jqoeTxL7mR4",
-          "title": "#25 データの置き場所と外部通信",
-          "thumb": "./img/videos-25.jpg",
-          "caption": "#25 · 8:06"
-        },
-        {
-          "type": "html",
-          "html": "<div class=\"table-wrap\"><table class=\"data-table\"><thead><tr><th>機能別の動画</th><th style=\"white-space:nowrap\">長さ</th></tr></thead><tbody><tr><td>#25&ensp;<a class=\"seek\" href=\"https://youtu.be/jqoeTxL7mR4\" data-start=\"0\">データの置き場所と外部通信</a><span class=\"seek-at\">▶ 0:00〜</span></td><td style=\"white-space:nowrap\">8:06<a class=\"yt-out\" href=\"https://youtu.be/jqoeTxL7mR4\" target=\"_blank\" rel=\"noopener noreferrer\" aria-label=\"#25 データの置き場所と外部通信 を YouTube で開く\" title=\"YouTube で開く\">↗</a></td></tr></tbody></table></div>"
-        },
         {
           "type": "callout",
-          "title": "ℹ️ 補足",
-          "text": "この章はまとめ動画が無く、単体の #25 だけです。"
-        }
-      ]
-    },
-    {
-      "id": "ch11",
-      "icon": "🎙️",
-      "category": "第11章",
-      "title": "音声を作る",
-      "intro": "アプリ内TTS・声選び・自作ボイス",
-      "blocks": [
-        {
-          "type": "video",
-          "provider": "youtube",
-          "id": "-KOD9h9LxMk",
-          "title": "第11章 音声を作る（まとめ）",
-          "thumb": "./img/videos-m11.jpg",
-          "caption": "章のまとめ動画 · 24:40"
+          "tone": "warn",
+          "title": "⚠️ v4.4 までの画面です",
+          "text": "ここから下は v4.4 までの画面で撮った旧シリーズです。v5.5 では、設定がヘッダーの⚙️から左端のアイコン列の「この1枚」「全体設定」へ移るなど、ボタンの場所が変わっています。操作の考え方は同じなので、v5.5 版がまだ無い内容の参考にしてください。"
         },
         {
-          "type": "html",
-          "html": "<div class=\"table-wrap\"><table class=\"data-table\"><thead><tr><th>機能別の動画</th><th style=\"white-space:nowrap\">長さ</th></tr></thead><tbody><tr><td>#26&ensp;<a class=\"seek\" href=\"https://youtu.be/MOR6PZLFbAg\" data-start=\"4\">APIキーを設定してアプリ内で音声を作る</a><span class=\"seek-at\">▶ 0:04〜</span></td><td style=\"white-space:nowrap\">8:59<a class=\"yt-out\" href=\"https://youtu.be/MOR6PZLFbAg\" target=\"_blank\" rel=\"noopener noreferrer\" aria-label=\"#26 APIキーを設定してアプリ内で音声を作る を YouTube で開く\" title=\"YouTube で開く\">↗</a></td></tr><tr><td>#27&ensp;<a class=\"seek\" href=\"https://youtu.be/BhHmKFrWx-I\" data-start=\"537\">Gemini 3.8 TTSの音声ライブラリから声を選ぶ</a><span class=\"seek-at\">▶ 8:57〜</span></td><td style=\"white-space:nowrap\">6:18<a class=\"yt-out\" href=\"https://youtu.be/BhHmKFrWx-I\" target=\"_blank\" rel=\"noopener noreferrer\" aria-label=\"#27 Gemini 3.8 TTSの音声ライブラリから声を選ぶ を YouTube で開く\" title=\"YouTube で開く\">↗</a></td></tr><tr><td>#28&ensp;<a class=\"seek\" href=\"https://youtu.be/TdrdYPFEJNY\" data-start=\"890\">説明文から自作ボイスを作って使う</a><span class=\"seek-at\">▶ 14:50〜</span></td><td style=\"white-space:nowrap\">6:09<a class=\"yt-out\" href=\"https://youtu.be/TdrdYPFEJNY\" target=\"_blank\" rel=\"noopener noreferrer\" aria-label=\"#28 説明文から自作ボイスを作って使う を YouTube で開く\" title=\"YouTube で開く\">↗</a></td></tr><tr><td>#29&ensp;<a class=\"seek\" href=\"https://youtu.be/gS_W-fgkwU0\" data-start=\"1226\">クローンボイスを作って使う</a><span class=\"seek-at\">▶ 20:26〜</span></td><td style=\"white-space:nowrap\">4:27<a class=\"yt-out\" href=\"https://youtu.be/gS_W-fgkwU0\" target=\"_blank\" rel=\"noopener noreferrer\" aria-label=\"#29 クローンボイスを作って使う を YouTube で開く\" title=\"YouTube で開く\">↗</a></td></tr></tbody></table></div>"
+          "type": "link_cards",
+          "items": [
+            {
+              "icon": "🎞️",
+              "title": "旧版の再生リスト：章別まとめ",
+              "text": "〜v4.4 · 10本",
+              "url": "https://www.youtube.com/playlist?list=PLNep53d9dno8"
+            },
+            {
+              "icon": "🔧",
+              "title": "旧版の再生リスト：機能別",
+              "text": "〜v4.4 · 28本",
+              "url": "https://www.youtube.com/playlist?list=PLGiC4qicQeto"
+            }
+          ]
         },
         {
-          "type": "callout",
-          "title": "ℹ️ 補足",
-          "text": "#30 は欠番です。"
+          "type": "detail",
+          "title": "旧 第1章 作品を作る（台本・音声・資料の取り込み）",
+          "blocks": [
+            {
+              "type": "video",
+              "provider": "youtube",
+              "id": "84yMSXr-iUY",
+              "title": "第1章 作品を作る（まとめ）",
+              "thumb": "./img/videos-m1.jpg",
+              "caption": "章のまとめ動画 · 7:04"
+            },
+            {
+              "type": "html",
+              "html": "<div class=\"table-wrap\"><table class=\"data-table\"><thead><tr><th>機能別の動画</th><th style=\"white-space:nowrap\">長さ</th></tr></thead><tbody><tr><td>#01&ensp;<a class=\"seek\" href=\"https://youtu.be/RTYhoWquwvs\" data-start=\"4\">Bundle Builder で台本と音声を作る</a><span class=\"seek-at\">▶ 0:04〜</span></td><td style=\"white-space:nowrap\">2:51<a class=\"yt-out\" href=\"https://youtu.be/RTYhoWquwvs\" target=\"_blank\" rel=\"noopener noreferrer\" aria-label=\"#01 Bundle Builder で台本と音声を作る を YouTube で開く\" title=\"YouTube で開く\">↗</a></td></tr><tr><td>#02&ensp;<a class=\"seek\" href=\"https://youtu.be/X_3nUNbn1Qs\" data-start=\"158\">完成Bundle ZIP を取り込む</a><span class=\"seek-at\">▶ 2:38〜</span></td><td style=\"white-space:nowrap\">2:15<a class=\"yt-out\" href=\"https://youtu.be/X_3nUNbn1Qs\" target=\"_blank\" rel=\"noopener noreferrer\" aria-label=\"#02 完成Bundle ZIP を取り込む を YouTube で開く\" title=\"YouTube で開く\">↗</a></td></tr><tr><td>#03&ensp;<a class=\"seek\" href=\"https://youtu.be/Ce91uqDHIAw\" data-start=\"283\">資料からプロジェクトを作る</a><span class=\"seek-at\">▶ 4:43〜</span></td><td style=\"white-space:nowrap\">2:31<a class=\"yt-out\" href=\"https://youtu.be/Ce91uqDHIAw\" target=\"_blank\" rel=\"noopener noreferrer\" aria-label=\"#03 資料からプロジェクトを作る を YouTube で開く\" title=\"YouTube で開く\">↗</a></td></tr></tbody></table></div>"
+            }
+          ]
+        },
+        {
+          "type": "detail",
+          "title": "旧 第2章 見せ方を決める（字幕・動き・切り替え）",
+          "blocks": [
+            {
+              "type": "video",
+              "provider": "youtube",
+              "id": "XdiHl4dloos",
+              "title": "第2章 見せ方を決める（まとめ）",
+              "thumb": "./img/videos-m2.jpg",
+              "caption": "章のまとめ動画 · 25:13"
+            },
+            {
+              "type": "html",
+              "html": "<div class=\"table-wrap\"><table class=\"data-table\"><thead><tr><th>機能別の動画</th><th style=\"white-space:nowrap\">長さ</th></tr></thead><tbody><tr><td>#04&ensp;<a class=\"seek\" href=\"https://youtu.be/LSdjbHM6TjI\" data-start=\"4\">字幕を整える</a><span class=\"seek-at\">▶ 0:04〜</span></td><td style=\"white-space:nowrap\">6:22<a class=\"yt-out\" href=\"https://youtu.be/LSdjbHM6TjI\" target=\"_blank\" rel=\"noopener noreferrer\" aria-label=\"#04 字幕を整える を YouTube で開く\" title=\"YouTube で開く\">↗</a></td></tr><tr><td>#05&ensp;<a class=\"seek\" href=\"https://youtu.be/-B-YaRCfCAQ\" data-start=\"382\">スライドに動きを付ける</a><span class=\"seek-at\">▶ 6:22〜</span></td><td style=\"white-space:nowrap\">8:31<a class=\"yt-out\" href=\"https://youtu.be/-B-YaRCfCAQ\" target=\"_blank\" rel=\"noopener noreferrer\" aria-label=\"#05 スライドに動きを付ける を YouTube で開く\" title=\"YouTube で開く\">↗</a></td></tr><tr><td>#06&ensp;<a class=\"seek\" href=\"https://youtu.be/WXjKuCVx3j4\" data-start=\"888\">画面の切り替え効果</a><span class=\"seek-at\">▶ 14:48〜</span></td><td style=\"white-space:nowrap\">10:29<a class=\"yt-out\" href=\"https://youtu.be/WXjKuCVx3j4\" target=\"_blank\" rel=\"noopener noreferrer\" aria-label=\"#06 画面の切り替え効果 を YouTube で開く\" title=\"YouTube で開く\">↗</a></td></tr></tbody></table></div>"
+            }
+          ]
+        },
+        {
+          "type": "detail",
+          "title": "旧 第3章 仕上げて出す（BGM・動画書き出し）",
+          "blocks": [
+            {
+              "type": "video",
+              "provider": "youtube",
+              "id": "VUwp7zQPPdo",
+              "title": "第3章 仕上げて出す（まとめ）",
+              "thumb": "./img/videos-m3.jpg",
+              "caption": "章のまとめ動画 · 14:44"
+            },
+            {
+              "type": "html",
+              "html": "<div class=\"table-wrap\"><table class=\"data-table\"><thead><tr><th>機能別の動画</th><th style=\"white-space:nowrap\">長さ</th></tr></thead><tbody><tr><td>#07&ensp;<a class=\"seek\" href=\"https://youtu.be/weR33hn8kHQ\" data-start=\"4\">BGMを敷く</a><span class=\"seek-at\">▶ 0:04〜</span></td><td style=\"white-space:nowrap\">8:39<a class=\"yt-out\" href=\"https://youtu.be/weR33hn8kHQ\" target=\"_blank\" rel=\"noopener noreferrer\" aria-label=\"#07 BGMを敷く を YouTube で開く\" title=\"YouTube で開く\">↗</a></td></tr><tr><td>#08&ensp;<a class=\"seek\" href=\"https://youtu.be/feuQua6MsdQ\" data-start=\"518\">動画に書き出す</a><span class=\"seek-at\">▶ 8:38〜</span></td><td style=\"white-space:nowrap\">6:10<a class=\"yt-out\" href=\"https://youtu.be/feuQua6MsdQ\" target=\"_blank\" rel=\"noopener noreferrer\" aria-label=\"#08 動画に書き出す を YouTube で開く\" title=\"YouTube で開く\">↗</a></td></tr></tbody></table></div>"
+            }
+          ]
+        },
+        {
+          "type": "detail",
+          "title": "旧 第4章 登場人物を出す（キャラクター・立ち絵・演技）",
+          "blocks": [
+            {
+              "type": "video",
+              "provider": "youtube",
+              "id": "lzZsueJYf2g",
+              "title": "第4章 登場人物を出す（まとめ）",
+              "thumb": "./img/videos-m4.jpg",
+              "caption": "章のまとめ動画 · 22:16"
+            },
+            {
+              "type": "html",
+              "html": "<div class=\"table-wrap\"><table class=\"data-table\"><thead><tr><th>機能別の動画</th><th style=\"white-space:nowrap\">長さ</th></tr></thead><tbody><tr><td>#09&ensp;<a class=\"seek\" href=\"https://youtu.be/oDVqVs6Tl7g\" data-start=\"4\">キャラを作って台詞に割り当てる</a><span class=\"seek-at\">▶ 0:04〜</span></td><td style=\"white-space:nowrap\">7:46<a class=\"yt-out\" href=\"https://youtu.be/oDVqVs6Tl7g\" target=\"_blank\" rel=\"noopener noreferrer\" aria-label=\"#09 キャラを作って台詞に割り当てる を YouTube で開く\" title=\"YouTube で開く\">↗</a></td></tr><tr><td>#10&ensp;<a class=\"seek\" href=\"https://youtu.be/Txdt4ormScs\" data-start=\"465\">キャラを動かす</a><span class=\"seek-at\">▶ 7:45〜</span></td><td style=\"white-space:nowrap\">8:55<a class=\"yt-out\" href=\"https://youtu.be/Txdt4ormScs\" target=\"_blank\" rel=\"noopener noreferrer\" aria-label=\"#10 キャラを動かす を YouTube で開く\" title=\"YouTube で開く\">↗</a></td></tr><tr><td>#11&ensp;<a class=\"seek\" href=\"https://youtu.be/kIBVhZPOMZk\" data-start=\"991\">表情と仕草で演技させる</a><span class=\"seek-at\">▶ 16:31〜</span></td><td style=\"white-space:nowrap\">5:49<a class=\"yt-out\" href=\"https://youtu.be/kIBVhZPOMZk\" target=\"_blank\" rel=\"noopener noreferrer\" aria-label=\"#11 表情と仕草で演技させる を YouTube で開く\" title=\"YouTube で開く\">↗</a></td></tr></tbody></table></div>"
+            }
+          ]
+        },
+        {
+          "type": "detail",
+          "title": "旧 第5章 画面に足す（ステッカーと動画スライド）",
+          "blocks": [
+            {
+              "type": "video",
+              "provider": "youtube",
+              "id": "0ox0zH88uwY",
+              "title": "第5章 画面に足す（まとめ）",
+              "thumb": "./img/videos-m5.jpg",
+              "caption": "章のまとめ動画 · 25:44"
+            },
+            {
+              "type": "html",
+              "html": "<div class=\"table-wrap\"><table class=\"data-table\"><thead><tr><th>機能別の動画</th><th style=\"white-space:nowrap\">長さ</th></tr></thead><tbody><tr><td>#12&ensp;<a class=\"seek\" href=\"https://youtu.be/qoYA1GxHP98\" data-start=\"4\">ステッカーを置く</a><span class=\"seek-at\">▶ 0:04〜</span></td><td style=\"white-space:nowrap\">10:06<a class=\"yt-out\" href=\"https://youtu.be/qoYA1GxHP98\" target=\"_blank\" rel=\"noopener noreferrer\" aria-label=\"#12 ステッカーを置く を YouTube で開く\" title=\"YouTube で開く\">↗</a></td></tr><tr><td>#13&ensp;<a class=\"seek\" href=\"https://youtu.be/H43A2W3kDdo\" data-start=\"599\">ステッカーで隠す・動かす</a><span class=\"seek-at\">▶ 9:59〜</span></td><td style=\"white-space:nowrap\">6:48<a class=\"yt-out\" href=\"https://youtu.be/H43A2W3kDdo\" target=\"_blank\" rel=\"noopener noreferrer\" aria-label=\"#13 ステッカーで隠す・動かす を YouTube で開く\" title=\"YouTube で開く\">↗</a></td></tr><tr><td>#14&ensp;<a class=\"seek\" href=\"https://youtu.be/g9zvxYsXhyM\" data-start=\"1002\">動画スライドを差し込む</a><span class=\"seek-at\">▶ 16:42〜</span></td><td style=\"white-space:nowrap\">9:06<a class=\"yt-out\" href=\"https://youtu.be/g9zvxYsXhyM\" target=\"_blank\" rel=\"noopener noreferrer\" aria-label=\"#14 動画スライドを差し込む を YouTube で開く\" title=\"YouTube で開く\">↗</a></td></tr></tbody></table></div>"
+            }
+          ]
+        },
+        {
+          "type": "detail",
+          "title": "旧 第6章 全体を整える（タイムラインと OP・ED）",
+          "blocks": [
+            {
+              "type": "video",
+              "provider": "youtube",
+              "id": "bc0RZV7BOEI",
+              "title": "第6章 全体を整える（まとめ）",
+              "thumb": "./img/videos-m6.jpg",
+              "caption": "章のまとめ動画 · 14:55"
+            },
+            {
+              "type": "html",
+              "html": "<div class=\"table-wrap\"><table class=\"data-table\"><thead><tr><th>機能別の動画</th><th style=\"white-space:nowrap\">長さ</th></tr></thead><tbody><tr><td>#15&ensp;<a class=\"seek\" href=\"https://youtu.be/iGj0gfDnDZA\" data-start=\"4\">タイムラインで間を整える</a><span class=\"seek-at\">▶ 0:04〜</span></td><td style=\"white-space:nowrap\">7:14<a class=\"yt-out\" href=\"https://youtu.be/iGj0gfDnDZA\" target=\"_blank\" rel=\"noopener noreferrer\" aria-label=\"#15 タイムラインで間を整える を YouTube で開く\" title=\"YouTube で開く\">↗</a></td></tr><tr><td>#16&ensp;<a class=\"seek\" href=\"https://youtu.be/IskNg98PJtY\" data-start=\"435\">OP・ED を付ける</a><span class=\"seek-at\">▶ 7:15〜</span></td><td style=\"white-space:nowrap\">7:44<a class=\"yt-out\" href=\"https://youtu.be/IskNg98PJtY\" target=\"_blank\" rel=\"noopener noreferrer\" aria-label=\"#16 OP・ED を付ける を YouTube で開く\" title=\"YouTube で開く\">↗</a></td></tr></tbody></table></div>"
+            },
+            {
+              "type": "callout",
+              "title": "ℹ️ 補足",
+              "text": "#17「かんたんモードで作る」は、機能の刷新に合わせて作り直すため公開を保留しています。"
+            }
+          ]
+        },
+        {
+          "type": "detail",
+          "title": "旧 第7章 画面を整える（テロップ・バッジと全体の設定）",
+          "blocks": [
+            {
+              "type": "video",
+              "provider": "youtube",
+              "id": "-sl4dJ4-D6o",
+              "title": "第7章 画面を整える（まとめ）",
+              "thumb": "./img/videos-m7.jpg",
+              "caption": "章のまとめ動画 · 13:57"
+            },
+            {
+              "type": "html",
+              "html": "<div class=\"table-wrap\"><table class=\"data-table\"><thead><tr><th>機能別の動画</th><th style=\"white-space:nowrap\">長さ</th></tr></thead><tbody><tr><td>#18&ensp;<a class=\"seek\" href=\"https://youtu.be/u9F7wlK5I_c\" data-start=\"4\">テロップとバッジで飾る</a><span class=\"seek-at\">▶ 0:04〜</span></td><td style=\"white-space:nowrap\">7:01<a class=\"yt-out\" href=\"https://youtu.be/u9F7wlK5I_c\" target=\"_blank\" rel=\"noopener noreferrer\" aria-label=\"#18 テロップとバッジで飾る を YouTube で開く\" title=\"YouTube で開く\">↗</a></td></tr><tr><td>#19&ensp;<a class=\"seek\" href=\"https://youtu.be/c71UomC89Vk\" data-start=\"421\">作品全体の設定を決める</a><span class=\"seek-at\">▶ 7:01〜</span></td><td style=\"white-space:nowrap\">7:00<a class=\"yt-out\" href=\"https://youtu.be/c71UomC89Vk\" target=\"_blank\" rel=\"noopener noreferrer\" aria-label=\"#19 作品全体の設定を決める を YouTube で開く\" title=\"YouTube で開く\">↗</a></td></tr></tbody></table></div>"
+            }
+          ]
+        },
+        {
+          "type": "detail",
+          "title": "旧 第8章 書き出して残す（スライド出力とバックアップ）",
+          "blocks": [
+            {
+              "type": "video",
+              "provider": "youtube",
+              "id": "yX0K_wFRBSg",
+              "title": "第8章 書き出して残す（まとめ）",
+              "thumb": "./img/videos-m8.jpg",
+              "caption": "章のまとめ動画 · 15:36"
+            },
+            {
+              "type": "html",
+              "html": "<div class=\"table-wrap\"><table class=\"data-table\"><thead><tr><th>機能別の動画</th><th style=\"white-space:nowrap\">長さ</th></tr></thead><tbody><tr><td>#20&ensp;<a class=\"seek\" href=\"https://youtu.be/FT4Jrf-MiTE\" data-start=\"4\">スライドを書き出す</a><span class=\"seek-at\">▶ 0:04〜</span></td><td style=\"white-space:nowrap\">5:10<a class=\"yt-out\" href=\"https://youtu.be/FT4Jrf-MiTE\" target=\"_blank\" rel=\"noopener noreferrer\" aria-label=\"#20 スライドを書き出す を YouTube で開く\" title=\"YouTube で開く\">↗</a></td></tr><tr><td>#21&ensp;<a class=\"seek\" href=\"https://youtu.be/vIA0J_NlVU0\" data-start=\"310\">ブック型PDFで配布資料を作る</a><span class=\"seek-at\">▶ 5:10〜</span></td><td style=\"white-space:nowrap\">4:08<a class=\"yt-out\" href=\"https://youtu.be/vIA0J_NlVU0\" target=\"_blank\" rel=\"noopener noreferrer\" aria-label=\"#21 ブック型PDFで配布資料を作る を YouTube で開く\" title=\"YouTube で開く\">↗</a></td></tr><tr><td>#22&ensp;<a class=\"seek\" href=\"https://youtu.be/6ew8soQtzHo\" data-start=\"554\">バックアップと復元</a><span class=\"seek-at\">▶ 9:14〜</span></td><td style=\"white-space:nowrap\">6:26<a class=\"yt-out\" href=\"https://youtu.be/6ew8soQtzHo\" target=\"_blank\" rel=\"noopener noreferrer\" aria-label=\"#22 バックアップと復元 を YouTube で開く\" title=\"YouTube で開く\">↗</a></td></tr></tbody></table></div>"
+            }
+          ]
+        },
+        {
+          "type": "detail",
+          "title": "旧 第9章 キャラクター素材を作る（MouthLoop）（口パク・表情・仕草）",
+          "blocks": [
+            {
+              "type": "video",
+              "provider": "youtube",
+              "id": "jGXqpocV0RI",
+              "title": "第9章 キャラクター素材を作る（MouthLoop）（まとめ）",
+              "thumb": "./img/videos-m9.jpg",
+              "caption": "章のまとめ動画 · 16:50"
+            },
+            {
+              "type": "html",
+              "html": "<div class=\"table-wrap\"><table class=\"data-table\"><thead><tr><th>機能別の動画</th><th style=\"white-space:nowrap\">長さ</th></tr></thead><tbody><tr><td>#23&ensp;<a class=\"seek\" href=\"https://youtu.be/Ut9ooSU2jw8\" data-start=\"4\">MouthLoop で口パク素材を作る</a><span class=\"seek-at\">▶ 0:04〜</span></td><td style=\"white-space:nowrap\">8:42<a class=\"yt-out\" href=\"https://youtu.be/Ut9ooSU2jw8\" target=\"_blank\" rel=\"noopener noreferrer\" aria-label=\"#23 MouthLoop で口パク素材を作る を YouTube で開く\" title=\"YouTube で開く\">↗</a></td></tr><tr><td>#24&ensp;<a class=\"seek\" href=\"https://youtu.be/8mLyzPi0564\" data-start=\"510\">MouthLoop で表情と仕草を足す</a><span class=\"seek-at\">▶ 8:30〜</span></td><td style=\"white-space:nowrap\">8:20<a class=\"yt-out\" href=\"https://youtu.be/8mLyzPi0564\" target=\"_blank\" rel=\"noopener noreferrer\" aria-label=\"#24 MouthLoop で表情と仕草を足す を YouTube で開く\" title=\"YouTube で開く\">↗</a></td></tr></tbody></table></div>"
+            }
+          ]
+        },
+        {
+          "type": "detail",
+          "title": "旧 第10章 データと安全性（作品・APIキー・料金の守り方）",
+          "blocks": [
+            {
+              "type": "video",
+              "provider": "youtube",
+              "id": "jqoeTxL7mR4",
+              "title": "#25 データの置き場所と外部通信",
+              "thumb": "./img/videos-25.jpg",
+              "caption": "#25 · 8:06"
+            },
+            {
+              "type": "html",
+              "html": "<div class=\"table-wrap\"><table class=\"data-table\"><thead><tr><th>機能別の動画</th><th style=\"white-space:nowrap\">長さ</th></tr></thead><tbody><tr><td>#25&ensp;<a class=\"seek\" href=\"https://youtu.be/jqoeTxL7mR4\" data-start=\"0\">データの置き場所と外部通信</a><span class=\"seek-at\">▶ 0:00〜</span></td><td style=\"white-space:nowrap\">8:06<a class=\"yt-out\" href=\"https://youtu.be/jqoeTxL7mR4\" target=\"_blank\" rel=\"noopener noreferrer\" aria-label=\"#25 データの置き場所と外部通信 を YouTube で開く\" title=\"YouTube で開く\">↗</a></td></tr></tbody></table></div>"
+            },
+            {
+              "type": "callout",
+              "title": "ℹ️ 補足",
+              "text": "この章はまとめ動画が無く、単体の #25 だけです。"
+            }
+          ]
+        },
+        {
+          "type": "detail",
+          "title": "旧 第11章 音声を作る（アプリ内TTS・声選び・自作ボイス）",
+          "blocks": [
+            {
+              "type": "video",
+              "provider": "youtube",
+              "id": "-KOD9h9LxMk",
+              "title": "第11章 音声を作る（まとめ）",
+              "thumb": "./img/videos-m11.jpg",
+              "caption": "章のまとめ動画 · 24:40"
+            },
+            {
+              "type": "html",
+              "html": "<div class=\"table-wrap\"><table class=\"data-table\"><thead><tr><th>機能別の動画</th><th style=\"white-space:nowrap\">長さ</th></tr></thead><tbody><tr><td>#26&ensp;<a class=\"seek\" href=\"https://youtu.be/MOR6PZLFbAg\" data-start=\"4\">APIキーを設定してアプリ内で音声を作る</a><span class=\"seek-at\">▶ 0:04〜</span></td><td style=\"white-space:nowrap\">8:59<a class=\"yt-out\" href=\"https://youtu.be/MOR6PZLFbAg\" target=\"_blank\" rel=\"noopener noreferrer\" aria-label=\"#26 APIキーを設定してアプリ内で音声を作る を YouTube で開く\" title=\"YouTube で開く\">↗</a></td></tr><tr><td>#27&ensp;<a class=\"seek\" href=\"https://youtu.be/BhHmKFrWx-I\" data-start=\"537\">Gemini 3.8 TTSの音声ライブラリから声を選ぶ</a><span class=\"seek-at\">▶ 8:57〜</span></td><td style=\"white-space:nowrap\">6:18<a class=\"yt-out\" href=\"https://youtu.be/BhHmKFrWx-I\" target=\"_blank\" rel=\"noopener noreferrer\" aria-label=\"#27 Gemini 3.8 TTSの音声ライブラリから声を選ぶ を YouTube で開く\" title=\"YouTube で開く\">↗</a></td></tr><tr><td>#28&ensp;<a class=\"seek\" href=\"https://youtu.be/TdrdYPFEJNY\" data-start=\"890\">説明文から自作ボイスを作って使う</a><span class=\"seek-at\">▶ 14:50〜</span></td><td style=\"white-space:nowrap\">6:09<a class=\"yt-out\" href=\"https://youtu.be/TdrdYPFEJNY\" target=\"_blank\" rel=\"noopener noreferrer\" aria-label=\"#28 説明文から自作ボイスを作って使う を YouTube で開く\" title=\"YouTube で開く\">↗</a></td></tr><tr><td>#29&ensp;<a class=\"seek\" href=\"https://youtu.be/gS_W-fgkwU0\" data-start=\"1226\">クローンボイスを作って使う</a><span class=\"seek-at\">▶ 20:26〜</span></td><td style=\"white-space:nowrap\">4:27<a class=\"yt-out\" href=\"https://youtu.be/gS_W-fgkwU0\" target=\"_blank\" rel=\"noopener noreferrer\" aria-label=\"#29 クローンボイスを作って使う を YouTube で開く\" title=\"YouTube で開く\">↗</a></td></tr></tbody></table></div>"
+            },
+            {
+              "type": "callout",
+              "title": "ℹ️ 補足",
+              "text": "#30 は欠番です。"
+            }
+          ]
         }
       ]
     },
@@ -452,6 +636,24 @@
         {
           "type": "link_cards",
           "items": [
+            {
+              "icon": "🔦",
+              "title": "v5.5「SPOTLIGHT」アップデート",
+              "text": "1:12",
+              "url": "https://youtu.be/mp1HAcW21Qk"
+            },
+            {
+              "icon": "🎭",
+              "title": "v5.0「STAGE」アップデート",
+              "text": "1:10",
+              "url": "https://youtu.be/AVN9sHfEHuw"
+            },
+            {
+              "icon": "🔑",
+              "title": "SlideCast Studio の初期設定",
+              "text": "画面を見ながらセットアップ · 3:23",
+              "url": "https://youtu.be/WEIrqU1Buww"
+            },
             {
               "icon": "🎥",
               "title": "SlideCast Studio demo",
@@ -493,7 +695,7 @@
             {
               "icon": "📘",
               "title": "公式マニュアル",
-              "text": "全機能の使い方リファレンス",
+              "text": "v5.5 の全機能を文章で",
               "url": "../manual/"
             },
             {
@@ -505,13 +707,13 @@
             {
               "icon": "😀",
               "title": "MouthLoop v2",
-              "text": "第9章のキャラクター素材づくり",
+              "text": "キャラ素材づくり",
               "url": "../mouthloop-v2/"
             },
             {
               "icon": "🛡️",
               "title": "セキュリティについて",
-              "text": "第10章の内容を文章で",
+              "text": "データと通信を文章で",
               "url": "../security/"
             }
           ]

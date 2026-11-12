@@ -40,8 +40,8 @@ PAGE_META: dict[str, dict[str, str]] = {
     "en/manual/": {
         "og_title": "SlideCast Studio — the official manual",
         "og_description": (
-            "The 18-chapter reference for v3.4: slides, script and AI voice, characters, "
-            "design and effects, BGM, opening/ending videos, and every export format."
+            "The reference for v5.5: the new editor layout, slides, script and voice, captions, "
+            "characters, stickers, BGM, the timeline, opening/ending videos and every export format."
         ),
     },
     "en/bundle-builder/": {

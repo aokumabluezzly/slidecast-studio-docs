@@ -21,8 +21,8 @@
 | `setup.en.spec.json` | 英語版の初期設定・セットアップガイド（`/en/setup/index.html`）。日本語の実演画面は共用し、操作名・キャプションを英訳 |
 | `setup.spec.json` | 初期設定・セットアップガイド（`/setup/index.html`）。ユーザー承認済み動画からのモザイク処理済み画面8枚と動画埋め込み |
 | `gas-update.spec.json` | アップデート方法ガイド（`/gas-update/index.html`）の設計データ |
-| `videos.spec.json` | 動画マニュアル（`/videos/index.html`）の設計データ。YouTube の章別まとめ10本・機能別28本を全11章で並べる。日本語版のみ（下記） |
-| `manual.spec.json` | 公式マニュアル（`/manual/index.html`）の設計データ。v33 / v34 と同じく既存の日本語ページから起こしたもので、日本語ページの再生成には**使っていません**（下記） |
+| `videos.spec.json` | 動画マニュアル（`/videos/index.html`）の設計データ。v5.5 シリーズ（序章＋全6章、章別まとめ5本・機能別17本）を並べ、旧版（v5.0 以前の全11章）は折りたたみで残す。日本語版のみ（下記） |
+| `manual.spec.json` | 公式マニュアル（`/manual/index.html`）の設計データ。2026年11月の v5.5 書き直しから、日本語ページはこの spec で再生成する（下記）。英語版 `manual.en.spec.json` も v5.5 に合わせて翻訳し直した |
 | `manual.en.spec.json` | 英語版の公式マニュアル（`/en/manual/index.html`）の設計データ |
 | `intro.en.spec.json` | 英語版の紹介ページ（`/en/intro/index.html`）の設計データ |
 | `bundle-builder.en.spec.json` | 英語版の Bundle Builder ガイド（`/en/bundle-builder/index.html`）の設計データ |
@@ -173,7 +173,7 @@ spec の `nav_links` から出るのはリンクとラベルだけなので、�
 <button class="header-link" type="button" data-site-nav aria-label="ページ一覧"><span aria-hidden="true">📚</span><span class="nav-label">ページ</span></button>
 ```
 
-`manual/`・`updates/v34/`・`updates/v33/`（いずれも日本語版）は spec から再生成しない運用なので、ヘッダーを直接編集してあります。
+`updates/v34/`・`updates/v33/`（いずれも日本語版）は spec から再生成しない運用なので、ヘッダーを直接編集してあります。`manual/` は v5.5 書き直しから spec の `nav_links` で生成します。
 
 ### ページ間でそろえている見た目
 
@@ -262,7 +262,7 @@ python3 _source/tools/build_en.py
 
 ## 公開中の HTML から起こした spec（再生成に使わない）
 
-`manual/`・`updates/v33/`・`updates/v34/` は、英語版を作るときに**公開中の日本語 HTML から `manual.spec.json` / `v33.spec.json` / `v34.spec.json` を起こし直しました**。この spec でビルドすると、記事本文・目次・ソースカードは公開中のページと一致します（唯一の差はヒーロー画像の `loading="lazy"` で、生成側がヒーローを遅延読み込みしなくなったため）。ただしどれも共通クロームを手で足した日本語ページなので、**spec からの再生成で上書きしないでください**。日本語側を直すときは HTML を直接編集し、同じ内容を spec にも反映します（英語版の元データとして使うため）。
+`updates/v33/`・`updates/v34/`（と v5.5 書き直し前の `manual/`）は、英語版を作るときに**公開中の日本語 HTML から `manual.spec.json` / `v33.spec.json` / `v34.spec.json` を起こし直しました**。この spec でビルドすると、記事本文・目次・ソースカードは公開中のページと一致します（唯一の差はヒーロー画像の `loading="lazy"` で、生成側がヒーローを遅延読み込みしなくなったため）。ただしどれも共通クロームを手で足した日本語ページなので、**spec からの再生成で上書きしないでください**。日本語側を直すときは HTML を直接編集し、同じ内容を spec にも反映します（英語版の元データとして使うため）。
 
 一致を確かめたいときは、同じディレクトリへ別名で出力して差分を取ります（`index.html` を直接上書きしないこと）。出力先が同じ階層なので、画像の相対パス（`../assets/`）も揃います。
 
@@ -277,6 +277,10 @@ python3 ~/.claude/skills/build-rich-html-article/scripts/build_article.py \
 python3 _source/tools/externalize_images.py manual/index.html --assets assets --dry-run
 python3 _source/tools/externalize_images.py manual/index.html --assets assets
 ```
+
+## 公式マニュアルの再生成
+
+2026年11月12日に v5.5「SPOTLIGHT」に合わせて全面的に書き直し、`manual.spec.json` から生成する運用に切り替えました。`manual.spec.json` から `manual/index.html` を生成し、`--assets assets` を付けたあと `python3 _source/tools/finish_ja_page.py manual/index.html` を実行します（`PAGE_META` に登録済み）。画面写真は `img/manual55-*.jpg`（ローカルHTML版 v5.5 を Playwright で撮影）と、v5.5 更新記事の `img/v55-*.png` の流用です。英語版 `manual.en.spec.json` も同じ日に v5.5 の日本語版から翻訳し直しました（UI名は英語表示のラベル、画面写真は日本語UIのまま共用。冒頭にその旨のコールアウト）。日本語版を直したら英語版にも反映し、`python3 _source/tools/build_en.py manual` で作り直します。
 
 ## セキュリティガイドの再生成
 
