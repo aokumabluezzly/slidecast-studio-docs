@@ -1836,12 +1836,18 @@
               "title": "#16 Tuning the gaps on the timeline",
               "text": "Tutorial video (v5.5, Japanese) · 7:29",
               "url": "https://youtu.be/cqvMKUY16lo"
+            },
+            {
+              "icon": "🎬",
+              "title": "#17 Adding an OP and ED",
+              "text": "Tutorial video (v5.5, Japanese) · 8:43",
+              "url": "https://youtu.be/-ugt2ZvMq7E"
             }
           ]
         },
         {
           "type": "html",
-          "html": "<p class=\"small\">The v5.5 videos for OP/ED and the project-wide settings are in production. Until then, see the <a href=\"../../videos/#legacy\">older videos on the video manual page</a> (v4.4 screens, Japanese).</p>"
+          "html": "<p class=\"small\">The v5.5 video for the project-wide settings is in production. Until then, see the <a href=\"../../videos/#legacy\">older videos on the video manual page</a> (v4.4 screens, Japanese).</p>"
         }
       ],
       "intro": "Lay down music, tune the timing within a slide, and decide what comes before, after and around everything."
