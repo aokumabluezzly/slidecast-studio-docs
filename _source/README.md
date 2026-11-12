@@ -280,7 +280,7 @@ python3 _source/tools/externalize_images.py manual/index.html --assets assets
 
 ## 公式マニュアルの再生成
 
-2026年11月12日に v5.5「SPOTLIGHT」に合わせて全面的に書き直し、`manual.spec.json` から生成する運用に切り替えました。`manual.spec.json` から `manual/index.html` を生成し、`--assets assets` を付けたあと `python3 _source/tools/finish_ja_page.py manual/index.html` を実行します（`PAGE_META` に登録済み）。画面写真は `img/manual55-*.jpg`（ローカルHTML版 v5.5 を Playwright で撮影）と、v5.5 更新記事の `img/v55-*.png` の流用です。英語版 `manual.en.spec.json` も同じ日に v5.5 の日本語版から翻訳し直しました（UI名は英語表示のラベル、画面写真は日本語UIのまま共用。冒頭にその旨のコールアウト）。日本語版を直したら英語版にも反映し、`python3 _source/tools/build_en.py manual` で作り直します。
+2026年11月12日に v5.5「SPOTLIGHT」に合わせて全面的に書き直し、`manual.spec.json` から生成する運用に切り替えました。`manual.spec.json` から `manual/index.html` を生成し、`--assets assets` を付けたあと `python3 _source/tools/finish_ja_page.py manual/index.html` を実行します（`PAGE_META` に登録済み）。スクショは `img/manual55-*.jpg`（ローカルHTML版 v5.5 を Playwright で撮影）と、v5.5 更新記事の `img/v55-*.png` の流用です。英語版 `manual.en.spec.json` も同じ日に v5.5 の日本語版から翻訳し直しました（UI名は英語表示のラベル、スクショは日本語UIのまま共用。冒頭にその旨のコールアウト）。日本語版を直したら英語版にも反映し、`python3 _source/tools/build_en.py manual` で作り直します。
 
 ## セキュリティガイドの再生成
 

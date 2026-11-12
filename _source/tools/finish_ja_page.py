@@ -44,7 +44,7 @@ PAGE_META: dict[str, dict[str, object]] = {
     },
     "manual/": {
         "og_title": "SlideCast Studio 公式マニュアル",
-        "og_description": "v5.5 対応。ナレーション・字幕・キャラクター・BGM・OP/EDを付け、ブラウザだけで動画に書き出す方法を、画面写真と使い方動画で解説します。",
+        "og_description": "v5.5 対応。ナレーション・字幕・キャラクター・BGM・OP/EDを付け、ブラウザだけで動画に書き出す方法を、スクショと使い方動画で解説します。",
         "en": True,
     },
     "videos/": {
