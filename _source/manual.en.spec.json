@@ -317,11 +317,6 @@
           "title": "🫨 If the exported video stutters",
           "text": "The Standard (recording) export method records while it plays, so it depends on spare memory and processing power in the browser. Pause other work and close spare tabs while it exports, and the video comes out smoother. Choose High quality (frame rendering) as the export method and dropped frames and audio drift caused by load cannot happen (chapter 13).",
           "tone": "warn"
-        },
-        {
-          "type": "callout",
-          "title": "ℹ️ Lite edition",
-          "text": "The Lite edition exports at 720p and 1080p. It allows 10 slides, 2 characters, one video slide, one BGM track and up to 3 stickers per slide."
         }
       ],
       "intro": "Video export runs on your own computer. Here is what to aim for if you want it to be comfortable."
@@ -431,8 +426,8 @@
           "type": "step_list",
           "items": [
             {
-              "title": "Target and material",
-              "text": "First choose which SlideCast Studio will load the ZIP: the standard or the Lite edition. With Lite, it keeps to 2 characters and 10 slides. Bring in PDFs or images as your material, or have AI create slide images"
+              "title": "Material",
+              "text": "Bring in PDFs or images as your material, or have AI create slide images"
             },
             {
               "title": "Script",
@@ -996,7 +991,7 @@
           "items": [
             "Display animations come in two rows — ones that move the whole caption, and ones that reveal it a character at a time in reading order as it is read — 22 in all. Hover to replay one in the preview",
             "Turn on Karaoke and the text changes colour as it is read. Set the colour under Caption design → Adjust design → Karaoke",
-            "In projects with speech bubbles, Different motion for bubbles gives the bubbles their own display animation (the Lite edition has one setting for all)"
+            "In projects with speech bubbles, Different motion for bubbles gives the bubbles their own display animation"
           ]
         },
         {
@@ -1029,7 +1024,7 @@
         },
         {
           "type": "html",
-          "html": "<p>Choose a vertical type for the screen and captions and speech bubbles are set vertically. The options switch to vertical ones such as band position (left, centre, right), width and the orientation of Latin letters and digits (9:16 and similar; the Lite edition has horizontal types only).</p>"
+          "html": "<p>Choose a vertical type for the screen and captions and speech bubbles are set vertically. The options switch to vertical ones such as band position (left, centre, right), width and the orientation of Latin letters and digits (9:16 and similar).</p>"
         },
         {
           "type": "heading",
@@ -1134,7 +1129,7 @@
         },
         {
           "type": "html",
-          "html": "<p>Click the tag between two slides in the slide list to open Boundary transition and change the type, duration, scope and sound for just that boundary. Boundaries that differ from the project setting have coloured tags. Reset all returns them to the project setting (the Lite edition has the project setting only).</p>"
+          "html": "<p>Click the tag between two slides in the slide list to open Boundary transition and change the type, duration, scope and sound for just that boundary. Boundaries that differ from the project setting have coloured tags. Reset all returns them to the project setting.</p>"
         },
         {
           "type": "heading",
@@ -1356,7 +1351,7 @@
             },
             {
               "label": "This slide only",
-              "value": "This slide → Placement → Adjust this slide only. Move or hide the icon and the caption or bubble separately. Copy the same adjustment to other slides (not in the Lite edition)"
+              "value": "This slide → Placement → Adjust this slide only. Move or hide the icon and the caption or bubble separately. Copy the same adjustment to other slides"
             }
           ]
         },
@@ -1485,7 +1480,7 @@
         },
         {
           "type": "html",
-          "html": "<p>Press + on the Stickers tab under This slide to place a sticker. It puts text or an image (a PNG with a transparent background, for example) on top of the slide. Drag the frame in the preview to move it and use the corner and edge handles to resize it (with Snap on, it snaps to the centre and similar). Up to 10 per slide (3 in the Lite edition).</p>"
+          "html": "<p>Press + on the Stickers tab under This slide to place a sticker. It puts text or an image (a PNG with a transparent background, for example) on top of the slide. Drag the frame in the preview to move it and use the corner and edge handles to resize it (with Snap on, it snaps to the centre and similar). Up to 10 per slide.</p>"
         },
         {
           "type": "figure",
@@ -1550,7 +1545,7 @@
         },
         {
           "type": "html",
-          "html": "<p>The Tickers tab under Project. Keep announcements or headings in a band at the top or bottom of the screen. Top ticker and Bottom ticker are set separately (the Lite edition has the top one only).</p>"
+          "html": "<p>The Tickers tab under Project. Keep announcements or headings in a band at the top or bottom of the screen. Top ticker and Bottom ticker are set separately.</p>"
         },
         {
           "type": "figure",
@@ -1712,7 +1707,7 @@
             "Fade in/out and Fade duration overlap the tracks so one blends into the next",
             "Default volume starts at 10% (up to 50%). Per track, use the pencil to turn off “Use default volume” and set a Custom volume",
             "Tracks you add are saved to the library automatically; bring them back in the next project with Choose from library",
-            "The switch at the top drops BGM from Full preview and export while keeping its settings (the Lite edition allows one track)",
+            "The switch at the top drops BGM from Full preview and export while keeping its settings",
             "Wherever a video slide is set to Video only, the BGM goes silent"
           ]
         },
@@ -1802,7 +1797,7 @@
           "items": [
             {
               "label": "My presets",
-              "value": "Save the current settings under a name and apply them to another project. Before applying, a list shows what will change (not in the Lite edition)"
+              "value": "Save the current settings under a name and apply them to another project. Before applying, a list shows what will change"
             },
             {
               "label": "Screen (ratio and type)",
@@ -2150,11 +2145,6 @@
           "image": "./img/manual55-slide-export.jpg",
           "alt": "The Export slides confirmation: purpose, format, content, resolution, pages, file name and the export preview",
           "caption": "Confirming an Export slides"
-        },
-        {
-          "type": "callout",
-          "title": "ℹ️ Lite edition",
-          "text": "The Lite edition exports at 720p and 1080p."
         },
         {
           "type": "heading",
