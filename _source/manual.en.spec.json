@@ -2164,15 +2164,23 @@
           "items": [
             {
               "icon": "🎬",
-              "title": "Exporting video and slides (older series)",
-              "text": "Older #08, #20 and #21 on the video manual page (v4.4 screens, Japanese)",
-              "url": "../../videos/#legacy"
+              "title": "#19 Exporting a video",
+              "text": "Tutorial video (v5.5, Japanese) · 6:31",
+              "url": "https://youtu.be/6Px0F_MsQBA"
+            },
+            {
+              "icon": "🎬",
+              "title": "#20 Exporting slides",
+              "text": "Tutorial video (v5.5, Japanese) · 6:52",
+              "url": "https://youtu.be/CTLYNMGhXDg"
+            },
+            {
+              "icon": "🎬",
+              "title": "#21 Making handouts with the book-style PDF",
+              "text": "Tutorial video (v5.5, Japanese) · 6:02",
+              "url": "https://youtu.be/xCMVTvm0iPc"
             }
           ]
-        },
-        {
-          "type": "html",
-          "html": "<p class=\"small\">The v5.5 video on exporting is in production. The export screens themselves have barely changed since v4.4.</p>"
         }
       ],
       "intro": "Exporting video (MP4, WebM) and PPTX, PDF and images."
@@ -2254,9 +2262,9 @@
           "items": [
             {
               "icon": "🎬",
-              "title": "#22 Backup and restore (older series)",
-              "text": "Older chapter 8 on the video manual page (v4.4 screens, Japanese)",
-              "url": "../../videos/#legacy"
+              "title": "#22 Backup and restore",
+              "text": "Tutorial video (v5.5, Japanese) · 8:12",
+              "url": "https://youtu.be/JHhXYAyAWKo"
             }
           ]
         }

@@ -2158,15 +2158,23 @@
           "items": [
             {
               "icon": "🎬",
-              "title": "動画・スライドの書き出し（旧版）",
-              "text": "動画マニュアルの旧版 #08・#20・#21（v4.4 の画面）",
-              "url": "../videos/#legacy"
+              "title": "#19 動画に書き出す",
+              "text": "使い方動画（v5.5）· 6:31",
+              "url": "https://youtu.be/6Px0F_MsQBA"
+            },
+            {
+              "icon": "🎬",
+              "title": "#20 スライドを書き出す",
+              "text": "使い方動画（v5.5）· 6:52",
+              "url": "https://youtu.be/CTLYNMGhXDg"
+            },
+            {
+              "icon": "🎬",
+              "title": "#21 ブック型PDFで配布資料を作る",
+              "text": "使い方動画（v5.5）· 6:02",
+              "url": "https://youtu.be/xCMVTvm0iPc"
             }
           ]
-        },
-        {
-          "type": "html",
-          "html": "<p class=\"small\">書き出しの v5.5 版の動画は制作中です。書き出しの画面そのものは v4.4 からほとんど変わっていません。</p>"
         }
       ]
     },
@@ -2248,9 +2256,9 @@
           "items": [
             {
               "icon": "🎬",
-              "title": "#22 バックアップと復元（旧版）",
-              "text": "動画マニュアルの旧版 第8章（v4.4 の画面）",
-              "url": "../videos/#legacy"
+              "title": "#22 バックアップと復元",
+              "text": "使い方動画（v5.5）· 8:12",
+              "url": "https://youtu.be/JHhXYAyAWKo"
             }
           ]
         }

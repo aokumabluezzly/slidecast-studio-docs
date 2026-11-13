@@ -1,38 +1,38 @@
 {
   "title": "SlideCast Studio 動画マニュアル",
   "subtitle": "全機能の使い方を、動画で。章と機能から探せる動画版の公式マニュアル",
-  "description": "SlideCast Studio v5.5 の使い方を動画で学べる動画マニュアルです。v5.5 版の章別まとめ5本・機能別の動画を、作る順の章に沿って並べ、見たい機能の場面からすぐに再生できます。",
+  "description": "SlideCast Studio v5.5 の使い方を動画で学べる動画マニュアルです。v5.5 版の章別まとめ6本・機能別の動画を、作る順の章に沿って並べ、見たい機能の場面からすぐに再生できます。",
   "lead": "",
   "eyebrow": "VIDEO MANUAL",
   "brand": "SlideCast ",
   "brand_accent": "Studio",
   "brand_badge": "Docs",
   "author": "aokuma",
-  "date": "2026.11.12",
+  "date": "2026.11.13",
   "version": "YouTube",
   "footer_meta": "SlideCast Studio ドキュメント · aokuma",
   "hero_image": "./img/videos-v55-m1.jpg",
   "hero_alt": "v5.5 版の使い方動画「第1章 作品を作る」のサムネイル",
   "chips": [
     "v5.5 対応",
-    "章別まとめ5本",
-    "機能別19本",
+    "章別まとめ6本",
+    "機能別23本",
     "無料で見られる"
   ],
   "stats": [
     {
       "icon": "📚",
-      "value": "序＋6",
+      "value": "序＋7",
       "label": "公開中の章"
     },
     {
       "icon": "🎞️",
-      "value": "5",
+      "value": "6",
       "label": "章別まとめ"
     },
     {
       "icon": "🔧",
-      "value": "17",
+      "value": "23",
       "label": "機能別の動画"
     },
     {
@@ -162,9 +162,15 @@
             "url": "#ch6"
           },
           {
+            "icon": "📤",
+            "title": "第7章 書き出して残す",
+            "text": "動画・スライド・ブック型PDF・バックアップ",
+            "url": "#ch7"
+          },
+          {
             "icon": "🛠️",
             "title": "制作中の章",
-            "text": "書き出し・MouthLoop・データと音声",
+            "text": "MouthLoop・データと音声",
             "url": "#next"
           },
           {
@@ -359,11 +365,32 @@
       ]
     },
     {
+      "id": "ch7",
+      "icon": "📤",
+      "category": "第7章",
+      "title": "書き出して残す",
+      "intro": "動画・スライド・ブック型PDF・バックアップ",
+      "blocks": [
+        {
+          "type": "video",
+          "provider": "youtube",
+          "id": "0vGOOwDGO38",
+          "title": "第7章 書き出して残す（まとめ）",
+          "thumb": "./img/videos-v55-m7.jpg",
+          "caption": "章のまとめ動画 · 27:06"
+        },
+        {
+          "type": "html",
+          "html": "<div class=\"table-wrap\"><table class=\"data-table\"><thead><tr><th>機能別の動画</th><th style=\"white-space:nowrap\">長さ</th></tr></thead><tbody><tr><td>#19&ensp;<a class=\"seek\" href=\"https://youtu.be/6Px0F_MsQBA\" data-start=\"4\">動画に書き出す</a><span class=\"seek-at\">▶ 0:04〜</span></td><td style=\"white-space:nowrap\">6:31<a class=\"yt-out\" href=\"https://youtu.be/6Px0F_MsQBA\" target=\"_blank\" rel=\"noopener noreferrer\" aria-label=\"#19 動画に書き出す を YouTube で開く\" title=\"YouTube で開く\">↗</a></td></tr><tr><td>#20&ensp;<a class=\"seek\" href=\"https://youtu.be/CTLYNMGhXDg\" data-start=\"385\">スライドを書き出す</a><span class=\"seek-at\">▶ 6:25〜</span></td><td style=\"white-space:nowrap\">6:52<a class=\"yt-out\" href=\"https://youtu.be/CTLYNMGhXDg\" target=\"_blank\" rel=\"noopener noreferrer\" aria-label=\"#20 スライドを書き出す を YouTube で開く\" title=\"YouTube で開く\">↗</a></td></tr><tr><td>#21&ensp;<a class=\"seek\" href=\"https://youtu.be/xCMVTvm0iPc\" data-start=\"787\">ブック型PDFで配布資料を作る</a><span class=\"seek-at\">▶ 13:07〜</span></td><td style=\"white-space:nowrap\">6:02<a class=\"yt-out\" href=\"https://youtu.be/xCMVTvm0iPc\" target=\"_blank\" rel=\"noopener noreferrer\" aria-label=\"#21 ブック型PDFで配布資料を作る を YouTube で開く\" title=\"YouTube で開く\">↗</a></td></tr><tr><td>#22&ensp;<a class=\"seek\" href=\"https://youtu.be/JHhXYAyAWKo\" data-start=\"1139\">バックアップと復元</a><span class=\"seek-at\">▶ 18:59〜</span></td><td style=\"white-space:nowrap\">8:12<a class=\"yt-out\" href=\"https://youtu.be/JHhXYAyAWKo\" target=\"_blank\" rel=\"noopener noreferrer\" aria-label=\"#22 バックアップと復元 を YouTube で開く\" title=\"YouTube で開く\">↗</a></td></tr></tbody></table></div>"
+        }
+      ]
+    },
+    {
       "id": "next",
       "icon": "🛠️",
       "category": "これから",
       "title": "v5.5 版で制作中の章",
-      "intro": "書き出し・MouthLoop・データと音声",
+      "intro": "MouthLoop・データと音声",
       "blocks": [
         {
           "type": "html",
@@ -376,10 +403,6 @@
             "今見られる旧版の動画"
           ],
           "rows": [
-            [
-              "第7章 書き出して残す（動画・スライド・ブック型PDF・バックアップ）",
-              "旧 第3章 #08・旧 第8章 #20〜#22"
-            ],
             [
               "第8章 キャラ素材（MouthLoop）",
               "旧 第9章 #23・#24（MouthLoop 側の操作は今も同じです）"

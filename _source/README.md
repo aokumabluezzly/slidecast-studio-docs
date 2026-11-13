@@ -21,7 +21,7 @@
 | `setup.en.spec.json` | 英語版の初期設定・セットアップガイド（`/en/setup/index.html`）。日本語の実演画面は共用し、操作名・キャプションを英訳 |
 | `setup.spec.json` | 初期設定・セットアップガイド（`/setup/index.html`）。ユーザー承認済み動画からのモザイク処理済み画面8枚と動画埋め込み |
 | `gas-update.spec.json` | アップデート方法ガイド（`/gas-update/index.html`）の設計データ |
-| `videos.spec.json` | 動画マニュアル（`/videos/index.html`）の設計データ。v5.5 シリーズ（序章＋全6章、章別まとめ5本・機能別17本）を並べ、旧版（v5.0 以前の全11章）は折りたたみで残す。日本語版のみ（下記） |
+| `videos.spec.json` | 動画マニュアル（`/videos/index.html`）の設計データ。v5.5 シリーズ（序章＋全7章、章別まとめ6本・機能別23本）を並べ、旧版（v5.0 以前の全11章）は折りたたみで残す。日本語版のみ（下記） |
 | `manual.spec.json` | 公式マニュアル（`/manual/index.html`）の設計データ。2026年11月の v5.5 書き直しから、日本語ページはこの spec で再生成する（下記）。英語版 `manual.en.spec.json` も v5.5 に合わせて翻訳し直した |
 | `manual.en.spec.json` | 英語版の公式マニュアル（`/en/manual/index.html`）の設計データ |
 | `intro.en.spec.json` | 英語版の紹介ページ（`/en/intro/index.html`）の設計データ |
