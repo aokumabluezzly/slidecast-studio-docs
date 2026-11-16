@@ -367,6 +367,22 @@
           "type": "link",
           "url": "../security/",
           "label": "🛡️ セキュリティについて（詳しい解説）"
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "🎬 動画で見る"
+        },
+        {
+          "type": "link_cards",
+          "items": [
+            {
+              "icon": "🎬",
+              "title": "#25 データの置き場所と外部通信",
+              "text": "使い方動画（v5.5）· 10:41",
+              "url": "https://youtu.be/PGmYQ64PrSM"
+            }
+          ]
         }
       ]
     },
@@ -1456,6 +1472,18 @@
               "title": "#10 表情・仕草・おまかせ演技",
               "text": "使い方動画（v5.5）· 7:01",
               "url": "https://youtu.be/aB0yxh4uw84"
+            },
+            {
+              "icon": "🎬",
+              "title": "#23 MouthLoop で口パク素材を作る",
+              "text": "使い方動画（v5.5）· 8:38",
+              "url": "https://youtu.be/aBbRgEtaAi0"
+            },
+            {
+              "icon": "🎬",
+              "title": "#24 MouthLoop で表情と仕草を足す",
+              "text": "使い方動画（v5.5）· 8:24",
+              "url": "https://youtu.be/T4yGjid5VkY"
             }
           ]
         }
@@ -1992,9 +2020,27 @@
           "items": [
             {
               "icon": "🎬",
-              "title": "#26〜#29 アプリ内で音声を作る（旧版）",
-              "text": "動画マニュアルの旧版 第11章（v4.4 の画面）",
-              "url": "../videos/#legacy"
+              "title": "#26 アプリ内で音声を作る（APIキーとTTS）",
+              "text": "使い方動画（v5.5）· 12:19",
+              "url": "https://youtu.be/qnbNqldbTIc"
+            },
+            {
+              "icon": "🎬",
+              "title": "#27 音声ライブラリから声を選ぶ",
+              "text": "使い方動画（v5.5）· 9:59",
+              "url": "https://youtu.be/4AX1PHCUvTY"
+            },
+            {
+              "icon": "🎬",
+              "title": "#28 自作ボイス（文章で声を作って使う）",
+              "text": "使い方動画（v5.5）· 10:48",
+              "url": "https://youtu.be/IbFJeprfqUQ"
+            },
+            {
+              "icon": "🎬",
+              "title": "#29 クローンボイス（録音した声をまねて作るボイスを使う）",
+              "text": "使い方動画（v5.5）· 9:34",
+              "url": "https://youtu.be/_4E-2QAcypI"
             }
           ]
         }

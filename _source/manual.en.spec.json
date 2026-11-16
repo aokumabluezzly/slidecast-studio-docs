@@ -373,6 +373,22 @@
           "type": "link",
           "url": "../../security/",
           "label": "🛡️ About security (in depth, Japanese)"
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "🎬 Watch it on video"
+        },
+        {
+          "type": "link_cards",
+          "items": [
+            {
+              "icon": "🎬",
+              "title": "#25 Where your data lives and what goes online",
+              "text": "Tutorial video (v5.5, Japanese) · 10:41",
+              "url": "https://youtu.be/PGmYQ64PrSM"
+            }
+          ]
         }
       ],
       "intro": "Please read this: where your data lives, when it can disappear, and how API keys are handled."
@@ -1462,6 +1478,18 @@
               "title": "#10 Expressions, gestures and auto acting",
               "text": "Tutorial video (v5.5, Japanese) · 7:01",
               "url": "https://youtu.be/aB0yxh4uw84"
+            },
+            {
+              "icon": "🎬",
+              "title": "#23 Making lip-sync assets in MouthLoop",
+              "text": "Tutorial video (v5.5, Japanese) · 8:38",
+              "url": "https://youtu.be/aBbRgEtaAi0"
+            },
+            {
+              "icon": "🎬",
+              "title": "#24 Adding expressions and gestures in MouthLoop",
+              "text": "Tutorial video (v5.5, Japanese) · 8:24",
+              "url": "https://youtu.be/T4yGjid5VkY"
             }
           ]
         }
@@ -1998,9 +2026,27 @@
           "items": [
             {
               "icon": "🎬",
-              "title": "#26–#29 Generating voice in the app (older series)",
-              "text": "Older chapter 11 on the video manual page (v4.4 screens, Japanese)",
-              "url": "../../videos/#legacy"
+              "title": "#26 Generating voice in the app (API key and TTS)",
+              "text": "Tutorial video (v5.5, Japanese) · 12:19",
+              "url": "https://youtu.be/qnbNqldbTIc"
+            },
+            {
+              "icon": "🎬",
+              "title": "#27 Choosing a voice from the voice library",
+              "text": "Tutorial video (v5.5, Japanese) · 9:59",
+              "url": "https://youtu.be/4AX1PHCUvTY"
+            },
+            {
+              "icon": "🎬",
+              "title": "#28 Custom voices (designing a voice from a text description)",
+              "text": "Tutorial video (v5.5, Japanese) · 10:48",
+              "url": "https://youtu.be/IbFJeprfqUQ"
+            },
+            {
+              "icon": "🎬",
+              "title": "#29 Clone voices (using a voice modelled on a recording)",
+              "text": "Tutorial video (v5.5, Japanese) · 9:34",
+              "url": "https://youtu.be/_4E-2QAcypI"
             }
           ]
         }

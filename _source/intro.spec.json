@@ -822,7 +822,7 @@
           "type": "link_cards",
           "items": [
             { "icon": "📘", "title": "公式マニュアル（v3.4 対応版）", "text": "全16章の詳細リファレンス", "url": "https://note.com/bluezzly/n/n1e95d4cb978e" },
-            { "icon": "🎬", "title": "動画マニュアル", "text": "全11章・機能別28本の使い方動画", "url": "../videos/" },
+            { "icon": "🎬", "title": "動画マニュアル", "text": "序＋全9章・まとめ9本と機能別30本の使い方動画", "url": "../videos/" },
             { "icon": "🧩", "title": "SlideCast Bundle Builder", "text": "資料・台本・AI音声・マイク録音をまとめる使い方ガイド", "url": "../bundle-builder/" },
             { "icon": "🛠️", "title": "アップデート方法について", "text": "GASアップデート手順", "url": "../gas-update/" },
             { "icon": "🆕", "title": "v5.5 SPOTLIGHT アップデート情報", "text": "2026/11/2 公開", "url": "../updates/v55/" },

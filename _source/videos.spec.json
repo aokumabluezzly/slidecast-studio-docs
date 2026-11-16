@@ -1,38 +1,38 @@
 {
   "title": "SlideCast Studio 動画マニュアル",
   "subtitle": "全機能の使い方を、動画で。章と機能から探せる動画版の公式マニュアル",
-  "description": "SlideCast Studio v5.5 の使い方を動画で学べる動画マニュアルです。v5.5 版の章別まとめ6本・機能別の動画を、作る順の章に沿って並べ、見たい機能の場面からすぐに再生できます。",
+  "description": "SlideCast Studio v5.5 の使い方を動画で学べる動画マニュアルです。v5.5 版の章別まとめ9本・機能別の動画を、作る順の章に沿って並べ、見たい機能の場面からすぐに再生できます。",
   "lead": "",
   "eyebrow": "VIDEO MANUAL",
   "brand": "SlideCast ",
   "brand_accent": "Studio",
   "brand_badge": "Docs",
   "author": "aokuma",
-  "date": "2026.11.13",
+  "date": "2026.11.16",
   "version": "YouTube",
   "footer_meta": "SlideCast Studio ドキュメント · aokuma",
   "hero_image": "./img/videos-v55-m1.jpg",
   "hero_alt": "v5.5 版の使い方動画「第1章 作品を作る」のサムネイル",
   "chips": [
     "v5.5 対応",
-    "章別まとめ6本",
-    "機能別23本",
+    "章別まとめ9本",
+    "機能別30本",
     "無料で見られる"
   ],
   "stats": [
     {
       "icon": "📚",
-      "value": "序＋7",
+      "value": "序＋9",
       "label": "公開中の章"
     },
     {
       "icon": "🎞️",
-      "value": "6",
+      "value": "9",
       "label": "章別まとめ"
     },
     {
       "icon": "🔧",
-      "value": "23",
+      "value": "30",
       "label": "機能別の動画"
     },
     {
@@ -88,9 +88,9 @@
             "text": "機能別の動画を。番号は再生リストの並び順と同じです。"
           },
           {
-            "icon": "🔔",
-            "title": "新しい動画は",
-            "text": "YouTube チャンネルで公開し、このページにも順次追加します。"
+            "icon": "✅",
+            "title": "全章そろいました",
+            "text": "v5.5 版は序と第1〜9章、まとめ9本・機能別30本の全39本です。"
           }
         ]
       },
@@ -100,13 +100,13 @@
           {
             "icon": "🎞️",
             "title": "再生リスト：章別まとめ（v5〜）",
-            "text": "公開中 5本",
+            "text": "全9本",
             "url": "https://www.youtube.com/playlist?list=PLeNIbEcD0Eck"
           },
           {
             "icon": "🔧",
             "title": "再生リスト：機能別（v5〜）",
-            "text": "番号順",
+            "text": "#00〜#29 · 全30本",
             "url": "https://www.youtube.com/playlist?list=PLfqGP-ZsBq0A"
           }
         ]
@@ -168,10 +168,16 @@
             "url": "#ch7"
           },
           {
-            "icon": "🛠️",
-            "title": "制作中の章",
-            "text": "MouthLoop・データと音声",
-            "url": "#next"
+            "icon": "🎨",
+            "title": "第8章 キャラ素材",
+            "text": "MouthLoop で口パク・表情・仕草",
+            "url": "#ch8"
+          },
+          {
+            "icon": "🔊",
+            "title": "第9章 データと音声",
+            "text": "保存と通信・アプリ内TTS・声の選び方",
+            "url": "#ch9"
           },
           {
             "icon": "🗄️",
@@ -326,41 +332,16 @@
       "intro": "BGM・タイムライン・OP・ED・作品全体の設定",
       "blocks": [
         {
-          "type": "video_grid",
-          "items": [
-            {
-              "type": "video",
-              "provider": "youtube",
-              "id": "tbJFgkNTahc",
-              "title": "#15 BGM を敷く",
-              "thumb": "./img/videos-v55-15.jpg",
-              "caption": "#15 BGM を敷く · 8:24"
-            },
-            {
-              "type": "video",
-              "provider": "youtube",
-              "id": "cqvMKUY16lo",
-              "title": "#16 タイムラインで間を整える",
-              "thumb": "./img/videos-v55-16.jpg",
-              "caption": "#16 タイムラインで間を整える · 7:29"
-            },
-            {
-              "type": "video",
-              "provider": "youtube",
-              "id": "-ugt2ZvMq7E",
-              "title": "#17 OP・ED を付ける",
-              "thumb": "./img/videos-v55-17.jpg",
-              "caption": "#17 OP・ED を付ける · 8:43"
-            },
-            {
-              "type": "video",
-              "provider": "youtube",
-              "id": "DA8YaPKUpNI",
-              "title": "#18 作品全体の設定（画面の比率と型）",
-              "thumb": "./img/videos-v55-18.jpg",
-              "caption": "#18 作品全体の設定（画面の比率と型） · 7:46"
-            }
-          ]
+          "type": "video",
+          "provider": "youtube",
+          "id": "C1s-LXCplxY",
+          "title": "第6章 音と時間（まとめ）",
+          "thumb": "./img/videos-v55-m6.jpg",
+          "caption": "章のまとめ動画 · 31:52"
+        },
+        {
+          "type": "html",
+          "html": "<div class=\"table-wrap\"><table class=\"data-table\"><thead><tr><th>機能別の動画</th><th style=\"white-space:nowrap\">長さ</th></tr></thead><tbody><tr><td>#15&ensp;<a class=\"seek\" href=\"https://youtu.be/tbJFgkNTahc\" data-start=\"4\">BGM を敷く</a><span class=\"seek-at\">▶ 0:04〜</span></td><td style=\"white-space:nowrap\">8:23<a class=\"yt-out\" href=\"https://youtu.be/tbJFgkNTahc\" target=\"_blank\" rel=\"noopener noreferrer\" aria-label=\"#15 BGM を敷く を YouTube で開く\" title=\"YouTube で開く\">↗</a></td></tr><tr><td>#16&ensp;<a class=\"seek\" href=\"https://youtu.be/cqvMKUY16lo\" data-start=\"498\">タイムラインで間を整える</a><span class=\"seek-at\">▶ 8:18〜</span></td><td style=\"white-space:nowrap\">7:29<a class=\"yt-out\" href=\"https://youtu.be/cqvMKUY16lo\" target=\"_blank\" rel=\"noopener noreferrer\" aria-label=\"#16 タイムラインで間を整える を YouTube で開く\" title=\"YouTube で開く\">↗</a></td></tr><tr><td>#17&ensp;<a class=\"seek\" href=\"https://youtu.be/-ugt2ZvMq7E\" data-start=\"937\">OP・ED を付ける</a><span class=\"seek-at\">▶ 15:37〜</span></td><td style=\"white-space:nowrap\">8:43<a class=\"yt-out\" href=\"https://youtu.be/-ugt2ZvMq7E\" target=\"_blank\" rel=\"noopener noreferrer\" aria-label=\"#17 OP・ED を付ける を YouTube で開く\" title=\"YouTube で開く\">↗</a></td></tr><tr><td>#18&ensp;<a class=\"seek\" href=\"https://youtu.be/DA8YaPKUpNI\" data-start=\"1450\">作品全体の設定（画面の比率と型）</a><span class=\"seek-at\">▶ 24:10〜</span></td><td style=\"white-space:nowrap\">7:45<a class=\"yt-out\" href=\"https://youtu.be/DA8YaPKUpNI\" target=\"_blank\" rel=\"noopener noreferrer\" aria-label=\"#18 作品全体の設定（画面の比率と型） を YouTube で開く\" title=\"YouTube で開く\">↗</a></td></tr></tbody></table></div>"
         }
       ]
     },
@@ -386,32 +367,44 @@
       ]
     },
     {
-      "id": "next",
-      "icon": "🛠️",
-      "category": "これから",
-      "title": "v5.5 版で制作中の章",
-      "intro": "MouthLoop・データと音声",
+      "id": "ch8",
+      "icon": "🎨",
+      "category": "第8章",
+      "title": "キャラ素材",
+      "intro": "MouthLoop で口パク・表情・仕草の素材を作る",
       "blocks": [
         {
-          "type": "html",
-          "html": "<p>次の章は v5.5 版を制作中です。公開までは、内容がほぼ同じ旧版の動画をご覧ください。<strong>画面の配置は v4.4 のもの</strong>なので、ボタンの場所は「序 エディタの画面の地図」と<a href=\"../manual/\">公式マニュアル</a>で読み替えてください。</p>"
+          "type": "video",
+          "provider": "youtube",
+          "id": "4xHKavKJ2a4",
+          "title": "第8章 キャラ素材（まとめ）",
+          "thumb": "./img/videos-v55-m8.jpg",
+          "caption": "章のまとめ動画 · 17:07"
         },
         {
-          "type": "table",
-          "head": [
-            "v5.5 版の章",
-            "今見られる旧版の動画"
-          ],
-          "rows": [
-            [
-              "第8章 キャラ素材（MouthLoop）",
-              "旧 第9章 #23・#24（MouthLoop 側の操作は今も同じです）"
-            ],
-            [
-              "第9章 データと音声（通信と安全・アプリ内TTS・音声ライブラリ・自作ボイス・クローンボイス）",
-              "旧 第10章 #25・旧 第11章 #26〜#29"
-            ]
-          ]
+          "type": "html",
+          "html": "<div class=\"table-wrap\"><table class=\"data-table\"><thead><tr><th>機能別の動画</th><th style=\"white-space:nowrap\">長さ</th></tr></thead><tbody><tr><td>#23&ensp;<a class=\"seek\" href=\"https://youtu.be/aBbRgEtaAi0\" data-start=\"4\">MouthLoop で口パク素材を作る</a><span class=\"seek-at\">▶ 0:04〜</span></td><td style=\"white-space:nowrap\">8:38<a class=\"yt-out\" href=\"https://youtu.be/aBbRgEtaAi0\" target=\"_blank\" rel=\"noopener noreferrer\" aria-label=\"#23 MouthLoop で口パク素材を作る を YouTube で開く\" title=\"YouTube で開く\">↗</a></td></tr><tr><td>#24&ensp;<a class=\"seek\" href=\"https://youtu.be/T4yGjid5VkY\" data-start=\"512\">MouthLoop で表情と仕草を足す</a><span class=\"seek-at\">▶ 8:32〜</span></td><td style=\"white-space:nowrap\">8:24<a class=\"yt-out\" href=\"https://youtu.be/T4yGjid5VkY\" target=\"_blank\" rel=\"noopener noreferrer\" aria-label=\"#24 MouthLoop で表情と仕草を足す を YouTube で開く\" title=\"YouTube で開く\">↗</a></td></tr></tbody></table></div>"
+        }
+      ]
+    },
+    {
+      "id": "ch9",
+      "icon": "🔊",
+      "category": "第9章",
+      "title": "データと音声",
+      "intro": "保存と外部通信・アプリ内TTS・音声ライブラリ・自作ボイス・クローンボイス",
+      "blocks": [
+        {
+          "type": "video",
+          "provider": "youtube",
+          "id": "rPFrzY7wbjg",
+          "title": "第9章 データと音声（まとめ）",
+          "thumb": "./img/videos-v55-m9.jpg",
+          "caption": "章のまとめ動画 · 50:22"
+        },
+        {
+          "type": "html",
+          "html": "<div class=\"table-wrap\"><table class=\"data-table\"><thead><tr><th>機能別の動画</th><th style=\"white-space:nowrap\">長さ</th></tr></thead><tbody><tr><td>#25&ensp;<a class=\"seek\" href=\"https://youtu.be/PGmYQ64PrSM\" data-start=\"31\">データの置き場所と外部通信</a><span class=\"seek-at\">▶ 0:31〜</span></td><td style=\"white-space:nowrap\">10:41<a class=\"yt-out\" href=\"https://youtu.be/PGmYQ64PrSM\" target=\"_blank\" rel=\"noopener noreferrer\" aria-label=\"#25 データの置き場所と外部通信 を YouTube で開く\" title=\"YouTube で開く\">↗</a></td></tr><tr><td>#26&ensp;<a class=\"seek\" href=\"https://youtu.be/qnbNqldbTIc\" data-start=\"610\">アプリ内で音声を作る（APIキーとTTS）</a><span class=\"seek-at\">▶ 10:10〜</span></td><td style=\"white-space:nowrap\">12:19<a class=\"yt-out\" href=\"https://youtu.be/qnbNqldbTIc\" target=\"_blank\" rel=\"noopener noreferrer\" aria-label=\"#26 アプリ内で音声を作る（APIキーとTTS） を YouTube で開く\" title=\"YouTube で開く\">↗</a></td></tr><tr><td>#27&ensp;<a class=\"seek\" href=\"https://youtu.be/4AX1PHCUvTY\" data-start=\"1294\">音声ライブラリから声を選ぶ</a><span class=\"seek-at\">▶ 21:34〜</span></td><td style=\"white-space:nowrap\">9:59<a class=\"yt-out\" href=\"https://youtu.be/4AX1PHCUvTY\" target=\"_blank\" rel=\"noopener noreferrer\" aria-label=\"#27 音声ライブラリから声を選ぶ を YouTube で開く\" title=\"YouTube で開く\">↗</a></td></tr><tr><td>#28&ensp;<a class=\"seek\" href=\"https://youtu.be/IbFJeprfqUQ\" data-start=\"1824\">自作ボイス（文章で声を作って使う）</a><span class=\"seek-at\">▶ 30:24〜</span></td><td style=\"white-space:nowrap\">10:48<a class=\"yt-out\" href=\"https://youtu.be/IbFJeprfqUQ\" target=\"_blank\" rel=\"noopener noreferrer\" aria-label=\"#28 自作ボイス（文章で声を作って使う） を YouTube で開く\" title=\"YouTube で開く\">↗</a></td></tr><tr><td>#29&ensp;<a class=\"seek\" href=\"https://youtu.be/_4E-2QAcypI\" data-start=\"2417\">クローンボイス（録音した声をまねて作るボイスを使う）</a><span class=\"seek-at\">▶ 40:17〜</span></td><td style=\"white-space:nowrap\">9:34<a class=\"yt-out\" href=\"https://youtu.be/_4E-2QAcypI\" target=\"_blank\" rel=\"noopener noreferrer\" aria-label=\"#29 クローンボイス（録音した声をまねて作るボイスを使う） を YouTube で開く\" title=\"YouTube で開く\">↗</a></td></tr></tbody></table></div>"
         }
       ]
     },
@@ -426,7 +419,7 @@
           "type": "callout",
           "tone": "warn",
           "title": "⚠️ v4.4 までの画面です",
-          "text": "ここから下は v4.4 までの画面で撮った旧シリーズです。v5.5 では、設定がヘッダーの⚙️から左端のアイコン列の「この1枚」「全体設定」へ移るなど、ボタンの場所が変わっています。操作の考え方は同じなので、v5.5 版がまだ無い内容の参考にしてください。"
+          "text": "ここから下は v4.4 までの画面で撮った旧シリーズです。v5.5 では、設定がヘッダーの⚙️から左端のアイコン列の「この1枚」「全体設定」へ移るなど、ボタンの場所が変わっています。今の画面での操作は、上の v5.5 版をご覧ください。"
         },
         {
           "type": "link_cards",
