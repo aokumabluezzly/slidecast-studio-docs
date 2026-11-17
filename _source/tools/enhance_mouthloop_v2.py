@@ -51,7 +51,7 @@ def main() -> None:
     )
     html = html.replace(
         '<footer class="footer">',
-        '<footer class="footer"><a href="https://share.gemini.google/uZARpbgPFK9V" '
+        '<footer class="footer"><a href="https://share.gemini.google/AJvONBEFS7fN" '
         'target="_blank" rel="noopener noreferrer">MouthLoopを開く ↗</a>',
         1,
     )
