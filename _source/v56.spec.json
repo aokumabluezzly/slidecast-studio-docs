@@ -37,6 +37,7 @@
     "blocks": [
       { "type": "html", "html": "<p>SlideCast Studioを、<strong>v5.6「ENSEMBLE」</strong>に更新しました。</p><p>前回のv5.5「SPOTLIGHT」では、プレビューの「変えたい所」を押すと、その設定へまっすぐ移れるようにしました。</p><p>今回の更新では、<strong>キャラ同士の掛け合いを自然に見せる</strong>ことを中心に改善しています。コードネームの ENSEMBLE は「合奏・共演」の意味で、話していないキャラも舞台に残り、表情を保ったまま会話に加わっている、そんな見せ方を目指しました。ここ最近のアップデートと比較すると、大きな改修というよりは細かい小さな変更がほとんどです。</p>" },
       { "type": "link", "url": "../../intro/", "label": "「SlideCast Studioって何？」という方はこちら" },
+      { "type": "video", "provider": "youtube", "id": "-ppfvKtI4ik", "title": "🎬 1分でわかる v5.6「ENSEMBLE」", "thumb": "./img/v56-video.jpg", "caption": "v5.6 のダイジェスト動画（YouTube・約1分）。クリックすると、この場で再生されます" },
       { "type": "cards", "items": [
         { "icon": "💬", "title": "キャラを出しっぱなしに", "text": "吹き出しの型でも、話していないキャラを舞台に残せる" },
         { "icon": "🙂", "title": "表情が続く", "text": "言い終えたあとも表情を保ち、聞き手は最後の表情で待つ" },

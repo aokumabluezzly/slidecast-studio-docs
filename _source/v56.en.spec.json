@@ -38,6 +38,7 @@
       { "type": "callout", "tone": "info", "title": "🌐 About the screenshots", "text": "The interface screenshots on this page use the Japanese edition. The captions explain the relevant controls, and key labels are given in English as they appear in the English edition." },
       { "type": "html", "html": "<p>SlideCast Studio is now at <strong>v5.6 “ENSEMBLE”</strong>.</p><p>v5.5 “SPOTLIGHT” let you click whatever you wanted to change in the preview and go straight to its setting.</p><p>This update focuses on <strong>making conversations between characters look natural</strong>. An ensemble is a group that performs together: characters who are not speaking stay on stage and keep their expressions, so they still look like part of the conversation. Compared with recent updates, this one is mostly small, focused changes rather than a big overhaul.</p>" },
       { "type": "link", "url": "../../intro/", "label": "New to SlideCast Studio? Start here" },
+      { "type": "video", "provider": "youtube", "id": "-ppfvKtI4ik", "title": "🎬 v5.6 “ENSEMBLE” in one minute", "thumb": "./img/v56-video.jpg", "caption": "A one-minute digest of v5.6 (YouTube, Japanese narration with Japanese captions). Click to play it here." },
       { "type": "cards", "items": [
         { "icon": "💬", "title": "Characters stay on screen", "text": "In the bubble layouts too, characters who are not speaking stay on stage" },
         { "icon": "🙂", "title": "Expressions carry on", "text": "Expressions hold after a line ends; listeners wait with their last expression" },
