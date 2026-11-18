@@ -61,6 +61,15 @@ PAGE_META: dict[str, dict[str, object]] = {
         "twitter_description": "資料とAI音声から、伝わるスライド動画をブラウザだけで作る。",
         "en": True,
     },
+    "updates/v56/": {
+        "og_title": "SlideCast Studio v5.6「ENSEMBLE」",
+        "og_description": (
+            "吹き出しの型でも話していないキャラを出しっぱなしに。表情を言い終えたあとも保ち、途中のスライドから背景を変える、"
+            "作り直したページめくりと切り替える範囲、OP/EDのプレビュー、ステッカー・バッジのはみ出しに対応したv5.6の更新内容。"
+        ),
+        "twitter_description": "キャラ全員が、一緒に舞台に。出しっぱなしと途中から変わる背景のv5.6アップデート。",
+        "en": True,
+    },
     "updates/v55/": {
         "og_title": "SlideCast Studio v5.5「SPOTLIGHT」",
         "og_description": (

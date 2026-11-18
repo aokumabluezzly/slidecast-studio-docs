@@ -100,6 +100,13 @@ PAGE_META: dict[str, dict[str, str]] = {
             "effects, sound effects, snapping, reusable libraries, mosaic and blur."
         ),
     },
+    "en/updates/v56/": {
+        "og_title": "SlideCast Studio v5.6 “ENSEMBLE”",
+        "og_description": (
+            "Characters stay on screen in the bubble layouts and keep their expressions, backgrounds change from any slide on, "
+            "a rebuilt page turn with a choice of what changes, OP/ED preview, and stickers that run off the edge."
+        ),
+    },
     "en/updates/v55/": {
         "og_title": "SlideCast Studio v5.5 “SPOTLIGHT”",
         "og_description": (

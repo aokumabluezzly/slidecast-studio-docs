@@ -52,6 +52,8 @@
       group: '更新履歴',
       group_en: 'Release notes',
       items: [
+        { href: 'updates/v56/', icon: '🆕', label: 'v5.6「ENSEMBLE」', desc: 'キャラを出しっぱなしに・途中から背景を変える・ページめくり',
+          en: true, label_en: 'v5.6 “ENSEMBLE”', desc_en: 'Characters stay on screen, backgrounds by slide, a new page turn' },
         { href: 'updates/v55/', icon: '🆕', label: 'v5.5「SPOTLIGHT」', desc: 'プレビューから設定へ・画面配置の一新・強調の拡大・ステッカーの傾き',
           en: true, label_en: 'v5.5 “SPOTLIGHT”', desc_en: 'Preview to settings, a new editor layout, wider emphasis, tilted stickers' },
         { href: 'updates/v50/', icon: '🆕', label: 'v5.0「STAGE」', desc: '画面の型・用途から作成・字幕デザイン32種・強調とカラオケ風',

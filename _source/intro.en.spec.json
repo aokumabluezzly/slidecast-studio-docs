@@ -1,15 +1,15 @@
 {
   "title": "SlideCast Studio — turn a slide deck into a narrated, subtitled video, right in your browser",
   "subtitle": "Load a PDF or a set of images and get back a video with narration, subtitles and an animated character. No install, no video editor.",
-  "description": "English overview of SlideCast Studio v5.5 SPOTLIGHT — a one-time-purchase, browser-only tool that builds narrated, subtitled videos from your slides and AI voice.",
+  "description": "English overview of SlideCast Studio v5.6 ENSEMBLE — a one-time-purchase, browser-only tool that builds narrated, subtitled videos from your slides and AI voice.",
   "lead": "",
   "eyebrow": "PRODUCT GUIDE",
   "brand": "SlideCast ",
   "brand_accent": "Studio",
-  "brand_badge": "v5.5",
+  "brand_badge": "v5.6",
   "author": "aokuma",
-  "date": "2026.11.02",
-  "version": "v5.5 SPOTLIGHT",
+  "date": "2026.11.18",
+  "version": "v5.6 ENSEMBLE",
   "footer_meta": "SlideCast Studio Documentation · aokuma",
   "theme": {
     "primary": "#2f74ee",
@@ -73,6 +73,7 @@
         "type": "notice",
         "title": "🛠️ Recent news",
         "items": [
+          "2026/11/18: Updated to v5.6 “ENSEMBLE” (characters stay on screen, backgrounds by slide, a new page turn).",
           "2026/11/2: Updated to v5.5 “SPOTLIGHT” (preview to settings, a new editor layout, wider emphasis, tilted stickers).",
           "2026/10/25: Updated to v5.0 “STAGE” (screen layouts, Start from a use, 32 caption designs, emphasis and karaoke captions).",
           "2026/9/27: Updated to v4.4 “BLOOM” (redesigned settings, presets, 4:5 / 4:3 aspect ratios and Gemini 3.8 TTS).",
@@ -149,9 +150,9 @@
         "text": "Subtitles, backgrounds, characters, BGM, captions and transitions are all tunable at a level that satisfies people who fuss."
       },
       {
-        "icon": "🔦",
-        "title": "The point of v5.5",
-        "text": "Click what you want to change in the preview to jump to its setting, plus a new editor layout, inline emphasis and tilted stickers."
+        "icon": "🎼",
+        "title": "The point of v5.6",
+        "text": "Characters who are not speaking can now stay on screen in the bubble layouts too, keeping their expressions. Plus backgrounds that change partway and a rebuilt page turn."
       },
       {
         "icon": "⚠️",
@@ -200,7 +201,7 @@
         {
           "type": "heading",
           "level": 3,
-          "text": "✨ Main features (as of v5.5)"
+          "text": "✨ Main features (as of v5.6)"
         },
         {
           "type": "soft_cards",
@@ -394,19 +395,59 @@
     {
       "icon": "🎭",
       "category": "WHAT'S NEW",
-      "title": "❸ From v3.0 to v5.5 — highlights by version",
+      "title": "❸ From v3.0 to v5.6 — highlights by version",
       "intro": "Updates keep coming after the one-time purchase. Here is what has been added so far.",
       "blocks": [
         {
           "type": "figure",
-          "image": "./img/v55-hero-en.jpg",
-          "alt": "Key art for SlideCast Studio v5.5 SPOTLIGHT",
-          "caption": "The current version, v5.5 “SPOTLIGHT”: click it, and go to its setting"
+          "image": "./img/v56-hero-en.jpg",
+          "alt": "Key art for SlideCast Studio v5.6 ENSEMBLE",
+          "caption": "The current version, v5.6 “ENSEMBLE”: the whole cast, together"
         },
         {
           "type": "tabs",
           "label": "Highlights by version",
           "items": [
+            {
+              "label": "v5.6 ENSEMBLE",
+              "blocks": [
+                {
+                  "type": "html",
+                  "html": "<p>This version lets <strong>characters who are not speaking stay on screen</strong> in the bubble layouts too, and keeps their expressions after a line ends, so <strong>conversations between characters</strong> look natural. It also adds a Background list for changing the background partway, and a rebuilt page turn.</p>"
+                },
+                {
+                  "type": "figure",
+                  "image": "./img/v56-01.png",
+                  "alt": "In a bubble layout, the icon of a character who is not speaking stays on screen next to the speaking character’s bubble (Japanese UI)",
+                  "caption": "In a bubble layout, characters who are not speaking stay on screen"
+                },
+                {
+                  "type": "soft_cards",
+                  "items": [
+                    {
+                      "icon": "💬",
+                      "title": "Characters stay on screen",
+                      "text": "In the bubble layouts too, listeners stay on stage."
+                    },
+                    {
+                      "icon": "🎨",
+                      "title": "Backgrounds by slide",
+                      "text": "Switch backgrounds “from slide N”, the same way as BGM."
+                    },
+                    {
+                      "icon": "📖",
+                      "title": "Page turn",
+                      "text": "Rebuilt, with a choice of what the transition changes."
+                    }
+                  ]
+                },
+                {
+                  "type": "link",
+                  "url": "../updates/v56/",
+                  "label": "Read the v5.6 release notes"
+                }
+              ]
+            },
             {
               "label": "v5.5 SPOTLIGHT",
               "blocks": [
@@ -1460,6 +1501,11 @@
           "type": "timeline",
           "items": [
             {
+              "date": "2026.11.18",
+              "title": "v5.6 ENSEMBLE",
+              "text": "Characters stay on screen in the bubble layouts too, expressions that carry on after a line, a Background list for changing backgrounds partway, a rebuilt page turn with a choice of what changes, OP/ED preview, and stickers and badges off the edge."
+            },
+            {
               "date": "2026.11.02",
               "title": "v5.5 SPOTLIGHT",
               "text": "Click the preview to jump to a setting, a new editor layout with a left-hand icon rail, This slide vs. Project, inline emphasis with presets, emphasis on sticker, badge and ticker text, and tilted stickers and badges."
@@ -1588,6 +1634,12 @@
         {
           "type": "link_cards",
           "items": [
+            {
+              "icon": "🆕",
+              "title": "v5.6 ENSEMBLE release notes",
+              "text": "Characters stay on screen, backgrounds by slide, a new page turn",
+              "url": "../updates/v56/"
+            },
             {
               "icon": "🆕",
               "title": "v5.5 SPOTLIGHT release notes",

@@ -1,0 +1,257 @@
+{
+  "title": "SlideCast Studio v5.6 “ENSEMBLE”",
+  "subtitle": "Update — keep characters on screen, change the background partway, a new page turn",
+  "description": "SlideCast Studio v5.6 ENSEMBLE keeps characters who are not speaking on screen in the speech-bubble layouts, holds their expressions after a line ends, lets you change the background from any slide on, rebuilds the page-turn transition with a choice of what changes, previews OP/ED in the editor, and lets stickers and badges run off the edge.",
+  "lead": "",
+  "eyebrow": "SLIDECAST STUDIO · UPDATE",
+  "brand": "SlideCast ",
+  "brand_accent": "Studio",
+  "brand_badge": "v5.6",
+  "author": "aokuma",
+  "date": "2026.11.18",
+  "version": "v5.6 ENSEMBLE",
+  "footer_meta": "SlideCast Studio documentation · aokuma",
+  "hero_image": "./img/v56-hero-en.jpg",
+  "hero_alt": "SlideCast Studio v5.6 ENSEMBLE — The whole cast, together.",
+  "chips": ["💬 Characters stay on screen", "🎨 Backgrounds by slide", "📖 Page turn"],
+  "stats": [
+    { "icon": "💬", "value": "3 layouts", "label": "Where characters can stay on screen (wipe, bubble, vertical bubble)" },
+    { "icon": "🎨", "value": "From slide N", "label": "How a background change is set (same as BGM)" },
+    { "icon": "📖", "value": "2 ways", "label": "What a transition changes (whole screen / slide only)" },
+    { "icon": "🚀", "value": "v5.6", "label": "ENSEMBLE" }
+  ],
+  "theme": { "primary": "#5b62f0", "secondary": "#18a8ce", "accent": "#e0609f", "surface": "#f1f3ff", "ink": "#161c36" },
+  "nav_links": [
+    { "href": "../../", "icon": "🏠", "label": "HOME" },
+    { "href": "../../manual/", "icon": "📘", "label": "Official manual" }
+  ],
+  "source_url": "https://note.com/bluezzly/n/neacd61b14fc0",
+  "source_label": "Read the original on note",
+  "source_title": "📝 Original article and updates",
+  "source_note": "See the note article for later additions and comments.",
+  "update_header": false,
+  "sections_label": "UPDATE INDEX",
+  "overview": {
+    "icon": "👋",
+    "title": "Introduction and overview",
+    "blocks": [
+      { "type": "callout", "tone": "info", "title": "🌐 About the screenshots", "text": "The interface screenshots on this page use the Japanese edition. The captions explain the relevant controls, and key labels are given in English as they appear in the English edition." },
+      { "type": "html", "html": "<p>SlideCast Studio is now at <strong>v5.6 “ENSEMBLE”</strong>.</p><p>v5.5 “SPOTLIGHT” let you click whatever you wanted to change in the preview and go straight to its setting.</p><p>This update focuses on <strong>making conversations between characters look natural</strong>. An ensemble is a group that performs together: characters who are not speaking stay on stage and keep their expressions, so they still look like part of the conversation. Compared with recent updates, this one is mostly small, focused changes rather than a big overhaul.</p>" },
+      { "type": "link", "url": "../../intro/", "label": "New to SlideCast Studio? Start here" },
+      { "type": "cards", "items": [
+        { "icon": "💬", "title": "Characters stay on screen", "text": "In the bubble layouts too, characters who are not speaking stay on stage" },
+        { "icon": "🙂", "title": "Expressions carry on", "text": "Expressions hold after a line ends; listeners wait with their last expression" },
+        { "icon": "🎨", "title": "Change the background partway", "text": "Switch backgrounds “from slide N”, the same way as BGM" },
+        { "icon": "📖", "title": "Page turn", "text": "Rebuilt, with a choice of what the transition changes" }
+      ] },
+      { "type": "check_list", "items": [
+        "Characters who are not speaking can now stay on screen in the “Character and bubble” and “Vertical bubble” layouts. Bubbles wrap so they don’t cover other characters’ icons",
+        "A character’s expression now holds after the line ends, and characters who are not speaking wait with their last expression",
+        "You can change the background from any slide on, set “from slide N” just like BGM",
+        "The Page turn transition has been rebuilt, and you can choose what a transition changes (the whole screen or the slide only)",
+        "OP/ED can be opened from the slide list and played in the preview",
+        "Stickers and badges can now run off the edge of the screen",
+        "MouthLoop, the asset-making app, makes its “Mouth and eye areas” step easier to see"
+      ] },
+      { "type": "callout", "tone": "info", "title": "🕒 If you use v5.5 (features that shipped early)", "text": "Some of the features in this article — those added between November 3 and 14 (Page turn and what a transition changes, OP/ED preview, the karaoke fix inside emphasis, subtitles on full-screen video, the AI model list, and more) — were quietly added to the v5.5 files along the way. They had not been announced, so they are introduced together here. If you copied or downloaded v5.5 recently, you already have some of them; those headings are marked “(already in v5.5)”. Features added on or after November 17 (characters staying on screen, expressions, changing the background partway, running off the edge, and so on) are new in v5.6." }
+    ]
+  },
+  "sections": [
+    {
+      "icon": "💬",
+      "category": "Stay on screen",
+      "title": "❶ Keep every character on screen in the bubble layouts too",
+      "intro": "A setting that used to be wipe-only now works in the bubble layouts as well.",
+      "blocks": [
+        { "type": "html", "html": "<p>Until now, “Keep characters on screen” was a setting for the wipe layouts only. It is now available in the <strong>“Character and bubble”</strong> and <strong>“Vertical bubble”</strong> layouts too.</p>" },
+        { "type": "figure", "image": "./img/v56-01.png", "alt": "In a bubble layout, the icon of a character who is not speaking stays on screen next to the speaking character’s bubble", "caption": "In a bubble layout, characters who are not speaking stay on screen" },
+        { "type": "html", "html": "<p>Two new settings appear under <strong>Adjust layout</strong> for the screen layout in Project settings.</p>" },
+        { "type": "soft_cards", "items": [
+          { "icon": "👥", "title": "Keep characters on screen (off by default)", "text": "Off: as before, only the speaking character’s icon is shown. On: the icons of characters who are not speaking stay quietly on screen without a bubble (every character in that line). When a finished bubble fades out, the icon stays" },
+          { "icon": "↩️", "title": "Don’t cover other characters with bubbles (horizontal text with characters kept on screen only; on by default)", "text": "On: the speaking character’s bubble wraps before it reaches another character’s icon, so long lines take more rows. Off: with a lot of text, the bubble stretches over the other icons" }
+        ] },
+        { "type": "figure", "image": "./img/v56-02.png", "alt": "The Adjust layout panel with the switches for Keep characters on screen and Don’t cover other characters with bubbles", "caption": "The “Keep characters on screen” and “Don’t cover other characters with bubbles” settings" },
+        { "type": "check_list", "items": [
+          "Characters standing on the same side overlap, so place them on opposite sides or shift them with the per-character adjustments",
+          "Both settings are saved with your subtitle design presets (My presets)"
+        ] },
+        { "type": "html", "html": "<p>In explainers with two or three speakers, or guest-style back-and-forth videos, <strong>you can always see who is in the scene</strong>. Before, characters disappeared at the end of every line, which made the screen flicker. That is fixed.</p>" }
+      ]
+    },
+    {
+      "icon": "🙂",
+      "category": "Expressions",
+      "title": "❷ Expressions carry on naturally after a line ends",
+      "intro": "Character expressions were reworked to suit characters staying on screen.",
+      "blocks": [
+        { "type": "soft_cards", "items": [
+          { "icon": "😊", "title": "Expressions hold after the line", "text": "An expression set at the end of a sentence now stays while the subtitle lingers and fades. Before, the face snapped back to neutral for a moment right as the line ended — a smiling face turning blank at the last instant is a little creepy. That is fixed" },
+          { "icon": "👂", "title": "Listeners wait with their last expression", "text": "When characters are kept on screen, or two characters stand left and right, a character who is not speaking keeps the expression from the end of their last line. It returns to neutral when the slide changes" },
+          { "icon": "🌬️", "title": "No jolt when speech starts", "text": "Breathing and idle sway no longer dip suddenly at the start of a line. Characters who are not speaking breathe too" },
+          { "icon": "📏", "title": "Icons stay put when bubbles grow", "text": "With both “Fit bubble height to text” and “Align icon to bottom” on, the icon used to move up and down whenever the number of lines changed. Now the icon stays put and only the bubble grows upward" }
+        ] },
+        { "type": "html", "html": "<p>A character who finishes a line looking surprised can stay surprised while listening to the other character. <strong>Reactions</strong> like that are now possible.</p>" }
+      ]
+    },
+    {
+      "icon": "🎨",
+      "category": "Background",
+      "title": "❸ Change the background from any slide on",
+      "intro": "Like BGM, you decide which slide the change starts from.",
+      "blocks": [
+        { "type": "html", "html": "<p>The background (the color, image or video around your slides) can now change partway through. For example, you can <strong>give each chapter its own background color</strong>.</p><p>In Project settings, under <strong>Screen → Background</strong>, a new <strong>Background list</strong> sits below the <strong>Base background</strong>. Use <strong>+ Add background</strong> to add a “from slide N” row; that background continues until the next row.</p>" },
+        { "type": "figure", "image": "./img/v56-03.png", "alt": "The Background list in Project settings, with a “from slide 3” row below the base background that changes the color", "caption": "The Background list, changing the background color from slide 3" },
+        { "type": "check_list", "items": [
+          "A background set partway can be a color, an image, or a return to the base background (background video works only as the base background)",
+          "Pick “from slide N” from a row of slide thumbnails; hovering one shows that slide in the preview. The BGM start slide now uses the same picker",
+          "Hovering a color in the palette previews it on top of the preview, so you can compare before clicking"
+        ] },
+        { "type": "figure", "image": "./img/v56-04.png", "alt": "Hovering a color in the palette shows the preview background in that color", "caption": "Hover a palette color to compare it in the preview" },
+        { "type": "html", "html": "<p>In the slide list, slides where the background changes are marked, and a strip under each thumbnail shows the current background. In <strong>This slide → Still image display</strong> you can also check the current background and jump to the list with <strong>Change in Project</strong>.</p>" },
+        { "type": "figure", "image": "./img/v56-05.png", "alt": "In the slide list, a thumbnail carries a mark where the background changes, and a colored strip under each thumbnail shows the background", "caption": "The background-change mark and the background strip under each thumbnail" },
+        { "type": "html", "html": "<p>When you delete, duplicate or reorder slides, background changes follow along, just like the BGM start position. Existing projects look the same unless you set anything.</p>" }
+      ]
+    },
+    {
+      "icon": "🎤",
+      "category": "Karaoke",
+      "title": "❹ Karaoke now moves one character at a time inside emphasis (already in v5.5)",
+      "intro": "Emphasized words now fill in character by character, too.",
+      "blocks": [
+        { "type": "html", "html": "<p>When the karaoke effect reached an emphasized word, the whole word used to change color at once. It now <strong>moves one character at a time inside the emphasis too</strong>. Even with emphasis that changes the size or font, the other characters no longer shift when the color changes.</p><p>We also fixed a few-pixel shift of the following character at punctuation boundaries in Japanese text.</p>" }
+      ]
+    },
+    {
+      "icon": "📖",
+      "category": "Page turn",
+      "title": "❺ A rebuilt page turn, and a choice of what changes (already in v5.5)",
+      "intro": "A turn that looks like a real book, and a way to switch slides while the background stays still.",
+      "blocks": [
+        { "type": "heading", "level": 3, "text": "Page turn" },
+        { "type": "html", "html": "<p>The <strong>Page turn</strong> transition has been rebuilt. The paper now curls at a fold, with a back side, shadow and sheen — <strong>much like turning the page of a book</strong>.</p>" },
+        { "type": "figure", "image": "./img/v56-06.png", "alt": "A slide partway through a page turn, curling from a fold with its back side and shadow visible", "caption": "The higher-quality page turn" },
+        { "type": "heading", "level": 3, "text": "What changes (Whole screen / Slide only)" },
+        { "type": "html", "html": "<p>A new <strong>What changes</strong> setting has been added under <strong>Effects</strong> in Project settings.</p>" },
+        { "type": "soft_cards", "items": [
+          { "icon": "🖼️", "title": "Whole screen (default)", "text": "Switches the whole screen, including the background, subtitles and characters. Same as before" },
+          { "icon": "🗒️", "title": "Slide only", "text": "Keeps the background still and switches just the slide image. Subtitles, characters and badges pinned to the screen cross-fade smoothly" }
+        ] },
+        { "type": "html", "html": "<p>Handy when your background or frame is fixed and you only want to turn the slide content. Boundaries with video slides and OP/ED, and the background-change boundaries from ❸, always switch the whole screen.</p>" },
+        { "type": "heading", "level": 3, "text": "Change it per boundary" },
+        { "type": "html", "html": "<p>From the boundary chip in the slide list, you can set what changes for just that boundary. While you hover the buttons, the preview repeats that transition. Boundaries that differ from the project setting show a scope label on their chip.</p>" },
+        { "type": "figure", "image": "./img/v56-07.png", "alt": "The boundary editor in the slide list, with Whole screen and Slide only buttons", "caption": "The scope buttons in the boundary editor" },
+        { "type": "html", "html": "<p>The boundary editor also has <strong>Change for all</strong>, which takes you straight to the transition settings under Effects. Transition speed levels and per-boundary speeds now preview on hover as well.</p>" }
+      ]
+    },
+    {
+      "icon": "🎬",
+      "category": "OP/ED",
+      "title": "❻ Open OP/ED from the slide list and play them in the preview (already in v5.5)",
+      "intro": "The OP/ED rows at the top and bottom of the slide list now work like slides.",
+      "blocks": [
+        { "type": "figure", "image": "./img/v56-08.png", "alt": "The OP row at the top of the slide list is selected, and the OP video plays in the editor preview", "caption": "OP/ED can now play in the editor preview" },
+        { "type": "check_list", "items": [
+          "Click an OP/ED row to select it and play that video in the preview. Playback and seeking cover only the trimmed range",
+          "The previous/next buttons and the arrow keys move in the order OP → slides → ED, and the position on the control bar reads “OP” or “ED”",
+          "Clicking the OP/ED shown in the preview takes you to its field under OP/ED in Project settings",
+          "If you haven’t added one yet, slim “Add OP” and “Add ED” rows appear in the list and take you to Project settings"
+        ] },
+        { "type": "html", "html": "<p>You can check how OP/ED connect to your slides <strong>inside the editor, before exporting</strong>.</p>" }
+      ]
+    },
+    {
+      "icon": "🏷️",
+      "category": "Off the edge",
+      "title": "❼ Stickers and badges can run off the edge",
+      "intro": "Let them peek in from the edge or pop out of a corner.",
+      "blocks": [
+        { "type": "html", "html": "<p>Stickers and badges can now be placed <strong>partly outside the edge</strong>.</p>" },
+        { "type": "figure", "image": "./img/v56-09.png", "alt": "At the right edge of the preview, part of a sticker runs off the screen and is cut off at the edge", "caption": "A sticker running off the edge of the screen" },
+        { "type": "check_list", "items": [
+          "Drag it in the preview past the edge. The part outside is not shown and is cut off at the edge",
+          "When the position is based on the slide image, the edge of the slide image is the boundary",
+          "20% of the box always stays inside so you can still grab it",
+          "Positions and appearance in existing projects don’t change"
+        ] },
+        { "type": "html", "html": "<p>Also, after dragging a badge or the slide image in Project settings, a single ⌘Z (Ctrl+Z on Windows) now puts it back where it was before you grabbed it — the same feel as stickers.</p>" }
+      ]
+    },
+    {
+      "icon": "👄",
+      "category": "MouthLoop",
+      "title": "❽ MouthLoop: the “Mouth and eye areas” step is easier to see",
+      "intro": "MouthLoop, the app for making lip-sync, blink and gesture assets, has been updated too.",
+      "blocks": [
+        { "type": "html", "html": "<p>This update improves the visibility of step 3, “Mouth and eye areas” (detailed mode).</p>" },
+        { "type": "figure", "image": "./img/v56-10.png", "alt": "MouthLoop’s mouth and eye area screen. Over the dimmed original picture, the moving parts of the mouth and eyes are highlighted in pink", "caption": "Moving parts show up in pink" },
+        { "type": "soft_cards", "items": [
+          { "icon": "🩷", "title": "Moving parts show up in pink", "text": "Select the mouth, eyes or a gesture, and only the parts that change between frames are highlighted in pink. The mouth uses half-open and open, the eyes use closed, and gestures use the selected gesture’s frames. Enclose just the pink area to get a range that fits how the mouth opens or where an arm moves" },
+          { "icon": "🌗", "title": "A dimmed original makes the pink stand out", "text": "While selecting, the original picture is slightly darkened, and the fill inside the selected box is lighter" },
+          { "icon": "🏷️", "title": "Labels stay out of the way", "text": "The mouth, left eye, right eye, expression and gesture labels have moved from inside the boxes to outside, so they no longer hide the eyes or mouth you’re enclosing" }
+        ] },
+        { "type": "html", "html": "<p>The pink highlight is only an on-screen guide and is not included in exported images. The MouthLoop links inside SlideCast Studio now point to the new version.</p>" },
+        { "type": "link", "url": "../../mouthloop-v2/", "label": "MouthLoop v2 guide" }
+      ]
+    },
+    {
+      "icon": "🔧",
+      "category": "Improvements",
+      "title": "❾ Other improvements and fixes",
+      "intro": "Smaller usability improvements and bug fixes.",
+      "blocks": [
+        { "type": "check_list", "items": [
+          "The preview guide (click to go to a setting) now works on characters who are not speaking. Even when paused where nobody is talking, clicking where subtitles or characters appear takes you to their settings",
+          "From subtitles and characters in the preview, you can now go to Adjust layout in Project settings (subtitle position and band, character size, layout type). The entry to subtitle designs is now called Choose design, and Edit standard design has been added (already in v5.5)",
+          "Hover previews now also cover sticker entrance, exit and idle motion, position basis, slide animation strength, narration band position, ticker speed and display time, and more (already in v5.5)",
+          "Subtitles on full-screen video slides now follow your subtitle design. Before, they used a fixed black band with white text, ignoring the subtitle design and no-subtitle layouts (already in v5.5)",
+          "In the default position, the bubble name badge now sits slightly away from the bottom edge",
+          "Fixed stickers based on the slide image that could not be grabbed on empty slides (already in v5.5)",
+          "Links to SlideCast Bundle Builder, AI CODE BGM STUDIO and AI CODE MOVIE STUDIO now use the new share links (already in v5.5)"
+        ] },
+        { "type": "heading", "level": 3, "text": "The AI model list now matches the latest official list (already in v5.5)" },
+        { "type": "soft_cards", "items": [
+          { "icon": "📝", "title": "Script", "text": "Added Gemini 4 Carbon, Argon and Hydrogen (API key required) and 3.1 Flash-Lite, and removed 3.5 Flash and 3.7 Flash, which are no longer listed" },
+          { "icon": "🔊", "title": "Voice", "text": "Removed 2.5 Flash / Pro Preview TTS and 3.1 Flash TTS Preview, which were discontinued on November 17, and made 3.8 Flash TTS the default" }
+        ] }
+      ]
+    },
+    {
+      "icon": "📌",
+      "category": "Notes",
+      "title": "Before you update",
+      "intro": "Please check the following before updating.",
+      "blocks": [
+        { "type": "check_list", "items": [
+          "Existing projects open as they are. The saved data format has not changed since v5.5",
+          "New settings are off by default (or keep the current look), so opening a project doesn’t change how it looks",
+          "Projects that used 2.5 Flash / Pro Preview TTS or 3.1 Flash TTS Preview as the voice model switch to 3.8 Flash TTS when opened. Existing audio stays as it is, but regenerating it may change how the voice sounds",
+          "You can go back to v5.5, but settings added in v5.6 (characters staying on screen in bubbles, backgrounds changed partway, running off the edge, and so on) won’t work there and the look may change. Make a backup before updating, just in case",
+          "Voice generation and Bundle Builder image generation still count against your own API key’s usage and charges. The Gemini 4 script models require an API key"
+        ] }
+      ]
+    },
+    {
+      "icon": "⬆️",
+      "category": "How to update",
+      "title": "Updating to v5.6",
+      "intro": "If you’ve already purchased SlideCast Studio, copy v5.6 from the same share link in the paid note article as before.",
+      "blocks": [
+        { "type": "callout", "tone": "good", "title": "💾 Make a backup first", "text": "To carry over your projects, library and settings, make a backup first from Backup on the dashboard, just in case." },
+        { "type": "html", "html": "<p>To update the GAS version while keeping the same URL, replace <strong>“AppBundle.html” and “無題.html”</strong> from the v5.6 distribution folder (compared with v5.5). Apply them to your existing GAS project and redeploy the existing deployment as a “New version” (“code.gs” and the three files starting with “GasAsset_” have not changed this time).</p>" },
+        { "type": "link", "url": "../../gas-update/", "label": "Detailed steps for updating the GAS version" },
+        { "type": "html", "html": "<p>If you use the local HTML version, download and open “SlideCast Studio v5.6〖ローカル版〗.html”. If you open it in a new GAS project or a different browser, your previous data won’t appear automatically; restore it from a backup.</p>" }
+      ]
+    },
+    {
+      "icon": "🎼",
+      "category": "Wrap-up",
+      "title": "Characters that look like they’re talking together",
+      "intro": "Characters who are not speaking stay on stage and listen with their last expression.",
+      "blocks": [
+        { "type": "html", "html": "<p>v5.5 “SPOTLIGHT” put the things you want to change within easy reach from the preview.</p><p>v5.6 “ENSEMBLE” focuses on making the characters on that stage <strong>look like they’re having a conversation together</strong>. Characters who are not speaking stay on stage and listen with their last expression, and a different background for each chapter makes scene breaks easy to follow.</p><p>If you make videos with back-and-forth dialogue, try turning on “Keep characters on screen”. If you find a bug or something hard to understand, please let us know in the note comments.</p>" },
+        { "type": "link", "url": "https://www.youtube.com/channel/UC2lO3ixD4ICI9VgRSxidRbQ", "label": "SlideCast Studio on YouTube" },
+        { "type": "cta", "title": "Read the note article too", "text": "The original article, later additions and comments are on note (in Japanese).", "url": "https://note.com/bluezzly/n/neacd61b14fc0", "label": "Read the original on note" }
+      ]
+    }
+  ]
+}
